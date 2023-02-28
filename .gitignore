@@ -1,5 +1,7 @@
 **/node_modules/
-# Logs
+**/dist/
+**/build/
+
 logs
 *.log
 npm-debug.log*
@@ -9,7 +11,6 @@ pnpm-debug.log*
 lerna-debug.log*
 
 .DS_Store
-dist
 dist-ssr
 coverage
 *.local
