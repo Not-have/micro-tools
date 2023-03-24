@@ -14,5 +14,21 @@
   "dependencies": {
     "typescript": "^5.0.2",
     "vue": "^3.2.13"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.16",
+    "@storybook/addon-actions": "^6.5.6",
+    "@storybook/addon-essentials": "^6.5.6",
+    "@storybook/addon-interactions": "^6.5.6",
+    "@storybook/addon-links": "^6.5.6",
+    "@storybook/builder-webpack5": "^6.5.6",
+    "@storybook/jest": "^0.0.10",
+    "@storybook/manager-webpack5": "^6.5.6",
+    "@storybook/testing-library": "^0.0.11",
+    "@storybook/vue3": "^6.5.6",
+    "babel-loader": "^8.2.5",
+    "msw": "^0.42.0",
+    "msw-storybook-addon": "^1.6.3",
+    "vue-loader": "^16.8.3"
   }
 }
