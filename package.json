@@ -13,5 +13,23 @@
     "tiny-tools"
   ],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.21.3",
+    "@storybook/addon-actions": "^6.5.16",
+    "@storybook/addon-essentials": "^6.5.16",
+    "@storybook/addon-interactions": "^6.5.16",
+    "@storybook/addon-links": "^6.5.16",
+    "@storybook/builder-webpack4": "^6.5.16",
+    "@storybook/manager-webpack4": "^6.5.16",
+    "@storybook/testing-library": "^0.0.13",
+    "@storybook/vue3": "^6.5.16",
+    "@types/node": "^18.15.7",
+    "babel-loader": "^9.1.2",
+    "chalk": "^5.2.0",
+    "inquirer": "^9.1.5",
+    "tsx": "^3.12.6",
+    "typescript": "^5.0.2",
+    "vue-loader": "^16.8.3"
+  }
 }
