@@ -2,6 +2,7 @@
 **/dist/
 **/build/
 
+pnpm-lock.yaml
 logs
 *.log
 npm-debug.log*
