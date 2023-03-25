@@ -5,3 +5,5 @@
 # 给根目录和子包安装依赖
 pnpm add $1 -w
 pnpm -F * add $1
+
+echo "✅ Install completed"
