@@ -1,0 +1,19 @@
+{
+  "name": "tiny-tools",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "clean": "npx rimraf dist && npx rimraf node_modules && npx rimraf pnpm-lock.yaml && npx rimraf yarn.lock"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "workspaces": [
+    "packages-vue"
+  ],
+  "devDependencies": {
+    "rimraf": "^5.0.1"
+  }
+}
