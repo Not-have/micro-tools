@@ -1,9 +1,0 @@
-packages:
-#  - 'packages-tsconfig'
-#  - 'packages-eslint'
-#  - 'packages-TypeScript'
-  - 'packages-utils'
-  - 'packages-vue'
-#  - 'packages-react'
-  # 测试包
-  - '!**/test/**'
