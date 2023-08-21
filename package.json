@@ -5,6 +5,7 @@
   "main": "index.js",
   "private": true,
   "scripts": {
+    "postinstall": "npx only-allow pnpm",
     "clean": "npx rimraf dist && npx rimraf node_modules && npx rimraf pnpm-lock.yaml && npx rimraf yarn.lock"
   },
   "keywords": [],
@@ -14,6 +15,7 @@
     "packages-vue"
   ],
   "devDependencies": {
+    "only-allow": "^1.1.1",
     "rimraf": "^5.0.1"
   }
 }
