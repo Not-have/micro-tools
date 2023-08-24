@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 
-import Button from '../../src/button/index.vue';
+import {
+  Button
+} from '../../src';
 
 // More on how to set up stories at: https://storybook.js.org/docs/vue/writing-stories/introduction
 const meta = {
@@ -16,13 +18,11 @@ const meta = {
   args: { primary: false }, // default value
 } satisfies Meta<typeof Button>;
 
+
 export default meta;
+
 type Story = StoryObj<typeof meta>;
-/*
- *👇 Render functions are a framework specific feature to allow you control on how the component renders.
- * See https://storybook.js.org/docs/vue/api/csf
- * to learn how to use render functions.
- */
+// https://storybook.js.orgdocsvueapicsf
 export const Primary: Story = {
   args: {
     primary: true,
