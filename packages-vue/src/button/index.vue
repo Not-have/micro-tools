@@ -3,24 +3,24 @@
 </template>
 
 <script lang="ts" setup>
-import './button.css';
+import './index.css';
 import { computed } from 'vue';
 
 const props = withDefaults(defineProps<{
   /**
-   * The label of the button
+   * 内容
    */
   label: string,
   /**
-   * primary or secondary button
+   * 主要或辅助按钮
    */
   primary?: boolean,
   /**
-   * size of the button
+   * 按钮大小
    */
   size?: 'small' | 'medium' | 'large',
   /**
-   * background color of the button
+   * 按钮的背景颜色
    */
   backgroundColor?: string,
 
