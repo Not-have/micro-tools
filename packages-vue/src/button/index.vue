@@ -4,27 +4,12 @@
 
 <script lang="ts" setup>
 import './index.css';
+import {
+  IButtonProps
+} from './type';
 import { computed } from 'vue';
 
-const props = withDefaults(defineProps<{
-  /**
-   * 内容
-   */
-  label: string,
-  /**
-   * 主要或辅助按钮
-   */
-  primary?: boolean,
-  /**
-   * 按钮大小
-   */
-  size?: 'small' | 'medium' | 'large',
-  /**
-   * 按钮的背景颜色
-   */
-  backgroundColor?: string,
-
-}>(), { primary: false });
+const props = withDefaults(defineProps<IButtonProps>(), { primary: false });
 
 const emit = defineEmits<{
   (e: 'click', id: number): void;

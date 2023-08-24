@@ -1,8 +1,9 @@
 {
-  "name": "packages-vue",
-  "version": "1.0.0",
+  "name": "tiny-tools-vue-components",
+  "version": "1.0.0-beta.2",
   "description": "",
   "main": "src/index.js",
+  "types": "src/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "storybook dev -p 6006",
