@@ -4,14 +4,14 @@ import Button from '../../src/button/index.vue';
 
 // More on how to set up stories at: https://storybook.js.org/docs/vue/writing-stories/introduction
 const meta = {
-  title: 'Example/Button',
+  title: 'Button',
   component: Button,
   // This component will have an automatically generated docsPage entry: https://storybook.js.org/docs/vue/writing-docs/autodocs
   tags: ['autodocs'],
   argTypes: {
     size: { control: 'select', options: ['small', 'medium', 'large'] },
     backgroundColor: { control: 'color' },
-    onClick: { action: 'clicked' },
+    // onClick: { action: 'clicked' },
   },
   args: { primary: false }, // default value
 } satisfies Meta<typeof Button>;

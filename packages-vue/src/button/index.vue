@@ -1,5 +1,5 @@
 <template>
-  <button type="button" :class="classes" @click="onClick" :style="style">{{ label }} </button>
+  <button type="button" :class="classes" @click="onClick" :style="style" label="label">{{ label }} </button>
 </template>
 
 <script lang="ts" setup>
@@ -45,4 +45,11 @@ const onClick = () => {
   emit("click", 1)
 };
 
+</script>
+<script lang="ts">
+import { defineComponent } from 'vue';
+// 定义组件名称
+export default defineComponent({
+  name: 'Button'
+})
 </script>
