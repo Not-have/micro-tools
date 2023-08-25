@@ -1,9 +1,18 @@
 {
   "compilerOptions": {
-    "composite": true
+    "composite": true,
+    "baseUrl": "./src",
+    "paths": {
+      "*": [
+        "*",
+        "*.ts"
+      ]
+    }
   },
   "include": [
     "src/**/*",
-    "src/**/*.vue"
-  ]
+    "src/**/*.vue",
+    "src/**/*.ts"
+  ],
+  "exclude": ["node_modules"]
 }
