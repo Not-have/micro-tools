@@ -5,6 +5,7 @@
     }
   ],
   "compilerOptions": {
+    "moduleResolution":"Node",
     "target": "es2016",
     "module": "esnext", // commonjs
     "esModuleInterop": true,
