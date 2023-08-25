@@ -1,13 +1,31 @@
 <template>
-  <button type="button" :class="classes" @click="onClick" :style="style" label="label">{{ label }} </button>
+  <button type="button" :class="classes" @click="onClick" :style="style">{{ label }} </button>
 </template>
 
 <script lang="ts" setup>
 import './index.css';
-import {
-  IButtonProps
-} from './type';
 import { computed } from 'vue';
+
+// TODO 这个文件 就是抽离不出去
+export interface IButtonProps {
+  /**
+   * 内容
+   */
+  label: string,
+  /**
+   * 主要或辅助按钮
+   */
+  primary?: boolean,
+  /**
+   * 按钮大小
+   */
+  size?: 'small' | 'medium' | 'large',
+  /**
+   * 按钮的背景颜色
+   */
+  backgroundColor?: string,
+
+}
 
 const props = withDefaults(defineProps<IButtonProps>(), { primary: false });
 
