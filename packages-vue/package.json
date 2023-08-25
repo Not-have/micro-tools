@@ -1,16 +1,22 @@
 {
-  "name": "tiny-tools-vue-components",
+  "name": "tiny-vue-components",
   "version": "1.0.0-beta.3",
-  "description": "",
+  "description": "一款微小的 vue 组件",
   "main": "src/index.ts",
   "scripts": {
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
-  "keywords": [],
+  "keywords": [
+    "vue-components",
+    "components",
+    "tiny",
+    "tiny-vue-components"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "element-plus": "^2.3.10",
     "vue": "^3.3.4"
   },
   "devDependencies": {

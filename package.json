@@ -1,8 +1,7 @@
 {
   "name": "tiny-tools",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "tiny tools",
   "private": true,
   "scripts": {
     "postinstall": "npx only-allow pnpm",
@@ -15,6 +14,7 @@
     "packages-vue"
   ],
   "devDependencies": {
+    "eslint": "^8.47.0",
     "only-allow": "^1.1.1",
     "rimraf": "^5.0.1"
   }
