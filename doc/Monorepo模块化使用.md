@@ -31,14 +31,5 @@ packages:
   - 'packages-api/*'
   # 公共的方法（函数）
   - 'packages-utils'
-  # 过滤 test 目录下的所有包
-  - '!**/test/**'
 ```
 
-## 3、在根项目下初始化 vue 项目
-
-注：这里使用的 [Vite](https://cn.vitejs.dev/) 来创建 [Vue](https://cn.vuejs.org/) 项目，毕竟他们才是亲生的（对 webpack 创建 vue3 项目感兴趣的小伙伴查看 [Webpack实现VueCli创建的项目](https://juejin.cn/post/7010338974866620430)）
-
-```bash
-npm init vue@latest
-```

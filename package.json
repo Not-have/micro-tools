@@ -1,44 +1,21 @@
 {
   "name": "tiny-tools",
   "version": "1.0.0",
-  "private": true,
   "description": "",
   "main": "index.js",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "postinstall": "npx only-allow pnpm",
+    "clean": "npx rimraf dist && npx rimraf node_modules && npx rimraf pnpm-lock.yaml && npx rimraf yarn.lock"
   },
-  "keywords": [
-    "tiny",
-    "tools",
-    "tiny-tools"
-  ],
+  "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "vue": "^3.2.13"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.12.16",
-    "@storybook/addon-actions": "^6.5.6",
-    "@storybook/addon-essentials": "^6.5.6",
-    "@storybook/addon-interactions": "^6.5.6",
-    "@storybook/addon-links": "^6.5.6",
-    "@storybook/builder-webpack5": "^6.5.6",
-    "@storybook/jest": "^0.0.10",
-    "@storybook/manager-webpack5": "^6.5.6",
-    "@storybook/testing-library": "^0.0.11",
-    "@storybook/vue3": "^6.5.6",
-    "babel-loader": "^8.2.5",
-    "msw": "^0.42.0",
-    "msw-storybook-addon": "^1.6.3",
-    "vue-loader": "^16.8.3",
-    "chalk": "^5.2.0",
-    "inquirer": "^9.1.5",
-    "tsx": "^3.12.6",
-    "typescript": "^5.0.2"
-  },
   "workspaces": [
-    "packages-utils",
     "packages-vue"
-  ]
+  ],
+  "devDependencies": {
+    "only-allow": "^1.1.1",
+    "rimraf": "^5.0.1"
+  }
 }
