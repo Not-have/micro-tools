@@ -1,52 +1,52 @@
-import type { Meta, StoryObj } from '@storybook/vue3';
+import type {Meta, StoryObj} from '@storybook/vue3';
 
 import {
-  Button
-} from '../../src';
+    Button
+} from "../../src/index";
 
-// More on how to set up stories at: https://storybook.js.org/docs/vue/writing-stories/introduction
 const meta = {
-  title: 'Button',
-  component: Button,
-  // This component will have an automatically generated docsPage entry: https://storybook.js.org/docs/vue/writing-docs/autodocs
-  tags: ['autodocs'],
-  argTypes: {
-    size: { control: 'select', options: ['small', 'medium', 'large'] },
-    backgroundColor: { control: 'color' },
-    // onClick: { action: 'clicked' },
-  },
-  args: { primary: false }, // default value
+    title: 'Button',
+    component: Button,
+    tags: ['autodocs'],
+    // parameters: {
+    //   docs: {
+    //     // 定义富文本内容
+    //     description: {
+    //       story: `<Button />`
+    //     },
+    //   },
+    // },
+    parameters: {
+        docs: {
+            source: {
+                code: '<Button>Hello Word!</Button>'
+            }
+            /*
+             description: {
+             story: `
+             # Button Component
+
+             This is a custom button component that can be used throughout your app.
+
+             ## Usage
+
+             You can use the \`<Button>\` component like this:
+
+             \`\`\`vue
+             <Button @click="handleClick">Click me</Button>
+             \`\`\`
+             `,
+             },
+             */
+        },
+    },
 } satisfies Meta<typeof Button>;
 
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
-// https://storybook.js.orgdocsvueapicsf
+
 export const Primary: Story = {
-  args: {
-    primary: true,
-    label: 'Button',
-  },
-};
-
-export const Secondary: Story = {
-  args: {
-    primary: false,
-    label: 'Button',
-  },
-};
-
-export const Large: Story = {
-  args: {
-    label: 'Button',
-    size: 'large',
-  },
-};
-
-export const Small: Story = {
-  args: {
-    label: 'Button',
-    size: 'small',
-  },
+    name: 'Demo'
 };
