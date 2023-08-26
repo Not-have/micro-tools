@@ -4,6 +4,8 @@
 
 [文档地址](https://storybook.js.org)
 
+[参考文档 1](https://jamie.work/posts/从零搭建-组件库开发环境/)
+
 ## 2、使用
 
 ### 1）vue 中使用
