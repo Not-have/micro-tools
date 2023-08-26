@@ -6,7 +6,7 @@
   "scripts": {
     "boot": "pnpm install && pnpm run clear:lock",
     "postinstall": "npx only-allow pnpm",
-    "clear": "npx lerna clear && npx rimraf dist && npx rimraf node_modules",
+    "clear": "pnpm --filter \"./packages-**\" clear && npx rimraf dist && npx rimraf node_modules",
     "clear:lock": "npx rimraf pnpm-lock.yaml"
   },
   "keywords": [],
@@ -17,7 +17,6 @@
   ],
   "devDependencies": {
     "eslint": "^8.47.0",
-    "lerna": "^7.1.5",
     "only-allow": "^1.1.1",
     "rimraf": "^5.0.1",
     "typescript": ">=4.7"
