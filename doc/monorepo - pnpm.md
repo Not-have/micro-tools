@@ -53,3 +53,9 @@ packages:
 ```markdown
 pnpm add 包名（npm 仓库上） --filter Xxx(package下的 package.json 的 name 字段)
 ```
+
+## 2、给根目录下，安装依赖包
+
+```markdown
+pnpm add -D lerna
+```

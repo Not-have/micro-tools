@@ -1,0 +1,11 @@
+{
+  "$schema": "node_modules/lerna/schemas/lerna-schema.json",
+  "npmClient": "pnpm",
+  "command": {
+    "publish": {
+      "conventionalCommits": true
+    }
+  },
+  "packages": ["packages-vue"],
+  "version": "independent"
+}

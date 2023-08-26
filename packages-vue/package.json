@@ -6,7 +6,7 @@
   "scripts": {
     "start": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "clean": "npx rimraf node_modules"
+    "clear": "npx rimraf node_modules"
   },
   "keywords": [
     "vue-components",
@@ -14,7 +14,8 @@
     "tiny",
     "tiny-vue-components"
   ],
-  "author": "",
+  "author": "Li Yong",
+  "homepage": "",
   "license": "ISC",
   "dependencies": {
     "element-plus": "^2.3.10",
