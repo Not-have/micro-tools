@@ -1,52 +1,38 @@
-import type { Meta, StoryObj } from '@storybook/vue3';
+import type {
+    Meta, StoryObj
+} from '@storybook/vue3';
+
+// @ts-ignore
+import DocMd from '../../doc/button.md';
 
 import {
-  Button
-} from '../../src';
+    Button
+} from "../../src/index";
 
-// More on how to set up stories at: https://storybook.js.org/docs/vue/writing-stories/introduction
 const meta = {
-  title: 'Button',
-  component: Button,
-  // This component will have an automatically generated docsPage entry: https://storybook.js.org/docs/vue/writing-docs/autodocs
-  tags: ['autodocs'],
-  argTypes: {
-    size: { control: 'select', options: ['small', 'medium', 'large'] },
-    backgroundColor: { control: 'color' },
-    // onClick: { action: 'clicked' },
-  },
-  args: { primary: false }, // default value
+    title: 'Button',
+    component: Button,
+    tags: ['autodocs'],
+    parameters: {
+        docs: {
+            description: {
+                component:  DocMd, // 使用 markdown 标签并传入 Markdown 文件内容
+            },
+            // page: {
+            //     title: '111',
+            //     // controls: {
+            //     //     disable: true, // 隐藏默认的 Props 展示
+            //     // },
+            // }
+        }
+    }
 } satisfies Meta<typeof Button>;
 
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
-// https://storybook.js.orgdocsvueapicsf
+
 export const Primary: Story = {
-  args: {
-    primary: true,
-    label: 'Button',
-  },
-};
-
-export const Secondary: Story = {
-  args: {
-    primary: false,
-    label: 'Button',
-  },
-};
-
-export const Large: Story = {
-  args: {
-    label: 'Button',
-    size: 'large',
-  },
-};
-
-export const Small: Story = {
-  args: {
-    label: 'Button',
-    size: 'small',
-  },
+    name: 'Demo'
 };

@@ -1,0 +1,6 @@
+# https://juejin.cn/post/6940127032932040735
+# 使用第三方的规则，地址：https://github.com/aliyun/alibabacloud-console-base/tree/master/packages-dev/stylelint-config
+# https://www.npmjs.com/package/@alicloud/stylelint-config
+{
+  "extends": ["@alicloud/stylelint-config"]
+}

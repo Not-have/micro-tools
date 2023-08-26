@@ -1,0 +1,11 @@
+#storybook-docs > .sbdocs-wrapper {
+    padding: 20px 32px;
+}
+
+#storybook-docs .sbdocs-title {
+    display: none;
+}
+
+#storybook-docs .sbdocs-content div:last-child {
+    display: none;
+}

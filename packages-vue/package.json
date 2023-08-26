@@ -1,21 +1,30 @@
 {
-  "name": "tiny-tools-vue-components",
+  "name": "tiny-vue-components",
   "version": "1.0.0-beta.3",
-  "description": "",
+  "description": "一款微小的 vue 组件",
   "main": "src/index.ts",
   "scripts": {
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "start": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "clear": "npx rimraf node_modules"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "vue-components",
+    "components",
+    "tiny",
+    "tiny-vue-components"
+  ],
+  "author": "Li Yong",
+  "homepage": "",
   "license": "ISC",
   "dependencies": {
+    "element-plus": "^2.3.10",
     "vue": "^3.3.4"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.22.10",
     "@babel/preset-typescript": "^7.22.5",
+    "@storybook/addon-docs": "^7.3.2",
     "@storybook/addon-essentials": "7.3.2",
     "@storybook/addon-interactions": "7.3.2",
     "@storybook/addon-links": "7.3.2",
