@@ -6,7 +6,8 @@
   "scripts": {
     "start": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "clear": "npx rimraf node_modules"
+    "clear": "npx rimraf node_modules",
+    "build:docs": "node ../scripts/merge-markdown.js ./doc ./"
   },
   "keywords": [
     "vue-components",
