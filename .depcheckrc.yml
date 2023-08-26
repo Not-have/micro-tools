@@ -1,4 +1,5 @@
 ignore: []
+# 忽略的文件
 ignoresPatterns: [
   "build",
   "dist"
