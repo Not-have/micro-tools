@@ -2,6 +2,9 @@ import type {
     Meta, StoryObj
 } from '@storybook/vue3';
 
+// @ts-ignore
+import DocMd from '../../doc/button.md';
+
 import {
     Button
 } from "../../src/index";
@@ -9,39 +12,20 @@ import {
 const meta = {
     title: 'Button',
     component: Button,
-    // tags: ['autodocs'],
-    // parameters: {
-    //   docs: {
-    //     // 定义富文本内容
-    //     description: {
-    //       story: `<Button />`
-    //     },
-    //   },
-    // },
+    tags: ['autodocs'],
     parameters: {
         docs: {
-            source: {
-                code: '<Button>Hello Word!</Button>'
-            }
-            /*
-             description: {
-             story: `
-             # Button Component
-
-             This is a custom button component that can be used throughout your app.
-
-             ## Usage
-
-             You can use the \`<Button>\` component like this:
-
-             \`\`\`vue
-             <Button @click="handleClick">Click me</Button>
-             \`\`\`
-             `,
-             },
-             */
-        },
-    },
+            description: {
+                component:  DocMd, // 使用 markdown 标签并传入 Markdown 文件内容
+            },
+            // page: {
+            //     title: '111',
+            //     // controls: {
+            //     //     disable: true, // 隐藏默认的 Props 展示
+            //     // },
+            // }
+        }
+    }
 } satisfies Meta<typeof Button>;
 
 

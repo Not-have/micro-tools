@@ -1,7 +1,5 @@
 <template>
-    <div>
-        <el-button>我是 ElButton</el-button>
-    </div>
+    <el-button>我是 ElButton</el-button>
 </template>
 
 <script setup lang="ts">
