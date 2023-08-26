@@ -4,13 +4,26 @@
       "path": "./tsconfig.app.json"
     }
   ],
+  "include": [
+    "./src"
+  ],
   "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "*": ["*", "*/index.ts"]
+    },
     "moduleResolution": "Node",
     "target": "es2016",
+    
     "module": "esnext", // commonjs
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "allowJs": false,
+    "resolveJsonModule": true,
+    "declaration": true,
+    "sourceMap":true, // 生成源映射文件，便于调试 TypeScript 代码
+    "allowSyntheticDefaultImports":true // 允许从没有默认导出的模块中导入默认成员
   }
 }

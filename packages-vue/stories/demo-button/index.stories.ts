@@ -1,4 +1,6 @@
-import type {Meta, StoryObj} from '@storybook/vue3';
+import type {
+    Meta, StoryObj
+} from '@storybook/vue3';
 
 import {
     Button
@@ -7,7 +9,7 @@ import {
 const meta = {
     title: 'Button',
     component: Button,
-    tags: ['autodocs'],
+    // tags: ['autodocs'],
     // parameters: {
     //   docs: {
     //     // 定义富文本内容

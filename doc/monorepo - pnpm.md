@@ -1,24 +1,26 @@
-官网：https://pnpm.io/zh/
+# monorepo - pnpm
+
+[官网](https://pnpm.io/zh/)
 
 注：[yarn](https://github.com/Not-have/alibabacloud-console-base)、npm 也可以实现。
 
-# 一、安装pnpm
+## 一、安装pnpm
 
 ```bash
 npm install -g pnpm
 ```
 
-# 二、初始化项目
+## 二、初始化项目
 
-## 1、初始化
+### 1、初始化
 
 ```bash
 pnpm init
 ```
 
-## 2、配置项目
+### 2、配置项目
 
-官网地址：https://pnpm.io/zh/pnpm-workspace_yaml
+[官网配置地址](https://pnpm.io/zh/pnpm-workspace_yaml)
 
 1）新建 `pnpm-workspace.yaml` 文件
 
@@ -36,26 +38,26 @@ packages:
 
 2）新建完 pnpm-workspace.yaml 后，修改 `package.json`
 
-```json
+```yaml
   "workspaces": [
     "packages-vue",
     "packages-react",
     "packages-utils",
     "packages-ts-type",
     "packages-fetch"
-  ],
+  ]
 ```
 
-# 三、常用指令
+## 三、常用指令
 
-## 1、给指定的子包中安装依赖
+### 1、给指定的子包中安装依赖
 
 ```markdown
 pnpm add 包名（npm 仓库上） --filter Xxx(package下的 package.json 的 name 字段)
 ```
 
-## 2、给根目录下，安装依赖包
+### 2、给根目录下，安装依赖包
 
 ```markdown
-pnpm add -D lerna
+pnpm add lerna -D -w
 ```
