@@ -34,7 +34,7 @@ try {
             // console.error('合并过程出错：', error);
         }
     }
-    
+
     const paths = process.argv.slice(2);
 
     if (paths.length !== 2) {
