@@ -16,11 +16,18 @@
     "*.{js_ts_tsx_css_vue,disabled_for_buggy}": "stylelint",
     "*.md": "markdownlint-cli2"
   },
+  "engines": {
+    "node": ">=16.0.0",
+    "pnpm": ">8.0.0"
+  },
   "repository": {
     "type": "git",
-    "url": "git@github.com:Not-have/tiny-tools.git"
+    "url": "https://github.com/Not-have/tiny-tools"
   },
-  "author": "Li Yong",
+  "author": {
+    "email": "2236472089@qq.com",
+    "name": "Li Yong"
+  },
   "license": "ISC",
   "workspaces": [
     "packages-vue"
