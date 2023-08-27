@@ -1,7 +1,9 @@
+/**
+ * vue 规则校验插件
+ *
+ */
 module.exports = {
     extends: ['plugin:vue/recommended'],
-
-    // parser: '@typescript-eslint/parser', //ESLint： Parsing error: Unexpected token
     parserOptions: {
         ecmaVersion: 2015,
         /**
@@ -14,7 +16,11 @@ module.exports = {
         parser: '@typescript-eslint/parser', //ESLint： Parsing error: Unexpected token
     },
     rules: {
+        /**
+         * vue 的规则
+         */
         "vue/multi-word-component-names": "off", // 解决 ESLint: Parsing error: Adjacent JSX elements must be wrapped in an enclosing tag
-        "vue/html-indent": ["error", 4] // 设置 vue html 缩进为 4
+        "vue/html-indent": ["error", 4], // 设置 vue html 缩进为 4
+        "vue/singleline-html-element-content-newline": "off"
     }
 };
