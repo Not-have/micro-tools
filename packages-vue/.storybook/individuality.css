@@ -2,10 +2,10 @@
     padding: 20px 32px;
 }
 
-#storybook-docs > .sbdocs-title {
+#storybook-docs .sbdocs-title {
     display: none;
 }
 
-#storybook-docs > .sbdocs-content div:last-child {
+#storybook-docs .sbdocs-content div:last-child {
     display: none;
 }

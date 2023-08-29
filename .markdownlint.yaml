@@ -1,6 +1,8 @@
 # https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md
 # https://github.com/DavidAnson/markdownlint/blob/main/schema/.markdownlint.yaml
 
+# https://juejin.cn/post/7075518787105062919
+
 # 控制无序列表（unordered list）的样式
 MD004:
   style: "sublist"
@@ -14,6 +16,10 @@ MD013:
 # 防止多个内容相同的标题出现
 MD024:
   allow_different_nesting: true
+
+MD025: false
+
+MD041: false
 
 # 检查是否在文件末尾有一个空行
 MD047: false

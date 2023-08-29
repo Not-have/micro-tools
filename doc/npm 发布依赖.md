@@ -2,13 +2,12 @@
 
 ## 1、发布
 
-```markdown
+```bash
 npm publish
 ```
 
 ## 2、删除
 
-```markdown
+```bash
 npm unpublish 包名 --force
 ```
-

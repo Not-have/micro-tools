@@ -52,12 +52,12 @@ packages:
 
 ### 1、给指定的子包中安装依赖
 
-```markdown
+```bash
 pnpm add 包名（npm 仓库上） --filter Xxx(package下的 package.json 的 name 字段)
 ```
 
 ### 2、给根目录下，安装依赖包
 
-```markdown
+```bash
 pnpm add lerna -D -w
 ```

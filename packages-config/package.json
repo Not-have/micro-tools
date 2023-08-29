@@ -1,5 +1,5 @@
 {
-  "name": "tiny-config",
+  "name": "tiny-config-rules",
   "version": "1.0.0",
   "description": "项目验证规则的配置的配置文件",
   "main": "index.js",
@@ -12,5 +12,19 @@
     "tsconfig"
   ],
   "author": "Li Yong",
-  "license": "ISC"
+  "license": "MIT",
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.4.1",
+    "@typescript-eslint/parser": "^6.4.1",
+    "eslint-plugin-vue": "^9.17.0",
+    "stylelint-config-recommended-vue": "^1.5.0",
+    "stylelint-config-standard": "^34.0.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-order": "^6.0.3",
+    "stylelint-processor-styled-components": "^1.10.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.47.0",
+    "stylelint": "^15.10.3"
+  }
 }
