@@ -1,6 +1,6 @@
 {
   "name": "tiny-vue-components",
-  "version": "1.0.0-beta.3",
+  "version": "1.0.0",
   "description": "一款微小的 vue 组件",
   "main": "src/index.ts",
   "scripts": {

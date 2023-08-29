@@ -12,7 +12,7 @@
 
 [Storybook - vue](https://storybook.js.org/docs/vue/get-started/install)
 
-```yaml
+```bash
 # 创建 vue + ts 的 storybook
 npm i vue typescript
 
