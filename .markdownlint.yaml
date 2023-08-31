@@ -3,6 +3,14 @@
 
 # https://juejin.cn/post/7075518787105062919
 
+# 是否允许多个一级标题
+overrides:
+  - files:
+      - "packages-config/README.md"
+    rules:
+      MD025: false
+
+MD025: false
 # 控制无序列表（unordered list）的样式
 MD004:
   style: "sublist"
@@ -16,15 +24,6 @@ MD013:
 # 防止多个内容相同的标题出现
 MD024:
   allow_different_nesting: true
-
-# 是否允许多个一级标题
-#MD025: true
-
-overrides:
-  - files:
-      - "packages-config/README.md"
-    rules:
-      MD025: false
 
 # 检查是否在文件末尾有一个空行
 MD047: false

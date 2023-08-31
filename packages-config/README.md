@@ -105,7 +105,7 @@ tsc --init
 
 # attention matter
 
-如果使用的时候是 `.eslintrc.js` `.stylelintrc`
+如果使用的时候是 `.eslintrc.js` `.stylelintrc.js`
 
 引入时要加 `extends: ['Xxx'].map(require.resolve)`
 

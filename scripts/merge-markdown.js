@@ -26,7 +26,7 @@ try {
         try {
             const mergedContent = filePaths
                 .map(filePath => fs.readFileSync(filePath, 'utf-8'))
-                .join('\n\n' + '<hr />' + '\n\n'); // 在文件之间添加空行来分隔
+                .join('\n' + '---' + '\n'); // 在文件之间添加空行来分隔
 
             fs.writeFileSync(outputFile, mergedContent);
             // console.log('Markdown 文件合并完成！');
