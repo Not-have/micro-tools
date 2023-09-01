@@ -1,5 +1,5 @@
 import type { Preview } from "@storybook/vue3";
-import "./individuality.css";
+// import "./individuality.css";
 
 const preview: Preview = {
   parameters: {
@@ -8,12 +8,9 @@ const preview: Preview = {
       matchers: {
         color: /(background|color)$/i,
         date: /Date$/,
-      }
+      },
     },
-    docs: {
-      disable: false
-    }
-  }
+  },
 };
 
 export default preview;

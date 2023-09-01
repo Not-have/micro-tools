@@ -1,18 +1,34 @@
 {
+  "include": [
+    "env.d.ts", 
+    "src/**/*", 
+    "src/**/*.vue", 
+    "src/**/*.tsx"
+  ],
   "compilerOptions": {
     "composite": true,
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "paths": {
-      "*": [
-        "*",
-        "*.ts"
-      ]
-    }
-  },
-  "include": [
-    "src/**/*",
-    "src/**/*.vue",
-    "src/**/*.ts"
-  ],
-  "exclude": ["node_modules"]
+      "@/*": ["./src/*"]
+    },
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "jsx": "preserve",
+    "jsxImportSource": "vue",
+    "noImplicitThis": true,
+    "strict": true,
+    "verbatimModuleSyntax": true,
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "lib": [
+      "ES2020",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "types": []
+  }
 }
