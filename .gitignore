@@ -1,6 +1,6 @@
 **/node_modules/
 **/dist/
 **/build/
-.idea
+.idea/
 
 pnpm-lock.yaml

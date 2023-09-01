@@ -1,12 +1,5 @@
-# 参考案例：
-# https://juejin.cn/post/6940127032932040735
-# https://github.com/aliyun/alibabacloud-console-base/tree/master/packages-dev/stylelint-config
-# https://www.npmjs.com/package/@alicloud/stylelint-config
-
-# 插件介绍：
-# stylelint-config-styled-components stylelint-processor-styled-components 用于 React 项目中使用 Styled Components 创建的样式
 {
   "extends": [
-    'tiny-config-rules/stylelintrc/vue'
+    "tiny-config-rules/stylelintrc/vue"
   ]
 }

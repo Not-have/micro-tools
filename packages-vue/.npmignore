@@ -1,4 +1,4 @@
 node_modules/
 stories/
 .storybook/
-.babelrc.json
+vite.config.ts
