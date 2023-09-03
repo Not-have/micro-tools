@@ -1,8 +1,22 @@
+require('@rushstack/eslint-patch/modern-module-resolution')
 /**
  * vue 规则校验插件
  */
 module.exports = {
-    extends: ['plugin:vue/recommended'],
+    /**
+     *
+     */
+    env: {
+        "node": true,
+        "browser": true,
+        "commonjs": true,
+        "es6": true
+    },
+    extends: [
+        'plugin:vue/vue3-essential',
+        'eslint:recommended',
+        '@vue/eslint-config-typescript'
+    ],
     parserOptions: {
         ecmaVersion: 2015,
         /**

@@ -2,5 +2,6 @@
 **/dist/
 **/build/
 .idea/
+v3
 
 pnpm-lock.yaml
