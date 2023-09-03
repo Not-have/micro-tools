@@ -1,12 +1,20 @@
-import {defineComponent, ref} from 'vue';
+import type {
+    PropType
+} from 'vue';
 import {
-    ElButton
-} from "@element-plus/components";
-
-const a = ref<number>(1);
+    defineComponent
+} from 'vue';
 
 export default defineComponent({
-    render(){
-        return <ElButton type={'success'}>{a.value}</ElButton>;
+    props: {
+        label: {
+            type: String as PropType<
+                'primary' | 'text' | 'success' | 'warning' | 'danger' | 'info' | 'default'
+            >,
+            default: 'text'
+        }
+    },
+    setup(props) {
+        return () => <div>{props.label}</div>;
     }
 });
