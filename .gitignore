@@ -3,5 +3,5 @@
 **/build/
 .idea/
 v3
-
+.pnpm-store
 pnpm-lock.yaml

@@ -6,9 +6,10 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "postinstall": "husky install",
-    "boot": "pnpm install && pnpm run clear:lock",
+    "boot": "pnpm run clear && pnpm run clear:lock && pnpm install && pnpm run clear:lock",
     "clear": "npx rimraf dist && pnpm --filter \"./packages-**\" clear && npx rimraf node_modules",
     "clear:lock": "npx rimraf pnpm-lock.yaml && npx rimraf package-lock.json",
+    "clear:store": "npx rimraf .pnpm-store",
     "lint:style": "stylelint ./packages-**/**/*.{tsx,css,vue}",
     "lint:md": "markdownlint-cli2 ./packages-**/**/*.md"
   },

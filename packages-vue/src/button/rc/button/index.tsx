@@ -1,20 +1,35 @@
-import type {
-    PropType
-} from 'vue';
 import {
     defineComponent
 } from 'vue';
+import '@element-plus/theme-chalk/dist/el-button.css';
+
+import {
+    ElButton,
+    ElTooltip,
+    Effect
+} from "@element-plus/components"
 
 export default defineComponent({
     props: {
         label: {
-            type: String as PropType<
-                'primary' | 'text' | 'success' | 'warning' | 'danger' | 'info' | 'default'
-            >,
-            default: 'text'
+            type: String
+        },
+        tooltip: {
+            type: String
         }
     },
     setup(props) {
-        return () => <div>{props.label}</div>;
+        return () => {
+            if (props.tooltip) {
+                return <ElTooltip content={props.tooltip}
+                                  placement="top"
+                                  effect={Effect.LIGHT}>
+                    <ElButton loading>{props.label}</ElButton>
+                </ElTooltip>
+            }
+            return <ElButton loading>
+                {props.label}
+            </ElButton>
+        }
     }
 });
