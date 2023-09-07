@@ -32,7 +32,9 @@
   },
   "license": "ISC",
   "workspaces": [
-    "packages-vue"
+    "packages-vue",
+    "packages-eslint-conf",
+    "packages-stylelint-conf"
   ],
   "devDependencies": {
     "@commitlint/cli": "^17.7.1",

@@ -1,5 +1,5 @@
 {
-  "name": "tiny-vue-components",
+  "name": "micro-vue-components",
   "version": "1.0.0",
   "description": "一款微小的 vue 组件",
   "main": "src/index.ts",
@@ -13,8 +13,8 @@
   "keywords": [
     "vue-components",
     "components",
-    "tiny-vue",
-    "tiny-vue-components"
+    "micro-vue",
+    "micro-vue-components"
   ],
   "author": "Li Yong",
   "homepage": "",

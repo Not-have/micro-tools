@@ -4,7 +4,7 @@
   "description": "eslint 的规则配置",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clear": "npx rimraf node_modules"
   },
   "repository": {
     "type": "git",
