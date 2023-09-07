@@ -1,16 +1,12 @@
 import {
     defineComponent
 } from 'vue';
-import '@element-plus/theme-chalk/dist/el-button.css';
 
 import {
     ElButton,
     ElTooltip,
     Effect
-} from "@element-plus/components";
-import {
-    Loading
-} from "@element-plus/icons-vue"
+} from "element-plus";
 
 export default defineComponent({
     props: {
@@ -19,6 +15,12 @@ export default defineComponent({
         },
         tooltip: {
             type: String
+        },
+        loading: {
+            type: Boolean
+        },
+        disabled: {
+            type: Boolean
         }
     },
     setup(props) {
@@ -27,12 +29,17 @@ export default defineComponent({
                 return <ElTooltip content={props.tooltip}
                                   placement="top"
                                   effect={Effect.LIGHT}>
-                    <ElButton loading>{props.label}</ElButton>
-                </ElTooltip>
+                    <ElButton loading={props.loading}
+                              disabled={props.loading || props.disabled}>
+                        {/* 禁用前展示 icon */}
+                        {props.label}
+                    </ElButton>
+                </ElTooltip>;
             }
-            return <ElButton>
-                <Loading /> {props.label}
-            </ElButton>
-        }
+            return <ElButton loading={props.loading}
+                             disabled={props.loading || props.disabled}>
+                {props.label}
+            </ElButton>;
+        };
     }
 });

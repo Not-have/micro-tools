@@ -1,13 +1,15 @@
 <template>
     <div class="demo">
         <Button label="按钮"
+                tooltip="你好"
+                :disabled="true"
         />
     </div>
 </template>
 <script lang="ts" setup>
 import {
     Button
-} from '../../src'
+} from '../../src';
 </script>
 <style scoped>
 .demo {

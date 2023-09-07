@@ -20,9 +20,7 @@
   "homepage": "",
   "license": "ISC",
   "dependencies": {
-    "@element-plus/components": "^0.0.5",
-    "@element-plus/icons-vue": "^2.1.0",
-    "@element-plus/theme-chalk": "^2.2.16",
+    "element-plus": "^2.3.12",
     "vue": "^3.3.4"
   },
   "devDependencies": {
