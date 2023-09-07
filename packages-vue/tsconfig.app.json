@@ -1,18 +1,26 @@
 {
   "include": [
-    "env.d.ts", 
-    "src/**/*", 
-    "src/**/*.vue", 
+    "env.d.ts",
+    "src/**/*",
+    "src/**/*.vue",
     "src/**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "files": [
+    "package.json"
   ],
   "compilerOptions": {
     "composite": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": [
+        "./src/*"
+      ]
     },
     "module": "ESNext",
-    "moduleResolution": "bundler",
+    "moduleResolution": "Node", // Node
     "resolveJsonModule": true,
     "jsx": "preserve",
     "jsxImportSource": "vue",
@@ -29,6 +37,10 @@
       "DOM",
       "DOM.Iterable"
     ],
-    "types": []
+    "types": [],
+    "sourceMap": true,
+    "allowSyntheticDefaultImports": true,
+    "allowJs": false,
+    "declaration": true
   }
 }

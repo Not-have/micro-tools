@@ -5,7 +5,7 @@
   "main": "src/index.ts",
   "scripts": {
     "type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false",
-    "start": "storybook dev -p 6006",
+    "start": "storybook dev -p 6006 --no-open",
     "build-storybook": "storybook build",
     "clear": "npx rimraf node_modules",
     "build:docs": "node ../scripts/merge-markdown.js ./doc ./"
@@ -20,6 +20,9 @@
   "homepage": "",
   "license": "ISC",
   "dependencies": {
+    "@element-plus/components": "^0.0.5",
+    "@element-plus/icons-vue": "^2.1.0",
+    "@element-plus/theme-chalk": "^2.2.16",
     "vue": "^3.3.4"
   },
   "devDependencies": {

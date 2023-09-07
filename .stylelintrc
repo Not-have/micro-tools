@@ -1,5 +1,5 @@
 {
   "extends": [
-    "tiny-config-rules/stylelintrc/vue"
+    "micro-stylelint-conf/vue"
   ]
 }

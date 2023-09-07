@@ -1,8 +1,16 @@
 <template>
-    <div>
-        <Test />
+    <div class="demo">
+        <Button label="按钮"
+        />
     </div>
 </template>
 <script lang="ts" setup>
-import {Test} from '../../src'
+import {
+    Button
+} from '../../src'
 </script>
+<style scoped>
+.demo {
+    margin-top: 40px;
+}
+</style>
