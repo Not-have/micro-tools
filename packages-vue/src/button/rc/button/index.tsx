@@ -7,7 +7,10 @@ import {
     ElButton,
     ElTooltip,
     Effect
-} from "@element-plus/components"
+} from "@element-plus/components";
+import {
+    Loading
+} from "@element-plus/icons-vue"
 
 export default defineComponent({
     props: {
@@ -27,8 +30,8 @@ export default defineComponent({
                     <ElButton loading>{props.label}</ElButton>
                 </ElTooltip>
             }
-            return <ElButton loading>
-                {props.label}
+            return <ElButton>
+                <Loading /> {props.label}
             </ElButton>
         }
     }

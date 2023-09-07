@@ -43,11 +43,11 @@
     "husky": "^8.0.3",
     "lint-staged": "^14.0.1",
     "markdownlint-cli2": "^0.9.2",
+    "micro-eslint-conf": "workspace:^",
+    "micro-stylelint-conf": "workspace:^",
     "only-allow": "^1.1.1",
     "rimraf": "^5.0.1",
     "stylelint": "^15.10.3",
-    "tiny-config-rules": "workspace:^",
     "typescript": ">=4.7"
-  },
-  "__npminstall_done": false
+  }
 }
