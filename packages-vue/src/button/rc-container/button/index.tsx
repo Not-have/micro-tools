@@ -25,7 +25,7 @@ export default defineComponent({
     setup(props): () => JSX.Element {
         return (): JSX.Element => {
             if (props.tooltip) {
-                return <ButtonTooltip label={props.label} disabled={props.disabled} loading={props.loading} tooltip={props.tooltip} />;
+                return <ButtonTooltip label={props.label} disabled={props.disabled} loading={props.loading} tooltip={props.tooltip}  />;
             }
 
             return <Button label={props.label} disabled={props.disabled} loading={props.loading} />;

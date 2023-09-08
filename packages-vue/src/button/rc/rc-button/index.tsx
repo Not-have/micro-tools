@@ -1,3 +1,6 @@
+import type {
+    PropType
+} from 'vue';
 import {
     defineComponent
 } from 'vue';
@@ -18,6 +21,10 @@ export default defineComponent({
             type: String,
             required: true
         },
+        type: {
+            type: String as PropType<'primary'| 'success'| 'warning'| 'danger'| 'info'| 'text' | undefined>,
+            default: undefined
+        },
         loading: {
             type: Boolean
         },
@@ -28,6 +35,7 @@ export default defineComponent({
     setup(props): () => JSX.Element {
         return (): JSX.Element => {
             return <ElButton icon={props.disabled ? QuestionFilled : undefined}
+                             type={props.type}
                              loading={props.loading}
                              disabled={props.loading || props.disabled}>
                 {props.label}
