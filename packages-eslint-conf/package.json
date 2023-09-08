@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Not-have/tiny-tools/tree/main/packages-eslint-conf"
+    "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-eslint-conf"
   },
   "keywords": [
     "eslint",
@@ -18,7 +18,7 @@
   "author": "LiYong",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Not-have/tiny-tools/issues"
+    "url": "https://github.com/Not-have/micro-tools/issues"
   },
   "dependencies": {
     "@rushstack/eslint-patch": "^1.3.3",

@@ -2,7 +2,6 @@
     <div class="demo">
         <Button label="按钮"
                 tooltip="你好"
-                :disabled="true"
         />
     </div>
 </template>
