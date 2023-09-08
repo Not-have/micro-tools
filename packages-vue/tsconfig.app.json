@@ -4,7 +4,8 @@
     "env.d.ts",
     "src/**/*",
     "src/**/*.vue",
-    "src/**/*.tsx"
+    "src/**/*.tsx",
+    "e:/micro-tools/packages-vue/src/button/rc-container/button-ops/index.tsx" // 添加这一行
   ],
   "exclude": [
     "node_modules"

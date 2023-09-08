@@ -3,11 +3,11 @@ import {
 } from 'vue';
 
 import {
-    ElButton,
-    ElTooltip,
-    Effect
+    ElButton
 } from "element-plus";
-import {QuestionFilled} from '@element-plus/icons-vue';
+import {
+    QuestionFilled
+} from '@element-plus/icons-vue';
 
 import "./index.css";
 
@@ -18,9 +18,6 @@ export default defineComponent({
             type: String,
             required: true
         },
-        tooltip: {
-            type: String
-        },
         loading: {
             type: Boolean
         },
@@ -30,20 +27,11 @@ export default defineComponent({
     },
     setup(props): () => JSX.Element {
         return (): JSX.Element => {
-            const button = <ElButton icon={props.disabled ? QuestionFilled : undefined} loading={props.loading}
-                                     disabled={props.loading || props.disabled}>
+            return <ElButton icon={props.disabled ? QuestionFilled : undefined}
+                             loading={props.loading}
+                             disabled={props.loading || props.disabled}>
                 {props.label}
             </ElButton>;
-
-            if (props.tooltip) {
-                return <ElTooltip content={props.tooltip}
-                                  placement="top"
-                                  effect={Effect.LIGHT}>
-                    {button}
-                </ElTooltip>;
-            }
-
-            return button;
         };
     }
 });
