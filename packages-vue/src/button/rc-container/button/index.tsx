@@ -22,16 +22,13 @@ export default defineComponent({
             type: Boolean
         }
     },
-    setup({
-        label,
-        ...props
-    }): () => JSX.Element {
+    setup(props): () => JSX.Element {
         return (): JSX.Element => {
             if (props.tooltip) {
-                return <ButtonTooltip label={label} v-on={{...props}} />;
+                return <ButtonTooltip label={props.label} disabled={props.disabled} loading={props.loading} tooltip={props.tooltip} />;
             }
 
-            return <Button label={label} v-on={{...props}} />;
+            return <Button label={props.label} disabled={props.disabled} loading={props.loading} />;
         };
     }
 });
