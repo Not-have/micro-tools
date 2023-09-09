@@ -4,7 +4,7 @@ import { h } from 'vue';
 import Button from './demo.vue';
 
 const meta = {
-  title: 'Button',
+  title: 'Button'
 } satisfies Meta<typeof Button>;
 
 export default meta;
@@ -14,4 +14,3 @@ export const Primary: Story = {
   name: 'Demo',
   render:() => h(Button)
 };
-

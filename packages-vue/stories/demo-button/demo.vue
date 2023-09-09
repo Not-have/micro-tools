@@ -4,7 +4,8 @@
                 disabledTip="你好"
                 :disabled="true"
         />
-        <ElPopconfirm />
+        <ElPopconfirm label="测试"
+                      confirm="情定删除？情定删除？情定删除？情定删除？情定删除？"/>
     </div>
 </template>
 <script lang="ts" setup>

@@ -1,5 +1,4 @@
 import type {
-    PropType,
     VNode
 } from 'vue';
 import {
@@ -9,35 +8,18 @@ import {
 import {
     ElButton
 } from "element-plus";
+
 import {
-    QuestionFilled
-} from '@element-plus/icons-vue';
+    IButtonProps
+} from '../../types';
 
 import "./index.css";
 
 export default defineComponent({
-    // TODO 这块很垃圾，没办法提出去，所以下面的组件都没办拆分
-    props: {
-        label: {
-            type: String,
-            required: true
-        },
-        type: {
-            type: String as PropType<'primary'| 'success'| 'warning'| 'danger'| 'info'| 'text'>
-        },
-        loading: {
-            type: Boolean
-        },
-        disabled: {
-            type: Boolean
-        },
-        disabledTip: {
-            type: String
-        }
-    },
+    props: IButtonProps,
     setup(props): () => VNode {
         return (): VNode => {
-            return <ElButton icon={props.disabled && props.disabledTip ? QuestionFilled : undefined}
+            return <ElButton icon={props.icon}
                              type={props.type}
                              loading={props.loading}
                              disabled={props.loading || props.disabled}>
