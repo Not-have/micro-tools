@@ -1,5 +1,6 @@
 import type {
-    PropType
+    PropType,
+    VNode
 } from 'vue';
 import {
     defineComponent
@@ -20,8 +21,7 @@ export default defineComponent({
             required: true
         },
         type: {
-            type: String as PropType<'primary' | 'success' | 'warning' | 'danger' | 'info' | 'text' | undefined>,
-            default: undefined
+            type: String as PropType<'primary'| 'success'| 'warning'| 'danger'| 'info'| 'text'>
         },
         tooltip: {
             type: String
@@ -33,8 +33,8 @@ export default defineComponent({
             type: Boolean
         }
     },
-    setup(props): () => JSX.Element {
-        return (): JSX.Element => {
+    setup(props): () => VNode {
+        return (): VNode => {
             const button = <Button label={props.label}
                                    type={props.type}
                                    loading={props.loading}

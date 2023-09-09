@@ -1,5 +1,6 @@
 import type {
-    PropType
+    PropType,
+    VNode
 } from 'vue';
 import {
     defineComponent
@@ -22,8 +23,7 @@ export default defineComponent({
             required: true
         },
         type: {
-            type: String as PropType<'primary'| 'success'| 'warning'| 'danger'| 'info'| 'text' | undefined>,
-            default: undefined
+            type: String as PropType<'primary'| 'success'| 'warning'| 'danger'| 'info'| 'text'>
         },
         loading: {
             type: Boolean
@@ -32,8 +32,8 @@ export default defineComponent({
             type: Boolean
         }
     },
-    setup(props): () => JSX.Element {
-        return (): JSX.Element => {
+    setup(props): () => VNode {
+        return (): VNode => {
             return <ElButton icon={props.disabled ? QuestionFilled : undefined}
                              type={props.type}
                              loading={props.loading}

@@ -1,6 +1,11 @@
-import {
-    defineComponent
+import type {
+    VNode
 } from 'vue';
+import {
+    defineComponent,
+    unref
+} from 'vue';
+
 import {
     Button,
     ButtonTooltip
@@ -22,13 +27,16 @@ export default defineComponent({
             type: Boolean
         }
     },
-    setup(props): () => JSX.Element {
-        return (): JSX.Element => {
+    setup({
+        label,
+        ...props
+    }): () => VNode {
+        return (): VNode => {
             if (props.tooltip) {
-                return <ButtonTooltip label={props.label} disabled={props.disabled} loading={props.loading} tooltip={props.tooltip}  />;
+                return <ButtonTooltip label={label} {...unref(props)} />;
             }
 
-            return <Button label={props.label} disabled={props.disabled} loading={props.loading} />;
+            return <Button label={label} {...unref(props)} />;
         };
     }
 });

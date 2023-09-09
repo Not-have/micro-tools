@@ -1,6 +1,5 @@
 {
     "compilerOptions": {
-      "target": "es5",
       "lib": [
         "esnext",
         "dom",
@@ -16,8 +15,7 @@
       "esModuleInterop": true,
       "experimentalDecorators": true,
       "resolveJsonModule": true,
-      "moduleResolution": "node",
-      "baseUrl": "./"
+      "moduleResolution": "node"
     }
   }
   
