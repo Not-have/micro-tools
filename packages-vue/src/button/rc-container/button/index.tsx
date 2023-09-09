@@ -7,42 +7,27 @@ import {
 } from 'vue';
 
 import {
+    IButtonProps
+} from '../../types';
+import {
     Button,
-    ButtonTooltip
+    ButtonTooltip,
+    ButtonConfirm
 } from '../../rc';
 
 export default defineComponent({
-    props: {
-        label: {
-            type: String,
-            required: true
-        },
-        tooltip: {
-            type: String
-        },
-        loading: {
-            type: Boolean
-        },
-        disabled: {
-            type: Boolean
-        },
-        /**
-         * disabled 为 true 时，展示的提示内容
-         */
-        disabledTip: {
-            type: String
-        }
-    },
-    setup({
-        label,
-        ...props
-    }): () => VNode {
+    props: IButtonProps,
+    setup(props): () => VNode {
         return (): VNode => {
-            if (props.tooltip || props.disabledTip) {
-                return <ButtonTooltip label={label} {...unref(props)} />;
+            if(props.confirm){
+                return <ButtonConfirm {...unref(props)} />;
             }
 
-            return <Button label={label} {...unref(props)} />;
+            if (props.tooltip || (props.disabled && props.disabledTip)) {
+                return <ButtonTooltip {...unref(props)} />;
+            }
+
+            return <Button {...unref(props)} />;
         };
     }
 });

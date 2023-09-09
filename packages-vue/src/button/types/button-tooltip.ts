@@ -1,13 +1,16 @@
-import IButtonProps from './button';
+import IRcButtonProps from './button';
 
-const IButtonTooltipProps = {
-    ...IButtonProps,
+const IRcButtonTooltipProps = {
+    ...IRcButtonProps,
     tooltip: {
         type: String
     },
+    /**
+     * disabled 为 true 时，展示的提示内容
+     */
     disabledTip: {
         type: String
     }
 };
 
-export default IButtonTooltipProps;
+export default IRcButtonTooltipProps;

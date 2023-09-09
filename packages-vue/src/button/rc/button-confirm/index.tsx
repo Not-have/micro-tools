@@ -10,11 +10,11 @@ import {
     ElPopconfirm
 } from "element-plus";
 
-import Button from '../rc-button';
+import ButtonTooltip from '../button-tooltip';
 import "./index.css";
 
 import {
-    IButtonConfirmProps
+    IRcButtonConfirmProps
 } from '../../types';
 
 import {
@@ -22,9 +22,8 @@ import {
 } from '../../utils';
 
 export default defineComponent({
-    props: IButtonConfirmProps,
+    props: IRcButtonConfirmProps,
     setup({
-        label,
         confirm,
         ...props
     }): () => VNode {
@@ -35,15 +34,20 @@ export default defineComponent({
             byDialog
         } = parseButtonExtendedConfirm(confirm as any); // 这个 any 很魔性
 
+        console.log(props, confirm);
+
         return (): VNode => {
             return <ElPopconfirm title={content}
                                  width="300"
+                                 hide-after={0}
                                  hide-icon={true}
                                  confirm-button-text={ok}
                                  cancel-button-text={cancel}>
                 {{
                     reference: () => (
-                        <Button label={label} {...unref(props)} />
+                        <div class={'micro-button-confirm-box'}>
+                            <ButtonTooltip {...unref(props)} />
+                        </div>
                     )
                 }}
             </ElPopconfirm>;

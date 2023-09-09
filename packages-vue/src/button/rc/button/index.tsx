@@ -10,19 +10,20 @@ import {
 } from "element-plus";
 
 import {
-    IButtonProps
+    IRcButtonProps
 } from '../../types';
 
 import "./index.css";
 
 export default defineComponent({
-    props: IButtonProps,
+    props: IRcButtonProps,
     setup(props): () => VNode {
         return (): VNode => {
             return <ElButton icon={props.icon}
                              type={props.type}
                              loading={props.loading}
-                             disabled={props.loading || props.disabled}>
+                             disabled={props.loading || props.disabled}
+            >
                 {props.label}
             </ElButton>;
         };

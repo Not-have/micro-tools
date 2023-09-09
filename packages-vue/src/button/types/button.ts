@@ -2,7 +2,7 @@ import type{
     PropType
 } from "vue";
 
-const IButtonProps = {
+const IRcButtonProps = {
     label: {
         type: String,
         required: true
@@ -24,4 +24,4 @@ const IButtonProps = {
     }
 };
 
-export default IButtonProps;
+export default IRcButtonProps;

@@ -6,14 +6,14 @@ import type {
     IConfirmProps
 } from './common';
 
-import IButtonProps from './button';
+import IRcButtonTooltipProps from './button-tooltip';
 
-const IButtonConfirmProps = {
-    ...IButtonProps,
+const IRcButtonConfirmProps = {
+    ...IRcButtonTooltipProps,
     confirm: {
         type: String as PropType<IConfirmProps | String>,
         required: true
     }
 };
 
-export default IButtonConfirmProps;
+export default IRcButtonConfirmProps;

@@ -16,12 +16,12 @@ import {
 import "./index.css";
 
 import {
-    IButtonTooltipProps
+    IRcButtonTooltipProps
 } from '../../types';
-import Button from '../rc-button';
+import Button from '../button';
 
 export default defineComponent({
-    props: IButtonTooltipProps,
+    props: IRcButtonTooltipProps,
     setup({
         label,
         tooltip,
