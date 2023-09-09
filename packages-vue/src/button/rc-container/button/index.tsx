@@ -25,6 +25,12 @@ export default defineComponent({
         },
         disabled: {
             type: Boolean
+        },
+        /**
+         * disabled 为 true 时，展示的提示内容
+         */
+        disabledTip: {
+            type: String
         }
     },
     setup({
@@ -32,7 +38,7 @@ export default defineComponent({
         ...props
     }): () => VNode {
         return (): VNode => {
-            if (props.tooltip) {
+            if (props.tooltip || props.disabledTip) {
                 return <ButtonTooltip label={label} {...unref(props)} />;
             }
 

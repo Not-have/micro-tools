@@ -30,11 +30,14 @@ export default defineComponent({
         },
         disabled: {
             type: Boolean
+        },
+        disabledTip: {
+            type: String
         }
     },
     setup(props): () => VNode {
         return (): VNode => {
-            return <ElButton icon={props.disabled ? QuestionFilled : undefined}
+            return <ElButton icon={props.disabled && props.disabledTip ? QuestionFilled : undefined}
                              type={props.type}
                              loading={props.loading}
                              disabled={props.loading || props.disabled}>

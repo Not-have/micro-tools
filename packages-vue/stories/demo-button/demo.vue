@@ -1,7 +1,7 @@
 <template>
     <div class="demo">
         <Button label="按钮"
-                tooltip="你好"
+                disabledTip="你好"
                 :disabled="true"
         />
     </div>

@@ -3,7 +3,8 @@ import type {
     VNode
 } from 'vue';
 import {
-    defineComponent
+    defineComponent,
+    unref
 } from 'vue';
 
 import {
@@ -21,28 +22,32 @@ export default defineComponent({
             required: true
         },
         type: {
-            type: String as PropType<'primary'| 'success'| 'warning'| 'danger'| 'info'| 'text'>
-        },
-        tooltip: {
-            type: String
+            type: String as PropType<'primary' | 'success' | 'warning' | 'danger' | 'info' | 'text'>
         },
         loading: {
             type: Boolean
         },
         disabled: {
             type: Boolean
+        },
+        tooltip: {
+            type: String
+        },
+        disabledTip: {
+            type: String
         }
     },
-    setup(props): () => VNode {
+    setup({
+        label,
+        tooltip,
+        ...props
+    }): () => VNode {
         return (): VNode => {
-            const button = <Button label={props.label}
-                                   type={props.type}
-                                   loading={props.loading}
-                                   disabled={props.disabled}>
-                {props.label}
+            const button = <Button label={label} {...unref(props)} >
+                {label}
             </Button>;
 
-            return <ElTooltip content={props.tooltip}
+            return <ElTooltip content={props.disabled ? props.disabledTip : tooltip}
                               placement="top"
                               effect={Effect.LIGHT}>
                 {button}
