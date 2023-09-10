@@ -12,15 +12,15 @@ import {
 import {
     ElTooltip,
     Effect
-} from "element-plus";
+} from 'element-plus';
 import {
     QuestionFilled
 } from '@element-plus/icons-vue';
-import "./index.css";
+import './index.css';
 
 import {
     IRcButtonTooltipProps
-} from '../../types';
+} from '../../props';
 import Button from '../button';
 
 export default defineComponent({

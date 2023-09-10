@@ -1,20 +1,23 @@
 import {
     isString as _isString
 } from 'lodash-es';
+import {
+    OK,
+    CANCEL
+} from '../../intl';
 
 import type {
-    IConfirm
+    IConfirmType,
+    IConfirmExtendedType
 } from '../types';
 
-interface IConfirmProps extends Omit<IConfirm, 'onClick'> {}
-
-export default function parseButtonExtendedConfirm(confirm: IConfirmProps, onClick?: Function): IConfirm {
+export default function parseButtonExtendedConfirm(confirm: IConfirmType, onClick?: Function): IConfirmExtendedType {
     if (_isString(confirm)) {
         return {
             title: '',
             content: confirm,
-            ok: '确定',
-            cancel: '取消',
+            ok: OK,
+            cancel: CANCEL,
             byDialog: false
         };
     }
@@ -22,8 +25,8 @@ export default function parseButtonExtendedConfirm(confirm: IConfirmProps, onCli
     return {
         title: confirm?.title || '',
         content: confirm?.content || '',
-        ok: confirm?.ok || '确定',
-        cancel: confirm?.cancel || '取消',
+        ok: confirm?.ok || OK,
+        cancel: confirm?.cancel || CANCEL,
         byDialog: confirm.byDialog || false,
         onClick: onClick
     };

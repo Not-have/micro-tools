@@ -10,14 +10,12 @@ import {
 
 import {
     ElButton
-} from "element-plus";
+} from 'element-plus';
+import './index.css';
 
 import {
     IRcButtonProps
-} from '../../types';
-
-import "./index.css";
-
+} from '../../props';
 export default defineComponent({
     props: IRcButtonProps,
     setup(props): () => VNode {
@@ -30,6 +28,7 @@ export default defineComponent({
         return (): VNode => {
             return <ElButton icon={props.icon}
                              type={props.type}
+                             size={props.size}
                              loading={props.loading}
                              disabled={props.loading || props.disabled}
                              onClick={handleClick}

@@ -11,7 +11,7 @@ import {
 
 import {
     IButtonProps
-} from '../../types';
+} from '../../props';
 import {
     Button,
     ButtonTooltip,
@@ -24,7 +24,7 @@ export default defineComponent({
         // 具体的组件展示处理
         return (): VNode => {
             const disabled= props.disabled;
-            
+
             if (disabled && _isUndefined(props.disabledTip)) {
                 return <Button {...unref(props)} />;
             }

@@ -1,12 +1,11 @@
 export type {
-    IConfirmProps,
-    IConfirm
-} from './common';
+    IConfirmType,
+    IConfirmExtendedType
+} from './confirm';
 
-export { default as IRcButtonProps } from './button';
-export { default as IRcButtonConfirmProps } from './button-confirm';
-export { default as IRcButtonTooltipProps } from './button-tooltip';
-export { default as IRcButtonDialogProps } from './button-dialog';
-export {
-    IButtonProps
-} from './props';
+export type {
+    IButtonType
+} from './button';
+export type {
+    IButtonOpsType
+} from './button-ops';

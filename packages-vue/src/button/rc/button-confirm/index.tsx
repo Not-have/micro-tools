@@ -8,14 +8,14 @@ import {
 
 import {
     ElPopconfirm
-} from "element-plus";
+} from 'element-plus';
 
 import ButtonTooltip from '../button-tooltip';
-import "./index.css";
+import './index.css';
 
 import {
     IRcButtonConfirmProps
-} from '../../types';
+} from '../../props';
 import openDialog from '../button-dialog';
 import {
     parseButtonExtendedConfirm

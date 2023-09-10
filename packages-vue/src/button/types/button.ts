@@ -1,30 +1,12 @@
-import type{
-    PropType
-} from "vue";
-
-const IRcButtonProps = {
-    label: {
-        type: String,
-        required: true
-    },
-    type: {
-        type: String as PropType<'primary'| 'success'| 'warning'| 'danger'| 'info'| 'text'>
-    },
-    loading: {
-        type: Boolean
-    },
-    disabled: {
-        type: Boolean
-    },
+export type IButtonType = {
+    label: string,
+    type?: 'primary'| 'success'| 'warning'| 'danger'| 'info'| 'text',
+    size?: 'small' | 'large',
+    loading?: boolean,
+    disabled?: boolean,
     /**
      * 定义传入的是一个组件
      */
-    icon: {
-        type: Object
-    },
-    onClick: {
-        type: Function
-    }
-};
-
-export default IRcButtonProps;
+    icon?: Object,
+    onClick?: Function
+}

@@ -10,13 +10,16 @@
                 disabled-tip="222111"
                 :onClick="handleClick"
         />
+        <DropdownMenu />
     </div>
 </template>
 <script lang="ts" setup>
-
 import {
     Button
 } from '../../src';
+import {
+    DropdownMenu
+} from '../../src/button/rc';
 
 const handleClick = () => {
     console.log(11);
@@ -28,3 +31,5 @@ const handleClick = () => {
     margin-top: 40px;
 }
 </style>
+
+

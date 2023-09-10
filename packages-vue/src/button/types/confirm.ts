@@ -1,5 +1,4 @@
-// TODO 这俩名字待优化
-export interface IConfirmProps {
+export interface IConfirmType {
     content: string;
     title?: string;
     ok?: string;
@@ -7,6 +6,6 @@ export interface IConfirmProps {
     byDialog?: boolean;
 }
 
-export interface IConfirm extends Required<IConfirmProps> {
+export interface IConfirmExtendedType extends Required<IConfirmType> {
     onClick?: Function
 }

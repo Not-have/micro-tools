@@ -1,14 +1,16 @@
-
+import {
+    isUndefined as _isUndefined
+} from 'lodash-es';
 import {
     ElMessageBox
-} from "element-plus";
+} from 'element-plus';
 import './index.css';
 
 import type {
-    IConfirm
+    IConfirmExtendedType
 } from '../../types';
 
-export default function dialog (props: IConfirm): () => void {
+export default function dialog (props: IConfirmExtendedType): () => void {
     return function () {
          ElMessageBox.confirm(
             props.content,
@@ -18,7 +20,9 @@ export default function dialog (props: IConfirm): () => void {
                 cancelButtonText: props.cancel
             }
         ).then(res => {
-            props.onClick(res);
+            if(!_isUndefined(props.onClick)){
+                props.onClick(res);
+            }
         }).catch((err => {
             return Promise.reject(err);
         }));
