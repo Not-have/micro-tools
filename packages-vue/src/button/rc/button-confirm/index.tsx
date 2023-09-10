@@ -25,22 +25,18 @@ export default defineComponent({
     props: IRcButtonConfirmProps,
     setup({
         confirm,
+        onClick,
         ...props
     }): () => VNode {
+        const parseConfirm = parseButtonExtendedConfirm(confirm as any, onClick); // 这个 any 很魔性
+
+        const dialong = openDialog(parseConfirm);
         const {
-            title,
             content,
             ok,
             cancel,
             byDialog
-        } = parseButtonExtendedConfirm(confirm as any); // 这个 any 很魔性
-        const dialong = openDialog({
-            title,
-            content,
-            ok,
-            cancel,
-            byDialog
-        });
+        } = parseConfirm;
 
         return (): VNode => {
             if (byDialog) {
@@ -55,7 +51,9 @@ export default defineComponent({
                                  hide-after={0}
                                  hide-icon={true}
                                  confirm-button-text={ok}
-                                 cancel-button-text={cancel}>
+                                 cancel-button-text={cancel}
+                                 onConfirm={(onClick as any)}
+            >
                 {{
                     reference: () => (
                         <div class={'micro-button-confirm-box'}>

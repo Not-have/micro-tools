@@ -1,5 +1,6 @@
 export type {
-    IConfirmProps
+    IConfirmProps,
+    IConfirm
 } from './common';
 
 export { default as IRcButtonProps } from './button';

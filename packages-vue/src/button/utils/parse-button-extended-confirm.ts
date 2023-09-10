@@ -3,10 +3,12 @@ import {
 } from 'lodash-es';
 
 import type {
-    IConfirmProps
+    IConfirm
 } from '../types';
 
-export default function parseButtonExtendedConfirm(confirm: IConfirmProps): Required<IConfirmProps> {
+interface IConfirmProps extends Omit<IConfirm, 'onClick'> {}
+
+export default function parseButtonExtendedConfirm(confirm: IConfirmProps, onClick?: Function): IConfirm {
     if (_isString(confirm)) {
         return {
             title: '',
@@ -18,10 +20,11 @@ export default function parseButtonExtendedConfirm(confirm: IConfirmProps): Requ
     }
 
     return {
-        title: confirm?.title ?? '提示',
-        content: confirm.content,
-        ok: confirm?.ok ?? '确定',
-        cancel:confirm?.cancel ??  '取消',
-        byDialog: confirm?.byDialog
+        title: confirm?.title || '',
+        content: confirm?.content || '',
+        ok: confirm?.ok || '确定',
+        cancel: confirm?.cancel || '取消',
+        byDialog: confirm.byDialog || false,
+        onClick: onClick
     };
 }

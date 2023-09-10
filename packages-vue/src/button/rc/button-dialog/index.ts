@@ -5,10 +5,10 @@ import {
 import './index.css';
 
 import type {
-    IConfirmProps
+    IConfirm
 } from '../../types';
 
-export default function dialog (props: IConfirmProps): () => void {
+export default function dialog (props: IConfirm): () => void {
     return function () {
          ElMessageBox.confirm(
             props.content,
@@ -18,7 +18,7 @@ export default function dialog (props: IConfirmProps): () => void {
                 cancelButtonText: props.cancel
             }
         ).then(res => {
-            return Promise.resolve(res);
+            props.onClick(res);
         }).catch((err => {
             return Promise.reject(err);
         }));

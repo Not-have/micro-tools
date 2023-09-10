@@ -2,9 +2,12 @@
     <div class="demo">
         <Button label="按钮"
                 :confirm="{
+                    title: 'TISHI',
                     content: 'aa',
-                    byDialog: true
+                    byDialog: false
                 }"
+                tooltip="2222"
+                disabled-tip="222111"
                 :onClick="handleClick"
         />
     </div>
