@@ -2,6 +2,7 @@
     <div class="demo">
         <Button label="按钮"
                 tooltip="111"
+                disabled-tip="ceshi"
                 confirm="测试"
         />
     </div>

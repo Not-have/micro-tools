@@ -5,6 +5,9 @@ import {
     defineComponent,
     unref
 } from 'vue';
+import {
+    isUndefined as _isUndefined
+} from 'lodash-es';
 
 import {
     IButtonProps
@@ -18,13 +21,20 @@ import {
 export default defineComponent({
     props: IButtonProps,
     setup(props): () => VNode {
+        // 具体的组件展示处理
         return (): VNode => {
-            if(props.confirm){
-                return <ButtonConfirm {...unref(props)} />;
+            const disabled= props.disabled;
+            
+            if (disabled && _isUndefined(props.disabledTip)) {
+                return <Button {...unref(props)} />;
             }
 
-            if (props.tooltip || (props.disabled && props.disabledTip)) {
+            if(disabled && props.disabledTip){
                 return <ButtonTooltip {...unref(props)} />;
+            }
+
+            if (props.confirm && !disabled) {
+                return <ButtonConfirm {...unref(props)} />;
             }
 
             return <Button {...unref(props)} />;
