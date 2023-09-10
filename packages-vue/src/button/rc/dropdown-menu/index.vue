@@ -1,6 +1,6 @@
 <template>
     <el-dropdown>
-        <el-icon :class="_isUndefined(props.dropdown) ? 'icon-transform icon-space' : ''"
+        <el-icon :class="[_isUndefined(props.dropdown) ? 'icon-transform' : '', 'icon-space']"
                  :style="`--icon-margin: ${SPACE}px`">
             <div v-if="_isString(props.dropdown)">
                 {{ props.dropdown }}
