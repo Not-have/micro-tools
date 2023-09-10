@@ -5,6 +5,9 @@ import {
     defineComponent,
     unref
 } from 'vue';
+import {
+    isUndefined as _isUndefined
+} from 'lodash-es';
 
 import {
     ElTooltip,
@@ -34,6 +37,10 @@ export default defineComponent({
             })} >
                 {label}
             </Button>;
+
+            if (_isUndefined(tooltip) && !props.disabled) {
+                return button;
+            }
 
             return <ElTooltip content={props.disabled ? props.disabledTip : tooltip}
                               placement="top"

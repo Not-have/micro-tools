@@ -1,6 +1,7 @@
 export interface IConfirmProps {
     content: string;
-    ok: string;
-    cancel: string;
-    byDialog: boolean
+    title?: string;
+    ok?: string;
+    cancel?: string;
+    byDialog?: boolean;
 }

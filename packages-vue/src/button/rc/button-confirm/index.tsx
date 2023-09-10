@@ -16,7 +16,7 @@ import "./index.css";
 import {
     IRcButtonConfirmProps
 } from '../../types';
-
+import openDialog from '../button-dialog';
 import {
     parseButtonExtendedConfirm
 } from '../../utils';
@@ -28,15 +28,28 @@ export default defineComponent({
         ...props
     }): () => VNode {
         const {
+            title,
             content,
             ok,
             cancel,
             byDialog
         } = parseButtonExtendedConfirm(confirm as any); // 这个 any 很魔性
-
-        console.log(props, confirm);
+        const dialong = openDialog({
+            title,
+            content,
+            ok,
+            cancel,
+            byDialog
+        });
 
         return (): VNode => {
+            if (byDialog) {
+                return <ButtonTooltip {...unref({
+                    ...props,
+                    onClick: dialong
+                })} />;
+            }
+
             return <ElPopconfirm title={content}
                                  width="300"
                                  hide-after={0}

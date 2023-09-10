@@ -21,6 +21,9 @@ const IRcButtonProps = {
      */
     icon: {
         type: Object
+    },
+    onClick: {
+        type: Function
     }
 };
 
