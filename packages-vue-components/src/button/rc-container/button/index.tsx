@@ -21,6 +21,7 @@ import {
 export default defineComponent({
     props: IButtonProps,
     setup(props): () => VNode {
+        console.log(props);
         // 具体的组件展示处理
         return (): VNode => {
             const disabled= props.disabled;
@@ -33,6 +34,7 @@ export default defineComponent({
                 return <ButtonTooltip {...unref(props)} />;
             }
 
+            // 类型不匹配
             if (props.confirm && !disabled) {
                 return <ButtonConfirm {...unref(props)} />;
             }

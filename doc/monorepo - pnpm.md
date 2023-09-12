@@ -27,7 +27,7 @@ pnpm init
 ```yaml
 # 也可从官网复制过来的，地址见：https://pnpm.io/zh/pnpm-workspace_yaml，但是 我习惯把组件写到 packages 下 
 packages:
-  - 'packages-vue'
+  - 'packages-vue-components'
   - 'packages-react'
   # 公共的方法（函数）
   - 'packages-utils'
@@ -40,7 +40,7 @@ packages:
 
 ```yaml
   "workspaces": [
-    "packages-vue",
+    "packages-vue-components",
     "packages-react",
     "packages-utils",
     "packages-ts-type",

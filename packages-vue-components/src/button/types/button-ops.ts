@@ -3,7 +3,7 @@ import type {
 } from './button';
 
 export interface IButtonOpsType {
-    items: IButtonType[];
+    items: (IButtonType | '|')[];
     type: IButtonType['type'];
     size: IButtonType['size'];
     disabled: IButtonType['disabled'];

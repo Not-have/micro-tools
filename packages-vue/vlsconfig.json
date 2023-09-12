@@ -1,5 +1,0 @@
-{
-  "projects": [
-    "./src/**/*.{ts,tsx,vue}"
-  ]
-}
