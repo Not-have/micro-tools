@@ -14,10 +14,15 @@ import {
 import './index.css';
 
 import {
-    IRcButtonProps
+    IRcButtonProps,
+    IRcOnClickProps
 } from '../../props';
+
 export default defineComponent({
-    props: IRcButtonProps,
+    props: {
+        ...IRcButtonProps,
+        ...IRcOnClickProps
+    },
     setup(props): () => VNode {
         const handleClick = () => {
             if(!_isUndefined(props.onClick)) {

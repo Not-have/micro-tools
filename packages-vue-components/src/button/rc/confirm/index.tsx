@@ -2,50 +2,46 @@ import type {
     VNode
 } from 'vue';
 import {
-    defineComponent,
-    unref
+    defineComponent
 } from 'vue';
 
 import {
     ElPopconfirm
 } from 'element-plus';
 
-import ButtonTooltip from '../button-tooltip';
 import './index.css';
 
-import {
-    IRcButtonConfirmProps
+import type {
+    IConfirmExtendedProps
 } from '../../props';
-import openDialog from '../button-dialog';
+import {
+    IRcChildrenProps,
+    IRcOnClickProps,
+    IRcConfirmProps
+} from '../../props';
+
 import {
     parseButtonExtendedConfirm
 } from '../../utils';
 
 export default defineComponent({
-    props: IRcButtonConfirmProps,
+    props: {
+        ...IRcConfirmProps,
+        ...IRcOnClickProps,
+        ...IRcChildrenProps
+    },
     setup({
         confirm,
         onClick,
-        ...props
+        children
     }): () => VNode {
-        const parseConfirm = parseButtonExtendedConfirm(confirm as any, onClick); // 这个 any 很魔性
-
-        const dialong = openDialog(parseConfirm);
         const {
             content,
             ok,
-            cancel,
-            byDialog
-        } = parseConfirm;
+            cancel
+        } = parseButtonExtendedConfirm(confirm as IConfirmExtendedProps, onClick);
 
         return (): VNode => {
-            if (byDialog) {
-                return <ButtonTooltip {...unref({
-                    ...props,
-                    onClick: dialong
-                })} />;
-            }
-
             return <ElPopconfirm title={content}
                                  width="300"
                                  hide-after={0}
@@ -57,7 +53,7 @@ export default defineComponent({
                 {{
                     reference: () => (
                         <div class={'micro-button-confirm-box'}>
-                            <ButtonTooltip {...unref(props)} />
+                            {children}
                         </div>
                     )
                 }}

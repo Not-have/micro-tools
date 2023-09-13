@@ -2,23 +2,28 @@ import type {
     PropType
 } from 'vue';
 
-import type {
-    IConfirmType
-} from '../types';
 import {
     MAX_VISIBLE
 } from '../../const';
 import IRcButtonProps from './button';
-import IRcButtonTooltipProps from './button-tooltip';
+import IRcConfirmProps from './confirm';
+import IRcTooltipProps from './tooltip';
+
 
 export const IButtonProps = {
     ...IRcButtonProps,
-    tooltip: IRcButtonTooltipProps.tooltip,
-    disabledTip: IRcButtonTooltipProps.disabledTip,
-    confirm: Object as PropType<IConfirmType | String>
+    ...IRcConfirmProps,
+    ...IRcTooltipProps,
+    /**
+     * disabledTip 和 tooltip属性一样，只是在 禁止按钮下生效
+     */
+    disabledTip: IRcTooltipProps.tooltip
 };
 
 export const IButtonOpsProps = {
+    /**
+     * '|' 是可传入的，根据你传入的位置，作为分隔符
+     */
     items: Array as PropType<(typeof IButtonProps | '|')[]>,
     type: IRcButtonProps.type,
     size: IRcButtonProps.size,

@@ -7,10 +7,10 @@ import {
 import './index.css';
 
 import type {
-    IConfirmExtendedType
-} from '../../types';
+    IRcDialogProps
+} from '../../props';
 
-export default function dialog (props: IConfirmExtendedType): () => void {
+export default function dialog (props: IRcDialogProps): () => void {
     return function () {
          ElMessageBox.confirm(
             props.content,
@@ -24,7 +24,7 @@ export default function dialog (props: IConfirmExtendedType): () => void {
                 props.onClick(res);
             }
         }).catch((err => {
-            return Promise.reject(err);
+             console.error(err);
         }));
     };
 }

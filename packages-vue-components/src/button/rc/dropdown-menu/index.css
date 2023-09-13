@@ -1,8 +1,10 @@
+/**
+可以不要这个
+ */
 :focus-visible {
-    outline: -webkit-focus-ring-color auto 1px; /* 跟随浏览器的轮廓 */
     outline-color: #409eff; /* 自定义轮廓颜色 */
-    outline-style: dashed; /* 自定义轮廓样式 */
-    outline-width: 1px; /* 自定义轮廓宽度 */
+    outline-style: dashed; /* dashed 自定义轮廓样式  auto 跟随浏览器的轮廓 */
+    outline-width: 0px; /* 自定义轮廓宽度 */
 }
 
 ::v-deep(.el-icon) {
