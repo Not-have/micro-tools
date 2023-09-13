@@ -1,1 +1,3 @@
-- 'packages-vue'
+- 'packages-vue-components'
+- 'packages-eslint-conf'
+- 'packages-stylelint-conf'

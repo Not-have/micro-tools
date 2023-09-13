@@ -111,7 +111,7 @@ module.exports = [
     'overflow-y',
     // cursor
     'cursor',
-    // special content types: lists, tables
+    // special content mixins: lists, tables
     'list-style',
     'caption-side',
     'table-layout',
@@ -148,4 +148,4 @@ module.exports = [
     'transition-duration',
     'transition-timing-function',
     'transition-delay'
-]
+];

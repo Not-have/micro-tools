@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+      "lib": [
+        "esnext",
+        "dom",
+        "scripthost",
+        "dom.iterable"
+      ],
+      "strict": true,
+      "allowJs": false,
+      "skipLibCheck": true,
+      "noUnusedParameters": true,
+      "noUnusedLocals": true,
+      "allowSyntheticDefaultImports": true,
+      "esModuleInterop": true,
+      "experimentalDecorators": true,
+      "resolveJsonModule": true,
+      "moduleResolution": "node"
+    }
+  }
+  

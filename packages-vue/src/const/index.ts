@@ -1,1 +1,0 @@
-const SPACE  = 12;

@@ -1,0 +1,22 @@
+{
+  "name": "micro-style",
+  "version": "1.0.0",
+  "description": "css 的公用样式",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Not-have/micro-tools.git#main"
+  },
+  "keywords": [
+    "css",
+    "style",
+    "micro"
+  ],
+  "author": "LiYong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Not-have/micro-tools/issues"
+  },
+  "homepage": "https://github.com/Not-have/micro-tools/tree/main#readme"
+}

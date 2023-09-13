@@ -6,12 +6,13 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "postinstall": "husky install",
-    "boot": "pnpm run clear && pnpm run clear:lock && pnpm install && pnpm run clear:lock",
+    "boot": "pnpm run clear && pnpm run clear:lock && pnpm run clear:store && pnpm install && pnpm run clear:lock",
     "clear": "npx rimraf dist && pnpm --filter \"./packages-**\" clear && npx rimraf node_modules",
     "clear:lock": "npx rimraf pnpm-lock.yaml && npx rimraf package-lock.json",
     "clear:store": "npx rimraf .pnpm-store",
     "lint:style": "stylelint ./packages-**/**/*.{tsx,css,vue}",
-    "lint:md": "markdownlint-cli2 ./packages-**/**/*.md"
+    "lint:md": "markdownlint-cli2 ./packages-**/**/*.md",
+    "lint": "eslint \"./packages-vue-components/src/\" --ext js,ts,tsx --fix"
   },
   "lint-staged": {
     "*.{js,ts,vue,tsx,jsx}": "eslint",
@@ -24,7 +25,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Not-have/tiny-tools"
+    "url": "https://github.com/Not-have/micro-tools"
   },
   "author": {
     "email": "2236472089@qq.com",
@@ -32,7 +33,9 @@
   },
   "license": "ISC",
   "workspaces": [
-    "packages-vue"
+    "packages-vue-components",
+    "packages-eslint-conf",
+    "packages-stylelint-conf"
   ],
   "devDependencies": {
     "@commitlint/cli": "^17.7.1",
