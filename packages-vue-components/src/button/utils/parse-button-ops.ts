@@ -29,5 +29,6 @@ export default function parseButtonOps(props: IButtonOpsType): ButtonOpsResult {
 
     const buttonItems = parseItems.slice(0, maxVisible);
     const dropdownItems = parseItems.slice(maxVisible);
+
     return [buttonItems, dropdownItems];
 }

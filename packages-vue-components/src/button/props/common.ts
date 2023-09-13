@@ -5,7 +5,7 @@ import type {
 
 export const IRcChildrenProps = {
     children: {
-        type: Object as PropType<VNode | String | Object>
+        type: Object as PropType<VNode | Object | String>
     }
 };
 

@@ -3,13 +3,22 @@ import type{
 } from 'vue';
 
 const IRcButtonProps = {
+    /**
+     * 按钮内容
+     */
     label: {
         type: String,
         required: true
     },
+    /**
+     * 按钮类型
+     */
     type: {
         type: String as PropType<'primary'| 'success'| 'warning'| 'danger'| 'info'| 'text'>
     },
+    /**
+     * 按钮大小
+     */
     size: {
         type: String as PropType<'small' | 'large'>
     },

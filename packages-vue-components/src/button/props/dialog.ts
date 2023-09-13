@@ -1,4 +1,7 @@
 /* eslint-disable semi */
+/**
+ * 弹出框 的配置
+ */
 export interface IDialogProps {
     /**
      * 只在 Dialog 有效

@@ -8,14 +8,18 @@ import {
 import IRcButtonProps from './button';
 import IRcConfirmProps from './confirm';
 import IRcTooltipProps from './tooltip';
+import {
+    IRcOnClickProps
+} from './common';
 
 
 export const IButtonProps = {
     ...IRcButtonProps,
     ...IRcConfirmProps,
     ...IRcTooltipProps,
+    ...IRcOnClickProps,
     /**
-     * disabledTip 和 tooltip属性一样，只是在 禁止按钮下生效
+     * 按钮禁止时上方的提示
      */
     disabledTip: IRcTooltipProps.tooltip
 };

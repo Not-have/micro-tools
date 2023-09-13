@@ -1,6 +1,5 @@
 import {
-    defineComponent,
-    unref
+    defineComponent
 } from 'vue';
 
 import type {
@@ -12,7 +11,6 @@ import {
 import {
     parseButtonOps
 } from '../../utils';
-import Button from '../button';
 
 export default defineComponent({
     props: IButtonOpsProps,
@@ -25,8 +23,7 @@ export default defineComponent({
                 {
                     buttonItems.map((item) => {
                         console.log(item);
-                        if(item === '|') return 1;
-                        return <Button {...unref(item)} />;
+                        return <></>;
                     })
                 }
             </>;
