@@ -1,6 +1,6 @@
 {
   "name": "micro-vue-components",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "一款微小的 vue 组件",
   "main": "src/index.ts",
   "scripts": {
@@ -17,8 +17,11 @@
     "micro-vue-components"
   ],
   "author": "Li Yong",
-  "homepage": "",
+  "homepage": "https://github.com/Not-have/micro-tools/tree/main/packages-vue-components",
   "license": "ISC",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "dependencies": {
     "@element-plus/icons-vue": "^2.1.0",
     "element-plus": "^2.3.12",
