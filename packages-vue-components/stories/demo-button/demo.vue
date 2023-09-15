@@ -3,13 +3,17 @@
         <Button label="按钮"
                 :onClick="handleClick"
         />
+        <br />
+        <br />
+        <br />
         <ButtonOps :items="[
             {label: '222'},
             {label: '33'},
+            '|',
             {label: '44'},
             {label: '55'},
             {label: '66'},
-            {label: '77'},
+            {label: '77', onClick: handleClick},
             '|'
         ]" />
     </div>

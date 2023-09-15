@@ -3,12 +3,29 @@ import type {
 } from 'vue';
 
 import {
+    SPACE,
     MAX_VISIBLE
 } from '../../const';
 import IRcButtonProps from './button';
+import IRcConfirmProps from './confirm';
+import IRcTooltipProps from './tooltip';
+import {
+    IRcOnClickProps
+} from './common';
 import type {
     IButtonType
 } from '../types';
+
+export const IButtonProps = {
+    ...IRcButtonProps,
+    ...IRcConfirmProps,
+    ...IRcTooltipProps,
+    ...IRcOnClickProps,
+    /**
+     * 按钮禁止时上方的提示
+     */
+    disabledTip: IRcTooltipProps.tooltip
+};
 
 export const IButtonOpsProps = {
     /**
@@ -19,6 +36,13 @@ export const IButtonOpsProps = {
     type: IRcButtonProps.type,
     size: IRcButtonProps.size,
     disabled: IRcButtonProps.disabled,
+    /**
+     * 按钮间距
+     */
+    space: {
+        type: Number,
+        default: SPACE
+    },
     /**
      * 最多可见个数，其余的收起
      */

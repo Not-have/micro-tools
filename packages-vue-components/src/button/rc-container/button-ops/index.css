@@ -1,0 +1,10 @@
+.button-ops {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.separation-line {
+    height: 100%;
+    display: inline-block;
+}

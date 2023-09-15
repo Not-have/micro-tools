@@ -8,5 +8,6 @@ export {
 
 // 作为组件外部使用的参数
 export {
+    IButtonProps,
     IButtonOpsProps
 } from './props';

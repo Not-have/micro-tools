@@ -1,7 +1,11 @@
 import {
+    unref,
     defineComponent
 } from 'vue';
-
+import './index.css';
+import {
+    isEmpty as _isEmpty
+} from 'lodash-es';
 import type {
     IButtonOpsType
 } from '../../types';
@@ -11,22 +15,41 @@ import {
 import {
     parseButtonOps
 } from '../../utils';
+import Button from '../button';
+import {
+    DropdownMenu
+} from '../../rc';
 
 export default defineComponent({
     props: IButtonOpsProps,
-    setup(props): () => JSX.Element {
-        // TODO 对 ts 的类型支持不是很友好
+    setup({
+        extra,
+        space,
+        ...props
+    }): () => JSX.Element {
         const [buttonItems, dropdownItems] = parseButtonOps(props as unknown as IButtonOpsType);
-        console.log(buttonItems, dropdownItems);
+        const buttonDropdownItems = dropdownItems.map(v => {
+            return <Button {...unref(v)} />;
+        });
         return (): JSX.Element => {
-            return <>
+            return <div class="button-ops">
                 {
-                    buttonItems.map((item) => {
-                        console.log(item);
-                        return <></>;
+                    buttonItems.map((v) => {
+                        if (v === '|') {
+                            return <span class={'separation-line'} style={`margin:${space}px`}>|</span>;
+                        }
+                        return <Button {...unref(v)} />;
                     })
                 }
-            </>;
+                {extra}
+                {
+                    _isEmpty(dropdownItems) ? <>11</> : <DropdownMenu {...{
+                        extra,
+                        items: buttonDropdownItems
+                    }} />
+                }
+
+            </div>;
         };
     }
 });
