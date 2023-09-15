@@ -1,3 +1,8 @@
+/**
+ * CSS 自定义属性
+ * https://developer.mozilla.org/zh-CN/docs/Web/CSS/Using_CSS_custom_properties
+ */
 :root {
     --line-color: #dcdfe6;
+    --test-size: 14px;
 }
