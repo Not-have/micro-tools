@@ -26,7 +26,6 @@ export default defineComponent({
         children
     }): () => VNode {
         return (): VNode => {
-
             return <ElTooltip content={tooltip}
                               placement="top"
                               effect={Effect.LIGHT}>

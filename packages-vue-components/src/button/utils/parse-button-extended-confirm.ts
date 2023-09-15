@@ -14,6 +14,7 @@ import type {
 export default function parseButtonExtendedConfirm(confirm: IConfirmProps, onClick?: Function): IConfirmExtendedProps {
     if (_isString(confirm)) {
         return {
+            title: '',
             content: confirm,
             ok: OK,
             cancel: CANCEL,
@@ -22,6 +23,7 @@ export default function parseButtonExtendedConfirm(confirm: IConfirmProps, onCli
     }
 
     return {
+        title: confirm?.title || '',
         content: confirm?.content || '',
         ok: confirm?.ok || OK,
         cancel: confirm?.cancel || CANCEL,

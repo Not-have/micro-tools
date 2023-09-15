@@ -10,10 +10,13 @@ export interface IDialogProps {
     content: string;
     ok?: string;
     cancel?: string;
+    /**
+     * 为 true 时，弹出 Dialog 对话框
+     */
     byDialog?: boolean;
 }
 
-export interface IDialogExtendedProps extends Required<IDialogProps> {
+export interface IDialogExtendedProps extends IDialogProps {
     onClick?: Function
 }
 

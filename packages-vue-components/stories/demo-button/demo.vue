@@ -1,9 +1,7 @@
 <template>
     <div class="demo">
         <Button label="按钮"
-                tooltip="111"
-                :disabled="false"
-                disabled-tip="222"
+                :onClick="handleClick"
         />
         <!--        <ButtonOps :items="[-->
         <!--            {label: '222'},-->
@@ -21,6 +19,9 @@ import {
     Button
     // ButtonOps
 } from '../../src';
+const handleClick = () => {
+    console.log(22);
+};
 
 </script>
 <style scoped>

@@ -17,18 +17,25 @@ import {
     Tooltip
 } from '../../rc';
 import {
+    IRcOnClickProps
+} from '../../props';
+import {
     useContext
 } from '../../hook';
 
 export default defineComponent({
-    setup(): () => VNode {
-        const context = useContext();
+    props: IRcOnClickProps,
+    setup(props): () => VNode {
+        const context = useContext('button_props');
         const disabled = context.disabled;
         const icon = disabled && !_isUndefined(context.disabledTip);
+
+        console.log(props);
 
         return (): VNode => {
             const children = <Button {...unref({
                 ...context,
+                onClick: props?.onClick,
                 icon: icon ? QuestionFilled : undefined
             })} />;
 

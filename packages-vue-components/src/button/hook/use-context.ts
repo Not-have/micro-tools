@@ -5,6 +5,6 @@ import type {
   IButtonType
 } from '../types';
 
-export default function useContext(): IButtonType{
-  return inject('button_props')!;
+export default function useContext(key: string): IButtonType{
+  return inject(key)!;
 }

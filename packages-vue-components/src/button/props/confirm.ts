@@ -8,14 +8,15 @@ import type {
 } from './dialog';
 
 interface IConfirmProps extends IDialogProps {}
-interface IConfirmExtendedProps extends Omit<IDialogExtendedProps, 'title'>{}
+interface IConfirmExtendedProps extends IDialogExtendedProps{}
 
 const IRcConfirmProps = {
     /**
      * 文字提示 的配置
      */
     confirm: {
-        type: String as PropType<String | IDialogExtendedProps>
+        type: String as PropType<String | IConfirmExtendedProps>,
+        required: false
     }
 };
 
