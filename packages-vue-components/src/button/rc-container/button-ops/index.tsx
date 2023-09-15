@@ -39,7 +39,7 @@ export default defineComponent({
                 {
                     buttonItems.map((v) => {
                         if (v === LINE) {
-                            return <span class={'separation-line'} style={`margin:${space}px`}>{LINE}</span>;
+                            return <span class='separation-line' style={`margin:${space}px`}>{LINE}</span>;
                         }
                         return <Button {...unref(v)} />;
                     })

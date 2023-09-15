@@ -25,7 +25,8 @@
   "dependencies": {
     "@element-plus/icons-vue": "^2.1.0",
     "element-plus": "^2.3.12",
-    "lodash-es": "^4.17.21"
+    "lodash-es": "^4.17.21",
+    "micro-style": "workspace:^"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "7.4.0",

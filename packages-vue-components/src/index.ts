@@ -5,4 +5,5 @@
  * ╰━━━━━━━━━━━━━━━╯
  * 类型维护两份！！！
  */
+import 'micro-style/root.css';
 export * from './button';
