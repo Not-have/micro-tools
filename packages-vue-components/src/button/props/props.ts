@@ -15,6 +15,9 @@ import {
 import type {
     IButtonType
 } from '../types';
+import {
+    LINE
+} from '../../const';
 
 export const IButtonProps = {
     ...IRcButtonProps,
@@ -32,7 +35,7 @@ export const IButtonOpsProps = {
      * 这块必须使用 type 类型，不能继承 IButtonProps
      * '|' 是可传入的，根据你传入的位置，作为分隔符
      */
-    items: Array as PropType<(IButtonType | '|')[]>,
+    items: Array as PropType<(IButtonType | typeof LINE)[]>,
     type: IRcButtonProps.type,
     size: IRcButtonProps.size,
     disabled: IRcButtonProps.disabled,

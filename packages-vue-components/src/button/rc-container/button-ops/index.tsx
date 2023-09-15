@@ -10,6 +10,9 @@ import type {
     IButtonOpsType
 } from '../../types';
 import {
+    LINE
+} from '../../../const';
+import {
     IButtonOpsProps
 } from '../../props';
 import {
@@ -35,15 +38,15 @@ export default defineComponent({
             return <div class="button-ops">
                 {
                     buttonItems.map((v) => {
-                        if (v === '|') {
-                            return <span class={'separation-line'} style={`margin:${space}px`}>|</span>;
+                        if (v === LINE) {
+                            return <span class={'separation-line'} style={`margin:${space}px`}>{LINE}</span>;
                         }
                         return <Button {...unref(v)} />;
                     })
                 }
                 {extra}
                 {
-                    _isEmpty(dropdownItems) ? <>11</> : <DropdownMenu {...{
+                    _isEmpty(dropdownItems) ? undefined : <DropdownMenu {...{
                         extra,
                         items: buttonDropdownItems
                     }} />

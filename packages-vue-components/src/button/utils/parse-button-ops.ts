@@ -1,12 +1,15 @@
 import {
     compact as _compact
 } from 'lodash-es';
+import {
+    LINE
+} from '../../const';
 import type {
     IButtonType,
     IButtonOpsType
 } from '../types';
 
-type ButtonOpsResult = [(IButtonType | '|')[], (IButtonType)[]];
+type ButtonOpsResult = [(IButtonType | typeof LINE)[], (IButtonType)[]];
 
 export default function parseButtonOps(props: IButtonOpsType): ButtonOpsResult {
     const {
@@ -18,7 +21,7 @@ export default function parseButtonOps(props: IButtonOpsType): ButtonOpsResult {
     } = props;
 
     const parseItems = items.map(item => {
-        if(item === '|'){
+        if(item === LINE){
             return item;
         }
 
@@ -32,7 +35,7 @@ export default function parseButtonOps(props: IButtonOpsType): ButtonOpsResult {
 
     const buttonItems = parseItems.slice(0, maxVisible);
     const dropdownItems = parseItems.slice(maxVisible).map(v => {
-        if(v !== '|'){
+        if(v !== LINE){
             return v;
         }
     });

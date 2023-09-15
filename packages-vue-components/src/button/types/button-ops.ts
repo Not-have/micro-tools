@@ -1,9 +1,12 @@
 import type {
     IButtonType
 } from './button';
+import {
+    LINE
+} from '../../const';
 
 export interface IButtonOpsType {
-    items: (IButtonType | '|')[];
+    items: (IButtonType | typeof LINE)[];
     type: IButtonType['type'];
     size: IButtonType['size'];
     disabled: IButtonType['disabled'];

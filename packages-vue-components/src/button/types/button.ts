@@ -1,7 +1,6 @@
 import type {
     IDialogProps
-
-} from '../props';
+} from '../types';
 
 export type IButtonType = {
     /**
