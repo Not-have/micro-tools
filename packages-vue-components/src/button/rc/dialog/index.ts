@@ -7,10 +7,10 @@ import {
 import './index.css';
 
 import type {
-    IRcDialogProps
-} from '../../props';
+    IDialogExtendedProps
+} from '../../types';
 
-export default function dialog (props: IRcDialogProps): () => void {
+export default function dialog (props: IDialogExtendedProps): () => void {
     return function () {
          ElMessageBox.confirm(
             props.content,

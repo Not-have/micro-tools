@@ -3,21 +3,21 @@
         <Button label="按钮"
                 :onClick="handleClick"
         />
-        <!--        <ButtonOps :items="[-->
-        <!--            {label: '222'},-->
-        <!--            {label: '33'},-->
-        <!--            {label: '44'},-->
-        <!--            {label: '55'},-->
-        <!--            {label: '66'},-->
-        <!--            {label: '77'},-->
-        <!--            '|'-->
-        <!--        ]" />-->
+        <ButtonOps :items="[
+            {label: '222'},
+            {label: '33'},
+            {label: '44'},
+            {label: '55'},
+            {label: '66'},
+            {label: '77'},
+            '|'
+        ]" />
     </div>
 </template>
 <script lang="ts" setup>
 import {
-    Button
-    // ButtonOps
+    Button,
+    ButtonOps
 } from '../../src';
 const handleClick = () => {
     console.log(22);

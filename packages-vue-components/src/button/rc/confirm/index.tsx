@@ -12,14 +12,13 @@ import {
 import './index.css';
 
 import type {
-    IConfirmExtendedProps
-} from '../../props';
+    IDialogProps
+} from '../../types';
 import {
     IRcChildrenProps,
     IRcOnClickProps,
     IRcConfirmProps
 } from '../../props';
-
 import {
     parseButtonExtendedConfirm
 } from '../../utils';
@@ -39,7 +38,7 @@ export default defineComponent({
             content,
             ok,
             cancel
-        } = parseButtonExtendedConfirm(confirm as IConfirmExtendedProps, onClick);
+        } = parseButtonExtendedConfirm(confirm as IDialogProps, onClick);
 
         return (): VNode => {
             return <ElPopconfirm title={content}

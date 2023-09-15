@@ -7,11 +7,11 @@ import {
 } from '../../intl';
 
 import type {
-    IConfirmProps,
-    IConfirmExtendedProps
-} from '../props';
+    IDialogProps,
+    IDialogExtendedProps
+} from '../types';
 
-export default function parseButtonExtendedConfirm(confirm: IConfirmProps, onClick?: Function): IConfirmExtendedProps {
+export default function parseButtonExtendedConfirm(confirm: IDialogProps, onClick?: Function): IDialogExtendedProps {
     if (_isString(confirm)) {
         return {
             title: '',

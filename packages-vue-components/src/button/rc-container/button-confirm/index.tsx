@@ -7,8 +7,8 @@ import {
     useContext
 } from '../../hook';
 import type {
-    IConfirmProps
-} from '../../props';
+    IDialogProps
+} from '../../types';
 import {
     parseButtonExtendedConfirm
 } from '../../utils';
@@ -28,7 +28,7 @@ export default defineComponent({
             onClick,
             ...props
         } = useContext('button_props');
-        const parseConfirm = parseButtonExtendedConfirm(confirm as IConfirmProps, onClick);
+        const parseConfirm = parseButtonExtendedConfirm(confirm as IDialogProps, onClick);
 
         return () => {
             if (parseConfirm.byDialog) {

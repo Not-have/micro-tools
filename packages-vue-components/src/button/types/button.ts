@@ -33,7 +33,7 @@ export type IButtonType = {
     /**
      * 弹出框 和 文字提示 的配置
      */
-    confirm: IDialogProps | string;
+    confirm?: IDialogProps | string;
     /**
      * 点击事件
      */

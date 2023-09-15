@@ -4,3 +4,7 @@ export type {
 export type {
     IButtonOpsType
 } from './button-ops';
+export type {
+    IDialogProps,
+    IDialogExtendedProps
+} from './dialog';

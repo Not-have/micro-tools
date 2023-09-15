@@ -19,5 +19,3 @@ export interface IDialogProps {
 export interface IDialogExtendedProps extends IDialogProps {
     onClick?: Function
 }
-
-export default interface IRcDialogProps extends IDialogExtendedProps {}

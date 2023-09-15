@@ -6,29 +6,16 @@ import {
     MAX_VISIBLE
 } from '../../const';
 import IRcButtonProps from './button';
-import IRcConfirmProps from './confirm';
-import IRcTooltipProps from './tooltip';
-import {
-    IRcOnClickProps
-} from './common';
-
-
-export const IButtonProps = {
-    ...IRcButtonProps,
-    ...IRcConfirmProps,
-    ...IRcTooltipProps,
-    ...IRcOnClickProps,
-    /**
-     * 按钮禁止时上方的提示
-     */
-    disabledTip: IRcTooltipProps.tooltip
-};
+import type {
+    IButtonType
+} from '../types';
 
 export const IButtonOpsProps = {
     /**
+     * 这块必须使用 type 类型，不能继承 IButtonProps
      * '|' 是可传入的，根据你传入的位置，作为分隔符
      */
-    items: Array as PropType<(typeof IButtonProps | '|')[]>,
+    items: Array as PropType<(IButtonType | '|')[]>,
     type: IRcButtonProps.type,
     size: IRcButtonProps.size,
     disabled: IRcButtonProps.disabled,

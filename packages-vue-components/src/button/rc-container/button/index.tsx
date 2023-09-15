@@ -27,11 +27,11 @@ export default defineComponent({
         createContext('button_props', props);
         // 具体的组件展示处理
         return (): VNode => {
-            if(!_isUndefined(props.confirm)){
-                return <ButtonConfirm />;
+            if (!_isUndefined(props.confirm)) {
+                return <ButtonConfirm/>;
             }
             if (props.disabledTip || props.tooltip) {
-                return <ButtonTooltip />;
+                return <ButtonTooltip/>;
             }
 
             return <Button {...unref(props)} />;
