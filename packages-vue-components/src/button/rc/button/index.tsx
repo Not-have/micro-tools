@@ -24,10 +24,18 @@ export default defineComponent({
         ...IRcOnClickProps
     },
     setup(props): () => VNode {
-        const handleClick = () => {
+        // TODO 事件源类型
+        const handleClick = (evn: any) => {
             if(!_isUndefined(props.onClick)) {
                 props.onClick();
             }
+
+            let target = evn.target as HTMLElement;
+
+            if(target?.nodeName === 'SPAN'){
+                target = evn.target?.parentNode;
+            }
+            target?.blur();
         };
 
         return (): VNode => {

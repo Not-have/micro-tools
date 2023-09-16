@@ -1,5 +1,5 @@
 <template>
-    <el-dropdown trigger="click">
+    <el-dropdown>
         <el-icon :class="[slot ? '' : 'icon-transform', 'icon-space']"
                  :style="`--icon-margin: ${props.space}px`">
             <slot name="dropdown">
