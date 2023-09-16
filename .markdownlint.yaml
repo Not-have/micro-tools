@@ -19,5 +19,9 @@ MD013:
 MD024:
   allow_different_nesting: true
 
+MD033:
+  allowed_elements: ['abbr']
 # 检查是否在文件末尾有一个空行
 MD047: false
+
+MD051: false
