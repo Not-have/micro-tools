@@ -1,0 +1,29 @@
+{
+  "version": "independent",
+  "npmClient": "pnpm",
+  "packages": [
+    "packages-vue-components",
+    "packages-style",
+    "packages-eslint-conf",
+    "packages-stylelint-conf"
+  ],
+  "command": {
+    "bootstrap": {
+      "npmClientArgs": [
+        "--no-package-lock"
+      ]
+    },
+    "publish": {
+      "conventionalCommits": false,
+      "message": "[skip ci] chore: release",
+      "ignoreChanges": [
+        "*.md",
+        ".storybook",
+        "stories",
+        ".npmignore",
+        "**/node_modules/**"
+      ],
+      "registry": "https://registry.npmjs.org/"
+    }
+  }
+}
