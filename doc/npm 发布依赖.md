@@ -3,11 +3,11 @@
 ## 1、发布
 
 ```bash
-npm publish
+pnpm publish
 ```
 
 ## 2、删除
 
 ```bash
-npm unpublish 包名 --force
+pnpm unpublish 包名 --force
 ```
