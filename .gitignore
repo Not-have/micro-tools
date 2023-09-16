@@ -5,3 +5,5 @@
 v3
 .pnpm-store
 pnpm-lock.yaml
+lerna-debug.log
+/packages-vue-components/README.md
