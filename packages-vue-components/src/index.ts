@@ -5,5 +5,9 @@
  * ╰━━━━━━━━━━━━━━━╯
  * 类型维护两份！！！
  */
+import 'element-plus/dist/index.css';
 import 'micro-style/root.css';
+import './style';
+
 export * from './button';
+export { default as Input } from './input';

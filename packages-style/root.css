@@ -5,4 +5,5 @@
 :root {
     --line-color: #dcdfe6;
     --text-font-size: 14px;
+    --base-border-radius: 0;
 }

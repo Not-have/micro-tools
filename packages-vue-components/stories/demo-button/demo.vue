@@ -1,6 +1,7 @@
 <template>
     <div class="demo">
         <Button label="按钮"
+                type="danger"
                 :onClick="handleClick"
         />
         <br />
@@ -16,12 +17,14 @@
             {label: '77', onClick: handleClick},
             '|'
         ]" />
+        <Input />
     </div>
 </template>
 <script lang="ts" setup>
 import {
     Button,
-    ButtonOps
+    ButtonOps,
+    Input
 } from '../../src';
 const handleClick = () => {
     console.log(22);

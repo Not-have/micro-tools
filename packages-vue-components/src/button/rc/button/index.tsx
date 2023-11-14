@@ -11,7 +11,6 @@ import {
 import {
     ElButton
 } from 'element-plus';
-import './index.css';
 
 import {
     IRcButtonProps,
@@ -24,30 +23,21 @@ export default defineComponent({
         ...IRcOnClickProps
     },
     setup(props): () => VNode {
-        // TODO 事件源类型
-        const handleClick = (evn: any) => {
+        const handleClick = (evn: MouseEvent) => {
             if(!_isUndefined(props.onClick)) {
-                props.onClick();
+                props.onClick(evn);
             }
-
-            let target = evn.target as HTMLElement;
-
-            if(target?.nodeName === 'SPAN'){
-                target = evn.target?.parentNode;
-            }
-            target?.blur();
         };
 
-        return (): VNode => {
-            return <ElButton icon={props.icon}
-                             type={props.type}
-                             size={props.size}
-                             loading={props.loading}
-                             disabled={props.loading || props.disabled}
-                             onClick={handleClick}
-            >
-                {props.label}
-            </ElButton>;
-        };
+        return (): VNode => <ElButton 
+                                icon={props.icon}
+                                type={props.type}
+                                size={props.size}
+                                loading={props.loading}
+                                disabled={props.loading || props.disabled}
+                                onClick={handleClick}
+                            >
+            {props.label}
+        </ElButton>;
     }
 });
