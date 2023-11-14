@@ -4,10 +4,11 @@
 check_branch() {
   branch="$(git rev-parse --abbrev-ref HEAD)"
   
-  if [ "$branch" = "master" ] || [ "$branch" = "main" ]; then
-    echo "Do NOT commit on \"$branch\""
-    exit 1
-  fi
+  if [ "$branch" = "master" ] || [ "$branch" = "main" ]; 
+    then
+      echo "❌ Do NOT commit on \"$branch\""
+      exit 1
+    fi
 }
 
 check_branch
