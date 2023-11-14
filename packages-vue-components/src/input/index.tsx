@@ -8,6 +8,8 @@ import {
 } from 'vue';
 
 import {
+  inputEmits, 
+  inputProps,
   ElInput
 } from 'element-plus';
 
@@ -15,9 +17,14 @@ import {
  * 直接在组件里面进行了防抖，优化触发效果
  */
 export default defineComponent({
-    props: {},
-    setup(): () => VNode {
+    // @ts-ignore
+    props: {
+        ...inputProps,
+        ...inputEmits
+    },
+    setup(props): () => VNode {
+        console.log(props);
         const input:Ref<string> = ref('');
-        return (): VNode => <ElInput v-model={input.value}></ElInput>;
+        return (): VNode => <ElInput v-model={input.value} type={props.type}></ElInput>;
     }
 });

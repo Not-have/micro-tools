@@ -17,7 +17,7 @@
             {label: '77', onClick: handleClick},
             '|'
         ]" />
-        <Input />
+        <Input type="textarea" />
     </div>
 </template>
 <script lang="ts" setup>
@@ -28,6 +28,10 @@ import {
 } from '../../src';
 const handleClick = () => {
     console.log(22);
+};
+const fun = () => {
+    console.log(11);
+    
 };
 
 </script>
