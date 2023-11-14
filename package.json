@@ -12,7 +12,8 @@
     "clear:store": "npx rimraf .pnpm-store",
     "lint:style": "stylelint ./packages-**/**/*.{tsx,css,vue}",
     "lint:md": "markdownlint-cli2 ./packages-**/**/*.md",
-    "lint": "eslint \"./packages-vue-components/src/\" --ext js,ts,tsx --fix"
+    "lint": "eslint \"./packages-vue-components/src/\" --ext js,ts,tsx --fix",
+    "prepare": "husky install"
   },
   "lint-staged": {
     "*.{js,ts,vue,tsx,jsx}": "eslint",
@@ -51,6 +52,7 @@
     "markdownlint-cli2": "^0.9.2",
     "micro-eslint-conf": "workspace:^",
     "micro-stylelint-conf": "workspace:^",
+    "npm-package-json-lint": "^7.1.0",
     "only-allow": "^1.1.1",
     "rimraf": "^5.0.1",
     "stylelint": "^15.10.3",
