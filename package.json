@@ -41,6 +41,7 @@
   "devDependencies": {
     "@commitlint/cli": "^17.7.1",
     "@commitlint/config-conventional": "^17.7.0",
+    "@types/node": "^18.17.5",
     "commitlint": "^17.7.1",
     "depcheck": "^1.4.5",
     "eslint": "^8.47.0",
