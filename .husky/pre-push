@@ -4,11 +4,13 @@
 # 仅允许 psuh 合法命名分支
 check_branch() {
   branch="$(git rev-parse --abbrev-ref HEAD)" # TODO 需要感知 origin 才行
-  
-  if [[ ! "$branch" =~ ^(feature|fix|chore|docs|test|perf|refactor)/[0-9]+\.[0-9]+\.[0-9]+(-[a-z0-9\-]+)?$ ]]; then
-    echo "Branch name \"$branch\" is not allowed to push
 
-Valid branch name examples:
+  # [[ "$branch" != "develop" ]] 是我自己的分支，其余的分支提交，都要遵循规范
+  if [[ "$branch" != "develop" ]] && [[ ! "$branch" =~ ^(feature|fix|chore|docs|test|perf|refactor)/[0-9]+\.[0-9]+\.[0-9]+(-[a-z0-9\-]+)?$ ]]; 
+    then
+      echo "Branch name \"$branch\" is not allowed to push
+
+有效的分支名称示例：
 
   - feature/1.1.0-some-new-stuff
   - fix/1.0.1-fix-bug-xxx
@@ -20,7 +22,7 @@ Valid branch name examples:
 
 How to Fix
 
-  1. git branch -m <good_branch_name>
+  1. git branch -m <正确的分支名>
   2. git push -u origin <good_branch_name>"
     
     exit 1
