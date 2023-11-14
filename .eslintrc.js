@@ -1,3 +1,3 @@
 module.exports = {
-    extends: ['micro-eslint-conf/vue'].map(require.resolve)
+    extends: ['micro-eslint-conf/vue'].map(path => require.resolve(path))
 };
