@@ -1,0 +1,30 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# 仅允许 psuh 合法命名分支
+check_branch() {
+  branch="$(git rev-parse --abbrev-ref HEAD)" # TODO 需要感知 origin 才行
+  
+  if [[ ! "$branch" =~ ^(feature|fix|chore|docs|test|perf|refactor)/[0-9]+\.[0-9]+\.[0-9]+(-[a-z0-9\-]+)?$ ]]; then
+    echo "Branch name \"$branch\" is not allowed to push
+
+Valid branch name examples:
+
+  - feature/1.1.0-some-new-stuff
+  - fix/1.0.1-fix-bug-xxx
+  - chore/1.2.0-setup-dev-stuff
+  - docs/1.0.2-update-readme
+  - test/1.0.3-unit-test-for-xx
+  - perf/1.3.0-improve-performance
+  - refactor/2.0.0-refactor-xx
+
+How to Fix
+
+  1. git branch -m <good_branch_name>
+  2. git push -u origin <good_branch_name>"
+    
+    exit 1
+  fi
+}
+
+check_branch
