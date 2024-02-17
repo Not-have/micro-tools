@@ -1,15 +1,15 @@
-const propertiesOrder = require("./properties-order");
+const properties = require('./properties-order');
 
 module.exports = {
-    "plugins": [
-        "stylelint-order" // css属性的先后顺序
+    'plugins': [
+        'stylelint-order' // css属性的先后顺序
     ],
-    "extends": [
-        "./common",
-        "stylelint-config-recommended-vue"
+    'extends': [
+        './common',
+        'stylelint-config-recommended-vue'
     ],
-    "rules": {
+    'rules': {
         // css 排序
-        'order/properties-order': propertiesOrder
+        'order/properties-order': properties
     }
-}
+};
