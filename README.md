@@ -1,12 +1,21 @@
 # tiny-tools
 
-## 1、运行
+## 1、安装依赖
 
 ```bash
 pnpm install
 ```
 
-## 目录
+## 2、运行
+
+```bash
+# 目前是到 package-xxx 子包中去查看的
+npm run start
+# 例如 packages-vue-components（ios 下使用：cd ./packages-vue-components && pnpm run start）
+cd .\packages-vue-components ; pnpm run start 
+```
+
+## 3、目录
 
 ```目录
 tiny-tools
