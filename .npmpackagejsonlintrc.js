@@ -63,7 +63,7 @@ module.exports = {
             'peerDependencies',
             'peerDependenciesMeta',
             'devDependencies',
-            'dependencies',
+            // 'dependencies',
             'bundleDependencies',
             'optionalDependencies',
             'overrides',

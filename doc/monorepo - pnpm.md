@@ -48,7 +48,7 @@ packages:
   ]
 ```
 
-## 三、常用指令
+## 三、安装依赖
 
 ### 1、给指定的子包中安装依赖
 
@@ -60,4 +60,10 @@ pnpm add 包名（npm 仓库上） --filter Xxx(package下的 package.json 的 n
 
 ```bash
 pnpm add lerna -D -w
+```
+
+## 四、新建一个 package-xxx
+
+```bash
+pnpm init
 ```

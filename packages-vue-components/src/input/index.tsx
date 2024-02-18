@@ -1,16 +1,16 @@
 import type {
-  Ref,
-  VNode
+    Ref,
+    VNode
 } from 'vue';
 import {
-  defineComponent,
-  ref
+    defineComponent,
+    ref
 } from 'vue';
 
 import {
-  inputEmits, 
-  inputProps,
-  ElInput
+    inputEmits,
+    inputProps,
+    ElInput
 } from 'element-plus';
 
 /**
@@ -22,9 +22,9 @@ export default defineComponent({
         ...inputProps,
         ...inputEmits
     },
-    setup(props): () => VNode {
-        console.log(props);
-        const input:Ref<string> = ref('');
-        return (): VNode => <ElInput v-model={input.value} type={props.type}></ElInput>;
+    setup(props: any): () => VNode {
+        const input: Ref<string> = ref('');
+
+        return (): VNode => <ElInput v-model={input.value} type={props.type} {...props}></ElInput>;
     }
 });

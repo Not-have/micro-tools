@@ -1,0 +1,28 @@
+{
+  "name": "micro-utils",
+  "version": "1.0.0",
+  "description": "一个常用的工具库.",
+  "keywords": [
+    "micro",
+    "utils",
+    "micro-utils"
+  ],
+  "license": "ISC",
+  "main": "dist",
+  "author": "Li Yong",
+  "homepage": "https://github.com/Not-have/micro-tools/tree/main/packages-vue-utils",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-utils"
+  },
+  "bugs": {
+    "url": "https://github.com/Not-have/micro-tools/issues"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "tsc --init"
+  },
+  "dependencies": {
+    "typescript": "^5.3.3"
+  }
+}

@@ -1,65 +1,65 @@
 # tiny-tools
 
-## 1¡¢°²×°ÒÀÀµ
+## 1ã€å®‰è£…ä¾èµ–
 
 ```bash
 pnpm install
 ```
 
-## 2¡¢ÔËĞĞ
+## 2ã€è¿è¡Œ
 
 ```bash
-# Ä¿Ç°ÊÇµ½ package-xxx ×Ó°üÖĞÈ¥²é¿´µÄ
+# ç›®å‰æ˜¯åˆ° package-xxx å­åŒ…ä¸­å»æŸ¥çœ‹çš„
 npm run start
-# ÀıÈç packages-vue-components£¨ios ÏÂÊ¹ÓÃ£ºcd ./packages-vue-components && pnpm run start£©
+# ä¾‹å¦‚ packages-vue-componentsï¼ˆios ä¸‹ä½¿ç”¨ï¼šcd ./packages-vue-components && pnpm run startï¼‰
 cd .\packages-vue-components ; pnpm run start 
 ```
 
-## 3¡¢Ä¿Â¼
+## 3ã€ç›®å½•
 
-```Ä¿Â¼
+```ç›®å½•
 tiny-tools
-©¦
-©À©¤.husky
-©¦          
-©À©¤.idea
-©¦ 
-©À©¤doc
-©¦      monorepo - pnpm.md
-©¦      npm ·¢²¼ÒÀÀµ.md
-©¦      Storybook.md
-©¦      °ü¹ÜÀí¹¤¾ß.md
-©¦      ³£ÓÃÖ¸Áî¼ÇÂ¼.md
-©¦      Ä¿Â¼ËµÃ÷.md
-©¦ 
-©À©¤packages-eslint-conf
-©¦      
-©À©¤packages-style
-©¦      
-©À©¤packages-stylelint-conf
-©¦      
-©À©¤packages-utils
-©¦ 
-©À©¤packages-vue-components
-©¦       
-©¦©¤scripts
-©¦  .commitlintrc.js
-©¦  .depcheckrc.yml
-©¦  .eslintignore
-©¦  .eslintrc.js
-©¦  .gitignore
-©¦  .markdownlint.yaml
-©¦  .npmpackagejsonlintrc.js
-©¦  .npmrc
-©¦  .pnpmfile.cjs
-©¦  .stylelintignore
-©¦  .stylelintrc
-©¦  directoryList.md
-©¦  lerna-debug.log
-©¦  lerna.json
-©¦  package.json
-©¦  pnpm-workspace.yaml
-©¦  project-structure.md
-©¦  README.md
-©¸©¤ tsconfig.json
+â”‚
+â”œâ”€.husky
+â”‚          
+â”œâ”€.idea
+â”‚ 
+â”œâ”€doc
+â”‚      monorepo - pnpm.md
+â”‚      npm å‘å¸ƒä¾èµ–.md
+â”‚      Storybook.md
+â”‚      åŒ…ç®¡ç†å·¥å…·.md
+â”‚      å¸¸ç”¨æŒ‡ä»¤è®°å½•.md
+â”‚      ç›®å½•è¯´æ˜.md
+â”‚ 
+â”œâ”€packages-eslint-conf
+â”‚      
+â”œâ”€packages-style
+â”‚      
+â”œâ”€packages-stylelint-conf
+â”‚      
+â”œâ”€packages-utils
+â”‚ 
+â”œâ”€packages-vue-components
+â”‚       
+â”‚â”€scripts
+â”‚  .commitlintrc.js
+â”‚  .depcheckrc.yml
+â”‚  .eslintignore
+â”‚  .eslintrc.js
+â”‚  .gitignore
+â”‚  .markdownlint.yaml
+â”‚  .npmpackagejsonlintrc.js // package.json é…ç½®è§„åˆ™
+â”‚  .npmrc
+â”‚  .pnpmfile.cjs
+â”‚  .stylelintignore
+â”‚  .stylelintrc
+â”‚  directoryList.md
+â”‚  lerna-debug.log
+â”‚  lerna.json
+â”‚  package.json
+â”‚  pnpm-workspace.yaml
+â”‚  project-structure.md
+â”‚  README.md
+â””â”€ tsconfig.json
 ```
