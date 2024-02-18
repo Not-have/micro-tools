@@ -11,3 +11,21 @@ pnpm publish
 ```bash
 pnpm unpublish 包名 --force
 ```
+
+## 3、让发布的包过期
+
+```bash
+npm deprecate
+```
+
+## 4、npm 官网
+
+```url
+https://www.npmjs.com/
+```
+
+## 5、本地登录
+
+```bash
+npm login
+```

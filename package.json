@@ -25,6 +25,11 @@
     "node": ">=16.0.0",
     "pnpm": ">8.0.0"
   },
+  "browserslist": [
+    "last 2 versions",
+    "> 1%",
+    "IE 11"
+  ],
   "devDependencies": {
     "@commitlint/cli": "^17.7.1",
     "@commitlint/config-conventional": "^17.7.0",

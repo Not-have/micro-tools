@@ -8,13 +8,14 @@ module.exports = {
         'require-author': 'error',
         'require-bugs': 'error',
         'require-repository': 'error',
-        'require-homepage': 'error',
+        // homepage 是否必须存在
+        // 'require-homepage': 'error',
         // format
         'name-format': 'error',
         'version-format': 'error',
         'description-format': ['error', {
             requireCapitalFirstLetter: true,
-            requireEndingPeriod: true
+            requireEndingPeriod: false
         }],
         // no- / prefer-
         'no-repeated-dependencies': 'error',

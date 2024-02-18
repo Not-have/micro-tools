@@ -29,10 +29,6 @@ import {
 const handleClick = () => {
     console.log(22);
 };
-const fun = () => {
-    console.log(11);
-    
-};
 
 </script>
 <style scoped>

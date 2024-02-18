@@ -1,7 +1,7 @@
 {
-  "name": "micro-utils-js",
+  "name": "micro-util-js",
   "version": "1.0.0",
-  "description": "一个常用的工具库.",
+  "description": "一个常用的工具库",
   "keywords": [
     "micro",
     "utils",
@@ -10,7 +10,6 @@
   "license": "ISC",
   "main": "dist",
   "author": "Li Yong",
-  "homepage": "https://github.com/Not-have/micro-tools/tree/main/packages-vue-utils",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-utils"
