@@ -9,6 +9,7 @@ import isFunction from '../is-function';
  * @return value
  *
  * 对所有类型都进行了拷贝
+ *
  * lodashjs、underscorejs 对函数、Symbol、Set、Map 等没做深拷贝处理
  *
  * 不建议使用：JSON.parse(JSON.stringify(value)); 它存在以下缺陷（案例见 ../stories/demo-clone-deep.html）：

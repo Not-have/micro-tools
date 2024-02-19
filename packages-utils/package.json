@@ -18,10 +18,10 @@
     "url": "https://github.com/Not-have/micro-tools/issues"
   },
   "scripts": {
-    "build": "npx rimraf dist && webpack",
+    "build": "npx rimraf dist && webpack --config webpack.config.js",
     "build:tsc": "npx rimraf dist && tsc",
     "start": "tsc --watch",
-    "publishOnly": "npm run build && npm run publish"
+    "publishOnly": "npm run build:tsc && npm publish"
   },
   "dependencies": {
     "ts-loader": "^9.5.1",

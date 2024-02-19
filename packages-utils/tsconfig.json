@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "declaration": true,           // 生成 .d.ts 类型声明文件
-    "declarationMap": true,        // 生成 .d.ts.map 映射文件
+//    "declarationMap": true,        // 生成 .d.ts.map 映射文件
     "sourceMap": true,             // 生成 .js.map 源映射文件
     "outDir": "./dist",            // 输出目录
     "rootDir": "./src",            // TypeScript 源代码目录
