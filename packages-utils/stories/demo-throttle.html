@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo-throttle</title>
+</head>
+<body>
+<input type="text">
+<button>中途取消节流</button>
+</body>
+</html>
+<script type="module">
+    import throttle from '../dist/throttle/index.js';
+
+    const inputEl = document.querySelector("input");
+    const buttonEl = document.querySelector("button");
+    let counter = 0;
+
+    const onInput = function(event) {
+        console.log("触发 inputEl.oninput" + ++counter, event);
+        console.log(event);
+        return "test";
+    };
+
+    const onInputThrottle = throttle(onInput, 3000, { trailing: true });
+
+    const tempCallback = (event) => {
+        onInputThrottle(event).then(res => {
+            console.log("Promise的返回值结果:", res)
+        })
+    }
+
+    inputEl.oninput = tempCallback;
+
+    buttonEl.onclick = function() {
+        console.log("取消了接下来的触发");
+        onInputThrottle.cancel();
+    };
+</script>

@@ -1,3 +1,14 @@
+interface IOptions {
+    /**
+     * 输入第一个字符的时候，是否触发，默认 true
+     */
+    leading?: boolean;
+    /**
+     * 输入最后一个字符的时候，是否触发，默认 false
+     */
+    trailing?: boolean;
+}
+
 /**
  * 节流
  *
@@ -11,10 +22,99 @@
  * ③ 用户频繁点击按钮操作；
  * ④ 按照固定的频率去触发时。
  *
- * @param fn
- * @param wait
- * @return void
+ * @param {Function} func 执行的方法
+ * @param {number} wait 毫秒
+ * @param {IOptions} options
+ * @returns 返回一个函数，该函数返回一个 Promise，解析为执行的方法的返回值。另外，该函数还具有一个 cancel 方法，用于取消防抖
  */
-export default function throttle(fn: Function, wait: number) {
+export default function throttle<T extends (...args: unknown[]) => unknown>(func: Function, wait: number, options: IOptions = {
+    leading: true,
+    trailing: false
+}): ((...args: Parameters<T>) => Promise<ReturnType<T>>) & {
+    cancel: () => void
+} {
+    const {leading, trailing} = options;
+    let lastTime: number = 0,
+        timer: NodeJS.Timeout | number | null = null;
 
+    /**
+     * 事件触发时真正执行的函数
+     */
+    const _throttle = function(...args: Parameters<T>): Promise<ReturnType<T>> {
+        return new Promise((resolve, reject) => {
+            try {
+                /**
+                 * 获取最新的时间
+                 * 当第一次执行完 lastTime = nowTime 时，wait - (nowTime - lastTime) 一定大于 0，这个时候是不执行的
+                 */
+                const nowTime = new Date().getTime(),
+                    remainTime = wait - (nowTime - lastTime);
+
+                if (lastTime === 0 && leading === false) {
+                    lastTime = nowTime;
+                    return;
+                }
+
+                if (remainTime <= 0) {
+                    /**
+                     * 只有在这重置了，才能开启下一个定时器
+                     */
+                    if (timer) {
+                        clearTimeout(timer);
+                        timer = null;
+                    }
+
+                    const result = func.apply(this, args);
+                    resolve(result);
+
+                    lastTime = nowTime;
+                    return;
+                }
+
+                if (trailing === true && remainTime > 0 && timer === null) {
+                    timer = setTimeout(() => {
+                        timer = null;
+                        const result = func.apply(this, args);
+
+                        /**
+                         * 处理边界性问题
+                         */
+                        lastTime = leading === true ? new Date().getTime() : 0;
+                        resolve(result);
+                    }, remainTime);
+                }
+            } catch (e) {
+                reject(e);
+            }
+        });
+    };
+
+    /**
+     * 取消节流
+     */
+    _throttle.cancel = function() {
+        if (timer) {
+            clearTimeout(timer);
+            timer = null;
+        }
+
+        lastTime = 0;
+    };
+
+    return _throttle;
 }
+
+/*
+// 简易版
+let timer = null;
+
+function throttle() {
+	if( timer !== null ){
+		return;
+	}
+	timer = setTimeout(()=>{
+        console.log("我是节流");
+		timer = null;
+	},200);
+}
+ */

@@ -25,6 +25,7 @@ export default defineComponent({
     setup(props): () => VNode {
         const handleClick = (evn: MouseEvent) => {
             if(!_isUndefined(props.onClick)) {
+                // 进行了节流的处理，防止用户多次一直点击
                 props.onClick(evn);
             }
         };
