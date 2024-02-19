@@ -7,9 +7,8 @@
     "utils",
     "micro-utils"
   ],
-  "type": "module",
   "license": "ISC",
-  "main": "dist",
+  "main": "dist/index",
   "author": "Li Yong",
   "repository": {
     "type": "git",
@@ -19,11 +18,14 @@
     "url": "https://github.com/Not-have/micro-tools/issues"
   },
   "scripts": {
-    "build": "npx rimraf dist && tsc",
+    "build": "npx rimraf dist && webpack",
+    "build:tsc": "npx rimraf dist && tsc",
     "start": "tsc --watch",
     "publishOnly": "npm run build && npm run publish"
   },
   "dependencies": {
-    "typescript": "^5.3.3"
+    "ts-loader": "^9.5.1",
+    "webpack": "^5.90.3",
+    "webpack-cli": "^5.1.4"
   }
 }

@@ -82,11 +82,14 @@ export default function cloneDeep<T extends object>(value: T | symbol, map = new
             newValue[key] = cloneDeep(value[key], map);
         }
 
+        // Symbol 作为 key 的处理（这个可以不做 Symbol(sKey.description) 处理）
         const symbolKeys = Object.getOwnPropertySymbols(value);
 
         for (const sKey of symbolKeys) {
-            // Symbol 作为 key 的处理（这个可以不做 Symbol(sKey.description) 处理）
+
             const newSKey = Symbol(sKey.description);
+
+            // @ts-ignore
             newValue[newSKey] = cloneDeep(value[sKey], map);
         }
 
