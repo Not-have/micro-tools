@@ -1,11 +1,5 @@
-function isObject(value: unknown): value is Record<string, any> {
-    const type: 'string' | 'number' | 'bigint' | 'boolean' | 'symbol' | 'undefined' | 'object' | 'function' | 'null' = typeof value;
-    return value !== null && (type === 'object' || type === 'function');
-}
-
-function isFunction(value: unknown): value is Function {
-    return typeof value === 'function';
-}
+import isObject from '../is-object';
+import isFunction from '../is-function';
 
 /**
  * 深拷贝

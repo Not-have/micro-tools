@@ -1,26 +1,7 @@
-import isObject from '../dist/is-object/index.js';
 /**
  * 使用 node 测试
  */
-// import cloneDeep from '../dist/clone-deep/index.js';
-
-export default function cloneDeep(value) {
-    const newValue = Array.isArray(value) ? [] : {};
-
-    // 判断如果是函数类型, 那么直接使用同一个函数
-    if (typeof value === 'function') {
-        return value;
-    }
-    // 判断传入的 value 是否是一个对象类型
-    if (!isObject(value)) {
-        return value;
-    }
-    for ( const key in value ) {
-        newValue[key] = cloneDeep(value[key]);
-    }
-    console.log(newValue);
-    return value;
-}
+import cloneDeep from '../dist/clone-deep/index.js';
 
 /**
  * JSON.parse(JSON.stringify(value)) 的缺陷演示
