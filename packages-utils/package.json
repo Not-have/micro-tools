@@ -1,6 +1,6 @@
 {
-  "name": "micro-util-js",
-  "version": "1.0.0",
+  "name": "micro-util-ts",
+  "version": "1.0.1",
   "description": "一个常用的工具库",
   "keywords": [
     "micro",
@@ -18,8 +18,9 @@
     "url": "https://github.com/Not-have/micro-tools/issues"
   },
   "scripts": {
-    "build": "tsc",
-    "start": "tsc --watch"
+    "build": "npx rimraf dist && tsc",
+    "start": "tsc --watch",
+    "publish": "npm run build && npm publish"
   },
   "dependencies": {
     "typescript": "^5.3.3"
