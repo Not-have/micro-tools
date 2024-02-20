@@ -9,25 +9,24 @@
         <br />
         <ButtonOps :items="[
             {label: '222'},
-            {label: '33'},
+            {label: '33', isThrottle: true},
             '|',
             {label: '44'},
             {label: '55'},
             {label: '66'},
-            {label: '77', onClick: handleClick},
+            {label: '77',onClick: handleClick},
             '|'
         ]" />
-        <Input type="textarea" />
     </div>
 </template>
 <script lang="ts" setup>
 import {
     Button,
-    ButtonOps,
-    Input
+    ButtonOps
 } from '../../src';
-const handleClick = () => {
-    console.log(22);
+
+const handleClick = (e) => {
+    console.log(e);
 };
 
 </script>

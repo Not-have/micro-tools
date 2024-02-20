@@ -3,6 +3,8 @@
 ## 1、安装依赖
 
 ```bash
+pnpm run boot
+# 或
 pnpm install
 ```
 

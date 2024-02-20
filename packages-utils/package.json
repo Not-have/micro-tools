@@ -21,7 +21,8 @@
     "build": "npx rimraf dist && webpack --config webpack.config.js",
     "build:tsc": "npx rimraf dist && tsc",
     "start": "tsc --watch",
-    "publishOnly": "npm run build:tsc && npm publish"
+    "publishOnly": "npm run build:tsc && npm publish",
+    "clear": "npx rimraf node_modules"
   },
   "dependencies": {
     "ts-loader": "^9.5.1",

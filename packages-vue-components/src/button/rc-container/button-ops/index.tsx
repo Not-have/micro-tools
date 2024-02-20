@@ -1,3 +1,4 @@
+import type { VNode } from 'vue';
 import {
     unref,
     defineComponent
@@ -6,6 +7,7 @@ import './index.css';
 import {
     isEmpty as _isEmpty
 } from 'lodash-es';
+
 import type {
     IButtonOpsType
 } from '../../types';
@@ -29,12 +31,12 @@ export default defineComponent({
         extra,
         space,
         ...props
-    }): () => JSX.Element {
+    }): () => VNode {
         const [buttonItems, dropdownItems] = parseButtonOps(props as unknown as IButtonOpsType);
         const buttonDropdownItems = dropdownItems.map(v => {
             return <Button {...unref(v)} />;
         });
-        return (): JSX.Element => {
+        return (): VNode => {
             return <div class="button-ops">
                 {
                     buttonItems.map((v) => {

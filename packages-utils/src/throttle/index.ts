@@ -27,7 +27,7 @@ interface IOptions {
  * @param {IOptions} options
  * @returns 返回一个函数，该函数返回一个 Promise，解析为执行的方法的返回值。另外，该函数还具有一个 cancel 方法，用于取消防抖
  */
-export default function throttle<T extends (...args: unknown[]) => unknown>(func: Function, wait: number, options: IOptions = {
+export default function throttle<T extends (...args: unknown[]) => unknown>(func: Function, wait: number = 300, options: IOptions = {
     leading: true,
     trailing: false
 }): ((...args: Parameters<T>) => Promise<ReturnType<T>>) & {

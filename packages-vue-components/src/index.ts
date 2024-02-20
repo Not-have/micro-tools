@@ -10,4 +10,5 @@ import 'micro-style/root.css';
 import './style';
 
 export * from './button';
+
 export { default as Input } from './input';

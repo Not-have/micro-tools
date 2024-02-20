@@ -33,6 +33,12 @@ const IRcButtonProps = {
      */
     icon: {
         type: Object
+    },
+    /**
+     * 是否进行节流处理
+     */
+    isThrottle: {
+        type: Boolean
     }
 };
 

@@ -25,60 +25,61 @@ module.exports = {
         'prefer-alphabetical-devDependencies': 'error',
         'prefer-alphabetical-optionalDependencies': 'error',
         'prefer-alphabetical-bundledDependencies': 'error',
-        'prefer-property-order': ['error', [
-            // basic info
-            'name',
-            'version',
-            'description',
-            'keywords',
-            'license',
-            // output
-            'private',
-            'sideEffects',
-            'files',
-            'exports',
-            'main',
-            'module',
-            'umd',
-            'browser',
-            'types',
-            'directories',
-            'bin',
-            'man',
-            // repo info
-            'author',
-            'authors',
-            'contributors',
-            'homepage',
-            'repository',
-            'publishConfig',
-            'bugs',
-            'funding',
-            'workspaces',
-            // env
-            'engines',
-            'os',
-            'cpu',
-            // dep
-            'packageManager',
-            'peerDependencies',
-            'peerDependenciesMeta',
-            'devDependencies',
-            // 'dependencies',
-            'bundleDependencies',
-            'optionalDependencies',
-            'overrides',
-            // config
-            'pre-commit',
-            'lint-staged',
-            'eslintConfig',
-            'stylelint',
-            'npmpackagejsonlint',
-            'babel',
-            'browserify',
-            // npm run
-            'config',
-            'scripts'
-        ]]
+        "prefer-property-order": "off"
+        // 'prefer-property-order': ['error', [
+        //     // basic info
+        //     'name',
+        //     'version',
+        //     'description',
+        //     'keywords',
+        //     'license',
+        //     // output
+        //     'private',
+        //     'sideEffects',
+        //     'files',
+        //     'exports',
+        //     'main',
+        //     'module',
+        //     'umd',
+        //     'browser',
+        //     'types',
+        //     'directories',
+        //     'bin',
+        //     'man',
+        //     // repo info
+        //     'author',
+        //     'authors',
+        //     'contributors',
+        //     'homepage',
+        //     'repository',
+        //     'publishConfig',
+        //     // 'bugs',
+        //     'funding',
+        //     'workspaces',
+        //     // env
+        //     'engines',
+        //     'os',
+        //     'cpu',
+        //     // dep
+        //     'packageManager',
+        //     'peerDependencies',
+        //     'peerDependenciesMeta',
+        //     'devDependencies',
+        //     // 'dependencies',
+        //     'bundleDependencies',
+        //     'optionalDependencies',
+        //     'overrides',
+        //     // config
+        //     'pre-commit',
+        //     'lint-staged',
+        //     'eslintConfig',
+        //     'stylelint',
+        //     'npmpackagejsonlint',
+        //     'babel',
+        //     'browserify',
+        //     // npm run
+        //     'config',
+        //     'scripts'
+        // ]]
     }
 };

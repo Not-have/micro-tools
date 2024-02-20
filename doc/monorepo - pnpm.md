@@ -53,6 +53,7 @@ packages:
 ### 1、给指定的子包中安装依赖
 
 ```bash
+# 也可以把本地的依赖安装进去
 pnpm add 包名（npm 仓库上） --filter Xxx(package下的 package.json 的 name 字段)
 ```
 
