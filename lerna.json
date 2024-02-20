@@ -2,10 +2,6 @@
   "version": "independent",
   "npmClient": "pnpm",
   "packages": [
-    "packages-vue-components",
-    "packages-style",
-    "packages-eslint-conf",
-    "packages-stylelint-conf",
     "packages-utils"
   ],
   "command": {
@@ -22,8 +18,7 @@
         ".storybook",
         "stories",
         ".npmignore",
-        "**/node_modules/**",
-        "packages-vue-components", "packages-style", "packages-eslint-conf", "packages-stylelint-conf"
+        "**/node_modules/**"
       ],
       "registry": "https://registry.npmjs.org/",
       "build": {
