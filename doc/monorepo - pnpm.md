@@ -78,18 +78,14 @@ pnpm init
 
 lerna publish
 
-# 指定发布多个
-
-lerna publish 包名-1
-
 # 强制发布所有包
 lerna publish --force-publish=*
 
 # 使用 --skip 选项来跳过指定包的发布 
-lerna publish --skip 包名
+lerna publish --ignore-changes 包名
 
 # 多个包，可以使用逗号分隔它们
-lerna publish --skip 包名-1,包名-2,包名-3
+lerna publish --ignore-changes 包名-1,包名-2,包名-3
 
 # 不修改版本号，他就会默认不发布
 ```
