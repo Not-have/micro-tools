@@ -17,14 +17,10 @@
         "*.md",
         ".storybook",
         "stories",
-        ".npmignore",
         "**/node_modules/**"
       ],
       "registry": "https://registry.npmjs.org/",
-      "prePublish": "npm run build",
-      "build": {
-        "ignore": ["packages-vue-components", "packages-style", "packages-eslint-conf", "packages-stylelint-conf"]
-      }
+      "prePublish": "npm run build"
     }
   }
 }
