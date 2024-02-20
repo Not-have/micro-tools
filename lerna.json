@@ -24,7 +24,10 @@
         ".npmignore",
         "**/node_modules/**"
       ],
-      "registry": "https://registry.npmjs.org/"
+      "registry": "https://registry.npmjs.org/",
+      "build": {
+        "ignore": ["packages-vue-components", "packages-style", "packages-eslint-conf", "packages-stylelint-conf"]
+      }
     }
   }
 }
