@@ -2,6 +2,10 @@
   "version": "independent",
   "npmClient": "pnpm",
   "packages": [
+    "packages-vue-components",
+    "packages-style",
+    "packages-eslint-conf",
+    "packages-stylelint-conf",
     "packages-utils"
   ],
   "command": {
@@ -17,10 +21,10 @@
         "*.md",
         ".storybook",
         "stories",
+        ".npmignore",
         "**/node_modules/**"
       ],
-      "registry": "https://registry.npmjs.org/",
-      "prePublish": "npm run build"
+      "registry": "https://registry.npmjs.org/"
     }
   }
 }
