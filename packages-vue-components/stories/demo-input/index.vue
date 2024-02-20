@@ -1,14 +1,21 @@
 <template>
     <div class="demo">
-        <Input type="textarea" />
+        <Input type="text"
+               v-model="str"
+               size="large"
+               :onChange="handleChange" />
     </div>
 </template>
 <script lang="ts" setup>
+import { ref } from 'vue';
 import {
     Input
 } from '../../src';
-const handleClick = () => {
-    console.log(22);
+
+const str = ref(1);
+
+const handleChange = function(value: number){
+    console.log(value);
 };
 
 </script>
