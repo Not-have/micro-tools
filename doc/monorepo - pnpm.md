@@ -68,3 +68,9 @@ pnpm add lerna -D -w
 ```bash
 pnpm init
 ```
+
+## 5、发布
+
+```bash
+lerna publish
+```
