@@ -6,4 +6,4 @@
 > |------------------------|-------|-----------|
 > | isDebounce             | 是否防抖  | boolean   |
 > | onChange               | 改变时触发 | Function  |
-> | ...                    | 其余属性同 ElInput [查看](https://element-plus.gitee.io/zh-CN/component/input.html#attributes) |
+> | ...                    | 其余属性同 ElInput [查看](https://element-plus.gitee.io/zh-CN/component/input.html#api) |
