@@ -22,7 +22,8 @@
         ".storybook",
         "stories",
         ".npmignore",
-        "**/node_modules/**"
+        "**/node_modules/**",
+        "packages-vue-components", "packages-style", "packages-eslint-conf", "packages-stylelint-conf"
       ],
       "registry": "https://registry.npmjs.org/",
       "build": {
