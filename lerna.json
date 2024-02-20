@@ -5,7 +5,8 @@
     "packages-vue-components",
     "packages-style",
     "packages-eslint-conf",
-    "packages-stylelint-conf"
+    "packages-stylelint-conf",
+    "packages-utils"
   ],
   "command": {
     "bootstrap": {
