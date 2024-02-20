@@ -74,6 +74,8 @@ pnpm init
 注：新增包，要遭 `lerna.json` ——> `packages` 添加文件名。
 
 ```bash
+# 在根目录下运行
+
 lerna publish
 
 # 强制发布所有包
