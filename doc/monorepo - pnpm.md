@@ -78,6 +78,10 @@ pnpm init
 
 lerna publish
 
+# 指定发布多个
+
+lerna publish 包名-1
+
 # 强制发布所有包
 lerna publish --force-publish=*
 
