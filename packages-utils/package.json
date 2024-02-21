@@ -22,8 +22,9 @@
     "build:tsc": "npx rimraf dist && tsc",
     "start": "tsc --watch",
     "publish:build": "npm run build:tsc && npm publish",
-    "prepublishOnly": "npm run build",
-    "clear": "npx rimraf node_modules"
+    "clear": "npx rimraf node_modules",
+    "postinstall": "tsc",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "ts-loader": "^9.5.1",

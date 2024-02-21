@@ -7,3 +7,5 @@ export { default as throttle } from './throttle';
 
 export { default as clone } from './clone';
 export { default as cloneDeep } from './clone-deep';
+
+export { default as Cookie } from './cookie';
