@@ -1,7 +1,7 @@
 {
   "name": "micro-const",
   "version": "1.0.0",
-  "description": "",
+  "description": "常量",
   "main": "dist/index.js",
   "scripts": {
     "build": "npx rimraf dist && tsc",
