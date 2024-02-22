@@ -2,3 +2,6 @@
 - 'packages-eslint-conf'
 - 'packages-stylelint-conf'
 - 'packages-style'
+- 'packages-utils'
+- 'packages-rc'
+- 'packages-const'

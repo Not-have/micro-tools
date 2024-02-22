@@ -12,6 +12,8 @@ import {
     debounce
 } from 'micro-util-ts';
 /**
+ * 输入框
+ * 
  * 新增了 isDebounce
  *
  * @deprecated onInput，直接使用 onChange

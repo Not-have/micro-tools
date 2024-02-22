@@ -8,8 +8,8 @@
 }
 
 ::v-deep(.el-icon) {
-    font-size: 16px;
     cursor: pointer;
+    font-size: 16px;
 }
 
 ::v-deep(.el-dropdown-menu__item) {
@@ -19,9 +19,6 @@
 
 ::v-deep(.el-button){
     border: 0;
-}
-
-::v-deep(.el-dropdown-menu__item .el-button){
 }
 
 ::v-deep(.el-dropdown-menu__item:last-child) {
