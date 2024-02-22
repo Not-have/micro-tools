@@ -6,7 +6,8 @@
     "packages-style",
     "packages-eslint-conf",
     "packages-stylelint-conf",
-    "packages-utils"
+    "packages-utils",
+    "packages-rc"
   ],
   "command": {
     "bootstrap": {

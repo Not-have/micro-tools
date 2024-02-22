@@ -20,7 +20,8 @@
     "packages-style",
     "packages-eslint-conf",
     "packages-stylelint-conf",
-    "packages-utils"
+    "packages-utils",
+    "packages-rc"
   ],
   "engines": {
     "node": ">=16.0.0",
