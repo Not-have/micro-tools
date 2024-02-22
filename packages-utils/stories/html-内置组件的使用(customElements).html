@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>html内置组件的使用</title>
+    <link rel="stylesheet" href="https://at.alicdn.com/t/c/font_4441135_sv7ywnv3u2a.css">
+</head>
+<body>
+<div style="margin-top: 100px;"></div>
+<!--<span class="iconfont html-icon-jiantou"></span>-->
+<popup-info>111</popup-info>
+</body>
+</html>
+<script>
+    class PopUpInfo extends HTMLElement {
+        constructor() {
+            super();
+
+            // 创建根
+            const shadow = this.attachShadow({ mode: "open" });
+
+            // 创建 img 元素
+            const span = document.createElement("span");
+            span.setAttribute("class", "iconfont html-icon-jiantou");
+
+            const textNode = document.createTextNode(this.textContent);
+            span.appendChild(textNode);
+
+            // 创建 style 元素
+            const style = document.createElement("style");
+            style.textContent = "@import url('https://at.alicdn.com/t/c/font_4441135_sv7ywnv3u2a.css');";
+
+            // 将 img 和 style 插入
+            shadow.appendChild(span);
+            shadow.appendChild(style);
+        }
+    }
+
+    customElements.define("popup-info", PopUpInfo);
+</script>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>icon 在线引用</title>
+    <style>
+        .iconfont.html-icon-jiantou {
+            display: inline-block;
+            color: red;
+            font-size: 40px;
+        }
+        .rotate{
+            display: inline-block;
+            transform:rotate(-90deg);
+            -webkit-transform:rotate(-90deg)
+        }
+    </style>
+</head>
+
+<body>
+    <script type="module">
+        import injectIconfont from '../dist/inject-icon-font/index.js'
+        import {
+            ICONFONT_URL
+        } from '../node_modules/micro-const/dist/index.js'
+
+        injectIconfont(ICONFONT_URL);
+    </script>
+    <span class="iconfont html-icon-jiantou"></span>
+    <div class="rotate">11</div>
+</body>
+
+</html>

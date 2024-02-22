@@ -40,5 +40,5 @@ export type IButtonType = {
     /**
      * 是否进行节流处理
      */
-    isThrottle?: Boolean;
+    isThrottle?: boolean;
 }

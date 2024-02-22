@@ -1,0 +1,17 @@
+.iconfont.micro-iconfont-rotate {
+    display: inline-block;
+    transform: rotate(var(--micro-icon-rotate));
+}
+
+.iconfont.micro-iconfont-continuous-rotate {
+    animation: rotate 1.5s infinite linear;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
