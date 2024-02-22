@@ -9,10 +9,7 @@ import 'element-plus/dist/index.css';
 import 'micro-style/root.css';
 import './style';
 
-export {
-    createContext,
-    useContext
-} from './hook';
+export * from './hook';
 
 export * from './button';
 

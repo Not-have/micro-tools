@@ -12,7 +12,7 @@ interface CookieOptions {
      */
     path?: string;
     /**
-     * 是否仅在使用 SSL 连接时发送 Cookie
+     * 是否仅在使用 SSL（也就是 https） 连接时发送 Cookie
      */
     secure?: boolean;
     /**
@@ -23,12 +23,20 @@ interface CookieOptions {
      * Lax: 在导航到目标站点的顶级导航时（例如通过点击链接或者通过 GET 表单提交），会发送 Cookie。在同站点的 POST 请求中，也会发送 Cookie。这是默认值，提供了一定程度的安全性，同时允许一些导航的场景。
      *
      * None: 总是发送 Cookie，无论是同站点还是跨站点请求。这通常在需要使用跨站点请求的场景下使用，但需要注意安全性问题。使用 None 的同时，还需要将 Secure 属性设置为 true，表示只有在通过 HTTPS 安全连接传输时才发送 Cookie。
+     *
+     * 注：
+     * ① 存储关键信息的 Cookie，sameSite 属性不能为 None；
+     * ② sameSite 为 None === sameSite 不传，默认是啥也不传的。
      */
     sameSite?: 'Strict' | 'Lax' | 'None';
 }
 
 /**
  * 封装 Cookie 操作的工具类
+ *
+ * 端口、协议不同，不影响 Cookie
+ *
+ *
  */
 export default class Cookie {
     /**

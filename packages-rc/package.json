@@ -1,0 +1,33 @@
+{
+  "name": "micro-rc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "npx rimraf dist && tsc",
+    "start": "tsc --watch",
+    "publish:build": "npm run build:tsc && npm publish",
+    "clear": "npx rimraf node_modules",
+    "postinstall": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "cookie",
+    "icon",
+    "rc",
+    "micro-rc"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-rc"
+  },
+  "bugs": {
+    "url": "https://github.com/Not-have/micro-tools/issues"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.3.3"
+  }
+}
