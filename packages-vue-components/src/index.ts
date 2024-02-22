@@ -9,6 +9,8 @@ import 'element-plus/dist/index.css';
 import 'micro-style/root.css';
 import './style';
 
+export * from './hook';
+
 export * from './button';
 
 export { default as Input } from './input';

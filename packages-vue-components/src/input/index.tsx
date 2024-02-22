@@ -1,30 +1,50 @@
 import type {
-    Ref,
     VNode
 } from 'vue';
 import {
-    defineComponent,
-    ref
+    defineComponent
 } from 'vue';
 
 import {
-    inputEmits,
-    inputProps,
     ElInput
 } from 'element-plus';
-
+import {
+    debounce
+} from 'micro-util-ts';
 /**
- * 直接在组件里面进行了防抖，优化触发效果
+ * 新增了 isDebounce
+ *
+ * @deprecated onInput，直接使用 onChange
  */
 export default defineComponent({
-    // @ts-ignore
     props: {
-        ...inputProps,
-        ...inputEmits
+        /**
+         * 在 Input 值改变时触发
+         */
+        onChange: {
+            type: Function
+        },
+        /**
+         * 是否开启防抖
+         */
+        isDebounce: {
+            type: Boolean,
+            default: false
+            
+        }
     },
-    setup(props: any): () => VNode {
-        const input: Ref<string> = ref('');
+    setup(props): () => VNode {
+        const handleInput = function(value: unknown){
+            if (props.isDebounce) {
+                debounce(props?.onChange as Function)(value);
+                return;
+            }
 
-        return (): VNode => <ElInput v-model={input.value} type={props.type} {...props}></ElInput>;
+            if(props.onChange) {
+                props?.onChange(value);
+            }
+        };
+
+        return (): VNode => <ElInput  v-bind="$attrs" onInput={handleInput}></ElInput>;
     }
 });

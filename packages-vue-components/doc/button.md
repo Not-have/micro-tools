@@ -9,6 +9,7 @@
 > | size        | 按钮大小                  | 'large' \| 'small' \| 'default'                              |
 > | loading     | 是否为加载中状态          | boolean                                                      |
 > | disabled    | 是否为禁止中状态          | boolean                                                      |
+> | isThrottle  | 是否节流                    | boolean                                                      |
 > | icon        | 按钮前面的 icon           | VNode \| object                                              |
 > | tooltip     | 按钮上方的提示            | string                                                       |
 > | disabledTip | 按钮禁止时上方的提示      | string                                                       |

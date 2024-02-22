@@ -38,7 +38,8 @@ const IRcButtonProps = {
      * 是否进行节流处理
      */
     isThrottle: {
-        type: Boolean
+        type: Boolean,
+        default: false
     }
 };
 

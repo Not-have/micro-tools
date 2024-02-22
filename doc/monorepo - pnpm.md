@@ -15,6 +15,7 @@ npm install -g pnpm
 ### 1、初始化
 
 ```bash
+# 新建一个 package-xxx
 pnpm init
 ```
 
@@ -63,8 +64,42 @@ pnpm add 包名（npm 仓库上） --filter Xxx(package下的 package.json 的 n
 pnpm add lerna -D -w
 ```
 
-## 四、新建一个 package-xxx
+### 3、安装依赖到 packages-Xxx
 
 ```bash
-pnpm init
+# 保存到 dependencies
+pnpm add <pkg>
+
+# 保存到 devDependencies
+pnpm add -D <pkg>
+```
+
+## 四、发布
+
+注：新增包，要遭 `lerna.json` ——> `packages` 添加文件名。
+
+```bash
+# 在根目录下运行
+
+lerna publish
+
+# 强制发布所有包
+lerna publish --force-publish=*
+
+# 使用 --skip 选项来跳过指定包的发布 
+lerna publish --ignore-changes 包名
+
+# 多个包，可以使用逗号分隔它们
+lerna publish --ignore-changes 包名-1,包名-2,包名-3
+
+# 不修改版本号，他就会默认不发布
+```
+
+## 五、安装 ts
+
+```bash
+# 保存到 devDependencies
+pnpm add -D typescript
+
+tsc --init
 ```

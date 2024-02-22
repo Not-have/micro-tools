@@ -26,12 +26,11 @@ export default defineComponent({
         ...IRcOnClickProps
     },
     setup(props): () => VNode {
-        const throttledClick = throttle(props?.onClick as Function, 3000);
 
         const handleClick = (evn: MouseEvent) => {
-            if (props?.isThrottle) {
+            if (props.isThrottle) {
                 // 进行了节流的处理，防止用户多次一直点击
-                throttledClick(evn);
+                throttle(props?.onClick as Function)(evn);
                 return;
             }
 

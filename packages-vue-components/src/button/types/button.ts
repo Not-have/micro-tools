@@ -38,7 +38,7 @@ export type IButtonType = {
      */
     onClick?: Function;
     /**
-     * 否进行节流处理
+     * 是否进行节流处理
      */
     isThrottle?: Boolean;
 }

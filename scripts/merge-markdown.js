@@ -9,7 +9,7 @@ const path = require('path');
 
 try {
     // 定义一个函数来获取指定文件夹下的所有 Markdown 文件路径
-    function getAllMarkdownFiles(folderPath) {
+    const getAllMarkdownFiles = folderPath => {
         const files = fs.readdirSync(folderPath);
 
         const markdownFiles = files.filter(file => {
@@ -19,21 +19,23 @@ try {
         });
 
         return markdownFiles.map(file => path.join(folderPath, file));
-    }
+    };
 
     // 定义一个函数来读取并合并多个 Markdown 文件的内容
-    function mergeMarkdownFiles(filePaths, outputFile) {
+    const mergeMarkdownFiles = (filePaths, outputFile, title) => {
+        console.log(filePaths, outputFile, title);
         try {
-            const mergedContent = filePaths
+            // 在文件之间添加一级标题和空行来分隔
+            const mergedContent = title ? `# ${ title }\n\n` : null + filePaths
                 .map(filePath => fs.readFileSync(filePath, 'utf-8'))
-                .join('\n' + '---' + '\n'); // 在文件之间添加空行来分隔
+                .join('\n' + '---' + '\n\n'); // 在文件之间添加空行来分隔
 
             fs.writeFileSync(outputFile, mergedContent);
             // console.log('Markdown 文件合并完成！');
         } catch (error) {
             // console.error('合并过程出错：', error);
         }
-    }
+    };
 
     const paths = process.argv.slice(2);
 

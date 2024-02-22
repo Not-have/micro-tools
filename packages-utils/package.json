@@ -1,6 +1,6 @@
 {
   "name": "micro-util-ts",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "一个常用的工具库",
   "keywords": [
     "micro",
@@ -21,11 +21,14 @@
     "build": "npx rimraf dist && webpack --config webpack.config.js",
     "build:tsc": "npx rimraf dist && tsc",
     "start": "tsc --watch",
-    "publishOnly": "npm run build:tsc && npm publish",
-    "clear": "npx rimraf node_modules"
+    "publish:build": "npm run build:tsc && npm publish",
+    "clear": "npx rimraf node_modules",
+    "postinstall": "tsc",
+    "prepublishOnly": "npm run build"
   },
-  "dependencies": {
+  "devDependencies": {
     "ts-loader": "^9.5.1",
+    "typescript": "^5.3.3",
     "webpack": "^5.90.3",
     "webpack-cli": "^5.1.4"
   }
