@@ -12,10 +12,8 @@
     "prepublishOnly": "npm run build"
   },
   "keywords": [
-    "cookie",
-    "icon",
-    "rc",
-    "micro-rc"
+    "conf",
+    "micro-conf"
   ],
   "repository": {
     "type": "git",
