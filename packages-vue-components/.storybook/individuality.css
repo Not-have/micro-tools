@@ -9,3 +9,9 @@
 #storybook-docs .sbdocs-content div:last-child {
   display: none;
 }
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}

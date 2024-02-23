@@ -8,6 +8,9 @@
 import 'element-plus/dist/index.css';
 import 'micro-style/root.css';
 import './style';
+export {
+    ECursorType
+} from './enum';
 
 export {
     createContext,

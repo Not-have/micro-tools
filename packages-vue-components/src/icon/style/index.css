@@ -1,6 +1,8 @@
-.iconfont.micro-iconfont-rotate {
+span {
     display: inline-block;
-    transform: rotate(var(--micro-icon-rotate));
+}
+.iconfont.micro-iconfont-rotate {
+    transform: rotate(var(--micro-iconfont-rotate));
 }
 
 .iconfont.micro-iconfont-continuous-rotate {
@@ -14,4 +16,12 @@
     to {
         transform: rotate(360deg);
     }
+}
+
+.iconfont {
+    transition: transform 0.3s ease-in-out; /* 添加平滑的过渡效果 */
+}
+
+.iconfont.micro-iconfont-overturn-hover:hover {
+    transform: scale(1.2); /* 鼠标悬停时放大图标容器 */
 }
