@@ -59,6 +59,7 @@
     "@element-plus/icons-vue": "^2.1.0",
     "element-plus": "^2.3.12",
     "lodash-es": "^4.17.21",
+    "micro-conf": "workspace:^",
     "micro-style": "workspace:^",
     "micro-util-ts": "workspace:^"
   }

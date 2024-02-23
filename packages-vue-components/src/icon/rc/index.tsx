@@ -6,16 +6,14 @@ import {
     defineComponent
 } from 'vue';
 import {
+    EIconType,
     ICONFONT_URL
-} from 'micro-const';
+} from 'micro-conf';
 import {
     injectIconfont
 } from 'micro-util-ts';
 
 import '../style/index.css';
-import {
-    EIconType
-} from '../enum';
 
 export default defineComponent({
     props: {
