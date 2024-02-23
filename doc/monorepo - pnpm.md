@@ -56,6 +56,14 @@ packages:
 ```bash
 # 也可以把本地的依赖安装进去
 pnpm add 包名（npm 仓库上） --filter Xxx(package下的 package.json 的 name 字段)
+
+# 本地宝安装方式（推荐）
+
+pnpm add path/to/packages-Xxx(文件路径)
+
+# pnpm add --save path/to/local-package 可以使用 --save 或 -S 选项将包添加到 dependencies
+
+#pnpm add --save-dev path/to/local-package 使用 --save-dev 或 -D 将其添加到 devDependencies
 ```
 
 ### 2、给根目录下，安装依赖包

@@ -4,7 +4,7 @@
  *
  * 使用：import { injectIconFont } from 'micro-rc';
  *
- * injectIconFont();
+ * injectIconFont(Font class 处生成的链接);
  */
 export default function injectIconfont(fontFamily: string): void {
     const head: HTMLHeadElement = document.head || document.getElementsByTagName('head')[0];
