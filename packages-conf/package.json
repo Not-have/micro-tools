@@ -1,7 +1,7 @@
 {
-  "name": "micro-const",
+  "name": "micro-conf",
   "version": "1.0.0",
-  "description": "常量",
+  "description": "Conf",
   "main": "dist/index.js",
   "scripts": {
     "build": "npx rimraf dist && tsc",
@@ -19,7 +19,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-const"
+    "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-conf"
   },
   "bugs": {
     "url": "https://github.com/Not-have/micro-tools/issues"

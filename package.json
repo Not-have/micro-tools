@@ -22,7 +22,7 @@
     "packages-stylelint-conf",
     "packages-utils",
     "packages-rc",
-    "packages-const"
+    "packages-conf"
   ],
   "engines": {
     "node": ">=16.0.0",

@@ -8,7 +8,7 @@
     "packages-stylelint-conf",
     "packages-utils",
     "packages-rc",
-    "packages-const"
+    "packages-conf"
   ],
   "command": {
     "bootstrap": {
