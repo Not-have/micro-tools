@@ -19,8 +19,6 @@ export default function useDraggable(
     dragRef?: Ref<HTMLElement | undefined>,
     overflow?: boolean
 ): void {
-    console.log(targetRef.value);
-
     /**
      * 记录之前的元素位置
      *
