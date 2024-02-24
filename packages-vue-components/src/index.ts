@@ -15,7 +15,7 @@ export {
 export {
     createContext,
     useContext
-} from './hook';
+} from './hooks';
 
 export type {
     ButtonType,
