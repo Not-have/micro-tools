@@ -1,5 +1,5 @@
 node_modules/
-stories/
+#stories/
 .storybook/
 vite.config.ts
 vlsconfig.json

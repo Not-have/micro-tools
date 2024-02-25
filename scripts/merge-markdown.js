@@ -26,7 +26,7 @@ try {
         console.log(filePaths, outputFile, title);
         try {
             // 在文件之间添加一级标题和空行来分隔
-            const mergedContent = title ? `# ${ title }\n\n` : null + filePaths
+            const mergedContent = title ? `# ${ title }\n\n` : '' + filePaths
                 .map(filePath => fs.readFileSync(filePath, 'utf-8'))
                 .join('\n' + '---' + '\n\n'); // 在文件之间添加空行来分隔
 

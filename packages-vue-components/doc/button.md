@@ -20,7 +20,7 @@
 >
 > | 属性名     | 说明                                              | 类型                                                            |
 > | ---------- | ------------------------------------------------- |---------------------------------------------------------------|
-> | items      | 按钮集合                                          | [Button](#Button)                                            |
+> | items      | 按钮集合                                          | [Button](#button)                                            |
 > | type       | 按钮类型 - <abbr title='低优先级！！！'>LP</abbr> | 'primary' \|'success' \|'warning' \|'danger' \|'info' \|'text' |
 > | disabled   | 是否为禁止中状态 - LP                             | boolean                                                       |
 > | maxVisible | 最多可见个数，其余的收起                          | number                                                        |
