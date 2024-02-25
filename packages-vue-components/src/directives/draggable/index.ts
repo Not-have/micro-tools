@@ -9,7 +9,7 @@ import {
  */
 export default function directiveDraggable(app: App) {
     app.directive('directiveDraggable', {
-        mounted(el: Element, value: DirectiveBinding) {
+        mounted(el: Element, value: DirectiveBinding<boolean | undefined>) {
             draggable(el, value.value);
         }
     });
