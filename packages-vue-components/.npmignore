@@ -2,3 +2,7 @@ node_modules/
 stories/
 .storybook/
 vite.config.ts
+vlsconfig.json
+tsconfig.json
+tsconfig.app.json
+tsconfig.node.json
