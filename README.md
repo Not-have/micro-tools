@@ -81,3 +81,5 @@ tiny-tools
 | ci       | 更改持续集成软件的配置文件和 package 中的 scripts 命令，例如 scopes: Travis, Circle 等 |
 | chore    | 变更构建流程或辅助工具(比如更改测试环境)                     |
 | revert   | 代码回退                                                     |
+
+注：如果 md 文件提交报错，则 `markdownlint-cli2 --fix "文件名.md"` 修复。
