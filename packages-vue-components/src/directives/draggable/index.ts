@@ -1,4 +1,8 @@
-import type { App, DirectiveBinding } from 'vue';
+import type {
+    App,
+    DirectiveBinding
+} from 'vue';
+
 import {
     draggable
 } from 'micro-util-ts';
