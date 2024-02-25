@@ -99,33 +99,25 @@ export default function useDraggable(
     }
 
     /**
-     * 在这监听移动
+     * 元素内按下鼠标触发
      */
     const onDraggable = () => {
-        if (dragRef && dragRef.value && targetRef.value) {
-            dragRef.value.addEventListener('mousedown', onMousedown);
-            return;
-        }
         if (targetRef.value) {
             targetRef.value.addEventListener('mousedown', onMousedown);
+
+            return;
         }
+
+        throw new Error('传入的元素不正确');
     };
 
     /**
-     * 移除元素的监听
+     * 移除元素内按下鼠标的触发
      */
     const offDraggable = () => {
-        if (dragRef && dragRef.value && targetRef.value) {
-            dragRef.value.removeEventListener('mousedown', onMousedown);
-        }
         targetRef.value.removeEventListener('mousedown', onMousedown);
     };
 
-    /**
-     * 监听 targetRef、dragRef
-     * 1、如果只有 targetRef 就只移动他
-     * 2、targetRef、dragRef 都存在，让其一块移动，但是只有在拖拽 dragRef 时才能移动
-     */
     onMounted(() => {
         watchEffect(() => {
             if (targetRef.value) {

@@ -25,8 +25,8 @@ onMounted(() => {
             const maxY = document.body.clientHeight - draggableElement.value.clientHeight;
             
             // 让元素可以出去三分之二
-            const minX = -draggableElement.value.clientWidth / 3;
-            const minY = -draggableElement.value.clientHeight / 3;
+            const minX = 0;
+            const minY = 0;
             
             draggableElement.value.style.left = `${Math.min(Math.max(minX, newX), maxX)}px`;
             draggableElement.value.style.top = `${Math.min(Math.max(minY, newY), maxY)}px`;

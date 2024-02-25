@@ -14,7 +14,8 @@ export {
 
 export {
     createContext,
-    useContext
+    useContext,
+    useDraggable
 } from './hooks';
 
 export type {
