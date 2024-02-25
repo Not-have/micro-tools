@@ -3,18 +3,18 @@ import isElement from '../is-element';
 type ITransform = {
     offsetX: number,
     offsetY: number
-}
+};
 
 interface IDraggable extends ITransform {
-    onDraggable: Function,
-    offDraggable: Function
+    offDraggable: Function;
 }
+
 interface IOptions {
     observer?: boolean,
     /**
      * @todo Implement this feature in future releases.
      */
-    initTransform?: ITransform
+    initTransform?: ITransform;
 }
 
 /**
@@ -117,8 +117,9 @@ export default function draggable(el: Element, overflow?: boolean, options?: IOp
     };
 
     if (options?.observer) {
+        onDraggable();
+
         return {
-            onDraggable,
             offDraggable,
             ...transform
         };
@@ -129,6 +130,7 @@ export default function draggable(el: Element, overflow?: boolean, options?: IOp
         // 如果 intersectionRatio 为 0，则目标在视野外，
         // 我们不需要做任何事情。
         if (entries[0].intersectionRatio <= 0) {
+
             offDraggable();
             return;
         }

@@ -14,8 +14,7 @@ export {
 
 export {
     createContext,
-    useContext,
-    useDraggable
+    useContext
 } from './hooks';
 
 export type {
@@ -35,3 +34,7 @@ export {
 export {
     Icon
 } from './icon';
+
+export {
+    directiveDraggable
+} from './directives';
