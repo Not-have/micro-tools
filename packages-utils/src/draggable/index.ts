@@ -32,7 +32,7 @@ interface IOptions {
  */
 export default function draggable(el: Element, overflow?: boolean, options?: IOptions): ITransform | IDraggable {
     if (!isElement(el)) {
-        throw new Error(el + 'not DOM.');
+        throw new Error('El(' + el + ')not DOM.');
     }
 
     const htmlElement = el as HTMLElement;
