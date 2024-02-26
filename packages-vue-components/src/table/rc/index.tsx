@@ -6,6 +6,10 @@ import {
     defineComponent
 } from 'vue';
 
+import type {
+    ElTableColumn as TElTableColumn
+} from 'element-plus';
+
 import {
     ElTable,
     ElTableColumn
@@ -48,10 +52,14 @@ export default defineComponent({
         onMounted(() => {
             const tbody = document.querySelector('.el-table__body-wrapper tbody');
 
-            new Sortable(tbody, {
+            if (!tbody) {
+                return new Error('Use \'document.querySelector(\'.el-table__body-wrapper tbody\')\' no element obtained');
+            }
+
+            new Sortable(tbody as HTMLElement, {
                 animation: 150,
                 onEnd: ({newIndex, oldIndex}) => {
-                    const targetRow = data[oldIndex];
+                    const targetRow = data[oldIndex || 0];
                     data.splice(oldIndex, 1);
                     data.splice(newIndex, 0, targetRow);
                     // console.table(data);
@@ -75,4 +83,4 @@ export default defineComponent({
     }
 });
 
-export const Column = ElTableColumn;
+export const Column: TElTableColumn = ElTableColumn;

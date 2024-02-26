@@ -10,7 +10,7 @@
     "clear": "npx rimraf node_modules",
     "fix:doc": "markdownlint-cli2 --fix \"./doc/*.md\"",
     "build:docs": "node ../scripts/merge-markdown.js ./doc .",
-    "prepublishOnly": "build:docs"
+    "prepublishOnly": "node ../scripts/merge-markdown.js ./doc ."
   },
   "keywords": [
     "vue-components",
