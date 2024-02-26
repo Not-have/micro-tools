@@ -33,7 +33,7 @@ const change = (value: typeof tableData) => {
 <template>
     <Table :data="tableData"
            stripe
-           :draggable-change="change"
+           border
            style="width: 100%">
         <Column prop="date"
                 label="Date"
