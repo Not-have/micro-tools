@@ -9,7 +9,7 @@
     "build-storybook": "storybook build",
     "clear": "npx rimraf node_modules",
     "fix:doc": "markdownlint-cli2 --fix \"./doc/*.md\"",
-    "build:docs": "npm run fix:doc && node ../scripts/merge-markdown.js ./doc .",
+    "build:docs": "node ../scripts/merge-markdown.js ./doc .",
     "prepublishOnly": "build:docs"
   },
   "keywords": [
