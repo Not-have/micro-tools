@@ -17,7 +17,7 @@ import {
  */
 import Sortable from 'sortablejs';
 
-type ElTableProps = ExtractPropTypes<typeof ElTable.props>;
+type ElTableProps = ExtractPropTypes<typeof ElTable>;
 /**
  * 可拖拽的 ElTable
  *
@@ -42,8 +42,8 @@ export default defineComponent({
         /**
          * 声明 ElTable 原有的属性
          */
-        ...ElTable.props
-    } as ElTableProps,
+        ...ElTable.props as ElTableProps
+    },
     setup(props, {
         slots
     }): () => VNode {
@@ -67,7 +67,7 @@ export default defineComponent({
                         tableData.splice(oldIndex, 1);
                         tableData.splice(newIndex, 0, targetRow);
                         // console.table(data);
-                        draggableChange(tableData);
+                        draggableChange!(tableData);
                     }
                 });
             };

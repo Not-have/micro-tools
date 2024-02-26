@@ -34,7 +34,8 @@ const change = (value: typeof tableData) => {
     <Table :data="tableData"
            stripe
            border
-           style="width: 100%">
+           style="width: 100%"
+           :draggable-change="change">
         <Column prop="date"
                 label="Date"
                 width="180" />
@@ -46,6 +47,4 @@ const change = (value: typeof tableData) => {
     </Table>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
