@@ -1,6 +1,6 @@
 {
   "name": "micro-vue-components",
-  "version": "1.4.1",
+  "version": "1.5.0",
   "description": "一款微小的 vue 组件",
   "main": "src/index.ts",
   "scripts": {
@@ -8,7 +8,8 @@
     "start": "storybook dev -p 6006 --no-open",
     "build-storybook": "storybook build",
     "clear": "npx rimraf node_modules",
-    "build:docs": "markdownlint-cli2 --fix \"./doc/*.md\" && node ../scripts/merge-markdown.js ./doc .",
+    "fix:doc": "markdownlint-cli2 --fix \"./doc/*.md\"",
+    "build:docs": "npm run fix:doc && node ../scripts/merge-markdown.js ./doc .",
     "prepublishOnly": "build:docs"
   },
   "keywords": [
@@ -44,6 +45,7 @@
     "@tsconfig/node18": "^18.2.0",
     "@types/lodash-es": "^4.17.9",
     "@types/node": "^18.17.5",
+    "@types/sortablejs": "^1.15.8",
     "@vitejs/plugin-vue": "^4.3.1",
     "@vitejs/plugin-vue-jsx": "^3.0.2",
     "@vue/tsconfig": "^0.4.0",
@@ -62,6 +64,7 @@
     "lodash-es": "^4.17.21",
     "micro-conf": "workspace:^",
     "micro-style": "workspace:^",
-    "micro-util-ts": "workspace:^"
+    "micro-util-ts": "workspace:^",
+    "sortablejs": "^1.15.2"
   }
 }

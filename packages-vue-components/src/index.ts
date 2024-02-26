@@ -38,3 +38,8 @@ export {
 export {
     directiveDraggable
 } from './directives';
+
+export {
+    Table,
+    Column
+} from './table';

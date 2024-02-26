@@ -32,8 +32,8 @@ export default defineComponent({
         isDebounce: {
             type: Boolean,
             default: false
-            
-        }
+        },
+        ...ElInput.props
     },
     setup(props): () => VNode {
         const handleInput = function(value: unknown){
@@ -47,6 +47,6 @@ export default defineComponent({
             }
         };
 
-        return (): VNode => <ElInput  v-bind="$attrs" onInput={handleInput}></ElInput>;
+        return (): VNode => <ElInput v-bind="$attrs" onInput={handleInput}></ElInput>;
     }
 });

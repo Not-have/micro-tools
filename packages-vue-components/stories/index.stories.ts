@@ -5,6 +5,7 @@ import Button from './demo-button/index.vue';
 import Input from './demo-input/index.vue';
 import Icon from './demo-icon/index.vue';
 import Drag from './demo-drag/index.vue';
+import Table from './demo-table/index.vue';
 
 const meta = {
   title: 'Vue 组件' // 为了容纳多个组件，将标题设为 "Components"
@@ -29,4 +30,9 @@ export const DragComponent: Story = {
 export const InputComponent: Story = {
   name: 'Input Demo',
   render: () => h(Input)
+};
+
+export const TableComponent: Story = {
+  name: 'Table Demo',
+  render: () => h(Table)
 };
