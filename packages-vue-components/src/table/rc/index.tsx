@@ -54,11 +54,12 @@ export default defineComponent({
             } = props,
             _draggableChange = (value: any) => {
                 const tbody = document.querySelector('.el-table__body-wrapper tbody');
-                const tableData = value;
 
                 if (!tbody) {
                     return new Error('Use \'document.querySelector(\'.el-table__body-wrapper tbody\')\' no element obtained');
                 }
+
+                const tableData = value;
 
                 new Sortable(tbody as HTMLElement, {
                     animation: 150,
