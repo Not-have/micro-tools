@@ -1,14 +1,11 @@
 import type {
+    PropType,
     VNode
 } from 'vue';
 import {
     onMounted,
     defineComponent
 } from 'vue';
-
-import type {
-    ElTableColumn as TElTableColumn
-} from 'element-plus';
 
 import {
     ElTable,
@@ -83,4 +80,7 @@ export default defineComponent({
     }
 });
 
-export const Column: TElTableColumn = ElTableColumn;
+// 使用 PropType 获取 column 的类型
+type ElTableColumnProps = typeof ElTableColumn.props;
+type ColumnType = PropType<ElTableColumnProps>;
+export const Column: ColumnType = ElTableColumn;
