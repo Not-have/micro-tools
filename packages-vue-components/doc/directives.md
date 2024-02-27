@@ -7,10 +7,10 @@
 > ```typescript
 > import { createApp } from 'vue';
 > import App from './App.vue';
-> import { draggable } from 'micro-vue-components';
+> import { directiveDraggable } from 'micro-vue-components';
 > 
 > const app = createApp(App);
-> app.use(draggable); // 引入到全剧终
+> app.use(directiveDraggable); // 引入到全剧终
 > app.mount('#app');
 > ```
 >

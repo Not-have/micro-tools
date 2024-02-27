@@ -15,7 +15,16 @@
     const inputEl = document.querySelector("input");
     const buttonEl = document.querySelector("button");
     let counter = 0;
+    const onInput = function(event) {
+        console.log("触发 inputEl.oninput" + ++counter, event);
+        console.log(event);
+        return "test";
+    };
 
+    const onInputThrottle = throttle(onInput, 3000);
+    inputEl.oninput = onInputThrottle;
+
+    /*
     const onInput = function(event) {
         console.log("触发 inputEl.oninput" + ++counter, event);
         console.log(event);
@@ -36,4 +45,5 @@
         console.log("取消了接下来的触发");
         onInputThrottle.cancel();
     };
+     */
 </script>

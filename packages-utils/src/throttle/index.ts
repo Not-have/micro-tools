@@ -26,6 +26,18 @@ interface IOptions {
  * @param {number} wait 毫秒
  * @param {IOptions} options
  * @returns 返回一个函数，该函数返回一个 Promise，解析为执行的方法的返回值。另外，该函数还具有一个 cancel 方法，用于取消防抖
+ *
+ * 使用：
+ *
+ * const inputEl = document.querySelector("input");
+ *
+ * const onInput = function(event) {
+ *     console.log(event);
+ * };
+ *
+ * const onInputThrottle = throttle(onInput, 3000);
+ *
+ * inputEl.oninput = onInputThrottle;
  */
 export default function throttle<T extends (...args: unknown[]) => unknown>(func: Function, wait: number = 300, options: IOptions = {
     leading: true,
