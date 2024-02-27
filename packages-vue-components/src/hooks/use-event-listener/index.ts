@@ -6,7 +6,7 @@ import {
 } from 'micro-util-ts';
 import type {
     TEventName
-} from '../../types';
+} from 'micro-ts-types';
 
 interface IUseEventParams {
     el?: Element | Ref<Element | undefined> | Window | any;

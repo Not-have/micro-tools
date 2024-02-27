@@ -1,10 +1,9 @@
 {
-  "name": "micro-enum",
+  "name": "micro-ts-enum",
   "version": "1.0.0",
   "description": "Enum",
   "main": "src/index.js",
   "scripts": {
-    "publish": "npm publish",
     "clear": "npx rimraf node_modules"
   },
   "keywords": [

@@ -16,7 +16,7 @@ import {
 import '../style/index.css';
 import {
     ECursorType
-} from '../../enum';
+} from 'micro-ts-enum';
 
 export default defineComponent({
     props: {
