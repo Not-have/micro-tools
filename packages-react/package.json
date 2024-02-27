@@ -1,65 +1,44 @@
 {
-  "name": "micro-react-components",
-  "version": "1.0.0",
-  "description": "React components",
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "typescript": "^4.9.5"
-  },
-  "scripts": {
-    "dev": "react-scripts start",
-    "build": "react-scripts build",
-    "clear": "npx rimraf node_modules",
-    "start": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
-  },
-  "keywords": [
-    "vue-components",
-    "components",
-    "micro-vue",
-    "micro-vue-components"
-  ],
-  "author": "Li Yong",
-  "homepage": "https://github.com/Not-have/micro-tools/tree/main/packages-react",
-  "license": "ISC",
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-react"
-  },
-  "bugs": {
-    "url": "https://github.com/Not-have/micro-tools/issues"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
+    "name": "micro-react-components",
+    "version": "1.0.0",
+    "description": "React components",
+    "keywords": [
+        "react-components",
+        "components",
+        "micro-react",
+        "micro-react-components"
     ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "@storybook/addon-essentials": "^7.6.17",
-    "@storybook/addon-interactions": "^7.6.17",
-    "@storybook/addon-links": "^7.6.17",
-    "@storybook/addon-onboarding": "^1.0.11",
-    "@storybook/blocks": "^7.6.17",
-    "@storybook/preset-create-react-app": "^7.6.17",
-    "@storybook/react": "^7.6.17",
-    "@storybook/react-webpack5": "^7.6.17",
-    "@storybook/test": "^7.6.17",
-    "@types/node": "^16.18.83",
-    "@types/react": "^18.2.60",
-    "@types/react-dom": "^18.2.19",
-    "prop-types": "^15.8.1",
-    "storybook": "^7.6.17",
-    "webpack": "^5.90.3"
-  }
+    "author": "Li Yong",
+    "homepage": "https://github.com/Not-have/micro-tools/tree/main/packages-react",
+    "license": "ISC",
+    "publishConfig": {
+        "registry": "https://registry.npmjs.org/"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-react"
+    },
+    "bugs": {
+        "url": "https://github.com/Not-have/micro-tools/issues"
+    },
+    "dependencies": {
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "typescript": "^5.3.3"
+    },
+    "devDependencies": {
+        "@storybook/addon-essentials": "^7.6.17",
+        "@storybook/addon-interactions": "^7.6.17",
+        "@storybook/addon-links": "^7.6.17",
+        "@storybook/addon-onboarding": "^1.0.11",
+        "@storybook/blocks": "^7.6.17",
+        "@storybook/react": "^7.6.17",
+        "@storybook/react-webpack5": "^7.6.17",
+        "@storybook/test": "^7.6.17",
+        "storybook": "^7.6.17"
+    },
+    "scripts": {
+        "storybook": "storybook dev -p 6006",
+        "build-storybook": "storybook build"
+    }
 }

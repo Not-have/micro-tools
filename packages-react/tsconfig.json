@@ -1,26 +1,43 @@
 {
-  "compilerOptions": {
-    "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx"
-  },
-  "include": [
-    "src"
-  ]
+    "compilerOptions": {
+        "target": "es5",
+        "lib": [
+            "dom",
+            "dom.iterable",
+            "esnext",
+            "es2015",
+            "es2017"
+        ],
+        // "allowJs": true,
+        // "skipLibCheck": true,
+        // "esModuleInterop": true,
+        // "allowSyntheticDefaultImports": true,
+        // "strict": true,
+        // "forceConsistentCasingInFileNames": true,
+        // "noFallthroughCasesInSwitch": true,
+        // "module": "esnext",
+        // "moduleResolution": "node",
+        // "resolveJsonModule": true,
+        // "isolatedModules": true,
+        // "noEmit": true,
+        // "jsx": "react-jsx"
+        "esModuleInterop": true,
+        "resolveJsonModule": true,
+        "strict": true,
+        "allowJs": false,
+        "allowSyntheticDefaultImports": true,
+        "noUnusedParameters": true,
+        "noUnusedLocals": true,
+        "noUncheckedIndexedAccess": true,
+        "declaration": true,
+        "skipLibCheck": true,
+        "sourceMap": true,
+        "jsx": "react",
+    },
+    "include": [
+        "src",
+        "src/**/*.ts",
+        "stories/**/*.ts",
+        "stories/**/*.tsx"
+    ]
 }
