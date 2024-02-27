@@ -16,7 +16,8 @@
   },
   "bugs": {},
   "workspaces": [
-    "packages-vue-components",
+    "packages-vue",
+    "packages-react",
     "packages-style",
     "packages-eslint-conf",
     "packages-stylelint-conf",
