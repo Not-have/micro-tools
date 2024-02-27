@@ -19,14 +19,14 @@
     "micro-vue-components"
   ],
   "author": "Li Yong",
-  "homepage": "https://github.com/Not-have/micro-tools/tree/main/packages-vue-components",
+  "homepage": "https://github.com/Not-have/micro-tools/tree/main/packages-vue",
   "license": "ISC",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-vue-components"
+    "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-vue"
   },
   "bugs": {
     "url": "https://github.com/Not-have/micro-tools/issues"
