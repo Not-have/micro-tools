@@ -1,0 +1,1 @@
+export { default as TEventName } from './event-name';

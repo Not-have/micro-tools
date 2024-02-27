@@ -1,0 +1,26 @@
+{
+  "name": "micro-types",
+  "version": "1.0.0",
+  "description": "Types",
+  "main": "src/index.js",
+  "scripts": {
+    "publish": "npm publish",
+    "clear": "npx rimraf node_modules"
+  },
+  "keywords": [
+    "types",
+    "micro-types"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-types"
+  },
+  "bugs": {
+    "url": "https://github.com/Not-have/micro-tools/issues"
+  },
+  "author": "Li Yong",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}
