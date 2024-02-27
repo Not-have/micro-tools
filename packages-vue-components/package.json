@@ -1,6 +1,6 @@
 {
   "name": "micro-vue-components",
-  "version": "1.6.2",
+  "version": "1.6.3",
   "description": "一款微小的 vue 组件",
   "main": "src/index.ts",
   "scripts": {

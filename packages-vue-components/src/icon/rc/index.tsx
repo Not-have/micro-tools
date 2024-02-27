@@ -57,7 +57,7 @@ export default defineComponent({
          */
         isHover: {
             type: Boolean,
-            default: true
+            default: false
         },
         /**
          * 鼠标形状
