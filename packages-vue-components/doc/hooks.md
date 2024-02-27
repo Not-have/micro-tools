@@ -1,6 +1,6 @@
 # hooks
 
-> ## useEventParams
+> ## useEventListener
 >
 > 1、引入
 >
@@ -15,7 +15,7 @@
 >
 > <script setup>
 > import { ref } from 'vue';
-> import { useEventListener } from '@/hooks/event/useEventListener.ts';
+> import { useEventListener } from 'micro-vue-components';
 >
 > const isEventListenerActive = ref(false);
 >
