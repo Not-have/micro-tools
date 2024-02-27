@@ -8,7 +8,9 @@
     "packages-stylelint-conf",
     "packages-utils",
     "packages-rc",
-    "packages-conf"
+    "packages-conf",
+    "packages-enum",
+    "packages-types"
   ],
   "command": {
     "bootstrap": {

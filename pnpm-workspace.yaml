@@ -5,3 +5,5 @@
 - 'packages-utils'
 - 'packages-rc'
 - 'packages-conf'
+- 'packages-enum'
+- 'packages-types'
