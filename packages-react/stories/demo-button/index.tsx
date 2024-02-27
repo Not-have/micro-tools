@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Button = () => {
+function Button(): JSX.Element {
     return <>11</>;
-};
+}
 export default Button;

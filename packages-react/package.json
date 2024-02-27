@@ -35,9 +35,12 @@
         "@storybook/react": "^7.6.17",
         "@storybook/react-webpack5": "^7.6.17",
         "@storybook/test": "^7.6.17",
+        "@types/react": "^18.2.60",
+        "@types/react-dom": "^18.2.19",
         "storybook": "^7.6.17"
     },
     "scripts": {
+        "start": "storybook dev -p 6007 --no-open",
         "storybook": "storybook dev -p 6006",
         "build-storybook": "storybook build"
     }
