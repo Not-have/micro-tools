@@ -1,0 +1,38 @@
+{
+  "name": "micro-react-components",
+  "version": "1.0.0",
+  "private": false,
+  "description": "React 组件库",
+  "keywords": [
+    "micro",
+    "react"
+  ],
+  "license": "ISC",
+  "author": "Li Yong",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-react"
+  },
+  "bugs": {
+    "url": "https://github.com/Not-have/micro-tools/issues"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "14.1.0",
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.1.0",
+    "typescript": "^5"
+  }
+}

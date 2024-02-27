@@ -6,9 +6,7 @@
 
 [参考文档 1](https://jamie.work/posts/从零搭建-组件库开发环境/)
 
-## 2、使用
-
-### 1）vue 中使用
+## 2、vue 中使用
 
 [Storybook - vue](https://storybook.js.org/docs/vue/get-started/install)
 
@@ -19,3 +17,5 @@ npm i vue typescript
 # 生成 tsconfig.json 文件
 tsc --init
 ```
+
+## 3、react 使用
