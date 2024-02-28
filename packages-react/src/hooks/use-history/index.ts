@@ -26,7 +26,7 @@ export default function useHistory(): HistoryHook {
     const location = useLocation();
     const navigate = useNavigate();
 
-    const push = (url: string | NavigateOptions, options: NavigateOptions | undefined) => {
+    const push = (url: string | NavigateOptions, options?: NavigateOptions) => {
         if (isObject(url)) {
             navigate(compoundUrl(location.pathname, url as NavigateOptions));
             return;
@@ -34,7 +34,7 @@ export default function useHistory(): HistoryHook {
         navigate(`${compoundUrl(url as string, options)}`);
     };
 
-    const replace = (url: string | NavigateOptions, options: NavigateOptions | undefined) => {
+    const replace = (url: string | NavigateOptions, options?: NavigateOptions) => {
         if (isObject(url)) {
             navigate(compoundUrl(location.pathname, url as NavigateOptions), { replace: true });
             return;
