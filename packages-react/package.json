@@ -22,6 +22,9 @@
         "url": "https://github.com/Not-have/micro-tools/issues"
     },
     "dependencies": {
+        "lodash-es": "^4.17.21",
+        "micro-util-ts": "workspace:^",
+        "qs": "^6.11.2",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "typescript": "^5.3.3"
@@ -35,6 +38,8 @@
         "@storybook/react": "^7.6.17",
         "@storybook/react-webpack5": "^7.6.17",
         "@storybook/test": "^7.6.17",
+        "@types/lodash-es": "^4.17.9",
+        "@types/qs": "^6.9.12",
         "@types/react": "^18.2.60",
         "@types/react-dom": "^18.2.19",
         "storybook": "^7.6.17"
