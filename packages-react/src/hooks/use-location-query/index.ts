@@ -78,7 +78,9 @@ function queryToSearch<T>(query: Partial<T>, defaults: Partial<T>): string {
 }
 
 /**
- * URL 中 search 参数的管理
+ *  URL 中 search 参数的管理
+ * @param param0 
+ * @returns 
  */
 export default function useLocationQuery<T>({
     keys,
