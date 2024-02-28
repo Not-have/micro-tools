@@ -8,9 +8,7 @@ import {
 } from 'react';
 import qs from 'qs';
 
-import {
-    useHistory
-} from 'react-dom';
+import useHistory from '../use-history';
 
 type TQueryTypes<T> = Partial<Record<keyof T, 'number' | 'boolean'>>;
 
