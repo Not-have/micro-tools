@@ -2,10 +2,10 @@ import {
     head
 } from '../const';
 import {
-    IProps
+    IParams
 } from '../types';
 
-interface IParams extends Omit<IProps, 'securityCode'> {}
+interface IProps extends Omit<IParams, 'securityCode'> {}
 
 /**
  * 创建地图
@@ -18,7 +18,7 @@ export default function scriptMap({
     key,
     version = '2.0',
     plugins
-}: IParams): Promise<unknown>{
+}: IProps): Promise<unknown>{
     return new Promise((resolve, reject) => {
         const element: HTMLScriptElement = document.createElement('script');
         element.type = 'text/javascript';

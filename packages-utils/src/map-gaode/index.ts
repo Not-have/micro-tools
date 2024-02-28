@@ -2,7 +2,9 @@ import linkDemoCss from './link-demo-css';
 import scriptDemoUtils from './script-demo-utils';
 import scriptMap from './script-map';
 import scriptToolbar from './script-toolbar';
-import { IProps } from './types';
+import {
+    IParams
+} from './types';
 /**
  * 创建高德地图
  * @param param0
@@ -13,7 +15,7 @@ export default async function mapGaode({
     securityCode,
     version = '2.0',
     plugins
-}: IProps): Promise<unknown> {
+}: IParams): Promise<unknown> {
     // @ts-ignore
     window._AMapSecurityConfig = {
         securityJsCode: securityCode

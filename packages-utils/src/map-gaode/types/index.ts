@@ -1,4 +1,4 @@
-export interface IProps {
+export interface IParams {
     key: string,
     securityCode?: string,
     version?: string,
