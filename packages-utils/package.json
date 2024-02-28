@@ -5,7 +5,11 @@
   "keywords": [
     "micro",
     "utils",
-    "micro-utils"
+    "micro-utils",
+    "AMap",
+    "Gaode map",
+    "gaode",
+    "map"
   ],
   "license": "ISC",
   "main": "dist/index",
