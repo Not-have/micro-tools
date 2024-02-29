@@ -1,4 +1,4 @@
-# tiny-tools
+# micro-tools
 
 ## 1、安装依赖
 
@@ -13,8 +13,8 @@ pnpm install
 ```bash
 # 目前是到 package-xxx 子包中去查看的
 npm run start
-# 例如 packages-vue-components（ios 下使用：cd ./packages-vue-components && pnpm run start）
-cd .\packages-vue-components ; pnpm run start
+# 例如 packages-vue（ios 下使用：cd ./packages-vue && pnpm run start）
+cd .\packages-vue ; pnpm run start
 ```
 
 ## 3、目录

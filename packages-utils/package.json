@@ -1,6 +1,6 @@
 {
   "name": "micro-util-ts",
-  "version": "1.5.1",
+  "version": "1.5.3",
   "description": "一个常用的工具库",
   "keywords": [
     "micro",
@@ -9,7 +9,13 @@
     "AMap",
     "Gaode map",
     "gaode",
-    "map"
+    "map",
+    "debounce",
+    "throttle",
+    "clone",
+    "cloneDeep",
+    "Cookie",
+    "draggable"
   ],
   "license": "ISC",
   "main": "dist/index",
