@@ -9,7 +9,13 @@
     "AMap",
     "Gaode map",
     "gaode",
-    "map"
+    "map",
+    "debounce",
+    "throttle",
+    "clone",
+    "cloneDeep",
+    "Cookie",
+    "draggable"
   ],
   "license": "ISC",
   "main": "dist/index",
