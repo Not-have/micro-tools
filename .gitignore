@@ -8,3 +8,4 @@ pnpm-lock.yaml
 lerna-debug.log
 /packages-vue/README.md
 /packages-react/.next
+**/lib/

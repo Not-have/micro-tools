@@ -1,12 +1,16 @@
 const path = require('path');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 module.exports = {
     // target: 'web', // 或者 'browserslist: defaults'
-    mode: 'development', // 或 'production'，或 'none'
+    mode: 'none', // 或 'production'，或 'none'
+    devtool: 'source-map',
     entry: './src/index.ts',
     output: {
         filename: 'index.js',
-        path: path.resolve(__dirname, 'dist')
+        library: 'microUtil',
+        path: path.resolve(__dirname, 'lib'),
+        libraryTarget: 'umd'
     },
     module: {
         rules: [
@@ -19,5 +23,8 @@ module.exports = {
     },
     resolve: {
         extensions: [ '.ts', '.js' ]
-    }
+    },
+    plugins: [
+        new ForkTsCheckerWebpackPlugin()
+    ]
 };
