@@ -8,4 +8,4 @@ npm i micro-util-ts
 
 ## 2、使用
 
-[See](./stories)
+[See](https://github.com/Not-have/micro-tools/tree/main/packages-utils/stories)
