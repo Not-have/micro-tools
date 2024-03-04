@@ -1,6 +1,6 @@
 {
   "name": "micro-util-ts",
-  "version": "1.5.3",
+  "version": "1.5.4",
   "description": "一个常用的工具库",
   "keywords": [
     "micro",
@@ -34,7 +34,6 @@
     "start:webpack": "webpack --watch",
     "publish:build": "npm run build:tsc && npm publish",
     "clear": "npx rimraf node_modules",
-    "postinstall": "tsc && pnpm run start:webpack",
     "prepublishOnly": "npm run build:tsc && npm run build"
   },
   "devDependencies": {

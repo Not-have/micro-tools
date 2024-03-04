@@ -8,9 +8,6 @@
 import 'element-plus/dist/index.css';
 import 'micro-style/root.css';
 import './style';
-export {
-    ECursorType
-} from './enum';
 
 export {
     createContext,
@@ -43,3 +40,5 @@ export {
     Table,
     Column
 } from './table';
+
+export { default as errorHandler } from './error-handler';

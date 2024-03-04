@@ -1,6 +1,6 @@
 {
-  "name": "micro-rc",
-  "version": "1.0.0",
+  "name": "micro-rc-container",
+  "version": "1.1.1",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
@@ -12,10 +12,11 @@
     "prepublishOnly": "npm run build"
   },
   "keywords": [
-    "cookie",
-    "icon",
+    "css生成三角形",
+    "imitationViteError",
     "rc",
-    "micro-rc"
+    "micro-rc-container",
+    "container"
   ],
   "repository": {
     "type": "git",
