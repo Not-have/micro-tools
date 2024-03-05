@@ -22,7 +22,7 @@ import {
 
 生成一个类似 Vite 报错的提示
 
-<img src="./stories/assets/img.png" alt="ErrorOverlay" style="zoom:25%;" />
+<img src="https://not-have.github.io/file/images/vite-error.png" alt="ErrorOverlay" style="zoom:40%;" />
 
 ```rc
 import {
