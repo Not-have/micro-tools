@@ -56,7 +56,7 @@
 
 ---
 
-# hooks
+# Hooks
 
 > ## useEventListener
 >
@@ -103,6 +103,40 @@
 >     isEventListenerActive.value = !isEventListenerActive.value;
 > };
 > </script>
+>```
+>
+> ## useLocationQuery
+>
+> 使用
+>
+> ```vue
+> <script setup lang="ts">
+> import { watchEffect } from 'vue';
+>
+> import { useLocationQuery } from 'micro-vue-components';
+>
+> const [query, updateQuery] = useLocationQuery({
+>     keys: ["id", "name"],
+>     defaults: {
+>         id: 11,
+>         name: '哈哈哈'
+>     }
+> });
+>
+> function handleChangeId(event: any) {
+>     updateQuery({
+>         id: event.target.value
+>     })
+> }
+>
+> watchEffect(() => {
+>     console.log(query.value);
+> })
+>
+> </script>
+> <template>
+>     id <input :defaultValue="query.id" @input="handleChangeId" />
+> </template>
 >```
 >
 
