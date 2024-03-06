@@ -2,17 +2,34 @@
  * Storybook vue-Router Link(Not recommended)
  * https://www.npmjs.com/package/storybook-vue3-router
  */
-import type { Ref, UnwrapRef } from 'vue';
-import { ref, computed, watchEffect } from 'vue';
+import type {
+    Ref,
+    UnwrapRef
+} from 'vue';
+import {
+    ref,
+    computed,
+    watchEffect
+} from 'vue';
 
-import type { LocationQuery } from 'vue-router';
-import { useRoute, useRouter } from 'vue-router';
+import type {
+    LocationQuery
+} from 'vue-router';
+import {
+    useRoute,
+    useRouter
+} from 'vue-router';
 
 import {
     isEqual,
     queryStringToObject
 } from 'micro-util-ts';
-import type { TQueryTypes, IOptions, TQueryHookResult } from './type';
+
+import type {
+    TQueryTypes,
+    IOptions,
+    TQueryHookResult
+} from './type';
 
 /**
  * 把 search string 转成对象，如果从 URL 中获取到的参数为空串，将被忽略，且只有在 defaults 中有的才会被接受
