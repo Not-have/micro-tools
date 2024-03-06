@@ -4,3 +4,5 @@ export {
 } from './hook-model';
 
 export { default as useEventListener } from './use-event-listener';
+
+export { default as useLocationQuery } from './use-location-query';

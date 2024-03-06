@@ -3,6 +3,7 @@ export { default as isFunction } from './is-function';
 export { default as isUndefined } from './is-undefined';
 export { default as isElement } from './is-element';
 export { default as isNull } from './is-null';
+export { default as isEqual } from './is-equal';
 
 export { default as omitBy } from './omit-by';
 
@@ -19,3 +20,9 @@ export { default as injectIconfont } from './inject-iconfont';
 export { default as draggable } from './draggable';
 
 export { default as mapGaode } from './map-gaode';
+
+export { default as queryStringToObject } from './location';
+
+export {
+    objectValueToString
+} from './handle-object';

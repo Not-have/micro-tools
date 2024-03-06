@@ -11,7 +11,9 @@ import './style';
 
 export {
     createContext,
-    useContext
+    useContext,
+    useEventListener,
+    useLocationQuery
 } from './hooks';
 
 export type {

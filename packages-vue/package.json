@@ -1,6 +1,6 @@
 {
   "name": "micro-vue-components",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "description": "一款微小的 vue 组件",
   "main": "src/index.ts",
   "scripts": {
@@ -63,11 +63,12 @@
     "element-plus": "^2.3.12",
     "lodash-es": "^4.17.21",
     "micro-conf": "workspace:^",
-    "micro-rc": "workspace:^",
+    "micro-rc-container": "workspace:^",
     "micro-style": "workspace:^",
     "micro-ts-enum": "workspace:^",
     "micro-ts-types": "workspace:^",
     "micro-util-ts": "workspace:^",
-    "sortablejs": "^1.15.2"
+    "sortablejs": "^1.15.2",
+    "vue-router": "^4.3.0"
   }
 }
