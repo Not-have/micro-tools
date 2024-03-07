@@ -1,20 +1,26 @@
 {
   "name": "micro-rc-container",
-  "version": "1.1.4",
+  "version": "1.2.0",
   "description": "常用 js UI 组件",
   "main": "dist/index.js",
   "scripts": {
-    "build": "npx rimraf dist && tsc",
+    "build": "npx rimraf lib && webpack --config webpack.config.js",
+    "build:tsc": "npx rimraf dist && tsc",
     "start": "tsc --watch",
+    "start:webpack": "webpack --watch",
     "clear": "npx rimraf node_modules",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build:tsc && npm run build"
   },
   "keywords": [
     "css生成三角形",
     "imitationViteError",
     "rc",
     "micro-rc-container",
-    "container"
+    "container",
+    "AMap",
+    "Gaode map",
+    "gaode",
+    "map"
   ],
   "repository": {
     "type": "git",
@@ -26,7 +32,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "fork-ts-checker-webpack-plugin": "^9.0.2",
     "ts-loader": "^9.5.1",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "webpack": "^5.90.3",
+    "webpack-cli": "^5.1.4"
   }
 }

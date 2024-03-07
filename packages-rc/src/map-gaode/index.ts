@@ -11,6 +11,10 @@ import {
  * @returns 返回高德地图的实例
  *
  * 使用：
+ * 
+ * import {
+ *     mapGaode
+ * } from "micro-util-ts";
  *
  * mapGaode({
  *     key: 'Xxx',

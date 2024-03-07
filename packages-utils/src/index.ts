@@ -19,8 +19,6 @@ export { default as injectIconfont } from './inject-iconfont';
 
 export { default as draggable } from './draggable';
 
-export { default as mapGaode } from './map-gaode';
-
 export { default as queryStringToObject } from './location';
 
 export {

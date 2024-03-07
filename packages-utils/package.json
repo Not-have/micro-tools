@@ -1,15 +1,11 @@
 {
   "name": "micro-util-ts",
-  "version": "1.6.1",
+  "version": "1.6.2",
   "description": "一个常用的工具库",
   "keywords": [
     "micro",
     "utils",
     "micro-utils",
-    "AMap",
-    "Gaode map",
-    "gaode",
-    "map",
     "debounce",
     "throttle",
     "clone",

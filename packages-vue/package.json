@@ -16,7 +16,17 @@
     "vue-components",
     "components",
     "micro-vue",
-    "micro-vue-components"
+    "micro-vue-components",
+    "useEventListener",
+    "useLocationQuery",
+    "useService",
+    "Button",
+    "ButtonOps",
+    "Input",
+    "Icon",
+    "directiveDraggable",
+    "Table",
+    "errorHandler"
   ],
   "author": "Li Yong",
   "homepage": "https://github.com/Not-have/micro-tools/tree/main/packages-vue",
