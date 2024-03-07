@@ -8,23 +8,19 @@
 a:link {
     color: var(--micro-style-theme);
 }
-
 /*已访问的链接颜色*/
 a:visited {
     color: var(--micro-style-theme);
 }
-
 /*鼠标移动到链接的颜色*/
 a:hover {
     text-decoration: underline;
     color: var(--micro-style-theme);
 }
-
 /*鼠标点击时的颜色*/
 a:active {
     color: var(--micro-style-theme);
 }
-
 /*去掉下划线*/
 /* a {
     text-decoration: none;
@@ -51,7 +47,6 @@ del {
     text-decoration: none;
     color: inherit; /* 保持文本颜色不变 */
 }
-
 del::after {
     content: '';
     position: absolute;
