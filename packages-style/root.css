@@ -3,7 +3,10 @@
  * https://developer.mozilla.org/zh-CN/docs/Web/CSS/Using_CSS_custom_properties
  */
 :root {
-    --micro-style-line-color: #dcdfe6;
     --micro-style-text-font-size: 14px;
-    --micro-style-base-border-radius: 0;
+    --micro-style-theme: #0b57d0;
+    --micro-style-theme-background: rgb(242, 242, 242);
+    --micro-style-error: #dc362e;
+    --micro-style-mark-background: rgb(252,235,235);
+
 }
