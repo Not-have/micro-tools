@@ -13,7 +13,8 @@ export {
     createContext,
     useContext,
     useEventListener,
-    useLocationQuery
+    useLocationQuery,
+    useService
 } from './hooks';
 
 export type {

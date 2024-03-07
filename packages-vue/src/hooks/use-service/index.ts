@@ -1,7 +1,9 @@
+import { s } from '@storybook/vue3/dist/render-ddbe18a8';
 import {
     toRefs,
     reactive,
-    watch
+    watch,
+    isReactive
 } from 'vue';
 
 import {
@@ -68,7 +70,7 @@ export default function useService<T, Q>(fetch: IServiceFunction<T, Q>, query?: 
 
     const run = (arg?: Q): Promise<T> => {
         if (debounce !== false) {
-            return _debounceFn(arg) as Promise<T> ;
+            return _debounceFn(arg) as Promise<T>;
         }
 
         return asyncFunction(arg);
@@ -78,7 +80,7 @@ export default function useService<T, Q>(fetch: IServiceFunction<T, Q>, query?: 
         run(query);
     }
 
-    if (watchQuery) {
+    if (watchQuery && isReactive(query)) {
         // @ts-ignore
         watch(query, (newQuery: Q) => {
             run(newQuery);
@@ -86,6 +88,8 @@ export default function useService<T, Q>(fetch: IServiceFunction<T, Q>, query?: 
             deep: true, // 深度监听
             immediate: false // 立即执行（西药第一次 进来就打印）
         });
+    } else {
+        throw new Error('Query is not reactive,unable to proceed watch.');
     }
 
     const {
