@@ -60,9 +60,9 @@ del::after {
     background-color: var(--micro-style-error); /* 删除线的颜色 */
     width: 100%;
     height: 1.5px; /* 删除线的高度 */
-
 }
 
+/* mark 标签 */
 mark {
     padding: 0.1rem 0.2rem;
     border-radius: 0.2rem;
