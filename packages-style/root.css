@@ -3,7 +3,7 @@
  * https://developer.mozilla.org/zh-CN/docs/Web/CSS/Using_CSS_custom_properties
  */
 :root {
-    --line-color: #dcdfe6;
-    --text-font-size: 14px;
-    --base-border-radius: 0;
+    --micro-style-line-color: #dcdfe6;
+    --micro-style-text-font-size: 14px;
+    --micro-style-base-border-radius: 0;
 }

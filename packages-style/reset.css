@@ -135,5 +135,5 @@ html,
 body {
     width: 100%;
     height: 100%;
-    font-size: var(--text-font-size);
+    font-size: var(--micro-style-text-font-size);
 }
