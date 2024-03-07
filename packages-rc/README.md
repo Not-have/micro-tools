@@ -38,7 +38,7 @@ document.body.appendChild(overlay);
 获取到的页面元素.appendChild(overlay);
 ```
 
-## mapGaode
+## ~~4、mapGaode~~
 
 高德地图[懒加载](https://lbs.amap.com/api/javascript-api-v2/guide/abc/load)渲染
 
