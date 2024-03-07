@@ -54,7 +54,7 @@ del::after {
     left: 0;
     background-color: var(--micro-style-error); /* 删除线的颜色 */
     width: 100%;
-    height: 1.5px; /* 删除线的高度 */
+    height: 1px; /* 删除线的高度 */
 }
 
 /* mark 标签 */
