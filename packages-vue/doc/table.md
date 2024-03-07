@@ -3,7 +3,7 @@
 >
 > | 属性名 | 说明 | 类型 |
 > |----------|-----------|-----------|
-> | draggableChange | 拖动改变监听 - 有值行可拖动 | Function  |
+> | draggableChange | 拖动改变监听 - 有值 行可拖动 | Function  |
 > | ... | 其余属性同 ElTable/ElTableColumn [查看](https://element-plus.gitee.io/zh-CN/component/table.html) |
 >
 > 引入：

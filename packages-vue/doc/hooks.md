@@ -1,12 +1,8 @@
 # Hooks
 
-> ## useEventListener
+> ## 1、useEventListener
 >
-> 1、引入
->
-> import { useEventListener } from 'micro-vue-components';
->
-> 2、使用
+> 使用
 >
 > ```vue
 > <template>
@@ -47,7 +43,7 @@
 > </script>
 >```
 >
-> ## useLocationQuery
+> ## 2、useLocationQuery
 >
 > 使用
 >
@@ -81,7 +77,7 @@
 > </template>
 >```
 >
-> ## useService
+> ## 3、useService
 >
 > 使用
 >
@@ -130,4 +126,6 @@
 > }
 > </script>
 > ```
+>
+> 注：其余的 hooks 查看 index 中的导出。
 >
