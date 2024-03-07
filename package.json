@@ -2,7 +2,15 @@
   "name": "micro-tools",
   "version": "1.0.0",
   "description": "Tiny Tools.",
-  "keywords": [],
+  "keywords": [
+    "Vue components",
+    "React components",
+    "Storybook vue demo",
+    "Micro rc container",
+    "Vue hooks",
+    "eslint-conf",
+    "stylelint-conf"
+  ],
   "license": "ISC",
   "private": true,
   "author": {
