@@ -4,7 +4,7 @@ import type {
 
 import {
     imitationViteError
-} from 'micro-rc';
+} from 'micro-rc-container';
 
 /**
  * vue3 全局的错误示例方法

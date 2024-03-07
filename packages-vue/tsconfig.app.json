@@ -40,7 +40,7 @@
       "DOM",
       "DOM.Iterable"
     ],
-    "types": [],
+    "types": ["vite/client", "vue"],
     "sourceMap": true,
     "allowSyntheticDefaultImports": true,
     "allowJs": false,

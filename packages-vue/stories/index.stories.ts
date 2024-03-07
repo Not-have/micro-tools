@@ -6,6 +6,7 @@ import Input from './demo-input/index.vue';
 import Icon from './demo-icon/index.vue';
 import Drag from './demo-drag/index.vue';
 import Table from './demo-table/index.vue';
+import Fetch from './demo-fetch/index.vue';
 
 const meta = {
   title: 'Vue 组件' // 为了容纳多个组件，将标题设为 "Components"
@@ -35,4 +36,9 @@ export const InputComponent: Story = {
 export const TableComponent: Story = {
   name: 'Table Demo',
   render: () => h(Table)
+};
+
+export const FetchComponent: Story = {
+  name: 'Fetch Demo',
+  render: () => h(Fetch)
 };
