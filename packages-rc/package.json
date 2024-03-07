@@ -1,6 +1,6 @@
 {
   "name": "micro-rc-container",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "常用 js UI 组件",
   "main": "dist/index.js",
   "scripts": {
