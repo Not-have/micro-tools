@@ -10,6 +10,8 @@ import {
  * 
  * Vue、React 参考官网使用
  * 
+ * https://lbs.amap.com/api/javascript-api-v2/guide/abc/jscode
+ * 
  * @param param0
  * @returns 返回高德地图的实例
  *
