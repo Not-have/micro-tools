@@ -8,7 +8,7 @@ module.exports = {
     entry: './src/index.ts',
     output: {
         filename: 'index.js',
-        library: 'microUtil',
+        library: 'microRcContainer',
         path: path.resolve(__dirname, 'lib'),
         libraryTarget: 'umd'
     },
