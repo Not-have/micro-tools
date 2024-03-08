@@ -29,7 +29,7 @@ export default class LocalStorageHelper {
         expire
     }: IParams<T>) {
         if (key === '' || key === null || key === undefined) {
-            throw new Error('key');
+            throw new Error('key 不能为空');
         }
         if (value === '' || value === null || value === undefined) {
             throw new Error('value 不能为空');
@@ -69,7 +69,7 @@ export default class LocalStorageHelper {
     static delete(key: string) {
         localStorage.removeItem(key);
     }
-    
+
     static clear() {
         localStorage.clear();
     }
