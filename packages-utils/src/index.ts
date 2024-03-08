@@ -21,6 +21,8 @@ export { default as draggable } from './draggable';
 
 export { default as queryStringToObject } from './location';
 
+export { default as LocalStorageHelper } from './local-storage-helper';
+
 export {
     objectValueToString
 } from './handle-object';
