@@ -11,7 +11,9 @@
     "clone",
     "cloneDeep",
     "Cookie",
-    "draggable"
+    "draggable",
+    "LocalStorageHelper",
+    "localStorage"
   ],
   "license": "ISC",
   "main": "dist/index",
