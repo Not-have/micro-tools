@@ -4,8 +4,9 @@
   "description": "常用 js UI 组件",
   "main": "dist/index.js",
   "scripts": {
-    "build": "npx rimraf lib && webpack --config webpack.config.js",
+    "build:webpack": "npx rimraf lib && webpack --config webpack.config.js",
     "build:tsc": "npx rimraf dist && tsc",
+    "build": "npm run build:webpack && npm run build:tsc",
     "start": "tsc --watch",
     "start:webpack": "webpack --watch",
     "clear": "npx rimraf node_modules",

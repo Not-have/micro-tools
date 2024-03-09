@@ -26,8 +26,9 @@
     "url": "https://github.com/Not-have/micro-tools/issues"
   },
   "scripts": {
-    "build": "npx rimraf lib && webpack --config webpack.config.js",
+    "build:webpack": "npx rimraf lib && webpack --config webpack.config.js",
     "build:tsc": "npx rimraf dist && tsc",
+    "build": "npm run build:webpack && npm run build:tsc",
     "start": "tsc --watch",
     "start:webpack": "webpack --watch",
     "publish:build": "npm run build:tsc && npm publish",

@@ -73,7 +73,7 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "postinstall": "husky install",
-    "boot": "pnpm run clear && pnpm run clear:lock && pnpm run clear:store && pnpm install && pnpm run clear:lock",
+    "boot": "pnpm run clear && pnpm run clear:store && pnpm install && pnpm run clear:lock && pnpm run build",
     "boot:packages": "pnpm --filter \"./packages-utils\" build:tsc",
     "clear": "npx rimraf dist && pnpm --filter \"./packages-**\" clear && npx rimraf node_modules && npx rimraf .pnpm-store",
     "clear:lock": "npx rimraf pnpm-lock.yaml && npx rimraf package-lock.json && npx rimraf lerna-debug.log",
