@@ -18,7 +18,7 @@ interface IOptions {
 }
 
 /**
- * 用于在浏览器中打开新窗口
+ * 用于在浏览器中打开窗口
  * @param {string} url 要打开的目标 URL
  * @param {IOptions} opt 
  */

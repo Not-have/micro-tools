@@ -6,7 +6,7 @@ type Dictionary<T> = {
 type OmitByFunction<T> = (value: T, key: string) => boolean;
 
 /**
- * 创建一个从对象中排除满足某些条件的属性的新对象
+ * 从创建的一个从对象中，排除满足某些条件的属性的属性
  * @param obj 要处理的对象
  * @param condition 用于判断是否排除属性的条件函数
  * @returns 新的对象，排除了满足条件的属性

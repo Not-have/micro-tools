@@ -14,11 +14,7 @@ export { default as throttle } from './throttle';
 export { default as clone } from './clone';
 export { default as cloneDeep } from './clone-deep';
 
-export { default as injectIconfont } from './inject-iconfont';
-
-export { default as draggable } from './draggable';
-
-export { default as queryStringToObject } from './location';
+export { default as queryStringToObject } from './query-string-to-object';
 
 export { default as animationFrameThrottle } from './animation-frame-throttle';
 

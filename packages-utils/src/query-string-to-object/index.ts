@@ -1,5 +1,5 @@
 /**
- * 获取 window.location.search 并转换为 Object
+ * window.location.search 的值转换为 Object
  * @param queryString window.location.search
  * @returns {Record<string, string>} Object
  */
