@@ -160,7 +160,7 @@
 > import { 
 >     useWatermark,
 >     Button
-> } from '../../src';
+> } from 'micro-vue-components';
 > 
 > const app = ref(document.body);
 > 
