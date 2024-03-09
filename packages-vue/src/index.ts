@@ -14,7 +14,8 @@ export {
     useContext,
     useEventListener,
     useLocationQuery,
-    useService
+    useService,
+    useScript
 } from './hooks';
 
 export type {
