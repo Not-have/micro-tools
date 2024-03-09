@@ -1,3 +1,4 @@
+/* 类型判断 */
 export { default as isObject } from './is-object';
 export { default as isFunction } from './is-function';
 export { default as isUndefined } from './is-undefined';
@@ -13,15 +14,11 @@ export { default as throttle } from './throttle';
 export { default as clone } from './clone';
 export { default as cloneDeep } from './clone-deep';
 
-export { default as Cookie } from './cookie';
-
 export { default as injectIconfont } from './inject-iconfont';
 
 export { default as draggable } from './draggable';
 
 export { default as queryStringToObject } from './location';
-
-export { default as LocalStorageHelper } from './local-storage-helper';
 
 export { default as animationFrameThrottle } from './animation-frame-throttle';
 
@@ -39,12 +36,17 @@ export {
     objectValueToString
 } from './handle-object';
 
-// 下载
+/* 本地储存 */
+export { default as LocalStorageHelper } from './local-storage-helper';
+export { default as CookieHelper } from './cookie-helper';
+
+/* 转换 */
 export {
     dataUrlToBlob,
     urlToBase64
 } from './base64-conver';
 
+/* 下载 */
 export {
     downloadByOnlineUrl,
     downloadByBase64,

@@ -38,7 +38,7 @@ interface CookieOptions {
  *
  *
  */
-export default class Cookie {
+export default class CookieHelper {
     /**
      * 设置 Cookie
      * @param {string} name - Cookie 的名称
