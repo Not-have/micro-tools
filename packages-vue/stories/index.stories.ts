@@ -7,6 +7,7 @@ import Icon from './demo-icon/index.vue';
 import Drag from './demo-drag/index.vue';
 import Table from './demo-table/index.vue';
 import Fetch from './demo-fetch/index.vue';
+import Watermark from './demo-watermark/index.vue';
 
 const meta = {
   title: 'Vue 组件' // 为了容纳多个组件，将标题设为 "Components"
@@ -41,4 +42,9 @@ export const TableComponent: Story = {
 export const FetchComponent: Story = {
   name: 'Fetch Demo',
   render: () => h(Fetch)
+};
+
+export const WatermarkComponent: Story = {
+  name: 'Watermark Demo',
+  render: () => h(Watermark)
 };

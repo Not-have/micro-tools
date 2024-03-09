@@ -15,7 +15,8 @@ export {
     useEventListener,
     useLocationQuery,
     useService,
-    useScript
+    useScript,
+    useWatermark
 } from './hooks';
 
 export type {
