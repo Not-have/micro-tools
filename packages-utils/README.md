@@ -105,7 +105,7 @@ window.location.search 并转换为 Object
 
 通过模拟触发 resize 事件，手动触发窗口尺寸变化
 
-### 12）Object
+### 11）Object
 
 #### ① objectValueToString
 
@@ -115,7 +115,7 @@ obj 中所有 value 转换为 string
 
 从创建的一个从对象中，排除满足某些条件的属性的属性
 
-### 13）本地储存
+### 12）本地储存
 
 #### ① LocalStorageHelper
 
@@ -125,7 +125,7 @@ localStorage 的一些扩展
 
 CookieHelper 的一些扩展
 
-### 14）转换
+### 13）转换
 
 #### ① dataUrlToBlob
 
@@ -135,7 +135,7 @@ CookieHelper 的一些扩展
 
 将图像 URL 转换为 base64 编码的字符串
 
-### 15）下载
+### 14）下载
 
 #### ① downloadByOnlineUrl
 
