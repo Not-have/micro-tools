@@ -11,7 +11,7 @@ import {
 } from 'micro-conf';
 import {
     injectIconfont
-} from 'micro-util-ts';
+} from 'micro-rc-container';
 
 import '../style/index.css';
 import {

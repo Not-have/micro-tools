@@ -5,7 +5,7 @@ import type {
 
 import {
     draggable
-} from 'micro-util-ts';
+} from 'micro-rc-container';
 
 /**
  * 拖动 directive

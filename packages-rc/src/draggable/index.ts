@@ -1,4 +1,6 @@
-import isElement from '../is-element';
+import { 
+    isElement 
+} from 'micro-util-ts';
 
 type ITransform = {
     offsetX: number,
