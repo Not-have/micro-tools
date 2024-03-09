@@ -1,6 +1,6 @@
 {
   "name": "micro-util-ts",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "description": "一个常用的工具库",
   "keywords": [
     "micro",
@@ -40,5 +40,8 @@
     "typescript": "^5.3.3",
     "webpack": "^5.90.3",
     "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "resize-observer-polyfill": "^1.5.1"
   }
 }

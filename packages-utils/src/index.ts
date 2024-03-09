@@ -23,6 +23,14 @@ export { default as queryStringToObject } from './location';
 
 export { default as LocalStorageHelper } from './local-storage-helper';
 
+export { default as animationFrameThrottle } from './animation-frame-throttle';
+
+export {
+    addResizeListener,
+    removeResizeListener,
+    triggerWindowResize
+} from './dom-resize-utils';
+
 export {
     objectValueToString
 } from './handle-object';
