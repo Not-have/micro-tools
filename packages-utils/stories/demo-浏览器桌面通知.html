@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    /**
+     * https://developer.mozilla.org/zh-CN/docs/Web/API/Notifications_API
+     */
+    // 检查浏览器是否支持通知
+    if ('Notification' in window) {
+        // 请求通知权限
+        Notification.requestPermission().then(function (permission) {
+            console.log(permission);
+            if (permission === 'granted') {
+                // 创建通知
+                var notification = new Notification('Hello!', {
+                    body: 'This is a desktop notification.',
+                    icon: ''
+                });
+
+                // 3秒后关闭通知
+                setTimeout(function () {
+                    notification.close();
+                }, 3000);
+            }
+            if(permission === 'denied') {
+                throw new Error('暂没开通通知权限。');
+            }
+        });
+    } else {
+        console.log('Desktop notifications not supported in this browser.');
+    }
+
+</script>

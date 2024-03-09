@@ -25,6 +25,10 @@ export { default as LocalStorageHelper } from './local-storage-helper';
 
 export { default as animationFrameThrottle } from './animation-frame-throttle';
 
+export { default as copyText } from './copy-text';
+
+export { default as openWindow } from './open-window';
+
 export {
     addResizeListener,
     removeResizeListener,
@@ -34,3 +38,16 @@ export {
 export {
     objectValueToString
 } from './handle-object';
+
+// 下载
+export {
+    dataUrlToBlob,
+    urlToBase64
+} from './base64-conver';
+
+export {
+    downloadByOnlineUrl,
+    downloadByBase64,
+    downloadByData,
+    downloadByUrl
+} from './file-download';

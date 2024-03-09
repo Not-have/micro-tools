@@ -1,16 +1,16 @@
 <template>
     <div>
         <Button type="primary"
-                label=" Create Watermark1"
-                @click="setWatermark('WaterMark Info1')">
+                label="创建 Watermark1"
+                @click="setWatermark('WaterMark 1')">
         </Button>
         <Button type="primary"
-                label="Create Watermark2"
-                @click="setWatermark2('WaterMark Info2')">
+                label="创建 Watermark2"
+                @click="setWatermark2('WaterMark 2')">
         </Button>
         <Button type="primary"
                 label="Create custom style Watermark"
-                @click="setWatermark3('Custome Style WaterMark')">
+                @click="setWatermark3('创建 样式 WaterMark')">
         </Button>
 
         <Button label="Clear Watermark1"
