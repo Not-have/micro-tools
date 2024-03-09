@@ -129,3 +129,53 @@
 >
 > 注：其余的 hooks 查看 index 中的导出。
 >
+> ## 4、useWatermark
+>
+> ```vue
+> <template>
+>     <div>
+>         <Button type="primary"
+>                 label="创建 Watermark1"
+>                 @click="setWatermark('WaterMark 1')">
+>         </Button>
+>         <Button type="primary"
+>                 label="Create custom style Watermark"
+>                 @click="setWatermark2('创建 样式 WaterMark')">
+>         </Button>
+> 
+>         <Button label="Clear Watermark1"
+>                 @click="clear"></Button>
+>         
+>         <Button label="ClearAll"
+>                 @click="clearAll"></Button>
+> 
+>         <Button label="Update Watermark1"
+>                 @click="setWatermark('WaterMark Info New')">
+>         </Button>
+>     </div>
+> </template>
+> <script lang="ts" setup>
+> import { onUnmounted, ref } from 'vue';
+> 
+> import { 
+>     useWatermark,
+>     Button
+> } from '../../src';
+> 
+> const app = ref(document.body);
+> 
+> const { setWatermark, clear, clearAll } = useWatermark();
+> const { setWatermark: setWatermark2 } = useWatermark(app, {
+>     fontColor: 'red',
+>     fontSize: 12,
+>     rotate: 30
+> });
+> 
+> // setWatermark3('水印');
+> 
+> onUnmounted(() => {
+>     clearAll();
+> });
+> </script>
+> ```
+>

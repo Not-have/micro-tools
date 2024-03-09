@@ -41,6 +41,8 @@ const { setWatermark: setWatermark3 } = useWatermark(app, {
     rotate: 30
 });
 
+// setWatermark3('水印');
+
 onUnmounted(() => {
     clearAll();
 });
