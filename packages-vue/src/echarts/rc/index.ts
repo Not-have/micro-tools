@@ -24,10 +24,25 @@ import {
     useEventListener
 } from '../../hooks';
 
+interface IEChartsMethods {
+    setOptions: (options: EChartsOption, clear?: boolean) => Promise<unknown>;
+    resize: () => void;
+    echarts: typeof echarts;
+    getInstance: () => echarts.ECharts | null;
+}
+
+/**
+ * ECharts 的使用
+ * @param elRef 渲染 echarts 的 DOM
+ * @param theme 主题色
+ * @returns {IEChartsMethods} IEChartsMethods
+ * 
+ * 文档：https://echarts.apache.org/handbook/zh/get-started/
+ */
 export default function useECharts(
     elRef: Ref<HTMLDivElement>,
     theme: 'light' | 'dark' | 'default' = 'default'
-) {
+): IEChartsMethods {
     /**
      * 主题监听，因为有可能全局修改了主题颜色
      */
@@ -111,7 +126,7 @@ export default function useECharts(
     function resize() {
         chartInstance?.resize({
             animation: {
-                duration: 300,
+                duration: 200,
                 easing: 'quadraticIn'
             }
         });

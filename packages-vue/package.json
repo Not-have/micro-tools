@@ -1,6 +1,6 @@
 {
   "name": "micro-vue-components",
-  "version": "1.11.2",
+  "version": "1.12.0",
   "description": "一款微小的 vue 组件",
   "main": "src/index.ts",
   "scripts": {
@@ -27,7 +27,8 @@
       "Icon",
       "directiveDraggable",
       "Table",
-      "errorHandler"
+      "errorHandler",
+      "useECharts"
   ],
   "author": "Li Yong",
   "homepage": "https://github.com/Not-have/micro-tools/tree/main/packages-vue",

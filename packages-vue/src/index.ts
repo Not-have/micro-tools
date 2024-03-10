@@ -48,4 +48,8 @@ export {
 
 export { default as errorHandler } from './error-handler';
 
+// echarts
 export { default as useECharts } from './echarts';
+export type {
+    EChartsOption
+} from './echarts';
