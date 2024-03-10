@@ -28,16 +28,13 @@ export default function useECharts(
     elRef: Ref<HTMLDivElement>,
     theme: 'light' | 'dark' | 'default' = 'default'
 ) {
+    /**
+     * 主题监听，因为有可能全局修改了主题颜色
+     */
     const getDarkMode = computed(() => {
         return theme;
     });
-    let chartInstance: echarts.ECharts | null = null;
-    let resizeFn: Fn = resize;
     const cacheOptions = ref({}) as Ref<EChartsOption>;
-    let removeResizeFn: Fn = () => {};
-
-    resizeFn = debounce(resize, 200);
-
     const getOptions = computed(() => {
         if (getDarkMode.value !== 'dark') {
             return cacheOptions.value as EChartsOption;
@@ -47,6 +44,12 @@ export default function useECharts(
             ...cacheOptions.value
         } as EChartsOption;
     });
+
+    let chartInstance: echarts.ECharts | null = null;
+    let resizeFn: Fn = resize;
+    let removeResizeFn: Fn = () => {}; // 删除窗口监听
+
+    resizeFn = debounce(resize, 200);
 
     /**
      * 初始化 echarts
@@ -58,8 +61,9 @@ export default function useECharts(
         }
 
         chartInstance = echarts.init(el, t);
+
+        // 监听窗口变化
         const { removeEvent } = useEventListener({
-            el: window,
             name: 'resize',
             func: resizeFn
         });
@@ -75,6 +79,7 @@ export default function useECharts(
 
     /**
      * 设置属性
+     * clear 为 true 时修改数据
      */
     function setOptions(options: EChartsOption, clear = true) {
         cacheOptions.value = options;
@@ -93,7 +98,6 @@ export default function useECharts(
                         if (!chartInstance) return;
                     }
                     clear && chartInstance?.clear();
-
                     chartInstance?.setOption(unref(getOptions));
                     resolve(null);
                 });
