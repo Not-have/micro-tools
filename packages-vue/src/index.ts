@@ -47,3 +47,5 @@ export {
 } from './table';
 
 export { default as errorHandler } from './error-handler';
+
+export { default as useECharts } from './echarts';

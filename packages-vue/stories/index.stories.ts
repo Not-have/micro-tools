@@ -8,6 +8,7 @@ import Drag from './demo-drag/index.vue';
 import Table from './demo-table/index.vue';
 import Fetch from './demo-fetch/index.vue';
 import Watermark from './demo-watermark/index.vue';
+import ECharts from './demo-echarts/index.vue';
 
 const meta = {
   title: 'Vue 组件' // 为了容纳多个组件，将标题设为 "Components"
@@ -47,4 +48,9 @@ export const FetchComponent: Story = {
 export const WatermarkComponent: Story = {
   name: 'Watermark Demo',
   render: () => h(Watermark)
+};
+
+export const EChartsComponent: Story = {
+    name: 'ECharts Demo',
+    render: () => h(ECharts)
 };
