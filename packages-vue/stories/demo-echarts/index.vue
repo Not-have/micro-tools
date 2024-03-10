@@ -57,7 +57,7 @@ const handleClick = () => {
 
 <template>
     <div ref="chartRef"
-         style="height: 500px; width: 100%"></div>
+         style="height: 500px; width: 100%" />
 
     <Button label='修改数据'
             @click="handleClick" />
