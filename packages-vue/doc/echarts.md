@@ -2,7 +2,7 @@
 
 > ## useECharts
 >
-> 使用
+> 使用 [See](https://github.com/Not-have/micro-tools/blob/develop/packages-vue/stories/demo-echarts/index.vue)
 >
 > ```vue
 > <script lang="ts" setup>
