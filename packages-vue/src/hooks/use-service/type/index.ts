@@ -39,7 +39,7 @@ export interface IAsyncResult<T, Q> {
     data: Ref<UnwrapRef<T> | null>;
     loading: Ref<boolean>;
     /**
-     * @throws 接口请求错误时的抛出
+     * @throws 接口请求错误
      * 
      * 他应该在 main.ts 中进行全局的处理
      * 
