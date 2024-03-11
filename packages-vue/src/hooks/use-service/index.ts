@@ -55,7 +55,7 @@ export default function useService<T, Q>(fetch: IServiceFunction<T, Q>, query?: 
         stateResult.loading = true;
 
         return new Promise((reactive, reject) => {
-            fetch(arg).then(res => {
+            fetch(arg).then((res: T) => {
                 stateResult.loading = false;
                 stateResult.data = res as UnwrapRef<T> | null;
                 reactive(res);
