@@ -1,4 +1,7 @@
-import { s } from '@storybook/vue3/dist/render-ddbe18a8';
+import type {
+    UnwrapRef
+} from 'vue';
+
 import {
     toRefs,
     reactive,
@@ -37,7 +40,8 @@ export default function useService<T, Q>(fetch: IServiceFunction<T, Q>, query?: 
 }): IAsyncResult<T, Q> {
     const stateResult = reactive<IStateResult<T>>({
         data: initData || null,
-        loading: false
+        loading: false,
+        error: null
     });
 
     const {
@@ -53,14 +57,14 @@ export default function useService<T, Q>(fetch: IServiceFunction<T, Q>, query?: 
         return new Promise((reactive, reject) => {
             fetch(arg).then(res => {
                 stateResult.loading = false;
-                // @ts-ignore
-                stateResult.data = res;
+                stateResult.data = res as UnwrapRef<T> | null;
                 reactive(res);
             }).catch(err => {
+                stateResult.loading = false;
+                stateResult.error = err;
                 if (error) {
                     error(err);
                 }
-                stateResult.loading = false;
                 reject(err);
             });
         });
@@ -80,6 +84,7 @@ export default function useService<T, Q>(fetch: IServiceFunction<T, Q>, query?: 
         run(query);
     }
 
+    // TODO 优化
     if (watchQuery && isReactive(query)) {
         // @ts-ignore
         watch(query, (newQuery: Q) => {
@@ -94,12 +99,14 @@ export default function useService<T, Q>(fetch: IServiceFunction<T, Q>, query?: 
 
     const {
         data,
-        loading
+        loading,
+        error: err
     } = toRefs(stateResult);
 
     return {
         run: run,
         data,
-        loading
+        loading,
+        error: err
     };
 }

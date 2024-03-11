@@ -11,5 +11,8 @@
         "sortablejs",
         "stylelint"
     ],
-    "commentTranslate.source": "Bing"
+    "commentTranslate.source": "Bing",
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
 }
