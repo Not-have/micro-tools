@@ -35,6 +35,7 @@
       "packages-enum",
       "packages-types"
   ],
+  "packageManager": "pnpm@8.10.0",
   "engines": {
       "node": ">=16.0.0",
       "pnpm": ">=8.10.0"

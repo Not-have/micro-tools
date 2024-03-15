@@ -1,87 +1,88 @@
 {
-  "name": "micro-vue-components",
-  "version": "1.12.2",
-  "description": "一款微小的 vue 组件",
-  "main": "src/index.ts",
-  "scripts": {
-      "type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false",
-      "start": "storybook dev -p 6077 --no-open",
-      "build-storybook": "storybook build",
-      "clear": "npx rimraf node_modules",
-      "fix:doc": "markdownlint-cli2 --fix \"./doc/*.md\"",
-      "build:docs": "node ../scripts/merge-markdown.js ./doc .",
-      "prepublishOnly": "node ../scripts/merge-markdown.js ./doc .",
-      "build": "npm run build:docs"
-  },
-  "keywords": [
-      "vue-components",
-      "components",
-      "micro-vue",
-      "micro-vue-components",
-      "useEventListener",
-      "useLocationQuery",
-      "useService",
-      "Button",
-      "ButtonOps",
-      "Input",
-      "Icon",
-      "directiveDraggable",
-      "Table",
-      "errorHandler",
-      "useECharts"
-  ],
-  "author": "Li Yong",
-  "homepage": "https://github.com/Not-have/micro-tools/tree/main/packages-vue",
-  "license": "ISC",
-  "publishConfig": {
-      "registry": "https://registry.npmjs.org/"
-  },
-  "repository": {
-      "type": "git",
-      "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-vue"
-  },
-  "bugs": {
-      "url": "https://github.com/Not-have/micro-tools/issues"
-  },
-  "peerDependencies": {
-      "vue": "^3.3.4"
-  },
-  "devDependencies": {
-      "@storybook/addon-essentials": "7.4.0",
-      "@storybook/addon-interactions": "7.4.0",
-      "@storybook/addon-links": "7.4.0",
-      "@storybook/blocks": "7.4.0",
-      "@storybook/testing-library": "0.2.0",
-      "@storybook/vue3": "7.4.0",
-      "@storybook/vue3-vite": "7.4.0",
-      "@tsconfig/node18": "^18.2.0",
-      "@types/lodash-es": "^4.17.9",
-      "@types/node": "^18.17.5",
-      "@types/sortablejs": "^1.15.8",
-      "@vitejs/plugin-vue": "^4.3.1",
-      "@vitejs/plugin-vue-jsx": "^3.0.2",
-      "@vue/tsconfig": "^0.4.0",
-      "npm-run-all": "^4.1.5",
-      "react": "18.2.0",
-      "react-dom": "18.2.0",
-      "storybook": "7.4.0",
-      "typescript": "~5.1.6",
-      "vite": "^4.4.9",
-      "vue": "^3.3.4",
-      "vue-tsc": "^1.8.8"
-  },
-  "dependencies": {
-      "@element-plus/icons-vue": "^2.1.0",
-      "echarts": "^5.5.0",
-      "element-plus": "^2.3.12",
-      "lodash-es": "^4.17.21",
-      "micro-conf": "workspace:^",
-      "micro-rc-container": "workspace:^",
-      "micro-style": "workspace:^",
-      "micro-ts-enum": "workspace:^",
-      "micro-ts-types": "workspace:^",
-      "micro-util-ts": "workspace:^",
-      "sortablejs": "^1.15.2",
-      "vue-router": "^4.3.0"
-  }
+    "name": "micro-vue-components",
+    "version": "1.12.2",
+    "description": "一款微小的 vue 组件",
+    "main": "src/index.ts",
+    "scripts": {
+        "type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false",
+        "start": "storybook dev -p 6077 --no-open",
+        "build-storybook": "storybook build",
+        "clear": "npx rimraf node_modules",
+        "fix:doc": "markdownlint-cli2 --fix \"./doc/*.md\"",
+        "build:docs": "node ../scripts/merge-markdown.js ./doc .",
+        "prepublishOnly": "node ../scripts/merge-markdown.js ./doc .",
+        "build": "npm run build:docs"
+    },
+    "keywords": [
+        "vue-components",
+        "components",
+        "micro-vue",
+        "micro-vue-components",
+        "useEventListener",
+        "useLocationQuery",
+        "useService",
+        "Button",
+        "ButtonOps",
+        "Input",
+        "Icon",
+        "directiveDraggable",
+        "Table",
+        "errorHandler",
+        "useECharts"
+    ],
+    "author": "Li Yong",
+    "homepage": "https://github.com/Not-have/micro-tools/tree/main/packages-vue",
+    "license": "ISC",
+    "publishConfig": {
+        "registry": "https://registry.npmjs.org/"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-vue"
+    },
+    "bugs": {
+        "url": "https://github.com/Not-have/micro-tools/issues"
+    },
+    "peerDependencies": {
+        "vue": "^3.3.4"
+    },
+    "devDependencies": {
+        "@storybook/addon-essentials": "7.4.0",
+        "@storybook/addon-interactions": "7.4.0",
+        "@storybook/addon-links": "7.4.0",
+        "@storybook/blocks": "7.4.0",
+        "@storybook/testing-library": "0.2.0",
+        "@storybook/vue3": "7.4.0",
+        "@storybook/vue3-vite": "7.4.0",
+        "@tsconfig/node18": "^18.2.0",
+        "@types/lodash-es": "^4.17.9",
+        "@types/node": "^18.17.5",
+        "@types/sortablejs": "^1.15.8",
+        "@vitejs/plugin-vue": "^4.3.1",
+        "@vitejs/plugin-vue-jsx": "^3.0.2",
+        "@vue/tsconfig": "^0.4.0",
+        "npm-run-all": "^4.1.5",
+        "react": "18.2.0",
+        "react-dom": "18.2.0",
+        "storybook": "7.4.0",
+        "typescript": "~5.1.6",
+        "vite": "^4.4.9",
+        "vue": "^3.3.4",
+        "vue-tsc": "^1.8.8"
+    },
+    "dependencies": {
+        "@element-plus/icons-vue": "^2.1.0",
+        "echarts": "^5.5.0",
+        "element-plus": "^2.3.12",
+        "lodash-es": "^4.17.21",
+        "micro-conf": "workspace:^",
+        "micro-rc-container": "workspace:^",
+        "micro-style": "workspace:^",
+        "micro-ts-enum": "workspace:^",
+        "micro-ts-types": "workspace:^",
+        "micro-util-ts": "workspace:^",
+        "sortablejs": "^1.15.2",
+        "vue-router": "^4.3.0",
+        "vue-styled-components": "^1.6.0"
+    }
 }

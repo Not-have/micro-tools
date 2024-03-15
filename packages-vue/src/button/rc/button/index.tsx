@@ -4,10 +4,9 @@ import type {
 import {
     defineComponent
 } from 'vue';
+
 import {
-    isUndefined as _isUndefined
-} from 'lodash-es';
-import {
+    isUndefined as _isUndefined,
     throttle
 } from 'micro-util-ts';
 
