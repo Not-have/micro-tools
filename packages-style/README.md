@@ -14,16 +14,16 @@
 import "micro-style/style/reset.css";
 ```
 
-### 3）个性化样式
+### 3）个性化 Html
 
 注：对 `a`、`code`、`del`、`mark` 进行样式的修改。
 
 ```css
-@import url('micro-style/style/individuality.css');
+@import url('micro-style/style/individuality-html.css');
 
 /* js 的引用方式
 
-import "micro-style/style/individuality.css";
+import "micro-style/style/individuality-html.css";
 */
 ```
 
