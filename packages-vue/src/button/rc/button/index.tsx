@@ -27,7 +27,7 @@ export default defineComponent({
     setup(props): () => VNode {
 
         const handleClick = (evn: MouseEvent) => {
-            if (props.isThrottle) {
+            if (!_isUndefined(props.onClick) && props.isThrottle) {
                 // 进行了节流的处理，防止用户多次一直点击
                 throttle(props?.onClick as Function)(evn);
                 return;

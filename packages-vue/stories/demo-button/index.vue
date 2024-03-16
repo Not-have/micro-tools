@@ -25,7 +25,7 @@ import {
     ButtonOps
 } from '../../src';
 
-const handleClick = (e) => {
+const handleClick = (e: Event) => {
     console.log(e);
 };
 
