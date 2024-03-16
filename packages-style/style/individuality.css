@@ -1,7 +1,4 @@
 @import url('./root.css');
-:root {
-    --micro-style-font-family: ui-monospace, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-}
 
 /* a 标签 */
 /*未访问的链接颜色*/
