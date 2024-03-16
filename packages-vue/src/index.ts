@@ -6,7 +6,7 @@
  * 类型维护两份！！！
  */
 import 'element-plus/dist/index.css';
-import 'micro-style/root.css';
+import 'micro-style/style/root.css';
 import './style';
 
 export {

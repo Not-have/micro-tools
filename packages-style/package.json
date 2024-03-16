@@ -1,9 +1,19 @@
 {
   "name": "micro-style",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "description": "Css style",
-  "main": "index.js",
-  "scripts": {},
+  "main": "dist/index",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build:webpack": "npx rimraf lib && webpack --config webpack.config.js",
+    "build:tsc": "npx rimraf dist && tsc",
+    "build": "npm run build:webpack && npm run build:tsc",
+    "start:webpack": "webpack --watch",
+    "clear": "npx rimraf node_modules",
+    "prepublishOnly": "npm run build:tsc && npm run build"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Not-have/micro-tools.git#main"
@@ -23,5 +33,14 @@
   "bugs": {
     "url": "https://github.com/Not-have/micro-tools/issues"
   },
-  "homepage": "https://github.com/Not-have/micro-tools/tree/main#readme"
+  "homepage": "https://github.com/Not-have/micro-tools/tree/main#readme",
+  "dependencies": {
+    "@emotion/css": "^11.11.2"
+  },
+  "devDependencies": {
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.4.2",
+    "webpack": "^5.90.3",
+    "webpack-cli": "^5.1.4"
+  }
 }
