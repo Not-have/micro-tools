@@ -1,6 +1,3 @@
 :root {
-    --el-border-radius-base: var(--micro-style-base-border-radius);
-    
-    --micro-style-line-color: #dcdfe6;
-    --micro-style-base-border-radius: 0;
+    --micro-vc-style-line-color: #dcdfe6;
 }

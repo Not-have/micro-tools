@@ -7,5 +7,5 @@
 .separation-line {
     display: inline-block;
     height: 100%;
-    color: var(--micro-style-line-color);
+    color: var(--micro-vc-style-line-color);
 }
