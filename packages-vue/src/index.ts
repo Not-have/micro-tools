@@ -53,3 +53,5 @@ export { default as useECharts } from './echarts';
 export type {
     EChartsOption
 } from './echarts';
+
+export { default as opDialog } from './op-dialog';

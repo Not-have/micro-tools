@@ -24,8 +24,7 @@ export default defineComponent({
         ...IRcButtonProps,
         ...IRcOnClickProps
     },
-    setup(props): () => VNode {
-
+    setup(props, { slots }): () => VNode {
         const handleClick = (evn: MouseEvent) => {
             if (!_isUndefined(props.onClick) && props.isThrottle) {
                 // 进行了节流的处理，防止用户多次一直点击
@@ -47,7 +46,7 @@ export default defineComponent({
             disabled={props.loading || props.disabled}
             onClick={handleClick}
         >
-            {props.label}
+            {props.label || slots.default && slots.default() }
         </ElButton>;
     }
 });

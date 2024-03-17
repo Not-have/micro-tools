@@ -114,5 +114,6 @@ tiny-tools
 | @ignore     | 忽略特定的代码块，不被文档生成工具处理 |
 | @inheritdoc | 继承文档注释，通常用于子类       |
 | @link       | 创建一个链接到其他文档的超链接   |
+| @todo       | 待确认，或者未实现   |
 
 [文档](https://ts.nodejs.cn/docs/handbook/jsdoc-supported-types.html)

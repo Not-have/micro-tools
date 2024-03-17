@@ -23,7 +23,7 @@ import ButtonTooltip from '../button-tooltip';
 
 export default defineComponent({
     props: IButtonProps,
-    setup(props): () => VNode {
+    setup(props, { slots }): () => VNode {
         createContext('button_props', props);
         // 具体的组件展示处理
         return (): VNode => {
@@ -34,7 +34,9 @@ export default defineComponent({
                 return <ButtonTooltip/>;
             }
 
-            return <Button {...unref(props)} />;
+            return <Button {...unref(props)}>
+                { slots?.default && slots.default() }
+            </Button>;
         };
     }
 });
