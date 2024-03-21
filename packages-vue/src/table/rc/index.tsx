@@ -19,6 +19,8 @@ import Sortable from 'sortablejs';
 
 type ElTableProps = ExtractPropTypes<typeof ElTable>;
 /**
+ * @todo 需要优化，不应该这么使用
+ * 
  * 可拖拽的 ElTable
  *
  * draggableChange
