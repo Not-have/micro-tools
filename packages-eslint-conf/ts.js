@@ -7,10 +7,10 @@ module.exports = {
         es6: true
     },
     extends: [
-        './conf/import.cjs',
+        './conf/import.js',
         'eslint:recommended', // 或其他适当的扩展配置
         'plugin:@typescript-eslint/recommended'
-    ],
+    ].map(require.resolve),
     parser: '@typescript-eslint/parser',
     parserOptions: {
         /**

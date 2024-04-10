@@ -1,6 +1,6 @@
 {
   "name": "micro-eslint-conf",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Eslint 的规则配置",
   "main": "index.js",
   "scripts": {
@@ -23,7 +23,7 @@
   "bugs": {
     "url": "https://github.com/Not-have/micro-tools/issues"
   },
-  "devDependencies": {
+  "dependencies": {
     "@rushstack/eslint-patch": "^1.7.2",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
@@ -31,7 +31,7 @@
     "eslint": "^8.57.0",
     "eslint-define-config": "^2.1.0",
     "eslint-plugin-simple-import-sort": "^12.0.0",
-    "eslint-plugin-vue": "^9.22.0",
+    "eslint-plugin-vue": "^9.24.1",
     "vite-plugin-eslint": "^1.8.1"
   }
 }

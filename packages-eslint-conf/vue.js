@@ -2,10 +2,10 @@ module.exports = {
     root: true,
     parser: 'vue-eslint-parser',
     extends: [
-        './ts.cjs',
+        './ts.js',
         'plugin:vue/vue3-essential',
         'plugin:@typescript-eslint/recommended'
-    ],
+    ].map(require.resolve),
     parserOptions: {
         ecmaVersion: 'latest'
     },
