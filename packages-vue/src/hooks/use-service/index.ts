@@ -32,7 +32,7 @@ import {
  *     loading // 当前的请求状态
  * }
  */
-export default function useService<T, Q>(fetch: IServiceFunction<T, Q>, query?: Q, initData?: T, config: IConfig = {
+export default function useService<T, Q>(fetch: IServiceFunction<T, Q extends object>, query?: Q, initData?: T, config: IConfig = {
     immediate: true,
     debounce: false,
     watchQuery: false,
