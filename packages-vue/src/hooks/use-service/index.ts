@@ -93,8 +93,6 @@ export default function useService<T, Q>(fetch: IServiceFunction<T, Q extends ob
             deep: true, // 深度监听
             immediate: false // 立即执行（西药第一次 进来就打印）
         });
-    } else {
-        throw new Error('Query is not reactive,unable to proceed watch.');
     }
 
     const {
