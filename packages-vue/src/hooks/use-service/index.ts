@@ -86,7 +86,6 @@ export default function useService<T, Q>(fetch: IServiceFunction<T, Q extends ob
 
     // TODO 优化
     if (watchQuery && isReactive(query)) {
-        // @ts-ignore
         watch(query, (newQuery: Q) => {
             run(newQuery);
         }, {
