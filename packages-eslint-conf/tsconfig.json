@@ -1,0 +1,32 @@
+{
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "display": "ESLINT CONF",
+    "compilerOptions": {
+        "lib": ["ESNext"],
+        "noImplicitAny": true,
+        "sourceMap": true,
+        "noEmit": true,
+        "baseUrl": "./",
+        "target": "ESNext",
+        "module": "ESNext",
+        "moduleResolution": "bundler",
+        "strict": true,
+        "declaration": true,
+        "noImplicitOverride": true,
+        "noUnusedLocals": true,
+        "esModuleInterop": true,
+        "useUnknownInCatchVariables": false,
+        "composite": false,
+        "declarationMap": false,
+        "forceConsistentCasingInFileNames": true,
+        "inlineSources": false,
+        "isolatedModules": true,
+        "skipLibCheck": true,
+        "noUnusedParameters": false,
+        "preserveWatchOutput": true,
+        "experimentalDecorators": true,
+        "resolveJsonModule": true,
+        "removeComments": true
+      },
+    "include": ["src"]
+  }

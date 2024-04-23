@@ -53,6 +53,7 @@
         "vue-eslint-parser": "^9.4.2"
     },
     "devDependencies": {
+        "typescript": "^5.4.5",
         "unbuild": "^2.0.0"
     }
 }
