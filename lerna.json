@@ -2,7 +2,8 @@
   "version": "independent",
   "npmClient": "pnpm",
   "packages": [
-    "packages-vue",
+    "packages-vue/vue-hooks",
+    "packages-vue/vue-components",
     "packages-react",
     "packages-style",
     "packages-eslint-conf",
