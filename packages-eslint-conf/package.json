@@ -1,37 +1,58 @@
 {
-  "name": "micro-eslint-conf",
-  "version": "1.1.1",
-  "description": "Eslint 的规则配置",
-  "main": "index.js",
-  "scripts": {
-    "clear": "npx rimraf node_modules"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-eslint-conf"
-  },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
-  },
-  "keywords": [
-    "eslint",
-    "eslint-conf",
-    "conf"
-  ],
-  "author": "LiYong",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Not-have/micro-tools/issues"
-  },
-  "dependencies": {
-    "@rushstack/eslint-patch": "^1.7.2",
-    "@typescript-eslint/eslint-plugin": "^6.21.0",
-    "@typescript-eslint/parser": "^6.21.0",
-    "@vue/eslint-config-typescript": "^11.0.3",
-    "eslint": "^8.57.0",
-    "eslint-define-config": "^2.1.0",
-    "eslint-plugin-simple-import-sort": "^12.0.0",
-    "eslint-plugin-vue": "^9.24.1",
-    "vite-plugin-eslint": "^1.8.1"
-  }
+    "name": "micro-eslint-conf",
+    "version": "1.1.1",
+    "description": "Eslint 的规则配置",
+    "scripts": {
+        "clear": "npx rimraf .turbo node_modules dist",
+        "lint": "pnpm eslint .",
+        "stub": "pnpm unbuild --stub"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-eslint-conf"
+    },
+    "publishConfig": {
+        "registry": "https://registry.npmjs.org/"
+    },
+    "keywords": [
+        "eslint",
+        "eslint-conf",
+        "conf"
+    ],
+    "author": "LiYong",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Not-have/micro-tools/issues"
+    },
+    "type": "module",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.mjs",
+            "require": "./dist/index.cjs"
+        },
+        "./strict": {
+            "types": "./dist/strict.d.ts",
+            "import": "./dist/strict.mjs",
+            "require": "./dist/strict.cjs"
+        }
+    },
+    "main": "./dist/index.cjs",
+    "module": "./dist/index.mjs",
+    "types": "./dist/index.d.ts",
+    "files": [
+        "dist"
+    ],
+    "dependencies": {
+        "@typescript-eslint/eslint-plugin": "^7.0.1",
+        "@typescript-eslint/parser": "^7.0.1",
+        "eslint": "^8.56.0",
+        "eslint-plugin-import": "^2.29.1",
+        "eslint-plugin-simple-import-sort": "^12.0.0",
+        "eslint-plugin-vue": "^9.21.1",
+        "vue-eslint-parser": "^9.4.2"
+    },
+    "devDependencies": {
+        "unbuild": "^2.0.0"
+    }
 }

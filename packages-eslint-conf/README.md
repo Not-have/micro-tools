@@ -59,3 +59,27 @@ module.exports = {
     extends: ['micro-eslint-conf/Xxx'].map(require.resolve)
 };
 ```
+
+## 各个插件的作用
+
+```bash
+# 于在 ESLint 中支持 TypeScript 的插件和解析器
+@typescript-eslint/eslint-plugin
+
+# 于在 ESLint 中支持 TypeScript 的插件和解析器
+@typescript-eslint/parser
+
+eslint
+
+# 检查 import 语句的路径是否正确，并提供一些与模块导入相关的规范检查
+eslint-plugin-import
+
+# 对 import 语句进行排序，以提高代码的可读性和一致性
+eslint-plugin-simple-import-sort
+
+# Vue.js 项目的 ESLint 插件和解析器，允许 ESLint 检查和规范 Vue 单文件组件中的代码
+eslint-plugin-vue
+
+# 这是一个独立的解析器，允许在 ESLint 中分析和检查 Vue 单文件组件
+vue-eslint-parser
+```
