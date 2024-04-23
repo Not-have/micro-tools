@@ -1,0 +1,6 @@
+*.sh
+node_modules
+*.md
+.turbo
+dist
+package.json

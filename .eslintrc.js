@@ -4,3 +4,9 @@
 //         'css-vars/no-undef-vars': 0
 //     }
 // };
+
+module.exports = {
+    parserOptions: {
+        sourceType: 'script',
+    },
+};
