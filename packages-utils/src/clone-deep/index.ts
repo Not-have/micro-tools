@@ -18,6 +18,7 @@ import isObject from '../is-object';
  */
 export default function cloneDeep<T extends object>(value: T | symbol, map = new WeakMap()): T | {} {
   try {
+
     // Set 类型
     if (value instanceof Set) {
       if (map.has(value)) {
@@ -57,7 +58,7 @@ export default function cloneDeep<T extends object>(value: T | symbol, map = new
 
     // 函数类型
     if (isFunction(value)) {
-      return function(...args: any[]) {
+      return function (...args: any[]) {
         return value.apply(this, args);
       };
     }
@@ -80,6 +81,7 @@ export default function cloneDeep<T extends object>(value: T | symbol, map = new
     map.set(value, newValue);
 
     for (const key in value) {
+
       // @ts-ignore
       newValue[key] = cloneDeep(value[key], map);
     }
@@ -96,7 +98,7 @@ export default function cloneDeep<T extends object>(value: T | symbol, map = new
     }
 
     return newValue;
-  }catch {
+  } catch {
     throw new Error('Deep clone handle error!');
   }
 }

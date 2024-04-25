@@ -1,3 +1,3 @@
 module.exports = {
-    extends: ['micro-eslint-conf'].map(require.resolve)
+  extends: ['micro-eslint-conf'].map(require.resolve)
 };

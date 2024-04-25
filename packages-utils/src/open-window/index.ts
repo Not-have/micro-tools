@@ -1,20 +1,23 @@
 import {
-    TTarget
+  TTarget
 } from '../types';
 
 interface IOptions {
-    /**
-     * 指定打开链接的上下文，可以是 _self（当前窗口）或 _blank（新窗口），默认为 '_blank'
-     */
-    target?: TTarget,
-    /**
-     * 如果为 true，将添加 noopener=yes，默认为 true
-     */
-    noopener?: boolean,
-    /**
-     * 如果为 true，将添加 noreferrer=yes，默认为 true
-     */
-    noreferrer?: boolean
+
+  /**
+   * 指定打开链接的上下文，可以是 _self（当前窗口）或 _blank（新窗口），默认为 '_blank'
+   */
+  target?: TTarget,
+
+  /**
+   * 如果为 true，将添加 noopener=yes，默认为 true
+   */
+  noopener?: boolean,
+
+  /**
+   * 如果为 true，将添加 noreferrer=yes，默认为 true
+   */
+  noreferrer?: boolean
 }
 
 /**
@@ -23,14 +26,20 @@ interface IOptions {
  * @param {IOptions} opt 
  */
 export default function openWindow(
-    url: string,
-    opt?: IOptions
+  url: string,
+  opt?: IOptions
 ) {
-    const { target = '__blank', noopener = true, noreferrer = true } = opt || {};
-    const feature: string[] = [];
+  const {
+    target = '__blank', 
+    noopener = true, 
+    noreferrer = true 
+  } = opt || {
+  };
+        
+  const feature: string[] = [];
 
-    noopener && feature.push('noopener=yes');
-    noreferrer && feature.push('noreferrer=yes');
+  noopener && feature.push('noopener=yes');
+  noreferrer && feature.push('noreferrer=yes');
 
-    window.open(url, target, feature.join(','));
+  window.open(url, target, feature.join(','));
 }
