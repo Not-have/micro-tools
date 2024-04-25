@@ -26,6 +26,7 @@ export default function cloneDeep<T extends object>(value: T | symbol, map = new
       }
 
       const newSet = new Set();
+
       map.set(value, newSet);
 
       value.forEach((item) => {
@@ -42,6 +43,7 @@ export default function cloneDeep<T extends object>(value: T | symbol, map = new
       }
 
       const newMap = new Map();
+
       map.set(value, newMap);
 
       value.forEach((val, key) => {
@@ -58,7 +60,7 @@ export default function cloneDeep<T extends object>(value: T | symbol, map = new
 
     // 函数类型
     if (isFunction(value)) {
-      return function (...args: any[]) {
+      return function(...args: any[]) {
         return value.apply(this, args);
       };
     }
@@ -74,8 +76,7 @@ export default function cloneDeep<T extends object>(value: T | symbol, map = new
     }
 
     // 判断传入的对象是数组, 还是对象
-    const newValue = Array.isArray(value) ? [] : {
-    };
+    const newValue = Array.isArray(value) ? [] : {};
 
     // map 没有值
     map.set(value, newValue);
@@ -91,6 +92,7 @@ export default function cloneDeep<T extends object>(value: T | symbol, map = new
 
     for (const sKey of symbolKeys) {
 
+      // eslint-disable-next-line @typescript-eslint/naming-convention
       const newSKey = Symbol(sKey.description);
 
       // @ts-ignore
