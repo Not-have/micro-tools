@@ -39,6 +39,10 @@ module.exports = {
             {
                 singleline: 1
             }
-        ]
+        ],
+        'vue/multi-word-component-names': 'off',
+        'vue/no-v-html': 'off',
+        'vue/require-toggle-inside-transition': 'off',
+        'vue/no-setup-props-destructure': 'off'
     }
 };

@@ -15,7 +15,7 @@ export {
   default as debounce
 } from './debounce';
 export {
-  addResizeListener,
+  addResizeListener, 
   removeResizeListener,
   triggerWindowResize
 } from './dom-resize-utils';
