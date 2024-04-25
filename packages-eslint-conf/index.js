@@ -6,6 +6,7 @@ module.exports = {
         es6: true,
     },
     extends: [
-        './ts.js'
+        './ts.js',
+        "./vue.js"
     ].map(require.resolve)
 };
