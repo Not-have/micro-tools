@@ -42,6 +42,7 @@ module.exports = {
         'semi': ['error', 'always'],
         'comma-dangle': ['error', 'never'],
         'no-use-before-define': 'off', // 禁止在变量声明之前使用它们
+        "no-multi-spaces": "error",
         /**
          * ts 的规则
          */
@@ -70,20 +71,21 @@ module.exports = {
         'import/newline-after-import': 'error',
         'import/no-duplicates': 'error',
         'object-curly-spacing': ['error', 'always'],
-        'indent-legacy': ['error', 4, { 
+        "@typescript-eslint/indent": ["error", 2], // 设置缩进为两个空格
+        'indent-legacy': ['error', 2, { 
             'ObjectExpression': 1 
         }],
         'object-curly-newline': ['error', 'always'],
-        // 'sort-imports': ['error', {
-        //     ignoreCase: true,
-        //     ignoreDeclarationSort: false,
-        //     ignoreMemberSort: false,
-        //     memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
-        //     allowSeparatedGroups: false
-        // }],
+        'sort-imports': ['error', {
+            ignoreCase: true,
+            ignoreDeclarationSort: false,
+            ignoreMemberSort: false,
+            memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
+            allowSeparatedGroups: false
+        }],
         // import 引入规则
         // https://zh-hans.eslint.org/docs/latest/rules/sort-imports
-        'sort-imports': 'off', // 关闭 sort-imports 规则
+        // 'sort-imports': 'off', // 关闭 sort-imports 规则
         'simple-import-sort/imports': 'error',
         'simple-import-sort/exports': 'error'
     },
