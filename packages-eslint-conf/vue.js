@@ -4,9 +4,8 @@ module.exports = {
       'eslint:recommended'
   ],
   parserOptions: {
-      ecmaVersion: "latest", // ECMAScript 版本，使用最新版本
-      sourceType: 'module',
-      extraFileExtensions: ['.vue'] // 额外的文件扩展名，添加了对 .vue 文件的解析支持
+      ecmaVersion: 2020, // ECMAScript 版本，使用最新版本
+      sourceType: 'module'
   },
   rules: {
       'vue/script-setup-uses-vars': 'error', // 强制使用的 Vue 3 组合 API 的 setup 函数中使用的变量必须在模板中使用

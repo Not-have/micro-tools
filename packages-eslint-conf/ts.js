@@ -20,18 +20,29 @@ module.exports = {
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended"
   ],
+  settings: {
+    'import/resolver': {
+      typescript: {
+        alwaysTryTypes: true, // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
+        project: [
+          'tsconfig.json',
+          'packages-*/*/tsconfig.json'
+        ]
+      }
+    }
+  },
   rules: {
     indent: 'off',
     /**
      * ts 的规则
      */
-    '@typescript-eslint/no-unused-vars': [
-      'error',
-      {
-        argsIgnorePattern: '^_',
-        varsIgnorePattern: '^_',
-      },
-    ],
+    // '@typescript-eslint/no-unused-vars': [
+    //   'error',
+    //   {
+    //     argsIgnorePattern: '^_',
+    //     varsIgnorePattern: '^_',
+    //   },
+    // ],
     '@typescript-eslint/ban-ts-ignore': 'off', // 禁止使用 // @ts-ignore 注释
     '@typescript-eslint/ban-ts-comment': 'off', // 禁止使用 // @ts-expect-error 和 // @ts-ignore 注释
     '@typescript-eslint/ban-types': 'off', // 禁止使用特定类型
@@ -133,8 +144,7 @@ module.exports = {
       }],
       pathGroupsExcludedImportTypes: [], // 否则厂内二方包和三方包之间不可加空行
       'newlines-between': 'always'
-    }],
-    "@typescript-eslint/indent": ["error", 2] // 设置缩进为两个空格
+    }]
     // 'indent-legacy': ['error', 2, {
     //   'ObjectExpression': 1
     // }],

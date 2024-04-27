@@ -1,5 +1,3 @@
-type TNullable<T> = T | null;
-
 /**
  * 将 base64 编码的图像数据转换为 Blob 对象
  * @param base64Buf  base64Buf 是包含 base64 编码的图像数据的字符串
@@ -38,7 +36,7 @@ export function dataUrlToBlob(base64Buf: string): Blob {
  */
 export function urlToBase64(url: string, mineType?: string): Promise<string> {
   return new Promise((resolve, reject) => {
-    let canvas = document.createElement("CANVAS") as TNullable<HTMLCanvasElement>;
+    let canvas = document.createElement("CANVAS") as HTMLCanvasElement | null;
 
     const ctx = canvas!.getContext("2d"),
 
