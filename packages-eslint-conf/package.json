@@ -1,36 +1,36 @@
 {
-    "name": "micro-eslint-conf",
-    "version": "1.4.0",
-    "description": "Eslint 的规则配置",
-    "scripts": {
-        "clear": "npx rimraf node_modules dist",
-        "lint": "npm eslint ."
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-eslint-conf"
-    },
-    "publishConfig": {
-        "registry": "https://registry.npmjs.org/"
-    },
-    "keywords": [
-        "eslint",
-        "eslint-conf",
-        "conf"
-    ],
-    "author": "LiYong",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/Not-have/micro-tools/issues"
-    },
-    "main": "index.js",
-    "dependencies": {
-        "@typescript-eslint/eslint-plugin": "^7.0.1",
-        "@typescript-eslint/parser": "^7.0.1",
-        "eslint": "^8.56.0",
-        "eslint-plugin-import": "^2.29.1",
-        "eslint-plugin-simple-import-sort": "^12.0.0",
-        "eslint-plugin-vue": "^9.21.1",
-        "vue-eslint-parser": "^9.4.2"
-    }
+  "name": "micro-eslint-conf",
+  "version": "1.5.0",
+  "description": "Eslint 的规则配置",
+  "scripts": {
+    "clear": "npx rimraf node_modules dist",
+    "lint": "npm eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-eslint-conf"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "keywords": [
+    "eslint",
+    "eslint-conf",
+    "conf"
+  ],
+  "author": "LiYong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Not-have/micro-tools/issues"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^7.0.1",
+    "@typescript-eslint/parser": "^7.0.1",
+    "eslint": "^8.56.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-simple-import-sort": "^12.0.0",
+    "eslint-plugin-vue": "^9.21.1",
+    "vue-eslint-parser": "^9.4.2"
+  }
 }
