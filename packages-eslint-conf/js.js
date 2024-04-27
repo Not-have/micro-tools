@@ -17,7 +17,7 @@ module.exports = {
     //   'ignoreEOLComments': true,
     //   'exceptions': { 'Property': true, 'BinaryExpression': false }
     // }],                              // 禁止出现连续的多个空格，除非是注释前，或对齐对象的属性、变量定义、import 等
-    "no-multiple-empty-lines": [2, { 'max': 1 }],// 禁止出现多行空行
+    "no-multiple-empty-lines": [2, { 'max': 1, "maxBOF":0, "maxEOF":1 }], // 禁止出现多行空行
     'padding-line-between-statements': ['error', {
       blankLine: 'always',
       prev: ['const', 'let', 'var', 'block', 'block-like'],
@@ -184,6 +184,7 @@ module.exports = {
       named: 'never',
       asyncArrow: 'always'
     }],                                 // 要求函数名与圆括号之间有空格no-multi-spaces
+    "lines-between-class-members": ["error", "always", { "exceptAfterSingleLine": false }], // 类成员之间使用空行
     /**
      * 遍历
      */
