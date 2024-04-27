@@ -1,5 +1,7 @@
 # eslint 插件的配置
 
+[doc](https://juejin.cn/post/7037426216671903780)
+
 ```js
 // .eslintrc.js
 module.exports = {

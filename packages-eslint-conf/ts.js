@@ -1,8 +1,3 @@
-/**
- * https://juejin.cn/post/7049908548041441288
- * 
- * https://juejin.cn/post/6844903630424768526
- */
 module.exports = {
   parserOptions: {
     parser: '@typescript-eslint/parser',
