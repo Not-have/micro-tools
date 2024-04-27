@@ -42,7 +42,7 @@
       "@types/node": "^18.17.5",
       "commitlint": "^17.7.1",
       "depcheck": "^1.4.5",
-      "eslint": "^8.47.0",
+      "eslint": "^8.57.0",
       "husky": "^8.0.3",
       "lerna": "^7.3.0",
       "lint-staged": "^14.0.1",

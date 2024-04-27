@@ -43,9 +43,9 @@ module.exports = {
       'vue/no-v-html': 'off', // 关闭使用 v-html 指令的检查
       'vue/require-toggle-inside-transition': 'off', // 关闭在 <transition> 中要求使用 toggle 的检查
       "vue/no-unused-emit-declarations": "error",
-      "vue/no-restricted-static-attribute": ["id"],
+      // "vue/no-restricted-static-attribute": ["id"],
       "vue/no-deprecated-v-is": "error",
-      "ue/no-dupe-keys": "error",
+      "vue/no-dupe-keys": "error",
       "vue/no-dupe-v-else-if": "error"
   },
   globals: {
