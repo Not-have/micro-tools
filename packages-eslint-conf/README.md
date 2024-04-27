@@ -82,4 +82,6 @@ eslint-plugin-vue
 
 # 这是一个独立的解析器，允许在 ESLint 中分析和检查 Vue 单文件组件
 vue-eslint-parser
+
+eslint-config-ali
 ```

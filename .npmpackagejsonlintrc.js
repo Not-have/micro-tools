@@ -1,3 +1,6 @@
+/**
+ * 规定 packages.json 文件
+ */
 module.exports = {
     extends: 'npm-package-json-lint-config-default',
     rules: { // rules ref: https://npmpackagejsonlint.org/docs/rules

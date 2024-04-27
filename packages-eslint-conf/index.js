@@ -1,8 +1,3 @@
-/**
- * docs:
- * 
- * https://juejin.cn/post/7037426216671903780#heading-24
- */
 module.exports = {
   root: true,
   env: {

@@ -24,17 +24,7 @@
   },
   "bugs": {},
   "workspaces": [
-      "packages-vue/vue-hooks",
-      "packages-vue/vue-components",
-      "packages-react",
-      "packages-style",
-      "packages-eslint-conf",
-      "packages-stylelint-conf",
-      "packages-utils",
-      "packages-rc",
-      "packages-conf",
-      "packages-enum",
-      "packages-types"
+    "packages*/*"
   ],
   "packageManager": "pnpm@8.10.0",
   "engines": {
@@ -76,7 +66,7 @@
       "preinstall": "npx only-allow pnpm",
       "postinstall": "husky install",
       "boot": "pnpm run clear && pnpm run clear:store && pnpm install && pnpm run clear:lock && pnpm run build",
-      "clear": "npx rimraf dist && pnpm --filter \"./packages-**\" clear && npx rimraf node_modules && npx rimraf .pnpm-store",
+      "clear": "npx rimraf dist && pnpm --filter \"./packages-**\" clear && pnpm --filter \"./packages-**/**\" clear && npx rimraf node_modules && npx rimraf .pnpm-store",
       "clear:lock": "npx rimraf pnpm-lock.yaml && npx rimraf package-lock.json && npx rimraf lerna-debug.log",
       "clear:store": "npx rimraf .pnpm-store",
       "build": "pnpm --filter \"./packages-**\" build",

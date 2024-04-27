@@ -1,13 +1,17 @@
 module.exports = {
     parser: 'vue-eslint-parser',
     plugins: ['vue'],
+    parser: 'vue-eslint-parser',
     extends: [
-        'eslint:recommended',
         'plugin:vue/vue3-recommended'
     ],
     parserOptions: {
         sourceType: 'module',
-        ecmaVersion: 2020
+        ecmaVersion: 2020,
+        ecmaFeatures: {
+          jsx: true,
+        },
+        extraFileExtensions: ['.vue'],
     },
     rules: {
         'vue/script-setup-uses-vars': 'error',
