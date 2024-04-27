@@ -15,7 +15,7 @@ module.exports = {
     "./ts.js"
   ],
   plugins: [
-    '@typescript-eslint',
+    // '@typescript-eslint',
     'simple-import-sort',
     'import'
   ],
@@ -34,7 +34,7 @@ module.exports = {
   },
   extends: [
     'eslint:recommended',
-    'plugin:@typescript-eslint/recommended'
+    // 'plugin:@typescript-eslint/recommended'
   ],
   rules: {
     indent: 'off',
