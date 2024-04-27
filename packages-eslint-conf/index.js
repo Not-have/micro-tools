@@ -1,15 +1,9 @@
-require('@rushstack/eslint-patch/modern-module-resolution');
-
 module.exports = {
   root: true,
   env: {
     browser: true,
     node: true,
-    es6: true,
+    es6: true
   },
-  extends: [
-    "./js.js",
-    "./ts.js",
-    "./vue.js"
-  ].map(require.resolve)
+  extends: ["./js.js", "./ts.js"].map(require.resolve)
 };

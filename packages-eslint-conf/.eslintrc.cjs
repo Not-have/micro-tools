@@ -1,7 +1,8 @@
 module.exports = {
-    root: true,
-    parserOptions: {
-        ecmaVersion: 2020,
-        sourceType: 'module'
-    }
+  extends: ["./js.js", "./ts.js"].map(require.resolve),
+  parserOptions: {
+    ecmaVersion: 2020,
+    sourceType: "module"
+  },
+  root: true
 };
