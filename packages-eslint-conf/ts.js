@@ -16,6 +16,9 @@ module.exports = {
     createDefaultProgram: false,
     extraFileExtensions: ['.vue'],
   },
+  ignorePatterns: [
+    "./ts.js"
+  ],
   plugins: [
     '@typescript-eslint',
     'simple-import-sort',
@@ -39,144 +42,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended'
   ],
   rules: {
-    /**
-     * js 的规则
-     */
-    'no-unused-vars': 'off', // 检测未使用的变量
-    'no-case-declarations': 'off',
-    'no-use-before-define': 'off',
-    'space-before-function-paren': ['error', {
-      anonymous: 'never', // eslint-config-ali 为 'always'
-      named: 'never',
-      asyncArrow: 'always'
-    }], // 要求函数名与圆括号之间有空格no-multi-spaces
-    'spaced-comment': ['error', 'always'],
-    'camelcase': [0, {
-      properties: 'always'
-    }],
-    'eqeqeq': ['error', 'always', {
-      null: 'ignore'
-    }], // 使用 === 替代 ==
-    'quotes': ['error', 'single'],
-    'no-const-assign': 2, //禁止修改const声明的变量
-    'semi': ['error', 'always'],
-    'comma-dangle': ['error', 'never'], // 对象字面量项尾不能有逗号
-    'comma-spacing': ['error', {
-      before: false,
-      after: true
-    }],
-    'no-use-before-define': 'off', // 禁止在变量声明之前使用它们
-    "no-multi-spaces": ["error", { "ignoreEOLComments": true }],
-    // 'no-multi-spaces': [2, {
-    //   'ignoreEOLComments': true,
-    //   'exceptions': { 'Property': true, 'BinaryExpression': false }
-    // }], // 禁止出现连续的多个空格，除非是注释前，或对齐对象的属性、变量定义、import 等
-    'no-template-curly-in-string': 1, // 禁止在常规字符串中出现模板字面量占位符语法
-    'for-direction': 2, // error; for循转方向出错
-    'getter-return': [2, { 'allowImplicit': false }], // getter必须有返回值，并且禁止返回值为undefined, 比如 return;
-    'no-await-in-loop': 2, // 禁止在循环中出现 await
-    'no-console': 2, // 不允许使用console进行代码调试
-    'no-debugger': 2, // 允许使用debugger进行代码调试
-    'accessor-pairs': 2, // 强制 getter 和 setter 在对象中成对出现
-    'array-callback-return': 2, // 对于数据相关操作函数比如reduce, map, filter等，callback必须有return
-    'computed-property-spacing': [2, 'never'], // 禁止或强制在计算属性中使用空格
-    'default-case': 2, // switch case语句里面一定需要default分支
-    /**
-     * https://eslint.org/docs/rules/no-else-return
-     * 
-     * 这条规则其实可以提高代码的可理解度，但 eslint-config-ali 把它关了
-     */
-    'no-else-return': ['warn', {
-      allowElseIf: false
-    }],
-    'no-empty-function': 2, // 不允许使用空函数，除非在空函数里面给出注释说明
-    'no-eval': 2, // 代码中不允许使用eval
-    'no-extend-native': [2, { 'exceptions': ['Object', 'Promise'] }], // 禁止修改原生对象
-    'no-extra-bind': 2, // 禁止出现没必要的 bind
-    'no-implicit-coercion': [2, { 'boolean': false, 'string': false }], // 强制类型转换
-    'no-loop-func': 2, // 禁止循环中存在函数
-    'no-lone-blocks': 2, // 禁止使用没必要的 {} 作为代码块
-    'no-multi-str': 2, // 禁止多行字符串
-    'no-new-wrappers': 2, // 对于JS的原始类型比如String, Number, Boolean等，不允许使用new 操作符
-    'no-param-reassign': 1, // 不推荐对 function 的参数进行重新赋值
-    'no-return-await': 2, // 禁止在 return 语句中使用await
-    'no-alert': 2, // 禁用 Alert
-    'require-await': 0, // async函数里面必须有await
-    'func-call-spacing': [2, 'never'], // 函数名和执行它的括号之间禁止有空格
-    indent: ['error', 2, {
-      SwitchCase: 1,
-      ArrayExpression: 1,
-      MemberExpression: 2,
-      CallExpression: {
-        arguments: 2
-      },
-      FunctionExpression: {
-        body: 1,
-        parameters: 2
-      },
-      FunctionDeclaration: {
-        body: 1,
-        parameters: 2
-      }
-    }], // 一个缩进必须用四个空格替代, switch语句里面的case 2个空格
-    'key-spacing': ['error', { "mode": "strict" }], // 对象字面量中冒号前面禁止有空格，后面必须有空格
-    'line-comment-position': 2, // 不限制注释位置
-    'lines-around-comment': [1, { 'beforeBlockComment': true, 'beforeLineComment': true }], // 注释前有一空行
-    'max-depth': [2, { max: 4 }], // 强制可嵌套的块的最大深度
-    'max-len': ['warn', 200, 2, {
-      ignorePattern: 'data:image/\\w+;base64,',
-      ignoreComments: false,
-      ignoreTrailingComments: true,
-      ignoreUrls: true,
-      ignoreStrings: true,
-      ignoreRegExpLiterals: true,
-      ignoreTemplateLiterals: true
-    }], // 单行最多允许160个字符, 对包含url的行不进行此限制
-    /*
-    * eslint-config-ali 用的是 multi-line，且说「多行语句必须用大括号包裹，单行语句推荐用大括号包裹」
-    * 但这会导致不一致，且容易在增加代码的时候出错，所以全加
-    */
-    'curly': ['error', 'all'], // 要求遵循大括号约定
-    'no-multiple-empty-lines': [2, { 'max': 1 }], // 不允许多个空行
-    'no-nested-ternary': 2, // 禁止使用嵌套的三元表达式
-
-    /**
-     * ES6
-     */
-    'arrow-spacing': [2, { 'before': true, 'after': true }], // error; 箭头函数的箭头前后必须有空格
-    'no-duplicate-imports': 2, // error; 禁止import重复模块
-    'no-var': 2, // error; 要求使用 let 或 const 而不是 var
-    'prefer-arrow-callback': [1, { 'allowNamedFunctions': true }],// warn; 推荐使用箭头函数作为回调
-    'prefer-const': [2, { 'destructuring': 'any', 'ignoreReadBeforeAssign': false }],// error; 使用const
-    'prefer-destructuring': [1, { 'array': true, 'object': true }, { 'enforceForRenamedProperties': false }],// warn; 推荐结构赋值
-    'prefer-rest-params': 1, // warn; 推荐rest运算符
-    'prefer-spread': 1, // warn; 推荐扩展运算符
-    'rest-spread-spacing': [2, 'never'], // error; rest 空格
-    'symbol-description': 2, // error; require symbol description
-    'no-useless-computed-key': 1, // 禁止在对象中使用不必要的计算属性
-    'no-useless-constructor': 2, // 禁用不必要的构造函数
-
-    'padding-line-between-statements': ['error', {
-      blankLine: 'always',
-      prev: ['const', 'let', 'var', 'block', 'block-like'],
-      next: '*'
-    }, {
-        blankLine: 'always',
-        prev: '*',
-        next: ['return', 'throw', 'break', 'continue', 'block', 'block-like', 'export']
-      }, {
-        blankLine: 'any',
-        prev: ['const', 'let', 'var'],
-        next: ['const', 'let', 'var']
-      }, {
-        blankLine: 'any',
-        prev: ['export'],
-        next: ['export']
-      }, {
-        blankLine: 'never',
-        prev: '*',
-        next: ['case', 'default']
-      }],
+    indent: 'off',
     /**
      * ts 的规则
      */
@@ -202,57 +68,63 @@ module.exports = {
       format: ['strictCamelCase', 'StrictPascalCase'],
       leadingUnderscore: 'allow'
     }, {
-      selector: 'variable',
-      format: ['strictCamelCase', 'StrictPascalCase', 'UPPER_CASE'],
-      filter: {
-        regex: '[A-Z\\d]__[A-Z\\d]',
-        match: false
-      }
-    }, {
-      selector: 'parameter',
-      format: ['strictCamelCase'],
-      leadingUnderscore: 'allow'
-    }, {
-      selector: 'typeLike',
-      format: ['StrictPascalCase']
-    }, {
-      selector: 'enum',
-      format: ['StrictPascalCase'],
-      prefix: ['E']
-    }, {
-      selector: 'interface',
-      format: ['StrictPascalCase'],
-      prefix: ['I']
-    }, {
-      selector: 'typeAlias',
-      format: ['StrictPascalCase'],
-      prefix: ['T']
-    }, {
-      selector: 'memberLike',
-      modifiers: ['private'],
-      format: ['strictCamelCase'],
-      leadingUnderscore: 'allow'
-    }, {
-      selector: 'enumMember',
-      format: ['StrictPascalCase', 'UPPER_CASE'],
-      leadingUnderscore: 'allow',
-      filter: {
-        regex: '[A-Z\\d]__[A-Z\\d]',
-        match: false
-      }
-    }, { // allow anything in destructured properties
-      selector: ['variable', 'parameter'],
-      modifiers: ['destructured'],
-      format: null
+        selector: 'variable',
+        format: ['strictCamelCase', 'StrictPascalCase', 'UPPER_CASE'],
+        filter: {
+          regex: '[A-Z\\d]__[A-Z\\d]',
+          match: false
+        }
+      }, {
+        selector: 'parameter',
+        format: ['strictCamelCase'],
+        leadingUnderscore: 'allow'
+      }, {
+        selector: 'typeLike',
+        format: ['StrictPascalCase']
+      }, {
+        selector: 'enum',
+        format: ['StrictPascalCase'],
+        prefix: ['E']
+      }, {
+        selector: 'interface',
+        format: ['StrictPascalCase'],
+        prefix: ['I']
+      }, {
+        selector: 'typeAlias',
+        format: ['StrictPascalCase'],
+        prefix: ['T']
+      }, {
+        selector: 'memberLike',
+        modifiers: ['private'],
+        format: ['strictCamelCase'],
+        leadingUnderscore: 'allow'
+      }, {
+        selector: 'enumMember',
+        format: ['StrictPascalCase', 'UPPER_CASE'],
+        leadingUnderscore: 'allow',
+        filter: {
+          regex: '[A-Z\\d]__[A-Z\\d]',
+          match: false
+        }
+      }, { // allow anything in destructured properties
+        selector: ['variable', 'parameter'],
+        modifiers: ['destructured'],
+        format: null
+      }],
+    /**
+     * @link https://typescript-eslint.io/rules/no-unused-vars
+     */
+    '@typescript-eslint/no-unused-vars': ['error', {
+      vars: 'all',
+      args: 'after-used',
+      ignoreRestSiblings: true
     }],
-
     /**
      * import 的规则
      */
     'import/first': 'error',
     'import/newline-after-import': 'error',
-    "import/no-duplicates": ["error", {"considerQueryString": true}],
-    'object-curly-spacing': ['error', 'always'],
+    "import/no-duplicates": ["error", { "considerQueryString": true }],
     'import/no-useless-path-segments': 1,
     'import/no-self-import': 'error',
     'import/exports-last': 1,
@@ -279,39 +151,10 @@ module.exports = {
       pathGroupsExcludedImportTypes: [], // 否则厂内二方包和三方包之间不可加空行
       'newlines-between': 'always'
     }],
-    /**
-     * ts
-     */
     "@typescript-eslint/indent": ["error", 2], // 设置缩进为两个空格
     // 'indent-legacy': ['error', 2, {
     //   'ObjectExpression': 1
     // }],
-    /**
-     * https://eslint.org/docs/rules/object-curly-newline
-     * 
-     * eslint-config-ali 设成了 off
-     */
-    'object-curly-newline': ['error', {
-      ObjectExpression: {
-        multiline: true,
-        minProperties: 1
-      },
-      ObjectPattern: {
-        multiline: true,
-        minProperties: 1
-      },
-      ImportDeclaration: 'always',
-      ExportDeclaration: {
-        consistent: true
-      }
-    }],
-    'sort-imports': ['error', {
-      ignoreCase: true,
-      ignoreDeclarationSort: false,
-      ignoreMemberSort: false,
-      memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
-      allowSeparatedGroups: false
-    }],
     // import 引入规则
     // https://zh-hans.eslint.org/docs/latest/rules/sort-imports
     // 'sort-imports': 'off', // 关闭 sort-imports 规则
