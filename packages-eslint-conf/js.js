@@ -156,7 +156,7 @@ module.exports = {
       }
     }],
     "object-curly-spacing": ["error", "always"],
-    "sort-keys": "off",              // 要求对象字面量属性键按顺序排列
+    "sort-keys": "error",              // 要求对象字面量属性键按顺序排列
     "sort-vars": "error",              // 要求同一个声明块中的变量按顺序排列
     "no-useless-rename": "error",      // 禁止在 import 和 export 和解构赋值时将引用重命名为相同的名字
     /**

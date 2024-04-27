@@ -19,17 +19,6 @@ module.exports = {
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended"
   ],
-  settings: {
-    "import/resolver": {
-      typescript: {
-        alwaysTryTypes: true, // Always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
-        project: [
-          "tsconfig.json",
-          "packages-*/*/tsconfig.json"
-        ]
-      }
-    }
-  },
   rules: {
     indent: "off",
 
