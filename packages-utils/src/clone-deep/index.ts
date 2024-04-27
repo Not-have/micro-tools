@@ -1,5 +1,5 @@
-import isFunction from '../is-function';
-import isObject from '../is-object';
+import isFunction from "../is-function";
+import isObject from "../is-object";
 
 /**
  * 深拷贝
@@ -29,7 +29,7 @@ export default function cloneDeep<T extends object>(value: T | symbol, map = new
 
       map.set(value, newSet);
 
-      value.forEach((item) => {
+      value.forEach(item => {
         newSet.add(cloneDeep(item, map));
       });
 
@@ -54,13 +54,13 @@ export default function cloneDeep<T extends object>(value: T | symbol, map = new
     }
 
     // Symbol 类型
-    if (typeof value === 'symbol') {
+    if (typeof value === "symbol") {
       return Symbol(value.description);
     }
 
     // 函数类型
     if (isFunction(value)) {
-      return function(...args: any[]) {
+      return function(...args: unknown[]) {
         return value.apply(this, args);
       };
     }
@@ -78,9 +78,10 @@ export default function cloneDeep<T extends object>(value: T | symbol, map = new
     // 判断传入的对象是数组, 还是对象
     const newValue = Array.isArray(value) ? [] : {};
 
-    // map 没有值
+    // Map 没有值
     map.set(value, newValue);
 
+    // eslint-disable-next-line guard-for-in
     for (const key in value) {
 
       // @ts-ignore
@@ -101,6 +102,6 @@ export default function cloneDeep<T extends object>(value: T | symbol, map = new
 
     return newValue;
   } catch {
-    throw new Error('Deep clone handle error!');
+    throw new Error("Deep clone handle error!");
   }
 }

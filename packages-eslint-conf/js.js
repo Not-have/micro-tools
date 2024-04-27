@@ -256,7 +256,7 @@ module.exports = {
      * 注释
      */
     "capitalized-comments": "error",   // 强制注释的首字母大写
-    "line-comment-position": ["error", {
+    "line-comment-position": ["off", {
       "position": "beside"
     }],                                // 强制行注释的位置,  // 强制行注释的位置
     "lines-around-comment": [1, {

@@ -1,20 +1,25 @@
-interface CookieOptions {
+interface ICookieOptions {
+
   /**
    * Cookie 的过期时间（单位：秒）
    */
   expires?: number;
+
   /**
    * Cookie 的域
    */
   domain?: string;
+
   /**
    * Cookie 的路径
    */
   path?: string;
+
   /**
-     * 是否仅在使用 SSL（也就是 https） 连接时发送 Cookie
-     */
+   * 是否仅在使用 SSL（也就是 https） 连接时发送 Cookie
+   */
   secure?: boolean;
+
   /**
    * 控制 Cookie 的跨站点请求行为
    *
@@ -28,7 +33,7 @@ interface CookieOptions {
    * ① 存储关键信息的 Cookie，sameSite 属性不能为 None；
    * ② sameSite 为 None === sameSite 不传，默认是啥也不传的。
    */
-  sameSite?: 'Strict' | 'Lax' | 'None';
+  sameSite?: "Strict" | "Lax" | "None";
 }
 
 /**
@@ -39,17 +44,19 @@ interface CookieOptions {
  *
  */
 export default class CookieHelper {
+
   /**
-     * 设置 Cookie
-     * @param {string} name - Cookie 的名称
-     * @param {string} value - Cookie 的值
-     * @param {CookieOptions} options - Cookie 的选项
-     */
-  static setCookie(name: string, value: string, options?: CookieOptions): void {
+   * 设置 Cookie
+   * @param {string} name - Cookie 的名称
+   * @param {string} value - Cookie 的值
+   * @param {CookieOptions} options - Cookie 的选项
+   */
+  static setCookie(name: string, value: string, options?: ICookieOptions): void {
     let cookieString = `${encodeURIComponent(name)}=${encodeURIComponent(value)}`;
 
     if (options?.expires) {
       const expirationDate = new Date(Date.now() + options.expires * 1000);
+
       cookieString += `; expires=${expirationDate.toUTCString()}`;
     }
 
@@ -62,7 +69,7 @@ export default class CookieHelper {
     }
 
     if (options?.secure) {
-      cookieString += '; secure';
+      cookieString += "; secure";
     }
 
     if (options?.sameSite) {
@@ -73,57 +80,60 @@ export default class CookieHelper {
   }
 
   /**
-     * 获取 Cookie 的值
-     * @param {string} name - Cookie 的名称
-     * @returns {string|null} Cookie 的值，如果不存在则返回 null
-     */
+   * 获取 Cookie 的值
+   * @param {string} name - Cookie 的名称
+   * @returns {string|null} Cookie 的值，如果不存在则返回 null
+   */
   static getCookie(name: string): string | null {
-    const cookies = document.cookie.split('; ');
+    const cookies = document.cookie.split("; ");
+
     for (const cookie of cookies) {
-      const [cookieName, cookieValue] = cookie.split('=');
+      const [cookieName, cookieValue] = cookie.split("=");
+
       if (decodeURIComponent(cookieName) === name) {
         return decodeURIComponent(cookieValue);
       }
     }
+
     return null;
   }
 
   /**
-     * 删除 Cookie
-     * @param {string} name - Cookie 的名称
-     * @param {CookieOptions} options - Cookie 的路径（一版不需要）
-     */
-  static deleteCookie(name: string, options?: CookieOptions): void {
+   * 删除 Cookie
+   * @param {string} name - Cookie 的名称
+   * @param {CookieOptions} options - Cookie 的路径（一版不需要）
+   */
+  static deleteCookie(name: string, options?: ICookieOptions): void {
     if (!this.getCookie(name)) {
       return;
     }
 
     // 设置过期时间为过去的时间来删除 Cookie
-    const deleteOptions: CookieOptions = {
-      expires: -1,
+    const deleteOptions: ICookieOptions = {
       domain: options?.domain,
+      expires: -1,
       path: options?.path,
-      secure: options?.secure,
-      sameSite: options?.sameSite
+      sameSite: options?.sameSite,
+      secure: options?.secure
     };
 
-    this.setCookie(name, '', deleteOptions);
+    this.setCookie(name, "", deleteOptions);
   }
 }
 
 /*
-// 使用示例
-const cookieOptions: CookieOptions = {
-    expires: 3600,
-    domain: 'example.com',
-    path: '/',
-    secure: true,
-    sameSite: 'None'
-};
-
-Cookie.setCookie('username', 'John Doe', cookieOptions);
-const username = Cookie.getCookie('username');
-console.log(username);
-
-Cookie.deleteCookie('username', cookieOptions);
-*/
+ * // 使用示例
+ *const cookieOptions: CookieOptions = {
+ *    expires: 3600,
+ *    domain: 'example.com',
+ *    path: '/',
+ *    secure: true,
+ *    sameSite: 'None'
+ *};
+ *
+ *Cookie.setCookie('username', 'John Doe', cookieOptions);
+ *const username = Cookie.getCookie('username');
+ *console.log(username);
+ *
+ *Cookie.deleteCookie('username', cookieOptions);
+ */
