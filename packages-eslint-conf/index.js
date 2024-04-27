@@ -1,3 +1,5 @@
+require('@rushstack/eslint-patch/modern-module-resolution');
+
 module.exports = {
   root: true,
   env: {
@@ -7,6 +9,7 @@ module.exports = {
   },
   extends: [
     "./js.js",
-    // "./vue.js"
+    "./ts.js",
+    "./vue.js"
   ].map(require.resolve)
 };

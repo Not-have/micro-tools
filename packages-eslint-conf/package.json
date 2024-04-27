@@ -1,6 +1,6 @@
 {
   "name": "micro-eslint-conf",
-  "version": "1.5.1",
+  "version": "1.6.0",
   "description": "Eslint 的规则配置",
   "scripts": {
     "clear": "npx rimraf node_modules dist",
@@ -25,10 +25,13 @@
   },
   "main": "index.js",
   "dependencies": {
-    "eslint": "^8.56.0",
+    "@rushstack/eslint-patch": "^1.10.2",
+    "@typescript-eslint/eslint-plugin": "^7.7.1",
+    "@typescript-eslint/parser": "^7.7.1",
+    "eslint": "^8.57.0",
     "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-simple-import-sort": "^12.0.0",
-    "eslint-plugin-vue": "^9.21.1",
+    "eslint-plugin-simple-import-sort": "^12.1.0",
+    "eslint-plugin-vue": "^9.23.0",
     "vue-eslint-parser": "^9.4.2"
   }
 }
