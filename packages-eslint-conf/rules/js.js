@@ -129,8 +129,6 @@ module.exports = {
   }],                                // 强制模块导入语句的排
   /**
    * https://eslint.org/docs/rules/object-curly-newline
-   *
-   * eslint-config-ali 设成了 off
    */
   "object-curly-newline": ["error", {
     ObjectExpression: {
