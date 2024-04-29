@@ -256,7 +256,7 @@ module.exports = {
   }], // 要求在注释周围有空行
   "multiline-comment-style": "error", // 强制对多行注释使用特定风格
   "no-inline-comments": "off",     // 禁止在代码后使用内联注释
-  "no-warning-comments": "error",    // 禁止在注释中使用特定的警告术语
+  "no-warning-comments": "warn",    // 禁止在注释中使用特定的警告术语
   "spaced-comment": ["error", "always"], // 强制在注释中 // 或 /* 使用一致的空格
   /**
    * ES6

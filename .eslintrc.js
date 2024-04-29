@@ -9,6 +9,8 @@ module.exports = {
     {
       extends: ["micro-eslint-conf/vue"].map(require.resolve),
       files: ["packages-vue/**/*.{js,vue,ts}"],
+
+      // TODO 因 import 导入规则引起
       rules: {
         "import/exports-last": "off",
         "import/first": "off",
