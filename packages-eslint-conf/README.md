@@ -93,3 +93,17 @@ vue-eslint-parser
 
 eslint-config-ali
 ```
+
+## Visual Studio Code 格式化
+
+注：.vscode ——> settings.json 下加入
+
+```json
+{
+  "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+  },
+  "editor.tabSize": 2,
+  "editor.renderWhitespace": "all"
+}
+```
