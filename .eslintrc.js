@@ -4,6 +4,23 @@ module.exports = {
     es6: true,
     node: true
   },
-  extends: ["micro-eslint-conf/js.js", "micro-eslint-conf/ts.js"].map(require.resolve),
+  extends: ["micro-eslint-conf"].map(require.resolve),
+  overrides: [
+    {
+      extends: ["micro-eslint-conf/vue"].map(require.resolve),
+      files: ["packages-vue/**/*.{js,vue,ts}"],
+      rules: {
+        "import/exports-last": "off",
+        "import/first": "off",
+        "import/newline-after-import": "off",
+        "import/no-duplicates": "off",
+        "import/no-self-import": "off",
+        "import/no-useless-path-segments": "off",
+        "import/order": "off",
+        "simple-import-sort/exports": "off",
+        "simple-import-sort/imports": "off"
+      }
+    }
+  ],
   root: true
 };

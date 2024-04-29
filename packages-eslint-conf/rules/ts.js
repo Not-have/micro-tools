@@ -12,6 +12,7 @@ module.exports = {
    *   },
    * ],
    */
+  "@typescript-eslint/no-duplicate-enum-values": "error", // 不允许重复的枚举
   "@typescript-eslint/ban-ts-ignore": "off", // 禁止使用 // @ts-ignore 注释
   "@typescript-eslint/ban-ts-comment": "off", // 禁止使用 // @ts-expect-error 和 // @ts-ignore 注释
   "@typescript-eslint/ban-types": "off", // 禁止使用特定类型

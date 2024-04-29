@@ -3,6 +3,24 @@ module.exports = {
     "simple-import-sort",
     "import"
   ],
+  settings: {
+    "node": {
+      "tryExtensions": [".js", ".json", ".node", ".ts", ".d.ts"],
+      "extensions": [".js", ".jsx", ".ts", ".tsx"]
+    },
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts', '.tsx']
+    },
+    'import/resolver': {
+      typescript: {
+        alwaysTryTypes: true, // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
+        project: [
+          'tsconfig.json',
+          'packages-*/tsconfig.json'
+        ]
+      }
+    }
+  },
   rules: {
     /**
      * Import 的规则
@@ -40,5 +58,13 @@ module.exports = {
       pathGroupsExcludedImportTypes: [], // 否则厂内二方包和三方包之间不可加空行
       "newlines-between": "always" // 换行
     }]
+    /*
+     * 'indent-legacy': ['error', 2, {
+     *   'ObjectExpression': 1
+     * }],
+     * import 引入规则
+     * https://zh-hans.eslint.org/docs/latest/rules/sort-imports
+     * 'sort-imports': 'off', // 关闭 sort-imports 规则
+     */
   }
 };
