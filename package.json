@@ -24,7 +24,7 @@
   },
   "bugs": {},
   "workspaces": [
-    "packages*/*"
+    "packages-*/**"
   ],
   "packageManager": "pnpm@9.0.6",
   "engines": {
