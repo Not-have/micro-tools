@@ -1,7 +1,6 @@
 {
   "include": [
       "src/**/*.ts",
-      "env.d.ts",
   ],
   "exclude": [
       "node_modules"
@@ -13,7 +12,7 @@
       "composite": true,
       "baseUrl": ".",
       "module": "ESNext",
-      "moduleResolution": "Node", // Node
+      "moduleResolution": "Node",
       "resolveJsonModule": true,
       "jsx": "preserve",
       "jsxImportSource": "vue",
@@ -29,10 +28,6 @@
           "ES2020",
           "DOM",
           "DOM.Iterable"
-      ],
-      "types": [
-          "vite/client",
-          "vue"
       ],
       "sourceMap": true,
       "allowSyntheticDefaultImports": true,

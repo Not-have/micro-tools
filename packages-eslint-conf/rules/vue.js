@@ -37,5 +37,9 @@ module.exports = {
   // "vue/no-restricted-static-attribute": ["id"],
   "vue/no-deprecated-v-is": "error",
   "vue/no-dupe-keys": "error",
-  "vue/no-dupe-v-else-if": "error"
+  "vue/no-dupe-v-else-if": "error",
+  /**
+   * 覆盖 js 部分规则
+   */
+  "func-call-spacing": "off"
 };
