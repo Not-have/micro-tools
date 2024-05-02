@@ -3,10 +3,16 @@
 ## 官方文档
 
 [ts doc](https://typescript-eslint.nodejs.cn/)
+
 [js doc](https://eslint.nodejs.cn/)
+
 [monorepo eslint](https://typescript-eslint.nodejs.cn/linting/typed-linting/monorepos)
+
 [@eslint/config](https://zh-hans.eslint.org/)
+
 [eslint-config-ali](https://www.npmjs.com/package/eslint-config-ali)
+
+[配置文件](https://zh-hans.eslint.org/docs/latest/use/configure/configuration-files)
 
 ```bash
 # eslint
