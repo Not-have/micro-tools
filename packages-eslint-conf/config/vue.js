@@ -2,6 +2,8 @@
  * 这个继承与 
  * 
  * @vue/eslint-config-typescript
+ * 
+ * https://github.com/vuejs/eslint-config-typescript/blob/main/index.js
  */
 const rulesJs = require('../rules/js');
 const rulesTs = require('../rules/ts');
@@ -33,7 +35,9 @@ module.exports = {
     'plugin:vue/vue3-recommended'
   ],
 
-  rules: Object.assign({}, rulesJs, rulesTs, rulesVue),
+  rules: Object.assign({}, rulesJs, rulesTs, rulesVue, {
+    "sort-imports": "off"
+  }),
 
   overrides: [
     {
