@@ -1,5 +1,5 @@
 <template>
-  2222
+  demo
 </template>
 
 <script lang="ts" setup>
