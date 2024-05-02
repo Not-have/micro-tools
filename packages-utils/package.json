@@ -32,7 +32,7 @@
     "start": "tsc --watch",
     "start:webpack": "webpack --watch",
     "publish:build": "npm run build:tsc && npm publish",
-    "clear": "npx rimraf node_modules",
+    "clear": "npx rimraf node_modules && npx rimraf dist",
     "prepublishOnly": "npm run build:tsc && npm run build"
   },
   "devDependencies": {

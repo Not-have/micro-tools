@@ -22,6 +22,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "micro-util-ts": "workspace:^",
     "typescript": "^5.4.5",
     "vue": "^3.4.21"
   },

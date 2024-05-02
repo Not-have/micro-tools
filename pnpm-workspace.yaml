@@ -1,6 +1,5 @@
 packages:
   - "packages-vue/vue-hooks"
-  - "packages-react"
   - "packages-eslint-conf"
   - "packages-stylelint-conf"
   - "packages-style"
