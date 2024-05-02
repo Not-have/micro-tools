@@ -14,55 +14,50 @@
 
 [配置文件](https://zh-hans.eslint.org/docs/latest/use/configure/configuration-files)
 
-```bash
-# eslint
-pnpm add eslint
-```
+[vue eslint](https://eslint.vuejs.org/)
 
-## vue
+## use
 
 ### install
 
 ```bash
-# eslint 格式化 vue
-pnpm add eslint-plugin-vue -D
+npm i eslint micro-eslint-conf -D
 ```
 
-### use
+### config
+
+#### ts、js
 
 `.eslintrc.js`
 
-eslint 规则配置文件
-
-## ts
-
-### install
-
-```bash
-# @typescript-eslint/parser 解析 TypeScript 代码的解析器，解析后才能使用 @typescript-eslint/parser
-# @typescript-eslint/parser 行 ts 代码质量检查
-pnpm add @typescript-eslint/eslint-plugin @typescript-eslint/parser -D
+```js
+module.exports = {
+  env: {
+    browser: true,
+    es6: true,
+    node: true
+  },
+  // 默认只导出 ts 和 js 规则
+  extends: ["micro-eslint-conf"].map(require.resolve),
+  root: true
+};
 ```
 
-### use
-
-`.eslintrc`
-
-eslint 规则配置文件
+#### vue
 
 ```json
 {
-    "extends": "micro-eslint-conf/Xxx"
+    "extends": "micro-eslint-conf/vue"
 }
 ```
 
-## ignore
+### ignore
 
 `.eslintignore`
 
 忽略 eslint 检查的文件（需要在项目根目录下配置）
 
-## attention matter
+### attention matter
 
 如果使用的时候是 `.eslintrc.js`
 
