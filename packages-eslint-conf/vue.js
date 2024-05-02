@@ -1,4 +1,4 @@
-require('@rushstack/eslint-patch/modern-module-resolution')
+require('@rushstack/eslint-patch/modern-module-resolution');
 
 // TODO 需要优化，参考：https://github.com/vuejs/eslint-config-typescript/blob/main/index.js
 module.exports = {

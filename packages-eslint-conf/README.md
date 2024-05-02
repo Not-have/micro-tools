@@ -21,7 +21,7 @@
 ### install
 
 ```bash
-npm i eslint micro-eslint-conf -D
+npm i eslint micro-eslint-conf --save-dev
 ```
 
 ### config
@@ -49,7 +49,18 @@ module.exports = {
 
 ```json
 {
-    "extends": "micro-eslint-conf/vue"
+  "extends": "micro-eslint-conf/vue",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "jsxPragma": "React",
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "project": "./tsconfig.json",
+    "createDefaultProgram": false,
+    "extraFileExtensions": [".vue"]
+  }
 }
 ```
 
@@ -58,6 +69,13 @@ module.exports = {
 `.eslintignore`
 
 忽略 eslint 检查的文件（需要在项目根目录下配置）
+
+```eslintignore
+/node_modules
+/.pnpm-store
+/dist
+/.husky
+```
 
 ### attention matter
 
@@ -69,6 +87,18 @@ module.exports = {
 module.exports = {
     extends: ['micro-eslint-conf/Xxx'].map(require.resolve)
 };
+```
+
+### npm script
+
+在 `package.json` 里的 `"scripts"` 里添加 `lint` 命令：
+
+```json
+{
+  "script": {
+    "lint": "eslint --cache --max-warnings 0  \"{src,mock}/**/*.{vue,ts,tsx}\" --fix"
+  }
+}
 ```
 
 ## 各个插件的作用

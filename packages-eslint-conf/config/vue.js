@@ -26,7 +26,8 @@ module.exports = {
 
   extends: [
     'plugin:@typescript-eslint/eslint-recommended',
-    'plugin:vue/vue3-essential' // eslint-plugin-vue
+    'plugin:vue/vue3-essential', // eslint-plugin-vue
+    'plugin:vue/vue3-recommended'
   ],
 
   rules: Object.assign({}, rulesJs, rulesTs, rulesVue),

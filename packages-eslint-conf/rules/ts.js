@@ -3,15 +3,6 @@ module.exports = {
   /**
    * Ts 的规则
    */
-  /*
-   * '@typescript-eslint/no-unused-vars': [
-   *   'error',
-   *   {
-   *     argsIgnorePattern: '^_',
-   *     varsIgnorePattern: '^_',
-   *   },
-   * ],
-   */
   "@typescript-eslint/no-duplicate-enum-values": "error", // 不允许重复的枚举
   "@typescript-eslint/ban-ts-ignore": "off", // 禁止使用 // @ts-ignore 注释
   "@typescript-eslint/ban-ts-comment": "off", // 禁止使用 // @ts-expect-error 和 // @ts-ignore 注释
@@ -76,10 +67,20 @@ module.exports = {
   /**
    * @link https://typescript-eslint.io/rules/no-unused-vars
    */
+  /*
+   * '@typescript-eslint/no-unused-vars': [
+   *   'error',
+   *   {
+   *     argsIgnorePattern: '^_',
+   *     varsIgnorePattern: '^_',
+   *   },
+   * ],
+   */
   "@typescript-eslint/no-unused-vars": ["error", {
     vars: "all",
     args: "after-used",
     ignoreRestSiblings: true
   }],
-  "@typescript-eslint/indent": ["error", 2] // 设置缩进为两个空格
+  "@typescript-eslint/indent": ["error", 2], // 设置缩进为两个空格
+  '@typescript-eslint/explicit-function-return-type': ['warn'] // 要求函数的返回类型必须显式声明
 };

@@ -1,15 +1,16 @@
 {
     "cSpell.words": [
-        "autodocs",
-        "conver",
-        "demoutils",
-        "echarts",
-        "Gaode",
-        "Iconfont",
-        "noopener",
-        "noreferrer",
-        "sortablejs",
-        "stylelint"
+      "autodocs",
+      "conver",
+      "demoutils",
+      "echarts",
+      "Gaode",
+      "Iconfont",
+      "noopener",
+      "noreferrer",
+      "rushstack",
+      "sortablejs",
+      "stylelint"
     ],
     "commentTranslate.source": "Bing",
     "editor.codeActionsOnSave": {
