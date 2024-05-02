@@ -259,7 +259,7 @@ module.exports = {
   /**
    * ES6
    */
-  "no-duplicate-imports": 2,         // Error; 禁止import重复模块
+  "no-duplicate-imports": "error",         // Error; 禁止import重复模块
   /**
    * 文件
    */

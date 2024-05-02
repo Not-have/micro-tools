@@ -1,8 +1,11 @@
+/**
+ * 这个继承与 
+ * 
+ * @vue/eslint-config-typescript
+ */
 const rulesJs = require('../rules/js');
 const rulesTs = require('../rules/ts');
 const rulesVue = require('../rules/vue');
-
-// delete rulesTs["@typescript-eslint/naming-convention"];
 
 module.exports = {
   plugins: ['@typescript-eslint'],

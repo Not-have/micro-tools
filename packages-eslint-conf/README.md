@@ -16,6 +16,8 @@
 
 [vue eslint](https://eslint.vuejs.org/)
 
+[eslint-plugin-vue 可视化](https://tsingwong.github.io/learn-eslint-plugin-vue/)
+
 ## use
 
 ### install
@@ -49,19 +51,26 @@ module.exports = {
 
 ```json
 {
-  "extends": "micro-eslint-conf/vue",
-  "parserOptions": {
-    "ecmaVersion": "latest",
-    "sourceType": "module",
-    "jsxPragma": "React",
-    "ecmaFeatures": {
-      "jsx": true
-    },
-    "project": "./tsconfig.json",
-    "createDefaultProgram": false,
-    "extraFileExtensions": [".vue"]
-  }
+  "extends": "micro-eslint-conf/vue"
 }
+```
+
+or
+
+`.eslintrc.cjs`
+
+```js
+require('@rushstack/eslint-patch/modern-module-resolution');
+
+module.exports = {
+  env: {
+    browser: true,
+    es6: true,
+    node: true
+  },
+  extends: ["micro-eslint-conf/vue"].map(require.resolve),
+  root: true
+};
 ```
 
 ### ignore
