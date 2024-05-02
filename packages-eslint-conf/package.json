@@ -1,6 +1,6 @@
 {
   "name": "micro-eslint-conf",
-  "version": "2.2.1",
+  "version": "2.3.0",
   "description": "Eslint 的规则配置",
   "scripts": {
     "clear": "npx rimraf node_modules dist",
