@@ -45,6 +45,8 @@ module.exports = {
 
 #### vue
 
+`.eslintrc`
+
 ```json
 {
     "extends": "micro-eslint-conf/vue"
