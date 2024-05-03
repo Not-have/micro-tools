@@ -54,7 +54,7 @@ import {
   reactive
 } from "vue";
 import {
-  onLaunch
+  onLoad
 } from "@dcloudio/uni-app";
 
 const props = defineProps({
@@ -85,7 +85,7 @@ const bar = reactive({
   CustomBar: 0
 });
 
-onLaunch(() => {
+onLoad(() => {
 
   /*
    * OnLaunch 加入的内容，用于计算刘海屏
@@ -124,6 +124,7 @@ onLaunch(() => {
       bar.CustomBar = e.statusBarHeight || 0 + (e.titleBarHeight || 0);
 
       // #endif
+
     }
   });
 });

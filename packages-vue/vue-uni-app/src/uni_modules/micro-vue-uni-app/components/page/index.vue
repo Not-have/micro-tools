@@ -11,6 +11,9 @@ import {
 
 import PublicLoading from "../loading/index.vue";
 import PublicTopBar from "../top-bar/index.vue";
+import {
+  isObject
+} from "./util";
 
 interface ITopBarProps {
 
@@ -105,9 +108,12 @@ const props = defineProps({
     type: Boolean,
     default: false
   },
-  isPadding: {
-    type: Boolean,
-    default: true
+
+  /**
+   * 是否 padding
+   */
+  padding: {
+    type: String
   },
 
   /**
@@ -134,26 +140,14 @@ const topBarProps = computed(() => {
     obj.topBar = true;
   }
 
-  if (typeof props.topBar === "object") {
+  if(isObject(props.topBar)) {
     obj = {
       topBar: true,
-
-      // @ts-ignore
       title: props.topBar?.title,
-
-      // @ts-ignore
       isBack: props.topBar?.isBack,
-
-      // @ts-ignore
       bgColor: props.topBar?.bgColor,
-
-      // @ts-ignore
       bgImage: props.topBar?.bgImage,
-
-      // @ts-ignore
       backColor: props.topBar?.backColor,
-
-      // @ts-ignore
       color: props.topBar?.color
     };
   }
@@ -229,7 +223,7 @@ const handleClick = (): void => {
 
     <view
       class="body border-box"
-      :class="{ 'content-padding': isPadding }"
+      :style="{ 'padding': padding }"
     >
       <slot name="extra"></slot>
       <scroll-view
@@ -252,7 +246,9 @@ const handleClick = (): void => {
         />
       </scroll-view>
       <view v-else>
-        <slot name="none-data"></slot>
+        <slot name="none-data">
+          暂无数据
+        </slot>
       </view>
     </view>
 

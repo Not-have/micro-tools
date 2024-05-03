@@ -46,7 +46,7 @@ page {
   top: 0;
   background-color: #333;
   border-radius: 100%;
-  background-image: linear-gradient(to right, #ff8a00, #e52e71);
+  background-image: linear-gradient(to right, #f0ad4e, #dd524d);
 
   -webkit-animation: sk-bounce 2s infinite ease-in-out;
   animation: sk-bounce 2s infinite ease-in-out;

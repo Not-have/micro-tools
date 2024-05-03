@@ -1,13 +1,18 @@
 <script setup lang="ts">
-import { } from "@/uni_modules/micro-vue-uni-app/components/micro-vue-uni-app/loading";
+import Page from "@/uni_modules/micro-vue-uni-app/components/page/index.vue";
 </script>
 <template>
-  <view>
+  <Page
+    :top-bar="{
+      title: 'Page Demo'
+    }"
+    :loading="true"
+  >
     <uni-badge
       text="2"
       type="success"
     />
-  </view>
+  </Page>
 </template>
 
 <style scoped></style>

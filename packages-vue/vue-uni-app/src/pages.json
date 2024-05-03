@@ -3,7 +3,8 @@
     {
       "path": "pages/demo-page/index",
       "style": {
-        "navigationBarTitleText": "page"
+        "navigationBarTitleText": "page",
+        "navigationStyle": "custom"
       }
     }
   ],

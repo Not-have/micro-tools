@@ -6,7 +6,8 @@
  *
  * @return 如果 value 为 object，则返回 true，否则返回 false
  */
-export default function isObject(value: unknown): value is Record<string, any> {
-    const type: 'string' | 'number' | 'bigint' | 'boolean' | 'symbol' | 'undefined' | 'object' | 'function' | 'null' = typeof value;
-    return value !== null && (type === 'object' || type === 'function');
+export default function isObject(value: unknown): value is Record<string, unknown> {
+  const type: "string" | "number" | "bigint" | "boolean" | "symbol" | "undefined" | "object" | "function" | "null" = typeof value;
+
+  return value !== null && (type === "object" || type === "function");
 }
