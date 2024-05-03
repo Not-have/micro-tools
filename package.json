@@ -3,11 +3,14 @@
   "version": "1.0.0",
   "description": "Tiny Tools.",
   "keywords": [
-    "Vue components",
-    "React components",
+    "Vue hooks",
+    "Vue Ui",
+    "Vue Components",
+    "React hooks",
+    "React Ui",
+    "React Components",
     "Storybook vue demo",
     "Micro rc container",
-    "Vue hooks",
     "eslint-conf",
     "stylelint-conf"
   ],
