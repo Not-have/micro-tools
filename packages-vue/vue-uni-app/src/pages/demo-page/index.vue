@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import Page from "@/components/page/index.vue";
 </script>
 <template>
-  <Page />
+  <view>111</view>
 </template>
 
 <style scoped></style>
