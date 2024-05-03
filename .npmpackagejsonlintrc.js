@@ -86,6 +86,6 @@ module.exports = {
     // ]]
   },
   ignores: [
-    "./packages-vue/vue-uni-app/src/uni_modules/micro-vue-uni-app/package.json"
+    "./packages-vue/vue-uni-app/**/package.json"
   ],
 };
