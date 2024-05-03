@@ -36,7 +36,8 @@ module.exports = {
   ],
 
   rules: Object.assign({}, rulesJs, rulesTs, rulesVue, {
-    "sort-imports": "off"
+    "sort-imports": "off",
+    "indent": "off"
   }),
 
   overrides: [

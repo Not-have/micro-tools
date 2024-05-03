@@ -1,8 +1,10 @@
 <script setup lang="ts">
-import Page from "@/components/page/index.vue";
+import DragVerifyBand from "@/uni_modules/micro-vue-uni-app/components/page/index.vue";
 </script>
 <template>
-  <Page />
+  <DragVerifyBand>22</DragVerifyBand>
 </template>
 
-<style scoped></style>
+<style scoped>
+
+</style>

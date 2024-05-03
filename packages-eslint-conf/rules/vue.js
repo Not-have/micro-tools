@@ -98,11 +98,7 @@ module.exports = {
   "vue/return-in-computed-property": ["error", {
     "treatUndefinedAsUnspecified": true
   }],
-  "vue/script-indent": ["error", 2, {
-    "baseIndent": 0,
-    "switchCase": 0,
-    "ignores": []
-  }],
+  "vue/script-indent": ["off"], // 与 @typescript-eslint/indent 冲突
   "vue/space-infix-ops": "error",
   "vue/valid-v-text": "error",
   /**
