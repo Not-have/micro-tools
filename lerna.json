@@ -2,15 +2,7 @@
   "version": "independent",
   "npmClient": "pnpm",
   "packages": [
-    "packages-vue/vue-hooks",
-    "packages-style",
-    "packages-eslint-conf",
-    "packages-stylelint-conf",
-    "packages-utils",
-    "packages-rc",
-    "packages-conf",
-    "packages-enum",
-    "packages-types"
+    "packages*/**"
   ],
   "command": {
     "bootstrap": {

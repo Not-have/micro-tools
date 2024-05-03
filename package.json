@@ -27,21 +27,12 @@
   },
   "bugs": {},
   "workspaces": [
-    "packages-vue/vue-hooks",
-    "packages-style",
-    "packages-eslint-conf",
-    "packages-stylelint-conf",
-    "packages-utils",
-    "packages-rc",
-    "packages-conf",
-    "packages-enum",
-    "packages-types",
-    "packages-demo"
+    "packages*/**"
   ],
-  "packageManager": "pnpm@9.0.6",
+  "packageManager": "pnpm@8.15.8",
   "engines": {
     "node": ">=16.0.0",
-    "pnpm": ">=9.0.0"
+    "pnpm": ">=8.0.0"
   },
   "browserslist": [
     "last 2 versions",
