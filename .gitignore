@@ -14,3 +14,5 @@ packages-vue/README.md
 packages-**/package-lock.json
 
 .npmpackagejsonlintrc.js
+
+/packages-vue/**/stats.html
