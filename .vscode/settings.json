@@ -2,6 +2,7 @@
     "cSpell.words": [
       "autodocs",
       "conver",
+      "dcloudio",
       "demoutils",
       "echarts",
       "Gaode",
@@ -10,7 +11,8 @@
       "noreferrer",
       "rushstack",
       "sortablejs",
-      "stylelint"
+      "stylelint",
+      "uniapp"
     ],
     "commentTranslate.source": "Bing",
     "editor.codeActionsOnSave": {
