@@ -1,7 +1,7 @@
 {
   "pages": [
     {
-      "path": "pages/demo-page/index",
+      "path": "pages/demo/index",
       "style": {
         "navigationBarTitleText": "page",
         "navigationStyle": "custom"

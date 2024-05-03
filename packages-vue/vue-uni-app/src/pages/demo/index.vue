@@ -6,7 +6,7 @@ import Page from "@/uni_modules/micro-vue-uni-app/components/page/index.vue";
     :top-bar="{
       title: 'Page Demo'
     }"
-    :loading="true"
+    :is-none-data="true"
   >
     <uni-badge
       text="2"

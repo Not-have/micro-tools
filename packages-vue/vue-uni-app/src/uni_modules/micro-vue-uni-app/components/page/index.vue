@@ -222,13 +222,13 @@ const handleClick = (): void => {
     </slot>
 
     <view
-      class="body border-box"
+      class="body"
       :style="{ 'padding': padding }"
     >
       <slot name="extra"></slot>
       <scroll-view
         v-if="showNoneData"
-        class="content border-box"
+        class="content"
         :scroll-y="scroll"
         :refresher-enabled="pagination"
         :refresher-triggered="refreshStatus"
@@ -279,14 +279,12 @@ page {
         display: flex;
         flex-direction: column;
         overflow: hidden;
+        padding: $uni-spacing-col-base $uni-spacing-row-base;
         .content {
             flex: 1;
             overflow-y: auto;
             background-size: cover;
         }
-    }
-    .content-padding {
-        padding: $uni-spacing-col-base $uni-spacing-row-base;
     }
 }
 </style>
