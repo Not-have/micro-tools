@@ -235,9 +235,8 @@ const handleClick = (): void => {
      top: 0;
      margin: auto;
      height: 60upx;
-     font-size: 32upx;
+     font-size: 30upx;
      line-height: 60upx;
-     font-weight: 600;
      cursor: none;
      pointer-events: none;
      text-overflow: ellipsis;
