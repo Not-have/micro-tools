@@ -1,7 +1,12 @@
 <script setup lang="ts">
 </script>
 <template>
-  <view>111</view>
+  <view>
+    <uni-badge
+      text="2"
+      type="success"
+    />
+  </view>
 </template>
 
 <style scoped></style>
