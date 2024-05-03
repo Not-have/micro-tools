@@ -187,7 +187,7 @@ const scrollTop = ref(null);
       v-else
       class="none-data"
     >
-      <slot name="none-data">
+      <slot name="noneData">
         暂无数据
       </slot>
     </view>

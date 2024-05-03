@@ -191,10 +191,8 @@ const topBarProps = computed(() => {
       <template #default>
         <slot></slot>
       </template>
-      <template #none-data>
-        <slot name="none-data">
-          2222
-        </slot>
+      <template #noneData>
+        <slot name="noneData"></slot>
       </template>
     </Scroll>
 
