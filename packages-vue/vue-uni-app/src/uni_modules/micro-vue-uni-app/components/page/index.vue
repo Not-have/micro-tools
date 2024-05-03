@@ -153,7 +153,6 @@ const topBarProps = computed(() => {
 
   return obj;
 });
-
 </script>
 <template>
   <view
@@ -192,7 +191,9 @@ const topBarProps = computed(() => {
         <slot></slot>
       </template>
       <template #noneData>
-        <slot name="noneData"></slot>
+        <slot name="noneData">
+          暂无数据
+        </slot>
       </template>
     </Scroll>
 
