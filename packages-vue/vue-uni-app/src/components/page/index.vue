@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 <template>
   <view>
-    1222333
+    page
   </view>
 </template>
 

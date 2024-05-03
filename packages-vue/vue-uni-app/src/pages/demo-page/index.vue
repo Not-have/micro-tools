@@ -1,8 +1,8 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import Page from "@/components/page/index.vue";
+</script>
 <template>
-  <view>
-    1222
-  </view>
+  <Page />
 </template>
 
 <style scoped></style>

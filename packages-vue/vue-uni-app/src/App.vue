@@ -1,5 +1,6 @@
-
+<script setup lang="ts"></script>
 <template>
   <view />
 </template>
-<style></style>
+<style>
+</style>
