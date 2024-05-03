@@ -1,6 +1,8 @@
 <script setup lang="ts"></script>
 <template>
-  <view />
+  <view>
+    page
+  </view>
 </template>
-<style>
-</style>
+
+<style scoped></style>
