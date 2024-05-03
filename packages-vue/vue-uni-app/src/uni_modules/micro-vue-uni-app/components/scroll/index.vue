@@ -183,7 +183,10 @@ const scrollTop = ref(null);
         :status="moreStatus"
       />
     </scroll-view>
-    <view v-else>
+    <view
+      v-else
+      class="none-data"
+    >
       <slot name="none-data">
         暂无数据
       </slot>
@@ -199,11 +202,13 @@ const scrollTop = ref(null);
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  padding: 20px;
   box-sizing: border-box;
   .scroll-content {
       flex: 1;
       background-size: cover;
+  }
+  .none-data {
+    text-align: center;
   }
 }
 </style>

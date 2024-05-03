@@ -5,12 +5,12 @@ import type {
 import {
   PropType,
   defineProps,
-  defineEmits,
   computed
 } from "vue";
 
 import PublicLoading from "../loading/index.vue";
 import PublicTopBar from "../top-bar/index.vue";
+import Scroll from "../scroll/index.vue";
 import {
   isObject
 } from "./util";
@@ -78,19 +78,26 @@ const props = defineProps({
   },
 
   /**
-   * 是否滚动
+   * 是否滚动 / 滚动方向
+   *
+   * 默认不滚动
    */
   scroll: {
-    type: Boolean,
-    default: false
+    type: String as PropType<"x" | "y">
   },
 
   /**
-   * 分页列表
+   * 分页加载
    */
-  pagination: {
-    type: Boolean,
-    default: false
+  load: {
+    type: Function
+  },
+
+  /**
+   * 下拉刷新
+   */
+  refresh: {
+    type: Function
   },
 
   /**
@@ -102,10 +109,10 @@ const props = defineProps({
   },
 
   /**
-   * 下拉刷新
+   * 是否暂无数据
    */
-  refreshStatus: {
-    type: Boolean,
+  isNoneData: {
+    type: [Array, Boolean],
     default: false
   },
 
@@ -114,14 +121,6 @@ const props = defineProps({
    */
   padding: {
     type: String
-  },
-
-  /**
-   * 是否暂无数据
-   */
-  isNoneData: {
-    type: [Array, Boolean],
-    default: false
   }
 });
 
@@ -155,41 +154,6 @@ const topBarProps = computed(() => {
   return obj;
 });
 
-const emit = defineEmits(["moreData", "refreshData"]);
-
-const handleRefresherrefresh = (): void => {
-  emit("refreshData");
-};
-
-const handleScrolltolower = (): void => {
-  emit("moreData");
-};
-
-const showNoneData = computed(() => {
-  if (props.loading) {
-    return true;
-  }
-
-  if (typeof props.isNoneData === "boolean") {
-    if (props.isNoneData) {
-      return false;
-    }
-
-    return true;
-  }
-
-  if (props.isNoneData.length === 0) {
-    return false;
-  }
-
-  return true;
-});
-
-const handleClick = (): void => {
-  uni.navigateBack({
-    delta: 1
-  });
-};
 </script>
 <template>
   <view
@@ -206,51 +170,33 @@ const handleClick = (): void => {
         :bgColor="topBarProps.bgColor"
         :bgImage="topBarProps.bgImage"
         :color="topBarProps.color"
+        :back-color="topBarProps.backColor"
       >
-        <template #left>
-          <slot name="left">
-            <uni-icons
-              :color="topBarProps.backColor"
-              type="left"
-              size="20"
-              @tap="handleClick"
-            />
-          </slot>
-        </template>
         {{ topBarProps.title }}
       </PublicTopBar>
     </slot>
 
-    <view
+    <Scroll
       class="body"
-      :style="{ 'padding': padding }"
+      :padding="padding"
+      :scroll="scroll"
+      :load="load"
+      :refresh="refresh"
+      :moreStatus="moreStatus"
+      :isNoneData="isNoneData"
     >
-      <slot name="extra"></slot>
-      <scroll-view
-        v-if="showNoneData"
-        class="content"
-        :scroll-y="scroll"
-        :refresher-enabled="pagination"
-        :refresher-triggered="refreshStatus"
-        :refresher-threshold="100"
-        :lower-threshold="100"
-        refresher-background="#f7f7f7"
-        @refresherrefresh="handleRefresherrefresh"
-        @scrolltolower="handleScrolltolower"
-      >
+      <template #extra>
+        <slot name="extra"></slot>
+      </template>
+      <template #default>
         <slot></slot>
-        <uni-load-more
-          v-if="pagination"
-          iconType="circle"
-          :status="moreStatus"
-        />
-      </scroll-view>
-      <view v-else>
+      </template>
+      <template #none-data>
         <slot name="none-data">
-          暂无数据
+          2222
         </slot>
-      </view>
-    </view>
+      </template>
+    </Scroll>
 
     <view
       v-if="footer"
@@ -276,15 +222,10 @@ page {
     background-size: 100% 100%;
     .body {
         flex: 1;
-        display: flex;
-        flex-direction: column;
+        padding: 10px;
         overflow: hidden;
         padding: $uni-spacing-col-base $uni-spacing-row-base;
-        .content {
-            flex: 1;
-            overflow-y: auto;
-            background-size: cover;
-        }
+        box-sizing: border-box;
     }
 }
 </style>
