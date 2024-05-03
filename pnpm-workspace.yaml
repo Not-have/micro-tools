@@ -8,3 +8,4 @@ packages:
   - "packages-conf"
   - "packages-enum"
   - "packages-types"
+  - "packages-demo"

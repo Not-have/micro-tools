@@ -35,7 +35,8 @@
     "packages-rc",
     "packages-conf",
     "packages-enum",
-    "packages-types"
+    "packages-types",
+    "packages-demo"
   ],
   "packageManager": "pnpm@9.0.6",
   "engines": {

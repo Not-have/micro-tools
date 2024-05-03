@@ -1,0 +1,19 @@
+{
+  "name": "micro-demo",
+  "version": "1.0.0",
+  "description": "测试 Demo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-demo"
+  },
+  "bugs": {
+    "url": "https://github.com/Not-have/micro-tools/issues"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
