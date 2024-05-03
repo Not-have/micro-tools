@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { } from "@/uni_modules/micro-vue-uni-app/components/micro-vue-uni-app/loading";
 </script>
 <template>
   <view>
