@@ -188,7 +188,7 @@ module.exports = {
   "no-loop-func": "error",            // 禁止在循环中出现 function 声明和表达式
   "no-useless-constructor": "error",  // 禁用不必要的构造函数
   "space-before-function-paren": ["error", {
-    anonymous: "never", // eslint-config-ali 为 'always'
+    anonymous: "never",
     named: "never",
     asyncArrow: "always"
   }],                                 // 要求函数名与圆括号之间有空格no-multi-spaces

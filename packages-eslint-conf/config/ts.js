@@ -27,10 +27,6 @@ module.exports = {
   rules: Object.assign({}, rulesTs),
   globals: { defineOptions: 'readonly' },
   overrides: [{
-    files: ['*.ts', '*.tsx'],
-    rules: {
-      // 要求函数的返回类型必须显式声明
-      '@typescript-eslint/explicit-function-return-type': ['warn']
-    }
+    files: ['*.ts', '*.tsx']
   }]
 };
