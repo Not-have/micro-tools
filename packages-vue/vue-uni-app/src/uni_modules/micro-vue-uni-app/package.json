@@ -1,11 +1,11 @@
 {
-  "id": "micro-vue-uni-app",
-  "displayName": "micro-vue-uni-app",
+  "id": "vue-uni-app",
+  "displayName": "vue-uni-app",
   "version": "1.0.0",
-  "description": "micro-vue-uni-app",
+  "description": "vue-uni-app",
   "keywords": [
-    "micro-vue-uni-app"
-],
+    "vue-uni-app"
+  ],
   "repository": "",
   "engines": {
     "HBuilderX": "^3.1.0"
@@ -31,7 +31,9 @@
     "npmurl": ""
   },
   "uni_modules": {
-    "dependencies": ["uni-ui"],
+    "dependencies": [
+      "uni-ui"
+    ],
     "encrypt": [],
     "platforms": {
       "cloud": {
