@@ -1,22 +1,24 @@
 {
-    "cSpell.words": [
-      "autodocs",
-      "conver",
-      "dcloudio",
-      "demoutils",
-      "echarts",
-      "Gaode",
-      "Iconfont",
-      "noopener",
-      "noreferrer",
-      "rushstack",
-      "sortablejs",
-      "stylelint",
-      "uniapp"
-    ],
-    "commentTranslate.source": "Bing",
-    "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true
-    },
-    "editor.tabSize": 2
+  "cSpell.words": [
+    "autodocs",
+    "commitlint",
+    "conver",
+    "dcloudio",
+    "demoutils",
+    "echarts",
+    "Gaode",
+    "Iconfont",
+    "noopener",
+    "noreferrer",
+    "preinstall",
+    "rushstack",
+    "sortablejs",
+    "stylelint",
+    "uniapp"
+  ],
+  "commentTranslate.source": "Bing",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.tabSize": 2
 }
