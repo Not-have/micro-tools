@@ -16,7 +16,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-vue/vue-components"
+    "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-vue/vue-components-el-extra"
   },
   "bugs": {
     "url": "https://github.com/Not-have/micro-tools/issues"
