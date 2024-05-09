@@ -45,7 +45,7 @@ export default function useEventListener({
 }: IUseEventParams): { removeEvent: () => void } {
 
   // eslint-disable-next-line no-empty-function
-  let remove = () => {}; // 初始化移除事件监听的函数，初始值为空函数
+  let remove = (): void => {}; // 初始化移除事件监听的函数，初始值为空函数
 
   const isAddRef = ref(false);
 
@@ -56,12 +56,12 @@ export default function useEventListener({
 
     const realHandler = wait ? handler : func; // 如果设置了等待时间，则使用处理函数，否则直接使用原始监听函数
 
-    const removeEventListener = (e: Element) => {
+    const removeEventListener = (e: Element): void => {
       isAddRef.value = true;
       e.removeEventListener(name, realHandler, options);
     };
 
-    const addEventListener = (e: Element) => e.addEventListener(name, realHandler, options);
+    const addEventListener = (e: Element): void => e.addEventListener(name, realHandler, options);
 
     const removeWatch = watch(
         element,
@@ -78,7 +78,7 @@ export default function useEventListener({
         }
     );
 
-    remove = () => {
+    remove = (): void => {
       removeEventListener(element.value);
       removeWatch();
     };
