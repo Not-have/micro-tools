@@ -7,7 +7,8 @@
     "dev:mp-weixin": "uni -p mp-weixin",
     "build:h5": "uni build",
     "build:mp-weixin": "uni build -p mp-weixin",
-    "type-check": "vue-tsc --noEmit"
+    "type-check": "vue-tsc --noEmit",
+    "clear": "npx rimraf node_modules && npx rimraf dist"
   },
   "license": "ISC",
   "author": "Li Yong",
