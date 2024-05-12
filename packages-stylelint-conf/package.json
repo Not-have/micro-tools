@@ -1,7 +1,7 @@
 {
   "name": "micro-stylelint-conf",
   "version": "1.0.0",
-  "description": "stylelintrc 的规则配置",
+  "description": "Stylelint 的规则配置",
   "main": "index.js",
   "scripts": {
     "clear": "npx rimraf node_modules"
@@ -21,10 +21,13 @@
     "url": "https://github.com/Not-have/micro-tools/issues"
   },
   "dependencies": {
+    "postcss-html": "^1.7.0",
+    "postcss-less": "^6.0.0",
+    "postcss-scss": "^4.0.9",
     "stylelint-config-recommended-vue": "^1.5.0",
-    "stylelint-config-standard": "^34.0.0",
+    "stylelint-config-standard": "^36.0.0",
     "stylelint-config-styled-components": "^0.1.1",
-    "stylelint-order": "^6.0.3",
+    "stylelint-order": "^6.0.4",
     "stylelint-processor-styled-components": "^1.10.0"
   },
   "devDependencies": {

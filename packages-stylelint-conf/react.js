@@ -13,7 +13,6 @@ module.exports = {
   plugins: [
     "stylelint-order"
   ],
-  "customSyntax": "stylelint-custom-syntax",
   rules: {
     "at-rule-no-unknown": true,
     "at-rule-no-vendor-prefix": true,
