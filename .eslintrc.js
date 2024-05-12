@@ -8,7 +8,7 @@ module.exports = {
   overrides: [
     {
       extends: ["micro-eslint-conf/vue"].map(require.resolve),
-      files: ["packages-vue/**/*.{js,vue,ts}"],
+      files: ["packages-vue/**/*.{js,vue,ts,tsx}"],
 
       // TODO 因 import 导入规则引起
       rules: {
