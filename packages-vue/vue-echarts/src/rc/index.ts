@@ -1,4 +1,4 @@
-import type {
+import {
   EChartsOption
 } from "echarts";
 import {
