@@ -23,6 +23,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "echarts": "^5.5.0",
+    "micro-util-ts": "workspace:^",
+    "micro-vue-hooks": "workspace:^",
     "typescript": "^5.4.5",
     "vue": "^3.4.21"
   },

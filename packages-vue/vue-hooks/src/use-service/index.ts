@@ -58,16 +58,16 @@ export default function useService<T, Q>(fetch: IServiceFunction<T, Q>, query?: 
         stateResult.data = res as UnwrapRef<T> | null;
         reactive(res);
       }).
-        catch(err => {
-          stateResult.loading = false;
-          stateResult.error = err;
+          catch(err => {
+            stateResult.loading = false;
+            stateResult.error = err;
 
-          if (error) {
-            error(err);
-          }
+            if (error) {
+              error(err);
+            }
 
-          reject(err);
-        });
+            reject(err);
+          });
     });
   };
 
@@ -96,7 +96,8 @@ export default function useService<T, Q>(fetch: IServiceFunction<T, Q>, query?: 
       immediate: false // 立即执行（西药第一次 进来就打印）
     });
   } else {
-    throw new Error("Query is not reactive,unable to proceed watch.");
+    // eslint-disable-next-line no-console
+    console.error("Query is not reactive,unable to proceed watch.");
   }
 
   const {
