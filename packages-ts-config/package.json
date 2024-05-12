@@ -1,6 +1,6 @@
 {
   "name": "micro-ts-config",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Shareable tsconfig",
   "main": "base.json",
   "homepage": "https://github.com/Not-have/micro-tools/packages-ts-config",
