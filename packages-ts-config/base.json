@@ -33,8 +33,6 @@
       "DOM.Iterable"
     ],
     "outDir": "lib",
-
-
     "sourceMap": true,
     "allowJs": true,
     "forceConsistentCasingInFileNames": true,
