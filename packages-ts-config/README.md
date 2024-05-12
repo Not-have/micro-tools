@@ -2,6 +2,8 @@
 
 ## Use
 
+`tsconfig.json`
+
 ```json
 {
   "extends": "micro-ts-config/react.json",
