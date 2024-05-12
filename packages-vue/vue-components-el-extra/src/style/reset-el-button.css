@@ -14,3 +14,6 @@
   border-color: var(--el-button-hover-border-color);
   background-color: var(--el-button-hover-bg-color);
 }
+.el-button {
+  border-radius: 0;
+}

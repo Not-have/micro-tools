@@ -66,7 +66,7 @@
   "lint-staged": {
     "package.json": "npmPkgJsonLint",
     "*.{js,ts,vue,tsx,jsx}": "eslint",
-    "*.{js_ts_tsx_css_vue,disabled_for_buggy}": "stylelint",
+    "*.{js,ts,tsx,css,vue}": "stylelint",
     "*.md": "markdownlint-cli2"
   },
   "scripts": {
