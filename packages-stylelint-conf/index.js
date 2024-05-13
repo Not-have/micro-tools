@@ -9,24 +9,16 @@ module.exports = {
   ],
   overrides: [
     {
-      files: ["**/*.(css|html|vue)"],
-      customSyntax: "postcss-html"
-    },
-    {
-      files: ["*.less", "**/*.less"],
-      customSyntax: "postcss-less",
-      extends: ["stylelint-config-standard", "stylelint-config-recommended-vue"]
-    },
-    {
-      files: ["*.scss", "**/*.scss"],
-      customSyntax: "postcss-scss",
-      extends: ["stylelint-config-standard-scss", "stylelint-config-recommended-vue/scss"],
-      rule: {
-        "scss/percent-placeholder-pattern": null
-      }
+      files: ["**/*.(ts|js)"],
+      customSyntax: "postcss-lit"
     }
   ],
   rules: {
+    "indentation": [2, {
+
+      // Align multiline property values
+      "ignore": ["value"]
+    }],
     "media-feature-range-notation": null,
     "selector-not-notation": null,
     "import-notation": null,
@@ -72,32 +64,6 @@ module.exports = {
         ignore: ["after-comment", "first-nested"]
       }
     ],
-    "unit-no-unknown": [true, {
-      ignoreUnits: ["rpx"]
-    }],
-    "order/order": [
-      [
-        "dollar-variables",
-        "custom-properties",
-        "at-rules",
-        "declarations",
-        {
-          type: "at-rule",
-          name: "supports"
-        },
-        {
-          type: "at-rule",
-          name: "media"
-        },
-        "rules"
-      ],
-      {
-        severity: "error"
-      }
-    ],
-
-    // Id, class, type
-    "selector-max-specificity": "1,3,3",
 
     // 属性顺序在单独的文件中定义，以便于阅读
     "order/properties-order": [properties, {

@@ -4,7 +4,7 @@
   "description": "Stylelint 的规则配置",
   "scripts": {
     "clear": "npx rimraf node_modules",
-    "test": "stylelint test/**/*.{css} --cache --fix"
+    "test": "stylelint test/**/*.css --fix"
   },
   "repository": {
     "type": "git",
@@ -23,14 +23,15 @@
   "dependencies": {
     "postcss-html": "^1.7.0",
     "postcss-less": "^6.0.0",
+    "postcss-lit": "^1.1.1",
     "postcss-scss": "^4.0.9",
     "stylelint-config-recommended-vue": "^1.5.0",
-    "stylelint-config-standard": "^36.0.0",
+    "stylelint-config-standard": "^34.0.0",
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-order": "^6.0.4",
     "stylelint-processor-styled-components": "^1.10.0"
   },
   "devDependencies": {
-    "stylelint": "^16.4.0"
+    "stylelint": "^15.10.3"
   }
 }
