@@ -24,8 +24,7 @@ function template(dialog: boolean = false): string {
 
                 ${dialog ? `
                             --window-background: #181818;
-                            --window-color: #d8d8d8;` : ""
-}
+                            --window-color: #d8d8d8;` : ""}
             }
             
             .backdrop {
