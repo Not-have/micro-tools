@@ -12,6 +12,9 @@
     "ts-config",
     "micro-ts-config"
   ],
+  "scripts": {
+    "clear": "npx rimraf node_modules"
+  },
   "publishConfig": {
     "access": "public"
   },

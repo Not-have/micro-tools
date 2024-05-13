@@ -2,9 +2,9 @@
   "name": "micro-stylelint-conf",
   "version": "1.0.0",
   "description": "Stylelint 的规则配置",
-  "main": "index.js",
   "scripts": {
-    "clear": "npx rimraf node_modules"
+    "clear": "npx rimraf node_modules",
+    "test": "stylelint test/**/*.{css} --cache --fix"
   },
   "repository": {
     "type": "git",
@@ -31,6 +31,6 @@
     "stylelint-processor-styled-components": "^1.10.0"
   },
   "devDependencies": {
-    "stylelint": "^15.10.3"
+    "stylelint": "^16.4.0"
   }
 }

@@ -1,5 +1,5 @@
 {
   "extends": [
-    "micro-stylelint-conf"
+    "micro-stylelint-conf/react"
   ]
 }
