@@ -38,6 +38,7 @@ export default function useState<T>(params: T): [TState<T>, TDispatch<T>] {
     _params = ref<T>(params) as TRef<T>;
   }
 
+  // TODO 优化！！！
   function setState(args?: Partial<T> | ((prevState: T) => T)): void {
     if(_isFunction(args) && isRef(_params)) {
       _params.value = args(_params.value as T);
