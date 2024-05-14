@@ -26,6 +26,12 @@ watch(() => state.age, (newValue, oldValue) => {
 
 });
 
+const [stateNum, setStateNum] = useState(1);
+
+const handleAddNumClick = (): void => {
+  setStateNum(stateNum => stateNum + 1);
+};
+
 </script>
 
 <template>
@@ -42,5 +48,13 @@ watch(() => state.age, (newValue, oldValue) => {
     <button @click="handleReductionClick">
       初始化
     </button>
+    <hr />
+    {{ stateNum }}
+    <br />
+    <br />
+    <button @click="handleAddNumClick">
+      修改
+    </button>
+    <br />
   </div>
 </template>
