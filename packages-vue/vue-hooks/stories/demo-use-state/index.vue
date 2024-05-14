@@ -40,7 +40,7 @@ watch(() => state.age, (newValue, oldValue) => {
     </button>
     <br />
     <button @click="handleReductionClick">
-      还原
+      初始化
     </button>
   </div>
 </template>
