@@ -6,6 +6,7 @@
     "clear": "npx rimraf node_modules",
     "test": "stylelint test/**/*.css --fix"
   },
+  "main": "index",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-stylelintrc-conf"
