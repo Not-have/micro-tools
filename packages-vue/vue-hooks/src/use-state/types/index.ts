@@ -18,4 +18,4 @@ export type TDispatchFn<A> = (value?: A) => void;
 
 export type TDispatch<T> = TDispatchFn<TSetStateAction<T>>;
 
-export type TRecord = Record<string, unknown>
+export type TRecord = Record<string, unknown>;
