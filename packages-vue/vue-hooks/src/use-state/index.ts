@@ -67,5 +67,6 @@ export default function useState<T>(params: T): [TState<T>, TDispatch<T>] {
 
   }
 
+  // 使用 unref 包裹会丢失响应
   return [_params as TState<T>, setState];
 }
