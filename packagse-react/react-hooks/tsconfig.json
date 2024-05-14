@@ -1,4 +1,0 @@
-{
-  "extends": "micro-ts-config/react.json",
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-}
