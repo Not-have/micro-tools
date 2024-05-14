@@ -11,7 +11,7 @@
 >
 > <script setup>
 > import { ref } from 'vue';
-> import { useEventListener } from 'micro-vue-components';
+> import { useEventListener } from 'micro-vue-hooks';
 >
 > const isEventListenerActive = ref(false);
 >
@@ -51,7 +51,7 @@
 > <script setup lang="ts">
 > import { watchEffect } from 'vue';
 >
-> import { useLocationQuery } from 'micro-vue-components';
+> import { useLocationQuery } from 'micro-vue-hooks';
 >
 > const [query, updateQuery] = useLocationQuery({
 >     keys: ["id", "name"],
@@ -91,7 +91,7 @@
 >
 > <script lang='ts' setup>
 > import { reactive } from 'vue';
-> import { useService } from 'micro-vue-components';
+> import { useService } from 'micro-vue-hooks';
 >
 >  function fun(params) {
 >     // 构建 URL，将查询参数附加到 URL 上
@@ -160,7 +160,7 @@
 > import { 
 >     useWatermark,
 >     Button
-> } from 'micro-vue-components';
+> } from 'micro-vue-hooks';
 > 
 > const app = ref(document.body);
 > 
@@ -175,6 +175,50 @@
 > 
 > onUnmounted(() => {
 >     clearAll();
+> });
+> </script>
+> ```
+>
+> ## 5、useState
+>
+> ```vue
+> <template>
+>     <div>
+>         {{ state.age }}
+>         <br />
+>         <br />
+>         <button @click="handleClick">
+>           修改
+>         </button>
+>         <br />
+>         <button @click="handleReductionClick">
+>           还原
+>         </button>
+>     </div>
+> </template>
+> <script lang="ts" setup>
+> import { watch } from 'vue';
+> 
+> import { 
+>     useState
+> } from 'micro-vue-hooks';
+> 
+> const [state, setState] = useState({
+>     age: 1
+> });
+> 
+> const handleClick = (): void => {
+>     setState({
+>         age: 2
+>     });
+> };
+> 
+> const handleReductionClick = (): void => {
+>     setState();
+> };
+> 
+> watch(() => state.age, (newValue, oldValue) => {
+>     console.log(newValue, oldValue);
 > });
 > </script>
 > ```

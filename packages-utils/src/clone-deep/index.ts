@@ -16,7 +16,7 @@ import isObject from "../is-object";
  * ① 无法解析 Symbol 作为 key 或者 value
  * ② 无法循环引用
  */
-export default function cloneDeep<T extends object>(value: T | symbol, map = new WeakMap()): T | {} {
+export default function cloneDeep<T>(value: T | symbol, map = new WeakMap()): T | {} {
   try {
 
     // Set 类型

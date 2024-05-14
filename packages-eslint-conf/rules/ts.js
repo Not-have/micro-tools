@@ -24,6 +24,10 @@ module.exports = {
       filter: {
         regex: "[A-Z\\d]__[A-Z\\d]",
         match: false
+      },
+      filter: {
+        regex: "_[A-Z\\d]",
+        match: true
       }
     }, {
       selector: "parameter",

@@ -1,6 +1,6 @@
 {
   "name": "micro-vue-hooks",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Vue hooks",
   "main": "src/index.ts",
   "scripts": {
