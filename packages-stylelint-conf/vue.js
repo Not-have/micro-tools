@@ -15,12 +15,12 @@ module.exports = {
     {
       files: ["*.less", "**/*.less"],
       customSyntax: "postcss-less",
-      extends: ["stylelint-config-standard", "stylelint-config-recommended-vue"]
+      extends: ["stylelint-config-recommended-vue"]
     },
     {
       files: ["*.scss", "**/*.scss"],
       customSyntax: "postcss-scss",
-      extends: ["stylelint-config-standard-scss", "stylelint-config-recommended-vue/scss"],
+      extends: ["stylelint-config-recommended-vue/scss"],
       rule: {
         "scss/percent-placeholder-pattern": null
       }
