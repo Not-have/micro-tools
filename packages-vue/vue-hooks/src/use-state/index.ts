@@ -1,7 +1,9 @@
 import {
+  isPlainObject as _isPlainObject
+} from "lodash-es";
+import {
   isFunction as _isFunction,
   isUndefined as _isUndefined,
-  isObject as _isObject,
   cloneDeep as _cloneDeep
 } from "micro-util-ts";
 import {
@@ -32,8 +34,10 @@ export default function useState<T>(params: T): [TState<T>, TDispatch<T>] {
 
   let _params: TRef<T> | TUnwrapNestedRefs<T>;
 
-  if(_isObject(params)) {
-    _params = reactive(params);
+  if(_isPlainObject(params)) {
+
+    // TODO type
+    _params = reactive(params as object) as TUnwrapNestedRefs<T>;
   }else {
     _params = ref<T>(params) as TRef<T>;
   }
