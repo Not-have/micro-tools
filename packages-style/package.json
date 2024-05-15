@@ -1,6 +1,6 @@
 {
   "name": "micro-style",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Css style",
   "main": "dist/index.js",
   "scripts": {
@@ -9,7 +9,7 @@
     "build": "npm run build:webpack && npm run build:tsc",
     "start:webpack": "webpack --watch",
     "clear": "npx rimraf node_modules && npx rimraf lib && npx rimraf dist",
-    "prepublishOnly": "npm run build:tsc && npm run build"
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
