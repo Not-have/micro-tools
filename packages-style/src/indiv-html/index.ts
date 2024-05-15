@@ -11,9 +11,5 @@ export default function indivHtml(): void {
   link.rel = "stylesheet";
   link.href = indiv;
 
-  link.onerror = (): void => {
-    throw new Error("Inject iconFont fail!");
-  };
-
   head.appendChild(link);
 }
