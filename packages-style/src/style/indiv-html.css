@@ -56,9 +56,9 @@ del::after {
 
 /* mark 标签 */
 mark {
-    padding: 0.1rem 0.2rem;
-    border-radius: 0.2rem;
-    background-color: var(--micro-style-mark-background);
-    line-height: 1;
-    font-family: var(--micro-style-font-family);
+  padding: 0.1rem 0.2rem;
+  border-radius: 0.2rem;
+  background-color: var(--micro-style-mark-background);
+  line-height: 1;
+  font-family: var(--micro-style-font-family);
 }

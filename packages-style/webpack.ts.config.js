@@ -1,7 +1,5 @@
 const path = require("path");
 
-const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
-
 module.exports = {
 
   // Target: 'web', // 或者 'browserslist: defaults'
@@ -10,12 +8,18 @@ module.exports = {
   entry: "./src/index.ts",
   output: {
     filename: "index.js",
-    library: "microRcContainer",
-    path: path.resolve(__dirname, "lib"),
-    libraryTarget: "umd"
+    path: path.resolve(__dirname, "dist"),
+    libraryTarget: "module"
+  },
+  experiments: {
+    outputModule: true
   },
   module: {
     rules: [
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"] // 使用 style-loader 和 css-loader 处理 CSS 文件
+      },
       {
         test: /\.tsx?$/,
         use: "ts-loader",
@@ -25,8 +29,5 @@ module.exports = {
   },
   resolve: {
     extensions: [".ts", ".js"]
-  },
-  plugins: [
-    new ForkTsCheckerWebpackPlugin()
-  ]
+  }
 };

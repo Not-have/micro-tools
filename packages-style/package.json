@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "build:webpack": "npx rimraf lib && webpack --config webpack.config.js",
-    "build:tsc": "npx rimraf dist && tsc",
+    "build:tsc": "npx rimraf dist && webpack --config webpack.ts.config.js",
     "build": "npm run build:webpack && npm run build:tsc",
     "start:webpack": "webpack --watch",
     "clear": "npx rimraf node_modules && npx rimraf lib && npx rimraf dist",
