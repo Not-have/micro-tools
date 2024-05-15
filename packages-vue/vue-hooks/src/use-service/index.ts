@@ -1,6 +1,5 @@
 import {
   UnwrapRef,
-  toRefs,
   reactive,
   watch,
   isReactive,
@@ -25,9 +24,9 @@ import {
  * @param {T} initData
  * @param {IConfig} config
  * @return {IAsyncResult} 返回 {
- *     run, // 返回一个执行的方法
- *     data, // 请求的数据
- *     loading // 当前的请求状态
+ *     run,      返回一个执行的方法
+ *     data,     请求的数据
+ *     loading   当前的请求状态
  * }
  */
 export default function useService<T, Q>(fetch: IServiceFunction<T, Q>, query?: Q, initData?: T, config: IConfig = {
@@ -37,7 +36,7 @@ export default function useService<T, Q>(fetch: IServiceFunction<T, Q>, query?: 
   watchQuery: false
 }): IAsyncResult<T, Q> {
   const stateResult = reactive<IStateResult<T>>({
-    data: initData || null,
+    data: initData,
     error: null,
     loading: false
   });
@@ -55,7 +54,7 @@ export default function useService<T, Q>(fetch: IServiceFunction<T, Q>, query?: 
     return new Promise((reactive, reject) => {
       fetch(arg).then((res: T) => {
         stateResult.loading = false;
-        stateResult.data = res as UnwrapRef<T> | null;
+        stateResult.data = res as UnwrapRef<T>;
         reactive(res);
       }).
           catch(err => {
@@ -85,7 +84,6 @@ export default function useService<T, Q>(fetch: IServiceFunction<T, Q>, query?: 
     run(query);
   }
 
-  // TODO 优化
   if (watchQuery && (isReactive(query) || isRef(query))) {
 
     // @ts-ignore
@@ -100,16 +98,8 @@ export default function useService<T, Q>(fetch: IServiceFunction<T, Q>, query?: 
     console.error("Query is not reactive,unable to proceed watch.");
   }
 
-  const {
-    data,
-    loading,
-    error: err
-  } = toRefs(stateResult);
-
   return {
-    run,
-    data,
-    loading,
-    error: err
+    ...stateResult,
+    run
   };
 }

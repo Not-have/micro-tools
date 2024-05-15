@@ -29,15 +29,14 @@ import {
  *
  *  reactive 对象，你可以直接使用 watch 函数来监听它的变化
  */
-export default function useState<T>(params: T): [TState<T>, TDispatch<T>] {
+export default function useState<T extends object>(params: T): [TState<T>, TDispatch<T>] {
   const deepParams = _cloneDeep(params);
 
   let _params: TRef<T> | TUnwrapNestedRefs<T>;
 
   if(_isPlainObject(params)) {
 
-    // TODO type
-    _params = reactive(params as object) as TUnwrapNestedRefs<T>;
+    _params = reactive(params) as TUnwrapNestedRefs<T>;
   }else {
     _params = ref<T>(params) as TRef<T>;
   }
