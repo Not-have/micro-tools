@@ -1,18 +1,15 @@
+const indiv = require("../style/indiv-html.css");
+
 /**
- * 注入图标字体
- * @param {string} fontFamily Font class 处生成的链接
- *
- * 使用：import { injectIconFont } from 'micro-rc';
- *
- * injectIconFont(Font class 处生成的链接);
+ * 注入个性化的样式标签
  */
-export default function injectIconfont(fontFamily: string): void {
+export default function indivHtml(): void {
   const head: HTMLHeadElement = document.head || document.getElementsByTagName("head")[0];
 
   const link: HTMLLinkElement = document.createElement("link");
 
   link.rel = "stylesheet";
-  link.href = `https:${fontFamily}`;
+  link.href = indiv;
 
   link.onerror = (): void => {
     throw new Error("Inject iconFont fail!");

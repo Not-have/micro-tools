@@ -19,7 +19,8 @@
     "noUnusedLocals": true
   },
   "include": [
-    "src/**/*.ts"
+    "src/**/*.ts",
+    "src/**/*.css"
   ],
   "exclude": [
     "node_modules"
