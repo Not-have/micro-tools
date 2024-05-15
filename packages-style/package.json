@@ -1,6 +1,6 @@
 {
   "name": "micro-style",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "description": "Css style",
   "main": "dist/index.js",
   "scripts": {

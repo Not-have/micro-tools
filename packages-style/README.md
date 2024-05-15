@@ -44,7 +44,7 @@ document.body.appendChild(div);
 
 ### 2）indivHtml
 
-个性化样式，[函数引入](./stories/indiv-style.html)。
+个性化样式，[函数引入](https://github.com/Not-have/micro-tools/blob/develop/packages-style/stories/indiv-style.html)。
 
 ```js
 import {
