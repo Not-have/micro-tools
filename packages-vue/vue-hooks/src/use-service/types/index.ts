@@ -1,17 +1,17 @@
 import {
-  UnwrapNestedRefs
+  ToRefs
 } from "vue";
 
 export interface IServiceFunction<T, Q> {
   (arg?: Q): Promise<T>;
-}
+};
 
 export interface IStateResult<T> {
   data?: T,
   loading: boolean,
 
   /**
-   * @throws 接口请求错误
+   * @throws 接口请求错误信息
    *
    * 他应该在 main.ts 中进行全局的处理
    *
@@ -38,8 +38,12 @@ export interface IStateResult<T> {
    * }
    *
    */
-  error?: PromiseRejectionEvent
-}
+  error?: unknown
+};
+
+export interface IAsyncResult<T, Q> extends ToRefs<IStateResult<T>> {
+  run: (arg?: Q) => Promise<T>;
+};
 
 export interface IConfig {
 
@@ -64,8 +68,4 @@ export interface IConfig {
    * 也是请求失败时的处理
    */
   error?: Function
-}
-
-export interface IAsyncResult<T, Q> extends UnwrapNestedRefs<IStateResult<T>> {
-  run: (arg?: Q) => Promise<T>;
-}
+};

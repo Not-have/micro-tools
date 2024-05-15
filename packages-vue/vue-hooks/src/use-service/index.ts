@@ -3,7 +3,8 @@ import {
   reactive,
   watch,
   isReactive,
-  isRef
+  isRef,
+  toRefs
 } from "vue";
 
 import {
@@ -45,7 +46,7 @@ export default function useService<T, Q>(fetch: IServiceFunction<T, Q>, query?: 
     immediate,
     debounce,
     watchQuery,
-    error
+    error: errorFn
   } = config;
 
   const asyncFunction = (arg?: Q): Promise<T> => {
@@ -61,8 +62,8 @@ export default function useService<T, Q>(fetch: IServiceFunction<T, Q>, query?: 
             stateResult.loading = false;
             stateResult.error = err;
 
-            if (error) {
-              error(err);
+            if (errorFn) {
+              errorFn(err);
             }
 
             reject(err);
@@ -73,11 +74,13 @@ export default function useService<T, Q>(fetch: IServiceFunction<T, Q>, query?: 
   const debounceFn = _debounce(asyncFunction, typeof (debounce) === "number" ? debounce : 300, true);
 
   const run = (arg?: Q): Promise<T> => {
+    const params = arg ?? query;
+
     if (debounce !== false) {
-      return debounceFn(arg) as Promise<T>;
+      return debounceFn(params) as Promise<T>;
     }
 
-    return asyncFunction(arg);
+    return asyncFunction(params);
   };
 
   if (immediate) {
@@ -98,8 +101,16 @@ export default function useService<T, Q>(fetch: IServiceFunction<T, Q>, query?: 
     console.error("Query is not reactive,unable to proceed watch.");
   }
 
+  const {
+    data,
+    loading,
+    error
+  } = toRefs<IStateResult<T>>(stateResult as IStateResult<T>);
+
   return {
-    ...stateResult,
+    data,
+    loading,
+    error,
     run
   };
 }
