@@ -37,7 +37,7 @@ export default function useService<T, Q>(fetch: IServiceFunction<T, Q>, query?: 
 }): IAsyncResult<T, Q> {
   const stateResult = reactive<IStateResult<T>>({
     data: initData,
-    error: null,
+    error: undefined,
     loading: false
   });
 

@@ -38,7 +38,7 @@ export interface IStateResult<T> {
    * }
    *
    */
-  error: PromiseRejectionEvent | null
+  error?: PromiseRejectionEvent
 }
 
 export interface IConfig {

@@ -7,10 +7,10 @@ import Index from "./index.vue";
 
 const meta = {
   component: Index,
-  title: "DemoUseState"
+  title: "DemoUseService"
 } satisfies Meta<typeof Index>;
 
 export default meta;
 type TStory = StoryObj<typeof meta>;
 
-export const DemoUseState: TStory = {};
+export const DemoUseService: TStory = {};
