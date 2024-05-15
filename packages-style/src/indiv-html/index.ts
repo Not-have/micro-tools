@@ -1,4 +1,4 @@
-const indiv = require("../style/indiv-html.css");
+const indiv = require("../../style/indiv-html.css");
 
 /**
  * 注入个性化的样式标签
