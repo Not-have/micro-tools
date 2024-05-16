@@ -1,10 +1,9 @@
 import {
   UnwrapRef,
-  reactive,
   watch,
   isReactive,
   isRef,
-  toRefs
+  ref
 } from "vue";
 
 import {
@@ -13,7 +12,6 @@ import {
 
 import {
   IServiceFunction,
-  IStateResult,
   IConfig,
   IAsyncResult
 } from "./types";
@@ -28,6 +26,7 @@ import {
  *     run,      返回一个执行的方法
  *     data,     请求的数据
  *     loading   当前的请求状态
+ *     error     接口请求错误信息
  * }
  */
 export default function useService<T, Q>(fetch: IServiceFunction<T, Q>, query?: Q, initData?: T, config: IConfig = {
@@ -35,12 +34,13 @@ export default function useService<T, Q>(fetch: IServiceFunction<T, Q>, query?: 
   error: undefined,
   immediate: true,
   watchQuery: false
-}): IAsyncResult<T, Q> {
-  const stateResult = reactive<IStateResult<T>>({
-    data: initData,
-    error: undefined,
-    loading: false
-  });
+}): IAsyncResult<T | typeof initData, Q> {
+
+  const data = ref<T | undefined | typeof initData>(initData);
+
+  const loading = ref<boolean>(false);
+
+  const error = ref<string>();
 
   const {
     immediate,
@@ -50,17 +50,17 @@ export default function useService<T, Q>(fetch: IServiceFunction<T, Q>, query?: 
   } = config;
 
   const asyncFunction = (arg?: Q): Promise<T> => {
-    stateResult.loading = true;
+    loading.value = true;
 
     return new Promise((reactive, reject) => {
       fetch(arg).then((res: T) => {
-        stateResult.loading = false;
-        stateResult.data = res as UnwrapRef<T>;
+        loading.value = false;
+        data.value = res as UnwrapRef<T>;
         reactive(res);
       }).
           catch(err => {
-            stateResult.loading = false;
-            stateResult.error = err;
+            loading.value = false;
+            error.value = err;
 
             if (errorFn) {
               errorFn(err);
@@ -93,19 +93,13 @@ export default function useService<T, Q>(fetch: IServiceFunction<T, Q>, query?: 
     watch(query, (newQuery: Q) => {
       run(newQuery);
     }, {
-      deep: true, // 深度监听
-      immediate: false // 立即执行（西药第一次 进来就打印）
+      deep: true,
+      immediate: false
     });
   } else {
     // eslint-disable-next-line no-console
     console.error("Query is not reactive,unable to proceed watch.");
   }
-
-  const {
-    data,
-    loading,
-    error
-  } = toRefs<IStateResult<T>>(stateResult as IStateResult<T>);
 
   return {
     data,

@@ -1,5 +1,6 @@
 import {
-  ToRefs
+  Ref,
+  UnwrapRef
 } from "vue";
 
 export interface IServiceFunction<T, Q> {
@@ -7,8 +8,14 @@ export interface IServiceFunction<T, Q> {
 };
 
 export interface IStateResult<T> {
-  data?: T,
-  loading: boolean,
+  data?: T;
+  loading: boolean;
+  error?: unknown;
+};
+
+export interface IAsyncResult<T, Q> {
+  data: Ref<UnwrapRef<T> | null>;
+  loading: Ref<UnwrapRef<boolean>>;
 
   /**
    * @throws 接口请求错误信息
@@ -38,10 +45,7 @@ export interface IStateResult<T> {
    * }
    *
    */
-  error?: unknown
-};
-
-export interface IAsyncResult<T, Q> extends ToRefs<IStateResult<T>> {
+  error: Ref<UnwrapRef<string | undefined>>;
   run: (arg?: Q) => Promise<T>;
 };
 
@@ -50,22 +54,22 @@ export interface IConfig {
   /**
    * 是否直接执行
    */
-  immediate?: boolean,
+  immediate?: boolean;
 
   /**
    * 防抖
    */
-  debounce?: boolean | number,
+  debounce?: boolean | number;
 
   /**
    * 是否监听 query 参数的改变（只能监听 new Proxy）
    * 当 query 改变时，去请求数据
    */
-  watchQuery?: boolean,
+  watchQuery?: boolean;
 
   /**
    * 请求错误时的展示
    * 也是请求失败时的处理
    */
-  error?: Function
+  error?: Function;
 };

@@ -3,12 +3,17 @@ import {
   useService
 } from "../../src";
 import {
-  dataDemo
+  dataDemo,
+  dataDemoList
 } from "./fetch";
 
 const {
   data
 } = useService(dataDemo);
+
+const {
+  data: list
+} = useService(dataDemoList, undefined, []);
 
 </script>
 
@@ -19,5 +24,7 @@ const {
     <div>{{ data?.title }}</div>
     <div>{{ data?.content }}</div>
     <div>{{ data?.author }}</div>
+    <hr />
+    {{ list?.length }}
   </div>
 </template>
