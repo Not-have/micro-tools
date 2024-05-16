@@ -10,12 +10,12 @@ import {
   debounce
 } from "micro-util-ts";
 import type {
-  TEventName
+  EventName
 } from "micro-ts-types";
 
 interface IUseEventParams {
   el?: Element | Ref<Element | undefined> | Window | unknown;
-  name: TEventName;
+  name: EventName;
   func: EventListener;
   options?: boolean | AddEventListenerOptions;
   autoRemove?: boolean;

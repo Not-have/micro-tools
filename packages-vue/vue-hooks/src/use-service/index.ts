@@ -36,7 +36,7 @@ export default function useService<T, Q>(fetch: IServiceFunction<T, Q>, query?: 
   watchQuery: false
 }): IAsyncResult<T | typeof initData, Q> {
 
-  const data = ref<T | undefined | typeof initData>(initData);
+  const data = ref<T | undefined>(initData);
 
   const loading = ref<boolean>(false);
 

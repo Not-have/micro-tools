@@ -7,7 +7,8 @@
     "type-check": "vue-tsc --build --force",
     "clear": "npx rimraf node_modules",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "build": "vue-tsc && vite build"
   },
   "keywords": [
     "vue-hooks"
@@ -47,6 +48,7 @@
     "npm-run-all2": "^6.1.2",
     "storybook": "^8.0.9",
     "vite": "^5.2.8",
+    "vite-plugin-dts": "^3.9.1",
     "vue-tsc": "^2.0.11"
   }
 }
