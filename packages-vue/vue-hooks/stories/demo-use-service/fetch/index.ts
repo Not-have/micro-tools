@@ -1,5 +1,6 @@
 export type {
-  IDataDataDemo as DataDataDemo
+  IDataDataDemo as DataDataDemo,
+  IDataDataListDemo as DataDataListDemo
 } from "./types";
 
 export { default as dataDemo } from "./data-demo";
