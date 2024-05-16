@@ -1,7 +1,7 @@
 export interface IDataDataDemo {
-  author: string;
+  author?: string;
   content: string;
   title: string;
 }
 
-export interface IDataDataListDemo {}
+export interface IDataDataListDemo extends IDataDataDemo {}

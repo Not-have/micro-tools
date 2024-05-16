@@ -26,5 +26,12 @@ const {
     <div>{{ data?.author }}</div>
     <hr />
     {{ list?.length }}
+    <hr />
+    <p
+      v-for="item in list"
+      :key="item.title"
+    >
+      {{ item.title }}
+    </p>
   </div>
 </template>
