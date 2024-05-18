@@ -1,3 +1,7 @@
+export {
+  IAsyncResult as AsyncResult
+} from "./use-service/types";
+
 export { default as useService } from "./use-service";
 export { default as useScript } from "./use-script";
 export { default as useLocationQuery } from "./use-location-query";
