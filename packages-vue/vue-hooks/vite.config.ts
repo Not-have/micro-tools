@@ -48,13 +48,13 @@ export default defineConfig({
           entryFileNames: "index.js",
           dir: "dist/lib",
           globals: {
-            vue: "vue"  // 为外部依赖 vue 提供全局变量名
+            vue: "Vue"  // 为外部依赖 vue 提供全局变量名
           }
         }
       ]
     },
     lib: {
-      entry: "./index.ts",
+      entry: "./src/index.ts",
       formats: ["es", "umd"]
     }
   }

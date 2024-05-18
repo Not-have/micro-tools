@@ -1,12 +1,9 @@
 {
   "include": [
-    "src/**/*.ts",
+    "src/**/*.ts"
   ],
   "exclude": [
     "node_modules"
-  ],
-  "files": [
-    "package.json"
   ],
   "compilerOptions": {
     "composite": true,
@@ -25,13 +22,14 @@
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
     "lib": [
-      "ES2020",
-      "DOM",
+      "ES2020", 
+      "DOM", 
       "DOM.Iterable"
     ],
     "sourceMap": true,
     "allowSyntheticDefaultImports": true,
     "allowJs": false,
+    "emitDeclarationOnly": true,
     "declaration": true
   }
 }
