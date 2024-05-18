@@ -31,7 +31,7 @@ export default defineConfig({
 
       // 忽略打包vue文件
       external: ["vue"],
-      input: ["src/index.ts"],
+      input: ["./src/index.ts"],
       output: [
         {
           format: "es",
@@ -46,7 +46,7 @@ export default defineConfig({
           format: "umd",
           name: "microVueHooks",
           entryFileNames: "index.js",
-          dir: "dist/umd",
+          dir: "dist/lib",
           globals: {
             vue: "vue"  // 为外部依赖 vue 提供全局变量名
           }
