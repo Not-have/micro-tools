@@ -1,5 +1,7 @@
 export type {
-  IAsyncResult as AsyncResult
+  IAsyncResult as AsyncResult,
+  IConfig as ServiceConfig,
+  IServiceFunction as ServiceFunction
 } from "./use-service/types";
 
 export { default as useService } from "./use-service";

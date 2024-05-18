@@ -1,6 +1,6 @@
 {
   "name": "micro-vue-hooks",
-  "version": "1.3.9",
+  "version": "1.3.10",
   "description": "Vue hooks",
   "scripts": {
     "type-check": "vue-tsc --build --force",
