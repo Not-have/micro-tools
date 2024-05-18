@@ -9,7 +9,7 @@
     "build-storybook": "storybook build",
     "build": "vite build",
     "test": "vite build --config vite.config.ts --plugin dts",
-    "prepublishOnly": "npx rimraf dist && pnpm publish"
+    "prepublishOnly": "npx rimraf dist && npm run build"
   },
   "files": [
     "dist",
