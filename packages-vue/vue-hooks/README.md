@@ -134,7 +134,8 @@
 > ```vue
 > import type { Ref } from 'vue';
 > import { toRef } from 'vue';
-> import { useService as _useService, ServiceFunction, ServiceConfig } from 'micro-vue-hooks';
+> import type { ServiceFunction, ServiceConfig } from 'micro-vue-hooks';
+> import { useService as _useService } from 'micro-vue-hooks';
 >
 > interface IAsyncResult<T, Q> {
 >   data?: Ref<T | null | undefined>;
