@@ -29,7 +29,7 @@ import {
  *     error     接口请求错误信息
  * }
  */
-export default function useService<T, Q>(fetch: IServiceFunction<T, Q>, query?: Q, initData?: T, config: IConfig = {
+export default function useService<T, Q = unknown>(fetch: IServiceFunction<T, Q>, query?: Q, initData?: T, config: IConfig = {
   debounce: false,
   error: undefined,
   immediate: true,

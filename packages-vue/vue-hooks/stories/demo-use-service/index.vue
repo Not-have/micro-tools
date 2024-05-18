@@ -3,13 +3,14 @@ import {
   useService
 } from "../../src";
 import {
+  DataDataDemo,
   dataDemo,
   dataDemoList
 } from "./fetch";
 
 const {
   data
-} = useService(dataDemo);
+} = useService<DataDataDemo>(dataDemo);
 
 const {
   data: list
