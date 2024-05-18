@@ -7,9 +7,59 @@ import dts from "vite-plugin-dts";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  esbuild: {
+    pure: ["console.log"], // 删除 console.log
+    drop: ["debugger"] // 删除 debugger
+  },
   plugins: [
     vue(),
     vueJsx(),
-    dts()
-  ]
+    dts({
+
+      // 指定输出目录
+      outDir: "./dist/types",
+
+      // 开启tsconfig搜索
+      tsconfigPath: "./tsconfig.json",
+
+      // 设置生成的声明文件目录结构
+      rollupTypes: true
+    })
+  ],
+  build: {
+    target: "modules",
+
+    // 压缩
+    minify: true,
+    rollupOptions: {
+
+      // 忽略打包vue文件
+      external: ["vue"],
+      input: ["src/index.ts"],
+      output: [
+        {
+          format: "es",
+          entryFileNames: "[name].js",
+          preserveModules: true,
+
+          // 配置打包根目录
+          dir: "dist/es",
+          preserveModulesRoot: "src"
+        },
+        {
+          format: "umd",
+          name: "microVueHooks",
+          entryFileNames: "index.js",
+          dir: "dist/umd",
+          globals: {
+            vue: "vue"  // 为外部依赖 vue 提供全局变量名
+          }
+        }
+      ]
+    },
+    lib: {
+      entry: "./index.ts",
+      formats: ["es", "umd"]
+    }
+  }
 });
