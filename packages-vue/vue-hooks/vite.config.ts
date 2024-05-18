@@ -16,10 +16,10 @@ export default defineConfig({
       outDir: "./dist/types",
 
       // 开启tsconfig搜索
-      tsconfigPath: "./tsconfig.json"
+      tsconfigPath: "./tsconfig.json",
 
       // 设置生成的声明文件目录结构 (为 true 声明到一个文件中)
-      // RollupTypes: true
+      rollupTypes: true
     })
   ],
   build: {
