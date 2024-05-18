@@ -131,7 +131,8 @@
 >
 > 在 `uniapp` 中使用，需要给类型一层约束，负责会报奇怪的 ts 错误。
 >
-> ```vue
+> ```ts
+> // use-service.ts
 > import type { Ref } from 'vue';
 > import { toRef } from 'vue';
 > import type { ServiceFunction, ServiceConfig } from 'micro-vue-hooks';
