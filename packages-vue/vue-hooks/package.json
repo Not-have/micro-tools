@@ -10,7 +10,8 @@
     "build": "vite build"
   },
   "files": [
-    "dist"
+    "dist",
+    "stories"
   ],
   "browser": "./dist/umd/index.js",
   "module": "./dist/es/index.js",
