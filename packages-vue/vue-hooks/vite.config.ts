@@ -46,7 +46,7 @@ export default defineConfig({
           format: "umd",
           name: "microVueHooks",
           entryFileNames: "index.js",
-          dir: "dist/lib",
+          dir: "dist/umd",
           globals: {
             vue: "Vue"  // 为外部依赖 vue 提供全局变量名
           }
