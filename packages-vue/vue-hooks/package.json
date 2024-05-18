@@ -1,6 +1,6 @@
 {
   "name": "micro-vue-hooks",
-  "version": "1.3.4",
+  "version": "1.3.5",
   "description": "Vue hooks",
   "scripts": {
     "type-check": "vue-tsc --build --force",
@@ -8,7 +8,8 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "build": "vite build",
-    "test": "vite build --config vite.config.ts --plugin dts"
+    "test": "vite build --config vite.config.ts --plugin dts",
+    "prepublishOnly": "npx rimraf dist && pnpm publish"
   },
   "files": [
     "dist",
