@@ -14,7 +14,7 @@ export interface IStateResult<T> {
 };
 
 export interface IAsyncResult<T, Q> {
-  data: Ref<UnwrapRef<T> | null>;
+  data?: Ref<UnwrapRef<T>>;
   loading: Ref<UnwrapRef<boolean>>;
 
   /**
