@@ -1,15 +1,14 @@
 <script lang="ts" setup>
 import {
-  EChartsOption
-} from "echarts";
-import {
   Ref,
   ComputedRef,
   computed,
   ref
 } from "vue";
 
-import useECharts from "../../src/index";
+import useECharts, {
+  EChartsOption
+} from "../../src/index";
 
 import {
   tooltip
@@ -66,7 +65,7 @@ const handleClick = (): void => {
 <template>
   <div
     ref="chartRef"
-    style="height: 500px; width: 100%"
+    style="width: 100%; height: 500px;"
   ></div>
 
   <button @click="handleClick">
