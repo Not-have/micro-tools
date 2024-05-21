@@ -1,10 +1,10 @@
 import type {
-    ErrorPayload
-} from '../types';
+  IErrorPayload
+} from "../types";
 
 // 设置：主机样式，使剧作家检测到元素可见
 function template(dialog: boolean = false): string {
-    return `
+  return `
         <style>
             :host {
                 ${dialog ? `
@@ -13,7 +13,7 @@ function template(dialog: boolean = false): string {
                             left: 0;
                             width: 100%;
                             height: 100%;
-                            z-index: 99999;` : ''}
+                            z-index: 99999;` : ""}
 
                 --monospace: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
                 --red: #ff5555;
@@ -24,8 +24,7 @@ function template(dialog: boolean = false): string {
 
                 ${dialog ? `
                             --window-background: #181818;
-                            --window-color: #d8d8d8;` : ''
-    }
+                            --window-color: #d8d8d8;` : ""}
             }
             
             .backdrop {
@@ -33,13 +32,13 @@ function template(dialog: boolean = false): string {
                             position: fixed;
                             z-index: 99999;
                             top: 0;
-                            left: 0;` : ''}
+                            left: 0;` : ""}
 
                 width: 100%;
                 height: 100%;
                 overflow-y: scroll;
                 margin: 0;
-                ${dialog ? 'background: rgba(0, 0, 0, 0.66);' : ''}
+                ${dialog ? "background: rgba(0, 0, 0, 0.66);" : ""}
 
                 background: rgba(0, 0, 0, 0.66);
             }
@@ -48,10 +47,10 @@ function template(dialog: boolean = false): string {
                 font-family: var(--monospace);
                 line-height: 1.5;
                 
-                ${dialog ? 'width: 800px;' : 'width: 100%'}
+                ${dialog ? "width: 800px;" : "width: 100%"}
                 color: var(--window-color);
             
-                ${dialog ? 'margin: 30px auto;' : ''}
+                ${dialog ? "margin: 30px auto;" : ""}
 
                 padding: 25px 40px;
                 position: relative;
@@ -171,16 +170,18 @@ function template(dialog: boolean = false): string {
     `;
 }
 
-// const template = /*html*/ ;
-
+// eslint-disable-next-line @typescript-eslint/naming-convention
 const fileRE = /(?:[a-zA-Z]:\\|\/).*?:\d+:\d+/g;
+
+// eslint-disable-next-line @typescript-eslint/naming-convention
 const codeframeRE = /^(?:>?\s*\d+\s+\|.*|\s+\|\s*\^.*)\r?\n/gm;
 
 // 允许“ErrorOverlay”扩展“HTMLElement”，即使在以下环境中也是如此
 // `HTMLElement`最初未定义。
 const {
-    HTMLElement = class {
-    } as typeof globalThis.HTMLElement
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  HTMLElement = class {
+  } as typeof globalThis.HTMLElement
 } = globalThis;
 
 /**
@@ -201,113 +202,127 @@ const {
  * 获取到的页面元素.appendChild(new ErrorOverlays(err));
  */
 export default class ErrorOverlay extends HTMLElement {
-    root: ShadowRoot;
-    closeOnEsc: (e: KeyboardEvent) => void;
-    dialog: boolean;
+  root: ShadowRoot;
 
-    constructor(err: ErrorPayload['err'], dialog = false, links = true) {
-        super();
-        this.root = this.attachShadow({mode: 'open'});
-        this.root.innerHTML = template(dialog);
+  closeOnEsc: (e: KeyboardEvent) => void;
 
-        this.dialog = dialog;
+  dialog: boolean;
 
-        if (!dialog) {
-            this.closeText();
-        }
+  constructor(err: IErrorPayload["err"], dialog = false, links = true) {
+    super();
+    this.root = this.attachShadow({
+      mode: "open"
+    });
+    this.root.innerHTML = template(dialog);
 
+    this.dialog = dialog;
 
-        codeframeRE.lastIndex = 0;
-        const hasFrame = err.frame && codeframeRE.test(err.frame);
-        const message = hasFrame
-            ? err.message.replace(codeframeRE, '')
-            : err.message;
-        if (err.plugin) {
-            this.text('.plugin', `[plugin:${err.plugin}] `);
-        }
-        this.text('.message-body', message.trim());
-
-        const [file] = (err.loc?.file || err.id || 'unknown file').split('?');
-        if (err.loc) {
-            this.text('.file', `${file}:${err.loc.line}:${err.loc.column}`, links);
-        } else if (err.id) {
-            this.text('.file', file);
-        }
-
-        if (hasFrame) {
-            this.text('.frame', err.frame!.trim());
-        }
-        this.text('.stack', err.stack, links);
-
-        this.root.querySelector('.window')!.addEventListener('click', (e) => {
-            e.stopPropagation();
-        });
-
-        this.addEventListener('click', () => {
-            this.close();
-        });
-
-        this.closeOnEsc = (e: KeyboardEvent) => {
-            if (e.key === 'Escape' || e.code === 'Escape') {
-                this.close();
-            }
-        };
-
-        document.addEventListener('keydown', this.closeOnEsc);
+    if (!dialog) {
+      this.closeText();
     }
 
-    text(selector: string, text: string, linkFiles = false): void {
-        const el = this.root.querySelector(selector)!;
-        if (!linkFiles) {
-            el.textContent = text;
-        } else {
-            let curIndex = 0;
-            let match: RegExpExecArray | null;
-            fileRE.lastIndex = 0;
-            while ((match = fileRE.exec(text))) {
-                const {0: file, index} = match;
+    codeframeRE.lastIndex = 0;
+    const hasFrame = err.frame && codeframeRE.test(err.frame);
 
-                if (index != null) {
-                    const frag = text.slice(curIndex, index);
-                    const url = document.location.protocol + file;
-                    el.appendChild(document.createTextNode(frag));
+    const message = hasFrame
+      ? err.message.replace(codeframeRE, "")
+      : err.message;
 
-                    const link = document.createElement('a');
-                    link.textContent = file;
-                    link.className = 'file-link';
-                    link.href = url;
-                    link.target = '_blank';
+    if (err.plugin) {
+      this.text(".plugin", `[plugin:${err.plugin}] `);
+    }
 
-                    // link.onclick = () => {
-                    //     fetch(
-                    //         new URL(
-                    //             `${encodeURIComponent(url)}`
-                    //         )
-                    //     );
-                    // };
-                    el.appendChild(link);
-                    curIndex += frag.length + file.length;
-                }
-            }
+    this.text(".message-body", message.trim());
+
+    const [file] = (err.loc?.file || err.id || "unknown file").split("?");
+
+    if (err.loc) {
+      this.text(".file", `${file}:${err.loc.line}:${err.loc.column}`, links);
+    } else if (err.id) {
+      this.text(".file", file);
+    }
+
+    if (hasFrame) {
+      this.text(".frame", err.frame!.trim());
+    }
+
+    this.text(".stack", err.stack, links);
+
+    this.root.querySelector(".window")!.addEventListener("click", e => {
+      e.stopPropagation();
+    });
+
+    this.addEventListener("click", () => {
+      this.close();
+    });
+
+    this.closeOnEsc = (e: KeyboardEvent) => {
+      if (e.key === "Escape" || e.code === "Escape") {
+        this.close();
+      }
+    };
+
+    document.addEventListener("keydown", this.closeOnEsc);
+  }
+
+  text(selector: string, text: string, linkFiles = false): void {
+    const el = this.root.querySelector(selector)!;
+
+    if (!linkFiles) {
+      el.textContent = text;
+    } else {
+      let curIndex = 0;
+
+      let match: RegExpExecArray | null;
+
+      fileRE.lastIndex = 0;
+
+      while ((match = fileRE.exec(text))) {
+        const {
+          0: file, index
+        } = match;
+
+        if (index != null) {
+          const frag = text.slice(curIndex, index);
+
+          const url = document.location.protocol + file;
+
+          el.appendChild(document.createTextNode(frag));
+
+          const link = document.createElement("a");
+
+          link.textContent = file;
+          link.className = "file-link";
+          link.href = url;
+          link.target = "_blank";
+
+          el.appendChild(link);
+          curIndex += frag.length + file.length;
         }
+      }
     }
+  }
 
+  closeText(): void {
+    const el: HTMLElement = this.root.querySelector(".tip")!;
 
-    closeText(): void {
-        const el: HTMLElement = this.root.querySelector('.tip')!;
-        el.style.display = 'none';
+    el.style.display = "none";
+  }
+
+  close(): void {
+    if (this.dialog) {
+      this.parentNode?.removeChild(this);
+      document.removeEventListener("keydown", this.closeOnEsc);
     }
-
-    close(): void {
-        if (this.dialog) {
-            this.parentNode?.removeChild(this);
-            document.removeEventListener('keydown', this.closeOnEsc);
-        }
-    }
+  }
 }
 
-const overlayId = 'imitation-vue-error';
-const {customElements} = globalThis; // Ensure `customElements` is defined before the next line.
+const overlayId = "imitation-vue-error";
+
+const {
+  customElements
+} = globalThis; // Ensure `customElements` is defined before the next line.
+
 if (customElements && !customElements.get(overlayId)) {
-    customElements.define(overlayId, ErrorOverlay);
+  customElements.define(overlayId, ErrorOverlay);
 }

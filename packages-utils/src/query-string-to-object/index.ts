@@ -4,14 +4,15 @@
  * @returns {Record<string, string>} Object
  */
 export default function queryStringToObject(
-    queryString: string
+  queryString: string
 ): Record<string, string> {
-    const params = new URLSearchParams(queryString);
-    const result: Record<string, string> = {};
+  const params = new URLSearchParams(queryString);
+  const result: Record<string, string> = {
+  };
 
-    params.forEach((value, key) => {
-        result[key] = value;
-    });
+  params.forEach((value, key) => {
+    result[key] = value;
+  });
 
-    return result;
+  return result;
 }

@@ -9,3 +9,10 @@ lerna-debug.log
 /packages-react/.next
 **/lib/
 packages-vue/README.md
+
+*storybook.log
+packages-**/package-lock.json
+
+.npmpackagejsonlintrc.js
+
+/packages-vue/**/stats.html

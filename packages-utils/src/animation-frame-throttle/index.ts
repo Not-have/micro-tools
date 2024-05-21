@@ -1,4 +1,4 @@
-type FunctionArgs<Args extends any[] = any[], Return = void> = (...args: Args) => Return;
+type TFunctionArgs<Args extends any[] = any[], Return = void> = (...args: Args) => Return;
 
 /**
  * 创建一个使用 requestAnimationFrame 的函数节流（throttle）版本
@@ -19,7 +19,7 @@ type FunctionArgs<Args extends any[] = any[], Return = void> = (...args: Args) =
  * 3、动画效果
  * const animatedFunction = animationFrameThrottle(updateAnimation);
  */
-export default function animationFrameThrottle<T extends FunctionArgs>(fn: T): T {
+export default function animationFrameThrottle<T extends TFunctionArgs>(fn: T): T {
     let locked = false;
     // @ts-ignore
     return function (...args: any[]) {

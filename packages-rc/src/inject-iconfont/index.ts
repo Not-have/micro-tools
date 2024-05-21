@@ -7,18 +7,16 @@
  * injectIconFont(Font class 处生成的链接);
  */
 export default function injectIconfont(fontFamily: string): void {
-    const head: HTMLHeadElement = document.head || document.getElementsByTagName('head')[0];
-    const link: HTMLLinkElement = document.createElement('link');
+  const head: HTMLHeadElement = document.head || document.getElementsByTagName("head")[0];
 
-    link.rel = 'stylesheet';
-    link.href = `https:${fontFamily}`;
+  const link: HTMLLinkElement = document.createElement("link");
 
-    link.onload = () => {
-    };
+  link.rel = "stylesheet";
+  link.href = `https:${fontFamily}`;
 
-    link.onerror = () => {
-        throw new Error('Inject iconFont fail!');
-    };
+  link.onerror = (): void => {
+    throw new Error("Inject iconFont fail!");
+  };
 
-    head.appendChild(link);
+  head.appendChild(link);
 }

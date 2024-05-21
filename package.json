@@ -3,85 +3,85 @@
   "version": "1.0.0",
   "description": "Tiny Tools.",
   "keywords": [
-      "Vue components",
-      "React components",
-      "Storybook vue demo",
-      "Micro rc container",
-      "Vue hooks",
-      "eslint-conf",
-      "stylelint-conf"
+    "Vue hooks",
+    "Vue Ui",
+    "Vue Components",
+    "Vue hooks",
+    "Vue config",
+    "Vue directives",
+    "Vue echarts",
+    "Element-plus extra",
+    "React hooks",
+    "React Ui",
+    "Storybook vue demo",
+    "Micro rc container",
+    "eslint-conf",
+    "stylelint-conf"
   ],
   "license": "ISC",
   "private": true,
   "author": {
-      "email": "2236472089@qq.com",
-      "name": "Li Yong"
+    "email": "2236472089@qq.com",
+    "name": "Li Yong"
   },
   "homepage": "https://github.com/Not-have/micro-tools",
   "repository": {
-      "type": "git",
-      "url": "https://github.com/Not-have/micro-tools"
+    "type": "git",
+    "url": "https://github.com/Not-have/micro-tools"
   },
   "bugs": {},
   "workspaces": [
-      "packages-vue",
-      "packages-react",
-      "packages-style",
-      "packages-eslint-conf",
-      "packages-stylelint-conf",
-      "packages-utils",
-      "packages-rc",
-      "packages-conf",
-      "packages-enum",
-      "packages-types"
+    "packages*/**"
   ],
-  "packageManager": "pnpm@8.10.0",
+  "packageManager": "pnpm@8.15.8",
   "engines": {
-      "node": ">=16.0.0",
-      "pnpm": ">=8.10.0"
+    "node": ">=16.0.0",
+    "pnpm": ">=8.0.0",
+    "npm": ">=10.7.0"
   },
   "browserslist": [
-      "last 2 versions",
-      "> 1%",
-      "IE 11"
+    "last 2 versions",
+    "> 1%",
+    "IE 11"
   ],
   "devDependencies": {
-      "@commitlint/cli": "^17.7.1",
-      "@commitlint/config-conventional": "^17.7.0",
-      "@types/node": "^18.17.5",
-      "commitlint": "^17.7.1",
-      "depcheck": "^1.4.5",
-      "eslint": "^8.47.0",
-      "husky": "^8.0.3",
-      "lerna": "^7.3.0",
-      "lint-staged": "^14.0.1",
-      "markdownlint-cli2": "^0.9.2",
-      "micro-eslint-conf": "workspace:^",
-      "micro-stylelint-conf": "workspace:^",
-      "npm-package-json-lint": "^7.1.0",
-      "npm-package-json-lint-config-default": "^6.0.0",
-      "only-allow": "^1.1.1",
-      "rimraf": "^5.0.5",
-      "stylelint": "^15.10.3",
-      "typescript": ">=4.7"
+    "@commitlint/cli": "^17.7.1",
+    "@commitlint/config-conventional": "^17.7.0",
+    "@types/node": "^18.17.5",
+    "commitlint": "^17.7.1",
+    "depcheck": "^1.4.5",
+    "eslint": "^8.57.0",
+    "husky": "^8.0.3",
+    "lerna": "^7.3.0",
+    "lint-staged": "^14.0.1",
+    "markdownlint-cli2": "^0.9.2",
+    "micro-eslint-conf": "workspace:^",
+    "micro-stylelint-conf": "workspace:^",
+    "npm-package-json-lint": "^7.1.0",
+    "npm-package-json-lint-config-default": "^6.0.0",
+    "only-allow": "^1.1.1",
+    "rimraf": "^5.0.5",
+    "stylelint": "^15.10.3",
+    "typescript": ">=5.0"
   },
   "lint-staged": {
-      "package.json": "npmPkgJsonLint",
-      "*.{js,ts,vue,tsx,jsx}": "eslint",
-      "*.{js_ts_tsx_css_vue,disabled_for_buggy}": "stylelint",
-      "*.md": "markdownlint-cli2"
+    "package.json": "npmPkgJsonLint",
+    "*.{js,ts,vue,tsx,jsx}": "eslint",
+    "*.{js,ts,tsx,css,vue}": "stylelint",
+    "*.md": "markdownlint-cli2"
   },
   "scripts": {
-      "preinstall": "npx only-allow pnpm",
-      "postinstall": "husky install",
-      "boot": "pnpm run clear && pnpm run clear:store && pnpm install && pnpm run clear:lock && pnpm run build",
-      "clear": "npx rimraf dist && pnpm --filter \"./packages-**\" clear && npx rimraf node_modules && npx rimraf .pnpm-store",
-      "clear:lock": "npx rimraf pnpm-lock.yaml && npx rimraf package-lock.json && npx rimraf lerna-debug.log",
-      "clear:store": "npx rimraf .pnpm-store",
-      "build": "pnpm --filter \"./packages-**\" build",
-      "lint:style": "stylelint ./packages-**/**/*.{tsx,css,vue}",
-      "lint:md": "markdownlint-cli2 ./packages-**/**/*.md",
-      "lint": "eslint \"./packages-vue-components/src/\" --ext js,ts,tsx --fix",
-      "prepare": "husky install"
+    "preinstall": "npx only-allow pnpm",
+    "postinstall": "husky install && pnpm run clear:lock",
+    "boot": "pnpm run clear && pnpm install && pnpm run clear:lock && pnpm run build",
+    "clear": "pnpm --filter \"./packages-**\" clear && pnpm --filter \"./packages-**/**\" clear && npx rimraf node_modules && pnpm run clear:store && pnpm run clear:lock",
+    "clear:lock": "npx rimraf pnpm-lock.yaml && npx rimraf package-lock.json && npx rimraf lerna-debug.log",
+    "clear:store": "rm -fr .pnpm-store",
+    "build": "pnpm --filter \"./packages-**\" build && pnpm --filter \"./packages-**/**\" build",
+    "lint:eslint": "eslint ./packages-**/**/*.{tsx,vue,ts,js} --ext js,ts,tsx --fix",
+    "lint:style": "stylelint ./packages-**/**/*.{tsx,css,vue}",
+    "lint:md": "markdownlint-cli2 ./packages-**/**/*.md",
+    "prepare": "husky install",
+    "test": "pnpm --filter \"./packages-**/**\" clear"
   }
 }

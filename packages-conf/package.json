@@ -7,7 +7,7 @@
     "build": "npx rimraf dist && tsc",
     "start": "tsc --watch",
     "publish:build": "npm run build:tsc && npm publish",
-    "clear": "npx rimraf node_modules",
+    "clear": "npx rimraf node_modules && npx rimraf dist",
     "postinstall": "tsc",
     "prepublishOnly": "npm run build"
   },

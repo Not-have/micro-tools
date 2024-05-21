@@ -1,10 +1,10 @@
-import  {
-    ErrorPayload
-} from './types';
+import "./rc";
 
-import './rc';
+import {
+  IErrorPayload
+} from "./types";
 
-const ErrorOverlay = customElements.get('imitation-vue-error')!;
+const ErrorOverlay = customElements.get("imitation-vue-error")!;
 
 /**
  * 模仿 Vite 中的错误控件
@@ -26,6 +26,6 @@ const ErrorOverlay = customElements.get('imitation-vue-error')!;
  * 获取到的页面元素.appendChild(overlay);
  *
  */
-export default function imitationViteError(err: ErrorPayload['err'], dialog?: boolean): HTMLElement {
-    return new ErrorOverlay(err, dialog);
+export default function imitationViteError(err: IErrorPayload["err"], dialog?: boolean): HTMLElement {
+  return new ErrorOverlay(err, dialog);
 }

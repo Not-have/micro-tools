@@ -1,0 +1,11 @@
+/*
+ 写到 tsx 中，使用组件
+ vue-styled-components
+*/
+.el-popover.el-popper {
+  border-radius: 0 !important;
+}
+
+.micro-button-confirm-box {
+  display: inline-block;
+}

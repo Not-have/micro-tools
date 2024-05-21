@@ -2,16 +2,7 @@
   "version": "independent",
   "npmClient": "pnpm",
   "packages": [
-    "packages-vue",
-    "packages-react",
-    "packages-style",
-    "packages-eslint-conf",
-    "packages-stylelint-conf",
-    "packages-utils",
-    "packages-rc",
-    "packages-conf",
-    "packages-enum",
-    "packages-types"
+    "packages*/**"
   ],
   "command": {
     "bootstrap": {

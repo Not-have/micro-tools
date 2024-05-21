@@ -9,7 +9,7 @@
     "build": "npm run build:webpack && npm run build:tsc",
     "start": "tsc --watch",
     "start:webpack": "webpack --watch",
-    "clear": "npx rimraf node_modules",
+    "clear": "npx rimraf node_modules && npx rimraf lib && npx rimraf dist",
     "prepublishOnly": "npm run build:tsc && npm run build"
   },
   "keywords": [

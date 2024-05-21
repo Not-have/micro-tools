@@ -1,24 +1,16 @@
-require('@rushstack/eslint-patch/modern-module-resolution');
 module.exports = {
-    plugins: [],
-    extends: [],
-    parser: '@typescript-eslint/parser',
-    parserOptions: {
-        ecmaVersion: 2015,
-        /**
-         * 解决 Parsing error: 'import' and 'export' may appear only with 'sourceType: module'
-         */
-        sourceType: 'module',
-        parser: '@typescript-eslint/parser' //ESLint： Parsing error: Unexpected token
+  parserOptions: {
+    ecmaVersion: 2020,
+    sourceType: "module",
+    jsxPragma: "React",
+    ecmaFeatures: {
+      jsx: true
     },
-    rules: {
-        camelcase: [0, {
-            properties: 'always'
-        }],
-        eqeqeq: ['error', 'always', { null: 'ignore' }], // 使用 === 替代 ==
-        'quotes': ['error', 'single'],
-        'no-const-assign': 2, //禁止修改const声明的变量
-        'semi': ['error', 'always'],
-        'comma-dangle': ['error', 'never']
-    }
+    createDefaultProgram: false,
+    extraFileExtensions: [".vue"] // 额外的文件扩展名，添加了对 .vue 文件的解析支持
+  },
+  extends: [
+    "./config/ts",
+    "./config/import"
+  ].map(require.resolve)
 };

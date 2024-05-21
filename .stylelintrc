@@ -1,5 +1,3 @@
 {
-  "extends": [
-    "micro-stylelint-conf/vue"
-  ]
+  "extends": ["micro-stylelint-conf", "micro-stylelint-conf/vue"]
 }
