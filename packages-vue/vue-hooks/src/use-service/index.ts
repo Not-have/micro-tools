@@ -98,7 +98,7 @@ export default function useService<T, Q = unknown>(fetch: IServiceFunction<T, Q>
     });
   } else {
     // eslint-disable-next-line no-console
-    console.error("Query is not reactive,unable to proceed watch.");
+    console.log("Query is not reactive,unable to proceed watch.");
   }
 
   return {
