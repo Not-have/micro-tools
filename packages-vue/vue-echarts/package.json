@@ -1,6 +1,6 @@
 {
   "name": "micro-vue-echarts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Vue echarts",
   "main": "src/index.ts",
   "scripts": {
