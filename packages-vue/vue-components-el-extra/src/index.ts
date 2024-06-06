@@ -3,4 +3,4 @@ import "./style";
 
 export * from "./button";
 export * from "./input";
-export * from "./op-dialog";
+export { default as opDialog } from "./op-dialog";
