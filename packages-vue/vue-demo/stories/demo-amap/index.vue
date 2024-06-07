@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import {
-  onMounted,
-  onUnmounted
+  onMounted, onUnmounted
 } from "vue";
 import AMapLoader from "@amap/amap-jsapi-loader";
 
@@ -72,13 +71,16 @@ const handleRenderingRouteClick = (): void => {
       offset: new AMap.Pixel(-5, -5)
     });
 
-    // 添加点击事件监听器
+    // 添加鼠标悬停事件监听器
     marker.on("mouseover", () => {
-      new AMap.InfoWindow({
-        content: `这是第 ${index + 1} 个点`,
+      const infoWindow = new AMap.InfoWindow({
+        isCustom: true, // 使用自定义窗体
+        content: `<div style="padding: 10px; font-size: 14px; background: #fff;">这是第 ${index + 1} 个点</div>`,
         offset: new AMap.Pixel(0, -20),
-        closeWhenClickMap: false // 关闭弹出框关闭按钮
-      }).open(map, position);
+        closeWhenClickMap: false
+      });
+
+      infoWindow.open(map, position);
     });
 
     // 添加鼠标移出事件监听器
