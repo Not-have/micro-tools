@@ -1,8 +1,8 @@
 {
   "name": "micro-react-hooks",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React hooks",
-  "main": "index.js",
+  "main": "src/index.ts",
   "scripts": {
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
@@ -15,13 +15,13 @@
     "micro-react-hooks"
   ],
   "author": "Li Yong",
-  "homepage": "https://github.com/Not-have/micro-tools/tree/main/packages-react",
+  "homepage": "https://github.com/Not-have/micro-tools/tree/main/packages-react/react-hooks",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-react"
+    "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-react/react-hooks"
   },
   "bugs": {
     "url": "https://github.com/Not-have/micro-tools/issues"
