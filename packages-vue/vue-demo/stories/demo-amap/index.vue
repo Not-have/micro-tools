@@ -2,7 +2,14 @@
 import {
   onMounted, onUnmounted
 } from "vue";
-import AMapLoader from "@amap/amap-jsapi-loader";
+
+import {
+  initMap,
+  getLocation,
+  destroyMap,
+  createInfoWindowContent,
+  createMark
+} from "./utils";
 
 const lineArr = [
   [116.478935, 39.997761],
@@ -30,26 +37,16 @@ let AMap, map, marker;
 
 onMounted(async () => {
 
-  // @ts-ignore
-  window._AMapSecurityConfig = {
-    securityJsCode: "2c8ebeabc42c400fdcdfa4f3dd4b2773"
-  };
+  const mapObj = await initMap("container");
 
-  AMap = await AMapLoader.load({
-    key: "87c9eb5ed878e72de9a34866b05f60d2",
-    version: "2.0",
-    plugins: ["AMap.MoveAnimation"]
-  });
+  AMap = mapObj.AMap;
+  map = mapObj.map;
 
-  map = new AMap.Map("container", {
-    resizeEnable: true,
-    zoom: 16,
-    center: [116.478935, 39.997761]
-  });
+  await getLocation();
 });
 
 onUnmounted(() => {
-  map?.destroy();
+  destroyMap();
 });
 
 const handleRenderingRouteClick = (): void => {
@@ -67,7 +64,7 @@ const handleRenderingRouteClick = (): void => {
     marker = new AMap.Marker({
       map,
       position,
-      content: "<div style=\"width: 10px; height: 10px; background-color: #90c3ff; border: 2px solid white; border-radius: 50%;\"></div>",
+      content: createMark(),
       offset: new AMap.Pixel(-5, -5)
     });
 
@@ -75,7 +72,7 @@ const handleRenderingRouteClick = (): void => {
     marker.on("mouseover", () => {
       const infoWindow = new AMap.InfoWindow({
         isCustom: true, // 使用自定义窗体
-        content: `<div style="padding: 10px; font-size: 14px; background: #fff;">这是第 ${index + 1} 个点</div>`,
+        content: createInfoWindowContent(index + 1),
         offset: new AMap.Pixel(0, -20),
         closeWhenClickMap: false
       });
