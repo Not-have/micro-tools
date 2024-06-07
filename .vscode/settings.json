@@ -1,5 +1,6 @@
 {
   "cSpell.words": [
+    "amap",
     "autodocs",
     "commitlint",
     "conver",
@@ -9,10 +10,12 @@
     "Gaode",
     "Iconfont",
     "indiv",
+    "jsapi",
     "noopener",
     "noreferrer",
     "preinstall",
     "rushstack",
+    "smacss",
     "sortablejs",
     "stylelint",
     "uniapp"
@@ -21,5 +24,11 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
-  "editor.tabSize": 2
+  "editor.tabSize": 2,
+  "terminal.integrated.profiles.windows": {
+    "Git Bash": {
+      "path": "D:\\git\\install\\bin\\bash.exe"
+    }
+  },
+  "terminal.integrated.defaultProfile.windows": "Git Bash"
 }

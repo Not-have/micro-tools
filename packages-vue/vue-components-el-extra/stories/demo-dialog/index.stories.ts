@@ -11,10 +11,10 @@ import Index from "./index.vue";
 
 const meta = {
   component: Index,
-  title: "Demo"
+  title: "Demo Dialog"
 } satisfies Meta<typeof Index>;
 
 export default meta;
 type TStory = StoryObj<typeof meta>;
 
-export const Demo: TStory = {};
+export const DemoDialog: TStory = {};

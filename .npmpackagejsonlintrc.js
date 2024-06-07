@@ -85,7 +85,7 @@ module.exports = {
     //     'scripts'
     // ]]
   },
-  ignores: [
-    "./packages-vue/vue-uni-app/**/package.json"
-  ],
+  // ignores: [
+  //   "./packages-vue/vue-uni-app/**/package.json"
+  // ],
 };

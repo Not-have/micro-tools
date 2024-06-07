@@ -2,3 +2,9 @@
 ##*.html
 
 individuality.css
+
+packages-eslint-conf
+
+.npmpackagejsonlintrc.js
+
+node_modules

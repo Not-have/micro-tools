@@ -33,7 +33,7 @@
   "workspaces": [
     "packages*/**"
   ],
-  "packageManager": "pnpm@8.15.8",
+  "packageManager": "pnpm@9.1.2",
   "engines": {
     "node": ">=16.0.0",
     "pnpm": ">=8.0.0",
@@ -61,7 +61,7 @@
     "npm-package-json-lint-config-default": "^6.0.0",
     "only-allow": "^1.1.1",
     "rimraf": "^5.0.5",
-    "stylelint": "^15.10.3",
+    "stylelint": "^16.6.1",
     "typescript": ">=5.0"
   },
   "lint-staged": {
