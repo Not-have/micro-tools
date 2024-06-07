@@ -1,29 +1,11 @@
-const properties = require("./properties-order");
-
 module.exports = {
-  extends: [
-    "stylelint-config-standard"
-  ],
-  plugins: [
-    "stylelint-order"
-  ],
+  extends: ["stylelint-config-standard", "stylelint-config-property-sort-order-smacss"],
+  plugins: ["stylelint-order"],
+  customSyntax: "postcss-html",
   overrides: [
     {
       files: ["**/*.(css|html|vue)"],
       customSyntax: "postcss-html"
-    },
-    {
-      files: ["*.less", "**/*.less"],
-      customSyntax: "postcss-less",
-      extends: ["stylelint-config-recommended-vue"]
-    },
-    {
-      files: ["*.scss", "**/*.scss"],
-      customSyntax: "postcss-scss",
-      extends: ["stylelint-config-recommended-vue/scss"],
-      rule: {
-        "scss/percent-placeholder-pattern": null
-      }
     }
   ],
   rules: {
@@ -94,14 +76,7 @@ module.exports = {
       {
         severity: "error"
       }
-    ],
-
-    // Id, class, type
-    "selector-max-specificity": "1,3,3",
-
-    // 属性顺序在单独的文件中定义，以便于阅读
-    "order/properties-order": [properties, {
-      unspecified: "ignore" // 让 styled-components 的 mixin 可以按需要放置
-    }]
-  }
+    ]
+  },
+  ignoreFiles: ["**/*.js", "**/*.jsx", "**/*.ts"]
 };
