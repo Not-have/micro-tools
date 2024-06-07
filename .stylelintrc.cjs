@@ -11,7 +11,8 @@ module.exports = {
     },
     {
       files: ["packages-react/**/*.{jsx,ts,tsx}"],
-      extends: ["micro-stylelint-conf/react"].map(require.resolve)
+      extends: [require.resolve("micro-stylelint-conf/react")],
+      ignoreFiles: ["**/*.js", "**/*.ts"]
     }
   ]
 };
