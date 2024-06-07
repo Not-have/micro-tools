@@ -1,6 +1,11 @@
 module.exports = {
-  extends: ["stylelint-config-standard", "stylelint-config-property-sort-order-smacss"],
-  plugins: ["stylelint-order"],
+  extends: [
+    "stylelint-config-standard",
+    "stylelint-config-rational-order"
+  ],
+  plugins: [
+    "stylelint-order"
+  ],
   customSyntax: "postcss-html",
   overrides: [
     {

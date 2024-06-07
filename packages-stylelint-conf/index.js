@@ -1,7 +1,7 @@
 module.exports = {
   extends: [
     "stylelint-config-standard",
-    "stylelint-config-property-sort-order-smacss"
+    "stylelint-config-rational-order"
   ],
   plugins: ["stylelint-order"],
   rules: {

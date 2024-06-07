@@ -1,6 +1,6 @@
 {
   "name": "micro-stylelint-conf",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Stylelint 的规则配置",
   "scripts": {
     "clear": "npx rimraf node_modules",
@@ -30,10 +30,11 @@
   "dependencies": {
     "postcss-html": "^1.7.0",
     "stylelint-config-html": "^1.1.0",
-    "stylelint-config-property-sort-order-smacss": "^10.0.0",
+    "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-recommended": "^14.0.0",
     "stylelint-config-recommended-vue": "^1.5.0",
     "stylelint-config-standard": "^36.0.0",
-    "stylelint-order": "^6.0.4"
+    "stylelint-order": "^6.0.4",
+    "stylelint-prettier": "^5.0.0"
   }
 }
