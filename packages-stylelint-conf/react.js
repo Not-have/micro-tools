@@ -38,6 +38,14 @@ module.exports = {
     "color-function-notation": "legacy",
     "selector-class-pattern": null,
     "selector-id-pattern": null,
-    "selector-not-notation": null
+    "selector-not-notation": null,
+    "at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": [
+          "unknown"
+        ]
+      }
+    ]
   }
 };
