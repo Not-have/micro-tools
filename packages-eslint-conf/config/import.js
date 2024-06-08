@@ -25,7 +25,7 @@ module.exports = {
     /**
      * Import 的规则
      */
-    "simple-import-sort/imports": "error",
+    "simple-import-sort/imports": "off",
     "simple-import-sort/exports": "error",
     "import/first": "error",
     "import/newline-after-import": "error",

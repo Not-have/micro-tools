@@ -33,7 +33,7 @@ const lineArr = [
   [116.484648, 39.999861]
 ];
 
-let AMap, map, marker;
+let AMap: any, map: any, marker: any;
 
 onMounted(async () => {
 
@@ -101,6 +101,7 @@ const handleCarRouteClick = (): void => {
     strokeWeight: 6      // 线宽
   });
 
+  // @ts-ignore
   marker.on("moving", e => {
     passedPolyline.setPath(e.passedPath);
     map.setCenter(e.target.getPosition(), true);

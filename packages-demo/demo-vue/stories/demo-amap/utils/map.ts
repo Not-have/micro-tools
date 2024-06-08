@@ -1,4 +1,6 @@
 import AMapLoader from "@amap/amap-jsapi-loader";
+
+// @ts-ignore
 let AMap, map;
 
 export async function initMap(containerId: string): Promise<{
@@ -30,6 +32,8 @@ export async function initMap(containerId: string): Promise<{
 }
 
 export const destroyMap = (): void => {
+
+  // @ts-ignore
   map?.destroy();
 };
 
@@ -39,6 +43,8 @@ export const destroyMap = (): void => {
  * 必须在 initMap 之后执行
  */
 export const getLocation = (callback?: (position: unknown) => void): void => {
+
+  // @ts-ignore
   const geolocation = new AMap.Geolocation({
     enableHighAccuracy: true, // 是否使用高精度定位，默认：true
     timeout: 10000,          // 超过10秒后停止定位，默认：无穷大
@@ -46,6 +52,7 @@ export const getLocation = (callback?: (position: unknown) => void): void => {
     convert: true,           // 自动偏移，偏移后的坐标为高德坐标，默认：true
     showButton: true,        // 显示定位按钮，默认：true
     buttonPosition: "LB",    // 定位按钮停靠位置，默认：'LB'，左下角
+    // @ts-ignore
     buttonOffset: new AMap.Pixel(10, 20), // 定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
     showMarker: true,        // 定位成功后在定位到的位置显示点标记，默认：true
     showCircle: true,        // 定位成功后用圆圈表示定位精度范围，默认：true
@@ -54,12 +61,15 @@ export const getLocation = (callback?: (position: unknown) => void): void => {
     useNative: true          // 使用原生定位
   });
 
+  // @ts-ignore
   map.addControl(geolocation);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   geolocation.getCurrentPosition((status: unknown, result: any) => {
 
     if (status === "complete") {
+
+      // @ts-ignore
       map.setCenter(result.position);
 
       if(callback) {

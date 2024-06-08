@@ -1,7 +1,7 @@
 {
-  "name": "micro-vue-demo",
+  "name": "micro-demo-vue",
   "version": "1.0.0",
-  "description": "Vue demo",
+  "description": "Demo Vue",
   "main": "src/index.ts",
   "scripts": {
     "type-check": "vue-tsc --build --force",

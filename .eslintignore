@@ -1,4 +1,3 @@
 env.d.ts
-packages-eslint-conf
-/packages-vue/**/stats.html
-dist
+packages-eslint-conf/
+dist/
