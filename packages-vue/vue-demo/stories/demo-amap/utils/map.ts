@@ -19,7 +19,8 @@ export async function initMap(containerId: string): Promise<{
 
   map = new AMap.Map(containerId, {
     resizeEnable: true,
-    zoom: 16
+    zoom: 16,
+    center: [116.478935, 39.997761]
   });
 
   return {

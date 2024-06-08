@@ -95,7 +95,7 @@ const handleCarRouteClick = (): void => {
     offset: new AMap.Pixel(-13, -26)
   });
 
-  const passedPolyline = new AMap.Polyline({
+  const passedPolyline = new AMap.Polyline({ // 隐藏使用 passedPolyline.hide();
     map,
     strokeColor: "#AF5",  // 线颜色
     strokeWeight: 6      // 线宽
@@ -131,6 +131,9 @@ const stopAnimation = (): void => {
   marker.stopMove();
 };
 
+const handleCancelMapRenderClick = (): void => {
+  map.clearMap();
+};
 </script>
 
 <template>
@@ -162,6 +165,9 @@ const stopAnimation = (): void => {
       type="button"
       @click="stopAnimation"
     />
+    <button @click="handleCancelMapRenderClick">
+      取消所有的渲染
+    </button>
   </div>
 </template>
 
