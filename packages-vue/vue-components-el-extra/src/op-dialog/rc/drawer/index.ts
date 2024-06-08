@@ -4,23 +4,24 @@ import {
   unref
 } from "vue";
 import {
-  ElDialog
+  ElDrawer
 } from "element-plus";
 import {
   isObject
 } from "micro-util-ts";
+import "../../style/index.css";
 
 import {
-  IPropsDialog
+  IPropsDrawer
 } from "../../type";
 
-export default function dialog({
-  content,
+export default function drawer({
   title,
-  modelValue,
+  content,
   footer,
+  modelValue,
   ...rest
-}: IPropsDialog): void {
+}: IPropsDrawer): void {
 
   const div = document.createElement("div");
 
@@ -28,7 +29,7 @@ export default function dialog({
 
   const app = createApp({
     render() {
-      return h(ElDialog, {
+      return h(ElDrawer, {
         modelValue: unref(modelValue),
         ...rest
       }, {

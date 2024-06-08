@@ -8,13 +8,15 @@
 <script lang="tsx" setup>
 
 import {
-  opDialog
+  opDialog,
+  DialogType
 } from "../../src";
 import Content from "./content/index.vue";
 
 const handleClick = (): void => {
   opDialog({
-    content: <Content />
+    content: <Content />,
+    type: DialogType.LEFT
   });
 };
 

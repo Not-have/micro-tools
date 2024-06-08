@@ -1,8 +1,13 @@
 import {
-  Component
+  Component,
+  VNode
 } from "vue";
 
-interface IProps<T> {
+import {
+  EType
+} from "../enum";
+
+export interface IProps<T = object> {
 
   /**
    * @todo 记录当前的操作类型
@@ -19,12 +24,12 @@ interface IProps<T> {
   /**
    * 标题
    */
-  title?: string | Component,
+  title?: string | Component | VNode | number,
 
   /**
    * 内容
    */
-  content: string | Component,
+  content: string | Component | VNode | number,
 
   /**
    * OpDialog 大小
@@ -40,7 +45,7 @@ interface IProps<T> {
    *
    * center 弹出框
    */
-  type?: "center" | "right" | "left" | "top" | "bottom",
+  type?: EType,
 
   /**
    * 弹出框的动画效果
@@ -105,7 +110,7 @@ interface IProps<T> {
   /**
    * 自定义 opDialog 的脚
    */
-  footer?: Component,
+  footer?: string | Component | VNode,
 
   /**
    * 确认按钮文字
@@ -148,5 +153,3 @@ interface IProps<T> {
    */
   closeIcon?: boolean,
 }
-
-export default IProps;
