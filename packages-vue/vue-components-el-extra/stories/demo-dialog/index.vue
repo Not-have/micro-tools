@@ -34,6 +34,10 @@ const handleClick = (): void => {
     submit,
     fieldsValue: "success",
     title: "新增"
+  }).catch(res => {
+
+    // eslint-disable-next-line no-console
+    console.log(res);
   });
 };
 

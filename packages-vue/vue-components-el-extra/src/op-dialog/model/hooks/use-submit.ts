@@ -36,9 +36,6 @@ export default function useSubmit(): (value: IModelProps["fieldsValue"]) => void
         catch(err => {
           dispatchLoading(false);
           propsHandleError(err);
-
-          // 重新抛出错误
-          throw err;
         });
   };
 }
