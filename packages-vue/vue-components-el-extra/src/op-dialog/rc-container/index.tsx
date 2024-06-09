@@ -1,5 +1,7 @@
 import {
-  ref
+  reactive,
+  ref,
+  unref
 } from "vue";
 
 import {
@@ -9,67 +11,79 @@ import {
   IProps
 } from "../type";
 import {
-  dialog,
-  drawer,
-  footer
+  Footer
 } from "../rc";
 import {
   drawerDirection
 } from "../utils";
 
+import uiDrawer from "./ui-drawer";
+import uiDialog from "./ui-dialog";
+
 export default function opDialog({
   type = EType.CENTER,
+  title,
   content,
   okText,
-  cancelText
+  cancelText,
+  submit,
+  fieldsValue
 }: IProps): void {
+
   const dialogVisible = ref(true);
 
+  const loading = ref(false);
+
+  const values = reactive(fieldsValue);
+
   const handleConfirmClick = (): void => {
+
+    // dialogVisible.value = false;
+
+    loading.value = true;
+
+    submit?.(values, fieldsValue).then(() => {
+      loading.value = false;
+    });
+  };
+
+  const handleCancelClick = (): void => {
     dialogVisible.value = false;
+
+  };
+
+  const obj = {
+    confirm: {
+      fn: handleConfirmClick,
+
+      // disabled: values === fieldsValue,
+      text: okText,
+      loading
+    },
+    cancel: {
+      fn: handleCancelClick,
+      text: cancelText
+    }
   };
 
   if(type !== "center") {
-    // eslint-disable-next-line no-console
     const direction = drawerDirection(type);
 
-    drawer({
-      title: "头部",
+    uiDrawer({
+      title,
       modelValue: dialogVisible,
-      direction,
-      destroyOnClose: true,
-      closeOnClickModal: false,
       content,
-      footer: footer({
-        confirm: {
-          fn: handleConfirmClick,
-          disabled: true,
-          text: okText
-        },
-        cancel: {
-          fn: handleConfirmClick,
-          text: cancelText
-        }
-      })
+      direction,
+      footer: <Footer {...unref(obj)} />
     });
 
     return;
   }
 
-  dialog({
-    title: "头部",
+  uiDialog({
+    title,
     modelValue: dialogVisible,
     content,
-    footer: footer({
-      confirm: {
-        fn: handleConfirmClick,
-        disabled: true,
-        text: okText
-      },
-      cancel: {
-        fn: handleConfirmClick,
-        text: cancelText
-      }
-    })
+    footer: <Footer {...unref(obj)} />
   });
 }

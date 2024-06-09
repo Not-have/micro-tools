@@ -9,7 +9,7 @@ import {
 import {
   isObject
 } from "micro-util-ts";
-import "../../style/index.css";
+import "../../style/drawer.css";
 
 import {
   IPropsDrawer

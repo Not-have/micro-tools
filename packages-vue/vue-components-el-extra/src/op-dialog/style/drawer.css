@@ -1,3 +1,7 @@
 .el-drawer__close-btn {
   flex-direction: row-reverse;
 }
+
+.el-drawer__header {
+  margin-bottom: 0;
+}

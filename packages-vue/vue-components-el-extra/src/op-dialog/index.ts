@@ -1,10 +1,6 @@
-import {
-  EType
-} from "./enum";
-
-import opDialog from "./rc-container";
-
-export default opDialog;
 export {
   EType as DialogType
-};
+} from "./enum";
+
+export { default } from "./rc-container";
+export { useFields } from "./hooks";

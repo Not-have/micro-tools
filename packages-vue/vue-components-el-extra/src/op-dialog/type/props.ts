@@ -7,7 +7,8 @@ import {
   EType
 } from "../enum";
 
-export interface IProps<T = object> {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export interface IProps<T = any> {
 
   /**
    * @todo 记录当前的操作类型
@@ -75,7 +76,7 @@ export interface IProps<T = object> {
   /**
    * 提交表单的处理
    */
-  submit?: Promise<void>,
+  submit?: (value: T, defaultValue: T) => Promise<unknown>,
 
   /**
    * 是否进行提交操作，默认 false
@@ -87,7 +88,7 @@ export interface IProps<T = object> {
   /**
    * 当前弹出框中的默认值
    *
-   * 传入这块的值，可以使用 useFields 获取
+   * 传入这块的值，可以使用 useFields 获取/修改
    */
   fieldsValue?: T,
 

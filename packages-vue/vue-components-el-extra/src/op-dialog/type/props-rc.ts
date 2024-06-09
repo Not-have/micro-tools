@@ -31,7 +31,8 @@ type TFn = () => void
 interface IFooter {
   fn: TFn,
   disabled?: boolean,
-  text?: string
+  text?: string,
+  loading?: Ref<boolean>
 }
 
 export interface IPropsFooter {
