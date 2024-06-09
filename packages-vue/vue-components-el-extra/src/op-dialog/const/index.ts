@@ -50,8 +50,7 @@ export const defaultValues = {
   },
   submit: Function as PropType<IProps["submit"]>,
   isSubmit: {
-    type: Boolean,
-    default: true
+    type: Boolean
   },
   fieldsValue: {
     type: Object as PropType<IProps["fieldsValue"]>
