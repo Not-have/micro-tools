@@ -32,7 +32,7 @@ const handleClick = (): void => {
     contentRef: el,
     type: DialogType.CENTER,
     submit,
-    fieldsValue: "success",
+    fieldsValue: 11,
     title: "新增"
   }).catch(res => {
 

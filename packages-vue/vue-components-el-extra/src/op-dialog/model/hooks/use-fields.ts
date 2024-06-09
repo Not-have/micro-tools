@@ -15,7 +15,7 @@ export default function useFields(): IFields {
 
   function setValues(payload: IModelState["value"]): void{
     if(_isObject(payload)) {
-      payload = Object.assign(modelState.value, payload);
+      payload = Object.assign(modelState.value || {}, payload);
     }
 
     dispatchValue(payload);

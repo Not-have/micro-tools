@@ -13,7 +13,7 @@ import {
 } from "../enum";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export interface IProps<T = any> {
+export interface IProps<T = Record<string, any>> {
 
   /**
    * @todo 记录当前的操作类型
@@ -30,12 +30,12 @@ export interface IProps<T = any> {
   /**
    * 标题
    */
-  title?: string | Component | VNode | number,
+  title?: string | Component | VNode,
 
   /**
    * 内容
    */
-  content: string | Component | VNode | number,
+  content: string | Component | VNode,
 
   /**
    * 获取 content 的 ref
@@ -86,7 +86,7 @@ export interface IProps<T = any> {
   /**
    * 提交表单的处理
    */
-  submit?: (value: T, defaultValue: T) => Promise<unknown>,
+  submit?: (value: T | undefined, defaultValue: T | undefined) => Promise<unknown>,
 
   /**
    * 是否进行提交操作，默认 false
