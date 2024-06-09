@@ -3,15 +3,9 @@
     <ElButton @click="handleClick">
       打开弹出框
     </ElButton>
-    <ElButton :loading="loading">
-      11
-    </ElButton>
   </div>
 </template>
 <script lang="tsx" setup>
-import {
-  ref
-} from "vue";
 import {
   ElButton
 } from "element-plus";
@@ -25,16 +19,14 @@ import {
   submit
 } from "./utils";
 
-const loading = ref(false);
-
 const handleClick = (): void => {
-  loading.value = true;
 
   opDialog({
     content: <Content />,
-    type: DialogType.LEFT,
+    type: DialogType.CENTER,
     submit,
-    fieldsValue: "success"
+    fieldsValue: "fail",
+    title: "新增"
   });
 };
 

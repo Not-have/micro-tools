@@ -4,6 +4,10 @@ import {
 } from "vue";
 
 import {
+  ButtonProps
+} from "element-plus";
+
+import {
   EType
 } from "../enum";
 
@@ -123,7 +127,7 @@ export interface IProps<T = any> {
    *
    * 默认 primary
    */
-  okType?: string,
+  okType?: ButtonProps["type"],
 
   /**
    * 取消按钮文字
@@ -135,7 +139,7 @@ export interface IProps<T = any> {
    *
    * 默认 default
    */
-  cancelType?: string,
+  cancelType?: ButtonProps["type"],
 
   /**
    * 是否支持键盘 esc 关闭

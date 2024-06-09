@@ -3,4 +3,4 @@ export {
 } from "./enum";
 
 export { default } from "./rc-container";
-export { useFields } from "./hooks";
+export { useFields } from "./model";

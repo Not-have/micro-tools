@@ -8,6 +8,8 @@ export function fetchSubmit(type: "success" | "fail"): Promise<boolean> {
       return;
     }
 
-    reason(false);
+    setTimeout(() => {
+      reason(false);
+    }, 2000);
   });
 }

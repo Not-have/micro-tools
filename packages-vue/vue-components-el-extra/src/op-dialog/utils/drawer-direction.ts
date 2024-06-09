@@ -3,7 +3,7 @@ import {
   EDrawerDirection
 } from "../enum";
 
-export default function drawerDirection(type: EType): EDrawerDirection {
+export default function drawerDirection(type?: EType): EDrawerDirection {
   switch(type) {
     case EType.RIGHT:
       return EDrawerDirection.RIGHT;

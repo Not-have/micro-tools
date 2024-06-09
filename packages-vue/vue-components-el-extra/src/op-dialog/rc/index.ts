@@ -1,4 +1,4 @@
-export { default as dialog } from "./dialog";
-export { default as drawer } from "./drawer";
+export { default as Dialog } from "./dialog";
+export { default as Drawer } from "./drawer";
 
 export { default as Footer } from "./footer";

@@ -1,4 +1,5 @@
 import {
+  defineComponent,
   unref,
   VNode
 } from "vue";
@@ -13,23 +14,44 @@ import {
 } from "../../../intl";
 
 import {
-  IPropsFooter
-} from "../../type";
+  useFooter,
+  useSubmit,
+  useDispatchModelValue,
+  useModelState,
+  useDisabled
+} from "../../model";
 
-export default function Footer({
-  confirm,
-  cancel
-}: IPropsFooter): VNode{
-  const handleConfirmClick = (): void => {
-    confirm.fn();
-  };
+export default defineComponent({
+  setup() {
+    const {
+      isSubmit,
+      okText,
+      okType,
+      cancelText,
+      cancelType
+    } = useFooter();
 
-  const handleCancelClick = (): void => {
-    cancel.fn();
-  };
+    const submit = useSubmit();
 
-  return <>
-    <ElButton type="primary" disabled={confirm?.disabled} onClick={handleConfirmClick} loading={unref(confirm?.loading)}>{confirm?.text ?? OK}</ElButton>
-    <ElButton disabled={cancel?.disabled} onClick={handleCancelClick}>{cancel?.text ?? CANCEL}</ElButton>
-  </>;
-}
+    const disabled = useDisabled();
+
+    const state = useModelState();
+
+    const handleOkClick = (): void => {
+      submit(state.value);
+    };
+
+    const dispatchModelValue = useDispatchModelValue();
+
+    const handleCancelClick = (): void => {
+      dispatchModelValue(false);
+    };
+
+    return (): VNode => (
+      <div>
+        {isSubmit ? <ElButton type={okType ?? "primary"} loading={state.loading} disabled={unref(disabled)} onClick={handleOkClick}>{okText || OK}</ElButton> : null}
+        <ElButton type={cancelType} onClick={handleCancelClick}>{cancelText || CANCEL}</ElButton>
+      </div>
+    );
+  }
+});
