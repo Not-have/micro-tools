@@ -6,6 +6,8 @@ import useModelProps from "./_use-model-props";
 import useFieldsValue from "./use-fields-value";
 import useDispatchLoading from "./use-dispatch-loading";
 import useDispatchModelValue from "./use-dispatch-modelValue";
+import usePropsHandleSuccess from "./use-props-handle-success";
+import usePropsHandleError from "./use-props-handle-error";
 
 export default function useSubmit(): (value: IModelProps["fieldsValue"]) => void {
   const fieldsValue = useFieldsValue();
@@ -18,16 +20,25 @@ export default function useSubmit(): (value: IModelProps["fieldsValue"]) => void
 
   const dispatchModelValue= useDispatchModelValue();
 
+  const propsHandleSuccess = usePropsHandleSuccess();
+
+  const propsHandleError = usePropsHandleError();
+
   return value => {
 
     dispatchLoading(true);
 
-    submit?.(value, fieldsValue).then(() => {
+    submit?.(value, fieldsValue).then(res => {
       dispatchLoading(false);
       dispatchModelValue(false);
+      propsHandleSuccess(res);
     }).
-        catch(() => {
+        catch(err => {
           dispatchLoading(false);
+          propsHandleError(err);
+
+          // 重新抛出错误
+          throw err;
         });
   };
 }

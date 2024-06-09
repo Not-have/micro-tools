@@ -8,7 +8,7 @@ import {
 } from "micro-util-ts";
 
 import {
-  IProps
+  IPropsExtend
 } from "../type";
 
 import {
@@ -20,7 +20,7 @@ export default function uiDialog({
   content,
   footer,
   ...rest
-}: IProps): void {
+}: IPropsExtend): void {
 
   const div = document.createElement("div");
 

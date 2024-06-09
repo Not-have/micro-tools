@@ -8,7 +8,7 @@ import {
   EType
 } from "../enum";
 import {
-  IProps
+  IPropsExtend
 } from "../type";
 
 // 定义默认值
@@ -20,10 +20,10 @@ export const defaultValues = {
     type: Boolean
   },
   title: {
-    type: [String, Object, Number] as PropType<IProps["title"]>
+    type: [String, Object, Number] as PropType<IPropsExtend["title"]>
   },
   content: {
-    type: [String, Object, Number] as PropType<IProps["content"]>,
+    type: [String, Object, Number] as PropType<IPropsExtend["content"]>,
     default: ""
   },
   size: {
@@ -48,15 +48,15 @@ export const defaultValues = {
     type: Boolean,
     default: false
   },
-  submit: Function as PropType<IProps["submit"]>,
+  submit: Function as PropType<IPropsExtend["submit"]>,
   isSubmit: {
     type: Boolean
   },
   fieldsValue: {
-    type: Object as PropType<IProps["fieldsValue"]>
+    type: Object as PropType<IPropsExtend["fieldsValue"]>
   },
   ignoreFields: {
-    type: Array as PropType<IProps["ignoreFields"]>
+    type: Array as PropType<IPropsExtend["ignoreFields"]>
   },
   disabled: {
     type: Boolean
@@ -68,13 +68,13 @@ export const defaultValues = {
     type: String
   },
   okType: {
-    type: String as PropType<IProps["okType"]>
+    type: String as PropType<IPropsExtend["okType"]>
   },
   cancelText: {
     type: String
   },
   cancelType: {
-    type: String as PropType<IProps["cancelType"]>
+    type: String as PropType<IPropsExtend["cancelType"]>
   },
   keyboard: {
     type: Boolean
@@ -84,5 +84,17 @@ export const defaultValues = {
   },
   closeIcon: {
     type: Boolean
+  },
+
+  // TODO Vue 的 props 啥时候可以直接写 ts 的类型啊，定义起来真他妈的难受
+  handleSuccess: {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    type: Function as PropType<any>,
+    required: true
+  },
+  handleError: {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    type: Function as PropType<any>,
+    required: true
   }
 };

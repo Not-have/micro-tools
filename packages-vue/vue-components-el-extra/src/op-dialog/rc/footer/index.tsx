@@ -49,7 +49,7 @@ export default defineComponent({
 
     return (): VNode => (
       <div>
-        {isSubmit ? <ElButton type={okType ?? "primary"} loading={state.loading} disabled={unref(disabled)} onClick={handleOkClick}>{okText || OK}</ElButton> : null}
+        {!isSubmit ? <ElButton type={okType ?? "primary"} loading={state.loading} disabled={unref(disabled)} onClick={handleOkClick}>{okText || OK}</ElButton> : null}
         <ElButton type={cancelType} onClick={handleCancelClick}>{cancelText || CANCEL}</ElButton>
       </div>
     );

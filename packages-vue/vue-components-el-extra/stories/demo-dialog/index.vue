@@ -1,6 +1,8 @@
 <template>
   <div class="demo">
-    <ElButton @click="handleClick">
+    <ElButton
+      @click="handleClick"
+    >
       打开弹出框
     </ElButton>
   </div>
@@ -18,14 +20,19 @@ import Content from "./content/index.vue";
 import {
   submit
 } from "./utils";
+import {
+  ref
+} from "vue";
+
+const el = ref(null);
 
 const handleClick = (): void => {
-
   opDialog({
-    content: <Content />,
+    content: <Content ref={el} />,
+    contentRef: el,
     type: DialogType.CENTER,
     submit,
-    fieldsValue: "fail",
+    fieldsValue: "success",
     title: "新增"
   });
 };
