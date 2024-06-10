@@ -46,7 +46,7 @@ export default function useSubmit(): (value: IModelProps["fieldsValue"]) => Prom
         dispatchModelValue(false);
         propsHandleSuccess(res);
       }).
-          catch(err => {
+          catch((err: unknown) => {
             dispatchLoading(false);
             propsHandleError(err);
           });
