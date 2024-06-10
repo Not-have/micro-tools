@@ -28,7 +28,8 @@ export default function uiDialog<T, D>({
 
   const app = createApp({
     render() {
-      return h(Dialog, rest, {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      return h(Dialog, rest as any, {
         default: content,
         title: isObject(title) ? h(title) : title,
         footer: isObject(footer) ? h(footer) : footer

@@ -11,6 +11,8 @@ import {
   IPropsExtend
 } from "../type";
 
+interface IDefaultValues extends IPropsExtend<Record<string, unknown>, unknown> {}
+
 // 定义默认值
 export const defaultValues = {
   op: {
@@ -20,10 +22,10 @@ export const defaultValues = {
     type: Boolean
   },
   title: {
-    type: [String, Object, Number] as PropType<IPropsExtend["title"]>
+    type: [String, Object, Number] as PropType<IDefaultValues["title"]>
   },
   content: {
-    type: [String, Object, Number] as PropType<IPropsExtend["content"]>,
+    type: [String, Object, Number] as PropType<IDefaultValues["content"]>,
     default: ""
   },
   size: {
@@ -48,15 +50,15 @@ export const defaultValues = {
     type: Boolean,
     default: false
   },
-  submit: Function as PropType<IPropsExtend["submit"]>,
+  submit: Function as PropType<IDefaultValues["submit"]>,
   isSubmit: {
     type: Boolean
   },
   fieldsValue: {
-    type: Object as PropType<IPropsExtend["fieldsValue"]>
+    type: Object as PropType<IDefaultValues["fieldsValue"]>
   },
   ignoreFields: {
-    type: Array as PropType<IPropsExtend["ignoreFields"]>
+    type: Array as PropType<IDefaultValues["ignoreFields"]>
   },
   disabled: {
     type: Boolean,
@@ -69,13 +71,13 @@ export const defaultValues = {
     type: String
   },
   okType: {
-    type: String as PropType<IPropsExtend["okType"]>
+    type: String as PropType<IDefaultValues["okType"]>
   },
   cancelText: {
     type: String
   },
   cancelType: {
-    type: String as PropType<IPropsExtend["cancelType"]>
+    type: String as PropType<IDefaultValues["cancelType"]>
   },
   keyboard: {
     type: Boolean
