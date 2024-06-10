@@ -21,17 +21,12 @@ import {
   submit
 } from "./utils";
 import {
-  ref,
   h
 } from "vue";
 
-const el = ref(null);
-
 const handleClick = (): void => {
   opDialog({
-    content: h(Content, {
-      contentRef: el
-    }),
+    content: h(Content),
     type: DialogType.LEFT,
     submit: value => submit(value),
     fieldsValue: "success",
