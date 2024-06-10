@@ -28,14 +28,20 @@ export default function useSubmit(): (value: IModelProps["fieldsValue"]) => void
 
     dispatchLoading(true);
 
-    submit?.(value, fieldsValue).then(res => {
+    try {
+      submit?.(value, fieldsValue).then(res => {
+        dispatchLoading(false);
+        dispatchModelValue(false);
+        propsHandleSuccess(res);
+      }).
+          catch(err => {
+            dispatchLoading(false);
+            propsHandleError(err);
+          });
+    } catch(err) {
       dispatchLoading(false);
-      dispatchModelValue(false);
-      propsHandleSuccess(res);
-    }).
-        catch(err => {
-          dispatchLoading(false);
-          propsHandleError(err);
-        });
+      propsHandleError(err);
+    }
+
   };
 }

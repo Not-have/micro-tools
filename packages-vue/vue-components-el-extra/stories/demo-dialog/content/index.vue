@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import {
-  ElCard,
-  ElButton
+  ElCard
 } from "element-plus";
 
 import {
@@ -9,8 +8,7 @@ import {
 } from "../../../src/op-dialog";
 
 const {
-  getValues,
-  setValues
+  getValues
 } = useFields();
 
 const handleClick =(): void => {
@@ -18,9 +16,6 @@ const handleClick =(): void => {
   console.log(getValues());
 };
 
-const handleEditClick = () => {
-  setValues("fail");
-};
 </script>
 
 <template>
@@ -33,8 +28,5 @@ const handleEditClick = () => {
       style="width: 100%"
       @click="handleClick"
     />
-    <ElButton @click="handleEditClick">
-      修改
-    </ElButton>
   </ElCard>
 </template>

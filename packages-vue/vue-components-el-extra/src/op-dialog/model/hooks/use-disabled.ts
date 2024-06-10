@@ -19,7 +19,9 @@ export default function useDisabled(): Ref<boolean> {
   } = useFooter();
 
   if(disabled) {
-    _disabled.value = true;
+    _disabled.value = false;
+
+    return _disabled;
   }
 
   const {

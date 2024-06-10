@@ -9,11 +9,4 @@ export interface IModelState {
   isEqual: boolean;
   loading: boolean;
   value: IModelProps["fieldsValue"];
-
-  /**
-   * 获取 content 的 ref
-   *
-   * content 要是 Form 或者使用 setContentRef 去插入
-   */
-  contentRef: HTMLElement | null,
 }
