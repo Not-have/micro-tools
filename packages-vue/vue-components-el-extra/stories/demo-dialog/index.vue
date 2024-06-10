@@ -12,9 +12,7 @@ import {
   ElButton
 } from "element-plus";
 import {
-  opDialog,
-  DialogType
-
+  opDialog
 } from "../../src";
 import Content from "./content/index.vue";
 import {
@@ -27,7 +25,6 @@ import {
 const handleClick = (): void => {
   opDialog({
     content: h(Content),
-    type: DialogType.LEFT,
     submit: value => submit(value),
     fieldsValue: "success",
     disabled: false,

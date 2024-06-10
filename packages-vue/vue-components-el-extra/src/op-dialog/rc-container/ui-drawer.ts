@@ -15,12 +15,12 @@ import {
   Drawer
 } from "../rc";
 
-export default function drawer({
+export default function drawer<T, D>({
   content,
   title,
   footer,
   ...rest
-}: IPropsExtend): void {
+}: IPropsExtend<T, D>): void {
 
   const div = document.createElement("div");
 

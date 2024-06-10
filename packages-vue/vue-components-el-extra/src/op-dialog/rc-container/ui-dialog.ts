@@ -15,12 +15,12 @@ import {
   Dialog
 } from "../rc";
 
-export default function uiDialog({
+export default function uiDialog<T, D>({
   title,
   content,
   footer,
   ...rest
-}: IPropsExtend): void {
+}: IPropsExtend<T, D>): void {
 
   const div = document.createElement("div");
 

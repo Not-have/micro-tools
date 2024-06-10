@@ -8,8 +8,10 @@ import {
 import uiDrawer from "./ui-drawer";
 import uiDialog from "./ui-dialog";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export default function opDialog<T, D = any>(props: IProps<T>): Promise<D> {
+export default function opDialog<T, D>({
+  type = EType.CENTER,
+  ...rest
+}: IProps<T>): Promise<D> {
 
   return new Promise((resolve, reject) => {
     const handleSuccess = (result: D): void => {
@@ -21,11 +23,9 @@ export default function opDialog<T, D = any>(props: IProps<T>): Promise<D> {
     };
 
     try{
-      if(props.type !== EType.CENTER) {
-
-        // @ts-ignore
-        uiDrawer({
-          ...props,
+      if(type !== EType.CENTER) {
+        uiDrawer<T, D>({
+          ...rest,
           handleSuccess,
           handleError
         });
@@ -33,9 +33,8 @@ export default function opDialog<T, D = any>(props: IProps<T>): Promise<D> {
         return;
       }
 
-      // @ts-ignore
-      uiDialog({
-        ...props,
+      uiDialog<T, D>({
+        ...rest,
         handleSuccess,
         handleError
       });
