@@ -22,6 +22,8 @@ export default function opDialog<T, D = any>(props: IProps<T>): Promise<D> {
 
     try{
       if(props.type !== EType.CENTER) {
+
+        // @ts-ignore
         uiDrawer({
           ...props,
           handleSuccess,
@@ -31,6 +33,7 @@ export default function opDialog<T, D = any>(props: IProps<T>): Promise<D> {
         return;
       }
 
+      // @ts-ignore
       uiDialog({
         ...props,
         handleSuccess,

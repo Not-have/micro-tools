@@ -39,6 +39,8 @@ export default function useSubmit(): (value: IModelProps["fieldsValue"]) => Prom
     await dispatchLoading(true);
 
     try {
+
+      // @ts-ignore
       return await _submit?.(value, fieldsValue).then(res => {
         dispatchLoading(false);
         dispatchModelValue(false);

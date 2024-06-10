@@ -12,7 +12,7 @@ import {
 } from "../enum";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export interface IProps<T = Record<string, any>> {
+export interface IProps<T> {
 
   /**
    * @todo 记录当前的操作类型
@@ -84,10 +84,10 @@ export interface IProps<T = Record<string, any>> {
    *
    * 默认的 defaultValue
    *
-   * FormEl Form 的表单元素
+   * contentEl content 元素
    *
    */
-  submit?: (value: T | undefined, defaultValue: T | undefined, FormEl?: HTMLElement) => Promise<unknown>,
+  submit?: (value: T, defaultValue: T, contentEl?: HTMLElement) => Promise<unknown>,
 
   /**
    * 是否进行提交操作，默认 false

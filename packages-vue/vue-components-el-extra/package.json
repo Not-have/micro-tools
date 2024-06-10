@@ -1,18 +1,25 @@
 {
   "name": "micro-element-plus-extra",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Element plus extra",
-  "main": "src/index.ts",
+  "module": "./dist/es/index.js",
+  "types": "./dist/types/index.d.ts",
   "scripts": {
     "type-check": "vue-tsc --build --force",
     "clear": "npx rimraf node_modules",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "build": "vite build",
+    "prepublishOnly": "npx rimraf dist && npm run build"
   },
   "keywords": [
     "vue-components",
     "element-plus-components",
     "element-plus-extra"
+  ],
+  "files": [
+    "dist",
+    "stories"
   ],
   "repository": {
     "type": "git",
@@ -49,6 +56,7 @@
     "npm-run-all2": "^6.1.2",
     "storybook": "^8.0.9",
     "vite": "^5.2.8",
+    "vite-plugin-dts": "^3.9.1",
     "vue-tsc": "^2.0.11"
   }
 }
