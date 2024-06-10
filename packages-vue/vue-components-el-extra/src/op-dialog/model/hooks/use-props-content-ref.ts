@@ -1,12 +1,12 @@
 import {
-  IModelProps
+  IModelState
 } from "../types";
-import useModelProps from "./_use-model-props";
+import useModelState from "./use-model-state";
 
-export default function usePropsContentRef(): IModelProps["contentRef"] {
+export default function usePropsContentRef(): IModelState["contentRef"] {
   const {
     contentRef
-  } = useModelProps();
+  } = useModelState();
 
   return contentRef;
 }

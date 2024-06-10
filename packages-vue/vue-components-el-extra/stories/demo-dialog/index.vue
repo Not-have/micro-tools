@@ -29,10 +29,9 @@ const el = ref(null);
 const handleClick = (): void => {
   opDialog({
     content: <Content ref={el} />,
-    contentRef: el,
     type: DialogType.CENTER,
     submit,
-    fieldsValue: 11,
+    fieldsValue: "success",
     title: "新增"
   }).catch(res => {
 

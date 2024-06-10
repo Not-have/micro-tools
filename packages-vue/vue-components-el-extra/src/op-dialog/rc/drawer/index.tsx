@@ -40,8 +40,9 @@ export default defineComponent({
     });
 
     const dispatch = (arg: TModelAction): void => {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      state[arg.type] = arg.payload as any;
+
+      // @ts-ignore
+      state[arg.type] = arg.payload;
     };
 
     provider({

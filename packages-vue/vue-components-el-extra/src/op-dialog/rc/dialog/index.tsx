@@ -34,6 +34,8 @@ export default defineComponent({
     });
 
     const dispatch = (arg: TModelAction): void => {
+
+      // @ts-ignore
       state[arg.type] = arg.payload;
     };
 

@@ -1,6 +1,5 @@
 import {
   Component,
-  Ref,
   VNode
 } from "vue";
 
@@ -36,11 +35,6 @@ export interface IProps<T = Record<string, any>> {
    * 内容
    */
   content: string | Component | VNode,
-
-  /**
-   * 获取 content 的 ref
-   */
-  contentRef?: Ref<HTMLElement | null>,
 
   /**
    * OpDialog 大小

@@ -44,6 +44,7 @@ export default defineComponent({
     const dispatchModelValue = useDispatchModelValue();
 
     const handleCancelClick = (): void => {
+
       dispatchModelValue(false);
     };
 
