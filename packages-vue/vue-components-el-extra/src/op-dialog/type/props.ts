@@ -79,8 +79,15 @@ export interface IProps<T = Record<string, any>> {
 
   /**
    * 提交表单的处理
+   *
+   * 修改后的 fieldsValue
+   *
+   * 默认的 defaultValue
+   *
+   * FormEl Form 的表单元素
+   *
    */
-  submit?: (value: T | undefined, defaultValue: T | undefined) => Promise<unknown>,
+  submit?: (value: T | undefined, defaultValue: T | undefined, FormEl?: HTMLElement) => Promise<unknown>,
 
   /**
    * 是否进行提交操作，默认 false

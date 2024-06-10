@@ -59,7 +59,8 @@ export const defaultValues = {
     type: Array as PropType<IPropsExtend["ignoreFields"]>
   },
   disabled: {
-    type: Boolean
+    type: Boolean,
+    default: undefined
   },
   footer: {
     type: [String, Object] as PropType<string | Component | VNode>

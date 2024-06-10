@@ -1,4 +1,11 @@
 import {
+  unref
+} from "vue";
+import {
+  isNull as _isNull
+} from "lodash-es";
+
+import {
   IModelProps
 } from "../types";
 
@@ -8,12 +15,13 @@ import useDispatchLoading from "./use-dispatch-loading";
 import useDispatchModelValue from "./use-dispatch-modelValue";
 import usePropsHandleSuccess from "./use-props-handle-success";
 import usePropsHandleError from "./use-props-handle-error";
+import useRef from "./use-ref";
 
-export default function useSubmit(): (value: IModelProps["fieldsValue"]) => void {
+export default function useSubmit(): (value: IModelProps["fieldsValue"]) => Promise<void> {
   const fieldsValue = useFieldsValue();
 
   const {
-    submit
+    submit: _submit
   } = useModelProps();
 
   const dispatchLoading = useDispatchLoading();
@@ -24,12 +32,14 @@ export default function useSubmit(): (value: IModelProps["fieldsValue"]) => void
 
   const propsHandleError = usePropsHandleError();
 
-  return value => {
+  const ref = useRef();
 
-    dispatchLoading(true);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  async function submit(value: any): Promise<void>{
+    await dispatchLoading(true);
 
     try {
-      submit?.(value, fieldsValue).then(res => {
+      return await _submit?.(value, fieldsValue).then(res => {
         dispatchLoading(false);
         dispatchModelValue(false);
         propsHandleSuccess(res);
@@ -42,6 +52,21 @@ export default function useSubmit(): (value: IModelProps["fieldsValue"]) => void
       dispatchLoading(false);
       propsHandleError(err);
     }
+  }
 
+  return async value => {
+    let sub;
+
+    if(!_isNull(unref(ref))) {
+      const validate = await unref(ref)?.validate();
+
+      if (validate) {
+        sub = await submit(value);
+      }
+    }
+
+    sub = await submit(value);
+
+    return sub;
   };
 }

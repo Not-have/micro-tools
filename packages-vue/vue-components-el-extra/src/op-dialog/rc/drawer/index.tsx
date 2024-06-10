@@ -2,12 +2,13 @@ import {
   defineComponent,
   unref,
   VNode,
-  reactive
+  reactive,
+  ref
 } from "vue";
 import {
   ElDrawer
 } from "element-plus";
-import "../../style/drawer.css";
+import "./drawer.css";
 
 import {
   defaultValues
@@ -39,6 +40,8 @@ export default defineComponent({
       value: fieldsValue
     });
 
+    const contentRef = ref();
+
     const dispatch = (arg: TModelAction): void => {
 
       // @ts-ignore
@@ -51,6 +54,7 @@ export default defineComponent({
         fieldsValue
       },
       state,
+      contentRef,
       dispatch
     });
     const direction = drawerDirection(type);

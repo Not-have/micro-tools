@@ -1,6 +1,11 @@
 <script lang="ts" setup>
 import {
-  ElCard
+  reactive
+} from "vue";
+import {
+  ElForm,
+  ElFormItem,
+  ElInput
 } from "element-plus";
 
 import {
@@ -8,25 +13,36 @@ import {
 } from "../../../src/op-dialog";
 
 const {
-  getValues
+  ref
 } = useFields();
 
-const handleClick =(): void => {
-  // eslint-disable-next-line no-console
-  console.log(getValues());
-};
+const numberValidateForm = reactive({
+  age: ""
+});
 
 </script>
 
 <template>
-  <ElCard style="max-width: 480px">
-    <template #header>
-      Yummy hamburger
-    </template>
-    <img
-      src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
-      style="width: 100%"
-      @click="handleClick"
-    />
-  </ElCard>
+  <ElForm
+    ref="ref"
+    style="max-width: 600px"
+    :model="numberValidateForm"
+    label-width="auto"
+    class="demo-ruleForm"
+  >
+    <ElFormItem
+      label="age"
+      prop="age"
+      :rules="[
+        { required: true, message: 'age is required' },
+        { type: 'number', message: 'age must be a number' },
+      ]"
+    >
+      <ElInput
+        v-model.number="numberValidateForm.age"
+        type="text"
+        autocomplete="off"
+      />
+    </ElFormItem>
+  </ElForm>
 </template>

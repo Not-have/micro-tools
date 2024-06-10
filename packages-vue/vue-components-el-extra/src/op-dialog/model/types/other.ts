@@ -1,4 +1,11 @@
 import {
+  Ref
+} from "vue";
+import {
+  FormInstance
+} from "element-plus";
+
+import {
   IModelProps
 } from "./props";
 import {
@@ -10,4 +17,5 @@ export interface IFooter extends Pick<IModelProps, "isSubmit" | "disabled" | "ok
 export interface IFields {
   setValues: (payload: IModelState["value"]) => void;
   getValues: () => IModelState["value"];
+  ref: Ref<HTMLElement | FormInstance>
 }

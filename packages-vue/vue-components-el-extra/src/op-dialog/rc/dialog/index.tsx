@@ -2,12 +2,14 @@ import {
   VNode,
   defineComponent,
   unref,
-  reactive
+  reactive,
+  ref
 } from "vue";
 import {
   ElDialog
 } from "element-plus";
 
+import "./dialog.css";
 import {
   defaultValues
 } from "../../const";
@@ -33,6 +35,8 @@ export default defineComponent({
       value: fieldsValue
     });
 
+    const contentRef = ref();
+
     const dispatch = (arg: TModelAction): void => {
 
       // @ts-ignore
@@ -45,6 +49,7 @@ export default defineComponent({
         fieldsValue
       },
       state,
+      contentRef,
       dispatch
     });
 

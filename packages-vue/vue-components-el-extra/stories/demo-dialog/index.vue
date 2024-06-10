@@ -21,17 +21,21 @@ import {
   submit
 } from "./utils";
 import {
-  ref
+  ref,
+  h
 } from "vue";
 
 const el = ref(null);
 
 const handleClick = (): void => {
   opDialog({
-    content: <Content ref={el} />,
-    type: DialogType.CENTER,
-    submit,
+    content: h(Content, {
+      contentRef: el
+    }),
+    type: DialogType.LEFT,
+    submit: value => submit(value),
     fieldsValue: "success",
+    disabled: false,
     title: "新增"
   }).catch(res => {
 

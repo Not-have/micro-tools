@@ -1,5 +1,6 @@
 import {
-  isEqual as _isEqual
+  isEqual as _isEqual,
+  isUndefined as _isUndefined
 } from "lodash-es";
 import {
   Ref,
@@ -18,8 +19,8 @@ export default function useDisabled(): Ref<boolean> {
     disabled
   } = useFooter();
 
-  if(disabled) {
-    _disabled.value = false;
+  if(!_isUndefined(disabled)) {
+    _disabled.value = disabled;
 
     return _disabled;
   }
