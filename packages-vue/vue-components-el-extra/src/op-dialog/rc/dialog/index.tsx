@@ -54,7 +54,7 @@ export default defineComponent({
     });
 
     return (): VNode => <>
-      <ElDialog modelValue={unref(state.modelValue)} destroyOnClose={true} closeOnClickModal={false} lock-scroll>
+      <ElDialog modelValue={unref(state.modelValue)} destroyOnClose={true} closeOnClickModal={false} lockScroll={true}>
         {{
           default: () => (slots.default && slots.default()),
           header: () => (slots.title && slots.title()),
