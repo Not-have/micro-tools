@@ -17,5 +17,9 @@ export interface IFooter extends Pick<IModelProps, "isSubmit" | "disabled" | "ok
 export interface IFields {
   setValues: (payload: IModelState["value"]) => void;
   getValues: () => IModelState["value"];
-  ref: Ref<HTMLElement | FormInstance>
+  ref: Ref<HTMLElement | FormInstance>;
+
+  /**
+   * 增加一个自定义
+   */
 }
