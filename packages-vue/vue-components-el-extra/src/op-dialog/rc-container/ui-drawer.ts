@@ -28,7 +28,11 @@ export default function drawer<T, D>({
 
   const app = createApp({
     render() {
-      return h(Drawer, rest, {
+      return h(Drawer, {
+
+        // @ts-ignore
+        params: rest
+      }, {
         default: content,
         title,
         footer: isObject(footer) ? h(footer) : footer

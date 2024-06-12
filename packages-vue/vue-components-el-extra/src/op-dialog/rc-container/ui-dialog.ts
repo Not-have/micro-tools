@@ -28,8 +28,12 @@ export default function uiDialog<T, D>({
 
   const app = createApp({
     render() {
-      return h(Dialog, rest, {
-        default: content,
+      return h(Dialog, {
+
+        // @ts-ignore
+        params: rest
+      }, {
+        default: isObject(content) ? h(content) : content,
         title: isObject(title) ? h(title) : title,
         footer: isObject(footer) ? h(footer) : footer
       });

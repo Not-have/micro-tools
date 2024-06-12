@@ -18,16 +18,12 @@ import Content from "./content/index.vue";
 import {
   submit
 } from "./utils";
-import {
-  h
-} from "vue";
 
 const handleClick = (): void => {
   opDialog({
-    content: h(Content),
+    content: <Content />,
     submit: value => submit(value),
     fieldsValue: "success",
-    disabled: false,
     title: "新增"
   }).catch(res => {
 

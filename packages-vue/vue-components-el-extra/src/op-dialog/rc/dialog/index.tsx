@@ -4,8 +4,7 @@ import {
   unref,
   reactive,
   ref,
-  PropType,
-  h
+  PropType
 } from "vue";
 import {
   ElDialog
@@ -13,20 +12,16 @@ import {
 
 import "./dialog.css";
 import provider, {
-  TModelAction
+  TModelAction,
+  IModelProps
 } from "../../model";
 
 import Footer from "../footer";
-import {
-  IPropsExtend
-} from "../../type";
-
-interface IDefaultValues extends IPropsExtend<Record<string, unknown>, unknown> {}
 
 export default defineComponent({
   props: {
     params: {
-      type: Object as PropType<IDefaultValues>,
+      type: Object as PropType<IModelProps>,
       required: true,
 
       // TODO 多少给个默认值
@@ -40,7 +35,6 @@ export default defineComponent({
   }, {
     slots
   }) {
-
     const state = reactive({
       modelValue: true,
       isEqual: true,
@@ -66,7 +60,7 @@ export default defineComponent({
     return (): VNode => <>
       <ElDialog modelValue={unref(state.modelValue)} destroyOnClose={true} closeOnClickModal={false} lockScroll={true}>
         {{
-          default: () => h(params?.content),
+          default: () => (slots.default && slots.default()),
           header: () => (slots.title && slots.title()),
           footer: () => (slots?.footer ? slots.footer() : <Footer /> )
         }}

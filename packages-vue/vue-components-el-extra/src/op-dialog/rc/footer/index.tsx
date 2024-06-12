@@ -10,8 +10,7 @@ import {
 import {
   useFooter,
   useSubmit,
-  useDispatchModelValue,
-  useModelState
+  useDispatchModelValue
 } from "../../model";
 
 export default defineComponent({
@@ -23,8 +22,6 @@ export default defineComponent({
     } = useFooter();
 
     const submit = useSubmit();
-
-    const state = useModelState();
 
     const {
       label: okLabel,
@@ -39,7 +36,7 @@ export default defineComponent({
     } = cancel;
 
     const handleOkClick = (): void => {
-      submit(state.value);
+      submit();
       okClick?.();
     };
 
@@ -52,7 +49,7 @@ export default defineComponent({
 
     return (): VNode => (
       <div>
-        {!isSubmit ? <ElButton {...okRest} onClick={handleOkClick}>{okLabel}</ElButton> : null}
+        {isSubmit ? <ElButton {...okRest} onClick={handleOkClick}>{okLabel}</ElButton> : null}
         <ElButton {...cancelRest} onClick={handleCancelClick}>{cancelLabel}</ElButton>
       </div>
     );
