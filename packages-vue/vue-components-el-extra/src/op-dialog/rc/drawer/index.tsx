@@ -1,4 +1,5 @@
 import {
+  PropType,
   defineComponent,
   unref,
   VNode,
@@ -11,36 +12,45 @@ import {
 import "./drawer.css";
 
 import {
-  defaultValues
-} from "../../const";
-import {
   drawerDirection
 } from "../../utils";
 
 import provider, {
-  IModelProps,
   TModelAction
 } from "../../model";
 
 import Footer from "../footer";
+import {
+  IPropsExtend
+} from "../../type";
+
+interface IDefaultValues extends IPropsExtend<Record<string, unknown>, unknown> {}
 
 export default defineComponent({
-  props: defaultValues,
+  props: {
+    params: {
+      type: Object as PropType<IDefaultValues>,
+      required: true,
+
+      // TODO 多少给个默认值
+      default: () => ({
+        fieldsValue: {}
+      })
+    }
+  },
   setup({
-    type,
-    fieldsValue,
-    ...rest
-  }: IModelProps, {
+    params
+  }, {
     slots
   }) {
     const state = reactive({
       modelValue: true,
       isEqual: true,
       loading: false,
-      value: fieldsValue
+      value: params.fieldsValue
     });
 
-    const contentRef = ref();
+    const contentRef = ref(null);
 
     const dispatch = (arg: TModelAction): void => {
 
@@ -49,15 +59,12 @@ export default defineComponent({
     };
 
     provider({
-      props: {
-        ...rest,
-        fieldsValue
-      },
+      props: params,
       state,
       contentRef,
       dispatch
     });
-    const direction = drawerDirection(type);
+    const direction = drawerDirection(params.type);
 
     return (): VNode => <>
       <ElDrawer modelValue={unref(state.modelValue)} direction={direction} destroyOnClose={true} closeOnClickModal={false}>

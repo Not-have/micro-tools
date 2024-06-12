@@ -3,7 +3,8 @@ import {
   UnwrapNestedRefs
 } from "vue";
 import {
-  FormInstance
+  FormInstance,
+  ElForm
 } from "element-plus";
 
 import {
@@ -20,6 +21,6 @@ import {
 export interface IModelValue {
   props: IModelProps;
   state: UnwrapNestedRefs<IModelState>;
-  contentRef: Ref<FormInstance>
+  contentRef: Ref<null | InstanceType<typeof ElForm> | FormInstance>
   dispatch: TModelDispatch;
 }

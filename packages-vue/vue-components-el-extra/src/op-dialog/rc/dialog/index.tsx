@@ -3,39 +3,52 @@ import {
   defineComponent,
   unref,
   reactive,
-  ref
+  ref,
+  PropType,
+  h
 } from "vue";
 import {
   ElDialog
 } from "element-plus";
 
 import "./dialog.css";
-import {
-  defaultValues
-} from "../../const";
 import provider, {
-  IModelProps,
   TModelAction
 } from "../../model";
 
 import Footer from "../footer";
+import {
+  IPropsExtend
+} from "../../type";
+
+interface IDefaultValues extends IPropsExtend<Record<string, unknown>, unknown> {}
 
 export default defineComponent({
-  props: defaultValues,
+  props: {
+    params: {
+      type: Object as PropType<IDefaultValues>,
+      required: true,
+
+      // TODO 多少给个默认值
+      default: () => ({
+        fieldsValue: {}
+      })
+    }
+  },
   setup({
-    fieldsValue,
-    ...rest
-  }: IModelProps, {
+    params
+  }, {
     slots
   }) {
+
     const state = reactive({
       modelValue: true,
       isEqual: true,
       loading: false,
-      value: fieldsValue
+      value: params?.fieldsValue
     });
 
-    const contentRef = ref();
+    const contentRef = ref(null);
 
     const dispatch = (arg: TModelAction): void => {
 
@@ -44,10 +57,7 @@ export default defineComponent({
     };
 
     provider({
-      props: {
-        ...rest,
-        fieldsValue
-      },
+      props: params,
       state,
       contentRef,
       dispatch
@@ -56,7 +66,7 @@ export default defineComponent({
     return (): VNode => <>
       <ElDialog modelValue={unref(state.modelValue)} destroyOnClose={true} closeOnClickModal={false} lockScroll={true}>
         {{
-          default: () => (slots.default && slots.default()),
+          default: () => h(params?.content),
           header: () => (slots.title && slots.title()),
           footer: () => (slots?.footer ? slots.footer() : <Footer /> )
         }}

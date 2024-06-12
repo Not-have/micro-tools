@@ -10,7 +10,7 @@ import {
 } from "../types";
 
 import useModelProps from "./_use-model-props";
-import useFieldsValue from "./use-fields-value";
+import useFieldsValue from "./use-props-fields-value";
 import useDispatchLoading from "./use-dispatch-loading";
 import useDispatchModelValue from "./use-dispatch-modelValue";
 import usePropsHandleSuccess from "./use-props-handle-success";
@@ -41,9 +41,10 @@ export default function useSubmit(): (value: IModelProps["fieldsValue"]) => Prom
     try {
 
       // @ts-ignore
-      return await _submit?.(value, fieldsValue).then(res => {
+      return await _submit?.(value, fieldsValue, ref).then(res => {
         dispatchLoading(false);
         dispatchModelValue(false);
+
         propsHandleSuccess(res);
       }).
           catch((err: unknown) => {
@@ -59,11 +60,14 @@ export default function useSubmit(): (value: IModelProps["fieldsValue"]) => Prom
   return async value => {
     let sub;
 
-    if(!_isNull(unref(ref))) {
+    if(!_isNull(unref(ref)) && unref(ref)?.validate) {
+
       const validate = await unref(ref)?.validate();
 
       if (validate) {
         sub = await submit(value);
+
+        return sub;
       }
     }
 

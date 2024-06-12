@@ -28,8 +28,7 @@ export default function drawer<T, D>({
 
   const app = createApp({
     render() {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      return h(Drawer, rest as any, {
+      return h(Drawer, rest, {
         default: content,
         title,
         footer: isObject(footer) ? h(footer) : footer

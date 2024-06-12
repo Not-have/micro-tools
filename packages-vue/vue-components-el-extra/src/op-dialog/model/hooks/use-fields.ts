@@ -1,6 +1,10 @@
 import {
   isObject as _isObject
 } from "lodash-es";
+import {
+  FormInstance,
+  ElForm
+} from "element-plus";
 
 import {
   IModelState,
@@ -19,8 +23,6 @@ export default function useFields(): IFields {
 
   function setValues(payload: IModelState["value"]): void{
     if(_isObject(payload)) {
-
-      // eslint-disable-next-line no-param-reassign
       payload = Object.assign(modelState.value || {}, payload);
     }
 
@@ -31,9 +33,14 @@ export default function useFields(): IFields {
     return modelState.value;
   }
 
+  function setRef(el: InstanceType<typeof ElForm> | FormInstance): void {
+    ref.value = el;
+  }
+
   return {
     setValues,
     getValues,
-    ref
+    ref,
+    setRef
   };
 }

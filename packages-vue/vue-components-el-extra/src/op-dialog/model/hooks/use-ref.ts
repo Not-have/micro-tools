@@ -1,8 +1,12 @@
-import useModelContentRef from "./_use-model-content-ref";
+import useModelContext from "./_use-model-context";
 import {
   IModelValue
 } from "../types";
 
 export default function useRef(): IModelValue["contentRef"] {
-  return useModelContentRef();
+  const {
+    contentRef
+  } = useModelContext();
+
+  return contentRef;
 }

@@ -1,6 +1,5 @@
 import {
-  isEqual as _isEqual,
-  isUndefined as _isUndefined
+  isEqual as _isEqual
 } from "lodash-es";
 import {
   Ref,
@@ -9,21 +8,10 @@ import {
 } from "vue";
 
 import useModelProps from "./_use-model-props";
-import useFooter from "./use-footer";
 import useModelState from "./use-model-state";
 
 export default function useDisabled(): Ref<boolean> {
   const _disabled = ref(false);
-
-  const {
-    disabled
-  } = useFooter();
-
-  if(!_isUndefined(disabled)) {
-    _disabled.value = disabled;
-
-    return _disabled;
-  }
 
   const {
     fieldsValue
@@ -31,6 +19,7 @@ export default function useDisabled(): Ref<boolean> {
 
   const modelState = useModelState();
 
+  // 在这处理忽略字段
   watch(modelState, () => {
     if(_isEqual(fieldsValue, modelState.value)) {
       _disabled.value = true;

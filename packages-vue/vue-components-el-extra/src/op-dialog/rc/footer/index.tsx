@@ -1,6 +1,5 @@
 import {
   defineComponent,
-  unref,
   VNode
 } from "vue";
 
@@ -9,49 +8,52 @@ import {
 } from "element-plus";
 
 import {
-  OK,
-  CANCEL
-} from "../../../intl";
-
-import {
   useFooter,
   useSubmit,
   useDispatchModelValue,
-  useModelState,
-  useDisabled
+  useModelState
 } from "../../model";
 
 export default defineComponent({
   setup() {
     const {
       isSubmit,
-      okText,
-      okType,
-      cancelText,
-      cancelType
+      ok,
+      cancel
     } = useFooter();
 
     const submit = useSubmit();
 
-    const disabled = useDisabled();
-
     const state = useModelState();
+
+    const {
+      label: okLabel,
+      click: okClick,
+      ...okRest
+    } = ok;
+
+    const {
+      label: cancelLabel,
+      click: cancelClick,
+      ...cancelRest
+    } = cancel;
 
     const handleOkClick = (): void => {
       submit(state.value);
+      okClick?.();
     };
 
     const dispatchModelValue = useDispatchModelValue();
 
     const handleCancelClick = (): void => {
-
       dispatchModelValue(false);
+      cancelClick?.();
     };
 
     return (): VNode => (
       <div>
-        {!isSubmit ? <ElButton type={okType ?? "primary"} loading={state.loading} disabled={unref(disabled)} onClick={handleOkClick}>{okText || OK}</ElButton> : null}
-        <ElButton type={cancelType} onClick={handleCancelClick}>{cancelText || CANCEL}</ElButton>
+        {!isSubmit ? <ElButton {...okRest} onClick={handleOkClick}>{okLabel}</ElButton> : null}
+        <ElButton {...cancelRest} onClick={handleCancelClick}>{cancelLabel}</ElButton>
       </div>
     );
   }

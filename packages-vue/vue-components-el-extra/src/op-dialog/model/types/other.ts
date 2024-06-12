@@ -1,9 +1,11 @@
 import {
-  Ref
-} from "vue";
-import {
-  FormInstance
+  FormInstance,
+  ElForm
 } from "element-plus";
+
+import {
+  IButtonProps
+} from "../../type";
 
 import {
   IModelProps
@@ -11,15 +13,22 @@ import {
 import {
   IModelState
 } from "./state";
+import {
+  IModelValue
+} from "./context";
 
-export interface IFooter extends Pick<IModelProps, "isSubmit" | "disabled" | "okText" | "okType" | "cancelText" | "cancelType">{}
+export interface IFooter extends Pick<IModelProps, "isSubmit">{
+  ok: IButtonProps;
+  cancel: IButtonProps;
+}
 
 export interface IFields {
   setValues: (payload: IModelState["value"]) => void;
   getValues: () => IModelState["value"];
-  ref: Ref<HTMLElement | FormInstance>;
+  ref: IModelValue["contentRef"];
 
   /**
    * 增加一个自定义
    */
+  setRef: (el: InstanceType<typeof ElForm> | FormInstance) => void;
 }

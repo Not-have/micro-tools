@@ -10,9 +10,16 @@ import {
 import {
   EType
 } from "../enum";
+import {
+  TExtra
+} from "./common";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export interface IProps<T> {
+export interface IButtonProps extends Partial<ButtonProps> {
+  label?: string;
+  click?: Function
+}
+
+export interface IProps<T = TExtra> {
 
   /**
    * @todo 记录当前的操作类型
@@ -20,11 +27,6 @@ export interface IProps<T> {
    * 埋点的时候，也许需要
    */
   op?: string,
-
-  /**
-   * 是否显示弹出框的关闭
-   */
-  showClose?: boolean,
 
   /**
    * 标题
@@ -93,6 +95,8 @@ export interface IProps<T> {
    * 是否进行提交操作，默认 false
    *
    * 传入 true 时只显示关闭 - 查看/详情
+   *
+   * @deprecated
    */
   isSubmit?: boolean,
 
@@ -109,44 +113,19 @@ export interface IProps<T> {
   ignoreFields?: (keyof T)[],
 
   /**
-   * 是否禁用 确认 按钮
-   *
-   * true default，当表单未进行改变时，一直显示不可提交
-   *
-   * false 任何时候都可以提交，不检测表单内容
-   *
-   * 注：只有在 isSubmit = false 时，才起作用
-   */
-  disabled?: boolean,
-
-  /**
    * 自定义 opDialog 的脚
    */
   footer?: string | Component | VNode,
 
   /**
-   * 确认按钮文字
+   * 确认按钮
    */
-  okText?: string,
+  ok?: IButtonProps | string,
 
   /**
-   * 确认按钮类型
-   *
-   * 默认 primary
+   * 取消按钮
    */
-  okType?: ButtonProps["type"],
-
-  /**
-   * 取消按钮文字
-   */
-  cancelText?: string,
-
-  /**
-   * 取消 / 查看按钮类型
-   *
-   * 默认 default
-   */
-  cancelType?: ButtonProps["type"],
+  cancel?: IButtonProps | string,
 
   /**
    * 是否支持键盘 esc 关闭
