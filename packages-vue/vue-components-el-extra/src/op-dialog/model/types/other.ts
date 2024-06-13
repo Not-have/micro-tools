@@ -25,10 +25,10 @@ export interface IFooter extends Pick<IModelProps, "isSubmit">{
 export interface IFields {
   setValues: (payload: IModelState["value"]) => void;
   getValues: () => IModelState["value"];
-  ref: IModelValue["contentRef"];
+  contentRef: IModelValue["contentRef"];
 
   /**
    * 增加一个自定义
    */
-  setRef: (el: InstanceType<typeof ElForm> | FormInstance) => void;
+  setContentRef: (el: InstanceType<typeof ElForm> | FormInstance) => void;
 }

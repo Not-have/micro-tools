@@ -37,14 +37,14 @@ export default function useFields(): IFields {
    *
    * @param el unref(elFormRef) 记得使用 unref 包裹一下
    */
-  function setRef(el: InstanceType<typeof ElForm> | FormInstance): void {
+  function setContentRef(el: InstanceType<typeof ElForm> | FormInstance): void {
     ref.value = el;
   }
 
   return {
     setValues,
     getValues,
-    ref,
-    setRef
+    contentRef: ref,
+    setContentRef
   };
 }

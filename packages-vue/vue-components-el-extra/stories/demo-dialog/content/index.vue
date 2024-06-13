@@ -16,7 +16,7 @@ import {
 } from "../../../src/op-dialog";
 
 const {
-  setRef
+  setContentRef
 } = useFields();
 
 const numberValidateForm = reactive({
@@ -26,7 +26,7 @@ const numberValidateForm = reactive({
 const elFormRef = ref();
 
 onMounted(() => {
-  setRef(unref(elFormRef));
+  setContentRef(unref(elFormRef));
 });
 
 </script>
