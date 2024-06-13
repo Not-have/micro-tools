@@ -8,7 +8,8 @@ import {
 import {
   ElForm,
   ElFormItem,
-  ElInput
+  ElInput,
+  ElCard
 } from "element-plus";
 
 import {
@@ -53,5 +54,25 @@ onMounted(() => {
         autocomplete="off"
       />
     </ElFormItem>
+
+    <ElCard style="max-width: 480px">
+      <template #header>
+        Yummy hamburger
+      </template>
+      <img
+        src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
+        style="width: 100%"
+      />
+    </ElCard>
+
+    <ElCard style="max-width: 480px">
+      <template #header>
+        Yummy hamburger
+      </template>
+      <img
+        src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
+        style="width: 100%"
+      />
+    </ElCard>
   </ElForm>
 </template>
