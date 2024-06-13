@@ -1,6 +1,6 @@
 {
   "name": "micro-element-plus-extra",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "description": "Element plus extra",
   "module": "./dist/es/index.js",
   "types": "./dist/types/index.d.ts",
@@ -18,8 +18,12 @@
     "element-plus-extra"
   ],
   "files": [
+    ".storybook",
     "dist",
-    "stories"
+    "stories",
+    "README.md",
+    "tsconfig.json",
+    "vite.config.ts"
   ],
   "repository": {
     "type": "git",
