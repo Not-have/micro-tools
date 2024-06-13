@@ -1,6 +1,7 @@
 import {
   defineComponent,
-  VNode
+  VNode,
+  unref
 } from "vue";
 
 import {
@@ -10,6 +11,7 @@ import {
 import {
   useFooter,
   useSubmit,
+  useModelState,
   useDispatchModelValue
 } from "../../model";
 
@@ -47,10 +49,14 @@ export default defineComponent({
       cancelClick?.();
     };
 
+    const state = useModelState();
+
     return (): VNode => (
       <div>
-        {isSubmit ? <ElButton {...okRest} onClick={handleOkClick}>{okLabel}</ElButton> : null}
-        <ElButton {...cancelRest} onClick={handleCancelClick}>{cancelLabel}</ElButton>
+        {isSubmit ? <ElButton loading={unref(state.loading)} {...{
+          ...okRest
+        }} onClick={handleOkClick}>{okLabel}</ElButton> : null}
+        <ElButton disabled={unref(state.loading)} {...cancelRest} onClick={handleCancelClick}>{cancelLabel}</ElButton>
       </div>
     );
   }

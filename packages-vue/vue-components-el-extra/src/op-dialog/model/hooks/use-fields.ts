@@ -33,6 +33,10 @@ export default function useFields(): IFields {
     return modelState.value;
   }
 
+  /**
+   *
+   * @param el unref(elFormRef) 记得使用 unref 包裹一下
+   */
   function setRef(el: InstanceType<typeof ElForm> | FormInstance): void {
     ref.value = el;
   }

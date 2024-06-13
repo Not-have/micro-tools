@@ -1,6 +1,9 @@
 <script lang="ts" setup>
 import {
-  reactive
+  reactive,
+  onMounted,
+  ref,
+  unref
 } from "vue";
 import {
   ElForm,
@@ -13,18 +16,24 @@ import {
 } from "../../../src/op-dialog";
 
 const {
-  ref
+  setRef
 } = useFields();
 
 const numberValidateForm = reactive({
   age: ""
 });
 
+const elFormRef = ref();
+
+onMounted(() => {
+  setRef(unref(elFormRef));
+});
+
 </script>
 
 <template>
   <ElForm
-    ref="ref"
+    ref="elFormRef"
     style="max-width: 600px"
     :model="numberValidateForm"
     label-width="auto"
