@@ -7,6 +7,7 @@ import {
 } from "element-plus";
 
 import {
+  IModelProps,
   IModelState,
   IFields
 } from "../types";
@@ -23,14 +24,27 @@ export default function useFields(): IFields {
 
   function setValues(payload: IModelState["value"]): void{
     if(_isObject(payload)) {
+
+      // eslint-disable-next-line no-param-reassign
       payload = Object.assign(modelState.value || {}, payload);
     }
 
     dispatchValue(payload);
   }
 
+  function setValue(key: keyof IModelProps["fieldsValue"] | string, value: unknown ): void {
+    dispatchValue({
+      ...modelState.value,
+      [key]: value
+    });
+  }
+
   function getValues(): IModelState["value"] {
     return modelState.value;
+  }
+
+  function getValue(key: keyof IModelProps["fieldsValue"] | string): unknown {
+    return modelState.value?.[key];
   }
 
   /**
@@ -45,6 +59,8 @@ export default function useFields(): IFields {
     setValues,
     getValues,
     contentRef: ref,
-    setContentRef
+    setContentRef,
+    setValue,
+    getValue
   };
 }

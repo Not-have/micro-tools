@@ -1,10 +1,12 @@
 import {
-  isEqual as _isEqual
+  isEqual as _isEqual,
+  omit as _omit
 } from "lodash-es";
 import {
   Ref,
   watch,
-  ref
+  ref,
+  unref
 } from "vue";
 
 import useModelProps from "./_use-model-props";
@@ -14,14 +16,19 @@ export default function useDisabled(): Ref<boolean> {
   const _disabled = ref(false);
 
   const {
-    fieldsValue
+    fieldsValue,
+    ignoreFields
   } = useModelProps();
 
   const modelState = useModelState();
 
+  const _fieldsValue = _omit(fieldsValue, ignoreFields || "");
+
   // 在这处理忽略字段
   watch(modelState, () => {
-    if(_isEqual(fieldsValue, modelState.value)) {
+    const _modelState = _omit(unref(modelState.value), ignoreFields || "");
+
+    if(_isEqual(_fieldsValue, _modelState)) {
       _disabled.value = true;
     }else {
       _disabled.value = false;

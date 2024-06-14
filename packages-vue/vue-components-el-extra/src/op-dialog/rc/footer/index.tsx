@@ -12,6 +12,7 @@ import {
   useFooter,
   useSubmit,
   useModelState,
+  useDisabled,
   useDispatchModelValue
 } from "../../model";
 
@@ -51,9 +52,11 @@ export default defineComponent({
 
     const state = useModelState();
 
+    const disabled = useDisabled();
+
     return (): VNode => (
       <div>
-        {isSubmit ? <ElButton loading={unref(state.loading)} {...{
+        {isSubmit ? <ElButton loading={unref(state.loading)} disabled={unref(disabled)} {...{
           ...okRest
         }} onClick={handleOkClick}>{okLabel}</ElButton> : null}
         <ElButton disabled={unref(state.loading)} {...cancelRest} onClick={handleCancelClick}>{cancelLabel}</ElButton>

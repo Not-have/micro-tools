@@ -12,7 +12,8 @@ import {
   ElButton
 } from "element-plus";
 import {
-  opDialog
+  opDialog,
+  DialogType
 } from "../../src";
 import Content from "./content/index.vue";
 import {
@@ -23,8 +24,14 @@ const handleClick = (): void => {
   opDialog({
     content: <Content />,
     submit: value => submit(value),
-    fieldsValue: "success",
-    title: "新增"
+    fieldsValue: {
+      age: 11,
+      name: "李勇",
+      sex: "男"
+    },
+    ignoreFields: ["name", "sex"],
+    title: "新增",
+    type: DialogType.LEFT
   }).catch(res => {
 
     // eslint-disable-next-line no-console

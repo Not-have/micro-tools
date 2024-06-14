@@ -31,4 +31,7 @@ export interface IFields {
    * 增加一个自定义
    */
   setContentRef: (el: InstanceType<typeof ElForm> | FormInstance) => void;
+
+  setValue: (key: keyof IModelProps["fieldsValue"] | string, value: unknown) => void;
+  getValue: (key: keyof IModelProps["fieldsValue"] | string) => void;
 }
