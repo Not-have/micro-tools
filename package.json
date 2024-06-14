@@ -81,6 +81,7 @@
     "lint:eslint": "eslint ./packages-**/**/*.{tsx,vue,ts,js} --ext js,ts,tsx --fix",
     "lint:style": "stylelint ./packages-**/**/*.{tsx,css,vue}",
     "lint:md": "markdownlint-cli2 ./packages-**/**/*.md",
+    "lint:ts": "pnpm vue-tsc --noEmit --skipLibCheck",
     "prepare": "husky install",
     "test": "pnpm --filter \"./packages-**/**\" clear"
   }

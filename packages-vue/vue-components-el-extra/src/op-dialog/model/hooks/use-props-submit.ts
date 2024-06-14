@@ -6,17 +6,17 @@ import {
 } from "lodash-es";
 
 import useModelProps from "./_use-model-props";
-import useFieldsValue from "./use-props-fields-value";
+import usePropsDefaultFieldsValue from "./use-props-default-fields-value";
 import useDispatchLoading from "./use-dispatch-loading";
 import useDispatchModelValue from "./use-dispatch-modelValue";
 import usePropsHandleSuccess from "./use-props-handle-success";
 import usePropsHandleError from "./use-props-handle-error";
-
 import useModelState from "./use-model-state";
-import useRef from "./use-ref";
+import useContentRef from "./use-content-ref";
+import useParentRef from "./use-parent-ref";
 
 export default function useSubmit(): () => Promise<void> {
-  const fieldsValue = useFieldsValue();
+  const propsDefaultFieldsValue = usePropsDefaultFieldsValue();
 
   const {
     submit: _submit
@@ -34,16 +34,16 @@ export default function useSubmit(): () => Promise<void> {
     value
   } = useModelState();
 
-  const ref = useRef();
+  const contentRef = useContentRef();
+
+  const parentRef = useParentRef();
 
   async function submit(): Promise<void>{
 
     await dispatchLoading(true);
 
     try {
-
-      // @ts-ignore
-      return await _submit?.(value, fieldsValue, ref).then(res => {
+      return await _submit?.(value || {}, propsDefaultFieldsValue || {}, unref(parentRef), unref(parentRef)).then(res => {
         dispatchLoading(false);
         dispatchModelValue(false);
 
@@ -61,8 +61,8 @@ export default function useSubmit(): () => Promise<void> {
 
   return async () => {
     try {
-      if(!_isNull(unref(ref)) && unref(ref)?.validate) {
-        const validate = await unref(ref)?.validate();
+      if(!_isNull(unref(contentRef)) && unref(contentRef)?.validate) {
+        const validate = await unref(contentRef)?.validate();
 
         if (validate) {
           await submit();

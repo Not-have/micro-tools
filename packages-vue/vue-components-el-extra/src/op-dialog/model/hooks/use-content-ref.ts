@@ -3,7 +3,7 @@ import {
   IModelValue
 } from "../types";
 
-export default function useRef(): IModelValue["contentRef"] {
+export default function useContentRef(): IModelValue["contentRef"] {
   const {
     contentRef
   } = useModelContext();

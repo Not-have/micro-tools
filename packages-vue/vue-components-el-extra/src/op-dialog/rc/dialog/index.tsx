@@ -42,7 +42,9 @@ export default defineComponent({
       value: params?.fieldsValue
     });
 
-    const contentRef = ref(null);
+    const contentRef = ref();
+
+    const parentRef = ref();
 
     const dispatch = (arg: TModelAction): void => {
 
@@ -54,6 +56,7 @@ export default defineComponent({
       props: params,
       state,
       contentRef,
+      parentRef,
       dispatch
     });
 

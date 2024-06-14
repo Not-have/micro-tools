@@ -11,16 +11,19 @@ import {
   IModelState,
   IFields
 } from "../types";
+
 import useModelState from "./use-model-state";
 import useDispatchValue from "./use-dispatch-value";
-import useRef from "./use-ref";
+import useContentRef from "./use-content-ref";
+import useDispatchContentRef from "./use-dispatch-content-ref";
+import useParentRef from "./use-parent-ref";
+import useDispatchParentRef from "./use-dispatch-parent-ref";
+import usePropsDefaultFieldsValue from "./use-props-default-fields-value";
 
 export default function useFields(): IFields {
   const modelState = useModelState();
 
   const dispatchValue = useDispatchValue();
-
-  const ref = useRef();
 
   function setValues(payload: IModelState["value"]): void{
     if(_isObject(payload)) {
@@ -47,20 +50,40 @@ export default function useFields(): IFields {
     return modelState.value?.[key];
   }
 
+  const contentRef = useContentRef();
+
+  const dispatchContentRef = useDispatchContentRef();
+
+  const parentRef = useParentRef();
+
+  const dispatchParentRef = useDispatchParentRef();
+
   /**
    *
    * @param el unref(elFormRef) 记得使用 unref 包裹一下
    */
-  function setContentRef(el: InstanceType<typeof ElForm> | FormInstance): void {
-    ref.value = el;
+  function setContentRef(el: InstanceType<typeof ElForm> | FormInstance, parentRef?: InstanceType<typeof ElForm> | FormInstance): void {
+    dispatchContentRef(el);
+
+    if(parentRef) {
+      dispatchParentRef(parentRef);
+    }
+  }
+
+  const propsDefaultFieldsValue = usePropsDefaultFieldsValue();
+
+  function reset(): void {
+    dispatchValue(propsDefaultFieldsValue);
   }
 
   return {
     setValues,
     getValues,
-    contentRef: ref,
+    contentRef,
+    parentRef,
     setContentRef,
     setValue,
-    getValue
+    getValue,
+    reset
   };
 }

@@ -4,7 +4,9 @@ import {
 } from "vue";
 
 import {
-  ButtonProps
+  FormInstance,
+  ButtonProps,
+  ElForm
 } from "element-plus";
 
 import {
@@ -89,7 +91,7 @@ export interface IProps<T = TExtra> {
    * contentEl content 元素
    *
    */
-  submit?: (value: T, defaultValue: T, contentEl?: HTMLElement) => Promise<unknown>,
+  submit?: (value: T, defaultValue: T, contentEl?: HTMLElement | InstanceType<typeof ElForm> | FormInstance, parentRef?: HTMLElement | InstanceType<typeof ElForm> | FormInstance) => Promise<unknown>,
 
   /**
    * 是否进行提交操作，默认 false

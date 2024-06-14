@@ -21,6 +21,7 @@ import {
 export interface IModelValue {
   props: IModelProps;
   state: UnwrapNestedRefs<IModelState>;
-  contentRef: Ref<null | InstanceType<typeof ElForm> | FormInstance>
+  contentRef: Ref<undefined | InstanceType<typeof ElForm> | FormInstance>;
+  parentRef: Ref<undefined | InstanceType<typeof ElForm> | FormInstance>;
   dispatch: TModelDispatch;
 }
