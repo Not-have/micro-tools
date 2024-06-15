@@ -94,9 +94,16 @@ export interface IProps<T = TExtra> {
   submit?: (value: T, defaultValue: T, contentEl?: HTMLElement | InstanceType<typeof ElForm> | FormInstance, parentRef?: HTMLElement | InstanceType<typeof ElForm> | FormInstance) => Promise<unknown>,
 
   /**
-   * 是否进行提交操作，默认 false
+   * 是否禁止提交按钮
    *
-   * 传入 true 时只显示关闭 - 查看/详情
+   * 默认情况下是根据 fieldsValue、ignoreFields 来判断，也可通过这个自定义控制
+   */
+  disabled?: boolean;
+
+  /**
+   * 是否进行提交操作，默认 true
+   *
+   * 传入 false 时只显示关闭 - 查看/详情
    *
    * @deprecated
    */

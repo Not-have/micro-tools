@@ -1,6 +1,7 @@
 import {
   isEqual as _isEqual,
-  omit as _omit
+  omit as _omit,
+  isUndefined as _isUndefined
 } from "lodash-es";
 import {
   Ref,
@@ -17,8 +18,15 @@ export default function useDisabled(): Ref<boolean> {
 
   const {
     fieldsValue,
-    ignoreFields
+    ignoreFields,
+    disabled
   } = useModelProps();
+
+  if(!_isUndefined(disabled)) {
+    _disabled.value = disabled;
+
+    return _disabled;
+  }
 
   const modelState = useModelState();
 

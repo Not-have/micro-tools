@@ -24,6 +24,7 @@ const handleClick = (): void => {
   opDialog({
     content: <Content />,
     submit: value => submit(value),
+    disabled: true,
     fieldsValue: {
       age: 11,
       name: "李勇",
