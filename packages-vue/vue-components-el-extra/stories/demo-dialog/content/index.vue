@@ -34,10 +34,9 @@ onMounted(() => {
 
 const handleClick = (): void => {
   setValues({
-    name: 222
+    age: 222
   });
   setValue("sex", "11");
-
 };
 
 </script>

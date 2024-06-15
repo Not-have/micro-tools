@@ -43,7 +43,7 @@ export default function useSubmit(): () => Promise<void> {
     await dispatchLoading(true);
 
     try {
-      return await _submit?.(value || {}, propsDefaultFieldsValue || {}, unref(parentRef), unref(parentRef)).then(res => {
+      return await _submit?.(value || {}, propsDefaultFieldsValue || {}, unref(contentRef), unref(parentRef)).then(res => {
         dispatchLoading(false);
         dispatchModelValue(false);
 
