@@ -23,11 +23,5 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
-  "editor.tabSize": 2,
-  "terminal.integrated.profiles.windows": {
-    "Git Bash": {
-      "path": "D:\\git\\install\\bin\\bash.exe"
-    }
-  },
-  "terminal.integrated.defaultProfile.windows": "Git Bash"
+  "editor.tabSize": 2
 }
