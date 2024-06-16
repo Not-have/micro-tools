@@ -2,7 +2,7 @@ import {
   unref
 } from "vue";
 import {
-  isNull as _isNull
+  isUndefined as _isUndefined
 } from "lodash-es";
 
 import useModelProps from "./_use-model-props";
@@ -19,7 +19,8 @@ export default function useSubmit(): () => Promise<void> {
   const propsDefaultFieldsValue = usePropsDefaultFieldsValue();
 
   const {
-    submit: _submit
+    submit: _submit,
+    disabled
   } = useModelProps();
 
   const dispatchLoading = useDispatchLoading();
@@ -61,7 +62,7 @@ export default function useSubmit(): () => Promise<void> {
 
   return async () => {
     try {
-      if(!_isNull(unref(contentRef)) && unref(contentRef)?.validate) {
+      if((!_isUndefined(unref(contentRef)) && unref(contentRef)?.validate) && _isUndefined(disabled)) {
         const validate = await unref(contentRef)?.validate();
 
         if (validate) {

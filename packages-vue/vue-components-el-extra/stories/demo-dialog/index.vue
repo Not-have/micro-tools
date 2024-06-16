@@ -29,13 +29,10 @@ const handleClick = (): void => {
       name: "李勇",
       sex: "男"
     },
+    disabled: false,
     ignoreFields: ["name", "sex"],
     title: "新增",
     type: DialogType.LEFT
-  }).catch(res => {
-
-    // eslint-disable-next-line no-console
-    console.log(res);
   });
 };
 
