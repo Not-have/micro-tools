@@ -75,7 +75,7 @@ export default defineComponent({
       <ElDrawer modelValue={unref(state.modelValue)} direction={direction} destroyOnClose={true} closeOnClickModal={false}>
         {{
           default: () => (slots.default && slots.default()),
-          header: () => (slots.title && slots.title()),
+          header: () => <span>{slots.title && slots.title()}</span>,
           footer: () => (slots?.footer ? slots.footer() : <Footer /> )
         }}
       </ElDrawer>

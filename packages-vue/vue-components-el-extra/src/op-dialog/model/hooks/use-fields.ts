@@ -14,6 +14,7 @@ import useDispatchContentRef from "./use-dispatch-content-ref";
 import useParentRef from "./use-parent-ref";
 import useDispatchParentRef from "./use-dispatch-parent-ref";
 import usePropsDefaultFieldsValue from "./use-props-default-fields-value";
+import useDispatchModelValue from "./use-dispatch-model-value";
 
 export default function useFields(): IFields {
 
@@ -64,6 +65,12 @@ export default function useFields(): IFields {
     initModel.value = propsDefaultFieldsValue;
   }
 
+  const dispatchModelValue= useDispatchModelValue();
+
+  function closable(): void {
+    dispatchModelValue();
+  }
+
   return {
     initModel,
     setValues,
@@ -73,6 +80,7 @@ export default function useFields(): IFields {
     setContentRef,
     setValue,
     getValue,
-    reset
+    reset,
+    closable
   };
 }

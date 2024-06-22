@@ -1,6 +1,6 @@
 {
   "name": "micro-element-plus-extra",
-  "version": "1.8.0",
+  "version": "1.8.1",
   "description": "Element plus extra",
   "module": "./dist/es/index.js",
   "types": "./dist/types/index.d.ts",

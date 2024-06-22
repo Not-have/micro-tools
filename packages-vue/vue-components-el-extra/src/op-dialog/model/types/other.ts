@@ -45,4 +45,6 @@ export interface IFields {
   getValue: (key: keyof IModelProps["fieldsValue"] | string) => void;
 
   reset: () => void;
+
+  closable: () => void;
 }

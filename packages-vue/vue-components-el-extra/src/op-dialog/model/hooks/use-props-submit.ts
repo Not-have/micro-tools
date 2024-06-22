@@ -8,7 +8,7 @@ import {
 import useModelProps from "./_use-model-props";
 import usePropsDefaultFieldsValue from "./use-props-default-fields-value";
 import useDispatchLoading from "./use-dispatch-loading";
-import useDispatchModelValue from "./use-dispatch-modelValue";
+import useDispatchModelValue from "./use-dispatch-model-value";
 import usePropsHandleSuccess from "./use-props-handle-success";
 import usePropsHandleError from "./use-props-handle-error";
 import useContentRef from "./use-content-ref";

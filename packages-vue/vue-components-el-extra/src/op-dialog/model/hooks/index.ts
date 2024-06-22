@@ -6,7 +6,7 @@ export { default as usePropsHandleSuccess } from "./use-props-handle-success";
 export { default as usePropsHandleError } from "./use-props-handle-error";
 
 export { default as useDispatchLoading } from "./use-dispatch-loading";
-export { default as useDispatchModelValue } from "./use-dispatch-modelValue";
+export { default as useDispatchModelValue } from "./use-dispatch-model-value";
 
 export { default as useModelState } from "./use-model-state";
 
