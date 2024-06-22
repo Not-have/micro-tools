@@ -10,17 +10,14 @@ import {
   reactive
 } from "vue";
 
-import {
-  Form
-} from "../../src";
-
 const formInline = reactive({
-  user: ""
+  user: "",
+  age: 16
 });
 
 const onSubmit = (): void => {
   // eslint-disable-next-line no-console
-  console.log("submit!");
+  console.log("submit!", formInline);
 };
 </script>
 <template>
@@ -33,10 +30,25 @@ const onSubmit = (): void => {
       <ElFormItem label="Approved by">
         <ElInput
           v-model="formInline.user"
-          placeholder="Approved by"
-          clearable
+          type="text"
+          autocomplete="off"
         />
       </ElFormItem>
+      <ElFormItem
+        label="age"
+        prop="age"
+        :rules="[
+          { required: true, message: 'age is required' },
+          { type: 'number', message: 'age must be a number' },
+        ]"
+      >
+        <ElInput
+          v-model.number="formInline.age"
+          type="text"
+          autocomplete="off"
+        />
+      </ElFormItem>
+
       <ElFormItem>
         <ElButton
           type="primary"
@@ -46,14 +58,6 @@ const onSubmit = (): void => {
         </ElButton>
       </ElFormItem>
     </ElForm>
-    <hr />
-    <Form
-      :model="formInline"
-      size="small"
-      :disabled="false"
-    >
-      22
-    </Form>
   </div>
 </template>
 

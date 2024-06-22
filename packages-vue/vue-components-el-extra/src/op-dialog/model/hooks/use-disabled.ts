@@ -11,7 +11,7 @@ import {
 } from "vue";
 
 import useModelProps from "./_use-model-props";
-import useModelState from "./use-model-state";
+import useInitModel from "./use-init-model";
 
 export default function useDisabled(): Ref<boolean> {
   const _disabled = ref(false);
@@ -28,13 +28,13 @@ export default function useDisabled(): Ref<boolean> {
     return _disabled;
   }
 
-  const modelState = useModelState();
+  const initModel = useInitModel();
 
   const _fieldsValue = _omit(fieldsValue, ignoreFields || "");
 
   // 在这处理忽略字段
-  watch(modelState, () => {
-    const _modelState = _omit(unref(modelState.value), ignoreFields || "");
+  watch(() => initModel.value, () => {
+    const _modelState = _omit(unref(initModel.value), ignoreFields || "");
 
     if(_isEqual(_fieldsValue, _modelState)) {
       _disabled.value = true;
