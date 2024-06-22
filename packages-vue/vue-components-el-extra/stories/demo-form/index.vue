@@ -7,29 +7,42 @@ import {
 } from "element-plus";
 
 import {
-  reactive
+  ref,
+  computed,
+  unref
 } from "vue";
 
-const formInline = reactive({
-  user: "",
-  age: 16
+const formInline = ref<Record<string, unknown>>({});
+
+const model = computed({
+  get: () => unref(formInline),
+  set: newValue => {
+    if (formInline.value) {
+      Object.keys(newValue).forEach(key => {
+        if (!(key in formInline.value)) {
+          formInline.value[key] = newValue[key];
+        }
+      });
+    }
+  }
 });
 
 const onSubmit = (): void => {
   // eslint-disable-next-line no-console
-  console.log("submit!", formInline);
+  console.log("submit!", model.value);
 };
 </script>
+
 <template>
   <div class="demo">
     <ElForm
       :inline="true"
-      :model="formInline"
+      :model="model"
       class="demo-form-inline"
     >
       <ElFormItem label="Approved by">
         <ElInput
-          v-model="formInline.user"
+          v-model="model.user"
           type="text"
           autocomplete="off"
         />
@@ -43,7 +56,7 @@ const onSubmit = (): void => {
         ]"
       >
         <ElInput
-          v-model.number="formInline.age"
+          v-model.number="model.age"
           type="text"
           autocomplete="off"
         />
