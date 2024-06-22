@@ -12,8 +12,7 @@ import {
   ElButton
 } from "element-plus";
 import {
-  opDialog,
-  DialogType
+  opDialog
 } from "../../src";
 import Content from "./content/index.vue";
 import {
@@ -31,8 +30,7 @@ const handleClick = (): void => {
     },
     disabled: false,
     ignoreFields: ["name", "sex"],
-    title: "新增",
-    type: DialogType.LEFT
+    title: "新增"
   });
 };
 

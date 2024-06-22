@@ -46,9 +46,10 @@ export default defineComponent({
     const state = reactive({
       modelValue: true,
       isEqual: true,
-      loading: false,
-      value: params.fieldsValue
+      loading: false
     });
+
+    const initModel = ref(params?.fieldsValue);
 
     const contentRef = ref();
 
@@ -63,6 +64,7 @@ export default defineComponent({
     provider({
       props: params,
       state,
+      initModel,
       contentRef,
       parentRef,
       dispatch

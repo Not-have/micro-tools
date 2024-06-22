@@ -11,9 +11,9 @@ import useDispatchLoading from "./use-dispatch-loading";
 import useDispatchModelValue from "./use-dispatch-modelValue";
 import usePropsHandleSuccess from "./use-props-handle-success";
 import usePropsHandleError from "./use-props-handle-error";
-import useModelState from "./use-model-state";
 import useContentRef from "./use-content-ref";
 import useParentRef from "./use-parent-ref";
+import useInitModel from "./use-init-model";
 
 export default function useSubmit(): () => Promise<void> {
   const propsDefaultFieldsValue = usePropsDefaultFieldsValue();
@@ -31,9 +31,7 @@ export default function useSubmit(): () => Promise<void> {
 
   const propsHandleError = usePropsHandleError();
 
-  const {
-    value
-  } = useModelState();
+  const initModel = useInitModel();
 
   const contentRef = useContentRef();
 
@@ -44,7 +42,7 @@ export default function useSubmit(): () => Promise<void> {
     await dispatchLoading(true);
 
     try {
-      return await _submit?.(value || {}, propsDefaultFieldsValue || {}, unref(contentRef), unref(parentRef)).then(res => {
+      return await _submit?.(initModel.value || {}, propsDefaultFieldsValue || {}, unref(contentRef), unref(parentRef)).then(res => {
         dispatchLoading(false);
         dispatchModelValue(false);
 

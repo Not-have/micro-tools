@@ -11,9 +11,6 @@ import {
   IModelProps
 } from "./props";
 import {
-  IModelState
-} from "./state";
-import {
   IModelValue
 } from "./context";
 
@@ -23,8 +20,9 @@ export interface IFooter extends Pick<IModelProps, "isSubmit">{
 }
 
 export interface IFields {
-  setValues: (payload: IModelState["value"]) => void;
-  getValues: () => IModelState["value"];
+  initModel: IModelValue["initModel"];
+  setValues: (payload: IModelProps["fieldsValue"]) => void;
+  getValues: () => IModelProps["fieldsValue"];
 
   /**
    * 当前 content 实例

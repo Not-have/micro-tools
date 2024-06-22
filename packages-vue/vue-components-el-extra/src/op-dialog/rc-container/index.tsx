@@ -12,7 +12,6 @@ export default function opDialog<T, D>({
   type = EType.CENTER,
   ...rest
 }: IProps<T>): Promise<D> {
-
   return new Promise((resolve, reject) => {
     const handleSuccess = (result: D): void => {
       resolve(result);

@@ -25,7 +25,6 @@ export default function drawer<T, D>({
   const div = document.createElement("div");
 
   document.body.appendChild(div);
-
   const app = createApp({
     render() {
       return h(Drawer, {

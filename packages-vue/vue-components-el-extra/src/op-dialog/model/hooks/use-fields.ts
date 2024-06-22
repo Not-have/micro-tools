@@ -1,19 +1,14 @@
 import {
-  isObject as _isObject
-} from "lodash-es";
-import {
   FormInstance,
   ElForm
 } from "element-plus";
 
 import {
   IModelProps,
-  IModelState,
   IFields
 } from "../types";
 
-import useModelState from "./use-model-state";
-import useDispatchValue from "./use-dispatch-value";
+import useInitModel from "./use-init-model";
 import useContentRef from "./use-content-ref";
 import useDispatchContentRef from "./use-dispatch-content-ref";
 import useParentRef from "./use-parent-ref";
@@ -21,33 +16,26 @@ import useDispatchParentRef from "./use-dispatch-parent-ref";
 import usePropsDefaultFieldsValue from "./use-props-default-fields-value";
 
 export default function useFields(): IFields {
-  const modelState = useModelState();
 
-  const dispatchValue = useDispatchValue();
+  const initModel = useInitModel();
 
-  function setValues(payload: IModelState["value"]): void{
-    if(_isObject(payload)) {
-
-      // eslint-disable-next-line no-param-reassign
-      payload = Object.assign(modelState.value || {}, payload);
-    }
-
-    dispatchValue(payload);
+  function setValues(payload: IModelProps["fieldsValue"]): void{
+    initModel.value = payload;
   }
 
   function setValue(key: keyof IModelProps["fieldsValue"] | string, value: unknown ): void {
-    dispatchValue({
-      ...modelState.value,
+    initModel.value = {
+      ...initModel.value,
       [key]: value
-    });
+    };
   }
 
-  function getValues(): IModelState["value"] {
-    return modelState.value;
+  function getValues(): IModelProps["fieldsValue"] {
+    return initModel.value;
   }
 
   function getValue(key: keyof IModelProps["fieldsValue"] | string): unknown {
-    return modelState.value?.[key];
+    return initModel.value?.[key];
   }
 
   const contentRef = useContentRef();
@@ -73,10 +61,11 @@ export default function useFields(): IFields {
   const propsDefaultFieldsValue = usePropsDefaultFieldsValue();
 
   function reset(): void {
-    dispatchValue(propsDefaultFieldsValue);
+    initModel.value = propsDefaultFieldsValue;
   }
 
   return {
+    initModel,
     setValues,
     getValues,
     contentRef,
