@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import {
-  watch, defineProps, ref
+  watch, defineProps, ref,
+  onMounted
 } from "vue";
 import {
   ElDialog, ElButton
@@ -19,6 +20,12 @@ watch(() => props.visible, newV => {
 const handleClose = (): void => {
   dialogVisible.value = false;
 };
+
+const num = ref(1);
+
+onMounted(() => {
+  num.value = 2;
+});
 </script>
 <template>
   <ElDialog
@@ -27,7 +34,9 @@ const handleClose = (): void => {
     title="批量修改需求"
     :before-close="handleClose"
   >
-    <span>This is a message</span>
+    <span @click="() => num++">
+      This is a message {{ num }}
+    </span>
     <template #footer>
       <div class="dialog-footer">
         <el-button @click="dialogVisible = false">
