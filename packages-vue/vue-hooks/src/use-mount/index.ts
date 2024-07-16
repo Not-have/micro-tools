@@ -1,12 +1,15 @@
 import {
   App,
   Component,
+  Ref,
   createApp,
   h,
-  onUnmounted
+  onUnmounted,
+  isRef
 } from "vue";
 import {
-  isObject
+  isObject,
+  isUndefined
 } from "micro-util-ts";
 
 import {
@@ -17,7 +20,7 @@ import {
 /**
  * 挂载元素到 body
  */
-export default function useMount(): <T extends Component>(
+export default function useMount(rootEl?: string | Ref<HTMLElement>): <T extends Component>(
   type: T | string,
   props?: Partial<TExtractProps<T>>,
   children?: TChildren
@@ -35,7 +38,9 @@ export default function useMount(): <T extends Component>(
   });
 
   return (type, props, children) => {
-    if (typeof type === "string") {
+
+    // TODO 优化插入元素的位置
+    if (typeof type === "string" && !isUndefined(rootEl)) {
       const el = document.createElement(type);
 
       if (isObject(props)) {
@@ -58,9 +63,21 @@ export default function useMount(): <T extends Component>(
         }
       }
 
-      div.appendChild(el);
+      if(isRef(rootEl)) {
+        const root = rootEl.value;
 
-      return div;
+        root.appendChild(el);
+      }else {
+        const root = document.querySelector(rootEl as string);
+
+        if (root) {
+          root.appendChild(el);
+        } else {
+          throw new Error("Element not found!");
+        }
+      }
+
+      return el;
     }
 
     document.body.appendChild(div);
@@ -75,6 +92,5 @@ export default function useMount(): <T extends Component>(
     app.mount(div);
 
     return app;
-
   };
 }

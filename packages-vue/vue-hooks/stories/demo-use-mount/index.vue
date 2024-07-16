@@ -8,12 +8,15 @@ import {
 } from "../../src";
 import Modal from "./modal/index.vue";
 
-const dialogMount = useMount();
+const dialogMount = useMount("#box");
 
 const handleClick = (): void => {
+
   dialogMount(Modal, {
     visible: true
   });
+
+  dialogMount("span", undefined, "22");
 };
 </script>
 
@@ -23,4 +26,5 @@ const handleClick = (): void => {
   <ElButton @click="handleClick">
     弹出框
   </ElButton>
+  <div id="box"></div>
 </template>
