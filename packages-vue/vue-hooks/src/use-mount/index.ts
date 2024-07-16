@@ -24,8 +24,6 @@ export default function useMount(): <T extends Component>(
 ) => App<Element> | HTMLElement {
   const div = document.createElement("div");
 
-  document.body.appendChild(div);
-
   let app: App<Element>;
 
   onUnmounted(() => {
@@ -64,6 +62,8 @@ export default function useMount(): <T extends Component>(
 
       return el;
     }
+
+    document.body.appendChild(div);
 
     // 否则，认为是要渲染的 Vue 组件
     app = createApp({
