@@ -21,13 +21,8 @@ import {
 
 const handleClick = (): void => {
   opDialog({
-    content: <Content />,
+    content: Content,
     submit: value => submit(value),
-    fieldsValue: {
-      age: 11,
-      name: "李勇",
-      sex: "男"
-    },
     ignoreFields: ["name", "sex"],
     title: "新增"
   });
