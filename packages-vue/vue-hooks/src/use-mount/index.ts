@@ -60,7 +60,7 @@ export default function useMount(): <T extends Component>(
 
       div.appendChild(el);
 
-      return el;
+      return div;
     }
 
     document.body.appendChild(div);
