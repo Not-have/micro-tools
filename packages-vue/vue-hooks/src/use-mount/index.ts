@@ -21,7 +21,7 @@ export default function useMount(): <T extends Component>(
   type: T | string,
   props?: Partial<TExtractProps<T>>,
   children?: TChildren
-) => App<Element> | void {
+) => App<Element> | HTMLElement {
   const div = document.createElement("div");
 
   document.body.appendChild(div);
@@ -61,18 +61,20 @@ export default function useMount(): <T extends Component>(
       }
 
       div.appendChild(el);
-    } else {
 
-      // 否则，认为是要渲染的 Vue 组件
-      app = createApp({
-        render() {
-          return h(type, props, children);
-        }
-      });
-
-      app.mount(div);
-
-      return app;
+      return el;
     }
+
+    // 否则，认为是要渲染的 Vue 组件
+    app = createApp({
+      render() {
+        return h(type, props, children);
+      }
+    });
+
+    app.mount(div);
+
+    return app;
+
   };
 }
