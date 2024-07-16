@@ -19,28 +19,47 @@ import {
 
 /**
  * 挂载元素到 body
+ * @param rootEl
+ * @returns
  */
 export default function useMount(rootEl?: string | Ref<HTMLElement>): <T extends Component>(
   type: T | string,
   props?: Partial<TExtractProps<T>>,
   children?: TChildren
 ) => App<Element> | HTMLElement {
-  const div = document.createElement("div");
 
   let app: App<Element>;
+
+  const div: HTMLDivElement = document.createElement("div");
 
   onUnmounted(() => {
     if (app) {
       app.unmount();
     }
 
-    div.remove();
+    if(div) {
+      div.remove();
+    }
   });
 
   return (type, props, children) => {
+    let root: HTMLElement;
 
-    // TODO 优化插入元素的位置
-    if (typeof type === "string" && !isUndefined(rootEl)) {
+    if (isUndefined(rootEl)) {
+      root = document.body;
+    } else if (isRef(rootEl)) {
+      root = rootEl.value;
+    } else {
+      const _root = document.querySelector(rootEl as string) as HTMLElement;
+
+      if (_root) {
+        root = _root;
+      } else {
+        throw new Error("Element not found!");
+      }
+    }
+
+    if (typeof type === "string") {
       const el = document.createElement(type);
 
       if (isObject(props)) {
@@ -63,26 +82,13 @@ export default function useMount(rootEl?: string | Ref<HTMLElement>): <T extends
         }
       }
 
-      if(isRef(rootEl)) {
-        const root = rootEl.value;
-
-        root.appendChild(el);
-      }else {
-        const root = document.querySelector(rootEl as string);
-
-        if (root) {
-          root.appendChild(el);
-        } else {
-          throw new Error("Element not found!");
-        }
-      }
+      root.appendChild(el);
 
       return el;
     }
 
-    document.body.appendChild(div);
+    root.appendChild(div);
 
-    // 否则，认为是要渲染的 Vue 组件
     app = createApp({
       render() {
         return h(type, props, children);
