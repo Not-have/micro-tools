@@ -2,6 +2,7 @@
   "include": [
     "src/**/*.ts",
     "stories/**/*.vue",
+    "stories/**/*.ts",
   ],
   "exclude": [
     "node_modules"
