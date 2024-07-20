@@ -8,8 +8,7 @@ import {
 } from "vue";
 import {
   ElDialog,
-  ElButton,
-  ElMessage
+  ElButton
 } from "element-plus";
 
 const props = defineProps<{
@@ -35,15 +34,9 @@ onMounted(() => {
 const emits = defineEmits(["click"]);
 
 const handleClick = (): void => {
-  ElMessage({
-    message: "Warning, this is a warning message.",
-    type: "error",
-    plain: true
-  });
-
   emits("click");
 
-  // dialogVisible.value = false;
+  dialogVisible.value = false;
 };
 </script>
 <template>
