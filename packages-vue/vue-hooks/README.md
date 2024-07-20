@@ -269,7 +269,7 @@
 > 
 > import {
 >   useMount
-> } from "../../src";
+> } from "micro-vue-hooks";
 > import Modal from "./op/index.vue";
 > 
 > const dialogMount = useMount();
