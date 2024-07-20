@@ -1,18 +1,30 @@
-<script lang="ts" setup>
+<script lang="tsx" setup>
 import {
-  ElButton
+  ElButton,
+  ElMessage
 } from "element-plus";
 
 import {
   useMount
 } from "../../src";
-import Modal from "./modal/index.vue";
+import Modal from "./op/index.vue";
 
 const dialogMount = useMount();
 
+const handleConfirm = (): void => {
+  ElMessage({
+    message: "This is a message.",
+    type: "info",
+    plain: true
+  });
+};
+
 const handleClick = (): void => {
   dialogMount(Modal, {
-    visible: true
+    visible: true,
+    onClick: handleConfirm
+  }, {
+    default: <div>测试</div>
   });
 };
 

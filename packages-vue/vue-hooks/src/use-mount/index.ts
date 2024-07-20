@@ -18,8 +18,8 @@ import {
 } from "./types";
 
 /**
- * 挂载元素到 body
- * @param rootEl
+ * 使用 useMount 进行渲染元素，比如渲染弹出框
+ * @param rootEl 渲染元素的根元素，默认 body
  * @returns
  */
 export default function useMount(rootEl?: string | Ref<HTMLElement>): <T extends Component>(

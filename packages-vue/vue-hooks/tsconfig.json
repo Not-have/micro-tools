@@ -1,6 +1,7 @@
 {
   "include": [
-    "src/**/*.ts"
+    "src/**/*.ts",
+    "stories/**/*.vue",
   ],
   "exclude": [
     "node_modules"
@@ -9,7 +10,7 @@
     "composite": true,
     "baseUrl": ".",
     "module": "ESNext",
-    "moduleResolution": "Node",
+    "moduleResolution": "Bundler",
     "resolveJsonModule": true,
     "jsx": "preserve",
     "jsxImportSource": "vue",
@@ -30,6 +31,12 @@
     "allowSyntheticDefaultImports": true,
     "allowJs": false,
     "emitDeclarationOnly": true,
-    "declaration": true
+    "declaration": true,
+    "strictFunctionTypes": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "experimentalDecorators": true,
+    "noImplicitAny": false,
+    "types": ["node"]
   }
 }
