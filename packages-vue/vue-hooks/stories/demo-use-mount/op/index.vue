@@ -43,7 +43,7 @@ const handleClick = (): void => {
   <ElDialog
     v-model="dialogVisible"
     destroy-on-close
-    title="批量修改需求"
+    title="Title"
     :before-close="handleClose"
   >
     <slot>
