@@ -1,6 +1,7 @@
 {
   "include": [
     "src/**/*.ts",
+    "src/**/*.vue",
     "stories/**/*.vue",
     "stories/**/*.ts",
   ],
