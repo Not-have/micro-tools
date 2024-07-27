@@ -16,8 +16,6 @@
     "build": "unbuild",
     "dev": "pnpm run stub",
     "stub": "unbuild --stub",
-    "storybook": "vite",
-    "build-storybook": "tsc && vite build",
     "clear": "rm -fr node_modules && rm -fr dist"
   },
   "keywords": [],
@@ -34,7 +32,6 @@
     "unbuild": "^2.0.0"
   },
   "devDependencies": {
-    "typescript": "^5.2.2",
-    "vite": "^5.3.4"
+    "typescript": "^5.2.2"
   }
 }

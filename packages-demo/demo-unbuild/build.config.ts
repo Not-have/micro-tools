@@ -4,6 +4,7 @@ import {
 
 export default defineBuildConfig({
   entries: ["src/index"],
+  outDir: "./dist",
   clean: true,
   declaration: true,
   rollup: {
