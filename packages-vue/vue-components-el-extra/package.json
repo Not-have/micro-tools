@@ -6,11 +6,11 @@
   "types": "./dist/types/index.d.ts",
   "scripts": {
     "type-check": "vue-tsc --build --force",
-    "clear": "npx rimraf node_modules",
+    "clear": "rm -fr node_modules",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "build": "vite build",
-    "prepublishOnly": "npx rimraf dist && npm run build"
+    "prepublishOnly": "rm -fr dist && npm run build"
   },
   "keywords": [
     "vue-components",

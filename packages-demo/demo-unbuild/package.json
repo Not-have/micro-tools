@@ -1,0 +1,40 @@
+{
+  "name": "demo-unbuild",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "scripts": {
+    "build": "unbuild",
+    "dev": "pnpm run stub",
+    "stub": "unbuild --stub",
+    "storybook": "vite",
+    "build-storybook": "tsc && vite build",
+    "clear": "rm -fr node_modules && rm -fr dist"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-vue/vue-unbuild"
+  },
+  "bugs": {
+    "url": "https://github.com/Not-have/micro-tools/issues"
+  },
+  "dependencies": {
+    "unbuild": "^2.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2",
+    "vite": "^5.3.4"
+  }
+}

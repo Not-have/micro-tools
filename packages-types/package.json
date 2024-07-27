@@ -4,7 +4,7 @@
   "description": "Types",
   "main": "src/index.js",
   "scripts": {
-    "clear": "npx rimraf node_modules"
+    "clear": "rm -fr node_modules"
   },
   "keywords": [
     "types",

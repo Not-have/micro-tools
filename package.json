@@ -60,7 +60,6 @@
     "npm-package-json-lint": "^7.1.0",
     "npm-package-json-lint-config-default": "^6.0.0",
     "only-allow": "^1.1.1",
-    "rimraf": "^5.0.5",
     "stylelint": "^16.6.1",
     "typescript": ">=5.0"
   },
@@ -74,8 +73,8 @@
     "preinstall": "npx only-allow pnpm",
     "postinstall": "husky install && pnpm run clear:lock",
     "boot": "pnpm run clear && pnpm install && pnpm run clear:lock && pnpm run build",
-    "clear": "pnpm --filter \"./packages-**\" clear && pnpm --filter \"./packages-**/**\" clear && npx rimraf node_modules && pnpm run clear:store && pnpm run clear:lock",
-    "clear:lock": "npx rimraf pnpm-lock.yaml && npx rimraf package-lock.json && npx rimraf lerna-debug.log",
+    "clear": "pnpm --filter \"./packages-**\" clear && pnpm --filter \"./packages-**/**\" clear && rm -fr node_modules && pnpm run clear:store && pnpm run clear:lock",
+    "clear:lock": "rm -fr pnpm-lock.yaml && rm -fr package-lock.json && rm -fr lerna-debug.log",
     "clear:store": "rm -fr .pnpm-store",
     "build": "pnpm --filter \"./packages-**\" build && pnpm --filter \"./packages-**/**\" build",
     "lint:eslint": "eslint \"./packages-**/**/*.{tsx,vue,ts,js}\" --ext js,ts,tsx --fix",
