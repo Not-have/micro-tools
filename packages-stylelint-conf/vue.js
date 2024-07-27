@@ -82,6 +82,5 @@ module.exports = {
         severity: "error"
       }
     ]
-  },
-  ignoreFiles: ["**/*.js", "**/*.jsx", "**/*.ts"]
+  }
 };
