@@ -1,1 +1,1 @@
-export type TData = Record<string, unknown>;
+export type TExtra = Record<string, unknown>;

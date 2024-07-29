@@ -3,7 +3,7 @@
   "version": "2.3.1",
   "description": "Eslint 的规则配置",
   "scripts": {
-    "clear": "npx rimraf node_modules dist",
+    "clear": "rm -fr node_modules dist",
     "lint": "npm eslint ."
   },
   "repository": {

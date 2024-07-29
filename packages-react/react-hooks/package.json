@@ -1,12 +1,12 @@
 {
   "name": "micro-react-hooks",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React hooks",
-  "main": "index.js",
+  "main": "src/index.ts",
   "scripts": {
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "clear": "npx rimraf node_modules"
+    "clear": "rm -fr node_modules"
   },
   "keywords": [
     "react-hooks",
@@ -15,19 +15,21 @@
     "micro-react-hooks"
   ],
   "author": "Li Yong",
-  "homepage": "https://github.com/Not-have/micro-tools/tree/main/packages-react",
+  "homepage": "https://github.com/Not-have/micro-tools/tree/main/packages-react/react-hooks",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-react"
+    "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-react/react-hooks"
   },
   "bugs": {
     "url": "https://github.com/Not-have/micro-tools/issues"
   },
   "license": "ISC",
   "dependencies": {
+    "lodash-es": "^4.17.21",
+    "qs": "^6.12.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.23.1",
@@ -44,6 +46,8 @@
     "@storybook/react": "^8.1.2",
     "@storybook/react-webpack5": "^8.1.2",
     "@storybook/test": "^8.1.2",
+    "@types/lodash-es": "^4.17.9",
+    "@types/qs": "^6.9.15",
     "@types/react": "^18.3.2",
     "@types/react-dom": "^18.3.0",
     "storybook": "^8.1.2"

@@ -1,20 +1,30 @@
 <template>
   <div class="demo">
-    <button @click="handleClick">
+    <ElButton
+      @click="handleClick"
+    >
       打开弹出框
-    </button>
+    </ElButton>
   </div>
 </template>
 <script lang="tsx" setup>
-
+import {
+  ElButton
+} from "element-plus";
 import {
   opDialog
 } from "../../src";
 import Content from "./content/index.vue";
+import {
+  submit
+} from "./utils";
 
 const handleClick = (): void => {
   opDialog({
-    content: <Content />
+    content: Content,
+    submit: value => submit(value),
+    ignoreFields: ["name", "sex"],
+    title: "新增"
   });
 };
 

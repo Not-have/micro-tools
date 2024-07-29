@@ -162,7 +162,7 @@ module.exports = {
    */
   "no-param-reassign": 1,            // 禁止对 function 的参数进行重新赋值
   "newline-per-chained-call": "error", // 要求方法链中每个调用都有一个换行符
-  "new-cap": "error",                // 要求构造函数名以大写字母开头
+  "new-cap": "off",                // 要求构造函数名以大写字母开头
   "new-parens": "error",             // 要求调用无参构造函数时有圆括号
   "no-empty-function": "error",      // 禁止出现空函数
   "no-new-object": "error",          // 禁止使用 Object 构造函数

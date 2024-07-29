@@ -1,18 +1,21 @@
 {
-  "include": [
+    "include": [
       "src/**/*.ts",
-  ],
-  "exclude": [
+      "src/**/*.vue",
+      "stories/**/*.vue",
+      "stories/**/*.ts",
+    ],
+    "exclude": [
       "node_modules"
-  ],
-  "files": [
-      "package.json"
-  ],
-  "compilerOptions": {
+    ],
+    "files": [
+        "package.json"
+    ],
+    "compilerOptions": {
       "composite": true,
       "baseUrl": ".",
       "module": "ESNext",
-      "moduleResolution": "Node",
+      "moduleResolution": "Bundler",
       "resolveJsonModule": true,
       "jsx": "preserve",
       "jsxImportSource": "vue",
@@ -25,13 +28,21 @@
       "forceConsistentCasingInFileNames": true,
       "skipLibCheck": true,
       "lib": [
-          "ES2020",
-          "DOM",
-          "DOM.Iterable"
+        "ES2020", 
+        "DOM", 
+        "DOM.Iterable"
       ],
       "sourceMap": true,
       "allowSyntheticDefaultImports": true,
       "allowJs": false,
-      "declaration": true
+      "emitDeclarationOnly": true,
+      "declaration": true,
+      "strictFunctionTypes": true,
+      "noUnusedLocals": true,
+      "noUnusedParameters": true,
+      "experimentalDecorators": true,
+      "noImplicitAny": false,
+      "types": ["node"]
+    }
   }
-}
+  

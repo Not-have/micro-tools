@@ -15,12 +15,12 @@ npm i micro-util-ts
 ```json
 {
   "scripts": {
-    "build": "npx rimraf lib && webpack --config webpack.config.js",
-    "build:tsc": "npx rimraf dist && tsc",
+    "build": "rm -fr lib && webpack --config webpack.config.js",
+    "build:tsc": "rm -fr dist && tsc",
     "start": "tsc --watch",
     "start:webpack": "webpack --watch",
     "publish:build": "npm run build:tsc && npm publish",
-    "clear": "npx rimraf node_modules",
+    "clear": "rm -fr node_modules",
     // 不能存在 postinstall，负责使用的时候 会报错，扯淡啊
     "postinstall": "tsc && pnpm run start:webpack",
     "prepublishOnly": "npm run build:tsc && npm run build"

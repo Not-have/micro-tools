@@ -3,7 +3,7 @@
   "version": "1.2.0",
   "description": "Stylelint 的规则配置",
   "scripts": {
-    "clear": "npx rimraf node_modules",
+    "clear": "rm -fr node_modules",
     "test": "stylelint test/**/*.css --fix"
   },
   "main": "index",

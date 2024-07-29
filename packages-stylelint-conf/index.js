@@ -49,7 +49,15 @@ module.exports = {
       {
         ignore: ["after-comment", "first-nested"]
       }
+    ],
+    "at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": [
+          "unknown"
+        ]
+      }
     ]
   },
-  ignoreFiles: ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx"]
+  ignoreFiles: ["**/*.js"]
 };

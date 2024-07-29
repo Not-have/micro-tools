@@ -1,8 +1,27 @@
 import {
-  Component
+  Component,
+  VNode
 } from "vue";
 
-interface IProps<T> {
+import {
+  FormInstance,
+  ButtonProps,
+  ElForm
+} from "element-plus";
+
+import {
+  EType
+} from "../enum";
+import {
+  TExtra
+} from "./common";
+
+export interface IButtonProps extends Partial<ButtonProps> {
+  label?: string;
+  click?: Function
+}
+
+export interface IProps<T = TExtra> {
 
   /**
    * @todo 记录当前的操作类型
@@ -12,19 +31,14 @@ interface IProps<T> {
   op?: string,
 
   /**
-   * 是否显示弹出框的关闭
-   */
-  showClose?: boolean,
-
-  /**
    * 标题
    */
-  title?: string | Component,
+  title?: string | Component | VNode,
 
   /**
    * 内容
    */
-  content: string | Component,
+  content: string | Component | VNode,
 
   /**
    * OpDialog 大小
@@ -40,7 +54,7 @@ interface IProps<T> {
    *
    * center 弹出框
    */
-  type?: "center" | "right" | "left" | "top" | "bottom",
+  type?: EType,
 
   /**
    * 弹出框的动画效果
@@ -69,20 +83,36 @@ interface IProps<T> {
 
   /**
    * 提交表单的处理
+   *
+   * 修改后的 fieldsValue
+   *
+   * 默认的 defaultValue
+   *
+   * contentEl content 元素
+   *
    */
-  submit?: Promise<void>,
+  submit?: (value: T, defaultValue: T, contentEl?: HTMLElement | InstanceType<typeof ElForm> | FormInstance, parentRef?: HTMLElement | InstanceType<typeof ElForm> | FormInstance) => Promise<unknown>,
 
   /**
-   * 是否进行提交操作，默认 false
+   * 是否禁止提交按钮
    *
-   * 传入 true 时只显示关闭 - 查看/详情
+   * 默认情况下是根据 fieldsValue、ignoreFields 来判断，也可通过这个自定义控制
+   */
+  disabled?: boolean;
+
+  /**
+   * 是否进行提交操作，默认 true
+   *
+   * 传入 false 时只显示关闭 - 查看/详情
+   *
+   * @deprecated
    */
   isSubmit?: boolean,
 
   /**
    * 当前弹出框中的默认值
    *
-   * 传入这块的值，可以使用 useFields 获取
+   * 传入这块的值，可以使用 useFields 获取/修改
    */
   fieldsValue?: T,
 
@@ -92,44 +122,19 @@ interface IProps<T> {
   ignoreFields?: (keyof T)[],
 
   /**
-   * 是否禁用 确认 按钮
-   *
-   * true default，当表单未进行改变时，一直显示不可提交
-   *
-   * false 任何时候都可以提交，不检测表单内容
-   *
-   * 注：只有在 isSubmit = false 时，才起作用
-   */
-  disabled?: boolean,
-
-  /**
    * 自定义 opDialog 的脚
    */
-  footer?: Component,
+  footer?: string | Component | VNode,
 
   /**
-   * 确认按钮文字
+   * 确认按钮
    */
-  okText?: string,
+  ok?: IButtonProps | string,
 
   /**
-   * 确认按钮类型
-   *
-   * 默认 primary
+   * 取消按钮
    */
-  okType?: string,
-
-  /**
-   * 取消按钮文字
-   */
-  cancelText?: string,
-
-  /**
-   * 取消 / 查看按钮类型
-   *
-   * 默认 default
-   */
-  cancelType?: string,
+  cancel?: IButtonProps | string,
 
   /**
    * 是否支持键盘 esc 关闭
@@ -148,5 +153,3 @@ interface IProps<T> {
    */
   closeIcon?: boolean,
 }
-
-export default IProps;

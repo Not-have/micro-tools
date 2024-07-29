@@ -1,2 +1,3 @@
 export * from "./common";
-export { default as IProps } from "./props";
+export * from "./props";
+export * from "./props-extend";
