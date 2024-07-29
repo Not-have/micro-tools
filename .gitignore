@@ -15,4 +15,4 @@ packages-**/package-lock.json
 
 .npmpackagejsonlintrc.js
 
-/packages-vue/**/stats.html
+/packages-**/**/storybook-static
