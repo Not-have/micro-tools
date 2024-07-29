@@ -2,12 +2,24 @@
   "name": "micro-vue-components",
   "version": "1.0.0",
   "description": "Vue components",
-  "main": "src/index.ts",
+  "main": "./dist/umd/index.js",
+  "module": "./dist/es/index.js",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/es/index.js",
+      "require": "./dist/umd/index.js"
+    }
+  },
   "scripts": {
     "type-check": "vue-tsc --build --force",
     "clear": "rm -fr node_modules",
+    "clear:build": "rm -fr dist",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "build": "pnpm run clear:build && vite build",
+    "prepublishOnly": "pnpm run clear:build && npm run build"
   },
   "keywords": [
     "vue-components",
@@ -24,6 +36,7 @@
   "license": "ISC",
   "dependencies": {
     "typescript": "^5.4.5",
+    "vite-plugin-dts": "^3.9.1",
     "vue": "^3.4.21"
   },
   "devDependencies": {
