@@ -100,7 +100,11 @@ const props = defineProps({
   },
 
   /**
-   * 延迟
+   * 延迟执行动画开始的时间
+   *
+   * 默认：0
+   *
+   * 单位：毫秒
    */
   delay: {
     type: Number,
