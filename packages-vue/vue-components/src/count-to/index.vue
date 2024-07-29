@@ -1,13 +1,11 @@
-<template>
-  <span>{{ displayValue }}</span>
-</template>
-
 <script setup lang="ts">
 import {
   onUnmounted,
   reactive,
   computed,
-  watch
+  watch,
+  PropType,
+  CSSProperties
 } from "vue";
 
 import {
@@ -112,6 +110,13 @@ const props = defineProps({
     validator(value: number) {
       return value >= 0;
     }
+  },
+
+  /**
+   * 滚动数字的样式
+   */
+  style: {
+    type: Object as PropType<CSSProperties>
   }
 });
 
@@ -273,5 +278,10 @@ defineExpose({
   start,
   pauseResume
 });
-
 </script>
+
+<template>
+  <span :style="style">
+    {{ displayValue }}
+  </span>
+</template>
