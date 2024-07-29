@@ -211,7 +211,9 @@ const delayStart = (): void => {
   }, state.delay);
 };
 
-// 开始动画
+/**
+ * 开始
+ */
 const start = (): void => {
   state.start = props.startVal;
   state.end = props.endVal;
@@ -237,7 +239,9 @@ const resume = (): void => {
   window.requestAnimationFrame(step);
 };
 
-// 暂停之后继续
+/**
+ * 暂停之后继续
+ */
 const pauseResume = (): void => {
   if (state.paused) {
     resume();
@@ -247,12 +251,6 @@ const pauseResume = (): void => {
     state.paused = true;
   }
 };
-
-// 将start函数和pauseResume函数抛出去
-defineExpose({
-  start,
-  pauseResume
-});
 
 // 如果是autoplay为true时,自动执行
 watch(() => state.autoplay, autoplay => {
@@ -265,4 +263,11 @@ watch(() => state.autoplay, autoplay => {
 onUnmounted(() => {
   window.cancelAnimationFrame(state.rAF!);
 });
+
+// 将start函数和pauseResume函数抛出去
+defineExpose({
+  start,
+  pauseResume
+});
+
 </script>
