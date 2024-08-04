@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import {
-  onUnmounted,
-  reactive,
   computed,
-  watch,
+  CSSProperties,
+  onUnmounted,
   PropType,
-  CSSProperties
+  reactive,
+  watch
 } from "vue";
 
 import {
@@ -15,42 +15,11 @@ import {
 const props = defineProps({
 
   /**
-   * 开始数字
+   * 是否自动播放
    */
-  startVal: {
-    type: Number,
-    required: true,
-    default: 0
-  },
-
-  /**
-   * 结束数字
-   */
-  endVal: {
-    type: Number,
-    required: true,
-    default: 2023
-  },
-
-  /**
-   * 数字滚动时间
-   *
-   * 默认：3000
-   */
-  duration: {
-    type: Number,
-    default: 1000
-  },
-
-  /**
-   * 多少位小数
-   */
-  decimals: {
-    type: Number,
-    default: 0,
-    validator(value: number) {
-      return value >= 0;
-    }
+  autoplay: {
+    default: true,
+    type: Boolean
   },
 
   /**
@@ -61,40 +30,19 @@ const props = defineProps({
    * 10.000
    */
   decimal: {
-    type: String,
-    default: "."
+    default: ".",
+    type: String
   },
 
   /**
-   * 分隔符
+   * 多少位小数
    */
-  separator: {
-    type: String,
-    default: ","
-  },
-
-  /**
-   * 前缀
-   */
-  prefix: {
-    type: String,
-    default: ""
-  },
-
-  /**
-   * 后缀
-   */
-  suffix: {
-    type: String,
-    default: ""
-  },
-
-  /**
-   * 是否自动播放
-   */
-  autoplay: {
-    type: Boolean,
-    default: true
+  decimals: {
+    default: 0,
+    type: Number,
+    validator(value: number) {
+      return value >= 0;
+    }
   },
 
   /**
@@ -105,18 +53,72 @@ const props = defineProps({
    * 单位：毫秒
    */
   delay: {
-    type: Number,
     default: 0,
+    type: Number,
     validator(value: number) {
       return value >= 0;
     }
   },
 
   /**
+   * 数字滚动时间
+   *
+   * 默认：3000
+   */
+  duration: {
+    default: 1000,
+    type: Number
+  },
+
+  /**
+   * 结束数字
+   */
+  endVal: {
+    default: 2023,
+    required: true,
+    type: Number
+  },
+
+  /**
+   * 前缀
+   */
+  prefix: {
+    default: "",
+    type: String
+  },
+
+  /**
+   * 分隔符
+   */
+  separator: {
+    default: ",",
+    type: String
+  },
+
+  /**
+   * 开始数字
+   */
+  startVal: {
+    default: 0,
+    required: true,
+    type: Number
+  },
+
+  /**
    * 滚动数字的样式
    */
   style: {
+     
+    default: () => {},
     type: Object as PropType<CSSProperties>
+  },
+
+  /**
+   * 后缀
+   */
+  suffix: {
+    default: "",
+    type: String
   }
 });
 
@@ -126,7 +128,7 @@ const formatNumber = (val: number): string => {
 
   const x = value.split(".");
 
-  // eslint-disable-next-line prefer-destructuring
+   
   let x1 = x[0];
 
   const x2 = x.length > 1 ? props.decimal + x[1] : "";
@@ -144,31 +146,31 @@ const formatNumber = (val: number): string => {
 
 // 初始化props传进来的值
 const state = reactive<{
-  previousTimestamp: number | null;
-  start: number;
-  end: number;
-  duration: number;
-  paused: boolean;
-  remaining: number;
-  rAF: number | null;
-  printVal: number;
   autoplay: boolean;
   delay: number;
+  duration: number;
+  end: number;
+  paused: boolean;
+  previousTimestamp: null | number;
+  printVal: number;
+  rAF: null | number;
+  remaining: number;
+  start: number;
 }>({
-  previousTimestamp: null,
-  start: props.startVal,
-  end: props.endVal,
-  duration: props.duration,
-  paused: false, // 是否暂停
-  remaining: 0,
-  rAF: null,
-  printVal: props.startVal,
   autoplay: props.autoplay, // 是否自动播放
-  delay: props.delay
+  delay: props.delay,
+  duration: props.duration,
+  end: props.endVal,
+  paused: false, // 是否暂停
+  previousTimestamp: null,
+  printVal: props.startVal,
+  rAF: null,
+  remaining: 0,
+  start: props.startVal
 });
 
 // 初始化定时器
-let timer: ReturnType<typeof setTimeout> | null = null;
+let timer: null | ReturnType<typeof setTimeout> = null;
 
 // 初始化展示在页面上的值
 const displayValue = computed(() => formatNumber(state.printVal));
@@ -275,8 +277,8 @@ onUnmounted(() => {
 
 // 将start函数和pauseResume函数抛出去
 defineExpose({
-  start,
-  pauseResume
+  pauseResume,
+  start
 });
 </script>
 
