@@ -33,7 +33,6 @@
   "workspaces": [
     "packages*/**"
   ],
-  "packageManager": "pnpm@9.1.2",
   "engines": {
     "node": ">=20.14.0",
     "pnpm": ">=9.0.0",
