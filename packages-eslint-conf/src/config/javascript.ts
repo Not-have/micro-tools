@@ -45,14 +45,16 @@ export async function javascript(): Promise<Linter.Config[]> {
         ],
         "array-callback-return": "error",
         "block-scoped-var": "error",
+        // 禁止尾部逗号
+        "comma-dangle": ["error", "never"],
         "constructor-super": "error",
         "default-case-last": "error",
         "dot-notation": ["error", {
           allowKeywords: true
         }],
         eqeqeq: ["error", "always"],
-        "keyword-spacing": "off",
 
+        "keyword-spacing": "off",
         "new-cap": [
           "error",
           {
@@ -106,10 +108,19 @@ export async function javascript(): Promise<Linter.Config[]> {
         "no-lone-blocks": "error",
         "no-loss-of-precision": "error",
         "no-misleading-character-class": "error",
+        // 禁止行末尾空格
+        "no-mixed-spaces-and-tabs": ["error", "smart-tabs"],
         "no-multi-spaces": ["error", {
           "ignoreEOLComments": true
         }], // 禁止出现多个空格
         "no-multi-str": "error",
+        "no-multiple-empty-lines": ["error",
+          {
+            "max": 1,
+            "maxBOF": 0,
+            "maxEOF": 0
+          }
+        ],
         "no-new": "error",
         "no-new-func": "error",
         "no-new-object": "error",
@@ -177,6 +188,8 @@ export async function javascript(): Promise<Linter.Config[]> {
         "no-template-curly-in-string": "error",
         "no-this-before-super": "error",
         "no-throw-literal": "error",
+        // 禁止在语句末尾出现多余的空格
+        "no-trailing-spaces": "error",
         "no-undef": "error",
         "no-undef-init": "error",
         "no-unexpected-multiline": "error",
@@ -221,6 +234,9 @@ export async function javascript(): Promise<Linter.Config[]> {
         "no-useless-rename": "error",
         "no-useless-return": "error",
         "no-var": "error",
+        // 强制每行末尾的空格（可选）
+        "no-whitespace-before-property": "error",
+
         "no-with": "error",
         "object-shorthand": [
           "error",
@@ -247,19 +263,21 @@ export async function javascript(): Promise<Linter.Config[]> {
             ignoreReadBeforeAssign: true
           }
         ],
-
         "prefer-exponentiation-operator": "error",
         "prefer-promise-reject-errors": "error",
         "prefer-regex-literals": ["error", {
           disallowRedundantWrapping: true
         }],
         "prefer-rest-params": "error",
+
         "prefer-spread": "error",
         "prefer-template": "error",
+        // 强制使用分号
+        "semi": ["error", "always"],
         "space-before-function-paren": "off",
+
         "spaced-comment": "error",
         "symbol-description": "error",
-
         "unicode-bom": ["error", "never"],
         "unused-imports/no-unused-imports": "error",
         "unused-imports/no-unused-vars": [
@@ -278,12 +296,11 @@ export async function javascript(): Promise<Linter.Config[]> {
             enforceForSwitchCase: true
           }
         ],
-
         "valid-typeof": ["error", {
           requireStringLiterals: true
         }],
         "vars-on-top": "error",
-        yoda: ["error", "never"],
+        yoda: ["error", "never"]
       }
     }
   ];

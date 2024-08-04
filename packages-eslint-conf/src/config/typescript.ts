@@ -61,7 +61,7 @@ export async function typescript(): Promise<Linter.Config[]> {
             match: false,
             regex: "[A-Z\\d]__[A-Z\\d]"
           },
-          
+
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-ignore
           filter: {
@@ -69,8 +69,6 @@ export async function typescript(): Promise<Linter.Config[]> {
             regex: "_[A-Z\\d]"
           },
           format: ["strictCamelCase", "StrictPascalCase", "UPPER_CASE"],
-
-                     
           selector: "variable"
         }, {
           format: ["strictCamelCase"],

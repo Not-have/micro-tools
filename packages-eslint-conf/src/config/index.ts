@@ -6,5 +6,5 @@ export * from "./javascript";
 export * from "./jsdoc";
 export * from "./jsonc";
 export * from "./perfectionist";
-export * from "./ts";
+export * from "./typescript";
 export * from "./vue";

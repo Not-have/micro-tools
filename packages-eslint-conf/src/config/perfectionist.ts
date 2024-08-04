@@ -16,41 +16,6 @@ export async function perfectionist(): Promise<Linter.Config[]> {
             type: "natural"
           }
         ],
-        "perfectionist/sort-imports": [
-          "error",
-          {
-            customGroups: {
-              type: {
-                vben: "vben",
-                vue: "vue"
-              },
-              value: {
-                vben: ["@vben*", "@vben/**/**", "@vben-core/**/**"],
-                vue: ["vue", "vue-*", "@vue*"]
-              }
-            },
-            groups: [
-              ["external-type", "builtin-type", "type"],
-              ["parent-type", "sibling-type", "index-type"],
-              ["internal-type"],
-              "builtin",
-              "vue",
-              "vben",
-              "external",
-              "internal",
-              ["parent", "sibling", "index"],
-              "side-effect",
-              "side-effect-style",
-              "style",
-              "object",
-              "unknown"
-            ],
-            internalPattern: ["#*", "#*/**"],
-            newlinesBetween: "always",
-            order: "asc",
-            type: "natural"
-          }
-        ],
         "perfectionist/sort-named-exports": [
           "error",
           {

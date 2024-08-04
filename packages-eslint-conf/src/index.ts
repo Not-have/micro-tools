@@ -24,15 +24,15 @@ type TFlatConfigPromise =
 
 async function defineConfig(config: TFlatConfig[] = []) {
   const configs: TFlatConfigPromise[] = [
-    vue(),
-    javascript(),
     ignores(),
-    typescript(),
     jsonc(),
     perfectionist(),
     comments(),
     jsdoc(),
     command(),
+    vue(),
+    javascript(),
+    typescript(),
     ...config
   ];
 
