@@ -34,9 +34,6 @@
       "import": "./dist/index.mjs"
     }
   },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
-  },
   "dependencies": {
     "@eslint/js": "^9.8.0",
     "@rushstack/eslint-patch": "^1.10.4",
