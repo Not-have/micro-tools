@@ -16,6 +16,26 @@ export async function perfectionist(): Promise<Linter.Config[]> {
             type: "natural"
           }
         ],
+        "perfectionist/sort-imports": ["error", {
+          groups: [
+            ["external-type", "builtin-type", "type"],
+            ["parent-type", "sibling-type", "index-type"],
+            ["internal-type"],
+            "builtin",
+            "vue",
+            "external",
+            ["parent", "sibling", "index"],
+            "side-effect",
+            "side-effect-style",
+            "style",
+            "object",
+            "unknown"
+          ],
+          internalPattern: ["#*", "#*/**"],
+          newlinesBetween: "always",
+          order: "asc",
+          type: "natural"
+        }],
         "perfectionist/sort-named-exports": [
           "error",
           {

@@ -16,6 +16,7 @@ export async function importPluginConfig(): Promise<Linter.Config[]> {
         "import/exports-last": 1,
         "import/first": "error",
         "import/newline-after-import": "error",
+
         /**
          * Import 的规则
          */

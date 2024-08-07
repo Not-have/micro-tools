@@ -2,26 +2,26 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
     "composite": false,
-    "lib": ["ESNext"],
-    "baseUrl": "./",
-    "outDir": "./dist",               // 输出目录
-    "rootDir": "./src",               // 输入目录
-    "types": ["node"],
-    "noImplicitAny": true,
     "target": "ESNext",
+    "lib": ["ESNext"],
     "experimentalDecorators": true,
+    "baseUrl": "./",               // 输出目录
+    "rootDir": "./src",
     "module": "ESNext",
     "moduleResolution": "node",
-    "resolveJsonModule": true,
+    "resolveJsonModule": true,               // 输入目录
+    "types": ["node"],
     "strict": true,
     "strictNullChecks": true,
     "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
     "noImplicitOverride": true,
     "noImplicitThis": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "inlineSources": false,
-    "noEmit": false,                  // 将其设置为 false 以允许输出
+    "noEmit": false,
+    "outDir": "./dist",                  // 将其设置为 false 以允许输出
     "removeComments": true,
     "sourceMap": false,
     "allowSyntheticDefaultImports": true,
@@ -31,6 +31,6 @@
     "skipLibCheck": true,
     "preserveWatchOutput": true
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "types/**/*.d.ts"],
   "exclude": ["node_modules"]
 }

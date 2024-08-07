@@ -91,6 +91,7 @@ const props = defineProps({
    * 分隔符
    */
   separator: {
+
     default: ",",
     type: String
   },
@@ -108,8 +109,7 @@ const props = defineProps({
    * 滚动数字的样式
    */
   style: {
-     
-    default: () => {},
+    default: () => ({}),
     type: Object as PropType<CSSProperties>
   },
 
@@ -128,7 +128,6 @@ const formatNumber = (val: number): string => {
 
   const x = value.split(".");
 
-   
   let x1 = x[0];
 
   const x2 = x.length > 1 ? props.decimal + x[1] : "";
