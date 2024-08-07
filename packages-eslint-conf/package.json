@@ -22,7 +22,8 @@
     "clear": "rm -fr node_modules",
     "lint": "npm eslint .",
     "build": "rm -fr dist && unbuild",
-    "start": "pnpm unbuild --stub"
+    "start": "pnpm unbuild --stub",
+    "prepublishOnly": "pnpm run build"
   },
   "main": "./dist/index.mjs",
   "module": "./dist/index.mjs",
