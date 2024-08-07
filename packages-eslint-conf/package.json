@@ -21,7 +21,7 @@
   "scripts": {
     "clear": "rm -fr node_modules",
     "lint": "npm eslint .",
-    "build": "rm -fr dist && unbuild",
+    "build": "unbuild",
     "start": "pnpm unbuild --stub",
     "prepublishOnly": "pnpm run build"
   },
