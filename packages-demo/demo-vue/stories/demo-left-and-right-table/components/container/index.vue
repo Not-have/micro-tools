@@ -167,7 +167,9 @@ const arraySpanMethod = value => {
                 :style="{
                   height: `${rowHeight}px`,
                   overflow: 'hidden',
-                  'line-height': `${rowHeight}px` }"
+                  'line-height': `${rowHeight}px`,
+                  'text-align': `${scope.row ? 'justify' : 'center'}`
+                }"
               >
                 {{ scope.row ? scope.row[item?.prop as string] : '暂无数据' }}
               </div>
