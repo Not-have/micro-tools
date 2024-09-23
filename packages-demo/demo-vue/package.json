@@ -2,28 +2,31 @@
   "name": "micro-demo-vue",
   "version": "1.0.0",
   "description": "Demo Vue",
-  "main": "src/index.ts",
+  "keywords": [
+    "vue-echarts",
+    "echarts"
+  ],
+  "bugs": {
+    "url": "https://github.com/Not-have/micro-tools/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-vue/vue-demo"
+  },
+  "license": "ISC",
+  "author": "",
   "scripts": {
     "type-check": "vue-tsc --build --force",
     "clear": "rm -fr node_modules",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
-  "keywords": [
-    "vue-echarts",
-    "echarts"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-vue/vue-demo"
-  },
-  "bugs": {
-    "url": "https://github.com/Not-have/micro-tools/issues"
-  },
-  "author": "",
-  "license": "ISC",
+  "main": "src/index.ts",
   "dependencies": {
     "@amap/amap-jsapi-loader": "^1.0.1",
+    "@element-plus/icons-vue": "^2.3.1",
+    "element-plus": "^2.7.2",
+    "splitpanes": "^3.1.5",
     "typescript": "^5.4.5",
     "vue": "^3.4.21"
   },

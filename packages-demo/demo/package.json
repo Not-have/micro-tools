@@ -2,6 +2,16 @@
   "name": "demo",
   "version": "1.0.0",
   "description": "",
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/Not-have/micro-tools/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-demo/demo"
+  },
+  "license": "ISC",
+  "author": "",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -9,16 +19,6 @@
     "preview": "vite preview",
     "clear": "rm -fr node_modules && rm -fr dist"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-demo/demo"
-  },
-  "bugs": {
-    "url": "https://github.com/Not-have/micro-tools/issues"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "typescript": "^5.2.2",
     "vite": "^5.3.4"

@@ -4,9 +4,8 @@ import {
 import {
   IProps
 } from "../type";
-
-import uiDrawer from "./ui-drawer";
 import uiDialog from "./ui-dialog";
+import uiDrawer from "./ui-drawer";
 
 export default function opDialog<T, D>({
   type = EType.CENTER,
@@ -25,8 +24,8 @@ export default function opDialog<T, D>({
       if(type !== EType.CENTER) {
         uiDrawer<T, D>({
           ...rest,
-          handleSuccess,
-          handleError
+          handleError,
+          handleSuccess
         });
 
         return;
@@ -34,11 +33,11 @@ export default function opDialog<T, D>({
 
       uiDialog<T, D>({
         ...rest,
-        handleSuccess,
-        handleError
+        handleError,
+        handleSuccess
       });
     } catch (err){
-      // eslint-disable-next-line no-console
+
       console.error("Error in opDialog:", err);
       reject(err);
     }
