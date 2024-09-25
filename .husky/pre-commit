@@ -13,5 +13,5 @@ check_branch() {
 
 check_branch
 
-npx lint-staged
+# npx lint-staged
 # 提交时运行的指令

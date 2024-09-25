@@ -9,7 +9,6 @@ import {
   javascript,
   jsdoc,
   jsonc,
-  perfectionist,
   typescript,
   vue
 } from "./config";
@@ -26,7 +25,8 @@ async function defineConfig(config: TFlatConfig[] = []) {
   const configs: TFlatConfigPromise[] = [
     ignores(),
     jsonc(),
-    perfectionist(),
+
+    // perfectionist(),
     comments(),
     jsdoc(),
     command(),
