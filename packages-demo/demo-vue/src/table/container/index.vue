@@ -15,6 +15,7 @@ import {
 import {
   TElTableColumn
 } from "../types";
+import Test from "../components/test/index.vue";
 
 interface IData extends Record<never, any> {
   children: Record<never, any>
@@ -124,6 +125,7 @@ const arraySpanMethod = value => {
 
 <template>
   <div class="box">
+    <Test />
     <Splitpanes
       :push-other-panes="false"
       style="height: 400px"
