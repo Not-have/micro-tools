@@ -17,7 +17,7 @@ const watermarkSymbol = "watermark-dom";
 
 const updateWatermarkText = ref<string | null>(null);
 
-type TWaterMarkOptionsType = {
+interface TWaterMarkOptionsType {
 
   // 自定义水印的文字大小
   fontSize?: number;
@@ -36,9 +36,9 @@ type TWaterMarkOptionsType = {
 
   // 自定义水印的文字倾斜角度
   rotate?: number;
-};
+}
 
-type TUseWatermarkRes = {
+interface TUseWatermarkRes {
   setWatermark: (str: string) => void;
   clear: () => void;
   clearAll: () => void;
@@ -46,9 +46,9 @@ type TUseWatermarkRes = {
   obInstance?: MutationObserver;
   targetElement?: HTMLElement;
   parentElement?: HTMLElement;
-};
+}
 
-const sourceMap = new Map<Symbol, Omit<TUseWatermarkRes, "clearAll">>();
+const sourceMap = new Map<symbol, Omit<TUseWatermarkRes, "clearAll">>();
 
 function isDef<T = unknown>(val?: T): val is T {
   return typeof val !== "undefined";
@@ -97,9 +97,9 @@ function createBase64(str: string, waterMarkOptions: TWaterMarkOptionsType): str
 }
 
 const resetWatermarkStyle = (
-    element: HTMLElement,
-    watermarkText: string,
-    waterMarkOptions: TWaterMarkOptionsType
+  element: HTMLElement,
+  watermarkText: string,
+  waterMarkOptions: TWaterMarkOptionsType
 ): void => {
   element.className = `__${ watermarkSymbol}`;
   element.style.pointerEvents = "none";
@@ -112,8 +112,8 @@ const resetWatermarkStyle = (
   element.style.height = "100%";
   element.style.width = "100%";
   element.style.background = `url(${createBase64(
-      unref(updateWatermarkText) || watermarkText,
-      waterMarkOptions
+    unref(updateWatermarkText) || watermarkText,
+    waterMarkOptions
   )}) left top repeat`;
 };
 
@@ -136,7 +136,7 @@ const obFn = (): MutationObserver => {
       }
 
       if (mutation.attributeName === "style" && mutation.target) {
-        // eslint-disable-next-line @typescript-eslint/naming-convention
+
         const _target = mutation.target as HTMLElement;
 
         const target = findTargetNode(_target);
@@ -169,8 +169,8 @@ function clearAll(): void {
 }
 
 export default function useWatermark(
-    appendEl: Ref<HTMLElement | null> = ref(document.body) as Ref<HTMLElement>,
-    waterMarkOptions: TWaterMarkOptionsType = {}
+  appendEl: Ref<HTMLElement | null> = ref(document.body) as Ref<HTMLElement>,
+  waterMarkOptions: TWaterMarkOptionsType = {}
 ): Omit<TUseWatermarkRes, "waterMarkOptions" | "obInstance" | "targetElement" | "parentElement"> {
   const domSymbol = Symbol(watermarkSymbol);
 
@@ -275,7 +275,6 @@ export default function useWatermark(
     el.appendChild(div);
     sourceMap.set(domSymbol, {
 
-      // eslint-disable-next-line no-use-before-define
       setWatermark,
       clear,
       parentElement: el,

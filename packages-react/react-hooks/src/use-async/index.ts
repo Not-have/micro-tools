@@ -68,23 +68,23 @@ export default function useAsync<T extends IAsyncFunction>(asyncFunction: T, ini
 
       return response;
     }).
-        catch((err: Error) => {
-          if (!isUnmounted())
-          {
-            setStateResult(state => ({
-              ...state,
-              loading: false
-            }));
-          }
+      catch((err: Error) => {
+        if (!isUnmounted())
+        {
+          setStateResult(state => ({
+            ...state,
+            loading: false
+          }));
+        }
 
-          if (!config.ignoreAlert) {
+        if (!config.ignoreAlert) {
 
-            // eslint-disable-next-line no-console
-            console.log(err);
-          }
+          // eslint-disable-next-line no-console
+          console.log(err);
+        }
 
-          throw err;
-        });
+        throw err;
+      });
   }, [asyncFunction, isUnmounted, config.ignoreAlert]);
 
   const runWithDebounce = useMemo(() => {

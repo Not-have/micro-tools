@@ -64,18 +64,18 @@ export default function useEventListener({
     const addEventListener = (e: Element): void => e.addEventListener(name, realHandler, options);
 
     const removeWatch = watch(
-        element,
-        (v, _ov, cleanUp) => {
-          if (v) {
-            !unref(isAddRef) && addEventListener(v);
-            cleanUp(() => {
-              autoRemove && removeEventListener(v);
-            });
-          }
-        },
-        {
-          immediate: true
+      element,
+      (v, _ov, cleanUp) => {
+        if (v) {
+          !unref(isAddRef) && addEventListener(v);
+          cleanUp(() => {
+            autoRemove && removeEventListener(v);
+          });
         }
+      },
+      {
+        immediate: true
+      }
     );
 
     remove = (): void => {

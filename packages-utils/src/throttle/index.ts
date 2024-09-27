@@ -1,8 +1,10 @@
 interface IOptions {
+
     /**
      * 输入第一个字符的时候，是否触发，默认 true
      */
     leading?: boolean;
+
     /**
      * 输入最后一个字符的时候，是否触发，默认 false
      */
@@ -39,81 +41,91 @@ interface IOptions {
  *
  * inputEl.oninput = onInputThrottle;
  */
-export default function throttle<T extends (...args: unknown[]) => unknown>(func: Function, wait: number = 300, options: IOptions = {
-    leading: true,
-    trailing: false
+export default function throttle<T extends(...args: unknown[]) => unknown>(func: Function, wait: number = 300, options: IOptions = {
+  leading: true,
+  trailing: false
 }): ((...args: Parameters<T>) => Promise<ReturnType<T>>) & {
     cancel: () => void
 } {
-    const {leading, trailing} = options;
-    let lastTime: number = 0,
-        timer: NodeJS.Timeout | number | null = null;
+  const {
+    leading, trailing
+  } = options;
 
-    /**
+  let lastTime: number = 0;
+
+  let timer: NodeJS.Timeout | number | null = null;
+
+  /**
      * 事件触发时真正执行的函数
      */
-    const _throttle = function(...args: Parameters<T>): Promise<ReturnType<T>> {
-        return new Promise((resolve, reject) => {
-            try {
-                /**
+  const _throttle = function(...args: Parameters<T>): Promise<ReturnType<T>> {
+    return new Promise((resolve, reject) => {
+      try {
+
+        /**
                  * 获取最新的时间
                  * 当第一次执行完 lastTime = nowTime 时，wait - (nowTime - lastTime) 一定大于 0，这个时候是不执行的
                  */
-                const nowTime = new Date().getTime(),
-                    remainTime = wait - (nowTime - lastTime);
+        const nowTime = new Date().getTime();
 
-                if (lastTime === 0 && leading === false) {
-                    lastTime = nowTime;
-                    return;
-                }
+        const remainTime = wait - (nowTime - lastTime);
 
-                if (remainTime <= 0) {
-                    /**
-                     * 只有在这重置了，才能开启下一个定时器
-                     */
-                    if (timer) {
-                        clearTimeout(timer);
-                        timer = null;
-                    }
+        if (lastTime === 0 && leading === false) {
+          lastTime = nowTime;
 
-                    const result = func.apply(this, args);
-                    resolve(result);
-
-                    lastTime = nowTime;
-                    return;
-                }
-
-                if (trailing === true && remainTime > 0 && timer === null) {
-                    timer = setTimeout(() => {
-                        timer = null;
-                        const result = func.apply(this, args);
-
-                        /**
-                         * 处理边界性问题
-                         */
-                        lastTime = leading === true ? new Date().getTime() : 0;
-                        resolve(result);
-                    }, remainTime);
-                }
-            } catch (e) {
-                reject(e);
-            }
-        });
-    };
-
-    /**
-     * 取消节流
-     */
-    _throttle.cancel = function() {
-        if (timer) {
-            clearTimeout(timer);
-            timer = null;
+          return;
         }
 
-        lastTime = 0;
-    };
+        if (remainTime <= 0) {
 
-    return _throttle;
+          /**
+                     * 只有在这重置了，才能开启下一个定时器
+                     */
+          if (timer) {
+            clearTimeout(timer);
+            timer = null;
+          }
+
+          const result = func.apply(this, args);
+
+          resolve(result);
+
+          lastTime = nowTime;
+
+          return;
+        }
+
+        if (trailing === true && remainTime > 0 && timer === null) {
+          timer = setTimeout(() => {
+            timer = null;
+            const result = func.apply(this, args);
+
+            /**
+                         * 处理边界性问题
+                         */
+            lastTime = leading === true ? new Date().getTime() : 0;
+            resolve(result);
+          }, remainTime);
+        }
+      } catch (e) {
+        reject(e);
+      }
+    });
+  };
+
+  /**
+     * 取消节流
+     */
+  _throttle.cancel = function() {
+    if (timer) {
+      clearTimeout(timer);
+      timer = null;
+    }
+
+    lastTime = 0;
+  };
+
+  return _throttle;
 }
 
 /*

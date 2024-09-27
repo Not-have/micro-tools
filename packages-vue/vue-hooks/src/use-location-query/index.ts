@@ -31,10 +31,10 @@ import type {
  * 把 search string 转成对象，如果从 URL 中获取到的参数为空串，将被忽略，且只有在 defaults 中有的才会被接受
  */
 function searchToQuery<T>(
-    search: LocationQuery,
-    keys: Array<keyof T>,
-    defaults: Partial<T>,
-    types: TQueryTypes<T>
+  search: LocationQuery,
+  keys: Array<keyof T>,
+  defaults: Partial<T>,
+  types: TQueryTypes<T>
 ): Partial<T> {
   return keys.reduce((result, key) => {
     const originalValue = search[key] as unknown;
@@ -50,18 +50,18 @@ function searchToQuery<T>(
 
     // 把 originalValue 转成正确的格式
     switch (types[key] || typeof defaults[key]) {
-      case "boolean":
-        result[key] = originalValue === "1" || originalValue === "true";
+    case "boolean":
+      result[key] = originalValue === "1" || originalValue === "true";
 
-        break;
-      case "number":
-        result[key] = Number(originalValue);
+      break;
+    case "number":
+      result[key] = Number(originalValue);
 
-        break;
-      default:
-        result[key] = originalValue as string;
+      break;
+    default:
+      result[key] = originalValue as string;
 
-        break;
+      break;
     }
 
     return result;
@@ -69,8 +69,8 @@ function searchToQuery<T>(
 }
 
 function queryToSearch<T>(
-    query: Partial<T>,
-    defaults: Partial<T>
+  query: Partial<T>,
+  defaults: Partial<T>
 ): LocationQuery {
   const filteredObj = Object.fromEntries(Object.entries(query).filter(([key, value]) => {
     const stringValue = String(value);
@@ -102,13 +102,13 @@ export default function useLocationQuery<T>({
   const query: Ref<UnwrapRef<Partial<T>>> = ref(defaults);
 
   const getQuery = computed(() => searchToQuery(
-      {
-        ...defaults,
-        ...route.query
-      },
-      keys,
-      defaults,
-      types
+    {
+      ...defaults,
+      ...route.query
+    },
+    keys,
+    defaults,
+    types
   ));
 
   watchEffect(() => {
@@ -127,11 +127,11 @@ export default function useLocationQuery<T>({
     const windowSearch = decodeURIComponent(window.location.search);
 
     const newQuery = queryToSearch(
-        {
-          ...queryStringToObject(windowSearch),
-          ...queryUpdate
-        },
-        defaults
+      {
+        ...queryStringToObject(windowSearch),
+        ...queryUpdate
+      },
+      defaults
     );
 
     if (isEqual(query, newQuery)) {

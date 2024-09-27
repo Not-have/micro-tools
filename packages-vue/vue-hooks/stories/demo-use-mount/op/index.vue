@@ -15,6 +15,8 @@ const props = defineProps<{
   visible?: boolean;
 }>();
 
+const emits = defineEmits(["click"]);
+
 const dialogVisible = ref<boolean>(props.visible);
 
 watch(() => props.visible, newV => {
@@ -30,8 +32,6 @@ const num = ref(1);
 onMounted(() => {
   num.value = 2;
 });
-
-const emits = defineEmits(["click"]);
 
 const handleClick = (): void => {
   emits("click");
@@ -54,15 +54,15 @@ const handleClick = (): void => {
 
     <template #footer>
       <div class="dialog-footer">
-        <el-button @click="handleClose">
+        <ElButton @click="handleClose">
           Cancel
-        </el-button>
-        <el-button
+        </ElButton>
+        <ElButton
           type="primary"
           @click="handleClick"
         >
           Confirm
-        </el-button>
+        </ElButton>
       </div>
     </template>
   </ElDialog>

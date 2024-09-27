@@ -2,10 +2,10 @@ import {
   isElement
 } from "micro-util-ts";
 
-type TTransform = {
+interface TTransform {
   offsetX: number,
   offsetY: number
-};
+}
 
 interface IDraggable extends TTransform {
   offDraggable: Function;
@@ -83,15 +83,17 @@ export default function draggable(el: Element, overflow?: boolean, options?: IOp
          * @param {MouseEvent} e
          */
     const onMousemove = (e: MouseEvent) => {
-      let moveX = offsetX + e.clientX - downX,
-        moveY = offsetY + e.clientY - downY;
+      let moveX = offsetX + e.clientX - downX;
 
-      const minLeft = -targetLeft + offsetX,
-        minTop = -targetTop + offsetY,
-        // eslint-disable-next-line sort-vars
-        maxLeft = clientWidth - targetLeft - targetWidth + offsetX,
-        // eslint-disable-next-line sort-vars
-        maxTop = clientHeight - targetTop - targetHeight + offsetY;
+      let moveY = offsetY + e.clientY - downY;
+
+      const minLeft = -targetLeft + offsetX;
+
+      const minTop = -targetTop + offsetY;
+
+      const maxLeft = clientWidth - targetLeft - targetWidth + offsetX;
+
+      const maxTop = clientHeight - targetTop - targetHeight + offsetY;
 
       // 默认不允许超出 body
       if (!overflow) {

@@ -1,12 +1,15 @@
 interface IParams<T> {
+
   /**
    * 定义 localStorage 的 key
    */
   key: string,
+
   /**
    * 定义 localStorage 的 values
    */
   value: T,
+
   /**
    * 定义 localStorage 的储存时间
    * 1 = 24h、0.5 = 12h
@@ -21,22 +24,23 @@ export default class LocalStorageHelper {
   // private static readonly storageKeyPrefix = 'test';
   /**
    * 设置 localStorage
-   * @param {IParams} param0 
+   * @param {IParams} param0
    */
   static set<T>({
     key,
     value,
     expire
   }: IParams<T>) {
-    if (key === '' || key === null || key === undefined) {
-      throw new Error('key 不能为空');
+    if (key === "" || key === null || key === undefined) {
+      throw new Error("key 不能为空");
     }
-    if (value === '' || value === null || value === undefined) {
-      throw new Error('value 不能为空');
+
+    if (value === "" || value === null || value === undefined) {
+      throw new Error("value 不能为空");
     }
 
     localStorage.setItem(key, JSON.stringify({
-      value: value,
+      value,
       expire: expire ? new Date().getTime() + expire * 24 * 60 * 60 * 1000 : null
     }));
   }
@@ -52,17 +56,19 @@ export default class LocalStorageHelper {
 
         if(parsedItem.expire === Infinity || parsedItem.expire > now) {
           return parsedItem.value;
-        } else {
-          localStorage.removeItem(key);
-                    
-          return null;
         }
+
+        localStorage.removeItem(key);
+
+        return null;
+
       }
 
-      delete parsedItem.expire; 
-            
+      delete parsedItem.expire;
+
       return parsedItem;
     }
+
     return null;
   }
 

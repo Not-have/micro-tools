@@ -69,29 +69,28 @@ export default function useAsync<T extends IAsyncFunction>(asyncFunction: T, ini
 
       return response;
     }).
-        catch((err: Error) => {
-          if (!isUnmounted()) {
-            setStateResult(state => ({
-              ...state,
-              loading: false
-            }));
-          }
+      catch((err: Error) => {
+        if (!isUnmounted()) {
+          setStateResult(state => ({
+            ...state,
+            loading: false
+          }));
+        }
 
-          if (!config.ignoreAlert) {
+        if (!config.ignoreAlert) {
 
-            // eslint-disable-next-line no-console
-            console.error("请求失败时的处理");
+          console.error("请求失败时的处理");
+
+          // @ts-ignore
+          if (error) {
 
             // @ts-ignore
-            if (error) {
-
-              // @ts-ignore
-              error();
-            }
+            error();
           }
+        }
 
-          throw err;
-        });
+        throw err;
+      });
   }, [asyncFunction, isUnmounted, config.ignoreAlert]);
 
   const runWithDebounce = useMemo(() => {

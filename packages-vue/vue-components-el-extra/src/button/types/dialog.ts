@@ -1,4 +1,3 @@
-/* eslint-disable semi */
 /**
  * 弹出框 的配置
  */

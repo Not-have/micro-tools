@@ -2,6 +2,7 @@
   "name": "micro-tools",
   "version": "1.0.0",
   "description": "Tiny Tools.",
+  "private": true,
   "keywords": [
     "Vue hooks",
     "Vue Ui",
@@ -18,31 +19,38 @@
     "eslint-conf",
     "stylelint-conf"
   ],
-  "license": "ISC",
-  "private": true,
-  "author": {
-    "email": "2236472089@qq.com",
-    "name": "Li Yong"
-  },
   "homepage": "https://github.com/Not-have/micro-tools",
+  "bugs": {},
   "repository": {
     "type": "git",
     "url": "https://github.com/Not-have/micro-tools"
   },
-  "bugs": {},
+  "license": "ISC",
+  "author": {
+    "email": "2236472089@qq.com",
+    "name": "Li Yong"
+  },
   "workspaces": [
     "packages*/**"
   ],
-  "engines": {
-    "node": ">=20.14.0",
-    "pnpm": ">=9.0.0",
-    "npm": ">=10.7.0"
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "postinstall": "husky install && pnpm run clear:lock",
+    "boot": "pnpm run clear && pnpm install && pnpm run clear:lock && pnpm run build",
+    "clear": "pnpm --filter \"./packages-**\" clear && pnpm --filter \"./packages-**/**\" clear && rm -fr node_modules && pnpm run clear:store && pnpm run clear:lock",
+    "clear:lock": "rm -fr pnpm-lock.yaml && rm -fr package-lock.json && rm -fr lerna-debug.log",
+    "clear:store": "rm -fr .pnpm-store",
+    "build": "pnpm --filter \"./packages-**\" build && pnpm --filter \"./packages-**/**\" build",
+    "lint:eslint": "eslint \"./packages-**/**/*.{tsx,vue,ts,js}\" --fix",
+    "lint:style": "stylelint \"./packages-**/**/*.{tsx,css,vue,ts}\" --fix --allow-empty-input --version",
+    "lint:md": "markdownlint-cli2 ./packages-**/**/*.md",
+    "lint:ts": "pnpm vue-tsc --noEmit --skipLibCheck",
+    "prepare": "husky install",
+    "test": "pnpm --filter \"./packages-**/**\" clear"
   },
-  "browserslist": [
-    "last 2 versions",
-    "> 1%",
-    "IE 11"
-  ],
+  "dependencies": {
+    "eslint": "^9.8.0"
+  },
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
@@ -61,28 +69,20 @@
     "stylelint": "^16.7.0",
     "typescript": ">=5.5"
   },
+  "engines": {
+    "node": ">=20.14.0",
+    "pnpm": ">=9.0.0",
+    "npm": ">=10.7.0"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "> 1%",
+    "IE 11"
+  ],
   "lint-staged": {
     "package.json": "npmPkgJsonLint",
     "*.{js,ts,vue,tsx,jsx}": "eslint",
     "*.{js,ts,tsx,css,vue}": "stylelint --fix --allow-empty-input",
     "*.md": "markdownlint-cli2"
-  },
-  "scripts": {
-    "preinstall": "npx only-allow pnpm",
-    "postinstall": "husky install && pnpm run clear:lock",
-    "boot": "pnpm run clear && pnpm install && pnpm run clear:lock && pnpm run build",
-    "clear": "pnpm --filter \"./packages-**\" clear && pnpm --filter \"./packages-**/**\" clear && rm -fr node_modules && pnpm run clear:store && pnpm run clear:lock",
-    "clear:lock": "rm -fr pnpm-lock.yaml && rm -fr package-lock.json && rm -fr lerna-debug.log",
-    "clear:store": "rm -fr .pnpm-store",
-    "build": "pnpm --filter \"./packages-**\" build && pnpm --filter \"./packages-**/**\" build",
-    "lint:eslint": "eslint \"./packages-**/**/*.{tsx,vue,ts,js}\" --ext js,ts,tsx --fix",
-    "lint:style": "stylelint \"./packages-**/**/*.{tsx,css,vue,ts}\" --fix --allow-empty-input --verbose",
-    "lint:md": "markdownlint-cli2 ./packages-**/**/*.md",
-    "lint:ts": "pnpm vue-tsc --noEmit --skipLibCheck",
-    "prepare": "husky install",
-    "test": "pnpm --filter \"./packages-**/**\" clear"
-  },
-  "dependencies": {
-    "eslint": "^9.8.0"
   }
 }

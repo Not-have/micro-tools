@@ -1,31 +1,23 @@
-<template>
-  <el-dropdown>
-    <el-icon
-      :class="[slot ? '' : 'icon-transform', 'icon-space']"
-      :style="`--icon-margin: ${props.space}px`"
-    >
-      <slot name="dropdown">
-        <MoreFilled />
-      </slot>
-    </el-icon>
-    <template #dropdown>
-      <el-dropdown-menu>
-        <el-dropdown-item
-          v-for="(v, i) in props.items"
-          :key="i"
-        >
-          <component :is="v" />
-        </el-dropdown-item>
-      </el-dropdown-menu>
-    </template>
-  </el-dropdown>
-</template>
 <script setup lang="ts">
 import {
   PropType,
   VNode,
   useSlots
 } from "vue";
+
+const props = defineProps({
+  space: {
+    type: Number,
+    default: SPACE
+  },
+
+  /**
+     * 直接传进来的时 Button 数组
+     */
+  items: {
+    type: Array as PropType<VNode[]>
+  }
+});
 
 // 判断<slot/>是否有传值
 const slot = !!useSlots().dropdown;
@@ -43,20 +35,30 @@ import {
   SPACE
 } from "../../../const";
 
-const props = defineProps({
-  space: {
-    type: Number,
-    default: SPACE
-  },
-
-  /**
-     * 直接传进来的时 Button 数组
-     */
-  items: {
-    type: Array as PropType<VNode[]>
-  }
-});
 </script>
+<template>
+  <ElDropdown>
+    <ElIcon
+      class="icon-space"
+      :class="[slot ? '' : 'icon-transform']"
+      :style="`--icon-margin: ${props.space}px`"
+    >
+      <slot name="dropdown">
+        <MoreFilled />
+      </slot>
+    </ElIcon>
+    <template #dropdown>
+      <ElDropdownMenu>
+        <ElDropdownItem
+          v-for="(v, i) in props.items"
+          :key="i"
+        >
+          <component :is="v" />
+        </ElDropdownItem>
+      </ElDropdownMenu>
+    </template>
+  </ElDropdown>
+</template>
 <style scoped>
 @import "./index.css";
 

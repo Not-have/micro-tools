@@ -130,6 +130,7 @@ export async function typescript(): Promise<Linter.Config[]> {
             varsIgnorePattern: "^_"
           }
         ],
+
         // "@typescript-eslint/no-empty-function": "off", // 禁止空函数
         "@typescript-eslint/no-use-before-define": "off", // 禁止在变量声明之前使用它们
         "@typescript-eslint/no-var-requires": "error", // 禁止使用 require

@@ -58,16 +58,16 @@ export default function useService<T, Q = unknown>(fetch: IServiceFunction<T, Q>
         data.value = res as UnwrapRef<T>;
         reactive(res);
       }).
-          catch(err => {
-            loading.value = false;
-            error.value = err;
+        catch(err => {
+          loading.value = false;
+          error.value = err;
 
-            if (errorFn) {
-              errorFn(err);
-            }
+          if (errorFn) {
+            errorFn(err);
+          }
 
-            reject(err);
-          });
+          reject(err);
+        });
     });
   };
 

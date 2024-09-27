@@ -1,1 +1,1 @@
-export type TTarget = '_self' | '_blank';
+export type TTarget = "_self" | "_blank";

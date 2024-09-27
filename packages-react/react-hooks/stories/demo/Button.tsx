@@ -1,7 +1,7 @@
 import React from "react";
 
-const Button = (): React.JSX.Element => <div>
+const Button = (): react.jsx.element => <div>
   <p>demo</p>
-</div>;
+</div>;Button
 
 export default Button;

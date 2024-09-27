@@ -14,9 +14,9 @@ export default function isEqual(
   }
 
   if (
-    typeof obj1 !== 'object' ||
+    typeof obj1 !== "object" ||
         obj1 === null ||
-        typeof obj2 !== 'object' ||
+        typeof obj2 !== "object" ||
         obj2 === null
   ) {
     return false;
@@ -30,10 +30,12 @@ export default function isEqual(
   visited.add(obj2);
 
   const keys1 = Object.keys(obj1);
+
   const keys2 = Object.keys(obj2);
 
   if (keys1.length !== keys2.length) {
     visited.clear();
+
     return false;
   }
 
@@ -42,6 +44,7 @@ export default function isEqual(
     // @ts-ignore
     if (!keys2.includes(key) || !isEqual(obj1[key], obj2[key], visited)) {
       visited.clear();
+
       return false;
     }
   }

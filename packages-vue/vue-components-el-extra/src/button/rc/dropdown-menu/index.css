@@ -2,14 +2,12 @@
 可以不要这个
  */
 :focus-visible {
-  outline-color: #409eff; /* 自定义轮廓颜色 */
-  outline-style: dashed; /* dashed 自定义轮廓样式  auto 跟随浏览器的轮廓 */
-  outline-width: 0; /* 自定义轮廓宽度 */
+  outline: #409eff dashed 0; /* 自定义轮廓宽度 */ /* dashed 自定义轮廓样式  auto 跟随浏览器的轮廓 */ /* 自定义轮廓颜色 */
 }
 
 :deep(.el-icon) {
-  cursor: pointer;
   font-size: 16px;
+  cursor: pointer;
 }
 
 :deep(.el-dropdown-menu__item) {

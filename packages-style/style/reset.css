@@ -1,4 +1,5 @@
 @import url('./root.css');
+
 /**
  * css 初始化
  * https://meyerweb.com/eric/tools/css/reset/
@@ -86,9 +87,9 @@ audio,
 video {
     margin: 0;
     padding: 0;
-    border: 0;
     font: inherit;
     vertical-align: baseline;
+    border: 0;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -120,10 +121,10 @@ q {
     quotes: none;
 }
 
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
+blockquote::before,
+blockquote::after,
+q::before,
+q::after {
     content: none;
 }
 
@@ -136,6 +137,6 @@ html,
 body {
     width: 100%;
     height: 100%;
-    font-family: var(--micro-style-font-family);
     font-size: var(--micro-style-font-size);
+    font-family: var(--micro-style-font-family);
 }

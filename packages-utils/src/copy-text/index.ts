@@ -10,16 +10,16 @@
 export default function copyText(text: string, promptFn?: Function): Promise<unknown> {
   if (navigator.clipboard) {
     return navigator.clipboard.
-        writeText(text).
-        then(() => {
-          promptFn && promptFn();
-        }).
-        catch(error => {
-          // eslint-disable-next-line no-console
-          console.error(error);
+      writeText(text).
+      then(() => {
+        promptFn && promptFn();
+      }).
+      catch(error => {
 
-          return error;
-        });
+        console.error(error);
+
+        return error;
+      });
   }
 
   if (Reflect.has(document, "execCommand")) {
@@ -43,7 +43,7 @@ export default function copyText(text: string, promptFn?: Function): Promise<unk
         promptFn && promptFn();
         resolve();
       } catch (error) {
-        // eslint-disable-next-line no-console
+
         console.error(error);
         reject(error);
       }

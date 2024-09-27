@@ -1,6 +1,6 @@
 export {
-    ICONFONT_URL
-} from './const';
+  ICONFONT_URL
+} from "./const";
 export {
-    EIconType
-} from './enum';
+  EIconType
+} from "./enum";

@@ -1,12 +1,3 @@
-<template>
-  <div class="demo">
-    <ElButton
-      @click="handleClick"
-    >
-      打开弹出框
-    </ElButton>
-  </div>
-</template>
 <script lang="tsx" setup>
 import {
   ElButton
@@ -29,6 +20,15 @@ const handleClick = (): void => {
 };
 
 </script>
+<template>
+  <div class="demo">
+    <ElButton
+      @click="handleClick"
+    >
+      打开弹出框
+    </ElButton>
+  </div>
+</template>
 <style scoped>
 .demo {
   margin-top: 40px;

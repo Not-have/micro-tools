@@ -2,33 +2,36 @@
  * 规定 packages.json 文件
  */
 module.exports = {
-  extends: 'npm-package-json-lint-config-default',
+  extends: "npm-package-json-lint-config-default",
   rules: { // rules ref: https://npmpackagejsonlint.org/docs/rules
     // required stuff
-    'require-description': 'error',
-    'require-keywords': 'error',
-    'require-license': 'error',
-    'require-author': 'error',
-    'require-bugs': 'error',
-    'require-repository': 'error',
+    "require-description": "error",
+    "require-keywords": "error",
+    "require-license": "error",
+    "require-author": "error",
+    "require-bugs": "error",
+    "require-repository": "error",
+
     // homepage 是否必须存在
     // 'require-homepage': 'error',
     // format
-    'name-format': 'error',
-    'version-format': 'error',
-    'description-format': ['error', {
+    "name-format": "error",
+    "version-format": "error",
+    "description-format": ["error", {
       requireCapitalFirstLetter: true,
       requireEndingPeriod: false
     }],
+
     // no- / prefer-
-    'no-repeated-dependencies': 'error',
-    'no-duplicate-properties': 'error',
-    'prefer-alphabetical-peerDependencies': 'error',
-    'prefer-alphabetical-dependencies': 'error',
-    'prefer-alphabetical-devDependencies': 'error',
-    'prefer-alphabetical-optionalDependencies': 'error',
-    'prefer-alphabetical-bundledDependencies': 'error',
+    "no-repeated-dependencies": "error",
+    "no-duplicate-properties": "error",
+    "prefer-alphabetical-peerDependencies": "error",
+    "prefer-alphabetical-dependencies": "error",
+    "prefer-alphabetical-devDependencies": "error",
+    "prefer-alphabetical-optionalDependencies": "error",
+    "prefer-alphabetical-bundledDependencies": "error",
     "prefer-property-order": "off"
+
     // 'prefer-property-order': ['error', [
     //     // basic info
     //     'name',
@@ -84,7 +87,8 @@ module.exports = {
     //     'config',
     //     'scripts'
     // ]]
-  },
+  }
+
   // ignores: [
   //   "./packages-vue/vue-uni-app/**/package.json"
   // ],

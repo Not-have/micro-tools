@@ -5,7 +5,7 @@ import type {
 
 export const I_RC_CHILDREN_PROPS = {
   children: {
-    type: Object as PropType<VNode | Object | String>
+    type: Object as PropType<VNode | object | string>
   }
 };
 

@@ -1,6 +1,6 @@
 import {
   TTarget
-} from '../types';
+} from "../types";
 
 interface IOptions {
 
@@ -23,23 +23,22 @@ interface IOptions {
 /**
  * 用于在浏览器中打开窗口
  * @param {string} url 要打开的目标 URL
- * @param {IOptions} opt 
+ * @param {IOptions} opt
  */
 export default function openWindow(
   url: string,
   opt?: IOptions
 ) {
   const {
-    target = '__blank', 
-    noopener = true, 
-    noreferrer = true 
-  } = opt || {
-  };
-        
+    target = "__blank",
+    noopener = true,
+    noreferrer = true
+  } = opt || {};
+
   const feature: string[] = [];
 
-  noopener && feature.push('noopener=yes');
-  noreferrer && feature.push('noreferrer=yes');
+  noopener && feature.push("noopener=yes");
+  noreferrer && feature.push("noreferrer=yes");
 
-  window.open(url, target, feature.join(','));
+  window.open(url, target, feature.join(","));
 }

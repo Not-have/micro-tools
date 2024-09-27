@@ -93,7 +93,6 @@ export default function cloneDeep<T>(value: T | symbol, map = new WeakMap()): T 
 
     for (const sKey of symbolKeys) {
 
-      // eslint-disable-next-line @typescript-eslint/naming-convention
       const newSKey = Symbol(sKey.description);
 
       // @ts-ignore
