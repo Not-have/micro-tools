@@ -48,10 +48,10 @@ export default function useSubmit(): () => Promise<void> {
 
         propsHandleSuccess(res);
       }).
-          catch((err: unknown) => {
-            dispatchLoading(false);
-            propsHandleError(err);
-          });
+        catch((err: unknown) => {
+          dispatchLoading(false);
+          propsHandleError(err);
+        });
     } catch(err) {
       dispatchLoading(false);
       propsHandleError(err);
@@ -72,7 +72,7 @@ export default function useSubmit(): () => Promise<void> {
 
       await submit();
     }catch(err){
-      // eslint-disable-next-line no-console
+
       console.error("Error in form:", err);
     }
 

@@ -1,9 +1,21 @@
+<script lang="ts" setup>
+import {
+  Button,
+  ButtonOps
+} from "../../src";
+
+const handleClick = (e: Event): void => {
+  // eslint-disable-next-line no-console
+  console.log(e);
+};
+
+</script>
 <template>
   <div class="demo">
     <Button
       label="按钮"
       type="danger"
-      :onClick="handleClick"
+      :on-click="handleClick"
     />
     <br />
     <br />
@@ -22,18 +34,6 @@
     />
   </div>
 </template>
-<script lang="ts" setup>
-import {
-  Button,
-  ButtonOps
-} from "../../src";
-
-const handleClick = (e: Event): void => {
-  // eslint-disable-next-line no-console
-  console.log(e);
-};
-
-</script>
 <style scoped>
 .demo {
   margin-top: 40px;

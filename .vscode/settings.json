@@ -17,6 +17,7 @@
     "rushstack",
     "smacss",
     "sortablejs",
+    "Splitpanes",
     "stylelint",
     "uniapp"
   ],
@@ -24,5 +25,5 @@
     "source.fixAll.eslint": "explicit"
   },
   "editor.tabSize": 2,
-  "commentTranslate.source": "Bing"
+  "commentTranslate.source": "DarkCWK.youdao-youdao"
 }

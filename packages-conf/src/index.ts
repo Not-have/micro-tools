@@ -1,4 +1,4 @@
 export {
-    ICONFONT_URL,
-    EIconType
-} from './iconfont-url';
+  ICONFONT_URL,
+  EIconType
+} from "./iconfont-url";

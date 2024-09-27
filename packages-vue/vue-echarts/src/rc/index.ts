@@ -42,8 +42,8 @@ interface IEchartsMethods {
  * 文档：https://echarts.apache.org/handbook/zh/get-started/
  */
 export default function useEcharts(
-    elRef: Ref<HTMLDivElement>,
-    theme: "light" | "dark" | "default" = "default"
+  elRef: Ref<HTMLDivElement>,
+  theme: "light" | "dark" | "default" = "default"
 ): IEchartsMethods {
 
   /**
@@ -146,14 +146,14 @@ export default function useEcharts(
      * 监听主题变化
      */
   watch(
-      () => getDarkMode.value,
-      theme => {
-        if (chartInstance) {
-          chartInstance.dispose();
-          initCharts(theme as "default");
-          setOptions(cacheOptions.value);
-        }
+    () => getDarkMode.value,
+    theme => {
+      if (chartInstance) {
+        chartInstance.dispose();
+        initCharts(theme as "default");
+        setOptions(cacheOptions.value);
       }
+    }
   );
 
   onUnmounted(() => {

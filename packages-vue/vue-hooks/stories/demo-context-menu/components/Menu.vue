@@ -1,15 +1,3 @@
-<template>
-  <div>
-    <Menu
-      :style="{ width: '256px' }"
-      :selected-keys="selectedKeys"
-      mode="vertical"
-      theme="light"
-      :items="items"
-      @click="handleClick"
-    />
-  </div>
-</template>
 <script lang="ts" setup>
 import {
   computed,
@@ -63,3 +51,15 @@ function handleClick(info: unknown): void {
   console.log("click", info);
 }
 </script>
+<template>
+  <div>
+    <Menu
+      :style="{ width: '256px' }"
+      :selected-keys="selectedKeys"
+      mode="vertical"
+      theme="light"
+      :items="items"
+      @click="handleClick"
+    />
+  </div>
+</template>

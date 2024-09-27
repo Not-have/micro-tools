@@ -19,5 +19,5 @@ export interface IButtonOpsType {
   /**
      * 额外的组件，放在按钮列表末尾
      */
-  extra: Object
+  extra: object
 }

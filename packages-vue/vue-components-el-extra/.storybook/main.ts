@@ -1,8 +1,11 @@
-import type { StorybookConfig } from "@storybook/vue3-vite";
+import type {
+  StorybookConfig
+} from "@storybook/vue3-vite";
 
 const config: StorybookConfig = {
   stories: [
-    // "../src/**/*.mdx", 
+
+    // "../src/**/*.mdx",
     // "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"
     "../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)"
   ],
@@ -10,14 +13,15 @@ const config: StorybookConfig = {
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@chromatic-com/storybook",
-    "@storybook/addon-interactions",
+    "@storybook/addon-interactions"
   ],
   framework: {
     name: "@storybook/vue3-vite",
-    options: {},
+    options: {}
   },
   docs: {
-    autodocs: "tag",
-  },
+    autodocs: "tag"
+  }
 };
+
 export default config;

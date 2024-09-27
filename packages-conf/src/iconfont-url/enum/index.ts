@@ -1,14 +1,17 @@
 export enum EIconType {
+
     /**
      * 箭头
      */
-    ARROW = 'micro-icon-jiantou',
+    ARROW = "micro-icon-jiantou",
+
     /**
      * loading
      */
-    LOADING = 'micro-icon-loading',
+    LOADING = "micro-icon-loading",
+
     /**
      * api
      */
-    API = 'micro-icon-API'
+    API = "micro-icon-API"
 }

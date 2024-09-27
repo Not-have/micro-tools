@@ -1,14 +1,15 @@
 <script setup lang="ts">
 import {
-  onMounted, onUnmounted
+  onMounted,
+  onUnmounted
 } from "vue";
 
 import {
-  initMap,
-  getLocation,
-  destroyMap,
   createInfoWindowContent,
-  createMark
+  createMark,
+  destroyMap,
+  getLocation,
+  initMap
 } from "./utils";
 
 const lineArr = [
@@ -50,6 +51,8 @@ onUnmounted(() => {
 });
 
 const handleRenderingRouteClick = (): void => {
+
+  // eslint-disable-next-line no-new
   new AMap.Polyline({
     map,
     path: lineArr,
@@ -62,19 +65,19 @@ const handleRenderingRouteClick = (): void => {
   // 在每个点添加圆形标记
   lineArr.forEach((position, index) => {
     marker = new AMap.Marker({
-      map,
-      position,
       content: createMark(),
-      offset: new AMap.Pixel(-5, -5)
+      map,
+      offset: new AMap.Pixel(-5, -5),
+      position
     });
 
     // 添加鼠标悬停事件监听器
     marker.on("mouseover", () => {
       const infoWindow = new AMap.InfoWindow({
-        isCustom: true, // 使用自定义窗体
+        closeWhenClickMap: false,
         content: createInfoWindowContent(index + 1),
-        offset: new AMap.Pixel(0, -20),
-        closeWhenClickMap: false
+        isCustom: true, // 使用自定义窗体
+        offset: new AMap.Pixel(0, -20)
       });
 
       infoWindow.open(map, position);
@@ -89,10 +92,10 @@ const handleRenderingRouteClick = (): void => {
 
 const handleCarRouteClick = (): void => {
   marker = new AMap.Marker({
-    map,
-    position: [116.478935, 39.997761],
     icon: "https://a.amap.com/jsapi_demos/static/demo-center-v2/car.png",
-    offset: new AMap.Pixel(-13, -26)
+    map,
+    offset: new AMap.Pixel(-13, -26),
+    position: [116.478935, 39.997761]
   });
 
   const passedPolyline = new AMap.Polyline({ // 隐藏使用 passedPolyline.hide();
@@ -113,10 +116,11 @@ const handleCarRouteClick = (): void => {
 const startAnimation = (): void => {
   marker.moveAlong(lineArr, {
 
-    // 每一段的时长
-    duration: 500, // 可根据实际采集时间间隔设置
     // JSAPI2.0 是否延道路自动设置角度在 moveAlong 里设置
-    autoRotation: true
+    autoRotation: true,
+
+    // 每一段的时长
+    duration: 500 // 可根据实际采集时间间隔设置
   });
 };
 
@@ -147,23 +151,23 @@ const handleCancelMapRenderClick = (): void => {
       渲染小车
     </button>
     <input
-      value="开始动画"
       type="button"
+      value="开始动画"
       @click="startAnimation"
     />
     <input
-      value="暂停动画"
       type="button"
+      value="暂停动画"
       @click="pauseAnimation"
     />
     <input
-      value="继续动画"
       type="button"
+      value="继续动画"
       @click="resumeAnimation"
     />
     <input
-      value="停止动画"
       type="button"
+      value="停止动画"
       @click="stopAnimation"
     />
     <button @click="handleCancelMapRenderClick">

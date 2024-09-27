@@ -1,21 +1,20 @@
 {
-    "compilerOptions": {
-      "lib": [
-        "esnext",
-        "dom",
-        "scripthost",
-        "dom.iterable"
-      ],
-      "strict": true,
-      "allowJs": false,
-      "skipLibCheck": true,
-      "noUnusedParameters": true,
-      "noUnusedLocals": true,
-      "allowSyntheticDefaultImports": true,
-      "esModuleInterop": true,
-      "experimentalDecorators": true,
-      "resolveJsonModule": true,
-      "moduleResolution": "node"
-    }
+  "compilerOptions": {
+    "lib": [
+      "esnext",
+      "dom",
+      "scripthost",
+      "dom.iterable"
+    ],
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "allowJs": false,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true
   }
-  
+}

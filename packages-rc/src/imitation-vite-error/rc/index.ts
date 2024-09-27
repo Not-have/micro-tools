@@ -170,16 +170,14 @@ function template(dialog: boolean = false): string {
     `;
 }
 
-// eslint-disable-next-line @typescript-eslint/naming-convention
 const fileRE = /(?:[a-zA-Z]:\\|\/).*?:\d+:\d+/g;
 
-// eslint-disable-next-line @typescript-eslint/naming-convention
 const codeframeRE = /^(?:>?\s*\d+\s+\|.*|\s+\|\s*\^.*)\r?\n/gm;
 
 // 允许“ErrorOverlay”扩展“HTMLElement”，即使在以下环境中也是如此
 // `HTMLElement`最初未定义。
 const {
-  // eslint-disable-next-line @typescript-eslint/naming-convention
+
   HTMLElement = class {
   } as typeof globalThis.HTMLElement
 } = globalThis;

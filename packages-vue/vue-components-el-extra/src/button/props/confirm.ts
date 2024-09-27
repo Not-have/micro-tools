@@ -12,7 +12,7 @@ const I_RC_CONFIRM_PROPS = {
      * 文字提示 的配置
      */
   confirm: {
-    type: String as PropType<String | IDialogExtendedProps>,
+    type: String as PropType<string | IDialogExtendedProps>,
     required: false
   }
 };

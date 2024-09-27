@@ -6,7 +6,7 @@ module.exports = {
   overrides: [
     {
       files: ["packages-vue/**/*.{js,vue,ts,tsx}", "packages-demo/demo-vue/**/*.{js,vue,ts,tsx}"],
-      customSyntax: 'postcss-html',
+      customSyntax: "postcss-html",
       extends: ["micro-stylelint-conf/vue"].map(require.resolve)
     },
     {

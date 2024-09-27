@@ -1,1 +1,1 @@
-export const head: HTMLHeadElement = document.head || document.getElementsByTagName('head')[0];
+export const head: HTMLHeadElement = document.head || document.getElementsByTagName("head")[0];

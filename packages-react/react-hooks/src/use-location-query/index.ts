@@ -3,7 +3,7 @@ import {
   omitBy as _omitBy
 } from "lodash-es";
 import qs from "qs";
-// eslint-disable-next-line sort-imports
+
 import {
   useCallback,
   useMemo
@@ -52,18 +52,18 @@ function searchToQuery<T>(search: string, keys: Array<keyof T>, defaults: Partia
     // 把 originalValue 转成正确的格式
     switch (types[key] || typeof defaults[key])
     {
-      case "boolean":
-        result[key] = originalValue === "1" || originalValue === "true";
+    case "boolean":
+      result[key] = originalValue === "1" || originalValue === "true";
 
-        break;
-      case "number":
-        result[key] = Number(originalValue);
+      break;
+    case "number":
+      result[key] = Number(originalValue);
 
-        break;
-      default:
-        result[key] = originalValue as string;
+      break;
+    default:
+      result[key] = originalValue as string;
 
-        break;
+      break;
     }
 
     return result;

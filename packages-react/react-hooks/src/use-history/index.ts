@@ -1,23 +1,23 @@
 import {
   isObject
 } from "lodash-es";
-// eslint-disable-next-line sort-imports
+
 import {
   Location,
   useLocation,
   useNavigate
 } from "react-router-dom";
 
-type TNavigateOptions = {
+interface TNavigateOptions {
   hash?: string;
   search?: string;
-};
+}
 
-type THistoryHook = {
+interface THistoryHook {
   location: Location;
   push: (url: string | TNavigateOptions, options?: TNavigateOptions) => void;
   replace: (url: string | TNavigateOptions, options?: TNavigateOptions) => void;
-};
+}
 
 function compoundUrl(url: string, options?: TNavigateOptions): string {
   return `${url || ""}${options?.search || ""}${options?.hash || ""}`;

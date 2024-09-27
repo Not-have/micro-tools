@@ -38,9 +38,9 @@ export function urlToBase64(url: string, mineType?: string): Promise<string> {
   return new Promise((resolve, reject) => {
     let canvas = document.createElement("CANVAS") as HTMLCanvasElement | null;
 
-    const ctx = canvas!.getContext("2d"),
+    const ctx = canvas!.getContext("2d");
 
-      img = new Image();
+    const img = new Image();
 
     img.crossOrigin = "";
 

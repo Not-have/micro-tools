@@ -4,10 +4,10 @@
  * @return {element is Element}
  */
 export default function isElement(element: any): element is Element {
-    return (
-        element instanceof Element ||
+  return (
+    element instanceof Element ||
         (element &&
-            typeof element.nodeType === 'number' &&
-            typeof element.nodeName === 'string')
-    );
+            typeof element.nodeType === "number" &&
+            typeof element.nodeName === "string")
+  );
 }

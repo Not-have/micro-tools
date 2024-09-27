@@ -78,7 +78,6 @@ export const getLocation = (callback?: (position: unknown) => void): void => {
 
     } else {
 
-      // eslint-disable-next-line no-console
       console.error("Geolocation failed:", result);
     }
   });

@@ -2,7 +2,7 @@ import type {
   IDialogProps
 } from "../types";
 
-export type TButtonType = {
+export interface TButtonType {
 
   /**
      * 按钮内容
@@ -24,7 +24,7 @@ export type TButtonType = {
   /**
      * 定义传入的是一个组件
      */
-  icon?: Object,
+  icon?: object,
 
   /**
      * 按钮上方的提示

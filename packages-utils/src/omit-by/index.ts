@@ -1,7 +1,7 @@
-import isObject from '../is-object';
-type Dictionary<T> = {
+import isObject from "../is-object";
+interface Dictionary<T> {
     [key: string]: T;
-};
+}
 
 type OmitByFunction<T> = (value: T, key: string) => boolean;
 
@@ -12,26 +12,27 @@ type OmitByFunction<T> = (value: T, key: string) => boolean;
  * @returns 新的对象，排除了满足条件的属性
  */
 export default function omitBy<T>(obj: Dictionary<T> | null | undefined, condition: OmitByFunction<T>): Dictionary<T> {
-    const result: Dictionary<T> = {};
+  const result: Dictionary<T> = {};
 
-    if (!isObject(obj))
-    {
-        return result;
-    }
-
-    for (const key in obj)
-    {
-        if (Object.prototype.hasOwnProperty.call(obj, key))
-        {
-            const value = obj[key];
-            if (!condition(value, key))
-            {
-                result[key] = value;
-            }
-        }
-    }
-
+  if (!isObject(obj))
+  {
     return result;
+  }
+
+  for (const key in obj)
+  {
+    if (Object.prototype.hasOwnProperty.call(obj, key))
+    {
+      const value = obj[key];
+
+      if (!condition(value, key))
+      {
+        result[key] = value;
+      }
+    }
+  }
+
+  return result;
 }
 
 /*
