@@ -1,0 +1,19 @@
+{
+  "name": "micro-prettier-config",
+  "version": "1.0.0",
+  "description": "Prettier",
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/Not-have/micro-tools/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-prettier-config"
+  },
+  "license": "ISC",
+  "author": "LiYong",
+  "main": "index.mjs",
+  "devDependencies": {
+    "prettier": "catalog:"
+  }
+}

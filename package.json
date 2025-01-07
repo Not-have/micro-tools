@@ -52,6 +52,7 @@
     "markdownlint-cli2": "catalog:",
     "micro-commitlint-config": "workspace:^",
     "micro-eslint-conf": "workspace:^",
+    "micro-prettier-config": "workspace:^",
     "npm-package-json-lint-config-default": "catalog:"
   },
   "lint-staged": {

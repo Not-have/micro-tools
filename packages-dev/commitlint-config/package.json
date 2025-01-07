@@ -24,14 +24,9 @@
       "default": "./index.mjs"
     }
   },
-  "dependencies": {
+  "devDependencies": {
     "@commitlint/cli": "catalog:",
     "@commitlint/config-conventional": "catalog:",
     "commitlint-plugin-function-rules": "catalog:"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-git"
-    }
   }
 }

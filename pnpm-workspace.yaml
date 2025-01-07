@@ -3,10 +3,31 @@ packages:
 catalog:
   "@commitlint/cli": ^19.6.1
   "@commitlint/config-conventional": ^19.6.0
+  "@eslint/js": ^9.17.0
+  "@types/eslint": ^9.6.1
+  "@typescript-eslint/eslint-plugin": ^8.19.1
+  "@typescript-eslint/parser": ^8.19.1
   commitlint-plugin-function-rules: ^4.0.1
   depcheck: ^1.4.7
+  eslint: ^9.17.0
+  eslint-plugin-command: ^0.2.7
+  eslint-plugin-eslint-comments: ^3.2.0
+  eslint-plugin-import-x: ^4.6.1
+  eslint-plugin-jsdoc: ^50.6.1
+  eslint-plugin-jsonc: ^2.18.2
+  eslint-plugin-n: ^17.15.1
+  eslint-plugin-perfectionist: ^4.6.0
+  eslint-plugin-prettier: ^5.2.1
+  eslint-plugin-regexp: ^2.7.0
+  eslint-plugin-unused-imports: ^4.1.4
+  eslint-plugin-vitest: ^0.5.4
+  eslint-plugin-vue: ^9.32.0
+  globals: ^15.14.0
   husky: ^9.1.7
+  jsonc-eslint-parser: ^2.4.0
   lerna: ^8.1.9
   lint-staged: ^15.3.0
   markdownlint-cli2: ^0.17.1
   npm-package-json-lint-config-default: ^7.0.1
+  prettier: ^3.4.2
+  vue-eslint-parser: ^9.4.3
