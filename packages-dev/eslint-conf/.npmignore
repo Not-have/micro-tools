@@ -1,0 +1,5 @@
+node_modules/
+.eslintignore
+.eslintrc.cjs
+doc/
+eslint.config.js
