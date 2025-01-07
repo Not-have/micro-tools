@@ -10,7 +10,7 @@ import {
   prettier,
   regexp,
   typescript,
-  vue as _vue
+  vue
 } from "./config/index.js";
 
 const _default = [
@@ -27,9 +27,13 @@ const _default = [
   regexp
 ];
 
-export default _default;
-
-export const vue = [
+const _vue = [
   ..._default,
-  _vue
+  vue
 ];
+
+export {
+  _vue as vue
+};
+
+export default _default;
