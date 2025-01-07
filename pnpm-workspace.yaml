@@ -1,2 +1,6 @@
 packages:
-  - "packages*/**"
+  - packages*/**
+
+# https://pnpm.io/zh/catalogs
+catalog:
+  markdownlint-cli2: ^0.17.1

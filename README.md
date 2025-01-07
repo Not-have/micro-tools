@@ -17,58 +17,7 @@ npm run start
 cd .\packages-vue ; pnpm run start
 ```
 
-## 3、目录
-
-```目录
-tiny-tools
-│
-├─.husky
-│
-├─.idea
-│
-├─doc
-│      monorepo - pnpm.md
-│      npm 发布依赖.md
-│      Storybook.md
-│      包管理工具.md
-│      常用指令记录.md
-│      目录说明.md
-│
-├─packages-eslint-conf
-│
-├─packages-style
-│
-├─packages-stylelint-conf
-│
-├─packages-utils
-│
-├─packages-vue
-│
-├─packages-react
-│
-│─scripts
-│  .commitlintrc.js
-│  .depcheckrc.yml
-│  .eslintignore
-│  .eslintrc.js
-│  .gitignore
-│  .markdownlint.yaml
-│  .npmpackagejsonlintrc.js // package.json 配置规则
-│  .npmrc
-│  .pnpmfile.cjs
-│  .stylelintignore
-│  .stylelintrc
-│  directoryList.md
-│  lerna-debug.log
-│  lerna.json
-│  package.json
-│  pnpm-workspace.yaml
-│  project-structure.md
-│  README.md
-└─ tsconfig.json
-```
-
-## 4、git commit 规范
+## 3、git commit 规范
 
 | Type     | 作用                                                                                   |
 | -------- | -------------------------------------------------------------------------------------- |
@@ -86,7 +35,7 @@ tiny-tools
 
 注：如果 md 文件提交报错，则 `markdownlint-cli2 --fix "文件名.md"` 修复。
 
-## 5、TypeScript 中常用 JSDoc 注释标签
+## 4、TypeScript 中常用 JSDoc 注释标签
 
 | Type        | 作用        |
 | ----------- | ----------- |

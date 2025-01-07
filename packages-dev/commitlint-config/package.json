@@ -1,0 +1,40 @@
+{
+  "name": "micro-commitlint-config",
+  "version": "1.0.0",
+  "description": "提交规范",
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/Not-have/micro-tools/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-dev/commitlint-config"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./index.mjs",
+  "module": "./index.mjs",
+  "exports": {
+    ".": {
+      "import": "./index.mjs",
+      "default": "./index.mjs"
+    }
+  },
+  "dependencies": {
+    "@commitlint/cli": "^19.6.1",
+    "@commitlint/config-conventional": "^19.6.0",
+    "commitizen": "^4.3.1",
+    "commitlint-plugin-function-rules": "^4.0.1",
+    "cz-git": "^1.11.0",
+    "czg": "^1.11.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-git"
+    }
+  }
+}

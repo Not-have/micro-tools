@@ -1,3 +1,0 @@
-export {
-  Form
-} from "./rc";

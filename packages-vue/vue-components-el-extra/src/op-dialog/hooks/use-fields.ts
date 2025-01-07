@@ -1,3 +1,0 @@
-export {
-  useFields
-} from "../model";
