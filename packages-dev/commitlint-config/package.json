@@ -25,10 +25,10 @@
     }
   },
   "dependencies": {
-    "@commitlint/cli": "^19.6.1",
-    "@commitlint/config-conventional": "^19.6.0",
-    "commitlint-plugin-function-rules": "^4.0.1",
-    "czg": "^1.11.0"
+    "@commitlint/cli": "catalog:",
+    "@commitlint/config-conventional": "catalog:",
+    "commitlint-plugin-function-rules": "catalog:",
+    "czg": "catalog:"
   },
   "config": {
     "commitizen": {
