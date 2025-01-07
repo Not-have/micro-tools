@@ -27,9 +27,7 @@
   "dependencies": {
     "@commitlint/cli": "^19.6.1",
     "@commitlint/config-conventional": "^19.6.0",
-    "commitizen": "^4.3.1",
     "commitlint-plugin-function-rules": "^4.0.1",
-    "cz-git": "^1.11.0",
     "czg": "^1.11.0"
   },
   "config": {
