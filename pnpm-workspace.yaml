@@ -4,7 +4,6 @@ catalog:
   "@commitlint/cli": ^19.6.1
   "@commitlint/config-conventional": ^19.6.0
   commitlint-plugin-function-rules: ^4.0.1
-  czg: ^1.11.0
   depcheck: ^1.4.7
   husky: ^9.1.7
   lerna: ^8.1.9
