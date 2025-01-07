@@ -32,7 +32,17 @@
   },
   "type": "module",
   "scripts": {
-    "prepare": "husky"
+    "preinstall": "npx only-allow pnpm",
+    "postinstall": "husky install && pnpm run clear:lock",
+    "boot": "pnpm run clear && pnpm install && pnpm run clear:lock && pnpm run build",
+    "clear": "pnpm --filter \"./packages-**\" clear && pnpm --filter \"./packages-**/**\" clear && rm -fr node_modules && pnpm run clear:store && pnpm run clear:lock",
+    "clear:lock": "rm -fr pnpm-lock.yaml && rm -fr package-lock.json && rm -fr lerna-debug.log",
+    "clear:store": "rm -fr .pnpm-store",
+    "build": "pnpm --filter \"./packages-**\" build && pnpm --filter \"./packages-**/**\" build",
+    "lint:eslint": "eslint \"./packages-**/**/*.{tsx,vue,ts,js}\" --fix",
+    "lint:style": "stylelint \"./packages-**/**/*.{tsx,css,vue,ts}\" --fix --allow-empty-input --version",
+    "lint:md": "markdownlint-cli2 ./packages-**/**/*.md",
+    "prepare": "husky install"
   },
   "engines": {
     "node": ">=22.0.0",
@@ -46,6 +56,7 @@
   "devDependencies": {
     "@commitlint/cli": "catalog:",
     "depcheck": "catalog:",
+    "eslint": "catalog:",
     "husky": "catalog:",
     "lerna": "catalog:",
     "lint-staged": "catalog:",
@@ -53,10 +64,16 @@
     "micro-commitlint-config": "workspace:^",
     "micro-eslint-conf": "workspace:^",
     "micro-prettier-config": "workspace:^",
-    "npm-package-json-lint-config-default": "catalog:"
+    "npm-package-json-lint": "catalog:",
+    "npm-package-json-lint-config-default": "catalog:",
+    "only-allow": "catalog:",
+    "prettier": "catalog:",
+    "stylelint": "catalog:"
   },
   "lint-staged": {
     "package.json": "npmPkgJsonLint",
+    "*.{js,ts,vue,tsx,jsx}": "eslint",
+    "*.{js,ts,tsx,css,vue}": "stylelint --fix --allow-empty-input",
     "*.md": "markdownlint-cli2"
   }
 }

@@ -4,6 +4,7 @@ catalog:
   "@commitlint/cli": ^19.6.1
   "@commitlint/config-conventional": ^19.6.0
   "@eslint/js": ^9.17.0
+  "@stylistic/stylelint-plugin": ^3.1.1
   "@types/eslint": ^9.6.1
   "@typescript-eslint/eslint-plugin": ^8.19.1
   "@typescript-eslint/parser": ^8.19.1
@@ -28,6 +29,15 @@ catalog:
   lerna: ^8.1.9
   lint-staged: ^15.3.0
   markdownlint-cli2: ^0.17.1
+  npm-package-json-lint: ^8.0.0
   npm-package-json-lint-config-default: ^7.0.1
+  only-allow: ^1.2.1
+  postcss: ^8.4.49
+  postcss-html: ^1.7.0
   prettier: ^3.4.2
+  stylelint: ^16.12.0
+  stylelint-config-rational-order: ^0.1.2
+  stylelint-config-standard: ^36.0.1
+  stylelint-order: ^6.0.4
+  stylelint-prettier: ^5.0.2
   vue-eslint-parser: ^9.4.3

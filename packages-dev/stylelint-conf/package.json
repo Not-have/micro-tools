@@ -1,0 +1,41 @@
+{
+  "name": "micro-stylelint-conf",
+  "version": "2.0.0",
+  "description": "Stylelint 的规则配置",
+  "keywords": [
+    "stylelintrc",
+    "stylelintrc-conf",
+    "conf"
+  ],
+  "bugs": {
+    "url": "https://github.com/Not-have/micro-tools/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-stylelintrc-conf"
+  },
+  "license": "ISC",
+  "author": "LiYong",
+  "scripts": {
+    "clear": "rm -fr node_modules",
+    "test": "stylelint \"./test/**/*.{css,tsx,vue,ts,js,html}\" --fix"
+  },
+  "main": "./index.js",
+  "module": "./index.js",
+  "exports": {
+    ".": {
+      "import": "./index.js",
+      "default": "./index.js"
+    }
+  },
+  "devDependencies": {
+    "@stylistic/stylelint-plugin": "catalog:",
+    "postcss": "catalog:",
+    "postcss-html": "catalog:",
+    "stylelint": "catalog:",
+    "stylelint-config-rational-order": "catalog:",
+    "stylelint-config-standard": "catalog:",
+    "stylelint-order": "catalog:",
+    "stylelint-prettier": "catalog:"
+  }
+}
