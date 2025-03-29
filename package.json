@@ -4,12 +4,14 @@
   "description": "",
   "private": true,
   "scripts": {
+    "lint:md": "markdownlint-cli2 ./packages-**/**/*.md",
     "lint:cspell": "cspell lint **/*.ts **/README.md **/*.tsx **/*.vue --no-progress"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "cspell": "^8.18.1"
+    "cspell": "^8.18.1",
+    "markdownlint-cli2": "^0.17.2"
   }
 }
