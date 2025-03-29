@@ -13,7 +13,6 @@
   },
   "homepage": "https://github.com/Not-have/micro-tools/",
   "bugs": "https://github.com/Not-have/micro-tools/issues",
-  "repository": "git@github.com:Not-have/micro-tools.git",
   "license": "MIT",
   "type": "module",
   "devDependencies": {
