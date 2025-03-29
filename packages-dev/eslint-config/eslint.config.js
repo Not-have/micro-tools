@@ -1,8 +1,8 @@
 import EsLint, {
-  vue
+  react
 } from "./src/index.js";
 
 export default [
   ...EsLint,
-  ...vue
+  ...react
 ];

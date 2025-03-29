@@ -1,4 +1,4 @@
-const a: any = "11";
+const a: string = "11";
 
 export {
   a

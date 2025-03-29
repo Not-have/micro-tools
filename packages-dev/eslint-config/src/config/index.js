@@ -11,4 +11,4 @@ export { default as importX } from "./import-x.js";
 export { default as perfectionist } from "./perfectionist.js";
 export { default as unicorn } from "./unicorn.js";
 export { default as typescript } from "./typescript.js";
-export { default as vue } from "./vue.js";
+export { default as react } from "./react.js";

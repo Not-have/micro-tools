@@ -11,7 +11,9 @@ import {
   importX,
   unicorn,
   typescript,
-  vue
+  react
+
+  // vue
 } from "./config/index.js";
 
 const DEFAULT = [
@@ -34,5 +36,5 @@ export default DEFAULT;
 export {
   javascript,
   typescript,
-  vue
+  react
 };

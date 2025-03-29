@@ -1,3 +1,4 @@
+/* eslint-disable unicorn/prefer-string-raw */
 import js from "@eslint/js";
 import pluginUnusedImports from "eslint-plugin-unused-imports";
 import globals from "globals";
