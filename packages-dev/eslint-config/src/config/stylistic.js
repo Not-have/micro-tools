@@ -34,8 +34,9 @@ export default {
       // TODO ExportDeclaration、ImportDeclaration 没生效
       {
         ExportDeclaration: {
-          minProperties: 1,
-          multiline: true
+
+          // minProperties: 1,
+          consistent: true
         },
         ImportDeclaration: {
           minProperties: 1,

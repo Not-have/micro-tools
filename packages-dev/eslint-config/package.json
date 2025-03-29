@@ -2,23 +2,25 @@
   "name": "@mt-kit/eslint-config",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "type": "module",
   "scripts": {
     "clear": "rm -fr node_modules",
     "lint": "pnpm eslint .",
     "fix": "eslint \"./__test__/**/*.{css,tsx,vue,ts,js,html}\" --fix"
   },
-  "keywords": [],
-  "type": "module",
-  "author": "",
-  "license": "ISC",
+  "main": "index.js",
   "dependencies": {
     "@eslint/js": "^9.23.0",
     "@stylistic/eslint-plugin": "^4.2.0",
     "@stylistic/eslint-plugin-js": "^4.2.0",
     "@stylistic/eslint-plugin-ts": "^4.2.0",
     "eslint": "^9.23.0",
+    "eslint-plugin-jsdoc": "^50.6.9",
+    "eslint-plugin-jsonc": "^2.20.0",
     "eslint-plugin-unused-imports": "^4.1.4",
-    "globals": "^16.0.0"
+    "globals": "^16.0.0",
+    "jsonc-eslint-parser": "^2.4.0"
   }
 }
