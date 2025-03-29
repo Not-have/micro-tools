@@ -4,6 +4,7 @@
   "description": "",
   "private": true,
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "lint:md": "markdownlint-cli2 ./packages-**/**/*.md",
     "lint:cspell": "cspell lint **/*.ts **/README.md **/*.tsx **/*.vue --no-progress",
     "lint:depcheck": "depcheck",
@@ -23,7 +24,12 @@
     "cz-git": "^1.11.1",
     "depcheck": "^1.4.7",
     "husky": "^9.1.7",
-    "markdownlint-cli2": "^0.17.2"
+    "lint-staged": "^15.5.0",
+    "markdownlint-cli2": "^0.17.2",
+    "only-allow": "^1.2.1"
+  },
+  "lint-staged": {
+    "*.md": "markdownlint-cli2"
   },
   "config": {
     "commitizen": {
