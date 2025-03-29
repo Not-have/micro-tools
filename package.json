@@ -4,6 +4,10 @@
   "description": "",
   "private": true,
   "scripts": {
+    "boot": "pnpm run clear && pnpm install && pnpm run clear:lock",
+    "clear": "pnpm --filter \"./packages-**/**\" clear && rm -fr node_modules && pnpm run clear:store && pnpm run clear:lock",
+    "clear:lock": "rm -fr pnpm-lock.yaml && rm -fr package-lock.json && rm -fr lerna-debug.log",
+    "clear:store": "rm -fr .pnpm-store",
     "preinstall": "npx only-allow pnpm",
     "lint:md": "markdownlint-cli2 ./packages-**/**/*.md",
     "lint:cspell": "cspell lint **/*.ts **/README.md **/*.tsx **/*.vue --no-progress",

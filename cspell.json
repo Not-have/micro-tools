@@ -28,7 +28,8 @@
     "sortablejs",
     "Splitpanes",
     "stylelint",
-    "uniapp"
+    "uniapp",
+    "oxlint"
   ],
   "ignorePaths": [
     "**/node_modules/**",

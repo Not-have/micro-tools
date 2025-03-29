@@ -1,3 +1,4 @@
+/* eslint-disable unicorn/prefer-string-raw */
 import pluginTs from "@typescript-eslint/eslint-plugin";
 import parserTs from "@typescript-eslint/parser";
 
@@ -7,7 +8,7 @@ import parserTs from "@typescript-eslint/parser";
 export default {
 
   // "**/*.vue" 验证 vue 文件中的 ts
-  files: ["**/*.?([cm])[jt]s?(x)", "**/*.vue"],
+  files: ["**/*.?([cm])[t]s?(x)", "**/*.vue"],
   languageOptions: {
     parser: parserTs,
     parserOptions: {

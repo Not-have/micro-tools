@@ -10,7 +10,8 @@ import {
   regexp,
   importX,
   unicorn,
-  typescript
+  typescript,
+  vue
 } from "./config/index.js";
 
 const DEFAULT = [
@@ -32,5 +33,6 @@ export default DEFAULT;
 
 export {
   javascript,
-  typescript
+  typescript,
+  vue
 };
