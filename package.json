@@ -29,6 +29,10 @@
     "markdownlint-cli2": "catalog:",
     "only-allow": "catalog:"
   },
+  "engines": {
+    "node": ">=22.0.0",
+    "pnpm": ">=9.12.0"
+  },
   "lint-staged": {
     "*.md": "markdownlint-cli2"
   },
