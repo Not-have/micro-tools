@@ -11,6 +11,9 @@
     "fix": "eslint \"./**/*.{css,tsx,vue,ts,js,html}\" --fix"
   },
   "main": "index.js",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
   "dependencies": {
     "@eslint/js": "catalog:",
     "@stylistic/eslint-plugin": "catalog:",

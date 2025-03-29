@@ -12,6 +12,9 @@
     "mt-prettier-config",
     "prettier-config"
   ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
   "files": [
     "index.js",
     "README.md"
