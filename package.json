@@ -6,6 +6,7 @@
   "scripts": {
     "lint:md": "markdownlint-cli2 ./packages-**/**/*.md",
     "lint:cspell": "cspell lint **/*.ts **/README.md **/*.tsx **/*.vue --no-progress",
+    "lint:depcheck": "depcheck",
     "prepare": "husky",
     "commit": "cz"
   },
@@ -20,6 +21,7 @@
     "commitlint": "^19.8.0",
     "cspell": "^8.18.1",
     "cz-git": "^1.11.1",
+    "depcheck": "^1.4.7",
     "husky": "^9.1.7",
     "markdownlint-cli2": "^0.17.2"
   },
