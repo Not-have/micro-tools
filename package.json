@@ -17,10 +17,10 @@
   "license": "MIT",
   "type": "module",
   "devDependencies": {
-    "@changesets/cli": "^2.28.1",
+    "@changesets/cli": "catalog:",
     "@commitlint/cli": "catalog:",
     "@commitlint/config-conventional": "catalog:",
-    "browserslist": "^4.24.4",
+    "browserslist": "catalog:",
     "commitizen": "catalog:",
     "commitlint": "catalog:",
     "cspell": "catalog:",
