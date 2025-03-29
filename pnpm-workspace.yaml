@@ -1,2 +1,14 @@
 packages:
   - packages*/**
+catalog:
+  "@commitlint/cli": ^19.8.0
+  "@commitlint/config-conventional": ^19.8.0
+  commitizen: ^4.3.1
+  commitlint: ^19.8.0
+  cspell: ^8.18.1
+  cz-git: ^1.11.1
+  depcheck: ^1.4.7
+  husky: ^9.1.7
+  lint-staged: ^15.5.0
+  markdownlint-cli2: ^0.17.2
+  only-allow: ^1.2.1
