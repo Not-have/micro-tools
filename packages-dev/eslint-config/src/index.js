@@ -2,14 +2,18 @@ import {
   javascript,
   stylistic,
   jsonc,
-  jsdoc
+  jsdoc,
+  ignores,
+  prettier
 } from "./config/index.js";
 
 const DEFAULT = [
   javascript,
   stylistic,
   ...jsonc,
-  jsdoc
+  jsdoc,
+  ignores,
+  prettier
 ];
 
 export default DEFAULT;

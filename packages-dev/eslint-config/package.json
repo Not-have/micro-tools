@@ -19,6 +19,7 @@
     "eslint": "^9.23.0",
     "eslint-plugin-jsdoc": "^50.6.9",
     "eslint-plugin-jsonc": "^2.20.0",
+    "eslint-plugin-prettier": "^5.2.5",
     "eslint-plugin-unused-imports": "^4.1.4",
     "globals": "^16.0.0",
     "jsonc-eslint-parser": "^2.4.0"
