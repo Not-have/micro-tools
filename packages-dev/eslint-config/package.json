@@ -16,6 +16,8 @@
     "@stylistic/eslint-plugin": "^4.2.0",
     "@stylistic/eslint-plugin-js": "^4.2.0",
     "@stylistic/eslint-plugin-ts": "^4.2.0",
+    "@typescript-eslint/eslint-plugin": "^8.28.0",
+    "@typescript-eslint/parser": "^8.28.0",
     "eslint": "^9.23.0",
     "eslint-plugin-command": "^3.2.0",
     "eslint-plugin-eslint-comments": "^3.2.0",
@@ -25,6 +27,7 @@
     "eslint-plugin-perfectionist": "^4.10.1",
     "eslint-plugin-prettier": "^5.2.5",
     "eslint-plugin-regexp": "^2.7.0",
+    "eslint-plugin-unicorn": "^58.0.0",
     "eslint-plugin-unused-imports": "^4.1.4",
     "globals": "^16.0.0",
     "jsonc-eslint-parser": "^2.4.0"

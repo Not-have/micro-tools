@@ -8,12 +8,15 @@ import {
   ignores,
   prettier,
   regexp,
-  importX
+  importX,
+  unicorn,
+  typescript
 } from "./config/index.js";
 
 const DEFAULT = [
   command,
   comments,
+  unicorn,
   javascript,
   stylistic,
   ...jsonc,
@@ -21,11 +24,13 @@ const DEFAULT = [
   ignores,
   prettier,
   regexp,
-  importX
+  importX,
+  typescript
 ];
 
 export default DEFAULT;
 
 export {
-
+  javascript,
+  typescript
 };
