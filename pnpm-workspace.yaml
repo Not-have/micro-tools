@@ -4,13 +4,36 @@ catalog:
   "@changesets/cli": ^2.28.1
   "@commitlint/cli": ^19.8.0
   "@commitlint/config-conventional": ^19.8.0
+  "@eslint/js": ^9.23.0
+  "@stylistic/eslint-plugin": ^4.2.0
+  "@stylistic/eslint-plugin-js": ^4.2.0
+  "@stylistic/eslint-plugin-ts": ^4.2.0
+  "@typescript-eslint/eslint-plugin": ^8.28.0
+  "@typescript-eslint/parser": ^8.28.0
   browserslist: ^4.24.4
   commitizen: ^4.3.1
   commitlint: ^19.8.0
   cspell: ^8.18.1
   cz-git: ^1.11.1
   depcheck: ^1.4.7
+  eslint: ^9.23.0
+  eslint-plugin-command: ^3.2.0
+  eslint-plugin-eslint-comments: ^3.2.0
+  eslint-plugin-import-x: ^4.9.3
+  eslint-plugin-jsdoc: ^50.6.9
+  eslint-plugin-jsonc: ^2.20.0
+  eslint-plugin-jsx-a11y: ^6.10.2
+  eslint-plugin-perfectionist: ^4.10.1
+  eslint-plugin-prettier: ^5.2.5
+  eslint-plugin-react: ^7.37.4
+  eslint-plugin-react-compiler: 19.0.0-beta-aeaed83-20250323
+  eslint-plugin-react-hooks: ^5.2.0
+  eslint-plugin-regexp: ^2.7.0
+  eslint-plugin-unicorn: ^58.0.0
+  eslint-plugin-unused-imports: ^4.1.4
+  globals: ^16.0.0
   husky: ^9.1.7
+  jsonc-eslint-parser: ^2.4.0
   lint-staged: ^15.5.0
   markdownlint-cli2: ^0.17.2
   only-allow: ^1.2.1
