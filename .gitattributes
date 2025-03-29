@@ -1,0 +1,15 @@
+# 所有文件自动转换换行符（适用于跨平台开发）
+* text=auto
+
+# 强制所有 .txt 文件使用 LF 换行符
+*.txt text eol=lf
+
+# 设置所有图像文件为二进制，避免 Git 合并时干扰
+*.png binary
+*.jpg binary
+
+# 自定义 .md 文件使用 markdown diff
+*.md diff=markdown
+
+# 锁定特定文件（例如 Photoshop 文件）
+*.psd lockable
