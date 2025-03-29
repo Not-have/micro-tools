@@ -31,6 +31,7 @@ catalog:
   eslint-plugin-regexp: ^2.7.0
   eslint-plugin-unicorn: ^58.0.0
   eslint-plugin-unused-imports: ^4.1.4
+  eslint-plugin-vue: ~10.0.0
   globals: ^16.0.0
   husky: ^9.1.7
   jsonc-eslint-parser: ^2.4.0
@@ -38,3 +39,5 @@ catalog:
   markdownlint-cli2: ^0.17.2
   only-allow: ^1.2.1
   prettier: ^3.5.3
+  typescript: ^5.8.2
+  vue-eslint-parser: ^10.1.1
