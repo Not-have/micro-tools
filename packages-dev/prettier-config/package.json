@@ -1,0 +1,26 @@
+{
+  "name": "@mt-kit/prettier-config",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.mjs",
+  "scripts": {
+    "clear": "rm -fr node_modules",
+    "lint": "prettier . --write"
+  },
+  "keywords": [
+    "prettier",
+    "mt-prettier-config",
+    "prettier-config"
+  ],
+  "files": [
+    "index.js",
+    "README.md"
+  ],
+  "author": "LiYong",
+  "homepage": "https://github.com/Not-have/micro-tools/packages-dev/prettier-config",
+  "bugs": "https://github.com/Not-have/micro-tools/issues",
+  "repository": "git@github.com:Not-have/micro-tools.git",
+  "dependencies": {
+    "prettier": "catalog:"
+  }
+}
