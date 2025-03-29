@@ -1,0 +1,24 @@
+
+{
+  "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
+  "version": "0.2",
+  "language": "en,en-US",
+  "allowCompoundWords": true,
+  "words": [
+    "vite",
+    "vitejs",
+    "vitepress",
+    "vnode"
+  ],
+  "ignorePaths": [
+    "**/node_modules/**",
+    "**/dist/**",
+    "**/*-dist/**",
+    "**/icons/**",
+    "pnpm-lock.yaml",
+    "**/*.log",
+    "**/*.test.ts",
+    "**/*.spec.ts",
+    "**/__tests__/**"
+  ]
+}

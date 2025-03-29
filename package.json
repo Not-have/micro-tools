@@ -1,0 +1,15 @@
+{
+  "name": "micro-tools",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "lint:cspell": "cspell lint **/*.ts **/README.md **/*.tsx **/*.vue --no-progress"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cspell": "^8.18.1"
+  }
+}
