@@ -1,0 +1,22 @@
+{
+  "name": "@mt-kit/stylelint-config",
+  "version": "1.0.0",
+  "description": "Shareable stylelint configuration.",
+  "keywords": [
+    "eslint",
+    "eslint-config",
+    "mt-eslint-config"
+  ],
+  "homepage": "https://github.com/Not-have/micro-tools/packages-dev/stylelint-config",
+  "bugs": "https://github.com/Not-have/micro-tools/issues",
+  "repository": "git@github.com:Not-have/micro-tools.git",
+  "license": "ISC",
+  "author": "LiYong",
+  "scripts": {
+    "clear": "rm -fr node_modules"
+  },
+  "main": "index.js",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  }
+}
