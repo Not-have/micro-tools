@@ -3,6 +3,9 @@ import parserJsonc from "jsonc-eslint-parser";
 
 /**
  * https://www.npmjs.com/package/eslint-plugin-jsonc
+ *
+ * 必须存在的 key
+ * eslint-plugin-json-schema-validator
  */
 export default [
   {

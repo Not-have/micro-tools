@@ -1,7 +1,7 @@
 {
   "name": "@mt-kit/prettier-config",
   "version": "1.0.0",
-  "description": "",
+  "description": "Prettier 规则.",
   "main": "index.mjs",
   "scripts": {
     "clear": "rm -fr node_modules",
@@ -12,6 +12,8 @@
     "mt-prettier-config",
     "prettier-config"
   ],
+  "license": "ISC",
+  "author": "LiYong",
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
   },
@@ -19,7 +21,6 @@
     "index.js",
     "README.md"
   ],
-  "author": "LiYong",
   "homepage": "https://github.com/Not-have/micro-tools/packages-dev/prettier-config",
   "bugs": "https://github.com/Not-have/micro-tools/issues",
   "repository": "git@github.com:Not-have/micro-tools.git",

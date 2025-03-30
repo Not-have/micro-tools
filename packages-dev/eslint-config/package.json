@@ -2,15 +2,27 @@
   "name": "@mt-kit/eslint-config",
   "version": "1.0.0",
   "description": "",
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "eslint",
+    "eslint-config",
+    "mt-eslint-config"
+  ],
+  "homepage": "https://github.com/Not-have/micro-tools/packages-dev/eslint-config",
+  "bugs": "https://github.com/Not-have/micro-tools/issues",
+  "repository": "git@github.com:Not-have/micro-tools.git",
+  "license": "ISC",
+  "author": "LiYong",
   "type": "module",
   "scripts": {
     "clear": "rm -fr node_modules",
     "lint": "pnpm eslint .",
     "fix": "eslint \"./**/*.{css,tsx,vue,ts,js,html}\" --fix"
   },
-  "main": "index.js",
+  "files": [
+    "README.md",
+    "src"
+  ],
+  "main": "src/index.js",
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
   },

@@ -1,8 +1,24 @@
 {
   "name": "micro-tools",
   "version": "1.0.0",
-  "description": "",
-  "private": true,
+  "description": "Micro tools.",
+  "private": true,  
+  "keywords": [
+    "Vue hooks",
+    "Vue Ui",
+    "Vue Components",
+    "Vue hooks",
+    "Vue config",
+    "Vue directives",
+    "Vue echarts",
+    "Element-plus extra",
+    "React hooks",
+    "React Ui",
+    "Storybook vue demo",
+    "Micro rc container",
+    "eslint-conf",
+    "stylelint-conf"
+  ],
   "scripts": {
     "boot": "pnpm run clear && pnpm install && pnpm run clear:lock",
     "clear": "pnpm --filter \"./packages-**/**\" clear && rm -fr node_modules && pnpm run clear:store && pnpm run clear:lock",
@@ -11,6 +27,7 @@
     "preinstall": "npx only-allow pnpm",
     "lint:md": "markdownlint-cli2 ./packages-**/**/*.md",
     "lint:cspell": "cspell lint **/*.ts **/README.md **/*.tsx **/*.vue --no-progress",
+    "lint:PkgJson": "npmPkgJsonLint \"./packages-**/**/package.json\"",
     "lint:depcheck": "depcheck",
     "prepare": "husky",
     "commit": "cz"
@@ -19,6 +36,10 @@
   "bugs": "https://github.com/Not-have/micro-tools/issues",
   "repository": "git@github.com:Not-have/micro-tools.git",
   "license": "MIT",
+  "author": {
+    "email": "2236472089@qq.com",
+    "name": "Li Yong"
+  },
   "type": "module",
   "devDependencies": {
     "@changesets/cli": "catalog:",
@@ -33,6 +54,8 @@
     "husky": "catalog:",
     "lint-staged": "catalog:",
     "markdownlint-cli2": "catalog:",
+    "npm-package-json-lint": "^8.0.0",
+    "npm-package-json-lint-config-default": "^7.0.1",
     "only-allow": "catalog:"
   },
   "engines": {
@@ -40,6 +63,7 @@
     "pnpm": ">=9.12.0"
   },
   "lint-staged": {
+    "package.json": "npmPkgJsonLint",
     "*.md": "markdownlint-cli2"
   },
   "config": {
