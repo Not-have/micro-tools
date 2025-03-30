@@ -55,15 +55,15 @@
     "cspell": "catalog:",
     "cz-git": "catalog:",
     "depcheck": "catalog:",
-    "eslint": "^9.23.0",
+    "eslint": "catalog:",
     "husky": "catalog:",
     "lint-staged": "catalog:",
     "markdownlint-cli2": "catalog:",
     "npm-package-json-lint": "catalog:",
     "npm-package-json-lint-config-default": "catalog:",
     "only-allow": "catalog:",
-    "prettier": "^3.5.3",
-    "stylelint": "^16.17.0"
+    "prettier": "catalog:",
+    "stylelint": "catalog:"
   },
   "engines": {
     "node": ">=22.0.0",

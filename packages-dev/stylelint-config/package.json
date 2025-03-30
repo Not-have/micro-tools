@@ -33,16 +33,16 @@
     "stylelint": ">=16.0.0"
   },
   "dependencies": {
-    "postcss-html": "^1.8.0",
-    "stylelint-config-recess-order": "^6.0.0",
-    "stylelint-config-recommended-vue": "^1.6.0",
-    "stylelint-config-standard": "^37.0.0",
-    "stylelint-config-styled-components": "^0.1.1",
-    "stylelint-order": "^6.0.4",
-    "stylelint-prettier": "^5.0.3",
-    "stylelint-processor-styled-components": "^1.10.0"
+    "postcss-html": "catalog:",
+    "stylelint-config-recess-order": "catalog:",
+    "stylelint-config-recommended-vue": "catalog:",
+    "stylelint-config-standard": "catalog:",
+    "stylelint-config-styled-components": "catalog:",
+    "stylelint-order": "catalog:",
+    "stylelint-prettier": "catalog:",
+    "stylelint-processor-styled-components": "catalog:"
   },
   "devDependencies": {
-    "stylelint": "^16.17.0"
+    "stylelint": "catalog:"
   }
 }
