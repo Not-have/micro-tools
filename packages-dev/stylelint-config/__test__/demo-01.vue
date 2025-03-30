@@ -5,11 +5,12 @@
 </template>
 <style scoped>
 .test {
-  font-size: 18px;
+  margin: 20px;
+  margin-top: 20px;
+  margin-bottom: 23px;
   width: 200px;
   height: 100px;
+  font-size: 18px;
   color: red;
-  margin-top: 20px;
-  margin: 20px;
 }
 </style>

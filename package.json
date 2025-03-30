@@ -74,7 +74,8 @@
     "*.{js,ts,vue,tsx,jsx}": [
       "eslint --fix",
       "prettier --write"
-    ]
+    ],
+    "*.{jsx,tsx,css,vue}": "stylelint --fix --allow-empty-input"
   },
   "config": {
     "commitizen": {
