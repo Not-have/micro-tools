@@ -39,6 +39,7 @@
     "lint:PkgJson": "npmPkgJsonLint \"./packages-**/**/package.json\"",
     "lint:depcheck": "depcheck",
     "lint:css": "stylelint \"**/*.{css,vue,jsx,tsx}\"",
+    "postinstall": "pnpm run clear:lock",
     "prepare": "husky",
     "commit": "cz"
   },
