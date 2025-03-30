@@ -2,7 +2,7 @@
   "name": "micro-tools",
   "version": "1.0.0",
   "description": "Micro tools.",
-  "private": true,  
+  "private": true,
   "keywords": [
     "Vue hooks",
     "Vue Ui",
@@ -54,8 +54,8 @@
     "husky": "catalog:",
     "lint-staged": "catalog:",
     "markdownlint-cli2": "catalog:",
-    "npm-package-json-lint": "^8.0.0",
-    "npm-package-json-lint-config-default": "^7.0.1",
+    "npm-package-json-lint": "catalog:",
+    "npm-package-json-lint-config-default": "catalog:",
     "only-allow": "catalog:"
   },
   "engines": {
