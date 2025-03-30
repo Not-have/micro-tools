@@ -38,6 +38,7 @@
     "lint:cspell": "cspell lint **/*.ts **/README.md **/*.tsx **/*.vue --no-progress",
     "lint:PkgJson": "npmPkgJsonLint \"./packages-**/**/package.json\"",
     "lint:depcheck": "depcheck",
+    "lint:css": "stylelint \"**/*.{css,vue,jsx,tsx}\"",
     "prepare": "husky",
     "commit": "cz"
   },
