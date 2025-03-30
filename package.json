@@ -19,6 +19,15 @@
     "eslint-conf",
     "stylelint-conf"
   ],
+  "homepage": "https://github.com/Not-have/micro-tools/",
+  "bugs": "https://github.com/Not-have/micro-tools/issues",
+  "repository": "git@github.com:Not-have/micro-tools.git",
+  "license": "MIT",
+  "author": {
+    "email": "2236472089@qq.com",
+    "name": "Li Yong"
+  },
+  "type": "module",
   "scripts": {
     "boot": "pnpm run clear && pnpm install && pnpm run clear:lock",
     "clear": "pnpm --filter \"./packages-**/**\" clear && rm -fr node_modules && pnpm run clear:store && pnpm run clear:lock",
@@ -32,31 +41,26 @@
     "prepare": "husky",
     "commit": "cz"
   },
-  "homepage": "https://github.com/Not-have/micro-tools/",
-  "bugs": "https://github.com/Not-have/micro-tools/issues",
-  "repository": "git@github.com:Not-have/micro-tools.git",
-  "license": "MIT",
-  "author": {
-    "email": "2236472089@qq.com",
-    "name": "Li Yong"
-  },
-  "type": "module",
   "devDependencies": {
     "@changesets/cli": "catalog:",
     "@commitlint/cli": "catalog:",
     "@commitlint/config-conventional": "catalog:",
+    "@mt-kit/eslint-config": "workspace:^",
+    "@mt-kit/prettier-config": "workspace:^",
     "browserslist": "catalog:",
     "commitizen": "catalog:",
     "commitlint": "catalog:",
     "cspell": "catalog:",
     "cz-git": "catalog:",
     "depcheck": "catalog:",
+    "eslint": "^9.23.0",
     "husky": "catalog:",
     "lint-staged": "catalog:",
     "markdownlint-cli2": "catalog:",
     "npm-package-json-lint": "catalog:",
     "npm-package-json-lint-config-default": "catalog:",
-    "only-allow": "catalog:"
+    "only-allow": "catalog:",
+    "prettier": "^3.5.3"
   },
   "engines": {
     "node": ">=22.0.0",
@@ -64,7 +68,11 @@
   },
   "lint-staged": {
     "package.json": "npmPkgJsonLint",
-    "*.md": "markdownlint-cli2"
+    "*.md": "markdownlint-cli2",
+    "*.{js,ts,vue,tsx,jsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   },
   "config": {
     "commitizen": {

@@ -1,11 +1,14 @@
 import pluginVue from "eslint-plugin-vue";
 
+/**
+ * TODO 需要优化，并且不确定他的健壮性
+ */
 export default [
   ...pluginVue.configs["flat/recommended"],
   {
     languageOptions: {
       parserOptions: {
-        "parser": "@typescript-eslint/parser",
+        parser: "@typescript-eslint/parser",
         extraFileExtensions: [".vue"]
       },
       sourceType: "module"
@@ -13,7 +16,6 @@ export default [
   },
   {
     rules: {
-
       /**
        * 覆盖 js 部分规则
        */
@@ -95,7 +97,6 @@ export default [
       "vue/key-spacing": "error",
 
       "vue/max-attributes-per-line": [
-
         // 设置每行最多属性数为 1
         "error",
         {
@@ -137,7 +138,6 @@ export default [
       "vue/no-unused-refs": "error",
 
       "vue/html-self-closing": [
-
         // 规定 HTML 元素自闭合标签的规则
         "error",
         {

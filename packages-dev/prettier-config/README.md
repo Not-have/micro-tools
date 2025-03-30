@@ -10,10 +10,10 @@ npm i prettier @mt-kit/prettier-config -D
 
 ## 使用
 
-新建 `prettier.config.mjs` 文件
+新建 `.prettier.mjs` 文件
 
 ```js
-export { default } from "@mb-kit/prettier-config";
+export { default } from "@mt-kit/prettier-config";
 ```
 
 注：推荐配合 [@mt-kit/eslint-config](https://www.npmjs.com/package/@mt-kit/eslint-config) 一块使用。

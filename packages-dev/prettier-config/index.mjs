@@ -2,17 +2,20 @@
  * https://prettier.nodejs.cn/docs/en/configuration.html
  */
 export default {
+
   // 设置代码行结束符
   endOfLine: "auto",
 
   // 针对特定文件类型的重写配置
   overrides: [
     {
+
       // 匹配所有 `.json5` 扩展名的文件
       files: ["*.json5"],
 
       // 为 `.json5` 文件配置的格式化选项
       options: {
+
         // 保留属性名称的引号样式 (保留原始样式，不进行更改)
         quoteProps: "preserve",
 
