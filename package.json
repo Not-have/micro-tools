@@ -47,6 +47,7 @@
     "@commitlint/config-conventional": "catalog:",
     "@mt-kit/eslint-config": "workspace:^",
     "@mt-kit/prettier-config": "workspace:^",
+    "@mt-kit/stylelint-config": "workspace:^",
     "browserslist": "catalog:",
     "commitizen": "catalog:",
     "commitlint": "catalog:",
@@ -60,7 +61,8 @@
     "npm-package-json-lint": "catalog:",
     "npm-package-json-lint-config-default": "catalog:",
     "only-allow": "catalog:",
-    "prettier": "^3.5.3"
+    "prettier": "^3.5.3",
+    "stylelint": "^16.17.0"
   },
   "engines": {
     "node": ">=22.0.0",

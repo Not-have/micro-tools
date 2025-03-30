@@ -3,20 +3,46 @@
   "version": "1.0.0",
   "description": "Shareable stylelint configuration.",
   "keywords": [
-    "eslint",
-    "eslint-config",
-    "mt-eslint-config"
+    "stylelint",
+    "stylelint-config",
+    "mt-stylelint-config"
   ],
   "homepage": "https://github.com/Not-have/micro-tools/packages-dev/stylelint-config",
   "bugs": "https://github.com/Not-have/micro-tools/issues",
   "repository": "git@github.com:Not-have/micro-tools.git",
   "license": "ISC",
   "author": "LiYong",
+  "type": "module",
   "scripts": {
-    "clear": "rm -fr node_modules"
+    "clear": "rm -fr node_modules",
+    "lint": "stylelint '**/*.css'",
+    "lint:vue": "stylelint '**/*.vue'"
   },
-  "main": "index.js",
+  "main": "./index.js",
+  "module": "./index.js",
+  "exports": {
+    ".": {
+      "import": "./index.js",
+      "default": "./index.js"
+    }
+  },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
+  },
+  "peerDependencies": {
+    "stylelint": ">=16.0.0"
+  },
+  "dependencies": {
+    "postcss-html": "^1.8.0",
+    "stylelint-config-recess-order": "^6.0.0",
+    "stylelint-config-recommended-vue": "^1.6.0",
+    "stylelint-config-standard": "^37.0.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-order": "^6.0.4",
+    "stylelint-prettier": "^5.0.3",
+    "stylelint-processor-styled-components": "^1.10.0"
+  },
+  "devDependencies": {
+    "stylelint": "^16.17.0"
   }
 }
