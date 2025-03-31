@@ -19,13 +19,6 @@
     "lint:vue": "stylelint '**/*.vue'"
   },
   "main": "./index.js",
-  "module": "./index.js",
-  "exports": {
-    ".": {
-      "import": "./index.js",
-      "default": "./index.js"
-    }
-  },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
   },

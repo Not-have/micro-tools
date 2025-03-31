@@ -16,24 +16,69 @@ npm install -D stylelint @mt-kit/stylelint-config
 
 ```js
 export default {
-  extends: ['@mt-kit/stylelint-config'],
-  root: true,
+  extends: ["@mt-kit/stylelint-config"],
+  ignoreFiles: [
+    "**/*.json", 
+    "**/*.mjs", 
+    "**/*.cjs", 
+    "**/*.svg",  
+    "**/*.ico",  
+    "**/*.js",  
+    "**/*.ts",
+    "node_modules/**",
+    "dist/**",
+    "**/*.md"
+  ],
+  root: true
 };
 ```
 
 ### 2、vue 项目新建 `stylelint.config.mjs`
 
 ```js
-export { default } from '@mt-kit/stylelint-config/vue';
+export default {
+  extends: ["@mt-kit/stylelint-config/vue"],
+  // 在这添加忽略文件，在内部集成的不生效，待解决
+  ignoreFiles: [
+    "**/*.json", 
+    "**/*.mjs", 
+    "**/*.cjs", 
+    "**/*.svg",  
+    "**/*.ico",  
+    "**/*.js",  
+    "**/*.ts",
+    "node_modules/**",
+    "dist/**",
+    "**/*.jsx",
+    "**/*.md"
+  ],
+  root: true
+};
 ```
 
 ### 3、React 项目新建 `stylelint.config.mjs`
 
 ```js
-export { default } from '@mt-kit/stylelint-config/react';
+export default {
+  extends: ["@mt-kit/stylelint-config/react"],
+  // 在这添加忽略文件，在内部集成的不生效，待解决
+  ignoreFiles: [
+    "**/*.json",
+    "**/*.mjs",
+    "**/*.cjs",
+    "**/*.svg",
+    "**/*.ico",
+    "**/*.js", 
+    "**/*.ts",
+    "node_modules/**",
+    "dist/**",
+    "**/*.md"
+  ],
+  root: true
+};
 ```
 
-## 忽略
+## 忽略（他的权重是最高的）
 
 新建 `.stylelintignore`
 
