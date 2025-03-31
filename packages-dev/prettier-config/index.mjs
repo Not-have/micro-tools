@@ -3,6 +3,9 @@
  */
 export default {
 
+  // 设置代码行结束符
+  endOfLine: "auto",
+
   // 针对特定文件类型的重写配置
   overrides: [
     {
@@ -50,7 +53,7 @@ export default {
   tabWidth: 2,
 
   // 不使用缩进符，而使用空格
-  useTabs: false,
+  useTabs: false
 
   // 换行符使用 lf
   // endOfLine: "lf",
@@ -59,5 +62,5 @@ export default {
   // embeddedLanguageFormatting: "auto",
 
   // vue 文件中的 script 和 style 内不用缩进
-  vueIndentScriptAndStyle: false
+  // vueIndentScriptAndStyle: false
 };
