@@ -44,7 +44,7 @@ export default {
   singleAttributePerLine: true,
 
   // 大括号内的首尾需要空格
-  bracketSpacing: true,
+  // bracketSpacing: true,
 
   // 使用 2 个空格缩进
   tabWidth: 2,
@@ -56,7 +56,7 @@ export default {
   endOfLine: "lf",
 
   // 格式化嵌入的内容
-  embeddedLanguageFormatting: "auto",
+  // embeddedLanguageFormatting: "auto",
 
   // vue 文件中的 script 和 style 内不用缩进
   vueIndentScriptAndStyle: false

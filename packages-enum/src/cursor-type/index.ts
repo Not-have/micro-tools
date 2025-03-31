@@ -1,14 +1,13 @@
 /**
- * 鼠标形状
+ * 鼠标形状：
  *
  * https://developer.mozilla.org/zh-CN/docs/Web/CSS/cursor
  *
- * 自定义光标
+ * 自定义光标：
  *
  * https://codepen.io/developeraspire5/embed/gOGjeZG
  */
 enum ECursorType {
-
   /**
    * 默认
    */
