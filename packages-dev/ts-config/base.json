@@ -18,11 +18,9 @@
     "skipLibCheck": true,
     "noUnusedParameters": true,
     "preserveWatchOutput": true,
-    "experimentalDecorators": true,
     "resolveJsonModule": true,
     "removeComments": true,
     "baseUrl": "./",
-    "jsx": "preserve",
     "noImplicitThis": true,
     "verbatimModuleSyntax": false,
     "useDefineForClassFields": true,
@@ -54,11 +52,6 @@
   ],
   "include": [
     "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue",
-    "stories/**/*.vue",
-    "stories/**/*.ts",
-    "stories/**/*.tsx",
     "./**/*.d.ts",
     "./env.d.ts"
   ],

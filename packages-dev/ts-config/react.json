@@ -2,9 +2,11 @@
   "display": "React",
   "extends": "./base.json",
   "compilerOptions": {
+    "jsx": "preserve",
     "noEmit": true,
     "moduleResolution": "bundler",
     "incremental": true,
+    "jsxImportSource": "React",
     "plugins": [
       {
         "name": "next"

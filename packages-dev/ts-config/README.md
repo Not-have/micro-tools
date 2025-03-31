@@ -15,6 +15,8 @@ npx tsc --init
 
 ## 3、各个属性的作用
 
+### 基础配置 (base.json)
+
 | 属性名 | 作用 |
 | --- | --- |
 | target | 编译目标 |
@@ -33,12 +35,9 @@ npx tsc --init
 | skipLibCheck | 跳过声明文件的类型检查 |
 | noUnusedParameters | 检查未使用的函数参数 |
 | preserveWatchOutput | 保留watch模式的控制台输出 |
-| experimentalDecorators | 启用实验性装饰器支持 |
 | resolveJsonModule | 允许导入JSON模块 |
 | removeComments | 移除注释 |
 | baseUrl | 模块解析的基准路径 |
-| jsx | JSX代码生成方式 |
-| jsxImportSource | JSX导入源 |
 | noImplicitThis | 禁止隐式any类型的this |
 | verbatimModuleSyntax | 使用字面模块语法 |
 | useDefineForClassFields | 使用define语义定义类字段 |
@@ -55,6 +54,33 @@ npx tsc --init
 | emitDeclarationOnly | 仅生成声明文件 |
 | files | 包含的特定文件列表 |
 | include | 包含的文件模式 |
+| newLine | 指定换行符格式 |
+| noErrorTruncation | 禁止截断错误信息 |
+| preserveConstEnums | 保留const枚举 |
+| stripInternal | 移除带有@internal标记的代码 |
+
+### Vue 配置 (vue.json)
+
+| 属性名 | 作用 |
+| --- | --- |
+| jsx | JSX代码生成方式 |
+| jsxImportSource | JSX导入源 |
+| experimentalDecorators | 启用实验性装饰器支持 |
+
+### React 配置 (react.json)
+
+| 属性名 | 作用 |
+| --- | --- |
+| noEmit | 禁止生成输出文件 |
+| incremental | 启用增量编译 |
+| plugins | 使用TypeScript插件 |
+
+### Node 配置 (node.json)
+
+| 属性名 | 作用 |
+| --- | --- |
+| lib | 仅包含ESNext库 |
+| noEmit | 禁止生成输出文件 |
 
 ## 4、不同环境的配置
 

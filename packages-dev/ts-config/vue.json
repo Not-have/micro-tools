@@ -2,10 +2,12 @@
   "display": "Vue",
   "extends": "./base.json",
   "compilerOptions": {
+    "jsx": "preserve",
     "jsxImportSource": "vue",
-    "noImplicitAny": false,
-    "paths": {
-      "@/*": ["src/*"]
-    }
-  }
+    "experimentalDecorators": true
+  },
+  "include": [
+    "**/*.vue",
+    "**/*.tsx"
+  ]
 }
