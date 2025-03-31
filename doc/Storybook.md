@@ -17,5 +17,3 @@ npm i vue typescript
 # 生成 tsconfig.json 文件
 tsc --init
 ```
-
-## 3、react 使用

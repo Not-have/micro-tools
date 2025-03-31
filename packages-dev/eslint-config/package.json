@@ -33,6 +33,9 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
   },
+  "peerDependencies": {
+    "eslint": ">=9.0.0"
+  },
   "dependencies": {
     "@eslint/js": "catalog:",
     "@stylistic/eslint-plugin": "catalog:",
