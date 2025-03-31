@@ -1,0 +1,11 @@
+{
+  "display": "Vue",
+  "extends": "./base.json",
+  "compilerOptions": {
+    "jsxImportSource": "vue",
+    "noImplicitAny": false,
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  }
+}

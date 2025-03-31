@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Base",
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "strict": true,
+    "declaration": true,
+    "noImplicitOverride": true,
+    "noUnusedLocals": true,
+    "esModuleInterop": true,
+    "useUnknownInCatchVariables": false,
+    "composite": true,
+    "declarationMap": false,
+    "inlineSources": false,
+    "isolatedModules": true,
+    "skipLibCheck": true,
+    "noUnusedParameters": true,
+    "preserveWatchOutput": true,
+    "experimentalDecorators": true,
+    "resolveJsonModule": true,
+    "removeComments": true,
+    "baseUrl": "./",
+    "jsx": "preserve",
+    "noImplicitThis": true,
+    "verbatimModuleSyntax": false,
+    "useDefineForClassFields": true,
+    "lib": [
+      "ES2020",
+      "DOM",
+      "DOM.Iterable",
+      "esnext"
+    ],
+    "outDir": "dist",
+    "sourceMap": true,
+    "allowJs": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowSyntheticDefaultImports": true,
+    "strictFunctionTypes": true,
+    "noImplicitAny": true,
+    "paths": {
+      "*": ["node_modules/*", "src/*", "types/*"]
+    },
+    "types": ["node"],
+    "emitDeclarationOnly": true,
+    "newLine": "lf",
+    "noErrorTruncation": true,
+    "preserveConstEnums": true,
+    "stripInternal": true
+  },
+  "files": [
+    "package.json"
+  ],
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "stories/**/*.vue",
+    "stories/**/*.ts",
+    "stories/**/*.tsx",
+    "./**/*.d.ts",
+    "./env.d.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/node_modules/**",
+    "**/dist/**"
+  ]
+}
