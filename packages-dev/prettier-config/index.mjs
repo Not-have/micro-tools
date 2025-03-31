@@ -44,16 +44,16 @@ export default {
   arrowParens: "avoid",
 
   // 在 HTML、Vue 和 JSX 中，将属性放在单独的行上
-  singleAttributePerLine: true,
+  singleAttributePerLine: true
 
   // 大括号内的首尾需要空格
   // bracketSpacing: true,
 
   // 使用 2 个空格缩进
-  tabWidth: 2,
+  // tabWidth: 2,
 
   // 不使用缩进符，而使用空格
-  useTabs: false
+  // useTabs: false
 
   // 换行符使用 lf
   // endOfLine: "lf",
