@@ -1,0 +1,50 @@
+{
+  "name": "@mt-kit/util-ts",
+  "version": "1.8.3",
+  "description": "一个常用的工具库",
+  "keywords": [
+    "micro",
+    "utils",
+    "micro-utils",
+    "debounce",
+    "throttle",
+    "clone",
+    "cloneDeep",
+    "Cookie",
+    "draggable",
+    "LocalStorageHelper",
+    "localStorage"
+  ],
+  "homepage": "https://github.com/Not-have/micro-tools/tree/main/packages-utils",
+  "bugs": {
+    "url": "https://github.com/Not-have/micro-tools/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-utils"
+  },
+  "license": "ISC",
+  "author": "Li Yong",
+  "scripts": {
+    "build:webpack": "rm -fr lib && webpack --config webpack.config.js",
+    "build:tsc": "rm -fr dist && tsc",
+    "build": "npm run build:webpack && npm run build:tsc",
+    "start": "tsc --watch",
+    "start:webpack": "webpack --watch",
+    "publish:build": "npm run build:tsc && npm publish",
+    "clear": "rm -fr node_modules && rm -fr dist && rm -fr lib",
+    "prepublishOnly": "npm run build:tsc && npm run build"
+  },
+  "main": "dist/index",
+  "dependencies": {
+    "resize-observer-polyfill": "^1.5.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.14",
+    "fork-ts-checker-webpack-plugin": "^9.0.3",
+    "ts-loader": "^9.5.2",
+    "typescript": "^5.8.2",
+    "webpack": "^5.98.0",
+    "webpack-cli": "^6.0.1"
+  }
+}

@@ -56,6 +56,11 @@ export default {
         filter: {
           regex: "[A-Z\\d]__[A-Z\\d]",
           match: false
+        },
+        // eslint-disable-next-line no-dupe-keys
+        filter: {
+          match: true,
+          regex: "_[A-Z\\d]"
         }
       },
       {

@@ -39,7 +39,6 @@
     "lint:PkgJson": "npmPkgJsonLint \"./packages-**/**/package.json\"",
     "lint:depcheck": "depcheck",
     "lint:css": "stylelint \"**/*.{css,vue,jsx,tsx}\"",
-    "lint": "eslint --fix && prettier --write",
     "postinstall": "pnpm run clear:lock",
     "prepare": "husky",
     "commit": "cz",

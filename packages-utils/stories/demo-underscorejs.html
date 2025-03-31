@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo-underscorejs 第三方库</title>
+</head>
+<body>
+<input type="text">
+</body>
+</html>
+<script src="https://cdn.jsdelivr.net/npm/underscore@1.13.6/underscore-umd-min.js"></script>
+<script>
+    const inputEl = document.querySelector("input");
+    let counter = 0;
+
+    const onInput = function() {
+        console.log("触发 inputEl.oninput" + ++counter);
+    };
+    // 防抖
+    // inputEl.oninput = _.debounce(onInput, 2000);
+    inputEl.oninput = _.debounce(onInput, 2000);
+
+    // 节流
+    // inputEl.oninput = _.throttle(onInput, 2000);
+</script>

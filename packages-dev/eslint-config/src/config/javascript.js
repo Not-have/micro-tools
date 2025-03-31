@@ -2,6 +2,7 @@
 import js from "@eslint/js";
 import pluginUnusedImports from "eslint-plugin-unused-imports";
 import globals from "globals";
+import pluginUnicorn from "eslint-plugin-unicorn";
 
 export default {
 
@@ -52,7 +53,8 @@ export default {
     reportUnusedDisableDirectives: true
   },
   plugins: {
-    "unused-imports": pluginUnusedImports
+    "unused-imports": pluginUnusedImports,
+    unicorn: pluginUnicorn
   },
   rules: {
 
@@ -676,6 +678,13 @@ export default {
      *
      * 这里配置为 ["error", "never"] 表示禁止出现“尤达”式的写法，若代码中出现了这种写法就会触发报错，目的是让代码中的条件表达式遵循常规的、更易读的书写习惯
      */
-    yoda: ["error", "never"]
+    yoda: ["error", "never"],
+
+    // TODO 因为 webpack，从而禁止的
+    // 允许 require 的使用
+    "unicorn/prefer-module": "off",
+
+    // 允许直接使用 path
+    "unicorn/prefer-node-protocol": "off"
   }
 };

@@ -56,6 +56,7 @@ export default [
 | :--- | :--- |
 | eslint | ESLint 的核心包，用于运行代码分析和检查 |
 | @eslint/js | 为 JavaScript 项目提供基本的 ESLint 配置和规则 |
+| eslint-plugin-unicorn | 是一个增强 ESLint 功能的插件，旨在通过一系列自定义规则优化代码质量、提升开发规范，并支持现代 JavaScript/TypeScript 的最佳实践 |
 | @typescript-eslint/eslint-plugin | 为 TypeScript 项目提供特定的 ESLint 插件，包含 TypeScript 特有的规则 |
 | @typescript-eslint/parser | 为 TypeScript 项目提供 ESLint 解析器，确保 ESLint 能够理解和解析 TypeScript 代码 |
 | @types/eslint | 为 TypeScript 提供 ESLint 的类型定义，确保 TypeScript 项目能够正确使用 ESLint |
