@@ -19,6 +19,9 @@
   "scripts": {
   },
   "main": "./base.json",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
   "peerDependencies": {
     "typescript": ">=5.0.0"
   }
