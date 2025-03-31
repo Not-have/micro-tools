@@ -1,6 +1,6 @@
 /**
  * 规定 packages.json 文件
- * 
+ *
  * 顺序在 eslint 里面已经规定，但是必须字段怎么设置，目前没有找到
  */
 module.exports = {
@@ -15,7 +15,8 @@ module.exports = {
     "require-repository": "error",
 
     // homepage 是否必须存在
-    'require-homepage': 'error',
+    "require-homepage": "error",
+
     // format
     "name-format": "error",
     "version-format": "error",

@@ -3,3 +3,5 @@ const obj = {
   b: 2,
   c: 3
 };
+
+export { obj };

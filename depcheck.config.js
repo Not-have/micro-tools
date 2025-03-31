@@ -1,4 +1,3 @@
-module.exports = {
-  ignoreMatches: [
-  ]
-}
+export default {
+  ignoreMatches: []
+};
