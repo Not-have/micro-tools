@@ -8,6 +8,7 @@
  * https://codepen.io/developeraspire5/embed/gOGjeZG
  */
 enum ECursorType {
+
   /**
    * 默认
    */
