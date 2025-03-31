@@ -18,7 +18,7 @@
     "lint": "stylelint '**/*.css'",
     "lint:vue": "stylelint '**/*.vue'"
   },
-  "main": "./index.js",
+  "main": "./index.mjs",
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
   },

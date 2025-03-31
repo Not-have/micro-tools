@@ -3,9 +3,6 @@
  */
 export default {
 
-  // 设置代码行结束符
-  endOfLine: "auto",
-
   // 针对特定文件类型的重写配置
   overrides: [
     {
@@ -44,5 +41,23 @@ export default {
   arrowParens: "avoid",
 
   // 在 HTML、Vue 和 JSX 中，将属性放在单独的行上
-  singleAttributePerLine: true
+  singleAttributePerLine: true,
+
+  // 大括号内的首尾需要空格
+  bracketSpacing: true,
+
+  // 使用 2 个空格缩进
+  tabWidth: 2,
+
+  // 不使用缩进符，而使用空格
+  useTabs: false,
+
+  // 换行符使用 lf
+  endOfLine: "lf",
+
+  // 格式化嵌入的内容
+  embeddedLanguageFormatting: "auto",
+
+  // vue 文件中的 script 和 style 内不用缩进
+  vueIndentScriptAndStyle: false
 };

@@ -1,10 +1,12 @@
 // npx git-cz  也可提交
 module.exports = {
+
   // 继承 commitlint 的默认规则，遵循 conventional commits 规范
   extends: ["@commitlint/config-conventional"],
 
   // 这里是 commitlint 的自定义规则
   rules: {
+    "body-max-line-length": [2, "always", 200], // 将最大长度调整为 200 个字符
     // commit body（主体）前必须空一行
     "body-leading-blank": [2, "always"],
 
@@ -62,21 +64,63 @@ module.exports = {
       "confirmCommit": "是否提交或修改commit ?"
     },
     "types": [
-      { "value": "feat", "name": "feat:     ✨ 新功能" },
-      { "value": "fix", "name": "fix:      🐛 修复Bug" },
-      { "value": "docs", "name": "docs:     📝 文档相关" },
-      { "value": "style", "name": "style:    💄 代码格式（空格、分号等）" },
-      { "value": "refactor", "name": "refactor: ♻️ 代码重构（非功能不影响）" },
-      { "value": "perf", "name": "perf:     ⚡ 性能优化" },
-      { "value": "test", "name": "test:     ✅ 测试相关" },
-      { "value": "build", "name": "build:    🏗️ 构建相关" },
-      { "value": "ci", "name": "ci:       ⚙️ CI配置" },
-      { "value": "chore", "name": "chore:    🔨 其他修改" },
-      { "value": "revert", "name": "revert:   ⏪ 回滚" },
-      { "value": "release", "name": "release:  🚀 发布版本" },
-      { "value": "types", "name": "types:    🟣 类型相关（TypeScript）" },
-      { "value": "workflow", "name": "workflow: 🔄 工作流相关" }
+      {
+        "value": "feat",
+        "name": "feat:     ✨ 新功能"
+      },
+      {
+        "value": "fix",
+        "name": "fix:      🐛 修复Bug"
+      },
+      {
+        "value": "docs",
+        "name": "docs:     📝 文档相关"
+      },
+      {
+        "value": "style",
+        "name": "style:    💄 代码格式（空格、分号等）"
+      },
+      {
+        "value": "refactor",
+        "name": "refactor: ♻️ 代码重构（非功能不影响）"
+      },
+      {
+        "value": "perf",
+        "name": "perf:     ⚡ 性能优化"
+      },
+      {
+        "value": "test",
+        "name": "test:     ✅ 测试相关"
+      },
+      {
+        "value": "build",
+        "name": "build:    🏗️ 构建相关"
+      },
+      {
+        "value": "ci",
+        "name": "ci:       ⚙️ CI配置"
+      },
+      {
+        "value": "chore",
+        "name": "chore:    🔨 其他修改"
+      },
+      {
+        "value": "revert",
+        "name": "revert:   ⏪ 回滚"
+      },
+      {
+        "value": "release",
+        "name": "release:  🚀 发布版本"
+      },
+      {
+        "value": "types",
+        "name": "types:    🟣 类型相关（TypeScript）"
+      },
+      {
+        "value": "workflow",
+        "name": "workflow: 🔄 工作流相关"
+      }
     ],
     "emoji": true // 开启 emoji
   }
-}
+};
