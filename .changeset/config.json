@@ -5,15 +5,10 @@
   "fixed": [],
   "linked": [],
   "privatePackages": {
-    "version": true, 
+    "version": true,
     "tag": false
   },
   "access": "public",
   "baseBranch": "main",
-  "updateInternalDependencies": "minor",
-  "ignore": [
-    "packages-demo-vue",
-    "packages-demo-react",
-    "packages-docs"
-  ]
+  "updateInternalDependencies": "minor"
 }

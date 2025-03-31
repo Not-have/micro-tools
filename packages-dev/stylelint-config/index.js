@@ -1,13 +1,9 @@
 // 将文件扩展名从 `.js` 改为 `.mjs`，并使用 ESM 格式
 export default {
   extends: ["stylelint-config-standard", "stylelint-config-recess-order"],
+
   // TODO 不生效
-  ignoreFiles: [
-    "**/*.js",
-    "**/*.ts",
-    "**/*.json",
-    "**/*.md"
-  ],
+  ignoreFiles: ["**/*.js", "**/*.ts", "**/*.json", "**/*.md"],
   plugins: ["stylelint-order", "stylelint-prettier"],
   rules: {
     "at-rule-no-unknown": [

@@ -41,7 +41,9 @@
     "lint:css": "stylelint \"**/*.{css,vue,jsx,tsx}\"",
     "postinstall": "pnpm run clear:lock",
     "prepare": "husky",
-    "commit": "cz"
+    "commit": "cz",
+    "pub:init": "pnpm publish -r",
+    "pub": "pnpm changeset version"
   },
   "devDependencies": {
     "@changesets/cli": "catalog:",
