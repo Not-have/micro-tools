@@ -4,10 +4,6 @@
   "language": "en,en-US",
   "allowCompoundWords": true,
   "words": [
-    "vite",
-    "vitejs",
-    "vitepress",
-    "vnode",
     "amap",
     "autodocs",
     "commitlint",
@@ -19,8 +15,10 @@
     "Iconfont",
     "indiv",
     "jsapi",
+    "nesw",
     "noopener",
     "noreferrer",
+    "oxlint",
     "preinstall",
     "rushstack",
     "smacss",
@@ -28,7 +26,10 @@
     "Splitpanes",
     "stylelint",
     "uniapp",
-    "oxlint"
+    "vite",
+    "vitejs",
+    "vitepress",
+    "vnode"
   ],
   "ignorePaths": [
     "**/node_modules/**",
