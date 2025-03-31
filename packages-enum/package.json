@@ -21,6 +21,6 @@
   },
   "main": "src/index.js",
   "devDependencies": {
-    "typescript": "^5.3.3"
+    "typescript": "catalog:"
   }
 }
