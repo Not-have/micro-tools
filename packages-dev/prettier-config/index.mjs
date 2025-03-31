@@ -53,7 +53,7 @@ export default {
   useTabs: false,
 
   // 换行符使用 lf
-  endOfLine: "lf",
+  // endOfLine: "lf",
 
   // 格式化嵌入的内容
   // embeddedLanguageFormatting: "auto",
