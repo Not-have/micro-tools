@@ -4,7 +4,7 @@
  * @param mineType 是可选参数，用于指定生成的 base64 字符串的 MIME 类型，默认为 image/png
  * @returns 返回一个 Promise 对象，resolve 后的值是生成的 base64 编码的字符串
  */
-export default function urlToBase64(
+export default function imageUrlToBase64(
     url: string,
     mineType?: string
 ): Promise<string> {

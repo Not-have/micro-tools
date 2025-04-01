@@ -3,7 +3,7 @@
  * @param base64Buf  base64Buf 是包含 base64 编码的图像数据的字符串
  * @returns 返回一个 Blob 对象，该对象表示解码后的图像数据
  */
-export default function dataUrlToBlob(base64Buf: string): Blob {
+export default function imageBase64ToBlob(base64Buf: string): Blob {
   const arr = base64Buf.split(",");
 
   const [typeItem] = arr;
