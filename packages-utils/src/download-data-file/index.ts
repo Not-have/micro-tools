@@ -5,7 +5,7 @@
  * @param {*} mime 文件的 MIME 类型
  * @param {*} bom Blob 对象的 BlobPart 参数
  */
-export default function downloadFile(
+export default function downloadDataFile(
     data: BlobPart,
     filename: string,
     mime?: string,

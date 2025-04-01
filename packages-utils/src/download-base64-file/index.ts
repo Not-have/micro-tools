@@ -1,5 +1,5 @@
 import imageBase64ToBlob from "../image-base64-to-blob";
-import downloadFile from "../download-file";
+import downloadDataFile from "../download-data-file";
 
 /**
  * 根据 Base64 编码的字符串进行下载
@@ -16,5 +16,5 @@ export default function downloadBase64File(
 ): void {
   const base64Buf = imageBase64ToBlob(buf);
 
-  downloadFile(base64Buf, filename, mime, bom);
+  downloadDataFile(base64Buf, filename, mime, bom);
 }
