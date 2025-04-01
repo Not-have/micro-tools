@@ -3,11 +3,13 @@
  *
  * `navigator.clipboard` 可能因浏览器设置或浏览器兼容而造成兼容问题
  *
- * @param text
- * @param prompt
- * @returns
+ * @param {string} text 要复制的文字
+ * @param {Function} promptFn 复制成功后的回调
  */
-export default function copyText(text: string, promptFn?: Function): Promise<unknown> {
+export default function copyText(
+    text: string,
+    promptFn?: () => void
+): Promise<unknown> {
   if (navigator.clipboard) {
     return navigator.clipboard.
         writeText(text).
@@ -15,7 +17,6 @@ export default function copyText(text: string, promptFn?: Function): Promise<unk
           promptFn && promptFn();
         }).
         catch(error => {
-
           console.error(error);
 
           return error;
@@ -24,32 +25,36 @@ export default function copyText(text: string, promptFn?: Function): Promise<unk
 
   if (Reflect.has(document, "execCommand")) {
     return new Promise<void>((resolve, reject) => {
+      const textArea = document.createElement("textarea");
+
+      textArea.value = text;
+
+      // 优化隐藏逻辑
+      textArea.style.opacity = "0";
+      textArea.style.position = "fixed";
+      textArea.style.top = "0";
+      textArea.style.left = "-9999px";
+      textArea.setAttribute("readonly", "readonly");
+      document.body.append(textArea);
+
       try {
-        const textArea = document.createElement("textarea");
-
-        textArea.value = text;
-
-        // 在手机 Safari 浏览器中，点击复制按钮，整个页面会跳动一下
-        textArea.style.width = "0";
-        textArea.style.position = "fixed";
-        textArea.style.left = "-999px";
-        textArea.style.top = "10px";
-        textArea.setAttribute("readonly", "readonly");
-        document.body.append(textArea);
+        textArea.focus(); // 兼容移动端聚焦问题
         textArea.select();
-        document.execCommand("copy");
-        textArea.remove();
+        const success = document.execCommand("copy");
 
-        promptFn && promptFn();
-        resolve();
+        if (!success) {
+          throw new Error("execCommand('copy') 执行失败");
+        }
+
+        promptFn?.();
       } catch (error) {
-
         console.error(error);
         reject(error);
+      } finally {
+        textArea.remove(); // 确保清理
       }
     });
   }
 
-  // eslint-disable-next-line prefer-promise-reject-errors
-  return Promise.reject("\"navigator.clipboard\" 或 \"document.execCommand\" 中存在API错误, 拷贝失败!");
+  return Promise.reject(new Error("\"navigator.clipboard\" 或 \"document.execCommand\" 中存在API错误, 拷贝失败!"));
 }
