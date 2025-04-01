@@ -26,16 +26,21 @@
   "license": "ISC",
   "author": "Li Yong",
   "scripts": {
-    "build:webpack": "rm -fr lib && webpack --config webpack.config.js",
-    "build:tsc": "rm -fr dist && tsc",
-    "build": "npm run build:webpack && npm run build:tsc",
-    "start": "tsc --watch",
-    "start:webpack": "webpack --watch",
-    "publish:build": "npm run build:tsc && npm publish",
+    "build": "pnpm run clear && webpack --config webpack.config.js && pnpm run tsc",
+    "dev": "tsc --watch & webpack --watch",
     "clear": "rm -fr node_modules && rm -fr dist && rm -fr lib",
-    "prepublishOnly": "npm run build:tsc && npm run build"
+    "prepublishOnly": "pnpm run build"
   },
-  "main": "dist/index",
+  "main": "./lib/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./lib/index.js"
+    }
+  },
   "dependencies": {
     "resize-observer-polyfill": "^1.5.1"
   },
