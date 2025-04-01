@@ -28,9 +28,10 @@
   "scripts": {
     "build:webpack": "rm -fr lib && webpack --config webpack.config.js",
     "build:tsc": "rm -fr dist && tsc",
-    "build": "npm run build:webpack && npm run build:tsc",
+    "build": "pnpm run build:webpack && pnpm run build:tsc",
     "dev": "tsc --watch & webpack --watch",
-    "clear": "rm -fr node_modules && rm -fr dist && rm -fr lib"
+    "clear": "rm -fr node_modules && rm -fr dist && rm -fr lib",
+    "prepublishOnly": "pnpm run build"
   },
   "main": "./lib/index.js",
   "module": "./dist/index.js",
