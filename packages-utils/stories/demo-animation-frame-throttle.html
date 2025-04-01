@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>animationFrameThrottle</title>
+</head>
+<body>
+
+</body>
+</html>
+<script src="../lib/index.js"></script>
+<script>
+  function handleResize(){
+    console.log('resize');
+  }
+  window.addEventListener('resize', microUtil.animationFrameThrottle(handleResize));
+</script>

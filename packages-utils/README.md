@@ -10,25 +10,7 @@ npm i micro-util-ts
 
 [See](https://github.com/Not-have/micro-tools/tree/main/packages-utils/stories)
 
-## 3、bug
-
-```json
-{
-  "scripts": {
-    "build": "rm -fr lib && webpack --config webpack.config.js",
-    "build:tsc": "rm -fr dist && tsc",
-    "start": "tsc --watch",
-    "start:webpack": "webpack --watch",
-    "publish:build": "npm run build:tsc && npm publish",
-    "clear": "rm -fr node_modules",
-    // 不能存在 postinstall，负责使用的时候 会报错，扯淡啊
-    "postinstall": "tsc && pnpm run start:webpack",
-    "prepublishOnly": "npm run build:tsc && npm run build"
-  }
-}
-```
-
-## 4、API
+## 3、API
 
 ### 1）类型判断
 
@@ -81,6 +63,28 @@ window.location.search 并转换为 Object
 创建一个使用 requestAnimationFrame 的函数节流（throttle）版本
 
 函数节流的目的是限制一个函数在特定时间内的调用次数，以避免过于频繁的执行，以确保性能优化或更平滑的动画效果时
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>animationFrameThrottle</title>
+</head>
+<body>
+
+</body>
+</html>
+<script src="../lib/index.js"></script>
+<script>
+  function handleResize(){
+    console.log('resize');
+  }
+  window.addEventListener('resize', microUtil.animationFrameThrottle(handleResize));
+</script>
+
+```
 
 ### 8）copyText
 
