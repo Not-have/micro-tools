@@ -26,10 +26,11 @@
   "license": "ISC",
   "author": "Li Yong",
   "scripts": {
-    "build": "pnpm run clear && webpack --config webpack.config.js && pnpm run tsc",
+    "build:webpack": "rm -fr lib && webpack --config webpack.config.js",
+    "build:tsc": "rm -fr dist && tsc",
+    "build": "npm run build:webpack && npm run build:tsc",
     "dev": "tsc --watch & webpack --watch",
-    "clear": "rm -fr node_modules && rm -fr dist && rm -fr lib",
-    "prepublishOnly": "pnpm run build"
+    "clear": "rm -fr node_modules && rm -fr dist && rm -fr lib"
   },
   "main": "./lib/index.js",
   "module": "./dist/index.js",
