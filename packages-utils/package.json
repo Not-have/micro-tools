@@ -41,6 +41,9 @@
       "require": "./lib/index.js"
     }
   },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
   "dependencies": {
     "resize-observer-polyfill": "catalog:"
   },
