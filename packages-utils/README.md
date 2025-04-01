@@ -3,7 +3,7 @@
 ## 1、下载
 
 ```bash
-npm i micro-util-ts
+npm i @mt-kit/util-ts
 ```
 
 ## 2、使用
@@ -12,147 +12,423 @@ npm i micro-util-ts
 
 ## 3、API
 
-### 1）类型判断
+### 1）animationFrameThrottle
 
-#### ① isObject
+使用 requestAnimationFrame 创建函数节流版本，限制函数在特定时间内的调用次数。
 
-是否对象类型判断
+| 参数名      | 说明     |  是否必穿  |
+| ----------- | ------------------------- | ----------|
+| fn          | 回调函数 | 是        |
 
-#### ② isFunction
+```ts
+// 滚动事件处理
+window.addEventListener('scroll', animationFrameThrottle(handleScroll));
 
-是否函数类型判断
+// 窗口大小改变
+window.addEventListener('resize', animationFrameThrottle(handleResize));
 
-#### ③ isUndefined
+// 动画效果
+const animatedFunction = animationFrameThrottle(updateAnimation);
+```
 
-是否为 undefined
+### 2）imageBase64ToBlob
 
-#### ④ isElement
+将 Base64 格式的图片转换为 Blob 对象。
 
-是否为 DOM
+| 参数名      | 说明     |  是否必穿  |
+| ----------- | ------------------------- | ----------|
+| base64 | 图片base64 | 是        |
+| contentType | 文件的 MIME 类型 | 否        |
 
-#### ⑤ isNull
+```ts
+const base64Data = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA...';
+const blob = imageBase64ToBlob(base64Data);
+```
 
-判断是否为 null
+### 3）imageUrlToBase64
 
-#### ⑥ isEqual
+将图片 URL 转换为 Base64 格式。
 
-比较对象是否相等
+| 参数名      | 说明     |  是否必穿  |
+| ----------- | ------------------------- | ----------|
+| url | 图片url | 是        |
 
-### 2）debounce
+```ts
+imageUrlToBase64('https://example.com/image.png')
+  .then(base64 => {
+    console.log(base64); // data:image/png;base64,...
+  });
+```
 
-防抖
+### 4）downloadByUrl
 
-### 3）throttle
+根据文件地址进行下载。
 
-节流
+| 参数名      | 说明     |  是否必穿  |
+| ----------- | ------------------------- | ----------|
+| url | 图片url | 是        |
+| target | 链接的打开方式，默认为 '_blank' | 否        |
+| fileName | 文件名 | 否        |
 
-### 4）clone
+```ts
+downloadByUrl({
+  url: 'https://example.com/document.pdf',
+  target: '_blank',
+  fileName: 'my-document.pdf'
+});
+```
 
-浅拷贝
+### 5）downloadDataFile
 
-### 5）cloneDeep
+根据文件数据进行下载。
 
-深拷贝
+| 参数名      | 说明     |  是否必穿  |
+| --------   | ------- | ----------|
+| data | Blob 对象的 BlobPart 参数 | 是 |
+| filename | 保存的文件名 |是 |
+| mime | 文件的 MIME 类型 | 否 |
+| bom | Blob 对象的 BlobPart 参数 | 否 |
 
-### 6）queryStringToObject
+```ts
+const data = new Uint8Array([72, 101, 108, 108, 111]); // "Hello" 的 ASCII 码
+downloadDataFile(data, 'hello.txt', 'text/plain');
+```
 
-window.location.search 并转换为 Object
+### 6）downloadBase64File
 
-### 7）animationFrameThrottle
+根据 Base64 数据下载文件。
 
-创建一个使用 requestAnimationFrame 的函数节流（throttle）版本
+| 参数名      | 说明     |  是否必穿  |
+| --------   | ------- | ----------|
+| base64 | base64字符串 | 是 |
+| filename | 保存的文件名 |是 |
+| mime | 文件的 MIME 类型 | 否 |
 
-函数节流的目的是限制一个函数在特定时间内的调用次数，以避免过于频繁的执行，以确保性能优化或更平滑的动画效果时
+```ts
+const base64Data = 'data:text/plain;base64,SGVsbG8gV29ybGQh'; // "Hello World!"
+downloadBase64File(base64Data, 'hello.txt');
+```
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>animationFrameThrottle</title>
-</head>
-<body>
+### 7）downloadUrlFile
 
-</body>
-</html>
-<script src="../lib/index.js"></script>
-<script>
-  function handleResize(){
-    console.log('resize');
-  }
-  window.addEventListener('resize', microUtil.animationFrameThrottle(handleResize));
-</script>
+根据在线图片的 URL 进行下载。
 
+| 参数名      | 说明     |  是否必穿  |
+| --------   | ------- | ----------|
+| url | 图片url | 是 |
+| filename | 保存的文件名 |是 |
+| mime | 文件的 MIME 类型 | 否 |
+| bom | Blob 对象的 BlobPart 参数 | 否 |
+
+```ts
+downloadUrlFile(
+  'https://example.com/image.png',
+  'my-image.png',
+  'image/png'
+);
 ```
 
 ### 8）copyText
 
-文本复制
+复制文本到剪贴板。
 
-### 9）openWindow
+| 参数名      | 说明     |  是否必穿  |
+| --------   | ------- | ----------|
+| text | 要复制的文本 | 是 |
+| fn | 复制成功的回调 | 否 |
 
-用于在浏览器中打开窗口
+```ts
+copyText('Hello World!').then(() => {
+  console.log('文本已复制到剪贴板');
+});
+```
 
-### 10）元素监听
+### 9）queryStringToObject
 
-#### ① addResizeListener
+将查询字符串转换为对象。
 
-该函数用于向指定的元素添加尺寸变化的监听器
-如果该元素没有注册过监听器，则使用 ResizeObserver 监听元素的尺寸变化。每当尺寸变化时，相关联的回调函数会被执行
+| 参数名      | 说明     |  是否必穿  |
+| --------   | ------- | ----------|
+| queryString | 查询字符串 | 是 |
 
-#### ② removeResizeListener
+```ts
+const query = queryStringToObject('?name=John&age=30');
+console.log(query); // { name: 'John', age: '30' }
+```
 
-从指定的元素中移除尺寸变化的监听器
+### 10）openWindow
 
-#### ③ triggerWindowResize
+打开新窗口。
 
-通过模拟触发 resize 事件，手动触发窗口尺寸变化
+| 参数名      | 说明     |  是否必穿  |
+| --------   | ------- | ----------|
+| url | 链接地址 | 是 |
+| options | 链接的打开方式，默认为 '_blank' | 否 |
 
-### 11）Object
+```ts
+openWindow('https://example.com', {
+  target: '_blank',
+  features: 'width=800,height=600'
+});
+```
 
-#### ① objectValueToString
+### 11）cookieHelper
 
-obj 中所有 value 转换为 string
+Cookie 操作助手。
 
-#### ② omitBy
+| 参数名      | 说明     |  是否必穿  |
+| --------   | ------- | ----------|
+| name | cookie名称 | 是 |
+| value | cookie值 | 是 |
+| options | cookie的配置选项 | 否 |
 
-从创建的一个从对象中，排除满足某些条件的属性的属性
+方法：
 
-### 12）本地储存
+- get(name) : 获取指定名称的 cookie
+- set(name, value, options) : 设置 cookie
+- remove(name) : 删除指定名称的 cookie
 
-#### ① LocalStorageHelper
+```ts
+// 设置 cookie
+cookieHelper.set('username', 'John', { expires: 7 }); // 7天过期
 
-localStorage 的一些扩展
+// 获取 cookie
+const username = cookieHelper.get('username');
 
-#### ② CookieHelper
+// 删除 cookie
+cookieHelper.remove('username');
+```
 
-CookieHelper 的一些扩展
+### 12）localStorageHelper
 
-### 13）转换
+localStorage 操作助手。
 
-#### ① dataUrlToBlob
+| 参数名      | 说明     |  是否必穿  |
+| --------   | ------- | ----------|
+| name | 本地存储名称 | 是 |
+| value | 本地存储值 | 是 |
 
-将 base64 编码的图像数据转换为 Blob 对象
+方法：
 
-#### ② urlToBase64
+- get(name) : 获取指定名称的本地存储
+- set(name, value) : 设置本地存储
+- remove(name) : 删除指定名称的本地存储
+- clear() : 清空所有数据
 
-将图像 URL 转换为 base64 编码的字符串
+```ts
+// 设置数据
+localStorageHelper.set('user', { name: 'John', age: 30 });
 
-### 14）下载
+// 获取数据
+const user = localStorageHelper.get('user');
 
-#### ① downloadByOnlineUrl
+// 删除数据
+localStorageHelper.remove('user');
 
-根据在线图片的 URL 进行下载
+// 清空所有数据
+localStorageHelper.clear();
+```
 
-#### ② downloadByBase64
+### 13）isElement
 
-根据 Base64 编码的字符串进行下载
+判断是否为 DOM 元素。
 
-#### ② downloadByData
+| 参数名      | 说明     |  是否必穿  |
+| --------   | ------- | ----------|
+| element | 元素 | 是 |
 
-根据文件数据进行下载
+```ts
+const div = document.createElement('div');
+console.log(isElement(div)); // true
+console.log(isElement({})); // false
+```
 
-#### ② downloadByUrl
+### 14）isFunction
 
-根据文件地址进行下载
+判断是否为函数。
+
+| 参数名      | 说明     |  是否必穿  |
+| --------   | ------- | ----------|
+| fn | 函数 | 是 |
+
+```ts
+console.log(isFunction(() => {})); // true
+console.log(isFunction({})); // false
+```
+
+### 15）isEqual
+
+比较两个对象是否相等。
+
+| 参数名      | 说明     |  是否必穿  |
+| --------   | ------- | ----------|
+| a | 比较值 | 是 |
+| b | 比较值 | 是 |
+
+```ts
+const objA = { a: 1, b: { c: 2 } };
+const objB = { a: 1, b: { c: 2 } };
+const objC = { a: 1, b: { c: 3 } };
+
+console.log(isEqual(objA, objB)); // true
+console.log(isEqual(objA, objC)); // false
+```
+
+### 16）isNull
+
+判断是否为 null。
+
+| 参数名      | 说明     |  是否必穿  |
+| --------   | ------- | ----------|
+| value | 值 | 是 |
+
+```ts
+console.log(isNull(null)); // true
+console.log(isNull(undefined)); // false
+console.log(isNull(0)); // false
+```
+
+### 17）isObject
+
+判断是否为对象类型。
+
+| 参数名      | 说明     |  是否必穿  |
+| --------   | ------- | ----------|
+| value | 值 | 是 |
+
+```ts
+console.log(isObject({})); // true
+console.log(isObject([])); // true
+console.log(isObject(null)); // false
+console.log(isObject('string')); // false
+```
+
+### 18）isUndefined
+
+判断是否为 undefined。
+
+| 参数名      | 说明     |  是否必穿  |
+| --------   | ------- | ----------|
+| value | 值 | 是 |
+
+```ts
+console.log(isUndefined(undefined)); // true
+console.log(isUndefined(null)); // false
+console.log(isUndefined(0)); // false
+```
+
+### 19）clone
+
+浅拷贝对象。
+
+| 参数名      | 说明     |  是否必穿  |
+| --------   | ------- | ----------|
+| value | 值 | 是 |
+
+```ts
+const obj = { a: 1, b: { c: 2 } };
+const cloned = clone(obj);
+
+console.log(cloned); // { a: 1, b: { c: 2 } }
+console.log(cloned.b === obj.b); // true，浅拷贝，引用相同
+```
+
+### 20）cloneDeep
+
+深拷贝对象。
+
+| 参数名      | 说明    |  是否必穿  |
+| --------   | ------- | ----------|
+| value | 值 | 是 |
+
+```ts
+const obj = { a: 1, b: { c: 2 } };
+const cloned = cloneDeep(obj);
+
+console.log(cloned); // { a: 1, b: { c: 2 } }
+console.log(cloned.b === obj.b); // false，深拷贝，引用不同
+```
+
+### 21）debounce
+
+创建一个防抖函数，延迟调用函数直到上一次调用后的一段时间已经过去。
+
+| 参数名      | 说明     |  是否必穿  |
+| --------   | ------- | ----------|
+| fn | 要防抖的函数 | 是 |
+| wait | 延迟时间（毫秒） | 是 |
+| options | 配置选项 | 否 |
+
+```ts
+// 搜索输入防抖
+const debouncedSearch = debounce((query) => {
+  fetchSearchResults(query);
+}, 300);
+
+// 在输入框中使用
+inputElement.addEventListener('input', (e) => {
+  debouncedSearch(e.target.value);
+});
+```
+
+### 22）throttle
+
+创建一个节流函数，限制函数在一段时间内只能调用一次。
+
+| 参数名      | 说明     |  是否必穿  |
+| --------   | ------- | ----------|
+| fn | 要节流的函数 | 是 |
+| wait | 节流时间（毫秒） | 是 |
+| options | 配置选项 | 否 |
+
+```ts
+// 滚动事件节流
+const throttledScroll = throttle(() => {
+  updateScrollPosition();
+}, 100);
+
+// 在滚动事件中使用
+window.addEventListener('scroll', throttledScroll);
+```
+
+### 23）omitBy
+
+创建一个从对象中排除满足条件的属性的新对象。
+
+| 参数名      | 说明     |  是否必穿  |
+| --------   | ------- | ----------|
+| obj | 源对象 | 是 |
+| condition | 用于判断是否排除属性的条件函数 | 是 |
+
+```ts
+const sampleObject = {
+  a: 1,
+  b: 2,
+  c: 3,
+  d: 4,
+};
+
+// 从对象中排除值大于 2 的属性
+const result = omitBy(sampleObject, (value) => value > 2);
+console.log(result); // { a: 1, b: 2 }
+```
+
+### 24）objectValueToString
+
+将对象的值转换为字符串。
+
+| 参数名      | 说明     |  是否必穿  |
+| --------   | ------- | ----------|
+| obj | 源对象 | 是 |
+
+```ts
+const obj = {
+  id: 123,
+  active: true,
+  score: 98.5
+};
+
+const stringified = objectValueToString(obj);
+console.log(stringified);
+// 输出: { id: '123', active: 'true', score: '98.5' }
+```
