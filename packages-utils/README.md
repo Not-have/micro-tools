@@ -38,7 +38,6 @@ const animatedFunction = animationFrameThrottle(updateAnimation);
 | 参数名      | 说明     |  是否必穿  |
 | ----------- | ------------------------- | ----------|
 | base64 | 图片base64 | 是        |
-| contentType | 文件的 MIME 类型 | 否        |
 
 ```ts
 const base64Data = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA...';
