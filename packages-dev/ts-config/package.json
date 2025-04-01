@@ -16,8 +16,7 @@
   },
   "license": "ISC",
   "author": "LiYong",
-  "scripts": {
-  },
+  "scripts": {},
   "main": "./base.json",
   "publishConfig": {
     "registry": "https://registry.npmjs.org"

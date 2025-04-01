@@ -8,6 +8,7 @@ catalog:
   "@stylistic/eslint-plugin": ^4.2.0
   "@stylistic/eslint-plugin-js": ^4.2.0
   "@stylistic/eslint-plugin-ts": ^4.2.0
+  "@types/node": ^22.13.14
   "@typescript-eslint/eslint-plugin": ^8.28.0
   "@typescript-eslint/parser": ^8.28.0
   browserslist: ^4.24.4
@@ -32,6 +33,7 @@ catalog:
   eslint-plugin-unicorn: ^58.0.0
   eslint-plugin-unused-imports: ^4.1.4
   eslint-plugin-vue: ~10.0.0
+  fork-ts-checker-webpack-plugin: ^9.0.3
   globals: ^16.0.0
   husky: ^9.1.7
   jsonc-eslint-parser: ^2.4.0
@@ -42,6 +44,7 @@ catalog:
   only-allow: ^1.2.1
   postcss-html: ^1.8.0
   prettier: ^3.5.3
+  resize-observer-polyfill: ^1.5.1
   stylelint: ^16.17.0
   stylelint-config-recess-order: ^6.0.0
   stylelint-config-recommended-vue: ^1.6.0
@@ -50,5 +53,8 @@ catalog:
   stylelint-order: ^6.0.4
   stylelint-prettier: ^5.0.3
   stylelint-processor-styled-components: ^1.10.0
+  ts-loader: ^9.5.2
   typescript: ^5.8.2
   vue-eslint-parser: ^10.1.1
+  webpack: ^5.98.0
+  webpack-cli: ^6.0.1
