@@ -43,8 +43,7 @@ interface ICookieOptions {
  *
  *
  */
-// eslint-disable-next-line unicorn/no-static-only-class, @typescript-eslint/no-extraneous-class, padded-blocks
-export default class CookieHelper {
+const cookieHelper = {
 
   /**
    * 设置 Cookie
@@ -52,7 +51,7 @@ export default class CookieHelper {
    * @param {string} value - Cookie 的值
    * @param {CookieOptions} options - Cookie 的选项
    */
-  static setCookie(name: string, value: string, options?: ICookieOptions): void {
+  setCookie(name: string, value: string, options?: ICookieOptions): void {
     let cookieString = `${encodeURIComponent(name)}=${encodeURIComponent(value)}`;
 
     if (options?.expires) {
@@ -79,14 +78,14 @@ export default class CookieHelper {
 
     // eslint-disable-next-line unicorn/no-document-cookie
     document.cookie = cookieString;
-  }
+  },
 
   /**
    * 获取 Cookie 的值
    * @param {string} name - Cookie 的名称
    * @returns {string|null} Cookie 的值，如果不存在则返回 null
    */
-  static getCookie(name: string): string | null {
+  getCookie(name: string): string | null {
     const cookies = document.cookie.split("; ");
 
     for (const cookie of cookies) {
@@ -98,14 +97,14 @@ export default class CookieHelper {
     }
 
     return null;
-  }
+  },
 
   /**
    * 删除 Cookie
    * @param {string} name - Cookie 的名称
    * @param {CookieOptions} options - Cookie 的路径（一版不需要）
    */
-  static deleteCookie(name: string, options?: ICookieOptions): void {
+  deleteCookie(name: string, options?: ICookieOptions): void {
     if (!this.getCookie(name)) {
       return;
     }
@@ -121,21 +120,23 @@ export default class CookieHelper {
 
     this.setCookie(name, "", deleteOptions);
   }
-}
+};
+
+export default cookieHelper;
 
 /*
  * // 使用示例
- *const cookieOptions: CookieOptions = {
- *    expires: 3600,
- *    domain: 'example.com',
- *    path: '/',
- *    secure: true,
- *    sameSite: 'None'
- *};
+ * const cookieOptions: CookieOptions = {
+ *     expires: 3600,
+ *     domain: 'example.com',
+ *     path: '/',
+ *     secure: true,
+ *     sameSite: 'None'
+ * };
  *
- *Cookie.setCookie('username', 'John Doe', cookieOptions);
- *const username = Cookie.getCookie('username');
- *console.log(username);
+ * CookieHelper.setCookie('username', 'John Doe', cookieOptions);
+ * const username = CookieHelper.getCookie('username');
+ * console.log(username);
  *
- *Cookie.deleteCookie('username', cookieOptions);
+ * CookieHelper.deleteCookie('username', cookieOptions);
  */
