@@ -1,17 +1,18 @@
 {
-  "name": "@mt-kit/vite-plugins",
+  "name": "@mt-kit/components",
   "version": "1.0.0",
-  "description": "",
+  "description": "常用 js UI 组件",
   "keywords": [
-    "vite",
-    "plugins"
+    "css生成三角形",
+    "imitationViteError",
+    "container"
   ],
   "bugs": {
     "url": "https://github.com/Not-have/micro-tools/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-utils"
+    "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-components"
   },
   "license": "ISC",
   "author": "Li Yong",
@@ -22,9 +23,6 @@
     "dev": "unbuild --stub",
     "prepublishOnly": "pnpm build"
   },
-  "files": [
-    "dist"
-  ],
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
@@ -35,11 +33,15 @@
       "require": "./dist/index.cjs"
     }
   },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@mt-kit/util": "workspace:^"
+  },
   "devDependencies": {
     "@mt-kit/ts-config": "workspace:^",
     "typescript": "catalog:",
-    "unbuild": "catalog:",
-    "vite": "catalog:",
-    "vite-plugin-dts": "catalog:"
+    "unbuild": "catalog:"
   }
 }

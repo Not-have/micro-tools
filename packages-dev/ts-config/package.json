@@ -16,7 +16,10 @@
   },
   "license": "ISC",
   "author": "LiYong",
-  "scripts": {},
+  "type": "module",
+  "scripts": {
+    "clear": "rm -fr node_modules"
+  },
   "files": [
     "*.json",
     "README.md"
