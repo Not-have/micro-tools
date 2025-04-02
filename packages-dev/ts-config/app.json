@@ -1,5 +1,9 @@
 {
   "display": "App",
+  "extends": [
+    "./base.json",
+    "./node.json"
+  ],
   "compilerOptions": {
     "lib": [
       "ES2020",

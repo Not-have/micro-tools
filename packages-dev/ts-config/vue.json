@@ -2,6 +2,7 @@
   "display": "Vue",
   "extends": [
     "./base.json",
+    "./node.json",
     "./app.json"
   ],
   "compilerOptions": {
