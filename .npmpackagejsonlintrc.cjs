@@ -15,7 +15,7 @@ module.exports = {
     "require-repository": "error",
 
     // homepage 是否必须存在
-    "require-homepage": "error",
+    "require-homepage": "warning",
 
     // format
     "name-format": "error",

@@ -24,15 +24,8 @@
     "noImplicitThis": true,
     "verbatimModuleSyntax": false,
     "useDefineForClassFields": true,
-    "lib": [
-      "ES2020",
-      "DOM",
-      "DOM.Iterable",
-      "esnext"
-    ],
     "outDir": "dist",
     "sourceMap": true,
-    "allowJs": true,
     "forceConsistentCasingInFileNames": true,
     "allowSyntheticDefaultImports": true,
     "strictFunctionTypes": true,

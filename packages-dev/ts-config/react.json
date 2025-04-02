@@ -1,6 +1,9 @@
 {
   "display": "React",
-  "extends": "./base.json",
+  "extends": [
+    "./base.json",
+    "./app.json"
+  ],
   "compilerOptions": {
     "jsx": "preserve",
     "noEmit": true,

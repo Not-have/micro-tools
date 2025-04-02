@@ -1,0 +1,44 @@
+{
+  "name": "@mt-kit/vite-plugins",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [
+    "vite",
+    "plugins"
+  ],
+  "bugs": {
+    "url": "https://github.com/Not-have/micro-tools/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-utils"
+  },
+  "license": "ISC",
+  "author": "Li Yong",
+  "type": "module",
+  "scripts": {
+    "build": "unbuild",
+    "dev": "unbuild --stub",
+    "prepublishOnly": "pnpm build"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "devDependencies": {
+    "@mt-kit/ts-config": "workspace:^",
+    "typescript": "catalog:",
+    "unbuild": "catalog:",
+    "vite": "catalog:",
+    "vite-plugin-dts": "catalog:"
+  }
+}

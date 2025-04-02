@@ -1,6 +1,9 @@
 {
   "display": "Vue",
-  "extends": "./base.json",
+  "extends": [
+    "./base.json",
+    "./app.json"
+  ],
   "compilerOptions": {
     "jsx": "preserve",
     "jsxImportSource": "vue",
