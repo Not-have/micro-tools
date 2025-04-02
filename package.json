@@ -76,7 +76,6 @@
     "package.json": "npmPkgJsonLint",
     "*.md": "markdownlint-cli2",
     "*.{js,ts,vue,tsx,jsx}": [
-      "prettier --write",
       "eslint --fix"
     ],
     "*.{jsx,tsx,css,vue}": "stylelint --fix --allow-empty-input"
