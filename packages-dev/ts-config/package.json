@@ -16,7 +16,6 @@
   },
   "license": "ISC",
   "author": "LiYong",
-  "type": "module",
   "scripts": {
     "clear": "rm -fr node_modules"
   },
@@ -26,6 +25,7 @@
   ],
   "main": "./base.json",
   "publishConfig": {
+    "access": "public",
     "registry": "https://registry.npmjs.org"
   },
   "peerDependencies": {
