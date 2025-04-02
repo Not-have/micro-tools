@@ -23,7 +23,7 @@
     "*.json",
     "README.md"
   ],
-  "main": "./base.json",
+  "main": "base.json",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
