@@ -3,7 +3,8 @@ import {
 } from "path";
 
 import {
-  Plugin, UserConfig
+  Plugin,
+  UserConfig
 } from "vite";
 import dts from "vite-plugin-dts";
 
