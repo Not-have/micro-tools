@@ -12,7 +12,7 @@ npm i @mt-kit/util-ts
 
 ## 3、API
 
-### 1）animationFrameThrottle
+### animationFrameThrottle
 
 使用 requestAnimationFrame 创建函数节流版本，限制函数在特定时间内的调用次数。
 
@@ -31,12 +31,12 @@ window.addEventListener('resize', animationFrameThrottle(handleResize));
 const animatedFunction = animationFrameThrottle(updateAnimation);
 ```
 
-### 2）imageBase64ToBlob
+### imageBase64ToBlob
 
 将 Base64 格式的图片转换为 Blob 对象。
 
 | 参数名      | 说明     |  是否必穿  |
-| ----------- | ------------------------- | ----------|
+| ----------- | ----------- | ----------- |
 | base64 | 图片base64 | 是        |
 
 ```ts
@@ -44,13 +44,14 @@ const base64Data = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA...';
 const blob = imageBase64ToBlob(base64Data);
 ```
 
-### 3）imageUrlToBase64
+### imageUrlToBase64
 
 将图片 URL 转换为 Base64 格式。
 
-| 参数名      | 说明     |  是否必穿  |
-| ----------- | ------------------------- | ----------|
-| url | 图片url | 是        |
+| 参数名      | 说明     |  是否必穿  | 默认值 |
+| ----------- | ----------- | ----------- |
+| url | 图片url | 是        | - |
+| mineType | 用于指定生成的 base64 字符串的 MIME 类型 | 否 | image/png |
 
 ```ts
 imageUrlToBase64('https://example.com/image.png')
@@ -59,15 +60,15 @@ imageUrlToBase64('https://example.com/image.png')
   });
 ```
 
-### 4）downloadByUrl
+### downloadByUrl
 
 根据文件地址进行下载。
 
 | 参数名      | 说明     |  是否必穿  |
-| ----------- | ------------------------- | ----------|
+| ----------- | ----------- | ----------- |
 | url | 图片url | 是        |
-| target | 链接的打开方式，默认为 '_blank' | 否        |
-| fileName | 文件名 | 否        |
+| target | 链接的打开方式，默认为 '_blank' | 否 |
+| fileName | 文件名 | 否 |
 
 ```ts
 downloadByUrl({
@@ -77,7 +78,7 @@ downloadByUrl({
 });
 ```
 
-### 5）downloadDataFile
+### downloadDataFile
 
 根据文件数据进行下载。
 
@@ -86,14 +87,14 @@ downloadByUrl({
 | data | Blob 对象的 BlobPart 参数 | 是 |
 | filename | 保存的文件名 |是 |
 | mime | 文件的 MIME 类型 | 否 |
-| bom | Blob 对象的 BlobPart 参数 | 否 |
+| blob | Blob 对象的 BlobPart 参数 | 否 |
 
 ```ts
 const data = new Uint8Array([72, 101, 108, 108, 111]); // "Hello" 的 ASCII 码
 downloadDataFile(data, 'hello.txt', 'text/plain');
 ```
 
-### 6）downloadBase64File
+### downloadBase64File
 
 根据 Base64 数据下载文件。
 
@@ -101,14 +102,14 @@ downloadDataFile(data, 'hello.txt', 'text/plain');
 | --------   | ------- | ----------|
 | base64 | base64字符串 | 是 |
 | filename | 保存的文件名 |是 |
-| mime | 文件的 MIME 类型 | 否 |
+| blob | 文件的 MIME 类型 | 否 |
 
 ```ts
 const base64Data = 'data:text/plain;base64,SGVsbG8gV29ybGQh'; // "Hello World!"
 downloadBase64File(base64Data, 'hello.txt');
 ```
 
-### 7）downloadUrlFile
+### downloadUrlFile
 
 根据在线图片的 URL 进行下载。
 
@@ -117,7 +118,7 @@ downloadBase64File(base64Data, 'hello.txt');
 | url | 图片url | 是 |
 | filename | 保存的文件名 |是 |
 | mime | 文件的 MIME 类型 | 否 |
-| bom | Blob 对象的 BlobPart 参数 | 否 |
+| blob | Blob 对象的 BlobPart 参数 | 否 |
 
 ```ts
 downloadUrlFile(
@@ -127,7 +128,7 @@ downloadUrlFile(
 );
 ```
 
-### 8）copyText
+### copyText
 
 复制文本到剪贴板。
 
@@ -142,7 +143,7 @@ copyText('Hello World!').then(() => {
 });
 ```
 
-### 9）queryStringToObject
+### queryStringToObject
 
 将查询字符串转换为对象。
 
@@ -155,7 +156,7 @@ const query = queryStringToObject('?name=John&age=30');
 console.log(query); // { name: 'John', age: '30' }
 ```
 
-### 10）openWindow
+### openWindow
 
 打开新窗口。
 
@@ -171,7 +172,7 @@ openWindow('https://example.com', {
 });
 ```
 
-### 11）cookieHelper
+### cookieHelper
 
 Cookie 操作助手。
 
@@ -198,7 +199,7 @@ const username = cookieHelper.get('username');
 cookieHelper.remove('username');
 ```
 
-### 12）localStorageHelper
+### localStorageHelper
 
 localStorage 操作助手。
 
@@ -228,7 +229,7 @@ localStorageHelper.remove('user');
 localStorageHelper.clear();
 ```
 
-### 13）isElement
+### isElement
 
 判断是否为 DOM 元素。
 
@@ -242,7 +243,7 @@ console.log(isElement(div)); // true
 console.log(isElement({})); // false
 ```
 
-### 14）isFunction
+### isFunction
 
 判断是否为函数。
 
@@ -255,7 +256,7 @@ console.log(isFunction(() => {})); // true
 console.log(isFunction({})); // false
 ```
 
-### 15）isEqual
+### isEqual
 
 比较两个对象是否相等。
 
@@ -273,7 +274,7 @@ console.log(isEqual(objA, objB)); // true
 console.log(isEqual(objA, objC)); // false
 ```
 
-### 16）isNull
+### isNull
 
 判断是否为 null。
 
@@ -287,7 +288,7 @@ console.log(isNull(undefined)); // false
 console.log(isNull(0)); // false
 ```
 
-### 17）isObject
+### isObject
 
 判断是否为对象类型。
 
@@ -302,7 +303,7 @@ console.log(isObject(null)); // false
 console.log(isObject('string')); // false
 ```
 
-### 18）isUndefined
+### isUndefined
 
 判断是否为 undefined。
 
@@ -316,7 +317,7 @@ console.log(isUndefined(null)); // false
 console.log(isUndefined(0)); // false
 ```
 
-### 19）clone
+### clone
 
 浅拷贝对象。
 
@@ -332,7 +333,7 @@ console.log(cloned); // { a: 1, b: { c: 2 } }
 console.log(cloned.b === obj.b); // true，浅拷贝，引用相同
 ```
 
-### 20）cloneDeep
+### cloneDeep
 
 深拷贝对象。
 
@@ -348,7 +349,7 @@ console.log(cloned); // { a: 1, b: { c: 2 } }
 console.log(cloned.b === obj.b); // false，深拷贝，引用不同
 ```
 
-### 21）debounce
+### debounce
 
 创建一个防抖函数，延迟调用函数直到上一次调用后的一段时间已经过去。
 
@@ -370,7 +371,7 @@ inputElement.addEventListener('input', (e) => {
 });
 ```
 
-### 22）throttle
+### throttle
 
 创建一个节流函数，限制函数在一段时间内只能调用一次。
 
@@ -390,7 +391,7 @@ const throttledScroll = throttle(() => {
 window.addEventListener('scroll', throttledScroll);
 ```
 
-### 23）omitBy
+### omitBy
 
 创建一个从对象中排除满足条件的属性的新对象。
 
@@ -412,7 +413,7 @@ const result = omitBy(sampleObject, (value) => value > 2);
 console.log(result); // { a: 1, b: 2 }
 ```
 
-### 24）objectValueToString
+### objectValueToString
 
 将对象的值转换为字符串。
 
