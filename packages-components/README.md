@@ -1,33 +1,35 @@
 # micro-rc-container
 
-## 1、下载
+## 下载
 
 ```bash
-npm i micro-rc-container
+npm i @mt-kit/components
 ```
 
-## 2、cssGenerateTriangle
+## API
+
+### cssGenerateTriangle
 
 css 三角形
 
-```rc
+```js
 import {
     cssGenerateTriangle
-} from "micro-rc-container";
+} from "@mt-kit/components";
 
 <div style=`${cssGenerateTriangle("red", 10)}`></div>
 ```
 
-## 3、imitationViteError
+### imitationViteError
 
 生成一个类似 Vite 报错的提示
 
 <img src="https://not-have.github.io/file/images/vite-error.png" alt="ErrorOverlay" style="zoom:40%;" />
 
-```rc
+```js
 import {
     imitationViteError
-} from 'micro-rc';
+} from '@mt-kit/components';
 
 const overlay = imitationViteError(err);
 
@@ -37,3 +39,5 @@ document.body.appendChild(overlay);
 
 获取到的页面元素.appendChild(overlay);
 ```
+
+### draggable

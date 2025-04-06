@@ -20,6 +20,8 @@ npm install @mt-kit/vite-plugins -D
 | rollupTypes | 控制是否生成与 Rollup 打包工具兼容的类型声明 | false |
 | strictOutput | 启用严格模式生成类型声明 | true |
 
+`vite.config.js`
+
 ```ts
 import {
   libPlugin

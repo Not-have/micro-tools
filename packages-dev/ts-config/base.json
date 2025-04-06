@@ -1,5 +1,4 @@
 {
-  "$schema": "https://json.schemastore.org/tsconfig",
   "display": "Base",
   "compilerOptions": {
     "target": "ESNext",
@@ -44,7 +43,7 @@
     "package.json"
   ],
   "include": [
-    "src/**/*.ts",
+    "**/*.ts",
     "./**/*.d.ts",
     "./env.d.ts"
   ],
