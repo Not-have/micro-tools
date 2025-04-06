@@ -84,9 +84,49 @@ npx tsc --init
 
 ## 4、不同环境的配置
 
-- **React**: 使用 `@mt-kit/ts-config/react`
-- **Vue**: 使用 `@mt-kit/ts-config/vue`
-- **Node**: 使用 `@mt-kit/ts-config/node`
+- **Html**
+
+```json
+{
+  "extends":"@mt-kit/ts-config/app.json",
+  "include": [
+    "src"
+  ]
+}
+```
+
+- **Node**
+
+```json
+{
+  "extends":"@mt-kit/ts-config/node.json",
+  "include": [
+    "src"
+  ]
+}
+```
+
+- **React**
+
+```json
+{
+  "extends":"@mt-kit/ts-config/react.json",
+  "include": [
+    "src"
+  ]
+}
+```
+
+- **Vue**
+
+```json
+{
+  "extends":"@mt-kit/ts-config/vue.json",
+  "include": [
+    "src"
+  ]
+}
+```
 
 ## 5、版本要求
 
