@@ -6,7 +6,6 @@ import {
   Plugin,
   UserConfig
 } from "vite";
-import dts from "vite-plugin-dts";
 
 /**
  * 插件选项接口
@@ -24,18 +23,6 @@ export interface ILibPluginOptions {
 
   // Rollup 构建时需要排除的外部依赖
   external?: string[];
-
-  // tsconfig.json 文件路径，默认为 "./tsconfig.json"
-  tsconfigPath?: string;
-
-  // 是否在生成类型文件时使用 Rollup
-  rollupTypes?: boolean;
-
-  // 是否对输出结果进行严格检查
-  strictOutput?: boolean;
-
-  // 是否启用 dts 插件
-  enableDts?: boolean;
 }
 
 /**
@@ -50,11 +37,7 @@ export default function libPlugin(options: ILibPluginOptions): Plugin {
     name = "lib-plugin",
     entry = "./src/index.ts",
     fileName = "index",
-    external = ["path", "vite"],
-    tsconfigPath = "./tsconfig.json",
-    rollupTypes = false,
-    strictOutput = true,
-    enableDts = true
+    external = ["path", "vite"]
   } = options;
 
   // 获取当前工作目录，避免重复调用 process.cwd()
@@ -66,23 +49,6 @@ export default function libPlugin(options: ILibPluginOptions): Plugin {
 
       // 判断是否处于 watch 模式（监听文件变更）
       const isWatchMode = process.argv.includes("--watch");
-
-      // 准备插件数组
-      const plugins: Plugin[] = [];
-
-      // 只有在启用 dts 时才添加该插件
-      if (enableDts) {
-        plugins.push(dts({
-
-          // 解析 tsconfig.json 的绝对路径
-          tsconfigPath: resolve(cwd, tsconfigPath),
-          rollupTypes,
-          strictOutput,
-
-          // 包含所有类型声明
-          include: ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"]
-        }));
-      }
 
       return {
         build: {

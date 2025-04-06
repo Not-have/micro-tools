@@ -29,9 +29,6 @@
     "allowSyntheticDefaultImports": true,
     "strictFunctionTypes": true,
     "noImplicitAny": true,
-    "paths": {
-      "*": ["node_modules/*", "src/*", "types/*"]
-    },
     "types": ["node"],
     "emitDeclarationOnly": true,
     "newLine": "lf",
@@ -41,11 +38,6 @@
   },
   "files": [
     "package.json"
-  ],
-  "include": [
-    "**/*.ts",
-    "./**/*.d.ts",
-    "./env.d.ts"
   ],
   "exclude": [
     "node_modules",

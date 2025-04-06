@@ -6,6 +6,41 @@
 npm install @mt-kit/vite-plugins -D
 ```
 
+## 打包 ts
+
+注：直接内嵌到插件，无法使用，待修复。
+
+```bash
+npm i vite-plugin-dts -D
+```
+
+[docs](https://github.com/qmhc/vite-plugin-dts)
+
+```ts
+import {
+  defineConfig
+} from "vite";
+
+import dts from "vite-plugin-dts";
+
+import {
+  libPlugin
+} from "@mt-kit/vite-plugins";
+
+export default defineConfig(() => ({
+  plugins: [
+    dts({
+      tsconfigPath: "./tsconfig.json",
+      rollupTypes: false,
+      strictOutput: true,
+      outDir: "dist",
+      entryRoot: "./src"
+    })
+  ]
+}));
+
+```
+
 ## API
 
 ### libPlugin
@@ -16,9 +51,33 @@ npm install @mt-kit/vite-plugins -D
 | fileName | 打包的文件名 | index |
 | entry | 入口文件 | src/index.ts |
 | external | 外部依赖 | ["path"] |
-| tsconfigPath | 指定项目的 tsconfig.json 文件路径 | ./tsconfig.json |
-| rollupTypes | 控制是否生成与 Rollup 打包工具兼容的类型声明 | false |
-| strictOutput | 启用严格模式生成类型声明 | true |
+
+`package.json`
+
+```json
+{
+  "name": "demo",
+  "version": "1.0.0",
+  "description": "Demo",
+  "type": "module",
+  "scripts": {
+    "clear:build": "rm -fr dist",
+    "clear": "rm -fr node_modules && pnpm run clear:build",
+    "build": "pnpm run clear:build && vite build",
+    "dev": "vite build --watch"
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  }
+}
+```
 
 `vite.config.js`
 

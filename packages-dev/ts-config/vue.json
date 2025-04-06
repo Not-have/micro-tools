@@ -9,9 +9,5 @@
     "jsx": "preserve",
     "jsxImportSource": "vue",
     "experimentalDecorators": true
-  },
-  "include": [
-    "**/*.vue",
-    "**/*.tsx"
-  ]
+  }
 }

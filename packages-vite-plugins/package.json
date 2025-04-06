@@ -39,7 +39,6 @@
     "@mt-kit/ts-config": "workspace:^",
     "typescript": "catalog:",
     "unbuild": "catalog:",
-    "vite": "catalog:",
-    "vite-plugin-dts": "catalog:"
+    "vite": "catalog:"
   }
 }
