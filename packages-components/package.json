@@ -44,6 +44,7 @@
   "devDependencies": {
     "@mt-kit/ts-config": "workspace:^",
     "@mt-kit/vite-plugins": "workspace:^",
+    "@types/node": "catalog:",
     "typescript": "catalog:",
     "vite": "catalog:",
     "vite-plugin-dts": "catalog:"
