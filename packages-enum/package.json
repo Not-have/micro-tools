@@ -20,6 +20,10 @@
     "clear": "rm -fr node_modules"
   },
   "main": "src/index.ts",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
   "devDependencies": {
     "typescript": "catalog:"
   }

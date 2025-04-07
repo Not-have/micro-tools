@@ -34,6 +34,10 @@
     "./reset": "./style/reset.css",
     "./indivHtml": "./style/indiv-html.css"
   },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
   "dependencies": {
     "@emotion/css": "catalog:"
   },
