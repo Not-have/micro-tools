@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    
+</body>
+</html>
+<script src="../dist/index.cjs"></script>
+<script>
+    console.log(microStyle);
+    const { ellipsis } = microStyle;
+
+    console.log(ellipsis());
+
+    const div =document.createElement('div');
+    div.setAttribute('class', ellipsis(3));
+
+    // div.style.width = '40px'
+
+    div.innerText = '11111111111111111111111111111111111111111111111111111111111111111111'
+
+    document.body.appendChild(div);
+</script>

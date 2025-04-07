@@ -11,6 +11,5 @@ export default {
     "node_modules/**",
     "dist/**",
     "**/*.md"
-  ],
-  root: true
+  ]
 };

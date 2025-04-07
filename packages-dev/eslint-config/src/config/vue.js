@@ -16,6 +16,7 @@ export default [
   },
   {
     rules: {
+
       /**
        * 覆盖 js 部分规则
        */
@@ -97,6 +98,7 @@ export default [
       "vue/key-spacing": "error",
 
       "vue/max-attributes-per-line": [
+
         // 设置每行最多属性数为 1
         "error",
         {
@@ -138,6 +140,7 @@ export default [
       "vue/no-unused-refs": "error",
 
       "vue/html-self-closing": [
+
         // 规定 HTML 元素自闭合标签的规则
         "error",
         {

@@ -79,9 +79,13 @@ export default defineConfig(() => ({
 }
 ```
 
-`vite.config.js`
+`vite.config.ts`
 
 ```ts
+import {
+  defineConfig
+} from "vite";
+
 import {
   libPlugin
 } from '@mt-kit/vite-plugins';

@@ -1,0 +1,13 @@
+/**
+ * CSS 自定义属性（变量）
+ * https://developer.mozilla.org/zh-CN/docs/Web/CSS/Using_CSS_custom_properties
+ */
+:root {
+  --micro-style-font-family: "Fira Mono", "Andale Mono", "Consolas", monospace;
+  --micro-style-font-size: 14px;
+  --micro-style-a-color: rgb(46 105 210);
+  --micro-style-code-color: rgb(46 105 210);
+  --micro-style-code-background: rgb(242 242 242);
+  --micro-style-del-color: rgb(220 54 46);
+  --micro-style-mark-background: rgb(252 235 235);
+}

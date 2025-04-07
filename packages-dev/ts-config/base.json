@@ -34,7 +34,8 @@
     "newLine": "lf",
     "noErrorTruncation": true,
     "preserveConstEnums": true,
-    "stripInternal": true
+    "stripInternal": true,
+    "skipDefaultLibCheck": true
   },
   "files": [
     "package.json"

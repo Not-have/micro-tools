@@ -1,19 +1,19 @@
 # @mt-kit/ts-config
 
-## 1、安装
+## 安装
 
 ```bash
 npm install typescript @mt-kit/ts-config --save-dev
 ```
 
-## 2、使用
+## 使用
 
 ```bash
 # 初始化
 npx tsc --init
 ```
 
-## 3、各个属性的作用
+## 各个属性的作用
 
 ### 基础配置 (base.json)
 
@@ -82,7 +82,7 @@ npx tsc --init
 | lib | 仅包含ESNext库 |
 | noEmit | 禁止生成输出文件 |
 
-## 4、不同环境的配置
+## 不同环境的配置
 
 - **Html**
 
