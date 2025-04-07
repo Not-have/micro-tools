@@ -1,6 +1,6 @@
 import {
   isElement
-} from "@mt-kit/util";
+} from "@mt-kit/utils";
 
 interface ITransform {
   offsetX: number;

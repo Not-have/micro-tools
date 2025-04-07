@@ -1,9 +1,9 @@
-# micro-util-ts
+# micro-util
 
 ## 下载
 
 ```bash
-npm i @mt-kit/util-ts
+npm i @mt-kit/utils
 ```
 
 ## 使用
