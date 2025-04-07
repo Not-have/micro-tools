@@ -46,6 +46,7 @@ catalog:
   postcss-html: ^1.8.0
   prettier: ^3.5.3
   resize-observer-polyfill: ^1.5.1
+  rollup-plugin-postcss: ^4.0.2
   stylelint: ^16.17.0
   stylelint-config-recess-order: ^6.0.0
   stylelint-config-recommended-vue: ^1.6.0

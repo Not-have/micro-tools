@@ -1,0 +1,38 @@
+{
+  "name": "@mt-kit/style",
+  "version": "1.0.0",
+  "description": "Micro style",
+  "keywords": [
+    "style"
+  ],
+  "homepage": "https://github.com/Not-have/micro-tools/tree/main/packages-enum",
+  "bugs": {
+    "url": "https://github.com/Not-have/micro-tools/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-enum"
+  },
+  "license": "ISC",
+  "author": "LiYong",
+  "type": "module",
+  "scripts": {
+    "clear:build": "rm -fr dist",
+    "clear": "rm -fr node_modules && pnpm run clear:build",
+    "build": "pnpm run clear:build && vite build",
+    "dev": "vite build --watch"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "@emotion/css": "catalog:",
+    "rollup-plugin-postcss": "catalog:"
+  },
+  "devDependencies": {
+    "@mt-kit/ts-config": "workspace:^",
+    "@mt-kit/vite-plugins": "workspace:^",
+    "@types/node": "catalog:",
+    "typescript": "catalog:",
+    "vite": "catalog:",
+    "vite-plugin-dts": "catalog:"
+  }
+}
