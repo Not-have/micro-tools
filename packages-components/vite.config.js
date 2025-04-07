@@ -10,7 +10,7 @@ import {
 export default defineConfig(() => ({
   plugins: [
     libPlugin({
-      name: "mt-components"
+      name: "microComponents"
     }),
     dts({
       tsconfigPath: "./tsconfig.json",
