@@ -54,6 +54,13 @@ export default defineConfig(() => ({
 
 `package.json`
 
+| 字段 | 作用域 | 对应文件 |
+| --- | --- | --- |
+| main | CommonJS 规范 | dist/index.umd.js |
+| module | ES 模块规范 | dist/index.es.js |
+| types | 类型声明文件 | dist/index.d.ts |
+| exports | 多入口条件导出 | 按模块类型映射路径 |
+
 ```json
 {
   "name": "demo",
@@ -66,14 +73,14 @@ export default defineConfig(() => ({
     "build": "pnpm run clear:build && vite build",
     "dev": "vite build --watch"
   },
-  "main": "dist/index.cjs",
-  "module": "dist/index.mjs",
+  "main": "dist/index.umd.js",
+  "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.umd.js"
     }
   }
 }

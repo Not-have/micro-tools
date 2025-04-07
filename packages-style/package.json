@@ -5,13 +5,13 @@
   "keywords": [
     "style"
   ],
-  "homepage": "https://github.com/Not-have/micro-tools/tree/main/packages-enum",
+  "homepage": "https://github.com/Not-have/micro-tools/tree/main/packages-style",
   "bugs": {
     "url": "https://github.com/Not-have/micro-tools/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-enum"
+    "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-style"
   },
   "license": "ISC",
   "author": "LiYong",

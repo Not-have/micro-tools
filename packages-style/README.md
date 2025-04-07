@@ -6,57 +6,47 @@
 npm i @mt-kit/style
 ```
 
-## 1、样式
+## 样式
 
-### 1）初始化样式
+### 初始化样式
 
 ```js
-import "@mt-kit/style/style/reset.css";
+import {
+  cssReset
+} from "@mt-kit/style";
+
+cssReset();
 ```
 
-### 2）个性化 Html
+### 个性化 Html
 
 注：对 `a`、`code`、`del`、`mark` 进行样式的修改。
 
-```css
-@import url('@mt-kit/style/style/indiv-html.css');
+```ts
+import {
+  cssIndivHtml
+} from "@mt-kit/style";
 
-/*
-// js 的引用方式
-
-import "@mt-kit/style/style/indiv-html.css";
-*/
+cssIndivHtml();
 ```
 
-## 2、自定义 css 块
+## 自定义 css 块
 
-### 1）ellipsis
+### cssEllipsis
 
 文本超出行就隐藏并且显示省略号。
 
 ```js
 import {
-    ellipsis
+    cssEllipsis
 } from "@mt-kit/style";
 
 const div =document.createElement('div');
-div.setAttribute('class', ellipsis(3));
+div.setAttribute('class', cssEllipsis(3));
 
 // div.style.width = '40px'
 
 div.innerText = '11111111111111111111111111111111111111111111111111111111111111111111'
 
 document.body.appendChild(div);
-```
-
-### 2）indivHtml
-
-个性化样式，[函数引入](https://github.com/Not-have/micro-tools/blob/develop/packages-style/stories/indiv-style.html)。
-
-```js
-import {
-    indivHtml
-} from "@mt-kit/style";
-
-indivHtml();
 ```

@@ -59,8 +59,8 @@ export default function libPlugin(options: ILibPluginOptions): Plugin {
             // 解析入口文件的绝对路径
             entry: resolve(cwd, entry),
             name,
-            fileName,
-            formats: ["es", "cjs"]
+            fileName: format => `${fileName}.${format}.js`,
+            formats: ["es", "umd"]
           },
           rollupOptions: {
 
