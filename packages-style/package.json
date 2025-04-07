@@ -22,10 +22,20 @@
     "build": "pnpm run clear:build && vite build",
     "dev": "vite build --watch"
   },
-  "main": "index.js",
+  "main": "dist/index.umd.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.umd.js"
+    },
+    "./reset": "./style/reset.css",
+    "./indivHtml": "./style/indiv-html.css"
+  },
   "dependencies": {
-    "@emotion/css": "catalog:",
-    "rollup-plugin-postcss": "catalog:"
+    "@emotion/css": "catalog:"
   },
   "devDependencies": {
     "@mt-kit/ts-config": "workspace:^",

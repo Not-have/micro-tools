@@ -10,12 +10,8 @@ npm i @mt-kit/style
 
 ### 初始化样式
 
-```js
-import {
-  cssReset
-} from "@mt-kit/style";
-
-cssReset();
+```ts
+import '@mt-kit/style/reset';
 ```
 
 ### 个性化 Html
@@ -23,11 +19,7 @@ cssReset();
 注：对 `a`、`code`、`del`、`mark` 进行样式的修改。
 
 ```ts
-import {
-  cssIndivHtml
-} from "@mt-kit/style";
-
-cssIndivHtml();
+import '@mt-kit/style/indivHtml';
 ```
 
 ## 自定义 css 块
