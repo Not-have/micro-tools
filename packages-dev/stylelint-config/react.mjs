@@ -1,5 +1,6 @@
 export default {
-  processors: ["stylelint-processor-styled-components"],
+
+  // postcss-styled-syntax
   extends: ["./index.mjs", "stylelint-config-styled-components"],
   rules: {
     "value-keyword-case": [

@@ -19,6 +19,10 @@
     "lint:vue": "stylelint '**/*.vue'"
   },
   "main": "./index.mjs",
+  "exports": {
+    "./vue": "./vue.mjs",
+    "./react": "./react.mjs"
+  },
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
@@ -33,8 +37,7 @@
     "stylelint-config-standard": "catalog:",
     "stylelint-config-styled-components": "catalog:",
     "stylelint-order": "catalog:",
-    "stylelint-prettier": "catalog:",
-    "stylelint-processor-styled-components": "catalog:"
+    "stylelint-prettier": "catalog:"
   },
   "devDependencies": {
     "stylelint": "catalog:"
