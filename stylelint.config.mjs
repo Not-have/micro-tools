@@ -1,5 +1,5 @@
 export default {
-  extends: ["@mt-kit/stylelint-config/vue", "@mt-kit/stylelint-config/react"],
+  extends: ["@mt-kit/stylelint-config/vue"],
   ignoreFiles: [
     "**/*.json",
     "**/*.mjs",

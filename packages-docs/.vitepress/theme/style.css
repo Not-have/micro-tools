@@ -90,3 +90,64 @@
 .DocSearch {
   --docsearch-primary-color: var(--vp-c-brand-1) !important;
 }
+
+/* ———————————————————————————— 修改 .vitepress 样式 ———————————————————————————— */
+.vp-doc div[class*="language-"],
+.vp-block {
+  margin: 0;
+  border-radius: 8px;
+}
+
+/* stylelint-disable-next-line selector-class-pattern */
+.ͼ1.cm-focused {
+  outline: none;
+}
+
+/* stylelint-disable-next-line selector-class-pattern */
+.ͼ2 .cm-gutters {
+  display: none;
+}
+
+/* stylelint-disable-next-line selector-class-pattern */
+.ͼ4 .cm-content {
+  padding: 0 24px;
+  background: var(--vp-code-block-bg);
+  font-size: 14px;
+}
+/* stylelint-disable-next-line rule-empty-line-before */
+/* stylelint-disable-next-line selector-class-pattern */
+.ͼ2 .cm-activeLine {
+  background-color: transparent;
+}
+
+.demo {
+  margin-top: 16px;
+}
+
+/* 修改侧边栏样式 */
+.items .VPSidebarItem .item {
+  margin-left: 20px;
+}
+
+.Layout .VPSidebar {
+  background-color: transparent;
+}
+
+.Layout .VPSidebar .curtain {
+  background-color: transparent;
+}
+
+.is-active {
+  border-radius: 4px;
+  background-color: color-mix(in srgb, var(--vp-c-brand-1) 10%, transparent);
+}
+
+.VPSidebarItem.collapsible > .item {
+  pointer-events: none;
+}
+
+.VPSidebarItem .item .caret {
+  display: none;
+}
+
+/* ———————————————————————————————————————————————————————— */
