@@ -38,7 +38,7 @@
     "lint:cspell": "cspell lint **/*.ts **/README.md **/*.tsx **/*.vue --no-progress",
     "lint:PkgJson": "npmPkgJsonLint \"./packages-**/**/package.json\"",
     "lint:depcheck": "depcheck",
-    "lint:css": "stylelint \"./packages-**/**/*.{tsx,css,ts,vue,jsx}\" --fix",
+    "lint:css": "stylelint \"./packages-**/**/*.{tsx,css,vue,jsx}\" --fix",
     "preinstall": "npx only-allow pnpm",
     "postinstall": "pnpm run clear:lock",
     "prepare": "husky",

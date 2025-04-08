@@ -1,5 +1,5 @@
 export default {
   extends: [
-    "./index.mjs"
+    "./vue.mjs"
   ]
 };
