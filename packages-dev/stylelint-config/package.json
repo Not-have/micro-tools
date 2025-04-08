@@ -33,9 +33,9 @@
   "dependencies": {
     "postcss-html": "catalog:",
     "stylelint-config-recess-order": "catalog:",
+    "stylelint-config-recommended": "^16.0.0",
     "stylelint-config-recommended-vue": "catalog:",
     "stylelint-config-standard": "catalog:",
-    "stylelint-config-styled-components": "catalog:",
     "stylelint-order": "catalog:",
     "stylelint-prettier": "catalog:"
   },
