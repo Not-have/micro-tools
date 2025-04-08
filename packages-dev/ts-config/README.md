@@ -6,6 +6,12 @@
 npm install typescript @mt-kit/ts-config --save-dev
 ```
 
+`@types/node 提供了node的ts类型定义`
+
+```bash
+npm i @types/node -D
+```
+
 ## 使用
 
 ```bash
