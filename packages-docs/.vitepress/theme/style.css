@@ -150,4 +150,8 @@
   display: none;
 }
 
+.Layout .VPSidebar.open {
+  background-color: var(--vp-c-bg);
+}
+
 /* ———————————————————————————————————————————————————————— */
