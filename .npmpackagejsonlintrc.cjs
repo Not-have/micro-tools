@@ -35,8 +35,4 @@ module.exports = {
     "prefer-alphabetical-bundledDependencies": "error",
     "prefer-property-order": "off"
   }
-
-  // ignores: [
-  //   "./packages-vue/vue-uni-app/**/package.json"
-  // ],
 };

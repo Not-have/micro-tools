@@ -129,10 +129,10 @@ export default [
 
 ## 🙅 处理
 
-- ![https://img.picgo.net/2025/01/17/20250117-145131757d38169def8050.jpeg](./assets/20250117.jpeg)
+- ![在 `package.json` 中添加 `"type": "module"`](https://not-have.github.io/file/images/20250117.jpeg)
 
   在 `package.json` 中添加 `"type": "module"`。
 
 - The language client requires VS Code version ^1.89.0 but received version 1.
 
-  ![The language client requires VS Code version ^1.89.0 but received version 1.](./assets/20250118.jpeg)
+  ![The language client requires VS Code version ^1.89.0 but received version 1.](https://not-have.github.io/file/images/20250118.jpeg)

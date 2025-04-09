@@ -1,46 +1,65 @@
 import {
-  defineConfig
+  defineConfig,
+  UserConfig,
+  DefaultTheme
 } from "vitepress";
 
+import {
+  pluginsMdFromDev
+} from "./_plugins";
+import {
+  navBar,
+  menuRules
+} from "./menu";
+
 // https://vitepress.dev/reference/site-config
-export default defineConfig({
-  title: "Micro tools",
-  description: "一款集成常用组件、方法的工具库。",
-  themeConfig: {
+const config = async (): Promise<UserConfig<DefaultTheme.Config>> => {
 
-    // https://vitepress.dev/reference/default-theme-config
-    nav: [
-      {
-        text: "Home",
-        link: "/"
-      },
-      {
-        text: "Examples",
-        link: "/markdown-examples"
-      }
-    ],
+  const nav: DefaultTheme.NavItem[] = [...navBar];
 
-    sidebar: [
-      {
-        text: "Examples",
-        items: [
-          {
-            text: "Markdown Examples",
-            link: "/markdown-examples"
-          },
-          {
-            text: "Runtime API Examples",
-            link: "/api-examples"
-          }
-        ]
-      }
-    ],
+  const sidebar: DefaultTheme.Sidebar = {};
 
-    socialLinks: [
-      {
-        icon: "github",
-        link: "https://github.com/Not-have/micro-tools"
-      }
-    ]
+  const rules = await menuRules();
+
+  if(rules) {
+    nav.push(rules?.nav);
+
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    sidebar[rules.nav.activeMatch] = rules?.menu;
   }
-});
+
+  return defineConfig({
+    title: "Micro tools",
+    description: "一款集成常用组件、方法的工具库。",
+    themeConfig: {
+      nav,
+      sidebar,
+      socialLinks: [
+        {
+          icon: "github",
+          link: "https://github.com/Not-have/micro-tools"
+        }
+      ],
+      footer: {
+        message: "基于 MIT 许可发布",
+        copyright: `© 2024-${new Date().getFullYear()}`
+      },
+      docFooter: {
+        prev: "上一页",
+        next: "下一页"
+      },
+      outline: {
+        label: "页面导航",
+        level: [2, 3]
+      }
+    },
+    vite: {
+      plugins: [
+        pluginsMdFromDev()
+      ]
+    }
+  });
+};
+
+export default config;
