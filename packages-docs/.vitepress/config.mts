@@ -33,6 +33,7 @@ const config = async (): Promise<UserConfig<DefaultTheme.Config>> => {
     title: "Micro tools",
     description: "一款集成常用组件、方法的工具库。",
     themeConfig: {
+      logo: "/logo.svg",
       nav,
       sidebar,
       socialLinks: [
