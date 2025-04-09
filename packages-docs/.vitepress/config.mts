@@ -22,7 +22,7 @@ const config = async (): Promise<UserConfig<DefaultTheme.Config>> => {
   const rules = await menuRules();
 
   if(rules) {
-    nav.push(rules?.nav);
+    nav.unshift(rules?.nav);
 
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
