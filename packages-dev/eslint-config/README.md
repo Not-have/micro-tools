@@ -83,7 +83,7 @@ export default [
 
 ## TODO List
 
-### 1）事件方法名
+### 事件方法名
 
 - 当文件中只有一个 `click`、`change` 等事件时，方法名为：`handleClick`、`handleChange`
 
@@ -93,7 +93,7 @@ export default [
 
   格式为：`handle作用事件名`，例如：`handleCreateClick`、`handleEditClick`、`handle DeleteClick`
 
-### 2）变量方法名
+### 变量方法名
 
 - 读取变量，使用 `get` 开头
 
@@ -119,7 +119,7 @@ export default [
 
   例：otherLoading
 
-### 3）处理接口返回数据
+### 处理接口返回数据
 
 - 使用 `fixData` 开头
 

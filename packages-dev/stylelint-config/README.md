@@ -12,7 +12,7 @@ npm install -D stylelint @mt-kit/stylelint-config
 
 ## 使用
 
-### 1、普通项目新建 `stylelint.config.mjs`
+### 普通项目新建 `stylelint.config.mjs`
 
 ```js
 export default {
@@ -33,7 +33,7 @@ export default {
 };
 ```
 
-### 2、vue 项目新建 `stylelint.config.mjs`
+### vue 项目新建 `stylelint.config.mjs`
 
 ```js
 export default {
@@ -56,7 +56,7 @@ export default {
 };
 ```
 
-### 3、React 项目新建 `stylelint.config.mjs`
+### React 项目新建 `stylelint.config.mjs`
 
 ```js
 export default {
