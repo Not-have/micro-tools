@@ -74,7 +74,7 @@
     "pnpm": ">=9.12.0"
   },
   "lint-staged": {
-    "package.json": "npmPkgJsonLint",
+    "package.json": "npmPkgJsonLint ./ --ignore-path .npmpackagejsonlintrc-ignore",
     "*.md": "markdownlint-cli2",
     "*.{js,ts,vue,tsx,jsx}": [
       "eslint --fix"
