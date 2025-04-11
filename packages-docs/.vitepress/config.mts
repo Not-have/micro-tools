@@ -49,6 +49,7 @@ const config = async (): Promise<UserConfig<DefaultTheme.Config>> => {
   const _nav = [...nav, ...navBar];
 
   return defineConfig({
+    outDir: "dist",
     title: "Micro tools",
     description: "一款集成常用组件、方法的工具库。",
     themeConfig: {
