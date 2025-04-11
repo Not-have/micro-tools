@@ -12,7 +12,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - refactor  # 触发工作流的分支是 main
+      - main  # 触发工作流的分支是 main
 
 jobs:
   docs:
@@ -34,7 +34,8 @@ jobs:
           node-version: '22.12.0'  # 设置 Node.js 版本为 22.12.0
       - name: Install and Build
         run: |
-          npm install
+          pnpm run boot
+          cd packages-docs
           npm run docs:build
 
       - name: Deploy
