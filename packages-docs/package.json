@@ -10,7 +10,8 @@
   "scripts": {
     "docs:dev": "vitepress dev",
     "docs:build": "vitepress build",
-    "docs:preview": "vitepress preview"
+    "docs:preview": "vitepress preview",
+    "clear": "rm -fr node_modules && rm -fr .vitepress/dist && rm -fr .vitepress/cache"
   },
   "devDependencies": {
     "vite": "catalog:",
