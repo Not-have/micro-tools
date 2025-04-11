@@ -22,7 +22,7 @@ interface IProps {
   /**
    * 入口文件
    */
-  entry: string;
+  entry: string | string[];
 }
 
 const fileName = "README.md";
@@ -42,36 +42,43 @@ export default function pluginCopyMd({
         recursive: true
       });
 
-      // 2. 确定 packages 目录路径
-      const packagesDir = path.resolve(__dirname, `../../../${entry}`);
+      // 将单个入口转换为数组，以便统一处理
+      const entries = Array.isArray(entry) ? entry : [entry];
 
-      // 3. 如果 packages 目录下直接存在 README.md，则直接复制该文件
-      if (checkFileExists(packagesDir, fileName)) {
-        const content = fs.readFileSync(path.join(packagesDir, fileName), "utf8");
+      entries.forEach(v => {
 
-        fs.writeFileSync(path.join(outputDir, `${entry}.md`), content);
-      } else {
+        // 2. 确定 packages 目录路径
+        const packagesDir = path.resolve(__dirname, `../../../${v}`);
 
-        // 4. 否则，读取 packages 目录下所有子目录（仅处理目录）
-        const files = fs.readdirSync(packagesDir);
+        // 3. 如果 packages 目录下直接存在 README.md，则直接复制该文件
+        if (checkFileExists(packagesDir, fileName)) {
+          const content = fs.readFileSync(path.join(packagesDir, fileName), "utf8");
 
-        const packageDirs = files.filter(file => {
-          const filePath = path.join(packagesDir, file);
+          fs.writeFileSync(path.join(outputDir, `${v}.md`), content);
+        } else {
 
-          return fs.statSync(filePath).isDirectory();
-        });
+          // 4. 否则，读取 packages 目录下所有子目录（仅处理目录）
+          const files = fs.readdirSync(packagesDir);
 
-        // 5. 针对每个子目录，查找 README.md 文件，如果存在则复制到输出目录下，并以目录名称命名
-        packageDirs.forEach(pkg => {
-          const readmePath = path.join(packagesDir, pkg, fileName);
+          const packageDirs = files.filter(file => {
+            const filePath = path.join(packagesDir, file);
 
-          if (fs.existsSync(readmePath)) {
-            const content = fs.readFileSync(readmePath, "utf8");
+            return fs.statSync(filePath).isDirectory();
+          });
 
-            fs.writeFileSync(path.join(outputDir, `${pkg}.md`), content);
-          }
-        });
-      }
+          // 5. 针对每个子目录，查找 README.md 文件，如果存在则复制到输出目录下，并以目录名称命名
+          packageDirs.forEach(pkg => {
+            const readmePath = path.join(packagesDir, pkg, fileName);
+
+            if (fs.existsSync(readmePath)) {
+              const content = fs.readFileSync(readmePath, "utf8");
+
+              fs.writeFileSync(path.join(outputDir, `${pkg}.md`), content);
+            }
+          });
+        }
+
+      });
 
       return html;
     }
