@@ -1,1 +1,1 @@
-export { default as pluginCopyDevMd } from "./plugins-copy-dev-md";
+export { default as pluginCopyMd } from "./plugins-copy-md";
