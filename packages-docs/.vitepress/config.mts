@@ -5,7 +5,7 @@ import {
 } from "vitepress";
 
 import {
-  pluginsMdFromDev
+  pluginCopyDevMd
 } from "./_plugins";
 import {
   navBar,
@@ -57,7 +57,14 @@ const config = async (): Promise<UserConfig<DefaultTheme.Config>> => {
     },
     vite: {
       plugins: [
-        pluginsMdFromDev()
+        pluginCopyDevMd({
+          outDir: "_generate-md",
+          entry: "packages-dev"
+        }),
+        pluginCopyDevMd({
+          outDir: "_utils-md",
+          entry: "packages-utils"
+        })
       ]
     }
   });
