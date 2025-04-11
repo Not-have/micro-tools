@@ -12,7 +12,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - refactor  # 触发工作流的分支是 main
+      - main  # 触发工作流的分支是 main
 
 jobs:
   docs:
