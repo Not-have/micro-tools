@@ -5,6 +5,7 @@ export enum EOutDir {
   COMPONENTS = "_components-md",
   TS = "_ts-md",
   VITE = "_vite-md",
+  CONF = "_conf-md"
 }
 
 export enum EEntry {
@@ -15,4 +16,5 @@ export enum EEntry {
   TYPES = "packages-types",
   ENUM = "packages-enum",
   VITE = "packages-vite-plugins",
+  CONF = "packages-conf"
 }

@@ -1,15 +1,11 @@
 const navBar = [
   {
-    text: "个性化配置",
-    link: ""
-  },
-  {
     text: "Vue",
-    link: ""
+    link: "https://cn.vuejs.org/"
   },
   {
     text: "React",
-    link: ""
+    link: "https://zh-hans.react.dev/"
   }
 ];
 

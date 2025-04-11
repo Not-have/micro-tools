@@ -18,13 +18,14 @@ import {
   menuCss,
   menuComponents,
   menuTs,
-  menuVite
+  menuVite,
+  menuConf
 } from "./menu";
 
 // https://vitepress.dev/reference/site-config
 const config = async (): Promise<UserConfig<DefaultTheme.Config>> => {
 
-  const nav: DefaultTheme.NavItem[] = [...navBar];
+  const nav: DefaultTheme.NavItem[] = [];
 
   const sidebar: DefaultTheme.Sidebar = {};
 
@@ -40,9 +41,11 @@ const config = async (): Promise<UserConfig<DefaultTheme.Config>> => {
 
   const vite = await menuVite();
 
-  if(rules && utils && css && components && ts && vite) {
+  const conf = await menuConf();
+
+  if(rules && utils && css && components && ts && vite && conf) {
     nav.unshift(rules?.nav);
-    nav.push(utils?.nav, css?.nav, components?.nav, ts?.nav, vite?.nav);
+    nav.push(utils?.nav, css?.nav, components?.nav, ts?.nav, vite?.nav, conf?.nav);
 
     if (rules.nav.activeMatch && ts.nav.activeMatch) {
       sidebar[rules.nav.activeMatch] = rules?.menu as DefaultTheme.SidebarItem[];
@@ -50,12 +53,14 @@ const config = async (): Promise<UserConfig<DefaultTheme.Config>> => {
     }
   }
 
+  const _nav = [...nav, ...navBar];
+
   return defineConfig({
     title: "Micro tools",
     description: "一款集成常用组件、方法的工具库。",
     themeConfig: {
       logo: "/logo.svg",
-      nav,
+      nav: _nav,
       sidebar,
       socialLinks: [
         {
@@ -65,7 +70,7 @@ const config = async (): Promise<UserConfig<DefaultTheme.Config>> => {
       ],
       footer: {
         message: "基于 MIT 许可发布",
-        copyright: `© 2024-${new Date().getFullYear()}`
+        copyright: `© 2022-${new Date().getFullYear()}`
       },
       docFooter: {
         prev: "上一页",
@@ -101,6 +106,10 @@ const config = async (): Promise<UserConfig<DefaultTheme.Config>> => {
         pluginCopyMd({
           outDir: EOutDir.VITE,
           entry: EEntry.VITE
+        }),
+        pluginCopyMd({
+          outDir: EOutDir.CONF,
+          entry: EEntry.CONF
         })
       ]
     }
