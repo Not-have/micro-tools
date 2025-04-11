@@ -3,7 +3,8 @@ export enum EOutDir {
   UTILS = "_utils-md",
   CSS = "_css-md",
   COMPONENTS = "_components-md",
-  TS = "_ts-md"
+  TS = "_ts-md",
+  VITE = "_vite-md",
 }
 
 export enum EEntry {
@@ -12,5 +13,6 @@ export enum EEntry {
   CSS = "packages-style",
   COMPONENTS = "packages-components",
   TYPES = "packages-types",
-  ENUM = "packages-enum"
+  ENUM = "packages-enum",
+  VITE = "packages-vite-plugins",
 }

@@ -17,7 +17,8 @@ import {
   menuUtils,
   menuCss,
   menuComponents,
-  menuTs
+  menuTs,
+  menuVite
 } from "./menu";
 
 // https://vitepress.dev/reference/site-config
@@ -37,9 +38,11 @@ const config = async (): Promise<UserConfig<DefaultTheme.Config>> => {
 
   const components = await menuComponents();
 
-  if(rules && utils && css && components && ts) {
+  const vite = await menuVite();
+
+  if(rules && utils && css && components && ts && vite) {
     nav.unshift(rules?.nav);
-    nav.push(utils?.nav, css?.nav, components?.nav, ts?.nav);
+    nav.push(utils?.nav, css?.nav, components?.nav, ts?.nav, vite?.nav);
 
     if (rules.nav.activeMatch && ts.nav.activeMatch) {
       sidebar[rules.nav.activeMatch] = rules?.menu as DefaultTheme.SidebarItem[];
@@ -94,6 +97,10 @@ const config = async (): Promise<UserConfig<DefaultTheme.Config>> => {
         pluginCopyMd({
           outDir: EOutDir.TS,
           entry: [EEntry.TYPES, EEntry.ENUM]
+        }),
+        pluginCopyMd({
+          outDir: EOutDir.VITE,
+          entry: EEntry.VITE
         })
       ]
     }

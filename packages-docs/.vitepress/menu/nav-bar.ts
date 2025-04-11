@@ -1,9 +1,5 @@
 const navBar = [
   {
-    text: "Vite 插件",
-    link: ""
-  },
-  {
     text: "个性化配置",
     link: ""
   },
