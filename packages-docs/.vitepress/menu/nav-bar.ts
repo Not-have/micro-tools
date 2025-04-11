@@ -1,9 +1,5 @@
 const navBar = [
   {
-    text: "组件",
-    link: ""
-  },
-  {
     text: "TS 类型及枚举",
     link: ""
   },
