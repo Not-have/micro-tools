@@ -49,12 +49,16 @@ const config = async (): Promise<UserConfig<DefaultTheme.Config>> => {
   const _nav = [...nav, ...navBar];
 
   return defineConfig({
+    head: [["link", {
+      rel: "icon",
+      href: "/favicon.ico"
+    }]],
     outDir: "./dist",
     base: "/micro-tools/",
     title: "Micro tools",
     description: "一款集成常用组件、方法的工具库。",
     themeConfig: {
-      logo: "/logo.svg",
+      logo: "./logo.svg",
       nav: _nav,
       sidebar,
       socialLinks: [

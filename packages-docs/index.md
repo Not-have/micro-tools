@@ -4,15 +4,24 @@ layout: home
 
 hero:
   name: "Micro Tools"
-  text: "Micro Tools 简称 mt"
+  text: "简称 mt"
   tagline: "一个提供常用工程配置、hooks、方法等工具的库。"
   actions:
     - theme: brand
       text: Eslint
-      link: /markdown-examples
+      link: /src/_dev-md/eslint-config
     - theme: alt
-      text: utils
-      link: /api-examples
+      text: stylelint
+      link: /src/_dev-md/stylelint-config
+    - theme: alt
+      text: prettier
+      link: /src/_dev-md/prettier-config
+    - theme: alt
+      text: ts
+      link: /src/_dev-md/ts-config
+    - theme: alt
+      text: Utils
+      link: /src/_utils-md/packages-utils
 
 features:
   - title: 常用工程配置
