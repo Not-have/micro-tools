@@ -5,13 +5,6 @@ import {
 } from "vitepress";
 
 import {
-  EEntry,
-  EOutDir
-} from "./const";
-import {
-  pluginCopyMd
-} from "./_plugins";
-import {
   navBar,
   menuRules,
   menuUtils,
@@ -80,38 +73,6 @@ const config = async (): Promise<UserConfig<DefaultTheme.Config>> => {
         label: "页面导航",
         level: [2, 3]
       }
-    },
-    vite: {
-      plugins: [
-        pluginCopyMd({
-          outDir: EOutDir.DEV,
-          entry: EEntry.DEV
-        }),
-        pluginCopyMd({
-          outDir: EOutDir.UTILS,
-          entry: EEntry.UTILS
-        }),
-        pluginCopyMd({
-          outDir: EOutDir.CSS,
-          entry: EEntry.CSS
-        }),
-        pluginCopyMd({
-          outDir: EOutDir.COMPONENTS,
-          entry: EEntry.COMPONENTS
-        }),
-        pluginCopyMd({
-          outDir: EOutDir.TS,
-          entry: [EEntry.TYPES, EEntry.ENUM]
-        }),
-        pluginCopyMd({
-          outDir: EOutDir.VITE,
-          entry: EEntry.VITE
-        }),
-        pluginCopyMd({
-          outDir: EOutDir.CONF,
-          entry: EEntry.CONF
-        })
-      ]
     }
   });
 };
