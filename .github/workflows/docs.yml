@@ -40,7 +40,13 @@ jobs:
         run: |
           pnpm run boot
           cd packages-docs
+          # 确保 VitePress 构建时能获取到正确的 base 路径
+          export REPO_NAME=$(echo $GITHUB_REPOSITORY | cut -d'/' -f2)
+          echo "Building with base path: /$REPO_NAME/"
           npm run docs:build
+        env:
+          # 将仓库名称作为环境变量传递给构建过程
+          GITHUB_REPOSITORY: ${{ github.repository }}
 
       - name: Deploy
         # https://github.com/marketplace/actions/deploy-to-github-pages
