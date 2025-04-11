@@ -27,6 +27,9 @@ interface IProps {
 
 const fileName = "README.md";
 
+/**
+ * 插件：复制 README.md 文件
+ */
 export default function pluginCopyMd({
   outDir,
   entry
