@@ -13,9 +13,9 @@ interface IMenuRules {
   nav: DefaultTheme.NavItem;
 }
 
-export default async function menuUtils(): Promise<IMenuRules | undefined> {
+export default async function menuCss(): Promise<IMenuRules | undefined> {
 
-  const packagesDir = path.resolve(__dirname, `../../src/${EOutDir.UTILS}`);  // 根据需要设置路径
+  const packagesDir = path.resolve(__dirname, `../../src/${EOutDir.CSS}`);  // 根据需要设置路径
 
   if (fs.existsSync(packagesDir)) {
     try {
@@ -23,8 +23,8 @@ export default async function menuUtils(): Promise<IMenuRules | undefined> {
 
       return {
         nav: {
-          text: "工具",
-          link: `/src/${EOutDir.UTILS}/${files}`
+          text: "Css 样式",
+          link: `/src/${EOutDir.CSS}/${files}`
         }
       };
     } catch (error) {

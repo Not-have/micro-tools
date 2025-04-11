@@ -5,13 +5,17 @@ import {
   DefaultTheme
 } from "vitepress";
 
+import {
+  EOutDir
+} from "../enum";
+
 interface IMenuRules {
   nav: DefaultTheme.NavItemWithLink;
   menu: DefaultTheme.Sidebar;
 }
 
 export default async function menuRules(): Promise<IMenuRules | undefined> {
-  const packagesDir = path.resolve(__dirname, "../../src/_generate-md");  // 根据需要设置路径
+  const packagesDir = path.resolve(__dirname, `../../src/${EOutDir.DEV}` );  // 根据需要设置路径
 
   if (fs.existsSync(packagesDir)) {
     try {
@@ -22,12 +26,12 @@ export default async function menuRules(): Promise<IMenuRules | undefined> {
       return {
         nav: {
           text: "规则",
-          link: `/src/_generate-md/${filesWithoutMd[0]}`,
-          activeMatch: "/src/_generate-md/"
+          link: `/src/${EOutDir.DEV}/${filesWithoutMd[0]}`,
+          activeMatch: `/src/${EOutDir.DEV}/`
         },
         menu: filesWithoutMd.map(item => ({
           text: item,
-          link: `/src/_generate-md/${item}`
+          link: `/src/${EOutDir.DEV}/${item}`
         }))
       };
     } catch (error) {

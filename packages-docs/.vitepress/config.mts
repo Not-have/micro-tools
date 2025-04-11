@@ -5,12 +5,17 @@ import {
 } from "vitepress";
 
 import {
+  EEntry,
+  EOutDir
+} from "./enum";
+import {
   pluginCopyMd
 } from "./_plugins";
 import {
   navBar,
   menuRules,
-  menuUtils
+  menuUtils,
+  menuCss
 } from "./menu";
 
 // https://vitepress.dev/reference/site-config
@@ -24,9 +29,11 @@ const config = async (): Promise<UserConfig<DefaultTheme.Config>> => {
 
   const utils = await menuUtils();
 
-  if(rules && utils) {
+  const css = await menuCss();
+
+  if(rules && utils && css) {
     nav.unshift(rules?.nav);
-    nav.push(utils?.nav);
+    nav.push(utils?.nav, css?.nav);
 
     if (rules.nav.activeMatch) {
       sidebar[rules.nav.activeMatch] = rules?.menu as DefaultTheme.SidebarItem[];
@@ -62,12 +69,16 @@ const config = async (): Promise<UserConfig<DefaultTheme.Config>> => {
     vite: {
       plugins: [
         pluginCopyMd({
-          outDir: "_generate-md",
-          entry: "packages-dev"
+          outDir: EOutDir.DEV,
+          entry: EEntry.DEV
         }),
         pluginCopyMd({
-          outDir: "_utils-md",
-          entry: "packages-utils"
+          outDir: EOutDir.UTILS,
+          entry: EEntry.UTILS
+        }),
+        pluginCopyMd({
+          outDir: EOutDir.CSS,
+          entry: EEntry.CSS
         })
       ]
     }
