@@ -1,9 +1,5 @@
 const navBar = [
   {
-    text: "Utils",
-    link: ""
-  },
-  {
     text: "Css 样式",
     link: ""
   },

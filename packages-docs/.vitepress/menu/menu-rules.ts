@@ -6,7 +6,7 @@ import {
 } from "vitepress";
 
 interface IMenuRules {
-  nav: DefaultTheme.NavItem;
+  nav: DefaultTheme.NavItemWithLink;
   menu: DefaultTheme.Sidebar;
 }
 

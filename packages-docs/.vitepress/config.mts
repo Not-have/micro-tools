@@ -9,7 +9,8 @@ import {
 } from "./_plugins";
 import {
   navBar,
-  menuRules
+  menuRules,
+  menuUtils
 } from "./menu";
 
 // https://vitepress.dev/reference/site-config
@@ -21,12 +22,15 @@ const config = async (): Promise<UserConfig<DefaultTheme.Config>> => {
 
   const rules = await menuRules();
 
-  if(rules) {
-    nav.unshift(rules?.nav);
+  const utils = await menuUtils();
 
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    sidebar[rules.nav.activeMatch] = rules?.menu;
+  if(rules && utils) {
+    nav.unshift(rules?.nav);
+    nav.push(utils?.nav);
+
+    if (rules.nav.activeMatch) {
+      sidebar[rules.nav.activeMatch] = rules?.menu as DefaultTheme.SidebarItem[];
+    }
   }
 
   return defineConfig({
