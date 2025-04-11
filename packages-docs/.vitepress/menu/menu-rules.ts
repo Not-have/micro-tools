@@ -7,7 +7,7 @@ import {
 
 import {
   EOutDir
-} from "../enum";
+} from "../const";
 
 interface IMenuRules {
   nav: DefaultTheme.NavItemWithLink;

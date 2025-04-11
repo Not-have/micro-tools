@@ -7,7 +7,7 @@ import {
 import {
   EEntry,
   EOutDir
-} from "./enum";
+} from "./const";
 import {
   pluginCopyMd
 } from "./_plugins";
