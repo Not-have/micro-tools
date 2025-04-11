@@ -1,0 +1,67 @@
+{
+  "name": "@mt-kit/eslint-config",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [
+    "eslint",
+    "eslint-config",
+    "mt-eslint-config"
+  ],
+  "homepage": "https://github.com/Not-have/micro-tools/packages-dev/eslint-config",
+  "bugs": "https://github.com/Not-have/micro-tools/issues",
+  "repository": "git@github.com:Not-have/micro-tools.git",
+  "license": "ISC",
+  "author": "LiYong",
+  "type": "module",
+  "scripts": {
+    "clear": "rm -fr node_modules",
+    "lint": "pnpm eslint .",
+    "fix": "eslint \"./**/*.{css,tsx,vue,ts,js,html}\" --fix"
+  },
+  "files": [
+    "README.md",
+    "src"
+  ],
+  "main": "./src/index.js",
+  "module": "./src/index.js",
+  "exports": {
+    ".": {
+      "import": "./src/index.js",
+      "default": "./src/index.js"
+    }
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "peerDependencies": {
+    "eslint": ">=9.0.0"
+  },
+  "dependencies": {
+    "@eslint/js": "catalog:",
+    "@stylistic/eslint-plugin": "catalog:",
+    "@stylistic/eslint-plugin-js": "catalog:",
+    "@stylistic/eslint-plugin-ts": "catalog:",
+    "@typescript-eslint/eslint-plugin": "catalog:",
+    "@typescript-eslint/parser": "catalog:",
+    "eslint": "catalog:",
+    "eslint-plugin-command": "catalog:",
+    "eslint-plugin-eslint-comments": "catalog:",
+    "eslint-plugin-import-x": "catalog:",
+    "eslint-plugin-jsdoc": "catalog:",
+    "eslint-plugin-jsonc": "catalog:",
+    "eslint-plugin-jsx-a11y": "catalog:",
+    "eslint-plugin-perfectionist": "catalog:",
+    "eslint-plugin-prettier": "catalog:",
+    "eslint-plugin-react": "catalog:",
+    "eslint-plugin-react-compiler": "catalog:",
+    "eslint-plugin-react-hooks": "catalog:",
+    "eslint-plugin-regexp": "catalog:",
+    "eslint-plugin-unicorn": "catalog:",
+    "eslint-plugin-unused-imports": "catalog:",
+    "eslint-plugin-vue": "catalog:",
+    "globals": "catalog:",
+    "jsonc-eslint-parser": "catalog:",
+    "vue-eslint-parser": "catalog:"
+  }
+}

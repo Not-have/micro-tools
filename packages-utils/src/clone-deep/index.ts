@@ -1,3 +1,5 @@
+/* eslint-disable guard-for-in */
+/* eslint-disable @typescript-eslint/no-empty-object-type */
 import isFunction from "../is-function";
 import isObject from "../is-object";
 
@@ -16,7 +18,10 @@ import isObject from "../is-object";
  * ① 无法解析 Symbol 作为 key 或者 value
  * ② 无法循环引用
  */
-export default function cloneDeep<T>(value: T | symbol, map = new WeakMap()): T | {} {
+export default function cloneDeep<T>(
+    value: T | symbol,
+    map = new WeakMap()
+): T | {} {
   try {
 
     // Set 类型
@@ -81,22 +86,22 @@ export default function cloneDeep<T>(value: T | symbol, map = new WeakMap()): T 
     // Map 没有值
     map.set(value, newValue);
 
-    // eslint-disable-next-line guard-for-in
     for (const key in value) {
-
-      // @ts-ignore
-      newValue[key] = cloneDeep(value[key], map);
+      (newValue as Record<string, unknown>)[key] = cloneDeep(value[key], map);
     }
 
     // Symbol 作为 key 的处理（这个可以不做 Symbol(sKey.description) 处理）
     const symbolKeys = Object.getOwnPropertySymbols(value);
 
     for (const sKey of symbolKeys) {
-
       const newSKey = Symbol(sKey.description);
 
-      // @ts-ignore
-      newValue[newSKey] = cloneDeep(value[sKey], map);
+      Object.defineProperty(newValue, newSKey, {
+        enumerable: true,
+        configurable: true,
+        writable: true,
+        value: cloneDeep(Reflect.get(value, sKey), map)
+      });
     }
 
     return newValue;

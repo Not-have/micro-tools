@@ -1,4 +1,4 @@
-type TFunctionArgs<Args extends any[] = any[], Return = void> = (...args: Args) => Return;
+type TFunctionArgs<Args extends unknown[] = unknown[], Return = void> = (...args: Args) => Return;
 
 /**
  * 创建一个使用 requestAnimationFrame 的函数节流（throttle）版本
@@ -22,18 +22,19 @@ type TFunctionArgs<Args extends any[] = any[], Return = void> = (...args: Args) 
 export default function animationFrameThrottle<T extends TFunctionArgs>(fn: T): T {
   let locked = false;
 
-  // @ts-ignore
-  return function(...args: any[]) {
-    if (locked) {return;}
+  return function(this: unknown, ...args: Parameters<T>): ReturnType<T> {
+    if (locked) {
+      return undefined as unknown as ReturnType<T>;
+    }
 
     locked = true;
 
     // window.requestAnimationFrame 用于在下一次浏览器重绘之前调用指定的函数
     window.requestAnimationFrame(() => {
-
-      // @ts-ignore
       fn.apply(this, args);
       locked = false;
     });
-  };
+
+    return undefined as unknown as ReturnType<T>;
+  } as unknown as T;
 }

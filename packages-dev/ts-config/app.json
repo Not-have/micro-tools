@@ -1,0 +1,15 @@
+{
+  "display": "App",
+  "extends": [
+    "./node.json"
+  ],
+  "compilerOptions": {
+    "lib": [
+      "ES2020",
+      "DOM",
+      "DOM.Iterable",
+      "esnext"
+    ],
+    "allowJs": true
+  }
+}

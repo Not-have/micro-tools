@@ -2,8 +2,6 @@
 
 [官网](https://pnpm.io/zh/)
 
-注：[yarn](https://github.com/Not-have/alibabacloud-console-base)、npm 也可以实现。
-
 ## 一、安装pnpm
 
 ```bash
@@ -86,30 +84,67 @@ pnpm add -D <pkg>
 
 ## 四、发布
 
+### <del>1、lerna 发布</del>
+
+[lerna](https://lerna.nodejs.cn/)
+
 注：新增包，要遭 `lerna.json` ——> `packages` 添加文件名。
 
 ```bash
 # 在根目录下运行
 
-lerna publish
+npx lerna publish
 
 # 强制发布所有包
-lerna publish --force-publish=*
+npx lerna publish --force-publish=*
 
 # 使用 --skip 选项来跳过指定包的发布 
-lerna publish --ignore-changes 包名
+npx lerna publish --ignore-changes 包名
 
 # 多个包，可以使用逗号分隔它们
-lerna publish --ignore-changes 包名-1,包名-2,包名-3
+npx lerna publish --ignore-changes 包名-1,包名-2,包名-3
 
 # 不修改版本号，他就会默认不发布
 ```
 
-## 五、安装 ts
+注：发布公共带 `@` 前缀的包 `pnpm publish --access public`。
+
+### 2、Changesets
+
+[docs](https://pnpm.io/zh/using-changesets)
+
+## 1、安装
 
 ```bash
-# 保存到 devDependencies
-pnpm add -D typescript
+pnpm add @changesets/cli -D
+```
 
-tsc --init
+## 2、初始化
+
+```bash
+npx changeset init
+```
+
+## 3、配置参数
+
+`updateInternalDependencies` 控制依赖包变更时的版本更新策略
+
+- "patch"：仅升级补丁版本
+- "minor"：升级次版本
+
+`ignore` 排除不参与版本控制的包（如文档站点、示例项目）
+
+`privatePackages` 控制私有包行为
+
+- version: true：更新版本但不发布
+- tag: true：生成 Git 标签
+
+## 4、使用
+
+```bash
+npx changeset add
+
+npx changeset version
+
+npx changeset publish
 ```

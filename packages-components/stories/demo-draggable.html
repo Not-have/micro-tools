@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo-draggable</title>
+    <style>
+        html, body {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            margin: 0;
+        }
+        div {
+            display: inline-block;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="demo-draggable-test01">
+            拖动1
+        </div>
+        <div class="demo-draggable-test02">
+            拖动2
+        </div>
+    </div>
+</body>
+</html>
+<script type="module">
+    import { draggable } from '../dist/index.js'
+    const el = document.querySelector(".demo-draggable-test01");
+    draggable(el)
+    const el2 = document.querySelector(".demo-draggable-test02");
+    draggable(el2, true)
+</script>

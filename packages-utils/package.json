@@ -1,6 +1,6 @@
 {
-  "name": "micro-util-ts",
-  "version": "1.8.3",
+  "name": "@mt-kit/utils",
+  "version": "1.0.1",
   "description": "一个常用的工具库",
   "keywords": [
     "micro",
@@ -15,34 +15,47 @@
     "LocalStorageHelper",
     "localStorage"
   ],
-  "license": "ISC",
-  "main": "dist/index",
-  "author": "Li Yong",
+  "homepage": "https://github.com/Not-have/micro-tools/tree/main/packages-utils",
+  "bugs": {
+    "url": "https://github.com/Not-have/micro-tools/issues"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-utils"
   },
-  "bugs": {
-    "url": "https://github.com/Not-have/micro-tools/issues"
-  },
+  "license": "ISC",
+  "author": "Li Yong",
   "scripts": {
     "build:webpack": "rm -fr lib && webpack --config webpack.config.js",
     "build:tsc": "rm -fr dist && tsc",
-    "build": "npm run build:webpack && npm run build:tsc",
-    "start": "tsc --watch",
-    "start:webpack": "webpack --watch",
-    "publish:build": "npm run build:tsc && npm publish",
+    "build": "pnpm run build:webpack && pnpm run build:tsc",
+    "dev": "tsc --watch & webpack --watch",
     "clear": "rm -fr node_modules && rm -fr dist && rm -fr lib",
-    "prepublishOnly": "npm run build:tsc && npm run build"
+    "prepublishOnly": "pnpm run build"
   },
-  "devDependencies": {
-    "fork-ts-checker-webpack-plugin": "^9.0.2",
-    "ts-loader": "^9.5.1",
-    "typescript": "^5.3.3",
-    "webpack": "^5.90.3",
-    "webpack-cli": "^5.1.4"
+  "main": "./lib/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./lib/index.js"
+    }
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   },
   "dependencies": {
-    "resize-observer-polyfill": "^1.5.1"
+    "resize-observer-polyfill": "catalog:"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "fork-ts-checker-webpack-plugin": "catalog:",
+    "ts-loader": "catalog:",
+    "typescript": "catalog:",
+    "webpack": "catalog:",
+    "webpack-cli": "catalog:"
   }
 }

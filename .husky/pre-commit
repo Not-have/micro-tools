@@ -1,16 +1,3 @@
-#!/usr/bin/env sh
+# npm test
 
-check_branch() {
-  branch="$(git rev-parse --abbrev-ref HEAD)"
-  
-  if [ "$branch" = "master" ] || [ "$branch" = "main" ]; 
-    then
-      echo "❌ Do NOT commit on \"$branch\""
-      exit 1
-    fi
-}
-
-check_branch
-
-# npx lint-staged
-# 提交时运行的指令
+npx lint-staged

@@ -1,31 +1,33 @@
 {
-  "name": "micro-conf",
+  "name": "@mt-kit/conf",
   "version": "1.0.0",
   "description": "Conf",
-  "main": "dist/index.js",
-  "scripts": {
-    "build": "rm -fr dist && tsc",
-    "start": "tsc --watch",
-    "publish:build": "npm run build:tsc && npm publish",
-    "clear": "rm -fr node_modules && rm -fr dist",
-    "postinstall": "tsc",
-    "prepublishOnly": "npm run build"
-  },
   "keywords": [
     "conf",
     "micro-conf"
   ],
+  "bugs": {
+    "url": "https://github.com/Not-have/micro-tools/issues"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-conf"
   },
-  "bugs": {
-    "url": "https://github.com/Not-have/micro-tools/issues"
-  },
-  "author": "Li Yong",
   "license": "ISC",
+  "author": "Li Yong",
+  "scripts": {
+    "build": "rm -fr dist && tsc",
+    "start": "tsc --watch",
+    "clear": "rm -fr node_modules && rm -fr dist",
+    "prepublishOnly": "npm run build"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
   "devDependencies": {
-    "ts-loader": "^9.5.1",
-    "typescript": "^5.3.3"
+    "typescript": "catalog:"
   }
 }

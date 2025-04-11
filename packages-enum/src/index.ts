@@ -1,1 +1,1 @@
-export { default as ECursorType } from "./cursor-type";
+export { default as CursorType } from "./cursor-type";

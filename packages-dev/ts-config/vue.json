@@ -1,0 +1,11 @@
+{
+  "display": "Vue",
+  "extends": [
+    "./app.json"
+  ],
+  "compilerOptions": {
+    "jsx": "preserve",
+    "jsxImportSource": "vue",
+    "experimentalDecorators": true
+  }
+}

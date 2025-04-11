@@ -1,7 +1,7 @@
 {
   "name": "micro-tools",
   "version": "1.0.0",
-  "description": "Tiny Tools.",
+  "description": "Micro tools.",
   "private": true,
   "keywords": [
     "Vue hooks",
@@ -19,70 +19,70 @@
     "eslint-conf",
     "stylelint-conf"
   ],
-  "homepage": "https://github.com/Not-have/micro-tools",
-  "bugs": {},
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Not-have/micro-tools"
-  },
-  "license": "ISC",
+  "homepage": "https://github.com/Not-have/micro-tools/",
+  "bugs": "https://github.com/Not-have/micro-tools/issues",
+  "repository": "git@github.com:Not-have/micro-tools.git",
+  "license": "MIT",
   "author": {
     "email": "2236472089@qq.com",
     "name": "Li Yong"
   },
-  "workspaces": [
-    "packages*/**"
-  ],
+  "type": "module",
   "scripts": {
-    "preinstall": "npx only-allow pnpm",
-    "postinstall": "husky install && pnpm run clear:lock",
     "boot": "pnpm run clear && pnpm install && pnpm run clear:lock && pnpm run build",
     "clear": "pnpm --filter \"./packages-**\" clear && pnpm --filter \"./packages-**/**\" clear && rm -fr node_modules && pnpm run clear:store && pnpm run clear:lock",
     "clear:lock": "rm -fr pnpm-lock.yaml && rm -fr package-lock.json && rm -fr lerna-debug.log",
     "clear:store": "rm -fr .pnpm-store",
     "build": "pnpm --filter \"./packages-**\" build && pnpm --filter \"./packages-**/**\" build",
-    "lint:eslint": "eslint \"./packages-**/**/*.{tsx,vue,ts,js}\" --fix",
-    "lint:style": "stylelint \"./packages-**/**/*.{tsx,css,vue,ts}\" --fix --allow-empty-input --version",
     "lint:md": "markdownlint-cli2 ./packages-**/**/*.md",
-    "lint:ts": "pnpm vue-tsc --noEmit --skipLibCheck",
-    "prepare": "husky install",
-    "test": "pnpm --filter \"./packages-**/**\" clear"
-  },
-  "dependencies": {
-    "eslint": "^9.8.0"
+    "lint:cspell": "cspell lint **/*.ts **/README.md **/*.tsx **/*.vue --no-progress",
+    "lint:PkgJson": "npmPkgJsonLint \"./packages-**/**/package.json\"",
+    "lint:depcheck": "depcheck",
+    "lint:css": "stylelint \"./packages-**/**/*.{tsx,css,vue,jsx}\" --fix",
+    "preinstall": "npx only-allow pnpm",
+    "postinstall": "pnpm run clear:lock",
+    "prepare": "husky",
+    "commit": "cz",
+    "pub:init": "pnpm publish -r",
+    "pub": "pnpm changeset version"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.3.0",
-    "@commitlint/config-conventional": "^19.2.2",
-    "@types/node": "^20.14.12",
-    "commitlint": "^19.3.0",
-    "depcheck": "^1.4.7",
-    "husky": "^9.1.3",
-    "lerna": "^8.1.7",
-    "lint-staged": "^15.2.7",
-    "markdownlint-cli2": "^0.13.0",
-    "micro-eslint-conf": "workspace:^",
-    "micro-stylelint-conf": "workspace:^",
-    "npm-package-json-lint": "^8.0.0",
-    "npm-package-json-lint-config-default": "^7.0.1",
-    "only-allow": "^1.2.1",
-    "stylelint": "^16.7.0",
-    "typescript": ">=5.5"
+    "@changesets/cli": "catalog:",
+    "@commitlint/cli": "catalog:",
+    "@commitlint/config-conventional": "catalog:",
+    "@mt-kit/eslint-config": "workspace:^",
+    "@mt-kit/prettier-config": "workspace:^",
+    "@mt-kit/stylelint-config": "workspace:^",
+    "browserslist": "catalog:",
+    "commitizen": "catalog:",
+    "commitlint": "catalog:",
+    "cspell": "catalog:",
+    "cz-git": "catalog:",
+    "depcheck": "catalog:",
+    "eslint": "catalog:",
+    "husky": "catalog:",
+    "lint-staged": "catalog:",
+    "markdownlint-cli2": "catalog:",
+    "npm-package-json-lint": "catalog:",
+    "npm-package-json-lint-config-default": "catalog:",
+    "only-allow": "catalog:",
+    "prettier": "catalog:",
+    "stylelint": "catalog:"
   },
   "engines": {
-    "node": ">=20.14.0",
-    "pnpm": ">=9.0.0",
-    "npm": ">=10.7.0"
+    "node": ">=22.0.0",
+    "pnpm": ">=9.12.0"
   },
-  "browserslist": [
-    "last 2 versions",
-    "> 1%",
-    "IE 11"
-  ],
   "lint-staged": {
-    "package.json": "npmPkgJsonLint",
-    "*.{js,ts,vue,tsx,jsx}": "eslint",
-    "*.{js,ts,tsx,css,vue}": "stylelint --fix --allow-empty-input",
-    "*.md": "markdownlint-cli2"
+    "package.json": "npmPkgJsonLint ./ --ignore-path .npmpackagejsonlintrc-ignore",
+    "*.md": "markdownlint-cli2",
+    "*.{js,ts,vue,tsx,jsx}": [
+    ],
+    "*.{jsx,tsx,css,vue}": "stylelint --fix"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-git"
+    }
   }
 }

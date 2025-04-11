@@ -41,11 +41,13 @@ interface IOptions {
  *
  * inputEl.oninput = onInputThrottle;
  */
-export default function throttle<T extends(...args: unknown[]) => unknown>(func: Function, wait: number = 300, options: IOptions = {
+const defaultOptions: IOptions = {
   leading: true,
   trailing: false
-}): ((...args: Parameters<T>) => Promise<ReturnType<T>>) & {
-    cancel: () => void
+};
+
+export default function throttle<T extends(...args: unknown[]) => unknown>(func: Function, wait: number = 300, options: IOptions = defaultOptions): ((...args: Parameters<T>) => Promise<ReturnType<T>>) & {
+    cancel: () => void;
 } {
   const {
     leading, trailing
@@ -66,7 +68,7 @@ export default function throttle<T extends(...args: unknown[]) => unknown>(func:
                  * 获取最新的时间
                  * 当第一次执行完 lastTime = nowTime 时，wait - (nowTime - lastTime) 一定大于 0，这个时候是不执行的
                  */
-        const nowTime = new Date().getTime();
+        const nowTime = Date.now();
 
         const remainTime = wait - (nowTime - lastTime);
 
@@ -103,12 +105,12 @@ export default function throttle<T extends(...args: unknown[]) => unknown>(func:
             /**
                          * 处理边界性问题
                          */
-            lastTime = leading === true ? new Date().getTime() : 0;
+            lastTime = leading === true ? Date.now() : 0;
             resolve(result);
           }, remainTime);
         }
-      } catch (e) {
-        reject(e);
+      } catch (error) {
+        reject(error);
       }
     });
   };

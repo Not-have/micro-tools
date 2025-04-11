@@ -1,6 +1,0 @@
-#.*
-##*.html
-node_modules
-dist
-**/*.ts
-**/*.js

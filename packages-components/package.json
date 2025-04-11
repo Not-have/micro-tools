@@ -1,0 +1,52 @@
+{
+  "name": "@mt-kit/components",
+  "version": "1.0.3",
+  "description": "常用 js UI 组件",
+  "keywords": [
+    "css生成三角形",
+    "imitationViteError",
+    "container"
+  ],
+  "bugs": {
+    "url": "https://github.com/Not-have/micro-tools/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-components"
+  },
+  "license": "ISC",
+  "author": "Li Yong",
+  "type": "module",
+  "scripts": {
+    "clear:build": "rm -fr dist",
+    "clear": "rm -fr node_modules && pnpm run clear:build",
+    "build": "pnpm run clear:build && vite build",
+    "dev": "vite build --watch",
+    "prepublishOnly": "pnpm build"
+  },
+  "main": "dist/index.umd.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.umd.js"
+    }
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "dependencies": {
+    "@mt-kit/utils": "workspace:^"
+  },
+  "devDependencies": {
+    "@mt-kit/ts-config": "workspace:^",
+    "@mt-kit/vite-plugins": "workspace:^",
+    "@types/node": "catalog:",
+    "typescript": "catalog:",
+    "vite": "catalog:",
+    "vite-plugin-dts": "catalog:"
+  }
+}

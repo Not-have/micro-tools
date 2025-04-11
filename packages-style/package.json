@@ -1,45 +1,52 @@
 {
-  "name": "micro-style",
-  "version": "1.4.4",
-  "description": "Css style",
-  "main": "dist/index.js",
-  "scripts": {
-    "build:webpack": "rm -fr lib && webpack --config webpack.config.js",
-    "build:tsc": "rm -fr dist && webpack --config webpack.ts.config.js",
-    "build": "npm run build:webpack && npm run build:tsc",
-    "start:webpack": "webpack --watch",
-    "clear": "rm -fr node_modules && rm -fr lib && rm -fr dist",
-    "prepublishOnly": "npm run build"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Not-have/micro-tools.git#main"
-  },
+  "name": "@mt-kit/style",
+  "version": "1.0.0",
+  "description": "Micro style",
   "keywords": [
-    "css",
-    "style",
-    "micro",
-    "reset css",
-    "individuality a",
-    "individuality code",
-    "individuality del",
-    "individuality mark"
+    "style"
   ],
-  "author": "LiYong",
-  "license": "ISC",
+  "homepage": "https://github.com/Not-have/micro-tools/tree/main/packages-style",
   "bugs": {
     "url": "https://github.com/Not-have/micro-tools/issues"
   },
-  "homepage": "https://github.com/Not-have/micro-tools/tree/main/packages-style",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-style"
+  },
+  "license": "ISC",
+  "author": "LiYong",
+  "type": "module",
+  "scripts": {
+    "clear:build": "rm -fr dist",
+    "clear": "rm -fr node_modules && pnpm run clear:build",
+    "build": "pnpm run clear:build && vite build",
+    "dev": "vite build --watch"
+  },
+  "main": "dist/index.umd.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.umd.js"
+    },
+    "./reset": "./style/reset.css",
+    "./indivHtml": "./style/indiv-html.css"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
   "dependencies": {
-    "@emotion/css": "^11.11.2"
+    "@emotion/css": "catalog:"
   },
   "devDependencies": {
-    "css-loader": "^7.1.1",
-    "style-loader": "^4.0.0",
-    "ts-loader": "^9.5.1",
-    "typescript": "^5.4.2",
-    "webpack": "^5.90.3",
-    "webpack-cli": "^5.1.4"
+    "@mt-kit/ts-config": "workspace:^",
+    "@mt-kit/vite-plugins": "workspace:^",
+    "@types/node": "catalog:",
+    "typescript": "catalog:",
+    "vite": "catalog:",
+    "vite-plugin-dts": "catalog:"
   }
 }

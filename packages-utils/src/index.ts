@@ -1,76 +1,32 @@
-/* 类型判断 */
-export {
-  default as animationFrameThrottle
-} from "./animation-frame-throttle";
-export {
-  default as clone
-} from "./clone";
-export {
-  default as cloneDeep
-} from "./clone-deep";
-export {
-  default as copyText
-} from "./copy-text";
-export {
-  default as debounce
-} from "./debounce";
-export {
-  addResizeListener,
-  removeResizeListener,
-  triggerWindowResize
-} from "./dom-resize-utils";
-export {
-  objectValueToString
-} from "./handle-object";
-export {
-  default as isElement
-} from "./is-element";
-export {
-  default as isEqual
-} from "./is-equal";
-export {
-  default as isFunction
-} from "./is-function";
-export {
-  default as isNull
-} from "./is-null";
-export {
-  default as isObject
-} from "./is-object";
-export {
-  default as isUndefined
-} from "./is-undefined";
-export {
-  default as omitBy
-} from "./omit-by";
-export {
-  default as openWindow
-} from "./open-window";
-export {
-  default as queryStringToObject
-} from "./query-string-to-object";
-export {
-  default as throttle
-} from "./throttle";
+export { default as animationFrameThrottle } from "./animation-frame-throttle";
 
-/* 本地储存 */
-export {
-  default as CookieHelper
-} from "./cookie-helper";
-export {
-  default as LocalStorageHelper
-} from "./local-storage-helper";
+export { default as imageBase64ToBlob } from "./image-base64-to-blob";
+export { default as imageUrlToBase64 } from "./image-url-to-base64";
 
-/* 转换 */
-export {
-  dataUrlToBlob,
-  urlToBase64
-} from "./base64-conver";
+export { default as downloadByUrl } from "./download-url";
+export { default as downloadDataFile } from "./download-data-file";
+export { default as downloadBase64File } from "./download-base64-file";
+export { default as downloadUrlFile } from "./download-url-file";
 
-/* 下载 */
-export {
-  downloadByBase64,
-  downloadByData,
-  downloadByOnlineUrl,
-  downloadByUrl
-} from "./file-download";
+export { default as copyText } from "./copy-text";
+export { default as queryStringToObject } from "./query-string-to-object";
+export { default as openWindow } from "./open-window";
+
+export { default as cookieHelper } from "./cookie-helper";
+export { default as localStorageHelper } from "./local-storage-helper";
+
+export { default as isElement } from "./is-element";
+export { default as isEqual } from "./is-equal";
+export { default as isFunction } from "./is-function";
+export { default as isNull } from "./is-null";
+export { default as isObject } from "./is-object";
+export { default as isUndefined } from "./is-undefined";
+
+export { default as clone } from "./clone";
+export { default as cloneDeep } from "./clone-deep";
+
+export { default as debounce } from "./debounce";
+export { default as throttle } from "./throttle";
+
+export { default as omitBy } from "./omit-by";
+export { default as objectValueToString } from "./object-value-to-string";

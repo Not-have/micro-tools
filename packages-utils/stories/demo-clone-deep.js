@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+/* eslint-disable symbol-description */
 /**
  * 使用 node 测试
  */

@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>individuality-style</title>
-    
 </head>
 <body>
 
@@ -25,8 +24,79 @@
   <kbd>用于表示键盘输入</kbd>
 </body>
 </html>
-<script src="../lib/index.js"></script>
-<script>
-  const { indivHtml } = microStyle;
-  indivHtml();
+<script type="module">
+ 
+
 </script>
+
+<!-- 
+修改 vite.config.ts 配置，启用 CSS 提取并确保正确处理 CSS 文件：
+
+import {
+  defineConfig
+} from "vite";
+import dts from "vite-plugin-dts";
+import { resolve } from "path";
+
+import {
+  libPlugin
+} from "@mt-kit/vite-plugins";
+
+export default defineConfig({
+  build: {
+    cssCodeSplit: true,
+    lib: {
+      entry: resolve(__dirname, "src/index.ts"),
+      formats: ["es", "cjs"],
+      fileName: (format) => `index.${format}.js`
+    },
+    rollupOptions: {
+      output: {
+        assetFileNames: "assets/[name][extname]"
+      }
+    }
+  },
+  plugins: [
+    libPlugin({
+      name: "microtStyle"
+    }),
+    dts({
+      tsconfigPath: "./tsconfig.json",
+      rollupTypes: false,
+      strictOutput: true,
+      outDir: "dist",
+      entryRoot: "./src"
+    })
+  ]
+});
+
+然后修改 CSS 引用方式：
+/**
+ * 重置 html 标签的样式
+ */
+import resetCss from "../style/reset.css?inline";
+
+export default function cssReset(): void {
+  const head: HTMLHeadElement = document.head || document.querySelectorAll("head")[0];
+
+  const style: HTMLStyleElement = document.createElement("style");
+  style.textContent = resetCss;
+  
+  head.append(style);
+}
+
+
+/**
+ * 注入个性化的样式标签
+ */
+import indivHtmlCss from "../style/indiv-html.css?inline";
+
+export default function cssIndivHtml(): void {
+  const head: HTMLHeadElement = document.head || document.querySelectorAll("head")[0];
+
+  const style: HTMLStyleElement = document.createElement("style");
+  style.textContent = indivHtmlCss;
+  
+  head.append(style);
+}
+-->

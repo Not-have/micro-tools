@@ -1,0 +1,6 @@
+{
+  "extends":"@mt-kit/ts-config/app.json",
+  "include": [
+    "src"
+  ]
+}

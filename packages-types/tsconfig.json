@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "noUnusedParameters": true,
+    "lib": ["es6", "dom"],
     "noUnusedLocals":true,
-    "skipLibCheck": true,
-    "lib": ["es6", "dom"]
+    "noUnusedParameters": true,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true
   },
   "include": [
     "src/**/*.ts"

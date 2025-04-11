@@ -1,6 +1,6 @@
 type TEventName =
 
-// 鼠标事件：
+    // 鼠标事件：
     | "click" // 单击事件
     | "dblclick" // 双击事件
     | "mousedown" // 鼠标按下事件

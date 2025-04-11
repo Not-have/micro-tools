@@ -1,6 +1,8 @@
 {
   "recommendations": [
     "dbaeumer.vscode-eslint",
-    "stylelint.vscode-stylelint"
+    "stylelint.vscode-stylelint",
+    "maggie.eslint-rules-zh-plugin",
+    "streetsidesoftware.code-spell-checker-cspell-bundled-dictionaries"
   ]
 }

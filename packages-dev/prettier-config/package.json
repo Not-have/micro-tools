@@ -1,0 +1,41 @@
+{
+  "name": "@mt-kit/prettier-config",
+  "version": "1.0.0",
+  "description": "Prettier 规则.",
+  "keywords": [
+    "prettier",
+    "mt-prettier-config",
+    "prettier-config"
+  ],
+  "homepage": "https://github.com/Not-have/micro-tools/packages-dev/prettier-config",
+  "bugs": "https://github.com/Not-have/micro-tools/issues",
+  "repository": "git@github.com:Not-have/micro-tools.git",
+  "license": "ISC",
+  "author": "LiYong",
+  "scripts": {
+    "clear": "rm -fr node_modules",
+    "lint": "prettier . --write"
+  },
+  "files": [
+    "README.md",
+    "index.mjs"
+  ],
+  "main": "./index.mjs",
+  "module": "./index.mjs",
+  "exports": {
+    ".": {
+      "import": "./index.mjs",
+      "default": "./index.mjs"
+    }
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "peerDependencies": {
+    "prettier": ">=3.5.0"
+  },
+  "dependencies": {
+    "prettier": "catalog:"
+  }
+}

@@ -5,9 +5,9 @@
  * @returns boolean
  */
 export default function isEqual(
-  obj1: object,
-  obj2: object,
-  visited = new Set()
+    obj1: object,
+    obj2: object,
+    visited = new Set()
 ): boolean {
   if (obj1 === obj2) {
     return true;
@@ -41,6 +41,7 @@ export default function isEqual(
 
   for (const key of keys1) {
 
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     if (!keys2.includes(key) || !isEqual(obj1[key], obj2[key], visited)) {
       visited.clear();
@@ -61,8 +62,8 @@ export default function isEqual(
       return false;
     }
 
-    for (let i = 0; i < obj1.length; i++) {
-      if (!isEqual(obj1[i], obj2[i], visited)) {
+    for (const [i, element] of obj1.entries()) {
+      if (!isEqual(element, obj2[i], visited)) {
         return false;
       }
     }

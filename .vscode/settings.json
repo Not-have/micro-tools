@@ -1,29 +1,9 @@
 {
-  "cSpell.words": [
-    "amap",
-    "autodocs",
-    "commitlint",
-    "conver",
-    "dcloudio",
-    "demoutils",
-    "echarts",
-    "Gaode",
-    "Iconfont",
-    "indiv",
-    "jsapi",
-    "noopener",
-    "noreferrer",
-    "preinstall",
-    "rushstack",
-    "smacss",
-    "sortablejs",
-    "Splitpanes",
-    "stylelint",
-    "uniapp"
-  ],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
   "editor.tabSize": 2,
-  "commentTranslate.source": "DarkCWK.youdao-youdao"
+  "editor.renderWhitespace": "all",
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.expand": false,
 }

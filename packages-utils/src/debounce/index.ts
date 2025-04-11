@@ -15,13 +15,13 @@
  * @returns 返回一个函数，该函数返回一个 Promise，解析为执行的方法的返回值。另外，该函数还具有一个 cancel 方法，用于取消防抖
  */
 export default function debounce<T extends(...args: unknown[]) => unknown>(func: Function, wait: number = 250, immediate: boolean = false): ((...args: Parameters<T>) => Promise<ReturnType<T>>) & {
-    cancel: () => void
+    cancel: () => void;
 } {
 
   /**
      * setTimeout 的返回类型是 number | NodeJS.Timeout。这是因为在 Node.js 环境中，setTimeout 返回的是一个 Timeout 对象，而在浏览器环境中，返回的是一个数字。
      */
-  let timer: NodeJS.Timeout | number | null = null;
+  let timer: ReturnType<typeof setTimeout> | null = null;
 
   /**
      * 控制在中间暂停的时候，接下来也能立即执行
@@ -58,8 +58,8 @@ export default function debounce<T extends(...args: unknown[]) => unknown>(func:
           isInvoke = false;
           resolve(result);
         }, wait);
-      } catch (e) {
-        reject(e);
+      } catch (error) {
+        reject(error);
       }
     });
   };

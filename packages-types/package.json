@@ -1,25 +1,29 @@
 {
-  "name": "micro-ts-types",
+  "name": "@mt-kit/types",
   "version": "1.1.0",
   "description": "Types",
-  "main": "src/index.js",
-  "scripts": {
-    "clear": "rm -fr node_modules"
-  },
   "keywords": [
     "types",
     "micro-types"
   ],
+  "bugs": {
+    "url": "https://github.com/Not-have/micro-tools/issues"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-types"
   },
-  "bugs": {
-    "url": "https://github.com/Not-have/micro-tools/issues"
-  },
-  "author": "Li Yong",
   "license": "ISC",
+  "author": "Li Yong",
+  "scripts": {
+    "clear": "rm -fr node_modules"
+  },
+  "main": "src/index.ts",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
   "devDependencies": {
-    "typescript": "^5.3.3"
+    "typescript": "catalog:"
   }
 }

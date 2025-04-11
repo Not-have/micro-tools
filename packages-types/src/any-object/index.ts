@@ -1,5 +1,5 @@
 interface IAnyObject {
-  [key: string]: unknown
+  [key: string | symbol | number]: unknown;
 };
 
 export default IAnyObject;

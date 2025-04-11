@@ -1,9 +1,10 @@
 import isObject from "../is-object";
-interface Dictionary<T> {
+
+interface IDictionary<T> {
     [key: string]: T;
 }
 
-type OmitByFunction<T> = (value: T, key: string) => boolean;
+type TOmitByFunction<T> = (value: T, key: string) => boolean;
 
 /**
  * 从创建的一个从对象中，排除满足某些条件的属性的属性
@@ -11,8 +12,8 @@ type OmitByFunction<T> = (value: T, key: string) => boolean;
  * @param condition 用于判断是否排除属性的条件函数
  * @returns 新的对象，排除了满足条件的属性
  */
-export default function omitBy<T>(obj: Dictionary<T> | null | undefined, condition: OmitByFunction<T>): Dictionary<T> {
-  const result: Dictionary<T> = {};
+export default function omitBy<T>(obj: IDictionary<T> | null | undefined, condition: TOmitByFunction<T>): IDictionary<T> {
+  const result: IDictionary<T> = {};
 
   if (!isObject(obj))
   {
@@ -25,8 +26,7 @@ export default function omitBy<T>(obj: Dictionary<T> | null | undefined, conditi
     {
       const value = obj[key];
 
-      if (!condition(value, key))
-      {
+      if (!condition(value, key)) {
         result[key] = value;
       }
     }

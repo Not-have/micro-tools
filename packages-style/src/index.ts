@@ -1,2 +1,1 @@
-export { default as ellipsis } from "./ellipsis";
-export { default as indivHtml } from "./indiv-html";
+export { default as cssEllipsis } from "./css-ellipsis";

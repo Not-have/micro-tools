@@ -1,0 +1,18 @@
+{
+  "display": "React",
+  "extends": [
+    "./app.json"
+  ],
+  "compilerOptions": {
+    "jsx": "preserve",
+    "noEmit": true,
+    "moduleResolution": "bundler",
+    "incremental": true,
+    "jsxImportSource": "React",
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
+  }
+}

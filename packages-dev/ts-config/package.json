@@ -1,0 +1,34 @@
+{
+  "name": "@mt-kit/ts-config",
+  "version": "1.0.0",
+  "description": "MT Kit 的 TypeScript 配置集合，包含基础、React、Vue、Node 等环境的配置",
+  "keywords": [
+    "tsconfig",
+    "typescript",
+    "config"
+  ],
+  "homepage": "https://github.com/Not-have/micro-tools/packages-dev/ts-config",
+  "bugs": "https://github.com/Not-have/micro-tools/issues",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Not-have/micro-tools.git",
+    "directory": "packages-dev/ts-config"
+  },
+  "license": "ISC",
+  "author": "LiYong",
+  "scripts": {
+    "clear": "rm -fr node_modules"
+  },
+  "files": [
+    "*.json",
+    "README.md"
+  ],
+  "main": "base.json",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "peerDependencies": {
+    "typescript": ">=5.0.0"
+  }
+}
