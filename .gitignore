@@ -47,5 +47,5 @@ lerna-debug.log*
 **/lib/
 pnpm-lock.yaml
 *storybook.log
-**/packages-docs/**/_*
+**/packages-docs/src/**/_*
 **/storybook-static
