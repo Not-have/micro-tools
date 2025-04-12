@@ -21,9 +21,17 @@
   "scripts": {
     "storybook": "storybook dev",
     "build-storybook": "storybook build",
-    "clear": "rm -fr node_modules"
+    "clear": "rm -fr node_modules",
+    "build": "unbuild"
   },
-  "main": "index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs"
+    }
+  },
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
@@ -51,6 +59,7 @@
     "react": "catalog:",
     "react-router-dom": "catalog:",
     "storybook": "catalog:",
-    "typescript": "catalog:"
+    "typescript": "catalog:",
+    "unbuild": "^3.5.0"
   }
 }

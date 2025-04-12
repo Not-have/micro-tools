@@ -22,6 +22,9 @@ hero:
     - theme: alt
       text: Utils
       link: /src/_utils-md/packages-utils
+    - theme: alt
+      text: React
+      link: /src/_react-md/react-hooks
 
 features:
   - title: 常用工程配置
