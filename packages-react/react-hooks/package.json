@@ -1,0 +1,42 @@
+{
+  "name": "@mt-kit/react-hooks",
+  "version": "1.0.0",
+  "description": "React hooks",
+  "keywords": [
+    "react-hooks",
+    "hooks",
+    "micro-react",
+    "micro-react-hooks"
+  ],
+  "homepage": "https://github.com/Not-have/micro-tools/tree/main/packages-react/react-hooks",
+  "bugs": {
+    "url": "https://github.com/Not-have/micro-tools/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-react/react-hooks"
+  },
+  "license": "ISC",
+  "author": "Li Yong",
+  "scripts": {
+    "storybook": "storybook dev",
+    "build-storybook": "storybook build",
+    "clear": "rm -fr node_modules"
+  },
+  "main": "index.js",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "devDependencies": {
+    "@storybook/addon-essentials": "catalog:",
+    "@storybook/addon-interactions": "catalog:",
+    "@storybook/addon-onboarding": "catalog:",
+    "@storybook/blocks": "catalog:",
+    "@storybook/react": "catalog:",
+    "@storybook/react-vite": "catalog:",
+    "@storybook/test": "catalog:",
+    "react": "catalog:",
+    "storybook": "catalog:",
+    "typescript": "catalog:"
+  }
+}
