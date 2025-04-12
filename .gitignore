@@ -49,3 +49,4 @@ pnpm-lock.yaml
 *storybook.log
 **/packages-docs/src/**/_*
 **/storybook-static
+!_other/**
