@@ -16,13 +16,13 @@ export default {
   rules: {
 
     // 规则1：默认导出排序（如 export default）
-    "perfectionist/sort-exports": [
-      "error",  // 错误级别（违反时中断构建）
-      {
-        order: "asc",    // 按字母升序排列（a-z）
-        type: "natural"  // 使用自然排序算法（如 file2 排在 file10 前）
-      }
-    ],
+    // "perfectionist/sort-exports": [
+    //   "error",  // 错误级别（违反时中断构建）
+    //   {
+    //     order: "asc",    // 按字母升序排列（a-z）
+    //     type: "natural"  // 使用自然排序算法（如 file2 排在 file10 前）
+    //   }
+    // ],
 
     // 规则2：导入语句排序（核心配置）
     "perfectionist/sort-imports": [
@@ -86,6 +86,7 @@ export default {
         order: "asc",    // 字母升序
         type: "natural"  // 自然排序
       }
-    ]
+    ],
+    "perfectionist/sort-exports": "off"
   }
 };

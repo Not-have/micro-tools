@@ -7,8 +7,9 @@
     "jsx": "preserve",
     "noEmit": true,
     "moduleResolution": "bundler",
+    "noUncheckedIndexedAccess": true,
     "incremental": true,
-    "jsxImportSource": "React",
+    "jsxImportSource": "react",
     "plugins": [
       {
         "name": "next"

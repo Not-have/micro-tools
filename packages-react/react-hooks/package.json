@@ -27,6 +27,11 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
+  "dependencies": {
+    "@mt-kit/ts-config": "workspace:^",
+    "lodash-es": "catalog:",
+    "react": "catalog:"
+  },
   "devDependencies": {
     "@storybook/addon-essentials": "catalog:",
     "@storybook/addon-interactions": "catalog:",
@@ -35,7 +40,8 @@
     "@storybook/react": "catalog:",
     "@storybook/react-vite": "catalog:",
     "@storybook/test": "catalog:",
-    "react": "catalog:",
+    "@types/lodash-es": "catalog:",
+    "@types/react": "catalog:",
     "storybook": "catalog:",
     "typescript": "catalog:"
   }
