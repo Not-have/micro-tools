@@ -46,6 +46,10 @@ async function copyMarkdownFiles() {
     {
       outDir: EOutDir.REACT,
       entry: EEntry.REACT
+    },
+    {
+      outDir: EOutDir.VUE,
+      entry: EEntry.VUE
     }
   ];
 

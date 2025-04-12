@@ -49,11 +49,11 @@
     "@storybook/vue3-vite": "catalog:",
     "@vitejs/plugin-vue": "catalog:",
     "@vitejs/plugin-vue-jsx": "catalog:",
-    "echarts": "^5.6.0",
+    "echarts": "catalog:",
     "storybook": "catalog:",
     "typescript": "catalog:",
     "vite": "catalog:",
-    "vite-plugin-dts": "^4.5.3",
+    "vite-plugin-dts": "catalog:",
     "vue": "catalog:",
     "vue-router": "catalog:",
     "vue-tsc": "catalog:"

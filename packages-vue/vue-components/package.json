@@ -49,7 +49,7 @@
     "storybook": "catalog:",
     "typescript": "catalog:",
     "vite": "catalog:",
-    "vite-plugin-dts": "^4.5.3",
+    "vite-plugin-dts": "catalog:",
     "vue": "catalog:",
     "vue-router": "catalog:",
     "vue-tsc": "catalog:"

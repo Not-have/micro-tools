@@ -32,6 +32,7 @@ catalog:
   cspell: ^8.18.1
   cz-git: ^1.11.1
   depcheck: ^1.4.7
+  echarts: ^5.6.0
   eslint: ^9.24.0
   eslint-import-resolver-typescript: ^4.3.2
   eslint-plugin-command: ^3.2.0

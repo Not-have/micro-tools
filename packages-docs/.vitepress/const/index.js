@@ -6,7 +6,8 @@ const EOutDir = {
   TS: "_ts-md",
   VITE: "_vite-md",
   CONF: "_conf-md",
-  REACT: "_react-md"
+  REACT: "_react-md",
+  VUE: "_vue-md"
 };
 
 const EEntry = {
@@ -18,7 +19,8 @@ const EEntry = {
   ENUM: "packages-enum",
   VITE: "packages-vite-plugins",
   CONF: "packages-conf",
-  REACT: "packages-react"
+  REACT: "packages-react",
+  VUE: "packages-vue"
 };
 
 export{

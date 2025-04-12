@@ -5,7 +5,6 @@ import {
 } from "vitepress";
 
 import {
-  navBar,
   menuDev,
   menuUtils,
   menuCss,
@@ -13,7 +12,8 @@ import {
   menuTs,
   menuVite,
   menuConf,
-  menuReact
+  menuReact,
+  menuVue
 } from "./menu";
 
 // https://vitepress.dev/reference/site-config
@@ -39,18 +39,19 @@ const config = async (): Promise<UserConfig<DefaultTheme.Config>> => {
 
   const react = await menuReact();
 
-  if(dev && utils && css && components && ts && vite && conf && react) {
-    nav.unshift(dev?.nav);
-    nav.push(utils?.nav, css?.nav, components?.nav, ts?.nav, vite?.nav, conf?.nav, react?.nav);
+  const vue = await menuVue();
 
-    if (dev.nav.activeMatch && ts.nav.activeMatch && react.nav.activeMatch) {
+  if(dev && utils && css && components && ts && vite && conf && react && vue) {
+    nav.unshift(dev?.nav);
+    nav.push(utils?.nav, css?.nav, components?.nav, ts?.nav, vite?.nav, conf?.nav, react?.nav, vue?.nav);
+
+    if (dev.nav.activeMatch && ts.nav.activeMatch && react.nav.activeMatch && vue.nav.activeMatch) {
       sidebar[dev.nav.activeMatch] = dev?.menu as DefaultTheme.SidebarItem[];
       sidebar[ts.nav.activeMatch] = ts?.menu as DefaultTheme.SidebarItem[];
       sidebar[react.nav.activeMatch] = react?.menu as DefaultTheme.SidebarItem[];
+      sidebar[vue.nav.activeMatch] = vue?.menu as DefaultTheme.SidebarItem[];
     }
   }
-
-  const _nav = [...nav, ...navBar];
 
   return defineConfig({
     head: [["link", {
@@ -63,7 +64,7 @@ const config = async (): Promise<UserConfig<DefaultTheme.Config>> => {
     description: "一款集成常用组件、方法的工具库。",
     themeConfig: {
       logo: "./logo.svg",
-      nav: _nav,
+      nav,
       sidebar,
       socialLinks: [
         {

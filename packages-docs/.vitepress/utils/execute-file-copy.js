@@ -1,8 +1,8 @@
+import fs from "fs";
+import path from "path";
 import {
   fileURLToPath
 } from "url";
-import fs from "fs";
-import path from "path";
 
 function checkFileExists(dirPath, fileName) {
   const filePath = path.join(dirPath, fileName);
