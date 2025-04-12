@@ -65,6 +65,6 @@
     "react-router-dom": "catalog:",
     "storybook": "catalog:",
     "typescript": "catalog:",
-    "unbuild": "^3.5.0"
+    "unbuild": "catalog:"
   }
 }
