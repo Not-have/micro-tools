@@ -30,3 +30,9 @@ export { default as throttle } from "./throttle";
 
 export { default as omitBy } from "./omit-by";
 export { default as objectValueToString } from "./object-value-to-string";
+
+export {
+  domAddResizeListener,
+  domRemoveResizeListener,
+  domTriggerWindowResize
+} from "./dom-resize-utils";

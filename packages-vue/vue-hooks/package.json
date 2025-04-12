@@ -22,11 +22,13 @@
   },
   "main": "index.js",
   "dependencies": {
+    "@mt-kit/utils": "workspace:^",
     "typescript": "catalog:",
     "vue": "catalog:"
   },
   "devDependencies": {
     "@mt-kit/ts-config": "workspace:^",
+    "@mt-kit/types": "workspace:^",
     "@storybook/addon-essentials": "catalog:",
     "@storybook/addon-interactions": "catalog:",
     "@storybook/addon-onboarding": "catalog:",
@@ -38,6 +40,7 @@
     "@vitejs/plugin-vue-jsx": "catalog:",
     "storybook": "catalog:",
     "vite": "catalog:",
+    "vue-router": "^4.5.0",
     "vue-tsc": "catalog:"
   }
 }

@@ -21,7 +21,7 @@ function resizeHandler(entries: any[]) {
 /**
  * 该函数用于向指定的元素添加尺寸变化的监听器。如果该元素没有注册过监听器，则使用 ResizeObserver 监听元素的尺寸变化。每当尺寸变化时，相关联的回调函数会被执行
  */
-export function addResizeListener(element: any, fn: () => any) {
+export function domAddResizeListener(element: any, fn: () => any) {
   if (isServer) {return;}
 
   if (!element.__resizeListeners__) {
@@ -36,7 +36,7 @@ export function addResizeListener(element: any, fn: () => any) {
 /**
  * 从指定的元素中移除尺寸变化的监听器。该函数会将指定的回调函数从元素的监听器列表中移除，并在没有监听器时断开 ResizeObserver 的观察
  */
-export function removeResizeListener(element: any, fn: () => any) {
+export function domRemoveResizeListener(element: any, fn: () => any) {
   if (!element || !element.__resizeListeners__) {return;}
 
   element.__resizeListeners__.splice(element.__resizeListeners__.indexOf(fn), 1);
@@ -49,7 +49,7 @@ export function removeResizeListener(element: any, fn: () => any) {
 /**
  * 通过模拟触发 resize 事件，手动触发窗口尺寸变化。这可以在某些情况下用于强制触发页面元素的重新布局，例如在动态添加或删除元素后
  */
-export function triggerWindowResize() {
+export function domTriggerWindowResize() {
   const event = document.createEvent("HTMLEvents");
 
   event.initEvent("resize", true, true);
