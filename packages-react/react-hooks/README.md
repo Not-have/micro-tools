@@ -13,3 +13,7 @@ npm i @mt-kit/react-hooks
 ### useAsync
 
 ### useServer
+
+### useHistory
+
+### useLocationQuery

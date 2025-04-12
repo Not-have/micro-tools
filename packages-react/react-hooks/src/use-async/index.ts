@@ -14,44 +14,56 @@ import useIsUnmounted from "../use-is-unmounted";
 type TPromiseValue<T> = T extends Promise<infer U> ? U : never;
 
 interface IConfig {
-
-  /**
-   * 不要错误弹窗
-   */
-  ignoreAlert?: boolean;
-
-  /**
-   * 防抖
-   * @default false
-   */
-  debounce?: boolean | number;
+  ignoreAlert?: boolean; // 不要错误弹窗
+  debounce?: boolean | number; // 防抖
 }
 
 interface IAsyncFunction {
-  <Args extends unknown[], R>(...args: Args): Promise<R>;
-}
-
-interface IAsyncResult<T extends IAsyncFunction> {
-  run: T;
-  runWithDebounce?: DebouncedFunc<T>;
-  data?: TPromiseValue<ReturnType<T>>;
-  loading: boolean;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  (...arg: any[]): Promise<any>;
 }
 
 interface IStateResult<T extends IAsyncFunction> {
+
+  /**
+   * 异步函数执行状态
+   */
   loading: boolean;
+
+  /**
+   * 异步函数返回的数据
+   */
   data?: TPromiseValue<ReturnType<T>>;
 }
 
+interface IAsyncResult<T extends IAsyncFunction> extends IStateResult<T> {
+
+  /**
+   * 执行异步函数
+   */
+  run: T;
+
+  /**
+   * 防抖执行异步函数
+   */
+  runWithDebounce?: DebouncedFunc<T>;
+}
+
 const defaultConfig: IConfig = {
+
+  /**
+   * 是否忽略错误弹窗
+   */
   ignoreAlert: false,
+
+  /**
+   * 是否启用防抖
+   */
   debounce: false
 };
 
 /**
- * 选用 useAsync 而不用 useService
- * useService 比较坑
- * 而且 useAsync 中内置了 errorPrompt 也是比较友好的
+ * 自定义 Hook，用于处理异步函数的执行和状态管理
  */
 export default function useAsync<T extends IAsyncFunction>(asyncFunction: T, initData?: TPromiseValue<ReturnType<T>>, config: IConfig = defaultConfig): IAsyncResult<T> {
   const isUnmounted = useIsUnmounted();
@@ -67,7 +79,7 @@ export default function useAsync<T extends IAsyncFunction>(asyncFunction: T, ini
       loading: true
     }));
 
-    return (asyncFunction(...args) as Promise<TPromiseValue<ReturnType<T>>>).then((response: TPromiseValue<ReturnType<T>>) => {
+    return asyncFunction(...args).then(response => {
       if (!isUnmounted())
       {
         setStateResult({
@@ -96,8 +108,7 @@ export default function useAsync<T extends IAsyncFunction>(asyncFunction: T, ini
   }, [asyncFunction, isUnmounted, config.ignoreAlert]);
 
   const runWithDebounce = useMemo(() => {
-    if (config.debounce)
-    {
+    if (config.debounce) {
       return _debounce(run, 250);
     }
   }, [run, config.debounce]);

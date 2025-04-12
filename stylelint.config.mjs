@@ -7,7 +7,7 @@ export default {
     "**/*.svg",
     "**/*.ico",
     "**/*.js",
-    "**/*.ts",
+    "**/*.tsx",
     "node_modules/**",
     "dist/**",
     "**/*.md"

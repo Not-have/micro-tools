@@ -25,7 +25,12 @@
   },
   "main": "index.js",
   "publishConfig": {
+    "access": "public",
     "registry": "https://registry.npmjs.org/"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-router-dom": ">=7.0.0"
   },
   "dependencies": {
     "@mt-kit/ts-config": "workspace:^",
