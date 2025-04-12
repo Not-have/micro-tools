@@ -1,0 +1,43 @@
+{
+  "name": "@mt-kit/vue-hooks",
+  "version": "1.0.0",
+  "description": "Hooks",
+  "keywords": [
+    "vue-hooks",
+    "hooks"
+  ],
+  "bugs": {
+    "url": "https://github.com/Not-have/micro-tools/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-vue/vue-hooks"
+  },
+  "license": "ISC",
+  "author": "LiYong",
+  "scripts": {
+    "storybook": "storybook dev",
+    "build-storybook": "storybook build",
+    "clear": "rm -fr node_modules && rm -fr dist"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "typescript": "^5.8.3",
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@mt-kit/ts-config": "workspace:^",
+    "@storybook/addon-essentials": "^8.6.12",
+    "@storybook/addon-interactions": "^8.6.12",
+    "@storybook/addon-onboarding": "^8.6.12",
+    "@storybook/blocks": "^8.6.12",
+    "@storybook/test": "^8.6.12",
+    "@storybook/vue3": "^8.6.12",
+    "@storybook/vue3-vite": "^8.6.12",
+    "@vitejs/plugin-vue": "^5.2.3",
+    "@vitejs/plugin-vue-jsx": "^4.1.2",
+    "storybook": "^8.6.12",
+    "vite": "^6.2.6",
+    "vue-tsc": "^2.2.8"
+  }
+}

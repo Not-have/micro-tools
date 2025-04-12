@@ -1,0 +1,7 @@
+{
+    "extends":"@mt-kit/ts-config/vue.json",
+    "include": [
+      "src",
+      "stories"
+    ]
+  }
