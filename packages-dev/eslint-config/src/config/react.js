@@ -1,7 +1,8 @@
-import jsxA11y from "eslint-plugin-jsx-a11y";
 import pluginReact from "eslint-plugin-react";
 import reactCompiler from "eslint-plugin-react-compiler";
 import * as reactHooks from "eslint-plugin-react-hooks";
+
+import jsxA11y from "eslint-plugin-jsx-a11y";
 
 export default [
   {

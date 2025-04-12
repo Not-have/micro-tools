@@ -1,4 +1,3 @@
-/* eslint-disable unicorn/prefer-string-raw */
 import pluginTs from "@typescript-eslint/eslint-plugin";
 import parserTs from "@typescript-eslint/parser";
 
@@ -54,12 +53,14 @@ export default {
         selector: "variable",
         format: ["strictCamelCase", "StrictPascalCase", "UPPER_CASE"],
         filter: {
+
           regex: "[A-Z\\d]__[A-Z\\d]",
           match: false
         },
         // eslint-disable-next-line no-dupe-keys
         filter: {
           match: true,
+
           regex: "_[A-Z\\d]"
         }
       },
@@ -96,6 +97,7 @@ export default {
       {
         filter: {
           match: false,
+
           regex: "[A-Z\\d]__[A-Z\\d]"
         },
         format: ["StrictPascalCase", "UPPER_CASE"],

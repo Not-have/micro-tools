@@ -1,8 +1,7 @@
-/* eslint-disable unicorn/prefer-string-raw */
 import js from "@eslint/js";
+import pluginUnicorn from "eslint-plugin-unicorn";
 import pluginUnusedImports from "eslint-plugin-unused-imports";
 import globals from "globals";
-import pluginUnicorn from "eslint-plugin-unicorn";
 
 export default {
 
@@ -71,6 +70,7 @@ export default {
         setWithoutGet: true
       }
     ],
+    "unicorn/prefer-string-raw": "off",
 
     /**
      * 数组
