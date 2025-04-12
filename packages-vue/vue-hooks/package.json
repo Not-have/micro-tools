@@ -18,17 +18,29 @@
   "scripts": {
     "storybook": "storybook dev",
     "build-storybook": "storybook build",
-    "clear": "rm -fr node_modules && rm -fr dist"
+    "clear:build": "rm -fr dist",
+    "clear": "rm -fr node_modules && pnpm run clear:build",
+    "build": "pnpm run clear:build && vite build",
+    "dev": "vite build --watch",
+    "prepublishOnly": "pnpm build"
   },
-  "main": "index.js",
+  "main": "dist/index.umd.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.umd.js"
+    }
+  },
   "dependencies": {
-    "@mt-kit/utils": "workspace:^",
-    "typescript": "catalog:",
-    "vue": "catalog:"
+    "@mt-kit/utils": "workspace:^"
   },
   "devDependencies": {
     "@mt-kit/ts-config": "workspace:^",
     "@mt-kit/types": "workspace:^",
+    "@mt-kit/vite-plugins": "workspace:^",
     "@storybook/addon-essentials": "catalog:",
     "@storybook/addon-interactions": "catalog:",
     "@storybook/addon-onboarding": "catalog:",
@@ -39,8 +51,11 @@
     "@vitejs/plugin-vue": "catalog:",
     "@vitejs/plugin-vue-jsx": "catalog:",
     "storybook": "catalog:",
+    "typescript": "catalog:",
     "vite": "catalog:",
-    "vue-router": "^4.5.0",
+    "vite-plugin-dts": "catalog:",
+    "vue": "catalog:",
+    "vue-router": "catalog:",
     "vue-tsc": "catalog:"
   }
 }

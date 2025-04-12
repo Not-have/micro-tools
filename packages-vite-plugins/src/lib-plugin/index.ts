@@ -1,7 +1,6 @@
 import {
   resolve
 } from "path";
-
 import {
   Plugin,
   UserConfig

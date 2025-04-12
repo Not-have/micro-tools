@@ -40,7 +40,7 @@
     "@vitejs/plugin-vue-jsx": "catalog:",
     "storybook": "catalog:",
     "vite": "catalog:",
-    "vue-router": "^4.5.0",
+    "vue-router": "catalog:",
     "vue-tsc": "catalog:"
   }
 }
