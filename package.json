@@ -76,8 +76,7 @@
   "lint-staged": {
     "package.json": "npmPkgJsonLint ./ --ignore-path .npmpackagejsonlintrc-ignore",
     "*.md": "markdownlint-cli2",
-    "*.{js,ts,vue,tsx,jsx}": [
-    ],
+    "*.{js,ts,vue,tsx,jsx}": [],
     "*.{jsx,tsx,css,vue}": "stylelint --fix"
   },
   "config": {

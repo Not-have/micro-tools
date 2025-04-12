@@ -7,7 +7,8 @@ export { default as jsdoc } from "./jsdoc.js";
 export { default as ignores } from "./ignores.js";
 export { default as prettier } from "./prettier.js";
 export { default as regexp } from "./regexp.js";
-export { default as importX } from "./import-x.js";
+
+// export { default as importX } from "./import-x.js";
 export { default as perfectionist } from "./perfectionist.js";
 export { default as unicorn } from "./unicorn.js";
 export { default as typescript } from "./typescript.js";

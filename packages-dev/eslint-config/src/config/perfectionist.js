@@ -1,8 +1,5 @@
 import perfectionist from "eslint-plugin-perfectionist";
 
-/**
- * @deprecated 暂时放弃，颗粒化排序
- */
 export default {
   plugins: {
     perfectionist
@@ -21,7 +18,8 @@ export default {
         customGroups: {
           type: {
             vue: "vue",
-            react: "react"
+            react: "react",
+            mtkit: "mt-kit"
           },
           value: {
             vue: ["vue", "vue-*", "@vue*"],
@@ -31,7 +29,8 @@ export default {
               "@reduxjs/*",
               "react-router*",
               "@tanstack/*"
-            ]
+            ],
+            mtkit: ["@mt-kit/*"]
           }
         },
         groups: [
@@ -41,6 +40,7 @@ export default {
           "builtin",
           "react",
           "vue",
+          "mt-kit",
           "external",
           "internal",
           ["parent", "sibling", "index"],

@@ -44,7 +44,7 @@
     "@stylistic/eslint-plugin-ts": "catalog:",
     "@typescript-eslint/eslint-plugin": "catalog:",
     "@typescript-eslint/parser": "catalog:",
-    "eslint": "catalog:",
+    "eslint-import-resolver-typescript": "catalog:",
     "eslint-plugin-command": "catalog:",
     "eslint-plugin-eslint-comments": "catalog:",
     "eslint-plugin-import-x": "catalog:",
@@ -63,5 +63,8 @@
     "globals": "catalog:",
     "jsonc-eslint-parser": "catalog:",
     "vue-eslint-parser": "catalog:"
+  },
+  "devDependencies": {
+    "eslint": "catalog:"
   }
 }

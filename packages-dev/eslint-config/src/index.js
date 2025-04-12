@@ -8,7 +8,7 @@ import {
   ignores,
   prettier,
   regexp,
-  importX,
+  perfectionist,
   unicorn,
   typescript,
   react,
@@ -26,7 +26,7 @@ const DEFAULT = [
   ignores,
   prettier,
   regexp,
-  importX,
+  perfectionist,
   typescript
 ];
 
