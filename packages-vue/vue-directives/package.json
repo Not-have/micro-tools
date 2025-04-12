@@ -1,0 +1,46 @@
+{
+  "name": "@mt-kit/vue-hooks",
+  "version": "1.0.0",
+  "description": "Hooks",
+  "keywords": [
+    "vue-hooks",
+    "hooks"
+  ],
+  "bugs": {
+    "url": "https://github.com/Not-have/micro-tools/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-vue/vue-hooks"
+  },
+  "license": "ISC",
+  "author": "LiYong",
+  "scripts": {
+    "storybook": "storybook dev",
+    "build-storybook": "storybook build",
+    "clear": "rm -fr node_modules && rm -fr dist"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "@mt-kit/utils": "workspace:^",
+    "typescript": "catalog:",
+    "vue": "catalog:"
+  },
+  "devDependencies": {
+    "@mt-kit/ts-config": "workspace:^",
+    "@mt-kit/types": "workspace:^",
+    "@storybook/addon-essentials": "catalog:",
+    "@storybook/addon-interactions": "catalog:",
+    "@storybook/addon-onboarding": "catalog:",
+    "@storybook/blocks": "catalog:",
+    "@storybook/test": "catalog:",
+    "@storybook/vue3": "catalog:",
+    "@storybook/vue3-vite": "catalog:",
+    "@vitejs/plugin-vue": "catalog:",
+    "@vitejs/plugin-vue-jsx": "catalog:",
+    "storybook": "catalog:",
+    "vite": "catalog:",
+    "vue-router": "^4.5.0",
+    "vue-tsc": "catalog:"
+  }
+}
