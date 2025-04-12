@@ -281,6 +281,10 @@ export default function TestUseLocationQuery(): React.ReactElement {
     });
   }, [updateQuery]);
 
+  const handleResetClick = useCallback(() => {
+    updateQuery(options.defaults);
+  }, [updateQuery]);
+
   return <div>
     <p>useHistory 的使用</p>
 
@@ -296,7 +300,7 @@ export default function TestUseLocationQuery(): React.ReactElement {
 
     <button onClick={() => handlePageChange(2)}>Go to Page 2</button>
     <button onClick={() => handleShowDetailsChange(true)}>Show Details</button>
-    <button onClick={() => handleShowDetailsChange(false)}>Show Details Reset</button>
+    <button onClick={() => handleResetClick()}>Show Details Reset</button>
   </div>;
 }
 ```
