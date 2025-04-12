@@ -13,7 +13,7 @@ echarts 社区：
 ## 下载
 
 ```bash
-npm i @mt-kit/vue-echarts
+npm i echarts @mt-kit/vue-echarts
 ```
 
 ## useECharts
