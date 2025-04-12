@@ -21,6 +21,10 @@
     "clear": "rm -fr node_modules && rm -fr dist"
   },
   "main": "index.js",
+  "dependencies": {
+    "@mt-kit/utils": "workspace:^",
+    "@mt-kit/vue-hooks": "workspace:^"
+  },
   "devDependencies": {
     "@mt-kit/ts-config": "workspace:^",
     "@storybook/addon-essentials": "catalog:",
@@ -32,6 +36,7 @@
     "@storybook/vue3-vite": "catalog:",
     "@vitejs/plugin-vue": "catalog:",
     "@vitejs/plugin-vue-jsx": "catalog:",
+    "echarts": "^5.6.0",
     "storybook": "catalog:",
     "typescript": "catalog:",
     "vite": "catalog:",
