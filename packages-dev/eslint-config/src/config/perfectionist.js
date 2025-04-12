@@ -35,12 +35,12 @@ export default {
           // 类型映射：将特定标识符关联到分组名
           type: {
             vue: "vue",     // Vue 相关导入归类为 "vue" 组
-            react: "react", // React 相关导入归类为 "react" 组
-            mtkit: "mt-kit" // 内部包统一归类为 "mt-kit" 组[^用户历史]
+            react: "react" // React 相关导入归类为 "react" 组
           },
 
           // 值匹配：用 glob 模式定义分组范围
           value: {
+            lodash: ["lodash", "lodash-es", "lodash/*", "lodash-es/*"],  // 统一匹配所有 lodash 相关包
             vue: ["vue", "vue-*", "@vue*"],  // 匹配 vue 生态包
             react: [                          // 匹配 React 生态包
               "react",
@@ -48,8 +48,7 @@ export default {
               "@reduxjs/*",    // Redux 工具包
               "react-router*", // 路由相关
               "@tanstack/*"    // TanStack 系列库
-            ],
-            mtkit: ["@mt-kit/*"]  // 匹配所有内部包（用户新增需求）[^用户历史]
+            ]
           }
         },
 
@@ -58,10 +57,10 @@ export default {
           ["external-type", "builtin-type", "type"],  // 类型导入优先
           ["parent-type", "sibling-type", "index-type"], // 相对路径类型
           ["internal-type"],       // 内部类型
+          "lodash",
           "builtin",              // Node.js 内置模块（如 path/fs）
           "react",                // React 生态包[6](@ref)
           "vue",                  // Vue 生态包[6](@ref)
-          "mt-kit",               // 内部包（用户新增，优先级高于外部依赖）
           "external",             // 第三方依赖（如 lodash）
           "internal",             // 项目内部模块
           ["parent", "sibling", "index"], // 相对路径文件
@@ -73,7 +72,7 @@ export default {
         ],
 
         // 内部模块路径匹配模式（适用于 monorepo）
-        internalPattern: ["#*", "#*/​**​"],  // 匹配 Vite 别名路径（如 #components/*）
+        internalPattern: ["~*", "~/**", "@mt-kit/**"],  // 匹配 Vite 别名路径（如 #components/*）
         newlinesBetween: "always",         // 分组间插入空行提升可读性
         order: "asc",                      // 组内按字母升序
         type: "natural"                    // 自然排序（智能处理数字顺序）

@@ -34,7 +34,7 @@ export default DEFAULT;
 
 export {
   javascript,
-  typescript,
   react,
+  typescript,
   vue
 };
