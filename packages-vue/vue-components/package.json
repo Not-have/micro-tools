@@ -1,17 +1,17 @@
 {
-  "name": "@mt-kit/vue-hooks",
+  "name": "@mt-kit/vue-components",
   "version": "1.0.0",
-  "description": "Hooks",
+  "description": "Components",
   "keywords": [
-    "vue-hooks",
-    "hooks"
+    "vue-components",
+    "components"
   ],
   "bugs": {
     "url": "https://github.com/Not-have/micro-tools/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-vue/vue-hooks"
+    "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-vue/vue-components"
   },
   "license": "ISC",
   "author": "LiYong",
