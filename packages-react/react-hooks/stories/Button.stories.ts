@@ -1,5 +1,6 @@
 import type {
-  Meta, StoryObj
+  Meta,
+  StoryObj
 } from "@storybook/react";
 
 import {
@@ -7,8 +8,9 @@ import {
 } from "./Button";
 
 const meta = {
-  title: "Example/Button",
+  title: "Demo",
   component: Button
+
 } satisfies Meta<typeof Button>;
 
 export default meta;
