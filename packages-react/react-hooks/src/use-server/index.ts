@@ -11,29 +11,27 @@ import {
 
 import useIsUnmounted from "../use-is-unmounted";
 
-type TPromiseValue<T> = T extends Promise<infer U> ? U : never;
-
 interface IConfig {
-  ignoreAlert?: boolean; // 不要错误弹窗
-  debounce?: boolean | number; // 防抖
-  error?: Function; // 请求错误时的展示
+  ignoreAlert?: boolean;        // 不显示错误弹窗
+  debounce?: boolean | number;    // 是否防抖，或指定防抖的时间（ms）
+  error?: () => void;             // 请求错误时的额外处理函数
 }
 
-interface IAsyncFunction {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  (...arg: unknown[]): Promise<any>;
-}
+// 定义异步函数类型，使用泛型指定参数类型 Args 和返回值类型 R
+export type TAsyncFunction<Args extends unknown[] = unknown[], R = unknown> = (
+  ...args: Args
+) => Promise<R>;
 
-interface IAsyncResult<T extends IAsyncFunction> {
-  run: T;
-  runWithDebounce?: DebouncedFunc<T>;
-  data?: TPromiseValue<ReturnType<T>>;
+export interface IAsyncResult<Args extends unknown[] = unknown[], R = unknown> {
+  run: (...args: Args) => Promise<R>;
+  runWithDebounce?: DebouncedFunc<(...args: Args) => Promise<R>>;
+  data?: R;
   loading: boolean;
 }
 
-interface IStateResult<T extends IAsyncFunction> {
+interface IStateResult<R> {
   loading: boolean;
-  data?: TPromiseValue<ReturnType<T>>;
+  data?: R;
 }
 
 const defaultConfig: IConfig = {
@@ -43,34 +41,42 @@ const defaultConfig: IConfig = {
 };
 
 /**
- * 选用 useAsync 而不用 useService
- * useService 比较坑
- * 而且 useAsync 中内置了 errorPrompt 也是比较友好的
+ * useServer 用于执行异步请求
+ *
+ * @param asyncFunction 异步请求函数，返回 Promise，使用泛型设置参数和返回值类型
+ * @param initData      初始数据
+ * @param config        配置项
+ * @returns             包含 run、runWithDebounce、loading、data 的结果对象
  */
-export default function useServer<T extends IAsyncFunction>(asyncFunction: T, initData?: TPromiseValue<ReturnType<T>>, config: IConfig = defaultConfig): IAsyncResult<T> {
+export default function useServer<Args extends unknown[], R>(
+    asyncFunction: (...args: Args) => Promise<R>,
+    initData?: R,
+    config: IConfig = defaultConfig
+): IAsyncResult<Args, R> {
   const isUnmounted = useIsUnmounted();
 
-  const [stateResult, setStateResult] = useState<IStateResult<T>>({
+  const [stateResult, setStateResult] = useState<IStateResult<R>>({
     loading: false,
     data: initData
   });
 
-  const run = useCallback((...args: unknown[]) => {
+  const run = useCallback((...args: Args): Promise<R> => {
     setStateResult(state => ({
       ...state,
       loading: true
     }));
 
-    return asyncFunction(...args).then(response => {
-      if (!isUnmounted()) {
-        setStateResult({
-          data: response,
-          loading: false
-        });
-      }
+    return asyncFunction(...args).
+        then(response => {
+          if (!isUnmounted()) {
+            setStateResult({
+              data: response,
+              loading: false
+            });
+          }
 
-      return response;
-    }).
+          return response;
+        }).
         catch((error: Error) => {
           if (!isUnmounted()) {
             setStateResult(state => ({
@@ -80,7 +86,6 @@ export default function useServer<T extends IAsyncFunction>(asyncFunction: T, in
           }
 
           if (!config.ignoreAlert) {
-
             console.error("请求失败时的处理");
 
             if (config.error) {
@@ -94,12 +99,16 @@ export default function useServer<T extends IAsyncFunction>(asyncFunction: T, in
 
   const runWithDebounce = useMemo(() => {
     if (config.debounce) {
-      return _debounce(run, 250);
+      const delay = typeof config.debounce === "number" ? config.debounce : 250;
+
+      return _debounce(run, delay);
     }
+
+    return undefined;
   }, [run, config.debounce]);
 
   return {
-    run: run as T,
+    run,
     runWithDebounce,
     loading: stateResult.loading,
     data: stateResult.data
