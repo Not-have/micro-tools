@@ -23,10 +23,6 @@ import {
 
 import dts from "vite-plugin-dts";
 
-import {
-  libPlugin
-} from "@mt-kit/vite-plugins";
-
 export default defineConfig(() => ({
   plugins: [
     dts({
@@ -56,7 +52,7 @@ export default defineConfig(() => ({
 
 | 字段 | 作用域 | 对应文件 |
 | --- | --- | --- |
-| main | CommonJS 规范 | dist/index.umd.js |
+| main | CommonJS 规范 也能在浏览器使用全局变量引用 | dist/index.umd.js |
 | module | ES 模块规范 | dist/index.es.js |
 | types | 类型声明文件 | dist/index.d.ts |
 | exports | 多入口条件导出 | 按模块类型映射路径 |
