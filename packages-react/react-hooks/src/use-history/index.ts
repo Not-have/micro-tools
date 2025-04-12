@@ -23,6 +23,9 @@ function compoundUrl(url: string, options?: INavigateOptions): string {
   return `${url || ""}${options?.search || ""}${options?.hash || ""}`;
 }
 
+/**
+ * 主要作用是对 react-router-dom 中的 useLocation 和 useNavigate 进行封装，以提供更便捷的路由导航功能
+ */
 export default function useHistory(): IHistoryHook {
   const location = useLocation();
 
