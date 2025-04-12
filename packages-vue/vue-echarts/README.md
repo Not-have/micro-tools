@@ -4,7 +4,7 @@
 
 echarts 社区：
 
-- [makeApie](https://www.makeapie.cn/echarts/)
+- [makeapie](https://www.makeapie.cn/echarts)
 
 - [ISQQW](https://www.isqqw.com/)
 
