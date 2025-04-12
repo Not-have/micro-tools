@@ -30,7 +30,7 @@
   "dependencies": {
     "@mt-kit/ts-config": "workspace:^",
     "lodash-es": "catalog:",
-    "qs": "^6.14.0"
+    "qs": "catalog:"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "catalog:",
@@ -41,10 +41,10 @@
     "@storybook/react-vite": "catalog:",
     "@storybook/test": "catalog:",
     "@types/lodash-es": "catalog:",
-    "@types/qs": "^6.9.18",
+    "@types/qs": "catalog:",
     "@types/react": "catalog:",
     "react": "catalog:",
-    "react-router-dom": "^7.5.0",
+    "react-router-dom": "catalog:",
     "storybook": "catalog:",
     "typescript": "catalog:"
   }
