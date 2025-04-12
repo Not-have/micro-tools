@@ -1,6 +1,5 @@
 import fs from "fs";
 import path from "path";
-
 import {
   DefaultTheme
 } from "vitepress";
@@ -14,7 +13,7 @@ interface IMenuRules {
   menu: DefaultTheme.Sidebar;
 }
 
-export default async function menuRules(): Promise<IMenuRules | undefined> {
+export default async function menuDev(): Promise<IMenuRules | undefined> {
   const packagesDir = path.resolve(__dirname, `../../src/${EOutDir.DEV}` );  // 根据需要设置路径
 
   if (fs.existsSync(packagesDir)) {

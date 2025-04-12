@@ -5,7 +5,8 @@ const EOutDir = {
   COMPONENTS: "_components-md",
   TS: "_ts-md",
   VITE: "_vite-md",
-  CONF: "_conf-md"
+  CONF: "_conf-md",
+  REACT: "_react-md"
 };
 
 const EEntry = {
@@ -16,10 +17,11 @@ const EEntry = {
   TYPES: "packages-types",
   ENUM: "packages-enum",
   VITE: "packages-vite-plugins",
-  CONF: "packages-conf"
+  CONF: "packages-conf",
+  REACT: "packages-react"
 };
 
 export{
-  EOutDir,
-  EEntry
+  EEntry,
+  EOutDir
 };
