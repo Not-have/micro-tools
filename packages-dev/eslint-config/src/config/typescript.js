@@ -97,7 +97,6 @@ export default {
       {
         filter: {
           match: false,
-
           regex: "[A-Z\\d]__[A-Z\\d]"
         },
         format: ["StrictPascalCase", "UPPER_CASE"],

@@ -1,6 +1,6 @@
 import js from "@eslint/js";
-import eslintPluginImportX from "eslint-plugin-import-x";
 import tsParser from "@typescript-eslint/parser";
+import eslintPluginImportX from "eslint-plugin-import-x";
 
 /**
  * @deprecated 出错了
