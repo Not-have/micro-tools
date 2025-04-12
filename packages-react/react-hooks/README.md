@@ -134,30 +134,40 @@ export default function DemoUseAsync(): React.ReactElement {
 - 主要作用是对 react-router-dom 中的 useLocation 和 useNavigate 进行封装，以提供更便捷的路由导航功能
 
 ```tsx
-import React from 'react';
+import React from "react";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Link 
-} from 'react-router-dom';
+  Link
+} from "react-router-dom";
 
 import {
   useHistory
-} from '@mt-kit/react-hooks';
+} from "@mt-kit/react-hooks";
 
 // 定义页面组件
-const HomePage = () => {
-  const { push, replace } = useHistory();
+function HomePage(): React.ReactElement {
+  const {
+    push, replace
+  } = useHistory();
 
   const handlePush = () => {
+
     // 使用 push 方法导航到新页面
-    push('/about', { search: '?param=value', hash: '#section' });
+    push("/about", {
+      search: "?param=value",
+      hash: "#section"
+    });
   };
 
   const handleReplace = () => {
+
     // 使用 replace 方法替换当前页面
-    replace({ search: '?newParam=newValue', hash: '#newSection' });
+    replace({
+      search: "?newParam=newValue",
+      hash: "#newSection"
+    });
   };
 
   return (
@@ -167,37 +177,46 @@ const HomePage = () => {
       <button onClick={handleReplace}>Replace Current Page</button>
     </div>
   );
-};
+}
 
-const AboutPage = () => {
-  const { location } = useHistory();
+function AboutPage(): React.ReactElement {
+  const {
+    location
+  } = useHistory();
 
-  return (
-    <div>
-      <h1>About Page</h1>
-      <p>Current URL: {location.pathname + location.search + location.hash}</p>
-    </div>
-  );
-};
+  return <div>
+    <h1>About Page</h1>
 
-const App = () => {
-  return (
-    <Router>
-      <nav>
-        <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/about">About</Link></li>
-        </ul>
-      </nav>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<AboutPage />} />
-      </Routes>
-    </Router>
-  );
-};
+    <p>
+      Current URL:
+      {location.pathname + location.search + location.hash}
+    </p>
+  </div>;
+}
 
-export default App;
+export default function App(): React.ReactElement {
+  return <Router>
+    <nav>
+      <ul>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+
+        <li>
+          <Link to="/about">About</Link>
+        </li>
+      </ul>
+    </nav>
+
+    <Routes>
+      <Route element={<HomePage />}
+        path="/" />
+
+      <Route element={<AboutPage />}
+        path="/about" />
+    </Routes>
+  </Router>;
+}
 ```
 
 ### useLocationQuery
@@ -205,76 +224,79 @@ export default App;
 - URL 中 search 参数的管理
 
 ```tsx
-import React from 'react';
-import { 
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link
-} from 'react-router-dom';
+import React, {
+  useCallback
+} from "react";
+
 import {
+  QueryHookResult,
+  QueryTypes,
   useLocationQuery
-} from '@mt-kit/react-hooks';
+} from "@mt-kit/react-hooks";
 
-const HomePage = () => {
-  // 定义查询参数的类型
-  type QueryParams = {
-    page: number;
-    showDetails: boolean;
-  };
+// 定义查询参数的类型
+interface IQueryParams {
+  page: number;
+  showDetails: boolean;
+}
 
-  // 配置选项
-  const options = {
-    keys: ['page', 'showDetails'] as (keyof QueryParams)[],
-    defaults: {
-      page: 1,
-      showDetails: false
-    },
-    types: {
-      page: 'number',
-      showDetails: 'boolean'
-    },
-    replaceMode: false
-  };
-
-  // 使用 useLocationQuery Hook
-  const [query, updateQuery] = useLocationQuery<QueryParams>(options);
-
-  const handlePageChange = (newPage: number) => {
-    // 更新查询参数
-    updateQuery({ page: newPage });
-  };
-
-  const handleShowDetailsChange = (show: boolean) => {
-    // 更新查询参数
-    updateQuery({ showDetails: show });
-  };
-
-  return (
-    <div>
-      <h1>Home Page</h1>
-      <p>Current Page: {query.page}</p>
-      <p>Show Details: {query.showDetails ? 'Yes' : 'No'}</p>
-      <button onClick={() => handlePageChange(2)}>Go to Page 2</button>
-      <button onClick={() => handleShowDetailsChange(true)}>Show Details</button>
-    </div>
-  );
+const types: QueryTypes<IQueryParams> = {
+  page: "number",
+  showDetails: "boolean"
 };
 
-const App = () => {
-  return (
-    <Router>
-      <nav>
-        <ul>
-          <li><Link to="/">Home</Link></li>
-        </ul>
-      </nav>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-      </Routes>
-    </Router>
-  );
+// 或者
+/*
+const type = {
+  page: "number" as const,          // ✅ 正确
+  showDetails: "boolean" as const   // ✅ 正确
+};
+*/
+
+const options = {
+  keys: ["page", "showDetails"] as (keyof IQueryParams)[],
+  defaults: {
+    page: 1,
+    showDetails: false
+  },
+  types,
+  replaceMode: false
 };
 
-export default App;
+export default function TestUseLocationQuery(): React.ReactElement {
+
+  const arr: QueryHookResult<IQueryParams> = useLocationQuery<IQueryParams>(options);
+
+  const [query, updateQuery] = arr;
+
+  const handlePageChange = useCallback((newPage: number) => {
+    updateQuery({
+      page: newPage
+    });
+  }, [updateQuery]);
+
+  const handleShowDetailsChange = useCallback((show: boolean) => {
+    updateQuery({
+      showDetails: show
+    });
+  }, [updateQuery]);
+
+  return <div>
+    <p>useHistory 的使用</p>
+
+    <p>
+      Current Page:
+      {query.page}
+    </p>
+
+    <p>
+      Show Details:
+      {query.showDetails ? "Yes" : "No"}
+    </p>
+
+    <button onClick={() => handlePageChange(2)}>Go to Page 2</button>
+    <button onClick={() => handleShowDetailsChange(true)}>Show Details</button>
+    <button onClick={() => handleShowDetailsChange(false)}>Show Details Reset</button>
+  </div>;
+}
 ```

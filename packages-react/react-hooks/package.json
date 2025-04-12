@@ -1,6 +1,6 @@
 {
   "name": "@mt-kit/react-hooks",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "React hooks",
   "keywords": [
     "react-hooks",
@@ -22,8 +22,13 @@
     "storybook": "storybook dev",
     "build-storybook": "storybook build",
     "clear": "rm -fr node_modules",
-    "build": "unbuild"
+    "build": "unbuild",
+    "prepublishOnly": "pnpm build"
   },
+  "files": [
+    "README.md",
+    "dist"
+  ],
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "exports": {

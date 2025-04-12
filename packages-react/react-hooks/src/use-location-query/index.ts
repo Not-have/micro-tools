@@ -12,8 +12,14 @@ import qs from "qs";
 
 import useHistory from "../use-history";
 
+/**
+ * 明确 URL 查询参数（字符串）与代码中实际类型的对应关系
+ */
 type TQueryTypes<T> = Partial<Record<keyof T, "number" | "boolean">>;
 
+/**
+ * 明确 useLocationQuery 返回值的类型
+ */
 type TQueryHookResult<T> = [Partial<T>, (queryUpdate: Partial<T>, replaceMode?: boolean) => void];
 
 interface IOptions<T> {
@@ -113,8 +119,7 @@ export default function useLocationQuery<T>({
       ...queryUpdate
     }, defaults);
 
-    if (windowSearch === newSearchString)
-    {
+    if (windowSearch === newSearchString) {
       return;
     }
 
