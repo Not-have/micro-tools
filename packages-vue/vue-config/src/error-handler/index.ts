@@ -9,38 +9,30 @@ import {
 interface IError {
   [name: string]: unknown;
   message: string;
-   stack: string;
-   id?: string;
-   frame?: string;
-   plugin?: string;
-   pluginCode?: string;
-   loc?: {
+  stack: string;
+  id?: string;
+  frame?: string;
+  plugin?: string;
+  pluginCode?: string;
+  loc?: {
     file?: string;
     line: number;
     column: number;
-   };
-  }
+  };
+}
 
 /**
  * Vue3 全局的错误示例方法
  *
  * https://cn.vuejs.org/api/application#app-config-errorhandler
  *
- * @param err
- * @param vm
- * @param info
- *
- * 使用：similar
- *
- * main.js
- *
- * import {
- *     errorHandler
- * } from 'micro-vue-components';
- *
- * app.config.errorHandler = errorHandler
+ * TODO 优化
  */
-export default function configErrorHandler(err: unknown, vm: ComponentPublicInstance, info: unknown): void {
+export default function configErrorHandler(
+    err: unknown,
+    vm: ComponentPublicInstance | null,
+    info: string
+): void {
   vm?.$nextTick(() => {
     if (vm?.$el.childNodes.length > 0) {
       (vm?.$el as Element).innerHTML = "";
@@ -50,7 +42,7 @@ export default function configErrorHandler(err: unknown, vm: ComponentPublicInst
     }
 
     // 在处理一个 template 直接字符串的情况
-    (vm?.$el as Element).textContent = `${info }: ${ err}`;
+    (vm?.$el as Element).textContent = `${info}: ${err}`;
     document.body.append(imitationViteError(err as IError, true));
   });
 }
