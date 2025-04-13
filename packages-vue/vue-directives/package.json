@@ -1,17 +1,17 @@
 {
-  "name": "@mt-kit/vue-hooks",
+  "name": "@mt-kit/vue-directives",
   "version": "1.0.0",
-  "description": "Hooks",
+  "description": "Directives",
   "keywords": [
-    "vue-hooks",
-    "hooks"
+    "vue-directives",
+    "directives"
   ],
   "bugs": {
     "url": "https://github.com/Not-have/micro-tools/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-vue/vue-hooks"
+    "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-vue/vue-directives"
   },
   "license": "ISC",
   "author": "LiYong",
