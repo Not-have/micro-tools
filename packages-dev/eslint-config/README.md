@@ -76,6 +76,19 @@ export default [
 }
 ```
 
+注：`Visual Studio Code` 保存时，自动修复代码
+
+`.vscode/settings.json`
+
+```json
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "editor.tabSize": 2
+}
+```
+
 ## 插件
 
 | 插件名 | 作用 |
