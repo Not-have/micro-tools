@@ -88,6 +88,32 @@ public
 node_modules
 ```
 
+## 修复指令
+
+`package.json`
+
+```json
+{
+  "name": "demo",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "type": "module",
+  "scripts": {
+    "clear": "rm -fr node_modules",
+    "lint": "stylelint '**/*.css'",
+    "fix": "stylelint '**/*.css' --fix"
+  },
+  "peerDependencies": {
+    "stylelint": ">=16.17.0"
+  },
+  "devDependencies": {
+    "@mt-kit/stylelint-config": "^X.Y.Z",
+    "stylelint": "^16.17.0",
+  }
+}
+```
+
 ## 插件
 
 | 插件 | 作用 |

@@ -50,6 +50,32 @@ export default [
 
 注：推荐配合 [@mt-kit/prettier-config](https://www.npmjs.com/package/@mt-kit/prettier-config) 一块使用。
 
+## 修复指令
+
+`package.json`
+
+```json
+{
+  "name": "demo",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "type": "module",
+  "scripts": {
+    "clear": "rm -fr node_modules",
+    "lint": "pnpm eslint .",
+    "fix": "eslint \"./**/*.{css,tsx,vue,ts,js,html}\" --fix"
+  },
+  "peerDependencies": {
+    "eslint": ">9.0.0"
+  },
+  "devDependencies": {
+    "@mt-kit/eslint-config": "^X.Y.Z",
+    "eslint": "^9.24.0",
+  }
+}
+```
+
 ## 插件
 
 | 插件名 | 作用 |

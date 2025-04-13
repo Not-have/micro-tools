@@ -43,3 +43,28 @@ public
 **/*-lock.yaml
 **/*-lock.json
 ```
+
+## 修复指令
+
+`package.json`
+
+```json
+{
+  "name": "demo",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "type": "module",
+  "scripts": {
+    "clear": "rm -fr node_modules",
+    "lint": "prettier --write"
+  },
+  "peerDependencies": {
+    "prettier": ">=3.5.3"
+  },
+  "devDependencies": {
+    "@mt-kit/prettier-config": "^X.Y.Z",
+    "prettier": "^3.5.3",
+  }
+}
+```
