@@ -1,4 +1,4 @@
-# Hooks
+# @mt-kit/vue-hooks
 
 ## 下载
 
@@ -8,110 +8,102 @@ npm i @mt-kit/vue-hooks
 
 ## API
 
-### useEventListener
-
-```vue
-<template>
-    <button @click="toggleEventListener">事件监听</button>
-</template>
-<script setup>
-import { ref } from 'vue';
-import { useEventListener } from 'micro-vue-hooks';
-const isEventListenerActive = ref(false);
-// 创建事件处理函数
-const eventHandler = event => {
-    console.log('监听点击事件:', event.target);
-};
-// 创建事件监听器
-const { removeEvent } = useEventListener({
-    name: 'click', // 事件名称
-    listener: eventHandler // 事件处理函数
-});
-// 切换事件监听器状态
-const toggleEventListener = () => {
-    if (isEventListenerActive.value) {
-        removeEvent(); // 移除事件监听器
-    } else {
-        // 重新添加事件监听器
-        useEventListener({
-            name: 'click',
-            listener: eventHandler
-        });
-    }
-    // 切换状态
-    isEventListenerActive.value = !isEventListenerActive.value;
-};
-</script>
-```
-
 ### useLocationQuery
+
+- 修改 url 参数
 
 ```vue
 <script setup lang="ts">
-import { watchEffect } from 'vue';
-import { useLocationQuery } from 'micro-vue-hooks';
+import {
+  useLocationQuery
+} from "@mt-kit/vue-hooks";
+import {
+  watchEffect
+} from "vue";
 const [query, updateQuery] = useLocationQuery({
-    keys: ["id", "name"],
-    defaults: {
-        id: 11,
-        name: '哈哈哈'
-    }
+  keys: ["id", "name"],
+  defaults: {
+    id: 11,
+    name: "哈哈哈"
+  }
 });
+
 function handleChangeId(event: any) {
-    updateQuery({
-        id: event.target.value
-    })
+  updateQuery({
+    id: event.target.value
+  });
 }
+
 watchEffect(() => {
-    console.log(query.value);
-})
+  console.log(query.value);
+});
 </script>
 <template>
-    id <input :defaultValue="query.id" @input="handleChangeId" />
+  id <input
+    :defaultValue="query.id"
+    @input="handleChangeId"
+  />
 </template>
 ```
 
 ### useService
 
-```vue
-<template>
-    <div>数据请求</div>
-    <button @click="handleEdit">修改数据</button>
-    {{ loading }}
-    {{ data }}
-</template>
-<script lang='ts' setup>
-import { reactive } from 'vue';
-import { useService } from 'micro-vue-hooks';
- function fun(params) {
-    // 构建 URL，将查询参数附加到 URL 上
-    const url = new URL('https://mock.mengxuegu.com/mock/61922927f126df7bfd5b79ef/promise/promise3');
-    url.search = new URLSearchParams({ ...params, method: 'get' }).toString();
+- 数据请求
 
-    return new Promise((resolve, reject) =>{
-       fetch(url).then(req => {
-           return req.json();
-       }).then(res => {
-           resolve(res);
-       }).catch(err => {
-           reject(err);
-       });
-    })
+```vue
+<script lang='ts' setup>
+import {
+  useService
+} from "@mt-kit/vue-hooks";
+import {
+  reactive
+} from "vue";
+
+function fun(params): Promise<object> {
+
+  // 构建 URL，将查询参数附加到 URL 上
+  const url = new URL("https://mock.mengxuegu.com/mock/61922927f126df7bfd5b79ef/promise/promise3");
+
+  url.search = new URLSearchParams({
+    ...params,
+    method: "get"
+  }).toString();
+
+  return new Promise((resolve, reject) => {
+    fetch(url).then(req => req.json()).
+        then(res => {
+          resolve(res);
+        }).
+        catch(error => {
+          reject(error);
+        });
+  });
 }
-let obj = reactive({
-    value: 'test'
+
+const obj = reactive({
+  value: "test"
 });
+
 const {
-    run,
-    data,
-    loading
+  run,
+  data,
+  loading
 } = useService(fun, obj);
-function handleEdit() {
-    run({
-        value: 'test'
-    });
+
+function handleEdit(): void {
+  run({
+    value: "test"
+  });
 }
 </script>
+<template>
+  <div>数据请求</div>
+  <button @click="handleEdit">
+    修改数据
+  </button>
+  {{ loading }}
+  {{ data }}
+</template>
 ```
 
 注：在 `uniapp` 中使用，需要给类型一层约束，负责会报奇怪的 ts 错误。
@@ -120,8 +112,8 @@ function handleEdit() {
 // use-service.ts
 import type { Ref } from 'vue';
 import { toRef } from 'vue';
-import type { ServiceFunction, ServiceConfig } from 'micro-vue-hooks';
-import { useService as _useService } from 'micro-vue-hooks';
+import type { ServiceFunction, ServiceConfig } from '@mt-kit/vue-hooks';
+import { useService as _useService } from '@mt-kit/vue-hooks';
 interface IAsyncResult<T, Q> {
   data?: Ref<T | null | undefined>;
   loading: Ref<boolean>;
@@ -147,6 +139,8 @@ export default function useService<T, Q>(
 注：其余的 hooks 查看 index 中的导出。
 
 ### useWatermark
+
+- 水印
 
 ```vue
 <template>
@@ -177,7 +171,7 @@ import { onUnmounted, ref } from 'vue';
 import { 
     useWatermark,
     Button
-} from 'micro-vue-hooks';
+} from '@mt-kit/vue-hooks';
 
 const app = ref(document.body);
 
@@ -198,49 +192,54 @@ onUnmounted(() => {
 
 ### useState
 
-```vue
-<template>
-    <div>
-        {{ state.age }}
-        <br />
-        <br />
-        <button @click="handleClick">
-          修改
-        </button>
-        <br />
-        <button @click="handleReductionClick">
-          还原
-        </button>
-    </div>
-</template>
-<script lang="ts" setup>
-import { watch } from 'vue';
+- 集合 ref 和 reactive 的 use
 
-import { 
-    useState
-} from 'micro-vue-hooks';
+```vue
+<script lang="ts" setup>
+import {
+  useState
+} from "@mt-kit/vue-hooks";
+import {
+  watch
+} from "vue";
 
 const [state, setState] = useState({
-    age: 1
+  age: 1
 });
 
 const handleClick = (): void => {
-    setState({
-        age: 2
-    });
+  setState({
+    age: 2
+  });
 };
 
 const handleReductionClick = (): void => {
-    setState();
+  setState();
 };
 
 watch(() => state.age, (newValue, oldValue) => {
-    console.log(newValue, oldValue);
+  console.log(newValue, oldValue);
 });
 </script>
+<template>
+  <div>
+    {{ state.age }}
+    <br />
+    <br />
+    <button @click="handleClick">
+      修改
+    </button>
+    <br />
+    <button @click="handleReductionClick">
+      还原
+    </button>
+  </div>
+</template>
 ```
 
 ### useMount
+
+- 创建虚拟元素，常用于弹出框
 
 ```vue
 <script lang="tsx" setup>
@@ -251,7 +250,7 @@ import {
 
 import {
   useMount
-} from "micro-vue-hooks";
+} from "@mt-kit/vue-hooks";
 import Modal from "./op/index.vue";
 
 const dialogMount = useMount();
