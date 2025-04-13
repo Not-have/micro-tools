@@ -34,6 +34,10 @@
       "require": "./dist/index.umd.js"
     }
   },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "devDependencies": {
     "@mt-kit/ts-config": "workspace:^",
     "@mt-kit/vite-plugins": "workspace:^",

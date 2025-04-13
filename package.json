@@ -43,7 +43,7 @@
     "postinstall": "pnpm run clear:lock",
     "prepare": "husky",
     "commit": "cz",
-    "pub:init": "pnpm publish -r",
+    "ci:publish": "pnpm publish -r",
     "pub": "pnpm changeset version"
   },
   "devDependencies": {

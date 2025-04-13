@@ -1,6 +1,6 @@
 {
   "name": "@mt-kit/vue-hooks",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Hooks",
   "keywords": [
     "vue-hooks",
@@ -33,6 +33,10 @@
       "import": "./dist/index.es.js",
       "require": "./dist/index.umd.js"
     }
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "dependencies": {
     "@mt-kit/utils": "workspace:^"
