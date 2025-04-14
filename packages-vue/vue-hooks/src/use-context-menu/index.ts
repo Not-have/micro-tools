@@ -1,17 +1,18 @@
 import {
-  onUnmounted,
-  getCurrentInstance
+  onUnmounted, getCurrentInstance
 } from "vue";
 
 import {
-  createContextMenu,
-  destroyContextMenu
+  createContextMenu, destroyContextMenu
 } from "./rc-container";
 import {
   ICreateContextOptions
 } from "./types";
 
-export default function useContextMenu(authRemove = true): (((options: ICreateContextOptions) => Promise<unknown> | undefined) | (() => void))[] {
+export default function useContextMenu(authRemove = true): [
+  (options: ICreateContextOptions) => Promise<unknown> | undefined,
+  () => void
+] {
   if (getCurrentInstance() && authRemove) {
     onUnmounted(() => {
       destroyContextMenu();
