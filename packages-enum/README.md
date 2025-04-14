@@ -10,4 +10,4 @@ npm i @mt-kit/enum
 
 ### CursorType
 
-鼠标形状枚举
+- 鼠标形状枚举

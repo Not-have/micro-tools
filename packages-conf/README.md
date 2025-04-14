@@ -12,8 +12,8 @@ npm i @mt-kit/conf -D
 
 #### ICONFONT_URL
 
-ICON 在线地址
+- ICON 在线地址
 
 #### IconType
 
-ICON 图标枚举
+- ICON 图标枚举

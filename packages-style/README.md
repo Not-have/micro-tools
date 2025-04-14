@@ -26,7 +26,7 @@ import '@mt-kit/style/indivHtml';
 
 ### cssEllipsis
 
-文本超出行就隐藏并且显示省略号。
+- 文本超出行就隐藏并且显示省略号。
 
 ```js
 import {

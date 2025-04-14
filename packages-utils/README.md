@@ -14,7 +14,7 @@ npm i @mt-kit/utils
 
 ### animationFrameThrottle
 
-使用 requestAnimationFrame 创建函数节流版本，限制函数在特定时间内的调用次数。
+- 使用 requestAnimationFrame 创建函数节流版本，限制函数在特定时间内的调用次数
 
 | 参数名      | 说明     |  是否必穿  |
 | ----------- | ------------------------- | ----------|
@@ -33,7 +33,7 @@ const animatedFunction = animationFrameThrottle(updateAnimation);
 
 ### imageBase64ToBlob
 
-将 Base64 格式的图片转换为 Blob 对象。
+- 将 Base64 格式的图片转换为 Blob 对象
 
 | 参数名      | 说明     |  是否必穿  |
 | ----------- | ----------- | ----------- |
@@ -46,7 +46,7 @@ const blob = imageBase64ToBlob(base64Data);
 
 ### imageUrlToBase64
 
-将图片 URL 转换为 Base64 格式。
+- 将图片 URL 转换为 Base64 格式
 
 | 参数名      | 说明     |  是否必穿  | 默认值 |
 | ----------- | ----------- | ----------- | ----------- |
@@ -62,7 +62,7 @@ imageUrlToBase64('https://example.com/image.png')
 
 ### downloadByUrl
 
-根据文件地址进行下载。
+- 根据文件地址进行下载
 
 | 参数名      | 说明     |  是否必穿  |
 | ----------- | ----------- | ----------- |
@@ -80,7 +80,7 @@ downloadByUrl({
 
 ### downloadDataFile
 
-根据文件数据进行下载。
+- 根据文件数据进行下载
 
 | 参数名      | 说明     |  是否必穿  |
 | --------   | ------- | ----------|
@@ -96,7 +96,7 @@ downloadDataFile(data, 'hello.txt', 'text/plain');
 
 ### downloadBase64File
 
-根据 Base64 数据下载文件。
+- 根据 Base64 数据下载文件
 
 | 参数名      | 说明     |  是否必穿  |
 | --------   | ------- | ----------|
@@ -111,7 +111,7 @@ downloadBase64File(base64Data, 'hello.txt');
 
 ### downloadUrlFile
 
-根据在线图片的 URL 进行下载。
+- 根据在线图片的 URL 进行下载
 
 | 参数名      | 说明     |  是否必穿  |
 | --------   | ------- | ----------|
@@ -130,7 +130,7 @@ downloadUrlFile(
 
 ### copyText
 
-复制文本到剪贴板。
+- 复制文本到剪贴板
 
 | 参数名      | 说明     |  是否必穿  |
 | --------   | ------- | ----------|
@@ -145,7 +145,7 @@ copyText('Hello World!').then(() => {
 
 ### queryStringToObject
 
-将查询字符串转换为对象。
+- 将查询字符串转换为对象
 
 | 参数名      | 说明     |  是否必穿  |
 | --------   | ------- | ----------|
@@ -158,7 +158,7 @@ console.log(query); // { name: 'John', age: '30' }
 
 ### openWindow
 
-打开新窗口。
+- 打开新窗口
 
 | 参数名      | 说明     |  是否必穿  |
 | --------   | ------- | ----------|
@@ -174,7 +174,7 @@ openWindow('https://example.com', {
 
 ### cookieHelper
 
-Cookie 操作助手。
+- Cookie 操作助手
 
 | 参数名      | 说明     |  是否必穿  |
 | --------   | ------- | ----------|
@@ -201,7 +201,7 @@ cookieHelper.remove('username');
 
 ### localStorageHelper
 
-localStorage 操作助手。
+- localStorage 操作助手
 
 | 参数名      | 说明     |  是否必穿  |
 | --------   | ------- | ----------|
@@ -231,7 +231,7 @@ localStorageHelper.clear();
 
 ### isElement
 
-判断是否为 DOM 元素。
+- 判断是否为 DOM 元素
 
 | 参数名      | 说明     |  是否必穿  |
 | --------   | ------- | ----------|
@@ -245,7 +245,7 @@ console.log(isElement({})); // false
 
 ### isFunction
 
-判断是否为函数。
+- 判断是否为函数
 
 | 参数名      | 说明     |  是否必穿  |
 | --------   | ------- | ----------|
@@ -258,7 +258,7 @@ console.log(isFunction({})); // false
 
 ### isEqual
 
-比较两个对象是否相等。
+- 比较两个对象是否相等
 
 | 参数名      | 说明     |  是否必穿  |
 | --------   | ------- | ----------|
@@ -276,7 +276,7 @@ console.log(isEqual(objA, objC)); // false
 
 ### isNull
 
-判断是否为 null。
+- 判断是否为 null
 
 | 参数名      | 说明     |  是否必穿  |
 | --------   | ------- | ----------|
@@ -290,7 +290,7 @@ console.log(isNull(0)); // false
 
 ### isObject
 
-判断是否为对象类型。
+- 判断是否为对象类型
 
 | 参数名      | 说明     |  是否必穿  |
 | --------   | ------- | ----------|
@@ -305,7 +305,7 @@ console.log(isObject('string')); // false
 
 ### isUndefined
 
-判断是否为 undefined。
+- 判断是否为 undefined
 
 | 参数名      | 说明     |  是否必穿  |
 | --------   | ------- | ----------|
@@ -319,7 +319,7 @@ console.log(isUndefined(0)); // false
 
 ### clone
 
-浅拷贝对象。
+- 浅拷贝对象
 
 | 参数名      | 说明     |  是否必穿  |
 | --------   | ------- | ----------|
@@ -335,7 +335,7 @@ console.log(cloned.b === obj.b); // true，浅拷贝，引用相同
 
 ### cloneDeep
 
-深拷贝对象。
+- 深拷贝对象
 
 | 参数名      | 说明    |  是否必穿  |
 | --------   | ------- | ----------|
@@ -351,7 +351,7 @@ console.log(cloned.b === obj.b); // false，深拷贝，引用不同
 
 ### debounce
 
-创建一个防抖函数，延迟调用函数直到上一次调用后的一段时间已经过去。
+- 创建一个防抖函数，延迟调用函数直到上一次调用后的一段时间已经过去
 
 | 参数名      | 说明     |  是否必穿  |
 | --------   | ------- | ----------|
@@ -373,7 +373,7 @@ inputElement.addEventListener('input', (e) => {
 
 ### throttle
 
-创建一个节流函数，限制函数在一段时间内只能调用一次。
+- 创建一个节流函数，限制函数在一段时间内只能调用一次
 
 | 参数名      | 说明     |  是否必穿  |
 | --------   | ------- | ----------|
@@ -393,7 +393,7 @@ window.addEventListener('scroll', throttledScroll);
 
 ### omitBy
 
-创建一个从对象中排除满足条件的属性的新对象。
+- 创建一个从对象中排除满足条件的属性的新对象
 
 | 参数名      | 说明     |  是否必穿  |
 | --------   | ------- | ----------|
@@ -415,7 +415,7 @@ console.log(result); // { a: 1, b: 2 }
 
 ### objectValueToString
 
-将对象的值转换为字符串。
+- 将对象的值转换为字符串
 
 | 参数名      | 说明     |  是否必穿  |
 | --------   | ------- | ----------|

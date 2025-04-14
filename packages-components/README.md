@@ -10,7 +10,7 @@ npm i @mt-kit/components
 
 ### cssGenerateTriangle
 
-css 三角形
+- css 三角形
 
 ```js
 import {
@@ -22,7 +22,7 @@ import {
 
 ### imitationViteError
 
-生成一个类似 Vite 报错的提示
+- 生成一个类似 Vite 报错的提示
 
 <img src="https://not-have.github.io/file/images/vite-error.png" alt="ErrorOverlay" style="zoom:40%;" />
 
@@ -41,6 +41,8 @@ document.body.appendChild(overlay);
 ```
 
 ### draggable
+
+- 拖动界面元素
 
 ```html
 <!DOCTYPE html>
