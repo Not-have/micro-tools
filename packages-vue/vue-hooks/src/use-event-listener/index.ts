@@ -3,15 +3,11 @@ import type {
 } from "@mt-kit/types";
 
 import {
-  Ref,
-  ref,
-  watch,
-  unref
+  Ref, ref, watch, unref
 } from "vue";
 
 import {
-  throttle,
-  debounce
+  throttle, debounce
 } from "@mt-kit/utils";
 
 interface IUseEventParams {
@@ -26,8 +22,8 @@ interface IUseEventParams {
 
 /**
  * 监听事件
- * @param {any} el 事件绑定的元素，默认为 window
- * @param {string} name 事件名称
+ * @param {Element} el 事件绑定的元素，默认为 window
+ * @param {EventName} name 事件名称
  * @param {EventListener} func 事件处理函数
  * @param {boolean | AddEventListenerOptions | undefined} options 事件监听的配置项，如 passive、capture 等
  * @param {boolean | undefined} autoRemove 是否自动移除事件监听，默认为 true
@@ -43,14 +39,18 @@ export default function useEventListener({
   autoRemove = true,
   isDebounce = true,
   wait = 80
-}: IUseEventParams): { removeEvent: () => void } {
-
-  // eslint-disable-next-line no-empty-function
-  let remove = (): void => {}; // 初始化移除事件监听的函数，初始值为空函数
+}: IUseEventParams): {
+  removeEvent: () => void;
+} {
+  let remove = (): void => {
+    console.warn("Remove function is not yet initialized."); // 初始化移除事件监听的函数，初始值为警告
+  };
 
   const isAddRef = ref(false);
 
-  if (el) { // 判断 el 是否存在
+  if (el) {
+
+    // 判断 el 是否存在
     const element = ref(el as Element) as Ref<Element>; // 将 el 转换为 Ref 对象
 
     const handler = isDebounce ? debounce(func, wait) : throttle(func, wait);
