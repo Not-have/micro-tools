@@ -25,12 +25,21 @@ hero:
     - theme: alt
       text: React
       link: /src/_react-md/react-hooks
+    - theme: alt
+      text: Vue
+      link: /src/_vue-md/vue-components
 
 features:
-  - title: 常用工程配置
-    details: 提供一系列常用的工程配置，帮助快速搭建项目
+  - title: Eslint 工程配置
+    details: 提供常用的 Eslint 工程配置，帮助快速搭建项目
+  - title: Prettier 工程配置
+    details: 提供常用的 Prettier 工程配置，帮助快速搭建项目
   - title: utils
     details: 收集并整理了实用的 js 方法
   - title: ts 工具包
     details: 积累一些常用的枚举
+  - title: Vue
+    details: 组件、hooks、自定义指令 等
+  - title: React
+    details: 组件、hooks
 ---

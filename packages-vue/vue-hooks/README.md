@@ -548,7 +548,7 @@ import {
 
 import {
   useContextMenu
-} from "../../src";
+} from "@mt-kit/vue-hooks";
 
 // 获取创建和销毁上下文菜单的方法
 const [createContextMenu, destroyContextMenu] = useContextMenu();
