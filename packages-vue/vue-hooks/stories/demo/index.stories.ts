@@ -1,7 +1,6 @@
 import Index from "./index.vue";
 import type {
-  Meta,
-  StoryObj
+  Meta, StoryObj
 } from "@storybook/vue3";
 
 const meta = {
