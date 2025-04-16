@@ -1,4 +1,4 @@
-# micro-util
+# @mt-kit/utils
 
 ## 下载
 
@@ -431,4 +431,88 @@ const obj = {
 const stringified = objectValueToString(obj);
 console.log(stringified);
 // 输出: { id: '123', active: 'true', score: '98.5' }
+```
+
+### IframeMessage
+
+- 创建一个 iframe 便签，与内嵌的页面进行通讯
+
+调用界面
+
+```tsx
+import {
+  JSX,
+  useCallback,
+  useMemo
+} from "react";
+
+import {
+  IframeMessage
+} from "@mt-kit/utils";
+
+export default function DemoIframeMessage(): JSX.Element {
+  const url = "http://localhost:5173/";
+
+  const iframe = useMemo(() => {
+    const communicator = new IframeMessage();
+
+    communicator.createIframe(url);
+
+    return communicator;
+  }, [url]);
+
+  const handleClick = useCallback(() => {
+
+    iframe.postMessage({
+      type: "message",
+      data: {
+        name: "hello",
+        age: 18
+      }
+    });
+  }, [iframe]);
+
+  return <div>
+    <p>iframe 通信</p>
+    <button onClick={handleClick}>传值</button>
+  </div>;
+}
+```
+
+接收通信
+
+```vue
+<script setup lang="ts">
+import {
+  onMounted,
+  onUnmounted
+} from "vue";
+
+import {
+  Message,
+  IframeMessage
+} from "@mt-kit/utils";
+
+const iframe = new IframeMessage();
+
+const handleMessage = (e: Message ): void => {
+  console.log(e);
+};
+
+onMounted(() => {
+  iframe.onMessage(handleMessage);
+});
+
+onUnmounted(() => {
+  iframe.removeMessageListener(handleMessage);
+});
+
+</script>
+
+<template>
+
+</template>
+
+<style scoped>
+</style>
 ```

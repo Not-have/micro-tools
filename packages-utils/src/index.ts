@@ -31,4 +31,7 @@ export { default as throttle } from "./throttle";
 export { default as omitBy } from "./omit-by";
 export { default as objectValueToString } from "./object-value-to-string";
 
-export { default as IframeMessage } from "./iframe-message";
+export {
+  default as IframeMessage,
+  type IMessage as Message
+} from "./iframe-message";

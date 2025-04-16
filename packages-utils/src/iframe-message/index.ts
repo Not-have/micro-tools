@@ -59,7 +59,7 @@ class IframeMessage {
     });
   }
 
-  removeMessageListener(callback: (e: MessageEvent | IMessage) => void): void {
+  removeMessageListener(callback: (e: MessageEvent | IMessage | never) => void): void {
     window.removeEventListener("message", callback);
   }
 
