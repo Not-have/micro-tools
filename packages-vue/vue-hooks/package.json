@@ -39,7 +39,8 @@
     "registry": "https://registry.npmjs.org/"
   },
   "dependencies": {
-    "@mt-kit/utils": "workspace:^"
+    "@mt-kit/utils": "workspace:^",
+    "resize-observer-polyfill": "catalog:"
   },
   "devDependencies": {
     "@mt-kit/ts-config": "workspace:^",

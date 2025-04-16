@@ -8,10 +8,12 @@ import {
 } from "vue";
 
 import {
-  animationFrameThrottle,
-  domAddResizeListener,
-  domRemoveResizeListener
+  animationFrameThrottle
 } from "@mt-kit/utils";
+
+import {
+  domAddResizeListener, domRemoveResizeListener
+} from "./utils";
 
 const watermarkSymbol = "watermark-dom";
 
@@ -58,7 +60,10 @@ function findTargetNode(el: unknown): Omit<IUseWatermarkRes, "clearAll"> | undef
   return [...sourceMap.values()].find(item => item.targetElement === el);
 }
 
-function createBase64(str: string, waterMarkOptions: IWaterMarkOptionsType): string {
+function createBase64(
+    str: string,
+    waterMarkOptions: IWaterMarkOptionsType
+): string {
   const can = document.createElement("canvas");
 
   const width = 300;
@@ -101,7 +106,7 @@ const resetWatermarkStyle = (
     watermarkText: string,
     waterMarkOptions: IWaterMarkOptionsType
 ): void => {
-  element.className = `__${ watermarkSymbol}`;
+  element.className = `__${watermarkSymbol}`;
   element.style.pointerEvents = "none";
   element.style.display = "block";
   element.style.visibility = "visible";
@@ -123,7 +128,9 @@ const obFn = (): MutationObserver => {
       for (const node of mutation.removedNodes) {
         const target = findTargetNode(node);
 
-        if (!target) {return;}
+        if (!target) {
+          return;
+        }
 
         const {
           targetElement, parentElement
@@ -136,7 +143,6 @@ const obFn = (): MutationObserver => {
       }
 
       if (mutation.attributeName === "style" && mutation.target) {
-
         const _target = mutation.target as HTMLElement;
 
         const target = findTargetNode(_target);
@@ -147,9 +153,9 @@ const obFn = (): MutationObserver => {
           } = target;
 
           resetWatermarkStyle(
-              _target as HTMLElement,
-              _target?.getAttribute("data-watermark-text") || "",
-              waterMarkOptions
+            _target as HTMLElement,
+            _target?.getAttribute("data-watermark-text") || "",
+            waterMarkOptions
           );
         }
       }
@@ -169,7 +175,10 @@ function clearAll(): void {
 export default function useWatermark(
     appendEl: Ref<HTMLElement | null> = ref(document.body) as Ref<HTMLElement>,
     waterMarkOptions: IWaterMarkOptionsType = {}
-): Omit<IUseWatermarkRes, "waterMarkOptions" | "obInstance" | "targetElement" | "parentElement"> {
+): Omit<
+  IUseWatermarkRes,
+  "waterMarkOptions" | "obInstance" | "targetElement" | "parentElement"
+> {
   const domSymbol = Symbol(watermarkSymbol);
 
   const appendElRaw = unref(appendEl);
@@ -189,13 +198,15 @@ export default function useWatermark(
   const watermarkEl = shallowRef<HTMLElement>();
 
   function updateWatermark(options: {
-    width?: number;
-    height?: number;
-    str?: string;
-  } = {}): void {
+      width?: number;
+      height?: number;
+      str?: string;
+    } = {}): void {
     const el = unref(watermarkEl);
 
-    if (!el) {return;}
+    if (!el) {
+      return;
+    }
 
     if (isDef(options.width)) {
       el.style.width = `${options.width}px`;
@@ -213,7 +224,9 @@ export default function useWatermark(
   const func = animationFrameThrottle(() => {
     const el = unref(appendEl);
 
-    if (!el) {return;}
+    if (!el) {
+      return;
+    }
 
     const {
       clientHeight: height, clientWidth: width
@@ -231,10 +244,13 @@ export default function useWatermark(
     watermarkEl.value = undefined;
     const el = unref(appendEl);
 
-    sourceMap.has(domSymbol) && sourceMap.get(domSymbol)?.obInstance?.disconnect();
+    sourceMap.has(domSymbol) &&
+      sourceMap.get(domSymbol)?.obInstance?.disconnect();
     sourceMap.delete(domSymbol);
 
-    if (!el) {return;}
+    if (!el) {
+      return;
+    }
 
     domId && domId.remove();
     domRemoveResizeListener(el, func);
@@ -258,7 +274,9 @@ export default function useWatermark(
     resetWatermarkStyle(div, str, waterMarkOptions);
     const el = unref(appendEl);
 
-    if (!el) {return;}
+    if (!el) {
+      return;
+    }
 
     const {
       clientHeight: height, clientWidth: width
@@ -271,7 +289,6 @@ export default function useWatermark(
     });
     el.append(div);
     sourceMap.set(domSymbol, {
-
       setWatermark,
       clear,
       parentElement: el,

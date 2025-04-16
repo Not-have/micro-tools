@@ -47,9 +47,6 @@
     "access": "public",
     "registry": "https://registry.npmjs.org"
   },
-  "dependencies": {
-    "resize-observer-polyfill": "catalog:"
-  },
   "devDependencies": {
     "@types/node": "catalog:",
     "fork-ts-checker-webpack-plugin": "catalog:",
