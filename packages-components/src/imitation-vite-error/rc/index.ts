@@ -7,13 +7,17 @@ function template(dialog: boolean = false): string {
   return `
         <style>
             :host {
-                ${dialog ? `
+                ${
+  dialog
+    ? `
                             position: fixed;
                             top: 0;
                             left: 0;
                             width: 100%;
                             height: 100%;
-                            z-index: 99999;` : ""}
+                            z-index: 99999;`
+    : ""
+}
 
                 --monospace: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
                 --red: #ff5555;
@@ -22,17 +26,25 @@ function template(dialog: boolean = false): string {
                 --cyan: #2dd9da;
                 --dim: #c9c9c9;
 
-                ${dialog ? `
+                ${
+  dialog
+    ? `
                             --window-background: #181818;
-                            --window-color: #d8d8d8;` : ""}
+                            --window-color: #d8d8d8;`
+    : ""
+}
             }
             
             .backdrop {
-                ${dialog ? `
+                ${
+  dialog
+    ? `
                             position: fixed;
                             z-index: 99999;
                             top: 0;
-                            left: 0;` : ""}
+                            left: 0;`
+    : ""
+}
 
                 width: 100%;
                 height: 100%;
@@ -177,7 +189,6 @@ const codeframeRE = /^(?:>?\s*\d+\s+\|.*|\s+\|\s*\^.*)\r?\n/gm;
 // 允许“ErrorOverlay”扩展“HTMLElement”，即使在以下环境中也是如此
 // `HTMLElement`最初未定义。
 const {
-
   // eslint-disable-next-line @typescript-eslint/no-extraneous-class
   HTMLElement = class {} as typeof globalThis.HTMLElement
 } = globalThis;
@@ -199,7 +210,6 @@ const {
  *
  * 获取到的页面元素.appendChild(new ErrorOverlays(err));
  */
-// eslint-disable-next-line import/exports-last
 export default class ErrorOverlay extends HTMLElement {
   root: ShadowRoot;
 
@@ -276,7 +286,7 @@ export default class ErrorOverlay extends HTMLElement {
       fileRE.lastIndex = 0;
 
       // eslint-disable-next-line no-cond-assign
-      while (match = fileRE.exec(text)) {
+      while ((match = fileRE.exec(text))) {
         const {
           0: file, index
         } = match;
