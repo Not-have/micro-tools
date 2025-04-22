@@ -1,13 +1,21 @@
 import {
-  App, Component, Ref, createApp, h, onUnmounted, isRef
+  App,
+  Component,
+  Ref,
+  createApp,
+  h,
+  onUnmounted,
+  isRef
 } from "vue";
 
 import {
-  isObject, isUndefined
+  isObject,
+  isUndefined
 } from "@mt-kit/utils";
 
 import {
-  TChildren, TExtractProps
+  TChildren,
+  TExtractProps
 } from "./types";
 
 /**
