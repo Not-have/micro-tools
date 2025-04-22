@@ -25,7 +25,6 @@
   },
   "license": "ISC",
   "author": "Li Yong",
-  "type": "module",
   "scripts": {
     "build:webpack": "rm -fr lib && webpack --config webpack.config.js",
     "build:tsc": "rm -fr dist && tsc",

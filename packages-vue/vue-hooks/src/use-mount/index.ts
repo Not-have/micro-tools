@@ -1,21 +1,13 @@
 import {
-  App,
-  Component,
-  Ref,
-  createApp,
-  h,
-  onUnmounted,
-  isRef
+  App, Component, Ref, createApp, h, onUnmounted, isRef
 } from "vue";
 
 import {
-  isObject,
-  isUndefined
+  isObject, isUndefined
 } from "@mt-kit/utils";
 
 import {
-  TChildren,
-  TExtractProps
+  TChildren, TExtractProps
 } from "./types";
 
 /**
@@ -28,17 +20,16 @@ export default function useMount(rootEl?: string | Ref<HTMLElement>): <T extends
   props?: Partial<TExtractProps<T>>,
   children?: TChildren
 ) => App<Element> | HTMLElement {
-
   let app: App<Element>;
 
-  const div: HTMLDivElement = document.createElement("div");
+  let div: HTMLDivElement;
 
   onUnmounted(() => {
     if (app) {
       app.unmount();
     }
 
-    if(div) {
+    if (div) {
       div.remove();
     }
   });
@@ -59,6 +50,12 @@ export default function useMount(rootEl?: string | Ref<HTMLElement>): <T extends
         throw new Error("Element not found!");
       }
     }
+
+    if (div) {
+      div.remove();
+    }
+
+    div = document.createElement("div");
 
     if (typeof type === "string") {
       const el = document.createElement(type);
