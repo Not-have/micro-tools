@@ -19,7 +19,7 @@
     "email": "2236472089@qq.com"
   },
   "scripts": {
-    "storybook": "storybook dev",
+    "storybook": "storybook dev --no-open",
     "build-storybook": "storybook build"
   },
   "dependencies": {
