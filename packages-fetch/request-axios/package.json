@@ -1,0 +1,37 @@
+{
+  "name": "@mt-kit/request-axios",
+  "version": "1.0.0",
+  "description": "基于 axios 封装的一款数据请求。",
+  "keywords": [
+    "axios",
+    "request"
+  ],
+  "bugs": {
+    "url": "https://github.com/Not-have/micro-tools/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-fetch/request-axios/"
+  },
+  "license": "ISC",
+  "author": {
+    "name": "LiYong",
+    "email": "2236472089@qq.com"
+  },
+  "scripts": {
+    "storybook": "storybook dev",
+    "build-storybook": "storybook build"
+  },
+  "devDependencies": {
+    "@storybook/addon-essentials": "catalog:",
+    "@storybook/addon-interactions": "catalog:",
+    "@storybook/addon-onboarding": "catalog:",
+    "@storybook/blocks": "catalog:",
+    "@storybook/react": "catalog:",
+    "@storybook/react-vite": "catalog:",
+    "@storybook/test": "catalog:",
+    "react": "catalog:",
+    "storybook": "catalog:",
+    "typescript": "catalog:"
+  }
+}
