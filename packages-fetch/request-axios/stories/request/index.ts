@@ -25,6 +25,8 @@ function createRequestClient(baseUrl: string, options?: RequestClientOptions): R
 
   /**
    * 重新认证逻辑
+   *
+   * 退出登陆
    */
   async function doReAuthenticate(): Promise<void> {
     console.warn("Access token or refresh token is invalid or expired. ");
@@ -34,7 +36,7 @@ function createRequestClient(baseUrl: string, options?: RequestClientOptions): R
    * 刷新token逻辑
    */
   async function doRefreshToken(): Promise<string> {
-    console.warn("刷新token逻辑");
+    console.warn("刷新 token 逻辑");
 
     return "";
   }
