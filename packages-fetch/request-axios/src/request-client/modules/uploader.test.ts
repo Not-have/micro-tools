@@ -12,14 +12,11 @@ import {
   vi
 } from "vitest";
 
-import {
-  FileUploader
-} from "./uploader";
+import FileUploader from "./uploader";
 
 describe("fileUploader", () => {
   let fileUploader: FileUploader;
 
-  // Mock the AxiosInstance
   const mockAxiosInstance = {
     post: vi.fn()
   } as any;
@@ -28,11 +25,11 @@ describe("fileUploader", () => {
     fileUploader = new FileUploader(mockAxiosInstance);
   });
 
-  it("should create an instance of FileUploader", () => {
+  it("创建 FileUploader 实例", () => {
     expect(fileUploader).toBeInstanceOf(FileUploader);
   });
 
-  it("should upload a file and return the response", async () => {
+  it("上传文件并返回响应", async () => {
     const url = "https://example.com/upload";
 
     const file = new File(["file content"], "test.txt", {
@@ -69,7 +66,7 @@ describe("fileUploader", () => {
     );
   });
 
-  it("should merge provided config with default config", async () => {
+  it("合并自定义配置", async () => {
     const url = "https://example.com/upload";
 
     const file = new File(["file content"], "test.txt", {
@@ -113,7 +110,7 @@ describe("fileUploader", () => {
     );
   });
 
-  it("should handle errors gracefully", async () => {
+  it("处理网络错误", async () => {
     const url = "https://example.com/upload";
 
     const file = new File(["file content"], "test.txt", {
@@ -122,14 +119,14 @@ describe("fileUploader", () => {
 
     (
       mockAxiosInstance.post as unknown as ReturnType<typeof vi.fn>
-    ).mockRejectedValueOnce(new Error("Network Error"));
+    ).mockRejectedValueOnce(new Error("网络错误"));
 
     await expect(fileUploader.upload(url, {
       file
-    })).rejects.toThrow("Network Error");
+    })).rejects.toThrow("网络错误");
   });
 
-  it("should handle empty URL gracefully", async () => {
+  it("处理空 URL", async () => {
     const url = "";
 
     const file = new File(["file content"], "test.txt", {
@@ -138,14 +135,14 @@ describe("fileUploader", () => {
 
     (
       mockAxiosInstance.post as unknown as ReturnType<typeof vi.fn>
-    ).mockRejectedValueOnce(new Error("Request failed with status code 404"));
+    ).mockRejectedValueOnce(new Error("请求失败，状态码 404"));
 
     await expect(fileUploader.upload(url, {
       file
-    })).rejects.toThrow("Request failed with status code 404");
+    })).rejects.toThrow("请求失败，状态码 404");
   });
 
-  it("should handle null URL gracefully", async () => {
+  it("处理 null URL", async () => {
     const url = null as unknown as string;
 
     const file = new File(["file content"], "test.txt", {
@@ -154,10 +151,10 @@ describe("fileUploader", () => {
 
     (
       mockAxiosInstance.post as unknown as ReturnType<typeof vi.fn>
-    ).mockRejectedValueOnce(new Error("Request failed with status code 404"));
+    ).mockRejectedValueOnce(new Error("请求失败，状态码 404"));
 
     await expect(fileUploader.upload(url, {
       file
-    })).rejects.toThrow("Request failed with status code 404");
+    })).rejects.toThrow("请求失败，状态码 404");
   });
 });

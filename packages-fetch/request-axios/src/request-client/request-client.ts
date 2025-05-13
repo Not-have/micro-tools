@@ -15,16 +15,23 @@ import {
   bindMethods
 } from "../utils";
 import {
-  FileDownloader
-} from "./modules/downloader";
-import {
-  InterceptorManager
-} from "./modules/interceptor";
-import {
+  InterceptorManager,
+  FileDownloader,
   FileUploader
-} from "./modules/uploader";
+} from "./modules";
 
-function getParamsSerializer(paramsSerializer: RequestClientOptions["paramsSerializer"]) {
+/**
+ * 获取参数序列化函数
+ * @param paramsSerializer - 参数序列化函数或字符串
+ * @returns 参数序列化函数
+ *
+ * 参数序列化方式。预置的有
+ * - brackets: ids[]=1&ids[]=2&ids[]=3
+ * - comma: ids=1,2,3
+ * - indices: ids[0]=1&ids[1]=2&ids[2]=3
+ * - repeat: ids=1&ids=2&ids=3
+ */
+function getParamsSerializer(paramsSerializer: RequestClientOptions["paramsSerializer"]): RequestClientOptions["paramsSerializer"] {
   if (typeof paramsSerializer === "string") {
     switch (paramsSerializer) {
       case "brackets": {
@@ -48,7 +55,7 @@ function getParamsSerializer(paramsSerializer: RequestClientOptions["paramsSeria
         });
       }
       default: {
-        return (params: any) => qs.stringify(params);
+        return paramsSerializer;
       }
     }
   }
@@ -86,7 +93,7 @@ class RequestClient {
       },
       responseReturn: "raw",
 
-      // 默认超时时间
+      // 默认超时时间（10 秒）
       timeout: 10_000
     };
 
@@ -99,15 +106,14 @@ class RequestClient {
     requestConfig.paramsSerializer = getParamsSerializer(requestConfig.paramsSerializer);
     this.instance = axios.create(requestConfig);
 
+    // bindMethods(this) 的作用是确保 RequestClient 实例的方法在调用时， this 始终指向实例本身，避免因上下文丢失导致的错误。这是 JavaScript/TypeScript 中处理 this 指向问题的常见做法
     bindMethods(this);
 
     // 实例化拦截器管理器
     const interceptorManager = new InterceptorManager(this.instance);
 
-    this.addRequestInterceptor =
-      interceptorManager.addRequestInterceptor.bind(interceptorManager);
-    this.addResponseInterceptor =
-      interceptorManager.addResponseInterceptor.bind(interceptorManager);
+    this.addRequestInterceptor = interceptorManager.addRequestInterceptor.bind(interceptorManager);
+    this.addResponseInterceptor = interceptorManager.addResponseInterceptor.bind(interceptorManager);
 
     // 实例化文件上传器
     const fileUploader = new FileUploader(this);

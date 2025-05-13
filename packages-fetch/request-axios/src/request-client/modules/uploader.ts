@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type {
+import {
   RequestClientConfig
 } from "../../types";
-import type {
+import {
   RequestClient
 } from "../request-client";
 
@@ -42,4 +42,4 @@ class FileUploader {
   }
 }
 
-export { FileUploader };
+export default FileUploader;

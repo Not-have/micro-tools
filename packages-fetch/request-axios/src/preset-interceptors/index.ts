@@ -4,15 +4,12 @@ import {
 import axios from "axios";
 
 import {
-  MakeErrorMessageFn, ResponseInterceptorConfig
-} from "../types";
-import {
   RequestClient
-} from "./request-client";
-
-function $t(ste: string): string {
-  return ste;
-}
+} from "../request-client";
+import {
+  MakeErrorMessageFn,
+  ResponseInterceptorConfig
+} from "../types";
 
 export const defaultResponseInterceptor = ({
   codeField = "code",
@@ -20,13 +17,19 @@ export const defaultResponseInterceptor = ({
   successCode = 0
 }: {
 
-  /** 响应数据中代表访问结果的字段名 */
+  /**
+   * 响应数据中代表访问结果的字段名
+   */
   codeField: string;
 
-  /** 响应数据中装载实际数据的字段名，或者提供一个函数从响应数据中解析需要返回的数据 */
+  /**
+   * 响应数据中装载实际数据的字段名，或者提供一个函数从响应数据中解析需要返回的数据
+   */
   dataField: ((response: Record<string, unknown>) => unknown) | string;
 
-  /** 当codeField所指定的字段值与successCode相同时，代表接口访问成功。如果提供一个函数，则返回true代表接口访问成功 */
+  /**
+   * 当codeField所指定的字段值与successCode相同时，代表接口访问成功。如果提供一个函数，则返回true代表接口访问成功
+   */
   successCode: ((code: number | string) => boolean) | number | string;
 }): ResponseInterceptorConfig => ({
   fulfilled: response => {
@@ -149,9 +152,13 @@ export const errorMessageResponseInterceptor = (makeErrorMessage?: MakeErrorMess
     let errMsg = "";
 
     if (err?.includes("Network Error")) {
-      errMsg = $t("ui.fallback.http.networkError");
+      errMsg = "网络异常，请检查您的网络连接后重试。";
     } else if (error?.message?.includes?.("timeout")) {
-      errMsg = $t("ui.fallback.http.requestTimeout");
+      errMsg = "请求超时，请稍后重试。";
+    } else if (err?.includes("Request failed with status code 500")) {
+      errMsg = "服务器内部错误，请稍后重试。";
+    } else if (err?.includes("Request failed with status code 404")) {
+      errMsg = "请求资源不存在，请稍后重试。";
     }
 
     if (errMsg) {
@@ -166,32 +173,32 @@ export const errorMessageResponseInterceptor = (makeErrorMessage?: MakeErrorMess
 
     switch (status) {
       case 400: {
-        errorMessage = $t("ui.fallback.http.badRequest");
+        errorMessage = "请求错误，请检查您的输入并重试。";
 
         break;
       }
       case 401: {
-        errorMessage = $t("ui.fallback.http.unauthorized");
+        errorMessage = "登录认证过期，请重新登录后继续。";
 
         break;
       }
       case 403: {
-        errorMessage = $t("ui.fallback.http.forbidden");
+        errorMessage = "禁止访问，您没有权限访问此资源。";
 
         break;
       }
       case 404: {
-        errorMessage = $t("ui.fallback.http.notFound");
+        errorMessage = "未找到，请求的资源不存在。";
 
         break;
       }
       case 408: {
-        errorMessage = $t("ui.fallback.http.requestTimeout");
+        errorMessage = "请求超时，请稍后重试。";
 
         break;
       }
       default: {
-        errorMessage = $t("ui.fallback.http.internalServerError");
+        errorMessage = "内部服务器错误，请稍后再试。";
       }
     }
 

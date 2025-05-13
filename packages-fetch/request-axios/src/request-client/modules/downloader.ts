@@ -1,7 +1,7 @@
-import type {
+import {
   RequestClientConfig
 } from "../../types";
-import type {
+import {
   RequestClient
 } from "../request-client";
 
@@ -44,4 +44,4 @@ class FileDownloader {
   }
 }
 
-export { FileDownloader };
+export default FileDownloader;
