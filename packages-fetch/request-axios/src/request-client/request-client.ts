@@ -204,4 +204,4 @@ class RequestClient {
   }
 }
 
-export { RequestClient };
+export default RequestClient;

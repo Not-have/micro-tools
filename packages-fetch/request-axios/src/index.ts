@@ -1,6 +1,9 @@
-export * from "axios";
+export { default as axios } from "axios";
 export * from "./types";
-export * from "./request-client";
+
+export {
+  RequestClient
+} from "./request-client";
 
 export {
   authenticateResponseInterceptor,
