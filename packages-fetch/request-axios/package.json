@@ -22,7 +22,14 @@
     "storybook": "storybook dev",
     "build-storybook": "storybook build"
   },
+  "dependencies": {
+    "@mt-kit/utils": "workspace:^",
+    "axios": "catalog:",
+    "defu": "^6.1.4",
+    "qs": "catalog:"
+  },
   "devDependencies": {
+    "@mt-kit/ts-config": "workspace:^",
     "@storybook/addon-essentials": "catalog:",
     "@storybook/addon-interactions": "catalog:",
     "@storybook/addon-onboarding": "catalog:",
@@ -30,8 +37,12 @@
     "@storybook/react": "catalog:",
     "@storybook/react-vite": "catalog:",
     "@storybook/test": "catalog:",
+    "@types/node": "catalog:",
+    "@types/qs": "catalog:",
+    "axios-mock-adapter": "^2.1.0",
     "react": "catalog:",
     "storybook": "catalog:",
-    "typescript": "catalog:"
+    "typescript": "catalog:",
+    "vitest": "^3.1.3"
   }
 }
