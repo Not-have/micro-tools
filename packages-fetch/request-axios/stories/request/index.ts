@@ -63,8 +63,6 @@ function createRequestClient(baseUrl: string, options?: RequestClientOptions): R
   client.addResponseInterceptor(authenticateResponseInterceptor({
     client,
     doReAuthenticate,
-
-    // 修改返回类型为 Promise<string>
     doRefreshToken,
     enableRefreshToken: true,
     formatToken
