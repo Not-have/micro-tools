@@ -1,3 +1,3 @@
 export default eventHandler(() => useResponseSuccess({
-  url: "https://unpkg.com/@vbenjs/static-source@0.1.7/source/logo-v1.webp"
+  url: "https://not-have.github.io/file/images/%E5%A3%81%E7%BA%B8.jpg"
 }));
