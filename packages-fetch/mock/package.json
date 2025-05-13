@@ -1,0 +1,31 @@
+{
+  "name": "mock",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "keywords": [
+    "mock"
+  ],
+  "bugs": {
+    "url": "https://github.com/Not-have/micro-tools/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-fetch/mock/"
+  },
+  "license": "ISC",
+  "author": "LiYong",
+  "scripts": {
+    "build": "nitro build",
+    "dev": "nitro dev"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^9.7.0",
+    "jsonwebtoken": "^9.0.2",
+    "nitropack": "^2.11.12"
+  },
+  "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.9",
+    "h3": "^1.15.3"
+  }
+}
