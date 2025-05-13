@@ -10,6 +10,11 @@ import {
   RequestClient
 } from "../../src";
 
+/**
+ * 接口地址
+ *
+ * 需要启动 mock 服务
+ */
 const apiURL = "http://localhost:5320/";
 
 function createRequestClient(baseUrl: string, options?: RequestClientOptions): RequestClient {
