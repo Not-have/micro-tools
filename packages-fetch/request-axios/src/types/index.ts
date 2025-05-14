@@ -26,7 +26,9 @@ interface IExtendOptions<T = any> {
    * 响应数据的返回方式。
    * - raw: 原始的AxiosResponse，包括headers、status等，不做是否成功请求的检查。
    * - body: 返回响应数据的BODY部分（只会根据status检查请求是否成功，忽略对code的判断，这种情况下应由调用方检查请求是否成功）。
-   * - data: 解构响应的BODY数据，只返回其中的data节点数据（会检查status和code是否为成功状态）。
+   * - data: 解构响应的BODY数据，只返回其中的data节点数据（会检查status和code是否为成功状态）
+   *
+   * 默认为 data
    */
   responseReturn?: "body" | "data" | "raw";
 }
@@ -73,7 +75,33 @@ interface IHttpResponse<T = any> {
   message: string;
 }
 
+interface IDefaultResponseInterceptor {
+
+  /**
+   * 响应数据中代表访问结果的字段名，也就是接口返回的状态码字段
+   * 例如：code、status
+   * 默认为 code
+   */
+  codeField?: string;
+
+  /**
+   * 响应数据中装载实际数据的字段名，或者提供一个函数从响应数据中解析需要返回的数据
+   *
+   * 默认直接返回响应数据
+   *
+   * 写 data 时，表示响应数据中装载实际数据的字段名
+   */
+  dataField?: ((response: Record<string, unknown>) => unknown) | string;
+
+  /**
+   * 当 codeField 所指定的字段值与 successCode 相同时，代表接口访问成功。如果提供一个函数，则返回true代表接口访问成功
+   * 默认为 0
+   */
+  successCode?: ((code: number | string) => boolean) | number | string;
+}
+
 export type {
+  IDefaultResponseInterceptor as DefaultResponseInterceptor,
   IHttpResponse as HttpResponse,
   TMakeErrorMessageFn as MakeErrorMessageFn,
   TRequestClientConfig as RequestClientConfig,

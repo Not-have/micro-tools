@@ -91,7 +91,7 @@ class RequestClient {
       headers: {
         "Content-Type": "application/json;charset=utf-8"
       },
-      responseReturn: "raw",
+      responseReturn: "data",
 
       // 默认超时时间（10 秒）
       timeout: 10_000

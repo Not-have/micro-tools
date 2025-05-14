@@ -7,7 +7,8 @@ import {
   authenticateResponseInterceptor,
   defaultResponseInterceptor,
   errorMessageResponseInterceptor,
-  RequestClient
+  RequestClient,
+  formatToken
 } from "../../src";
 
 /**
@@ -41,10 +42,6 @@ function createRequestClient(baseUrl: string, options?: RequestClientOptions): R
     return "";
   }
 
-  function formatToken(token?: null | string): null | string {
-    return token ? `Bearer ${token}` : null;
-  }
-
   // 请求头处理
   client.addRequestInterceptor({
     fulfilled: async config => {
@@ -55,11 +52,7 @@ function createRequestClient(baseUrl: string, options?: RequestClientOptions): R
   });
 
   // 处理返回的响应数据格式
-  client.addResponseInterceptor(defaultResponseInterceptor({
-    codeField: "code",
-    dataField: "data",
-    successCode: 0
-  }));
+  client.addResponseInterceptor(defaultResponseInterceptor());
 
   // token过期的处理
   client.addResponseInterceptor(authenticateResponseInterceptor({
@@ -87,9 +80,7 @@ function createRequestClient(baseUrl: string, options?: RequestClientOptions): R
   return client;
 }
 
-export const requestClient = createRequestClient(apiURL, {
-  responseReturn: "data"
-});
+export const requestClient = createRequestClient(apiURL);
 
 export const baseRequestClient = new RequestClient({
   baseURL: apiURL
