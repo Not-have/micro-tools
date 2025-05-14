@@ -60,6 +60,32 @@ const defaultResponseInterceptor = (options: DefaultResponseInterceptor = {}): R
         }
       }
 
+      /**
+       * 在外部获取错误对象中的各个部分，可以通过以下方式分解：
+       * try {
+       *   // 发起请求...
+       * } catch (error) {
+       *   // 1. 获取完整的错误信息字符串
+       *   const errorMessage = error.message;
+       *
+       *   // 2. 解析为JSON对象
+       *   const errorObj = JSON.parse(error.message);
+       *
+       *   // 3. 获取各个部分
+       *   const {
+       *     status,        // HTTP状态码
+       *     statusText,    // 状态文本
+       *     config,        // 请求配置
+       *     data,          // 响应数据
+       *     response       // 完整响应对象
+       *   } = errorObj;
+       *
+       *   // 使用示例
+       *   console.log('HTTP状态码:', status);
+       *   console.log('响应数据:', data);
+       *
+       * 或者使用 .catch 块捕获错误对象
+       */
       throw new Error(JSON.stringify({
         ...response,
         response
