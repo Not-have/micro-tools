@@ -100,8 +100,17 @@ interface IDefaultResponseInterceptor {
   successCode?: ((code: number | string) => boolean) | number | string;
 }
 
+export interface IErrorMessageResponseInterceptor extends Omit<IDefaultResponseInterceptor, "dataField" | "successCode"> {
+
+  /**
+   * 是否使用响应数据中的 data 字段
+   */
+  isUseResponseData?: boolean;
+}
+
 export type {
   IDefaultResponseInterceptor as DefaultResponseInterceptor,
+  IErrorMessageResponseInterceptor as ErrorMessageResponseInterceptor,
   IHttpResponse as HttpResponse,
   TMakeErrorMessageFn as MakeErrorMessageFn,
   TRequestClientConfig as RequestClientConfig,
