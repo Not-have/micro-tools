@@ -12,6 +12,14 @@ export function useResponseSuccess<T = unknown>(data: T) {
   };
 }
 
+export function useResponse401() {
+  return {
+    code: 401,
+    data: null,
+    message: "刷新！请重新登录"
+  };
+}
+
 export function usePageResponseSuccess<T = unknown>(
     page: number | string,
     pageSize: number | string,

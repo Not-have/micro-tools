@@ -7,6 +7,8 @@ import {
 
 const errorMessageResponseInterceptor = (makeErrorMessage?: MakeErrorMessageFn): ResponseInterceptorConfig => ({
   rejected: (error): Promise<never> => {
+    error = JSON.parse(error.message);
+
     if (axios.isCancel(error)) {
       return Promise.reject(error);
     }

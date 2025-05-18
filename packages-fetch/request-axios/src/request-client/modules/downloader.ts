@@ -1,9 +1,7 @@
 import {
   RequestClientConfig
 } from "../../types";
-import {
-  RequestClient
-} from "../request-client";
+import RequestClient from "../request-client";
 
 type TDownloadRequestConfig = {
 

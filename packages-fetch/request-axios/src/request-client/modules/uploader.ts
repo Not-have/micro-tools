@@ -2,9 +2,7 @@
 import {
   RequestClientConfig
 } from "../../types";
-import {
-  RequestClient
-} from "../request-client";
+import RequestClient from "../request-client";
 
 class FileUploader {
   private client: RequestClient;
