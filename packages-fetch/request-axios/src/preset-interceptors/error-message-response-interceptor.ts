@@ -71,7 +71,7 @@ const errorMessageResponseInterceptor = (makeErrorMessage?: MakeErrorMessageFn, 
         break;
       }
       default: {
-        errorMessage = "内部服务器错误，请稍后再试。";
+        errorMessage = "请稍后再试。";
       }
     }
 
