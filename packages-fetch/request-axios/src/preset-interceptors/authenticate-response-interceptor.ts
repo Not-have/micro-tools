@@ -60,6 +60,7 @@ const authenticateResponseInterceptor = ({
     // 如果没有启用或者已经是重试请求了，直接跳转到重新登录
     if (!enableRefreshToken || config.__isRetryRequest) {
       await doReAuthenticate();
+      console.error("Re-authenticate failed, please login again.");
 
       throw error;
     }

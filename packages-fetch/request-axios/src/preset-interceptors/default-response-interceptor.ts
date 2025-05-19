@@ -86,10 +86,15 @@ const defaultResponseInterceptor = (options: DefaultResponseInterceptor = {}): R
        *
        * 或者使用 .catch 块捕获错误对象
        */
-      throw new Error(JSON.stringify({
-        ...response,
-        response
-      }));
+
+      /*
+        throw new Error(JSON.stringify({
+          ...response,
+          response
+        }));
+       */
+
+      throw response;
     }
   };
 };

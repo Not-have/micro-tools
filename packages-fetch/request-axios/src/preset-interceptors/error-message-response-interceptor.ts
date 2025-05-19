@@ -8,10 +8,9 @@ import {
 
 const errorMessageResponseInterceptor = (makeErrorMessage?: MakeErrorMessageFn, options: ErrorMessageResponseInterceptor = {}): ResponseInterceptorConfig => ({
   rejected: (error): Promise<never> => {
-
     const err: string = error?.toString?.() ?? "";
 
-    error = JSON.parse(error.message);
+    // error = JSON.parse(error.message);
 
     if (axios.isCancel(error)) {
       return Promise.reject(error);

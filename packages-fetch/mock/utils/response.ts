@@ -5,7 +5,7 @@ import type {
 
 export function useResponseSuccess<T = unknown>(data: T) {
   return {
-    code: 0,
+    code: 403,
     data,
     error: null,
     message: "ok"
@@ -17,6 +17,14 @@ export function useResponse401() {
     code: 401,
     data: null,
     message: "刷新！请重新登录"
+  };
+}
+
+export function useResponse403() {
+  return {
+    code: 403,
+    data: null,
+    message: "暂无权限"
   };
 }
 

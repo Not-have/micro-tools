@@ -4,10 +4,10 @@ import {
   requestClient
 } from "../request";
 
-requestClient.get("/api/403").then(res => {
-  // eslint-disable-next-line no-console
-  console.log(res);
-});
+// requestClient.get("/api/401").then(res => {
+//   // eslint-disable-next-line no-console
+//   console.log(res);
+// });
 
 requestClient.get("/api/list").then(res => {
   // eslint-disable-next-line no-console
