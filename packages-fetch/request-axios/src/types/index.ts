@@ -100,14 +100,44 @@ interface IDefaultResponseInterceptorOptions {
   code?: ((code: number | string) => boolean) | number | string;
 }
 
-export type TErrorMessageResponseInterceptorOptions = Omit<IDefaultResponseInterceptorOptions, "dataField" | "code">;
+export interface IErrorMessageResponseInterceptorOptions extends Omit<IDefaultResponseInterceptorOptions, "dataField" | "code"> {
+  message?: {
+
+    /** 网络异常时的提示信息（错误信息包含 'Network Error' 时触发） */
+    networkErrorMsg?: string;
+
+    /** 请求超时时的提示信息（错误信息包含 'timeout' 时触发） */
+    timeoutMsg?: string;
+
+    /** 服务器500错误的提示信息（HTTP状态码500时触发） */
+    serverErrorMsg?: string;
+
+    /** 资源不存在的提示信息（HTTP状态码404时触发） */
+    notFoundMsg?: string;
+
+    /** 错误请求提示信息（HTTP状态码400时触发） */
+    badRequestMsg?: string;
+
+    /** 未授权提示信息（HTTP状态码401时触发） */
+    unauthorizedMsg?: string;
+
+    /** 禁止访问提示信息（HTTP状态码403时触发） */
+    forbiddenMsg?: string;
+
+    /** 请求超时提示信息（HTTP状态码408时触发） */
+    requestTimeoutMsg?: string;
+
+    /** 未匹配到具体错误时的默认提示信息 */
+    defaultMsg?: string;
+  };
+};
 
 export type TAuthenticateResponseInterceptorOptions = IDefaultResponseInterceptorOptions;
 
 export type {
   TAuthenticateResponseInterceptorOptions as AuthenticateResponseInterceptorOptions,
   IDefaultResponseInterceptorOptions as DefaultResponseInterceptorOptions,
-  TErrorMessageResponseInterceptorOptions as ErrorMessageResponseInterceptorOptions,
+  IErrorMessageResponseInterceptorOptions as ErrorMessageResponseInterceptorOptions,
   IHttpResponse as HttpResponse,
   TMakeErrorMessageFn as MakeErrorMessageFn,
   TRequestClientConfig as RequestClientConfig,
