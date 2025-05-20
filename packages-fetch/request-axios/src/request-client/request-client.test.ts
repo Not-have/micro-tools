@@ -5,9 +5,7 @@ import {
   afterEach, beforeEach, describe, expect, it
 } from "vitest";
 
-import {
-  RequestClient
-} from "./request-client";
+import RequestClient from "./request-client";
 
 describe("requestClient", () => {
   let mock: MockAdapter;
