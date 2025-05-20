@@ -129,12 +129,14 @@ class RequestClient {
   /**
    * DELETE请求方法
    */
-  public delete<T = any>(
+  public delete<T = any, Q = any>(
       url: string,
+      data?: Q,
       config?: RequestClientConfig
   ): Promise<T> {
     return this.request<T>(url, {
       ...config,
+      data,
       method: "DELETE"
     });
   }
@@ -142,9 +144,10 @@ class RequestClient {
   /**
    * GET请求方法
    */
-  public get<T = any>(url: string, config?: RequestClientConfig): Promise<T> {
+  public get<T = any, Q = any>(url: string, params?: Q, config?: RequestClientConfig): Promise<T> {
     return this.request<T>(url, {
       ...config,
+      params,
       method: "GET"
     });
   }
@@ -152,9 +155,9 @@ class RequestClient {
   /**
    * POST请求方法
    */
-  public post<T = any>(
+  public post<T = any, Q = any>(
       url: string,
-      data?: any,
+      data?: Q,
       config?: RequestClientConfig
   ): Promise<T> {
     return this.request<T>(url, {
@@ -167,9 +170,9 @@ class RequestClient {
   /**
    * PUT请求方法
    */
-  public put<T = any>(
+  public put<T = any, Q = any>(
       url: string,
-      data?: any,
+      data?: Q,
       config?: RequestClientConfig
   ): Promise<T> {
     return this.request<T>(url, {
