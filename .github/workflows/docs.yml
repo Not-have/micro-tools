@@ -34,7 +34,7 @@ jobs:
           node-version: '22.12.0'  # 设置 Node.js 版本为 22.12.0
 
       - name: Install pnpm
-        run: npm install -g pnpm@9.15.3
+        run: npm install -g pnpm@10.8.0
       
       - name: Install and Build
         run: |
