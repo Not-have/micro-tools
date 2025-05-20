@@ -56,7 +56,7 @@ import {
  *
  * 需要启动 mock 服务
  */
-const apiURL = "http://localhost:5320/";
+const apiURL = "http://localhost:5320/"; // 基础路由
 
 function createRequestClient(baseUrl: string, options?: RequestClientOptions): RequestClient {
   const client = new RequestClient({
@@ -79,7 +79,7 @@ function createRequestClient(baseUrl: string, options?: RequestClientOptions): R
   async function doRefreshToken(): Promise<string> {
     console.warn("刷新 token 逻辑");
 
-    return "";
+    return "token";
   }
 
   // 请求头处理
@@ -100,27 +100,27 @@ function createRequestClient(baseUrl: string, options?: RequestClientOptions): R
     doReAuthenticate,
     doRefreshToken,
     enableRefreshToken: true,
-    formatToken
+    formatToken,
+    options: {
+      codeField: "code",
+    }
   }));
 
   // 通用的错误处理,如果没有进入上面的错误处理逻辑，就会进入这里
   client.addResponseInterceptor(errorMessageResponseInterceptor((msg: string, error) => {
+    // 可以根据自己的业务逻辑进行调整
+    console.error(msg, error);
 
-    // 这里可以根据业务进行定制,你可以拿到 error 内的信息进行定制化处理，根据不同的 code 做不同的提示，而不是直接使用 message.error 提示 msg
-    // 当前mock接口返回的错误字段是 error 或者 message
-    const responseData = error?.response?.data ?? {};
-
-    const errorMessage = responseData?.error ?? responseData?.message ?? "";
-
-    // 如果没有错误信息，则会根据状态码进行提示
-    console.error("errorMessage", errorMessage);
-
+  }, {
+    codeField: "code"
   }));
 
   return client;
 }
 
-export const requestClient = createRequestClient(apiURL);
+const requestClient = createRequestClient(apiURL);
+
+export default requestClient; 
 
 export const baseRequestClient = new RequestClient({
   baseURL: apiURL
