@@ -75,7 +75,7 @@ interface IHttpResponse<T = any> {
   message: string;
 }
 
-interface IDefaultResponseInterceptor {
+interface IDefaultResponseInterceptorOptions {
 
   /**
    * 响应数据中代表访问结果的字段名，也就是接口返回的状态码字段
@@ -94,23 +94,20 @@ interface IDefaultResponseInterceptor {
   dataField?: ((response: Record<string, unknown>) => unknown) | string;
 
   /**
-   * 当 codeField 所指定的字段值与 successCode 相同时，代表接口访问成功。如果提供一个函数，则返回true代表接口访问成功
+   * 当 codeField 所指定的字段值与 code 相同时，代表接口访问成功。如果提供一个函数，则返回true代表接口访问成功
    * 默认为 0
    */
-  successCode?: ((code: number | string) => boolean) | number | string;
+  code?: ((code: number | string) => boolean) | number | string;
 }
 
-export interface IErrorMessageResponseInterceptor extends Omit<IDefaultResponseInterceptor, "dataField" | "successCode"> {
+export type TErrorMessageResponseInterceptorOptions = Omit<IDefaultResponseInterceptorOptions, "dataField" | "code">;
 
-  /**
-   * 是否使用响应数据中的 data 字段
-   */
-  isUseResponseData?: boolean;
-}
+export type TAuthenticateResponseInterceptorOptions = IDefaultResponseInterceptorOptions;
 
 export type {
-  IDefaultResponseInterceptor as DefaultResponseInterceptor,
-  IErrorMessageResponseInterceptor as ErrorMessageResponseInterceptor,
+  TAuthenticateResponseInterceptorOptions as AuthenticateResponseInterceptorOptions,
+  IDefaultResponseInterceptorOptions as DefaultResponseInterceptorOptions,
+  TErrorMessageResponseInterceptorOptions as ErrorMessageResponseInterceptorOptions,
   IHttpResponse as HttpResponse,
   TMakeErrorMessageFn as MakeErrorMessageFn,
   TRequestClientConfig as RequestClientConfig,

@@ -5,15 +5,15 @@ import {
 
 import {
   ResponseInterceptorConfig,
-  DefaultResponseInterceptor
+  DefaultResponseInterceptorOptions
 } from "../types";
 
-const defaultResponseInterceptor = (options: DefaultResponseInterceptor = {}): ResponseInterceptorConfig => {
+const defaultResponseInterceptor = (options: DefaultResponseInterceptorOptions = {}): ResponseInterceptorConfig => {
 
   const {
     codeField = "code",
     dataField,
-    successCode = 0
+    code = 0
   } = options;
 
   return {
@@ -46,9 +46,9 @@ const defaultResponseInterceptor = (options: DefaultResponseInterceptor = {}): R
         }
 
         if (
-          isFunction(successCode)
-            ? successCode(responseData[codeField])
-            : responseData[codeField] === successCode
+          isFunction(code)
+            ? code(responseData[codeField])
+            : responseData[codeField] === code
         ) {
           if(isUndefined(dataField)) {
             return responseData;

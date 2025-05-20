@@ -3,10 +3,10 @@ import axios from "axios";
 import {
   MakeErrorMessageFn,
   ResponseInterceptorConfig,
-  ErrorMessageResponseInterceptor
+  ErrorMessageResponseInterceptorOptions
 } from "../types";
 
-const errorMessageResponseInterceptor = (makeErrorMessage?: MakeErrorMessageFn, options: ErrorMessageResponseInterceptor = {}): ResponseInterceptorConfig => ({
+const errorMessageResponseInterceptor = (makeErrorMessage?: MakeErrorMessageFn, options: ErrorMessageResponseInterceptorOptions = {}): ResponseInterceptorConfig => ({
   rejected: (error): Promise<never> => {
     const err: string = error?.toString?.() ?? "";
 
@@ -37,11 +37,10 @@ const errorMessageResponseInterceptor = (makeErrorMessage?: MakeErrorMessageFn, 
     let errorMessage = "";
 
     const {
-      isUseResponseData = false,
-      codeField = "code"
+      codeField
     } = options;
 
-    const status = isUseResponseData ? error?.data[codeField] : error?.response?.status;
+    const status = codeField ? error?.data[codeField] : error?.status;
 
     switch (status) {
       case 400: {

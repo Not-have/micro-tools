@@ -2,7 +2,8 @@ import {
   RequestClient
 } from "../request-client";
 import {
-  ResponseInterceptorConfig
+  ResponseInterceptorConfig,
+  AuthenticateResponseInterceptorOptions
 } from "../types";
 
 /**
@@ -13,7 +14,8 @@ const authenticateResponseInterceptor = ({
   doReAuthenticate,
   doRefreshToken,
   enableRefreshToken,
-  formatToken
+  formatToken,
+  options
 }: {
 
   /**
@@ -26,7 +28,7 @@ const authenticateResponseInterceptor = ({
    *
    * 退出登陆处理
    */
-  doReAuthenticate: () => Promise<void>;
+  doReAuthenticate?: () => Promise<void>;
 
   /**
    * 刷新 token 逻辑
@@ -38,28 +40,42 @@ const authenticateResponseInterceptor = ({
    *
    * 默认是关闭的
    */
-  enableRefreshToken: boolean;
+  enableRefreshToken?: boolean;
 
   /**
    * 格式化 token 的函数
    */
   formatToken?: (token: string) => null | string;
+
+  /**
+   * 请求客户端选项
+   */
+  options?: AuthenticateResponseInterceptorOptions;
+
 }): ResponseInterceptorConfig => ({
   rejected: async (error): Promise<void> => {
     const {
       config,
-      response
+      data: responseData,
+      status: _status
     } = error;
 
+    const {
+      codeField,
+      code = 401
+    } = options || {};
+
+    const status = codeField ? responseData[codeField] : _status;
+
     // 如果不是 401 错误，直接抛出异常
-    if (response?.status !== 401) {
+    if (status !== code) {
       throw error;
     }
 
     // 判断是否启用了 refreshToken 功能
     // 如果没有启用或者已经是重试请求了，直接跳转到重新登录
     if (!enableRefreshToken || config.__isRetryRequest) {
-      await doReAuthenticate();
+      await doReAuthenticate?.();
       console.error("Re-authenticate failed, please login again.");
 
       throw error;
@@ -101,7 +117,7 @@ const authenticateResponseInterceptor = ({
       client.refreshTokenQueue.forEach(callback => callback(""));
       client.refreshTokenQueue = [];
       console.error("Refresh token failed, please login again.");
-      await doReAuthenticate();
+      await doReAuthenticate?.();
 
       throw refreshError;
     } finally {
