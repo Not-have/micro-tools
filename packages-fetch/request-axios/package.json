@@ -19,8 +19,27 @@
     "email": "2236472089@qq.com"
   },
   "scripts": {
-    "storybook": "storybook dev --no-open",
-    "build-storybook": "storybook build"
+    "storybook": "storybook dev",
+    "build-storybook": "storybook build",
+    "clear": "rm -fr node_modules && rm -fr dist",
+    "build": "unbuild",
+    "prepublishOnly": "pnpm build"
+  },
+  "files": [
+    "README.md",
+    "dist"
+  ],
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "dependencies": {
     "@mt-kit/utils": "workspace:^",
@@ -43,6 +62,7 @@
     "react": "catalog:",
     "storybook": "catalog:",
     "typescript": "catalog:",
+    "unbuild": "catalog:",
     "vitest": "catalog:"
   }
 }
