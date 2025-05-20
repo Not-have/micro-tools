@@ -7,7 +7,8 @@ const EOutDir = {
   VITE: "_vite-md",
   CONF: "_conf-md",
   REACT: "_react-md",
-  VUE: "_vue-md"
+  VUE: "_vue-md",
+  FETCH: "_fetch-md"
 };
 
 const EEntry = {
@@ -20,7 +21,8 @@ const EEntry = {
   VITE: "packages-vite-plugins",
   CONF: "packages-conf",
   REACT: "packages-react",
-  VUE: "packages-vue"
+  VUE: "packages-vue",
+  FETCH: "packages-fetch"
 };
 
 export{

@@ -8,3 +8,4 @@ export { default as menuConf } from "./menu-conf";
 export { default as menuReact } from "./menu-react";
 export { default as navBar } from "./nav-bar";
 export { default as menuVue } from "./menu-vue";
+export { default as menuFetch } from "./menu-fetch";
