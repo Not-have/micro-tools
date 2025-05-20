@@ -10,8 +10,9 @@
   },
   "access": "public",
   "baseBranch": "main",
-  "updateInternalDependencies": "minor",
+  "updateInternalDependencies": "patch",
   "ignore": [
-    "packages-docs"
+    "packages-docs",
+    "mock"
   ]
 }
