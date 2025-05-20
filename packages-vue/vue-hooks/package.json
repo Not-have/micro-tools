@@ -40,6 +40,7 @@
   },
   "dependencies": {
     "@mt-kit/utils": "workspace:^",
+    "lodash-es": "catalog:",
     "resize-observer-polyfill": "catalog:"
   },
   "devDependencies": {
@@ -53,6 +54,8 @@
     "@storybook/test": "catalog:",
     "@storybook/vue3": "catalog:",
     "@storybook/vue3-vite": "catalog:",
+    "@types/lodash-es": "catalog:",
+    "@types/node": "catalog:",
     "@vitejs/plugin-vue": "catalog:",
     "@vitejs/plugin-vue-jsx": "catalog:",
     "storybook": "catalog:",

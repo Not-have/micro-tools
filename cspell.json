@@ -30,7 +30,8 @@
     "vite",
     "vitejs",
     "vitepress",
-    "vnode"
+    "vnode",
+    "defu"
   ],
   "ignorePaths": [
     "**/node_modules/**",

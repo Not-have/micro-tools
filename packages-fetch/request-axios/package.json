@@ -1,0 +1,68 @@
+{
+  "name": "@mt-kit/request-axios",
+  "version": "1.0.2",
+  "description": "基于 axios 封装的一款数据请求。",
+  "keywords": [
+    "axios",
+    "request"
+  ],
+  "bugs": {
+    "url": "https://github.com/Not-have/micro-tools/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-fetch/request-axios/"
+  },
+  "license": "ISC",
+  "author": {
+    "name": "LiYong",
+    "email": "2236472089@qq.com"
+  },
+  "scripts": {
+    "storybook": "storybook dev",
+    "build-storybook": "storybook build",
+    "clear": "rm -fr node_modules && rm -fr dist",
+    "build": "unbuild",
+    "prepublishOnly": "pnpm build"
+  },
+  "files": [
+    "README.md",
+    "dist"
+  ],
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "dependencies": {
+    "@mt-kit/utils": "workspace:^",
+    "axios": "catalog:",
+    "defu": "catalog:",
+    "qs": "catalog:"
+  },
+  "devDependencies": {
+    "@mt-kit/ts-config": "workspace:^",
+    "@storybook/addon-essentials": "catalog:",
+    "@storybook/addon-interactions": "catalog:",
+    "@storybook/addon-onboarding": "catalog:",
+    "@storybook/blocks": "catalog:",
+    "@storybook/react": "catalog:",
+    "@storybook/react-vite": "catalog:",
+    "@storybook/test": "catalog:",
+    "@types/node": "catalog:",
+    "@types/qs": "catalog:",
+    "axios-mock-adapter": "catalog:",
+    "react": "catalog:",
+    "storybook": "catalog:",
+    "typescript": "catalog:",
+    "unbuild": "catalog:",
+    "vitest": "catalog:"
+  }
+}

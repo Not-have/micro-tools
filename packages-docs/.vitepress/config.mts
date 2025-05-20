@@ -13,7 +13,8 @@ import {
   menuVite,
   menuConf,
   menuReact,
-  menuVue
+  menuVue,
+  menuFetch
 } from "./menu";
 
 // https://vitepress.dev/reference/site-config
@@ -41,9 +42,11 @@ const config = async (): Promise<UserConfig<DefaultTheme.Config>> => {
 
   const vue = await menuVue();
 
-  if(dev && utils && css && components && ts && vite && conf && react && vue) {
+  const fetch = await menuFetch();
+
+  if(dev && utils && css && components && ts && vite && conf && react && vue && fetch) {
     nav.unshift(dev?.nav);
-    nav.push(utils?.nav, css?.nav, components?.nav, ts?.nav, vite?.nav, conf?.nav, react?.nav, vue?.nav);
+    nav.push(utils?.nav, css?.nav, components?.nav, ts?.nav, vite?.nav, conf?.nav, react?.nav, vue?.nav, fetch?.nav);
 
     if (dev.nav.activeMatch && ts.nav.activeMatch && react.nav.activeMatch && vue.nav.activeMatch) {
       sidebar[dev.nav.activeMatch] = dev?.menu as DefaultTheme.SidebarItem[];

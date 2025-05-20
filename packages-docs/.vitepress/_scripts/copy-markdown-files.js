@@ -50,6 +50,10 @@ async function copyMarkdownFiles() {
     {
       outDir: EOutDir.VUE,
       entry: EEntry.VUE
+    },
+    {
+      outDir: EOutDir.FETCH,
+      entry: EEntry.FETCH
     }
   ];
 
