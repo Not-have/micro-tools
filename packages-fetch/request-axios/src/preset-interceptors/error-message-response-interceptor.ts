@@ -12,8 +12,6 @@ const errorMessageResponseInterceptor = (makeErrorMessage?: MakeErrorMessageFn, 
   rejected: (error): Promise<never> => {
     const err: string = error?.toString?.() ?? "";
 
-    // error = JSON.parse(error.message);
-
     if (axios.isCancel(error)) {
       return Promise.reject(error);
     }
@@ -72,7 +70,7 @@ const errorMessageResponseInterceptor = (makeErrorMessage?: MakeErrorMessageFn, 
         break;
       }
       default: {
-        errorMessage = message?.defaultMsg || "请稍后再试。";
+        errorMessage = message?.defaultMsg || "";
       }
     }
 

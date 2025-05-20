@@ -31,6 +31,13 @@ interface IExtendOptions<T = any> {
    * 默认为 data
    */
   responseReturn?: "body" | "data" | "raw";
+
+  /**
+   * 读取当前请求的响应数据状态
+   *
+   * 有值时，从返回的 data 中读取当前请求的响应数据状态，没有时读取响应的状态码
+   */
+  // codeStatusField?: string;
 }
 type TRequestClientConfig<T = any> = AxiosRequestConfig<T> & IExtendOptions<T>;
 

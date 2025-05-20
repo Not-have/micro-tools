@@ -2,12 +2,11 @@
  * 该文件可自行根据业务逻辑进行调整
  */
 
-import {
+import RequestClient, {
   RequestClientOptions,
   authenticateResponseInterceptor,
   defaultResponseInterceptor,
   errorMessageResponseInterceptor,
-  RequestClient,
   formatToken
 } from "../../src";
 
@@ -60,11 +59,17 @@ function createRequestClient(baseUrl: string, options?: RequestClientOptions): R
     doReAuthenticate,
     doRefreshToken,
     enableRefreshToken: true,
-    formatToken
+    formatToken,
+    options: {
+      codeField: "code"
+    }
   }));
 
   // 通用的错误处理,如果没有进入上面的错误处理逻辑，就会进入这里
   client.addResponseInterceptor(errorMessageResponseInterceptor((msg: string, error) => {
+
+    // eslint-disable-next-line no-console
+    console.log(msg, error, "errorMessageResponseInterceptor");
 
     // 这里可以根据业务进行定制,你可以拿到 error 内的信息进行定制化处理，根据不同的 code 做不同的提示，而不是直接使用 message.error 提示 msg
     // 当前mock接口返回的错误字段是 error 或者 message
@@ -76,7 +81,7 @@ function createRequestClient(baseUrl: string, options?: RequestClientOptions): R
     console.error("errorMessage", errorMessage);
 
   }, {
-    isUseResponseData: true
+    codeField: "code"
   }));
 
   return client;

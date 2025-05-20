@@ -17,7 +17,11 @@ requestClient.get("/api/list").then(res => {
 requestClient.get("/api/obj").then(res => {
   // eslint-disable-next-line no-console
   console.log(res);
-});
+}).
+    catch(error => {
+      // eslint-disable-next-line no-console
+      console.log(error, "error");
+    });
 
 export default function Index(): React.Element {
   return (

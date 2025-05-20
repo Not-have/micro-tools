@@ -42,12 +42,11 @@ npm i @mt-kit/request-axios -D
  * 该文件可自行根据业务逻辑进行调整
  */
 
-import {
+import RequestClient, {
   RequestClientOptions,
   authenticateResponseInterceptor,
   defaultResponseInterceptor,
   errorMessageResponseInterceptor,
-  RequestClient,
   formatToken
 } from "@mt-kit/request-axios";
 
@@ -125,4 +124,22 @@ export default requestClient;
 export const baseRequestClient = new RequestClient({
   baseURL: apiURL
 });
+```
+
+- 获取信息
+
+```ts
+requestClient.get("/api/list").then(res => {
+  // eslint-disable-next-line no-console
+  console.log(res);
+});
+
+requestClient.get("/api/obj").then(res => {
+  // eslint-disable-next-line no-console
+  console.log(res);
+}).
+    catch(error => {
+      // eslint-disable-next-line no-console
+      console.log(error, "error");
+    });
 ```
