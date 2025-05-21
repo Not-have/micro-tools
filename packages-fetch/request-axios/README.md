@@ -121,6 +121,7 @@ const requestClient = createRequestClient(apiURL);
 
 export default requestClient; 
 
+// 基础的请求客户端(一般用不到)
 export const baseRequestClient = new RequestClient({
   baseURL: apiURL
 });
@@ -142,4 +143,97 @@ requestClient.get("/api/obj").then(res => {
       // eslint-disable-next-line no-console
       console.log(error, "error");
     });
+```
+
+### 下载示例
+
+```ts
+import {
+  RequestResponse
+} from "@mt-kit/request-axios";
+
+/**
+ * 下载文件，获取Blob
+ * @returns Blob
+ */
+async function downloadFile1() {
+  return requestClient.download<Blob>(
+    'https://unpkg.com/@vbenjs/static-source@0.1.7/source/logo-v1.webp',
+  );
+}
+
+/**
+ * 下载文件，获取完整的Response
+ * @returns RequestResponse<Blob>
+ */
+async function downloadFile2() {
+  return requestClient.download<RequestResponse<Blob>>(
+    'https://unpkg.com/@vbenjs/static-source@0.1.7/source/logo-v1.webp',
+    {
+      responseReturn: 'raw',
+    },
+  );
+}
+```
+
+### 上传示例
+
+```ts
+/**
+ * file 
+ * 获取 file 的方式
+ * 1、通过 input 标签获取
+  <input type="file" id="fileInput">
+
+  <script>
+    const fileInput = document.getElementById('fileInput');
+    fileInput.addEventListener('change', (event) => {
+      const file = event.target.files[0]; // 获取第一个文件
+      console.log(file);
+    });
+  </script>
+  2、通过拖拽获取
+  <div id="dropZone" style="width: 200px; height: 200px; border: 1px solid black;">
+    拖拽文件到这里
+  </div>
+  <script>
+    const dropZone = document.getElementById('dropZone');
+    dropZone.addEventListener('dragover', (event) => {
+      event.preventDefault(); // 阻止默认的拖拽行为
+    })
+    dropZone.addEventListener('drop', (event) => {
+      event.preventDefault(); // 阻止默认的拖拽行为
+      const file = event.dataTransfer.files[0]; // 获取第一个文件
+      console.log(file);  // 输出文件信息
+    })
+  </script>
+  3、通过 FileReader 获取
+  <input type="file" id="fileInput">
+  <script>
+    const fileInput = document.getElementById('fileInput');
+    fileInput.addEventListener('change', (event) => {
+      const file = event.target.files[0]; // 获取第一个文件
+      const reader = new FileReader();
+      reader.readAsDataURL(file); // 将文件转换为DataURL
+      reader.onload = () => {
+        console.log(reader.result); // 输出DataURL
+      }
+      // 建议添加错误处理
+      reader.onerror = () => console.error('读取文件出错');
+    })
+  </script>
+ * file 的属性
+ * name: string;
+ * type: string;
+ * size: number;
+ * lastModified: number;
+ * lastModifiedDate: Date;
+ * webkitRelativePath: string;
+ * slice: (start: number, end: number, contentType: string) => Blob;
+ * arrayBuffer: () => Promise<ArrayBuffer>;
+ * text: () => Promise<string>;
+ * stream: () => ReadableStream<Uint8Array>;
+ * formData: () => FormData;
+ */
+requestClient.upload('/upload', { file });
 ```
