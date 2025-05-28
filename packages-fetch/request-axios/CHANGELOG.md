@@ -1,5 +1,11 @@
 # @mt-kit/request-axios
 
+## 1.1.0
+
+### Patch Changes
+
+- refactor: 使用枚举替代硬编码常量
+
 ## 1.0.3
 
 ### Patch Changes
