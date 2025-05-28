@@ -1,7 +1,8 @@
 import axios from "axios";
 
 import {
-} from "../const";
+  Field
+} from "../enum";
 import {
   MakeErrorMessageFn,
   ResponseInterceptorConfig,
@@ -10,16 +11,16 @@ import {
 
 const errorMessageResponseInterceptor = (makeErrorMessage?: MakeErrorMessageFn, options: ErrorMessageResponseInterceptorOptions = {}): ResponseInterceptorConfig => ({
   rejected: (error): Promise<never> => {
-    const err: string = error?.toString?.() ?? "";
-
     if (axios.isCancel(error)) {
       return Promise.reject(error);
     }
 
+    const err: string = error?.toString?.() ?? "";
+
     let errMsg = "";
 
     const {
-      codeField,
+      codeField = Field.CODE,
       message
     } = options;
 

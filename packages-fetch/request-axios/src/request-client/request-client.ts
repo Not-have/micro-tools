@@ -9,7 +9,8 @@ import {
 import qs from "qs";
 
 import {
-  RequestClientConfig, RequestClientOptions
+  RequestClientConfig,
+  RequestClientOptions
 } from "../types";
 import {
   bindMethods

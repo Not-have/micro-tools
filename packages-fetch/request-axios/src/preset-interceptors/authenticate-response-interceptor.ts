@@ -1,4 +1,8 @@
 import {
+  Field,
+  Status
+} from "../enum";
+import {
   RequestClient
 } from "../request-client";
 import {
@@ -61,8 +65,8 @@ const authenticateResponseInterceptor = ({
     } = error;
 
     const {
-      codeField,
-      code = 401
+      codeField = Field.CODE,
+      code = Status.StatusUnauthorized
     } = options || {};
 
     const status = codeField ? responseData[codeField] : _status;

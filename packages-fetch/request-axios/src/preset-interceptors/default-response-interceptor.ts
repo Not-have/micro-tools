@@ -4,6 +4,10 @@ import {
 } from "@mt-kit/utils";
 
 import {
+  Status,
+  Field
+} from "../enum";
+import {
   ResponseInterceptorConfig,
   DefaultResponseInterceptorOptions
 } from "../types";
@@ -11,9 +15,9 @@ import {
 const defaultResponseInterceptor = (options: DefaultResponseInterceptorOptions = {}): ResponseInterceptorConfig => {
 
   const {
-    codeField = "code",
-    dataField,
-    code = 0
+    codeField = Field.CODE,
+    dataField = Field.DATA,
+    code = Status.StatusOk
   } = options;
 
   return {

@@ -94,9 +94,9 @@ interface IDefaultResponseInterceptorOptions {
   /**
    * 响应数据中装载实际数据的字段名，或者提供一个函数从响应数据中解析需要返回的数据
    *
-   * 默认直接返回响应数据
+   * 默认直接返回响应数据, 默认为 data
    *
-   * 写 data 时，表示响应数据中装载实际数据的字段名
+   * TODO 写 data 时，表示响应数据中装载实际数据的字段名，在特殊情况下，传入 undefined（就直接读取返回体中的 status）
    */
   dataField?: ((response: Record<string, unknown>) => unknown) | string;
 
@@ -139,7 +139,7 @@ export interface IErrorMessageResponseInterceptorOptions extends Omit<IDefaultRe
   };
 };
 
-export type TAuthenticateResponseInterceptorOptions = IDefaultResponseInterceptorOptions;
+export type TAuthenticateResponseInterceptorOptions = Omit<IDefaultResponseInterceptorOptions, "dataField">;
 
 export type {
   TAuthenticateResponseInterceptorOptions as AuthenticateResponseInterceptorOptions,
