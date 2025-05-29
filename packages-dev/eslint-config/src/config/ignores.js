@@ -2,8 +2,7 @@ export default {
   ignores: [
     "**/node_modules",
     "**/dist",
-
-    // "**/lib",
+    "**/lib",
     "**/dist-*",
     "**/*-dist",
     "**/.husky",

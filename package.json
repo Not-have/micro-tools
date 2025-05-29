@@ -39,6 +39,8 @@
     "lint:PkgJson": "npmPkgJsonLint \"./packages-**/**/package.json\"",
     "lint:depcheck": "depcheck",
     "lint:css": "stylelint \"./packages-**/**/*.{tsx,css,vue,jsx}\" --fix",
+    "lint:eslint": "eslint \"./packages-**/**/*.{js,ts,vue,tsx,jsx}\" --fix",
+    "lint:prettier": "prettier \"./packages-**/**/*.{js,ts,vue,tsx,jsx}\" --write",
     "preinstall": "npx only-allow pnpm",
     "postinstall": "pnpm run clear:lock",
     "prepare": "husky",

@@ -18,9 +18,7 @@ export default [
   {
     files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],
     ...pluginReact.configs.flat.recommended,
-
     ...jsxA11y.flatConfigs.recommended,
-
     languageOptions: {
 
       // parserOptions: {
@@ -34,6 +32,11 @@ export default [
     plugins: {
       react: pluginReact,
       "react-compiler": reactCompiler
+    },
+    settings: {
+      react: {
+        version: "detect"
+      }
     },
     rules: {
 

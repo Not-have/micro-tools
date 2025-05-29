@@ -1,11 +1,10 @@
 import {
+  libPlugin
+} from "@mt-kit/vite-plugins";
+import {
   defineConfig
 } from "vite";
 import dts from "vite-plugin-dts";
-
-import {
-  libPlugin
-} from "@mt-kit/vite-plugins";
 
 export default defineConfig(() => ({
   plugins: [

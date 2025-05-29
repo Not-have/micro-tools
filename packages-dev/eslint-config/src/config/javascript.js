@@ -249,7 +249,8 @@ export default {
     "no-case-declarations": "error", // 禁止 case 中 变量
     "no-class-assign": "error",
     "no-compare-neg-zero": "error",
-    "no-cond-assign": ["error", "always"],
+
+    // "no-cond-assign": ["error", "always"],
     "no-confusing-arrow": "error", // 禁止在可能与比较操作符相混淆的地方使用箭头函数
     "no-console": [
       "error",

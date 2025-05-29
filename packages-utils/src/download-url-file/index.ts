@@ -1,5 +1,5 @@
-import imageUrlToBase64 from "../image-url-to-base64";
 import downloadBase64File from "../download-base64-file";
+import imageUrlToBase64 from "../image-url-to-base64";
 
 /**
  * 根据在线图片的 URL 进行下载

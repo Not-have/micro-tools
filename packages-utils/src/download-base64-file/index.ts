@@ -1,5 +1,5 @@
-import imageBase64ToBlob from "../image-base64-to-blob";
 import downloadDataFile from "../download-data-file";
+import imageBase64ToBlob from "../image-base64-to-blob";
 
 /**
  * 根据 Base64 编码的字符串进行下载

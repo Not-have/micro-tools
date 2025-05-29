@@ -1,8 +1,8 @@
-import "./rc";
-
 import {
   IErrorPayload
 } from "./types";
+
+import "./rc";
 
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 const ErrorOverlay = customElements.get("imitation-vue-error")!;

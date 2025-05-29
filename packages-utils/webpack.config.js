@@ -1,6 +1,7 @@
-const path = require("path");
-
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
+
+// eslint-disable-next-line perfectionist/sort-imports
+const path = require("path");
 
 module.exports = {
 

@@ -1,6 +1,5 @@
 import fs from "fs";
 import path from "path";
-
 import {
   DefaultTheme
 } from "vitepress";
