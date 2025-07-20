@@ -2,6 +2,16 @@ export default {
   extends: [
     "@mt-kit/stylelint-config"
   ],
+  overrides: [
+    {
+      files: [
+        "./packages-vue/**/*.vue"
+      ],
+      extends: [
+        "@mt-kit/stylelint-config/vue"
+      ]
+    }
+  ],
   ignoreFiles: [
     "**/*.json",
     "**/*.mjs",
