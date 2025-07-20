@@ -87,7 +87,7 @@ export default {
     "selector-class-pattern":
       "^(?:(?:o|c|u|t|s|is|has|_|js|qa)-)?[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*(?:__[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?(?:--[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?(?:[.+])?$", // 关闭选择器命名模式的强制要求，允许自定义选择器命名模式
     "selector-not-notation": null, // 关闭选择器的命名规则检查，允许选择器有灵活的写法
-    "no-duplicate-selectors": true,
+    "no-duplicate-selectors": false,
     "order/properties-order": [
       [
         "content",
