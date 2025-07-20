@@ -1,6 +1,6 @@
 {
   "name": "micro-tools",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Micro tools.",
   "private": true,
   "keywords": [
@@ -45,8 +45,7 @@
     "postinstall": "pnpm run clear:lock",
     "prepare": "husky",
     "commit": "cz",
-    "ci:publish": "pnpm publish -r",
-    "pub": "pnpm changeset version"
+    "ci:publish": "pnpm publish -r"
   },
   "devDependencies": {
     "@changesets/cli": "catalog:",
