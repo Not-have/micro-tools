@@ -30,35 +30,38 @@ export default [
       "import/no-unresolved": "off",
       "import/no-webpack-loader-syntax": "error",
       "import/namespace": "error",
-      "import/no-cycle": ["error", {
-        ignoreExternal: false,
-        maxDepth: 4
-      }],
+      "import/no-cycle": [
+        "error",
+        {
+          ignoreExternal: false,
+          maxDepth: 4
+        }
+      ],
       "import/no-useless-path-segments": 1,
       "import/exports-last": 1,
-      "import/order": ["error", {
-        groups: [
-          "builtin",
-          "external",
-          "internal",
-          "parent",
-          "sibling",
-          "index"
-        ],
-        pathGroups: [{
-          pattern: "@mt-kit/**", // 厂内二方包
-          group: "external",
-          position: "after"
-        }, {
-          pattern: ":/**", // alias
-          group: "internal"
-        }, {
-          pattern: "~/**", // alias
-          group: "internal"
-        }],
-        pathGroupsExcludedImportTypes: [], // 否则厂内二方包和三方包之间不可加空行
-        "newlines-between": "always"
-      }]
+      "import/order": [
+        "error",
+        {
+          groups: ["builtin", "external", "internal", "parent", "sibling", "index"],
+          pathGroups: [
+            {
+              pattern: "@mt-kit/**", // 厂内二方包
+              group: "external",
+              position: "after"
+            },
+            {
+              pattern: ":/**", // alias
+              group: "internal"
+            },
+            {
+              pattern: "~/**", // alias
+              group: "internal"
+            }
+          ],
+          pathGroupsExcludedImportTypes: [], // 否则厂内二方包和三方包之间不可加空行
+          "newlines-between": "always"
+        }
+      ]
     }
   }
 ];

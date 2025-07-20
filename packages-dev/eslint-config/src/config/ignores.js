@@ -43,7 +43,9 @@ export default {
     "**/*.sh",
     "**/*.ttf",
     "**/*.woff",
-    ".npmpackagejsonlintrc.js"
+    ".npmpackagejsonlintrc.js",
+    "/src/uni_modules/**",
+    "/src/auto-imports.d.ts"
 
     // "**.mjs"
   ]

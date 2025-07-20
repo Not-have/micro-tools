@@ -48,7 +48,9 @@ export default [
             "CONTENT"
           ]
         }
-      ], // 关闭属性顺序检查
+      ],
+
+      // 关闭属性顺序检查
       "vue/block-order": [
         "error",
         {
@@ -73,6 +75,8 @@ export default [
       ],
       "vue/eqeqeq": ["error", "smart"],
       "vue/html-closing-bracket-newline": "error",
+
+      // 闭合标签前，必须空格
       "vue/html-closing-bracket-spacing": [
         "error",
         {
@@ -80,7 +84,7 @@ export default [
           selfClosingTag: "always",
           startTag: "never"
         }
-      ], // 闭合标签前，必须空格
+      ],
       "vue/html-comment-content-newline": [
         "error",
         {
@@ -234,7 +238,9 @@ export default [
         }
       ],
       "vue/valid-v-text": "error",
-      "vue/multi-word-component-names": "off" // 关闭多个单词组件名称的检查
+
+      // 关闭多个单词组件名称的检查
+      "vue/multi-word-component-names": "off"
     }
   }
 ];

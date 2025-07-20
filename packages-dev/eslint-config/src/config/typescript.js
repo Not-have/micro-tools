@@ -53,7 +53,6 @@ export default {
         selector: "variable",
         format: ["strictCamelCase", "StrictPascalCase", "UPPER_CASE"],
         filter: {
-
           regex: "[A-Z\\d]__[A-Z\\d]",
           match: false
         },
@@ -132,10 +131,13 @@ export default {
 
     "@typescript-eslint/no-unsafe-function-type": "warn",
 
-    "@typescript-eslint/no-unused-expressions": ["error", {
-      "allowShortCircuit": true,
-      "allowTernary": true
-    }],
+    "@typescript-eslint/no-unused-expressions": [
+      "error",
+      {
+        allowShortCircuit: true,
+        allowTernary: true
+      }
+    ],
 
     "@typescript-eslint/no-use-before-define": "off", // 禁止在变量声明之前使用它们
     "@typescript-eslint/no-var-requires": "error", // 禁止使用 require
@@ -151,28 +153,35 @@ export default {
      *   },
      * ],
      */
-    "@typescript-eslint/no-unused-vars": ["error", {
-      vars: "all",
-      args: "after-used",
-      ignoreRestSiblings: true
-    }],
-
-    "indent": ["error", 2, {
-      SwitchCase: 1,
-      ArrayExpression: 1,
-      MemberExpression: 2,
-      CallExpression: {
-        arguments: 2
-      },
-      FunctionExpression: {
-        body: 1,
-        parameters: 2
-      },
-      FunctionDeclaration: {
-        body: 1,
-        parameters: 2
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        vars: "all",
+        args: "after-used",
+        ignoreRestSiblings: true
       }
-    }], // 设置缩进为两个空格
+    ],
+
+    indent: [
+      "error",
+      2,
+      {
+        SwitchCase: 1,
+        ArrayExpression: 1,
+        MemberExpression: 2,
+        CallExpression: {
+          arguments: 2
+        },
+        FunctionExpression: {
+          body: 1,
+          parameters: 2
+        },
+        FunctionDeclaration: {
+          body: 1,
+          parameters: 2
+        }
+      }
+    ], // 设置缩进为两个空格
     "@typescript-eslint/explicit-function-return-type": ["warn"] // 要求函数的返回类型必须显式声明
   }
 };

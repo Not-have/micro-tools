@@ -193,7 +193,8 @@ export default {
       "error",
       {
         beforeBlockComment: true,
-        beforeLineComment: true
+        beforeLineComment: true,
+        allowBlockEnd: true
       }
     ], // 要求在注释周围有空行
     "lines-between-class-members": [
@@ -271,9 +272,12 @@ export default {
      * ES6
      */
     // "no-duplicate-imports": "error", // Error; 禁止import重复模块
-    "no-duplicate-imports": ["error", {
-      includeExports: true
-    }],
+    "no-duplicate-imports": [
+      "error",
+      {
+        includeExports: true
+      }
+    ],
     "no-else-return": [
       "warn",
       {
@@ -394,8 +398,7 @@ export default {
       {
 
         // 提示信息，告知应使用 Object.getPrototypeOf 或 Object.setPrototypeOf 来替代，当代码中使用 __proto__ 属性时会触发此规则报错
-        message:
-          "Use `Object.getPrototypeOf` or `Object.setPrototypeOf` instead.",
+        message: "Use `Object.getPrototypeOf` or `Object.setPrototypeOf` instead.",
         property: "__proto__"
       },
       {
@@ -533,15 +536,7 @@ export default {
       },
       {
         blankLine: "always",
-        next: [
-          "return",
-          "throw",
-          "break",
-          "continue",
-          "block",
-          "block-like",
-          "export"
-        ],
+        next: ["return", "throw", "break", "continue", "block", "block-like", "export"],
         prev: "*"
       },
       {

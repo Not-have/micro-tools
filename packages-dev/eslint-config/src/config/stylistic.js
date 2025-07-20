@@ -15,16 +15,22 @@ export default {
   },
   rules: {
     "@stylistic/space-infix-ops": ["error"],
-    "@stylistic/switch-colon-spacing": ["error", {
-      "after": true,
-      "before": false
-    }],
+    "@stylistic/switch-colon-spacing": [
+      "error",
+      {
+        after: true,
+        before: false
+      }
+    ],
 
     // 空格
-    "@stylistic/key-spacing": ["error", {
-      "beforeColon": false,
-      "afterColon": true
-    }],
+    "@stylistic/key-spacing": [
+      "error",
+      {
+        beforeColon: false,
+        afterColon: true
+      }
+    ],
     "@stylistic/js/space-before-blocks": "error",
 
     // https://eslint.style/rules/js/object-curly-newline
@@ -59,15 +65,15 @@ export default {
     "@stylistic/ts/member-delimiter-style": [
       "error",
       {
-        "multiline": {
-          "delimiter": "semi",
-          "requireLast": true
+        multiline: {
+          delimiter: "semi",
+          requireLast: true
         },
-        "singleline": {
-          "delimiter": "semi",
-          "requireLast": false
+        singleline: {
+          delimiter: "semi",
+          requireLast: false
         },
-        "multilineDetection": "brackets"
+        multilineDetection: "brackets"
       }
     ],
     "@stylistic/ts/semi": ["error", "always"] // 强制所有语句以分号结束

@@ -62,35 +62,50 @@ export default [
       "react/jsx-child-element-spacing": "error",
 
       // JSX强制多行JSX的结束标记位置
-      "react/jsx-closing-tag-location": [2, {
-        "location": "line-aligned"
-      }],
+      "react/jsx-closing-tag-location": [
+        2,
+        {
+          location: "line-aligned"
+        }
+      ],
 
       // TODO 在JSX中强制第一个属性的正确位置
-      "react/jsx-max-props-per-line": ["error", {
-        "maximum": 1
-      }],
+      "react/jsx-max-props-per-line": [
+        "error",
+        {
+          maximum: 1
+        }
+      ],
 
       "react/jsx-indent-props": ["error", 2],
 
       // 事件处理名称
-      "react/jsx-handler-names": [2, {
-        "eventHandlerPrefix": "handle",
-        "eventHandlerPropPrefix": "on",
-        "checkLocalVariables": true,
-        "checkInlineFunction": true
-      }],
+      "react/jsx-handler-names": [
+        2,
+        {
+          eventHandlerPrefix: "handle",
+          eventHandlerPropPrefix: "on",
+          checkLocalVariables: true,
+          checkInlineFunction: true
+        }
+      ],
 
       // 标签最大深度
-      "react/jsx-max-depth": [2, {
-        "max": 4
-      }],
+      "react/jsx-max-depth": [
+        2,
+        {
+          max: 4
+        }
+      ],
 
       // 要求或防止相邻JSX元素和表达式之间的行
-      "react/jsx-newline": [1, {
-        "prevent": true,
-        "allowMultilines": true
-      }],
+      "react/jsx-newline": [
+        1,
+        {
+          prevent: true,
+          allowMultilines: true
+        }
+      ],
 
       // 禁止 bind
       "react/jsx-no-bind": "error",
@@ -105,9 +120,12 @@ export default [
       "react/jsx-no-useless-fragment": "error",
 
       // 每行一个元素
-      "react/jsx-one-expression-per-line": [2, {
-        "allow": "literal"
-      }],
+      "react/jsx-one-expression-per-line": [
+        2,
+        {
+          allow: "literal"
+        }
+      ],
 
       // 强制defaultProps声明按字母排序
       "react/sort-default-props": "error",
@@ -125,15 +143,21 @@ export default [
       "react/no-this-in-sfc": "error",
 
       // 禁止未转义的HTML实体出现在标记中
-      "react/no-unescaped-entities": ["error", {
-        "forbid": [{
-          char: ">",
-          alternatives: ["&gt;"]
-        }, {
-          char: "}",
-          alternatives: ["&#125;"]
-        }]
-      }],
+      "react/no-unescaped-entities": [
+        "error",
+        {
+          forbid: [
+            {
+              char: ">",
+              alternatives: ["&gt;"]
+            },
+            {
+              char: "}",
+              alternatives: ["&#125;"]
+            }
+          ]
+        }
+      ],
 
       // 顶部可以不引入 React
       "react/react-in-jsx-scope": "off",
@@ -142,28 +166,31 @@ export default [
       "react/self-closing-comp": [
         "error",
         {
-          component: true,   // 强制 React 组件自闭合（无子元素时）
-          html: true         // 强制 HTML 标签自闭合（如 <img />）
+          component: true, // 强制 React 组件自闭合（无子元素时）
+          html: true // 强制 HTML 标签自闭合（如 <img />）
         }
       ],
 
       // react/sort-comp 组件引入顺序
-      "react/sort-comp": [1, {
-        order: [
-          "displayName",
-          "propTypes",
-          "defaultProps",
-          "childContextTypes",
-          "static-methods",
-          "state",
-          "instance-variables",
-          "instance-methods",
-          "everything-else",
-          "lifecycle",
-          "render",
-          "/^_?render.+$/"
-        ]
-      }],
+      "react/sort-comp": [
+        1,
+        {
+          order: [
+            "displayName",
+            "propTypes",
+            "defaultProps",
+            "childContextTypes",
+            "static-methods",
+            "state",
+            "instance-variables",
+            "instance-methods",
+            "everything-else",
+            "lifecycle",
+            "render",
+            "/^_?render.+$/"
+          ]
+        }
+      ],
 
       // 禁止 br 等有子
       "react/void-dom-elements-no-children": "error",
@@ -184,22 +211,31 @@ export default [
       "react/jsx-closing-bracket-location": ["error", "after-props"],
 
       // 在JSX属性和表达式中强制使用或禁止使用花括号内的空格
-      "react/jsx-curly-spacing": ["error", {
-        when: "never",
-        children: {
-          when: "never"
+      "react/jsx-curly-spacing": [
+        "error",
+        {
+          when: "never",
+          children: {
+            when: "never"
+          }
         }
-      }],
-      "react/jsx-curly-brace-presence": ["error", {
-        props: "never",
-        children: "never"
-      }],
+      ],
+      "react/jsx-curly-brace-presence": [
+        "error",
+        {
+          props: "never",
+          children: "never"
+        }
+      ],
 
       // JSX禁止可能包含JSX的文件扩展名
-      "react/jsx-filename-extension": [2, {
-        extensions: [".tsx"],
-        allow: "as-needed"
-      }]
+      "react/jsx-filename-extension": [
+        2,
+        {
+          extensions: [".tsx"],
+          allow: "as-needed"
+        }
+      ]
     }
   }
 ];

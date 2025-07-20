@@ -33,8 +33,16 @@ const DEFAULT = [
 export default DEFAULT;
 
 export {
+  ignores,
   javascript,
+  jsdoc,
+  jsonc,
+  perfectionist,
+  prettier,
   react,
+  regexp,
+  stylistic,
   typescript,
+  unicorn,
   vue
 };

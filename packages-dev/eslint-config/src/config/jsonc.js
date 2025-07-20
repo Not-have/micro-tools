@@ -128,29 +128,16 @@ export default [
     }
   },
   {
-    files: [
-      "**/tsconfig.json",
-      "**/tsconfig.*.json",
-      "internal/tsconfig/*.json"
-    ],
+    files: ["**/tsconfig.json", "**/tsconfig.*.json", "internal/tsconfig/*.json"],
     rules: {
       "jsonc/sort-keys": [
         "error",
         {
-          order: [
-            "extends",
-            "compilerOptions",
-            "references",
-            "files",
-            "include",
-            "exclude"
-          ],
+          order: ["extends", "compilerOptions", "references", "files", "include", "exclude"],
           pathPattern: "^$"
         },
         {
           order: [
-
-            /* Projects */
             "incremental",
             "composite",
             "tsBuildInfoFile",
