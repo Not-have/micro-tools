@@ -19,7 +19,7 @@
     "eslint-conf",
     "stylelint-conf"
   ],
-  "homepage": "https://github.com/Not-have/micro-tools/",
+  "homepage": "https://not-have.github.io/micro-tools/",
   "bugs": "https://github.com/Not-have/micro-tools/issues",
   "repository": "git@github.com:Not-have/micro-tools.git",
   "license": "MIT",
