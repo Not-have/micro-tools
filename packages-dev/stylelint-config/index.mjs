@@ -1,10 +1,22 @@
 // 将文件扩展名从 `.js` 改为 `.mjs`，并使用 ESM 格式
 export default {
-  extends: ["stylelint-config-standard", "stylelint-config-recess-order"],
+  extends: [
+    "stylelint-config-standard",
+    "stylelint-config-recess-order"
+  ],
 
   // TODO 不生效
-  ignoreFiles: ["**/*.js", "**/*.ts", "**/*.json", "**/*.md"],
-  plugins: ["stylelint-order", "stylelint-prettier"],
+  ignoreFiles: [
+    "**/*.js",
+    "**/*.ts",
+    "**/*.json",
+    "**/*.md"
+  ],
+  plugins: [
+    "stylelint-order",
+    "@stylistic/stylelint-plugin",
+    "stylelint-prettier"
+  ],
   rules: {
     "at-rule-no-unknown": [
       true,
@@ -67,12 +79,15 @@ export default {
     "rule-empty-line-before": [
       "always",
       {
-        ignore: ["after-comment", "first-nested"]
+        ignore: [
+          "after-comment", "first-nested"
+        ]
       }
     ], // 规定规则前必须有空行，除了注释后面或第一个嵌套规则可以没有
     "selector-class-pattern":
       "^(?:(?:o|c|u|t|s|is|has|_|js|qa)-)?[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*(?:__[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?(?:--[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?(?:[.+])?$", // 关闭选择器命名模式的强制要求，允许自定义选择器命名模式
     "selector-not-notation": null, // 关闭选择器的命名规则检查，允许选择器有灵活的写法
+    "no-duplicate-selectors": true,
     "order/properties-order": [
       [
         "content",

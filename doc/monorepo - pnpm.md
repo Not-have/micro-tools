@@ -82,6 +82,12 @@ pnpm add <pkg>
 pnpm add -D <pkg>
 ```
 
+### 3、catalog
+
+```bash
+pnpx codemod pnpm/catalog
+```
+
 ## 四、发布
 
 ### <del>1、lerna 发布</del>

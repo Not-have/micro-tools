@@ -10,7 +10,7 @@ import {
 export default defineConfig([
   {
     files: [
-      "**/*.?([cm])[t]s?(x)", "**/*.vue", "**/*.json", "**/*.json5", "**/*.jsonc", "**/*.js"
+      "**/*.?([cm])[t]s?(x)", "**/*.vue", "**/*.json", "**/*.json5", "**/*.jsonc", "**/*.js", "**/*.mjs"
     ],
     extends: [
       EsLint,

@@ -1,20 +1,31 @@
 export default {
-  extends: ["./index.mjs", "stylelint-config-recommended-vue"],
+  extends: [
+    "./index.mjs"
+  ],
   overrides: [
     {
       customSyntax: "postcss-html",
-      files: ["*.(html|vue)", "**/*.(html|vue)"],
+      files: [
+        "*.(html|vue)",
+        "**/*.(html|vue)"
+      ],
       rules: {
         "selector-pseudo-class-no-unknown": [
           true,
           {
-            ignorePseudoClasses: ["global", "deep"]
+            ignorePseudoClasses: [
+              "global", "deep"
+            ]
           }
         ],
         "selector-pseudo-element-no-unknown": [
           true,
           {
-            ignorePseudoElements: ["v-deep", "v-global", "v-slotted"]
+            ignorePseudoElements: [
+              "v-deep",
+              "v-global",
+              "v-slotted"
+            ]
           }
         ]
       }

@@ -83,7 +83,7 @@ export default {
       {
         "ArrayExpression": "consistent",
         "ArrayPattern": {
-          "minItems": 3
+          "minItems": 2
         }
       }
     ], // 在数组元素的周围强制换行

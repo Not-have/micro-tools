@@ -1,4 +1,7 @@
 export default {
-  extends: ["./index.mjs", "stylelint-config-recommended"],
+  extends: [
+    "./index.mjs",
+    "stylelint-config-recommended"
+  ],
   rules: {}
 };
