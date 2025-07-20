@@ -57,7 +57,9 @@ function isDef<T = unknown>(val?: T): val is T {
 }
 
 function findTargetNode(el: unknown): Omit<IUseWatermarkRes, "clearAll"> | undefined {
-  return [...sourceMap.values()].find(item => item.targetElement === el);
+  return [
+    ...sourceMap.values()
+  ].find(item => item.targetElement === el);
 }
 
 function createBase64(
@@ -166,7 +168,9 @@ const obFn = (): MutationObserver => {
 };
 
 function clearAll(): void {
-  [...sourceMap.values()].forEach(item => {
+  [
+    ...sourceMap.values()
+  ].forEach(item => {
     item?.obInstance?.disconnect();
     item.clear();
   });

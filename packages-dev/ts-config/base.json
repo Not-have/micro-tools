@@ -3,7 +3,7 @@
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
-    "moduleResolution": "Node",
+    "moduleResolution": "node",
     "strict": true,
     "declaration": true,
     "noImplicitOverride": true,
@@ -29,13 +29,14 @@
     "allowSyntheticDefaultImports": true,
     "strictFunctionTypes": true,
     "noImplicitAny": true,
-    "types": ["node"],
     "emitDeclarationOnly": true,
     "newLine": "lf",
     "noErrorTruncation": true,
     "preserveConstEnums": true,
     "stripInternal": true,
-    "skipDefaultLibCheck": true
+    "skipDefaultLibCheck": true,
+    "typeRoots": ["./node_modules/@types"],
+    "types": ["node"]
   },
   "files": [
     "package.json"

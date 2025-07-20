@@ -21,13 +21,17 @@ export default function DemoUseAsync(): React.ReactElement {
 
   const handleClick = useCallback((): void => {
     run();
-  }, [run]);
+  }, [
+    run
+  ]);
 
   const handleDebouncedClick = useCallback((): void => {
     if (runWithDebounce) {
       runWithDebounce();
     }
-  }, [runWithDebounce]);
+  }, [
+    runWithDebounce
+  ]);
 
   return <div>
     <p>useIsUnmounted 的使用</p>

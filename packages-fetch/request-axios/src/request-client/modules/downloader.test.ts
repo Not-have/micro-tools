@@ -37,7 +37,9 @@ describe("fileDownloader", () => {
   it("下载文件并返回 Blob", async () => {
     const url = "https://example.com/file";
 
-    const mockBlob = new Blob(["file content"], {
+    const mockBlob = new Blob([
+      "file content"
+    ], {
       type: "text/plain"
     });
 
@@ -58,7 +60,9 @@ describe("fileDownloader", () => {
   it("合并自定义配置", async () => {
     const url = "https://example.com/file";
 
-    const mockBlob = new Blob(["file content"], {
+    const mockBlob = new Blob([
+      "file content"
+    ], {
       type: "text/plain"
     });
 

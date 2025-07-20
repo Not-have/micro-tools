@@ -22,7 +22,9 @@ export default defineConfig({
     }),
     libPlugin({
       name: "microVueConfig",
-      external: ["vue"]
+      external: [
+        "vue"
+      ]
     })
   ]
 });

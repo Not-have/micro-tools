@@ -24,7 +24,9 @@ export default defineConfig({
       name: "microVueHooks",
       entry: "./src/index.ts",
       fileName: "index",
-      external: ["vue", "vue-router"]
+      external: [
+        "vue", "vue-router"
+      ]
     })
   ]
 });

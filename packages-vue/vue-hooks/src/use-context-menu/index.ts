@@ -19,5 +19,7 @@ export default function useContextMenu(authRemove = true): [
     });
   }
 
-  return [createContextMenu, destroyContextMenu];
+  return [
+    createContextMenu, destroyContextMenu
+  ];
 }

@@ -6,9 +6,15 @@
 export default function imageBase64ToBlob(base64Buf: string): Blob {
   const arr = base64Buf.split(",");
 
-  const [typeItem] = arr;
+  const [
+    typeItem
+  ] = arr;
 
-  const [, mime] = typeItem.match(/:(.*?);/) || ["", ""];
+  const [
+    , mime
+  ] = typeItem.match(/:(.*?);/) || [
+    "", ""
+  ];
 
   const bstr = window.atob(arr[1]);
 
@@ -20,7 +26,9 @@ export default function imageBase64ToBlob(base64Buf: string): Blob {
     u8arr[n] = bstr.codePointAt(n) || 0;
   }
 
-  return new Blob([u8arr], {
+  return new Blob([
+    u8arr
+  ], {
     type: mime
   });
 }

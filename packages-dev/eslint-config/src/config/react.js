@@ -6,7 +6,9 @@ import jsxA11y from "eslint-plugin-jsx-a11y";
 
 export default [
   {
-    files: ["**/*.{js,jsx,ts,tsx}"],
+    files: [
+      "**/*.{js,jsx,ts,tsx}"
+    ],
     plugins: {
       "react-hooks": reactHooks
     },
@@ -16,7 +18,9 @@ export default [
     }
   },
   {
-    files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],
+    files: [
+      "**/*.{js,mjs,cjs,ts,jsx,tsx}"
+    ],
     ...pluginReact.configs.flat.recommended,
     ...jsxA11y.flatConfigs.recommended,
     languageOptions: {
@@ -77,7 +81,9 @@ export default [
         }
       ],
 
-      "react/jsx-indent-props": ["error", 2],
+      "react/jsx-indent-props": [
+        "error", 2
+      ],
 
       // 事件处理名称
       "react/jsx-handler-names": [
@@ -149,11 +155,15 @@ export default [
           forbid: [
             {
               char: ">",
-              alternatives: ["&gt;"]
+              alternatives: [
+                "&gt;"
+              ]
             },
             {
               char: "}",
-              alternatives: ["&#125;"]
+              alternatives: [
+                "&#125;"
+              ]
             }
           ]
         }
@@ -202,13 +212,17 @@ export default [
       "react/jsx-key": "error",
 
       // 缩进
-      "react/jsx-indent": ["error", 2],
+      "react/jsx-indent": [
+        "error", 2
+      ],
 
       // "react/jsx-indent-props": ["error", 8],
       // "react/jsx-max-props-per-line": ["error", { "maximum": 3 }],
 
       // 在JSX中强制右括号位置
-      "react/jsx-closing-bracket-location": ["error", "after-props"],
+      "react/jsx-closing-bracket-location": [
+        "error", "after-props"
+      ],
 
       // 在JSX属性和表达式中强制使用或禁止使用花括号内的空格
       "react/jsx-curly-spacing": [
@@ -232,7 +246,9 @@ export default [
       "react/jsx-filename-extension": [
         2,
         {
-          extensions: [".tsx"],
+          extensions: [
+            ".tsx"
+          ],
           allow: "as-needed"
         }
       ]

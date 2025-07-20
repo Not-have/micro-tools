@@ -12,7 +12,9 @@ import {
 } from "../fetch";
 
 export default function DemoUseIsUnmounted(): React.ReactElement {
-  const [data, setData] = useState<IResponse | null>(null);
+  const [
+    data, setData
+  ] = useState<IResponse | null>(null);
 
   const isUnmounted = useIsUnmounted();
 
@@ -31,7 +33,9 @@ export default function DemoUseIsUnmounted(): React.ReactElement {
     };
 
     fetchData();
-  }, [isUnmounted]);
+  }, [
+    isUnmounted
+  ]);
 
   return <div>
     <p>useIsUnmounted 的使用</p>

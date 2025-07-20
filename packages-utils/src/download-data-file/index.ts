@@ -11,7 +11,11 @@ export default function downloadDataFile(
     mime?: string,
     bom?: BlobPart
 ): void {
-  const blobData = bom === undefined ? [data] : [bom, data];
+  const blobData = bom === undefined ? [
+    data
+  ] : [
+    bom, data
+  ];
 
   const blob = new Blob(blobData, {
     type: mime || "application/octet-stream"

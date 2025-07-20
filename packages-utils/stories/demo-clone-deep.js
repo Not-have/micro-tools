@@ -22,8 +22,12 @@ const obj = {
   },
   [s1]: "我是 s1 的 value",
   s2,
-  moreFriend: ["帐汗", "昭告"],
-  set: new Set(["aa", "bb"])
+  moreFriend: [
+    "帐汗", "昭告"
+  ],
+  set: new Set([
+    "aa", "bb"
+  ])
 };
 
 /**
@@ -51,5 +55,7 @@ console.log(obj1CloneDeep);
 const cloneDeepObj = cloneDeep(obj);
 
 obj.friend.name = "呈交";
-obj.moreFriend = [1, 2, 3];
+obj.moreFriend = [
+  1, 2, 3
+];
 console.log(cloneDeepObj);

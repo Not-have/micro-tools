@@ -3,7 +3,9 @@ import {
 } from "unbuild";
 
 export default defineBuildConfig({
-  entries: ["src/index"],
+  entries: [
+    "src/index"
+  ],
   clean: true,
   declaration: true,  // 需保持为 true 才能生成声明文件
   rollup: {

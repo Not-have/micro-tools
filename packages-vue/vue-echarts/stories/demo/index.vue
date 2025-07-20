@@ -20,7 +20,9 @@ const {
   setOptions
 } = useECharts(chartRef as Ref<HTMLDivElement>);
 
-const data = ref([3000, 2000, 3333, 5000, 3200, 4200, 3200, 2100, 3000, 5100, 6000, 3200]);
+const data = ref([
+  3000, 2000, 3333, 5000, 3200, 4200, 3200, 2100, 3000, 5100, 6000, 3200
+]);
 
 // 推荐使用 computed
 const ops: ComputedRef<EChartsOption> = computed(() => ({
@@ -57,7 +59,9 @@ const ops: ComputedRef<EChartsOption> = computed(() => ({
 setOptions(ops.value);
 
 const handleClick = (): void => {
-  data.value = [3000, 2000, 3333, 5000, 3200, 4200, 3200, 2100, 3000, 5100, 6000, 320];
+  data.value = [
+    3000, 2000, 3333, 5000, 3200, 4200, 3200, 2100, 3000, 5100, 6000, 320
+  ];
 
   setOptions(ops.value, true);
 };

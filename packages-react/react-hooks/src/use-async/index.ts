@@ -55,7 +55,9 @@ export default function useAsync<Args extends unknown[], R>(
 ): IAsyncResult<Args, R> {
   const isUnmounted = useIsUnmounted();
 
-  const [stateResult, setStateResult] = useState<IStateResult<R>>({
+  const [
+    stateResult, setStateResult
+  ] = useState<IStateResult<R>>({
     loading: false,
     data: initData
   });
@@ -95,7 +97,9 @@ export default function useAsync<Args extends unknown[], R>(
 
           throw error;
         });
-  }, [asyncFunction, isUnmounted, config]);
+  }, [
+    asyncFunction, isUnmounted, config
+  ]);
 
   const runWithDebounce = useMemo(() => {
     if (config.debounce) {
@@ -105,7 +109,9 @@ export default function useAsync<Args extends unknown[], R>(
     }
 
     return undefined;
-  }, [run, config.debounce]);
+  }, [
+    run, config.debounce
+  ]);
 
   return {
     run,

@@ -8,7 +8,9 @@ import {
 } from "../../src";
 
 // 获取创建和销毁上下文菜单的方法
-const [createContextMenu, destroyContextMenu] = useContextMenu();
+const [
+  createContextMenu, destroyContextMenu
+] = useContextMenu();
 
 // 定义菜单组件
 const MenuComponent = (): VNode => (

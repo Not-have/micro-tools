@@ -3,10 +3,14 @@ import {
 } from "unbuild";
 
 export default defineBuildConfig({
-  entries: ["src/index"],
+  entries: [
+    "src/index"
+  ],
 
   // 排除不需要打包的依赖
-  externals: ["react", "react-router-dom"],
+  externals: [
+    "react", "react-router-dom"
+  ],
   clean: true,
   declaration: true,
   rollup: {

@@ -16,7 +16,9 @@ export default defineEventHandler(async event => {
   }
 
   if (
-    ["DELETE", "PATCH", "POST", "PUT"].includes(event.method) &&
+    [
+      "DELETE", "PATCH", "POST", "PUT"
+    ].includes(event.method) &&
     event.path.startsWith("/api/system/")
   ) {
     await sleep(Math.floor(Math.random() * 2000));

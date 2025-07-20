@@ -40,8 +40,12 @@ export default {
 
           // 值匹配：用 glob 模式定义分组范围
           value: {
-            lodash: ["lodash", "lodash-es", "lodash/*", "lodash-es/*"], // 统一匹配所有 lodash 相关包
-            vue: ["vue", "vue-*", "@vue*"], // 匹配 vue 生态包
+            lodash: [
+              "lodash", "lodash-es", "lodash/*", "lodash-es/*"
+            ], // 统一匹配所有 lodash 相关包
+            vue: [
+              "vue", "vue-*", "@vue*"
+            ], // 匹配 vue 生态包
             react: [
 
               // 匹配 React 生态包
@@ -56,16 +60,24 @@ export default {
 
         // 分组优先级排序（从上到下依次排列）
         groups: [
-          ["external-type", "builtin-type", "type"], // 类型导入优先
-          ["parent-type", "sibling-type", "index-type"], // 相对路径类型
-          ["internal-type"], // 内部类型
+          [
+            "external-type", "builtin-type", "type"
+          ], // 类型导入优先
+          [
+            "parent-type", "sibling-type", "index-type"
+          ], // 相对路径类型
+          [
+            "internal-type"
+          ], // 内部类型
           "lodash",
           "builtin", // Node.js 内置模块（如 path/fs）
           "react", // React 生态包[6](@ref)
           "vue", // Vue 生态包[6](@ref)
           "external", // 第三方依赖（如 lodash）
           "internal", // 项目内部模块
-          ["parent", "sibling", "index"], // 相对路径文件
+          [
+            "parent", "sibling", "index"
+          ], // 相对路径文件
           "side-effect", // 副作用导入（如 import "style.css"）
           "side-effect-style", // CSS 副作用导入
           "style", // 样式文件
@@ -74,7 +86,9 @@ export default {
         ],
 
         // 内部模块路径匹配模式（适用于 monorepo）
-        internalPattern: ["~*", "~/**", "@mt-kit/**"], // 匹配 Vite 别名路径（如 #components/*）
+        internalPattern: [
+          "~*", "~/**", "@mt-kit/**"
+        ], // 匹配 Vite 别名路径（如 #components/*）
         newlinesBetween: "always", // 分组间插入空行提升可读性
         order: "asc", // 组内按字母升序
         type: "natural" // 自然排序（智能处理数字顺序）

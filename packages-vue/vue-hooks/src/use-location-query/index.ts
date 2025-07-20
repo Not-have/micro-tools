@@ -75,7 +75,9 @@ function queryToSearch<T>(
     query: Partial<T>,
     defaults: Partial<T>
 ): LocationQuery {
-  const filteredObj = Object.fromEntries(Object.entries(query).filter(([key, value]) => {
+  const filteredObj = Object.fromEntries(Object.entries(query).filter(([
+    key, value
+  ]) => {
     const stringValue = String(value);
 
     return stringValue !== "" && stringValue !== undefined && stringValue !== String(defaults[key as keyof T]);
@@ -142,5 +144,7 @@ export default function useLocationQuery<T>({
     });
   };
 
-  return [query as Ref<UnwrapRef<Partial<T>>>, updateQuery];
+  return [
+query as Ref<UnwrapRef<Partial<T>>>, updateQuery
+  ];
 }

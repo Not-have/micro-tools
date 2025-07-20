@@ -99,17 +99,23 @@ describe("requestClient", () => {
   });
 
   it("should successfully upload a file", async () => {
-    const fileData = new Blob(["file contents"], {
+    const fileData = new Blob([
+      "file contents"
+    ], {
       type: "text/plain"
     });
 
     mock.onPost("/test/upload").reply(config => (config.data instanceof FormData && config.data.has("file")
-      ? [200, {
-        data: "file uploaded"
-      }]
-      : [400, {
-        error: "Bad Request"
-      }]));
+      ? [
+        200, {
+          data: "file uploaded"
+        }
+      ]
+      : [
+        400, {
+          error: "Bad Request"
+        }
+      ]));
 
     const response = await requestClient.upload("/test/upload", {
       file: fileData
@@ -121,7 +127,9 @@ describe("requestClient", () => {
   });
 
   it("should successfully download a file as a blob", async () => {
-    const mockFileContent = new Blob(["mock file content"], {
+    const mockFileContent = new Blob([
+      "mock file content"
+    ], {
       type: "text/plain"
     });
 

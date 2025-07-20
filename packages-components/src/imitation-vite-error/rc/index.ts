@@ -243,7 +243,9 @@ export default class ErrorOverlay extends HTMLElement {
 
     this.text(".message-body", message.trim());
 
-    const [file] = (err.loc?.file || err.id || "unknown file").split("?");
+    const [
+      file
+    ] = (err.loc?.file || err.id || "unknown file").split("?");
 
     if (err.loc) {
       this.text(".file", `${file}:${err.loc.line}:${err.loc.column}`, links);
@@ -285,7 +287,6 @@ export default class ErrorOverlay extends HTMLElement {
 
       fileRE.lastIndex = 0;
 
-      // eslint-disable-next-line no-cond-assign
       while ((match = fileRE.exec(text))) {
         const {
           0: file, index

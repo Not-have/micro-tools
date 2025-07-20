@@ -36,7 +36,9 @@ export default function libPlugin(options: ILibPluginOptions): Plugin {
     name = "lib-plugin",
     entry = "./src/index.ts",
     fileName = "index",
-    external = ["path", "vite"]
+    external = [
+      "path", "vite"
+    ]
   } = options;
 
   // 获取当前工作目录，避免重复调用 process.cwd()
@@ -59,7 +61,9 @@ export default function libPlugin(options: ILibPluginOptions): Plugin {
             entry: resolve(cwd, entry),
             name,
             fileName: format => `${fileName}.${format}.js`,
-            formats: ["es", "umd"]
+            formats: [
+              "es", "umd"
+            ]
           },
           rollupOptions: {
 

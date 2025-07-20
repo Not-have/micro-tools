@@ -32,7 +32,9 @@ describe("fileUploader", () => {
   it("上传文件并返回响应", async () => {
     const url = "https://example.com/upload";
 
-    const file = new File(["file content"], "test.txt", {
+    const file = new File([
+      "file content"
+    ], "test.txt", {
       type: "text/plain"
     });
 
@@ -69,7 +71,9 @@ describe("fileUploader", () => {
   it("合并自定义配置", async () => {
     const url = "https://example.com/upload";
 
-    const file = new File(["file content"], "test.txt", {
+    const file = new File([
+      "file content"
+    ], "test.txt", {
       type: "text/plain"
     });
 
@@ -113,7 +117,9 @@ describe("fileUploader", () => {
   it("处理网络错误", async () => {
     const url = "https://example.com/upload";
 
-    const file = new File(["file content"], "test.txt", {
+    const file = new File([
+      "file content"
+    ], "test.txt", {
       type: "text/plain"
     });
 
@@ -129,7 +135,9 @@ describe("fileUploader", () => {
   it("处理空 URL", async () => {
     const url = "";
 
-    const file = new File(["file content"], "test.txt", {
+    const file = new File([
+      "file content"
+    ], "test.txt", {
       type: "text/plain"
     });
 
@@ -145,7 +153,9 @@ describe("fileUploader", () => {
   it("处理 null URL", async () => {
     const url = null as unknown as string;
 
-    const file = new File(["file content"], "test.txt", {
+    const file = new File([
+      "file content"
+    ], "test.txt", {
       type: "text/plain"
     });
 

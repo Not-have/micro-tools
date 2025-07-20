@@ -7,7 +7,9 @@ import {
   useState
 } from "../../src";
 
-const [state, setState] = useState({
+const [
+  state, setState
+] = useState({
   age: 1
 });
 
@@ -27,7 +29,9 @@ watch(() => state.age, (newValue, oldValue) => {
 
 });
 
-const [stateNum, setStateNum] = useState(1);
+const [
+  stateNum, setStateNum
+] = useState(1);
 
 const handleAddNumClick = (): void => {
   setStateNum(stateNum => stateNum + 1);

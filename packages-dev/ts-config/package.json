@@ -30,5 +30,8 @@
   },
   "peerDependencies": {
     "typescript": ">=5.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:"
   }
 }

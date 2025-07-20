@@ -45,7 +45,9 @@ export default function executeFileCopy({
   });
 
   // 将单个入口转换为数组，以便统一处理
-  const entries = Array.isArray(entry) ? entry : [entry];
+  const entries = Array.isArray(entry) ? entry : [
+    entry
+  ];
 
   entries.forEach(v => {
 
