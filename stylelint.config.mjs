@@ -1,5 +1,7 @@
 export default {
-  extends: ["@mt-kit/stylelint-config/vue"],
+  extends: [
+    "@mt-kit/stylelint-config/vue"
+  ],
   ignoreFiles: [
     "**/*.json",
     "**/*.mjs",
@@ -10,6 +12,9 @@ export default {
     "**/*.tsx",
     "node_modules/**",
     "dist/**",
-    "**/*.md"
+    "**/*.md",
+    "**/dist/**",
+    "**/node_modules/**",
+    "**/assets/**"
   ]
 };
