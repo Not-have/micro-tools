@@ -1,6 +1,7 @@
 import EsLint, {
   vue,
-  react
+  react,
+  typescript
 } from "@mt-kit/eslint-config";
 import {
   defineConfig
@@ -8,15 +9,28 @@ import {
 
 export default defineConfig([
   {
-    files: ["**/*.?([cm])[t]s?(x)", "**/*.vue", "**/*.json", "**/*.json5", "**/*.jsonc", "**/*.js"],
-    extends: [EsLint]
+    files: [
+      "**/*.?([cm])[t]s?(x)", "**/*.vue", "**/*.json", "**/*.json5", "**/*.jsonc", "**/*.js"
+    ],
+    extends: [
+      EsLint,
+      typescript
+    ]
   },
   {
-    files: ["./packages-vue/**/*.vue"],
-    extends: [vue]
+    files: [
+      "./packages-vue/**/*.vue"
+    ],
+    extends: [
+      vue
+    ]
   },
   {
-    files: ["./packages-react/**/*.tsx", "./packages-react/**/*.ts", "./packages-react/**/*.js", "./packages-react/**/*.jsx"],
-    extends: [react]
+    files: [
+      "./packages-react/**/*.tsx", "./packages-react/**/*.ts", "./packages-react/**/*.js", "./packages-react/**/*.jsx"
+    ],
+    extends: [
+      react
+    ]
   }
 ]);

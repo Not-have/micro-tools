@@ -26,8 +26,7 @@ const DEFAULT = [
   ignores,
   prettier,
   regexp,
-  perfectionist,
-  typescript
+  perfectionist
 ];
 
 export default DEFAULT;

@@ -1,14 +1,23 @@
 import pluginVue from "eslint-plugin-vue";
+import parserVue from "vue-eslint-parser";
+
+import parserTs from "@typescript-eslint/parser";
 
 /**
  * TODO 需要优化，并且不确定他的健壮性
  */
 export default [
   ...pluginVue.configs["flat/recommended"],
+  ...pluginVue.configs?.["flat/essential"] || [],
+  ...pluginVue.configs?.["flat/strongly-recommended"] || [],
   {
+    files: [
+      "**/*.vue"
+    ],
     languageOptions: {
+      parser: parserVue,
       parserOptions: {
-        parser: "@typescript-eslint/parser",
+        parser: parserTs,
         extraFileExtensions: [
           ".vue"
         ]
@@ -17,6 +26,21 @@ export default [
     }
   },
   {
+
+    // files: [
+    //   "**/*.vue"
+    // ],
+    // parser: parserVue,
+    // parserOptions: {
+    //   ecmaFeatures: {
+    //     jsx: true
+    //   },
+    //   extraFileExtensions: [
+    //     ".vue"
+    //   ],
+    //   parser: parserTs,
+    //   sourceType: "module"
+    // },
     rules: {
 
       /**

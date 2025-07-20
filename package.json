@@ -68,7 +68,8 @@
     "npm-package-json-lint-config-default": "catalog:",
     "only-allow": "catalog:",
     "prettier": "catalog:",
-    "stylelint": "catalog:"
+    "stylelint": "catalog:",
+    "typescript": "catalog:"
   },
   "engines": {
     "node": ">=22.0.0",
