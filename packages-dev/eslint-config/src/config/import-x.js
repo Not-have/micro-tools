@@ -12,15 +12,21 @@ export default [
   eslintPluginImportX.flatConfigs.recommended,
   eslintPluginImportX.flatConfigs.typescript,
   {
-    files: ["**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx}"],
-    ignores: ["eslint.config.js"],
+    files: [
+      "**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx}"
+    ],
+    ignores: [
+      "eslint.config.js"
+    ],
     languageOptions: {
       parser: tsParser,
       ecmaVersion: "latest",
       sourceType: "module"
     },
     rules: {
-      "import/consistent-type-specifier-style": ["error", "prefer-top-level"],
+      "import/consistent-type-specifier-style": [
+        "error", "prefer-top-level"
+      ],
       "import/first": "error",
       "import/newline-after-import": "error",
       "import/no-duplicates": "error",
@@ -42,7 +48,14 @@ export default [
       "import/order": [
         "error",
         {
-          groups: ["builtin", "external", "internal", "parent", "sibling", "index"],
+          groups: [
+            "builtin",
+            "external",
+            "internal",
+            "parent",
+            "sibling",
+            "index"
+          ],
           pathGroups: [
             {
               pattern: "@mt-kit/**", // 厂内二方包

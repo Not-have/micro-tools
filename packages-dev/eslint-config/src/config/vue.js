@@ -9,7 +9,9 @@ export default [
     languageOptions: {
       parserOptions: {
         parser: "@typescript-eslint/parser",
-        extraFileExtensions: [".vue"]
+        extraFileExtensions: [
+          ".vue"
+        ]
       },
       sourceType: "module"
     }
@@ -40,7 +42,9 @@ export default [
             "CONDITIONALS",
             "RENDER_MODIFIERS",
             "GLOBAL",
-            ["UNIQUE", "SLOT"],
+            [
+              "UNIQUE", "SLOT"
+            ],
             "TWO_WAY_BINDING",
             "OTHER_DIRECTIVES",
             "OTHER_ATTR",
@@ -54,26 +58,40 @@ export default [
       "vue/block-order": [
         "error",
         {
-          order: ["script", "template", "style"]
+          order: [
+            "script", "template", "style"
+          ]
         }
       ],
-      "vue/component-name-in-template-casing": ["error", "PascalCase"],
-      "vue/component-options-name-casing": ["error", "PascalCase"],
-      "vue/custom-event-name-casing": ["error", "camelCase"], // 关闭自定义事件名称的大小写检查
+      "vue/component-name-in-template-casing": [
+        "error", "PascalCase"
+      ],
+      "vue/component-options-name-casing": [
+        "error", "PascalCase"
+      ],
+      "vue/custom-event-name-casing": [
+        "error", "camelCase"
+      ], // 关闭自定义事件名称的大小写检查
       "vue/define-macros-order": [
         "error",
         {
-          order: ["defineOptions", "defineProps", "defineEmits", "defineSlots"]
+          order: [
+            "defineOptions", "defineProps", "defineEmits", "defineSlots"
+          ]
         }
       ],
-      "vue/dot-location": ["error", "property"],
+      "vue/dot-location": [
+        "error", "property"
+      ],
       "vue/dot-notation": [
         "error",
         {
           allowKeywords: true
         }
       ],
-      "vue/eqeqeq": ["error", "smart"],
+      "vue/eqeqeq": [
+        "error", "smart"
+      ],
       "vue/html-closing-bracket-newline": "error",
 
       // 闭合标签前，必须空格
@@ -95,9 +113,13 @@ export default [
           exceptions: []
         }
       ],
-      "vue/html-indent": ["error", 2], // 设置 HTML 缩进为 2 个空格
+      "vue/html-indent": [
+        "error", 2
+      ], // 设置 HTML 缩进为 2 个空格
       // 'vue/html-indent': ['error', 2],
-      "vue/html-quotes": ["error", "double"],
+      "vue/html-quotes": [
+        "error", "double"
+      ],
 
       "vue/key-spacing": "error",
 
@@ -120,7 +142,9 @@ export default [
 
       // 'vue/max-attributes-per-line': 'off',
       "vue/no-empty-pattern": "error",
-      "vue/no-extra-parens": ["error", "functions"],
+      "vue/no-extra-parens": [
+        "error", "functions"
+      ],
       "vue/no-irregular-whitespace": "error",
       "vue/no-loss-of-precision": "error",
       "vue/no-multi-spaces": [
@@ -136,9 +160,13 @@ export default [
         "LabeledStatement",
         "WithStatement"
       ],
-      "vue/no-restricted-v-bind": ["error", "/^v-/"],
+      "vue/no-restricted-v-bind": [
+        "error", "/^v-/"
+      ],
 
-      "vue/no-spaces-around-equal-signs-in-attribute": ["error"],
+      "vue/no-spaces-around-equal-signs-in-attribute": [
+        "error"
+      ],
       "vue/no-sparse-arrays": "error",
       "vue/no-unused-emit-declarations": "error",
       "vue/no-unused-refs": "error",
@@ -192,7 +220,9 @@ export default [
       "vue/prefer-import-from-vue": "error",
       "vue/prefer-separate-static-class": "error",
       "vue/prefer-template": "error",
-      "vue/prop-name-casing": ["error", "camelCase"],
+      "vue/prop-name-casing": [
+        "error", "camelCase"
+      ],
       "vue/require-default-prop": "error", // 关闭要求默认属性的检查
       "vue/require-explicit-emits": "error", // 关闭要求明确的 emits 选项的检查
       "vue/require-prop-types": "error",
@@ -216,7 +246,9 @@ export default [
         "error",
         {
           externalIgnores: [],
-          ignores: ["pre", "textarea"],
+          ignores: [
+            "pre", "textarea"
+          ],
           ignoreWhenEmpty: true,
           ignoreWhenNoAttributes: true
         }

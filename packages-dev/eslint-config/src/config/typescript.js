@@ -7,7 +7,9 @@ import parserTs from "@typescript-eslint/parser";
 export default {
 
   // "**/*.vue" 验证 vue 文件中的 ts
-  files: ["**/*.?([cm])[t]s?(x)", "**/*.vue"],
+  files: [
+    "**/*.?([cm])[t]s?(x)", "**/*.vue"
+  ],
   languageOptions: {
     parser: parserTs,
     parserOptions: {
@@ -41,17 +43,23 @@ export default {
     ], // 禁止使用 // @ts-expect-error 和 // @ts-ignore 注释
     "@typescript-eslint/ban-ts-ignore": "off", // 禁止使用 // @ts-ignore 注释
     "@typescript-eslint/ban-types": "off", // 禁止使用特定类型
-    "@typescript-eslint/consistent-type-definitions": ["warn", "interface"],
+    "@typescript-eslint/consistent-type-definitions": [
+      "warn", "interface"
+    ],
     "@typescript-eslint/naming-convention": [
       "error",
       {
-        format: ["strictCamelCase", "StrictPascalCase"],
+        format: [
+          "strictCamelCase", "StrictPascalCase"
+        ],
         leadingUnderscore: "allow",
         selector: "function"
       },
       {
         selector: "variable",
-        format: ["strictCamelCase", "StrictPascalCase", "UPPER_CASE"],
+        format: [
+          "strictCamelCase", "StrictPascalCase", "UPPER_CASE"
+        ],
         filter: {
           regex: "[A-Z\\d]__[A-Z\\d]",
           match: false
@@ -64,33 +72,53 @@ export default {
         }
       },
       {
-        format: ["strictCamelCase"],
+        format: [
+          "strictCamelCase"
+        ],
         leadingUnderscore: "allow",
         selector: "parameter"
       },
       {
-        format: ["StrictPascalCase"],
+        format: [
+          "StrictPascalCase"
+        ],
         selector: "typeLike"
       },
       {
-        format: ["StrictPascalCase"],
-        prefix: ["E"],
+        format: [
+          "StrictPascalCase"
+        ],
+        prefix: [
+          "E"
+        ],
         selector: "enum"
       },
       {
-        format: ["StrictPascalCase"],
-        prefix: ["I"],
+        format: [
+          "StrictPascalCase"
+        ],
+        prefix: [
+          "I"
+        ],
         selector: "interface"
       },
       {
-        format: ["StrictPascalCase"],
-        prefix: ["T"],
+        format: [
+          "StrictPascalCase"
+        ],
+        prefix: [
+          "T"
+        ],
         selector: "typeAlias"
       },
       {
-        format: ["strictCamelCase"],
+        format: [
+          "strictCamelCase"
+        ],
         leadingUnderscore: "allow",
-        modifiers: ["private"],
+        modifiers: [
+          "private"
+        ],
         selector: "memberLike"
       },
       {
@@ -98,7 +126,9 @@ export default {
           match: false,
           regex: "[A-Z\\d]__[A-Z\\d]"
         },
-        format: ["StrictPascalCase", "UPPER_CASE"],
+        format: [
+          "StrictPascalCase", "UPPER_CASE"
+        ],
         leadingUnderscore: "allow",
         selector: "enumMember"
       },
@@ -106,8 +136,12 @@ export default {
 
         // 允许解构属性使用任何命名
         format: null,
-        modifiers: ["destructured"],
-        selector: ["variable", "parameter"]
+        modifiers: [
+          "destructured"
+        ],
+        selector: [
+          "variable", "parameter"
+        ]
       }
     ],
 
@@ -115,7 +149,9 @@ export default {
     "@typescript-eslint/no-empty-function": [
       "error",
       {
-        allow: ["arrowFunctions", "functions", "methods"]
+        allow: [
+          "arrowFunctions", "functions", "methods"
+        ]
       }
     ],
     "@typescript-eslint/no-explicit-any": "error", // 禁止使用 any 类型
@@ -182,6 +218,8 @@ export default {
         }
       }
     ], // 设置缩进为两个空格
-    "@typescript-eslint/explicit-function-return-type": ["warn"] // 要求函数的返回类型必须显式声明
+    "@typescript-eslint/explicit-function-return-type": [
+      "warn"
+    ] // 要求函数的返回类型必须显式声明
   }
 };

@@ -14,7 +14,9 @@ export default {
     "@stylistic/ts": stylisticTs
   },
   rules: {
-    "@stylistic/space-infix-ops": ["error"],
+    "@stylistic/space-infix-ops": [
+      "error"
+    ],
     "@stylistic/switch-colon-spacing": [
       "error",
       {
@@ -76,6 +78,16 @@ export default {
         multilineDetection: "brackets"
       }
     ],
-    "@stylistic/ts/semi": ["error", "always"] // 强制所有语句以分号结束
+    "@stylistic/array-bracket-newline": [
+      "error",
+      {
+        multiline: true,
+        minItems: 1
+      }
+    ],
+    "@stylistic/ts/semi": [
+      "error",
+      "always"
+    ] // 强制所有语句以分号结束
   }
 };

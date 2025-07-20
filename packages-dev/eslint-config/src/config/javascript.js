@@ -78,13 +78,24 @@ export default {
     "array-bracket-newline": "off", // 在数组括号内强制换行
     "array-bracket-spacing": "error", // 强制数组方括号中使用一致的空格
     "array-callback-return": "error", // 强制数组方法的回调函数中有 return 语句
-    "array-element-newline": "off", // 在数组元素的周围强制换行
+    "array-element-newline": [
+      "error",
+      {
+        "ArrayExpression": "consistent",
+        "ArrayPattern": {
+          "minItems": 3
+        }
+      }
+    ], // 在数组元素的周围强制换行
     /**
      * 箭头函数
      */
     "arrow-body-style": "error", // 要求箭头函数体使用大括号
 
-    "arrow-parens": ["error", "as-needed"], // 要求箭头函数的参数使用圆括号，但当只有一个参数时允许省略括号
+    "arrow-parens": [
+      "error",
+      "as-needed"
+    ], // 要求箭头函数的参数使用圆括号，但当只有一个参数时允许省略括号
     "arrow-spacing": [
       "error",
       {
@@ -108,7 +119,10 @@ export default {
      */
     "capitalized-comments": "off", // 强制注释的首字母大写
     // 禁止尾部逗号
-    "comma-dangle": ["error", "never"], // 对象字面量项尾不能有逗号
+    "comma-dangle": [
+      "error",
+      "never"
+    ], // 对象字面量项尾不能有逗号
     "comma-spacing": [
       "error",
       {
@@ -116,13 +130,19 @@ export default {
         before: false
       }
     ], // 强制在逗号前后使用一致的空格
-    "computed-property-spacing": [2, "never"], // 禁止或强制在计算属性中使用空格
+    "computed-property-spacing": [
+      2,
+      "never"
+    ], // 禁止或强制在计算属性中使用空格
     "constructor-super": "error",
 
     /**
      * 括号
      */
-    curly: ["error", "all"], // 要求遵循大括号约定
+    curly: [
+      "error",
+      "all"
+    ], // 要求遵循大括号约定
     "default-case": "error", // 要求 switch 语句中有 default 分支
     "default-case-last": "error", // 强制 default 分支必须在 switch 语句的最后
     "default-param-last": "error", // 要求函数的默认参数在最后
@@ -133,7 +153,10 @@ export default {
         allowKeywords: true
       }
     ], // 强制尽可能地使用点号
-    "eol-last": ["error", "always"], // 要求文件末尾保留一行空行，或不保留
+    "eol-last": [
+      "error",
+      "always"
+    ], // 要求文件末尾保留一行空行，或不保留
     eqeqeq: [
       "error",
       "always",
@@ -145,8 +168,14 @@ export default {
     "func-call-spacing": "error", // 要求或禁止在函数标识符和其调用之间有空格
     "func-name-matching": "error", // 强制函数名与赋值给它们的变量名或属性名相匹配
     "func-names": "off", // 要求函数表达式有名字
-    "func-style": ["off", "expression"], // 强制一致地使用函数声明或函数表达式
-    "function-call-argument-newline": ["error", "consistent"], // 强制在函数括号内使用一致的换行
+    "func-style": [
+      "off",
+      "expression"
+    ], // 强制一致地使用函数声明或函数表达式
+    "function-call-argument-newline": [
+      "error",
+      "consistent"
+    ], // 强制在函数括号内使用一致的换行
     "function-paren-newline": "error", // 强制函数括号前后使用一致的换行
     "generator-star-spacing": "error", // 强制 generator 函数中 * 号周围使用一致的空格
     "getter-return": [
@@ -160,7 +189,10 @@ export default {
     "id-denylist": "error", // 禁止使用指定的标识符
     "id-length": "off", // 禁止在标识符中使用悬空下划线
     "id-match": "error", // 强制标识符的命名约定
-    "implicit-arrow-linebreak": ["error", "beside"], // 强制隐式返回的箭头函数体的位置
+    "implicit-arrow-linebreak": [
+      "error",
+      "beside"
+    ], // 强制隐式返回的箭头函数体的位置
     indent: [
       "error",
       2,
@@ -256,7 +288,10 @@ export default {
     "no-console": [
       "error",
       {
-        allow: ["warn", "error"]
+        allow: [
+          "warn",
+          "error"
+        ]
       }
     ], // 禁止使用console（可根据配置允许warn、error等情况），使用了则报错
     "no-const-assign": "error", // 禁止对const声明的变量进行重新赋值，赋值了则报错
@@ -335,7 +370,10 @@ export default {
     "no-misleading-character-class": "error", // 禁止使用容易误导的字符类的正则表达式，使用了则报错
 
     // 禁止行末尾空格
-    "no-mixed-spaces-and-tabs": ["error", "smart-tabs"],
+    "no-mixed-spaces-and-tabs": [
+      "error",
+      "smart-tabs"
+    ],
     "no-multi-assign": "error", // 禁止连续赋值
     "no-multi-spaces": [
       "error",
@@ -504,7 +542,10 @@ export default {
     // 强制每行末尾的空格（可选）
     "no-whitespace-before-property": "error",
     "no-with": "error",
-    "object-curly-spacing": ["error", "always"],
+    "object-curly-spacing": [
+      "error",
+      "always"
+    ],
     "object-shorthand": [
       "error",
       "always",
@@ -532,26 +573,55 @@ export default {
       {
         blankLine: "always",
         next: "*",
-        prev: ["const", "let", "var", "block", "block-like"]
+        prev: [
+          "const",
+          "let",
+          "var",
+          "block",
+          "block-like"
+        ]
       },
       {
         blankLine: "always",
-        next: ["return", "throw", "break", "continue", "block", "block-like", "export"],
+        next: [
+          "return",
+          "throw",
+          "break",
+          "continue",
+          "block",
+          "block-like",
+          "export"
+        ],
         prev: "*"
       },
       {
         blankLine: "always",
-        next: ["const", "let", "var"],
-        prev: ["const", "let", "var"]
+        next: [
+          "const",
+          "let",
+          "var"
+        ],
+        prev: [
+          "const",
+          "let",
+          "var"
+        ]
       },
       {
         blankLine: "any",
-        next: ["export"],
-        prev: ["export"]
+        next: [
+          "export"
+        ],
+        prev: [
+          "export"
+        ]
       },
       {
         blankLine: "never",
-        next: ["case", "default"],
+        next: [
+          "case",
+          "default"
+        ],
         prev: "*"
       }
     ],
@@ -593,9 +663,15 @@ export default {
     "prefer-template": "error",
     quotes: "error", // 强制使用一致的引号风格 double（双引号）、single（single）、backtick（模板字符串）
     "require-await": "off", // 禁止使用不带 await 表达式的 async 函数
-    "rest-spread-spacing": [2, "never"], // Error; rest 空格
+    "rest-spread-spacing": [
+      2,
+      "never"
+    ], // Error; rest 空格
     // 强制使用分号
-    semi: ["error", "always"],
+    semi: [
+      "error",
+      "always"
+    ],
 
     /*
     "sort-imports": ["error", {
@@ -615,12 +691,18 @@ export default {
         named: "never"
       }
     ], // 要求函数名与圆括号之间有空格no-multi-spaces
-    "spaced-comment": ["error", "always"], // 强制在注释中 // 或 /* 使用一致的空格
+    "spaced-comment": [
+      "error",
+      "always"
+    ], // 强制在注释中 // 或 /* 使用一致的空格
     "symbol-description": "error",
     "template-curly-spacing": "off", // 强制模板字符串中空格的使用
 
     // 禁止在文件开头出现 Unicode 字节顺序标记（BOM），若出现则报错，保证文件编码规范，避免因 BOM 带来的一些兼容性等问题
-    "unicode-bom": ["error", "never"],
+    "unicode-bom": [
+      "error",
+      "never"
+    ],
 
     // 针对“unused-imports”插件中的“no-unused-imports”规则，若存在未使用的导入语句则报错，用于清理代码中多余的导入，提升代码整洁性
     "unused-imports/no-unused-imports": "error",
@@ -674,7 +756,10 @@ export default {
      *
      * 这里配置为 ["error", "never"] 表示禁止出现“尤达”式的写法，若代码中出现了这种写法就会触发报错，目的是让代码中的条件表达式遵循常规的、更易读的书写习惯
      */
-    yoda: ["error", "never"],
+    yoda: [
+      "error",
+      "never"
+    ],
 
     // TODO 因为 webpack，从而禁止的
     // 允许 require 的使用
