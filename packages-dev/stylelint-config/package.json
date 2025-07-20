@@ -19,9 +19,20 @@
     "lint:vue": "stylelint '**/*.vue'"
   },
   "main": "./index.mjs",
+  "module": "./index.mjs",
   "exports": {
-    "./vue": "./vue.mjs",
-    "./react": "./react.mjs"
+    ".": {
+      "import": "./index.mjs",
+      "default": "./index.mjs"
+    },
+    "./vue": {
+      "import": "./vue.mjs",
+      "default": "./vue.mjs"
+    },
+    "./react": {
+      "import": "./react.mjs",
+      "default": "./react.mjs"
+    }
   },
   "publishConfig": {
     "access": "public",

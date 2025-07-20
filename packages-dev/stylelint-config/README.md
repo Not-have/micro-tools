@@ -114,6 +114,25 @@ node_modules
 }
 ```
 
+## vscode 配置
+
+.vscode -> `settings.json`
+
+```json
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.stylelint": "explicit"
+  },
+  "stylelint.enable": true,
+  "stylelint.packageManager": "pnpm",
+  "stylelint.validate": ["css", "less", "postcss", "scss", "vue", "tsx", "jsx"， "html"],
+  "stylelint.customSyntax": "postcss-html",
+  "stylelint.snippet": ["css", "less", "postcss", "scss", "vue", "tsx", "jsx", "html"]
+}
+```
+
+注： `stylelint.packageManager` 是包的加载依赖项，如果你的项目使用的是 npm 则不需要配置。
+
 ## 插件
 
 | 插件 | 作用 |
