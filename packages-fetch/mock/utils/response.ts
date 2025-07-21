@@ -5,7 +5,7 @@ import type {
 
 export function useResponseSuccess<T = unknown>(data: T) {
   return {
-    code: 0,
+    code: 200,
     data,
     error: null,
     message: "ok"

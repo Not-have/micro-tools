@@ -219,7 +219,14 @@ export default {
       }
     ], // 设置缩进为两个空格
     "@typescript-eslint/explicit-function-return-type": [
-      "warn"
-    ] // 要求函数的返回类型必须显式声明
+      "warn",
+      {
+        allowExpressions: true,
+        allowTypedFunctionExpressions: true,
+        allowHigherOrderFunctions: true,
+        allowDirectConstAssertionInArrowFunctions: true,
+        allowConciseArrowFunctionExpressionsStartingWithVoid: true
+      }
+    ]
   }
 };
