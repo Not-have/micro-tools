@@ -79,6 +79,8 @@ class RequestClient {
 
   public upload: FileUploader["upload"];
 
+  public postUpload: FileUploader["postUpload"];
+
   private readonly instance: AxiosInstance;
 
   /**
@@ -119,7 +121,9 @@ class RequestClient {
     // 实例化文件上传器
     const fileUploader = new FileUploader(this);
 
-    this.upload = fileUploader.upload.bind(fileUploader);
+    this.upload = fileUploader.upload.bind(fileUploader.upload);
+
+    this.postUpload = fileUploader.postUpload.bind(fileUploader.postUpload);
 
     // 实例化文件下载器
     const fileDownloader = new FileDownloader(this);

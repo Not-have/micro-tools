@@ -4,6 +4,7 @@ import {
 import RequestClient from "../request-client";
 
 type TDownloadRequestConfig = {
+  method?: "get" | "post";
 
   /**
    * 定义期望获得的数据类型。
@@ -33,13 +34,18 @@ class FileDownloader {
       url: string,
       config?: TDownloadRequestConfig
   ): Promise<T> {
+    const {
+      method = "get",
+      ...rest
+    } = config || {};
+
     const finalConfig: TDownloadRequestConfig = {
       responseReturn: "body",
-      ...config,
+      ...rest,
       responseType: "blob"
     };
 
-    const response = await this.client.get<T>(url, finalConfig);
+    const response = await this.client[method]<T>(url, finalConfig);
 
     return response;
   }
