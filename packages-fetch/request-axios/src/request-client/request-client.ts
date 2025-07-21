@@ -77,6 +77,8 @@ class RequestClient {
   // 刷新token队列
   public refreshTokenQueue: ((token: string) => void)[] = [];
 
+  public errorQueue: (() => void)[] = [];
+
   public upload: FileUploader["upload"];
 
   public postUpload: FileUploader["postUpload"];
