@@ -1,5 +1,5 @@
 export default eventHandler(() => ({
-  code: 200,
+  code: 100,
   data: {
     id: 1,
     password: "123456",

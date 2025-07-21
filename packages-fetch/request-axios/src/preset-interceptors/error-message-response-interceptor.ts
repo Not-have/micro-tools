@@ -4,12 +4,25 @@ import {
   Field
 } from "../enum";
 import {
-  MakeErrorMessageFn,
+  RequestClient
+} from "../request-client";
+import {
   ResponseInterceptorConfig,
   ErrorMessageResponseInterceptorOptions
 } from "../types";
 
-const errorMessageResponseInterceptor = (makeErrorMessage?: MakeErrorMessageFn, options: ErrorMessageResponseInterceptorOptions = {}): ResponseInterceptorConfig => ({
+interface IExtendOptions {
+  client?: RequestClient;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  errorFn: (message: string, error: Error | any) => void;
+  options?: ErrorMessageResponseInterceptorOptions;
+}
+
+const errorMessageResponseInterceptor = ({
+  client,
+  errorFn,
+  options = {}
+}: IExtendOptions): ResponseInterceptorConfig => ({
   rejected: (error): Promise<never> => {
     if (axios.isCancel(error)) {
       return Promise.reject(error);
@@ -34,8 +47,12 @@ const errorMessageResponseInterceptor = (makeErrorMessage?: MakeErrorMessageFn, 
       errMsg = message?.notFoundMsg || "请求资源不存在，请稍后重试。";
     }
 
+    if(client) {
+      client.errorQueue.push(() => Promise.reject(error));
+    }
+
     if (errMsg) {
-      makeErrorMessage?.(errMsg, error);
+      errorFn?.(errMsg, error);
 
       return Promise.reject(error);
     }
@@ -75,7 +92,7 @@ const errorMessageResponseInterceptor = (makeErrorMessage?: MakeErrorMessageFn, 
       }
     }
 
-    makeErrorMessage?.(errorMessage, error);
+    errorFn?.(errorMessage, error);
 
     return Promise.reject(error);
   }
