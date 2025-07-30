@@ -10,16 +10,16 @@ hero:
       link: /guide/
     - theme: alt
       text: 组件库
-      link: /src/_components-md/
+      link: /src/_components-md/packages-components
     - theme: alt
       text: 工具函数
       link: /src/_utils-md/packages-utils
     - theme: alt
       text: 样式方案
-      link: /src/_style-md/
+      link: /src/_css-md/packages-style
     - theme: alt
       text: 网络请求
-      link: /src/_fetch-md/
+      link: /src/_fetch-md/request-axios
     - theme: alt
       text: React
       link: /src/_react-md/react-hooks
@@ -42,32 +42,6 @@ features:
     details: 提供 ESLint、Prettier、Stylelint、TSConfig 等工程化配置，开箱即用。
   - title: 📦 其他模块
     details: 枚举、通用类型、配置管理、文档系统等，助力大型项目规范化。
-
-packageList:
-  - title: 组件库
-    details: '@mt/components'
-  - title: 工具函数
-    details: '@mt/utils'
-  - title: 样式方案
-    details: '@mt/style'
-  - title: 网络请求
-    details: '@mt/fetch'
-  - title: React 生态
-    details: '@mt/react'
-  - title: Vue 生态
-    details: '@mt/vue'
-  - title: 工程配置
-    details: '@mt/dev'
-  - title: 枚举类型
-    details: '@mt/enum'
-  - title: 通用类型
-    details: '@mt/types'
-  - title: 配置管理
-    details: '@mt/conf'
-  - title: 文档系统
-    details: '@mt/docs'
-  - title: Vite 插件
-    details: '@mt/vite-plugins'
 
 footer: |
   MIT License | © 2024-present micro-tools
