@@ -57,16 +57,40 @@ const config = async (): Promise<UserConfig<DefaultTheme.Config>> => {
   }
 
   return defineConfig({
-    head: [["link", {
-      rel: "icon",
-      href: "/favicon.ico"
-    }]],
     outDir: "./dist",
     base: "/micro-tools/",
-    title: "Micro tools",
+    title: " ",
     description: "一款集成常用组件、方法的工具库。",
+    head: [
+      [
+        "link",
+        {
+          rel: "icon",
+          type: "image/svg+xml",
+          href: "/micro-tools/favicon.svg"
+        }
+      ],
+      [
+        "meta", {
+          name: "theme-color",
+          content: "#5f67ee"
+        }
+      ],
+      [
+        "meta", {
+          property: "og:type",
+          content: "website"
+        }
+      ],
+      [
+        "meta", {
+          property: "og:site_name",
+          content: "Micro Tools"
+        }
+      ]
+    ],
     themeConfig: {
-      logo: "./logo.svg",
+      logo: "/logo.svg",
       nav,
       sidebar,
       socialLinks: [
@@ -85,7 +109,10 @@ const config = async (): Promise<UserConfig<DefaultTheme.Config>> => {
       },
       outline: {
         label: "页面导航",
-        level: [2, 3]
+        level: [
+          2,
+          3
+        ]
       }
     }
   });
