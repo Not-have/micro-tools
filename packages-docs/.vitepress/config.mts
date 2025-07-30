@@ -59,7 +59,7 @@ const config = async (): Promise<UserConfig<DefaultTheme.Config>> => {
   return defineConfig({
     outDir: "./dist",
     base: "/micro-tools/",
-    title: " ",
+    title: "micro tools",
     description: "一款集成常用组件、方法的工具库。",
     head: [
       [

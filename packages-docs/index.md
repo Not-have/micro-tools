@@ -2,7 +2,7 @@
 layout: home
 
 hero:
-  name: "Micro Tools"
+  name: "micro tools"
   tagline: "简称 mt · 模块化前端工具集合，助力高效开发"
   actions:
     - theme: brand
