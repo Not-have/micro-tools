@@ -161,18 +161,19 @@ pnpm run boot
 └── packages-vite-plugins/  # Vite 插件集合
 ```
 
+## 文档资源
+
+- [在线文档（推荐）](https://not-have.github.io/micro-tools/)
+- [组件开发指南](./doc/Storybook.md)
+- [代码规范说明](./doc/lint.md)
+- [Monorepo管理](./doc/monorepo-pnpm.md)
+
 ## 贡献方式
 
 1. 创建新分支：`git checkout -b feat/new-feature`
 2. 遵循现有代码规范
 3. 更新对应包的 CHANGELOG.md
 4. 提交 Pull Request 并关联 issue
-
-## 文档资源
-
-- [组件开发指南](./doc/Storybook.md)
-- [代码规范说明](./doc/lint.md)
-- [Monorepo管理](./doc/monorepo-pnpm.md)
 
 ## 许可证
 
