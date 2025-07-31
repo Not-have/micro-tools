@@ -166,7 +166,7 @@ pnpm run boot
 - [在线文档（推荐）](https://not-have.github.io/micro-tools/)
 - [组件开发指南](./doc/Storybook.md)
 - [代码规范说明](./doc/lint.md)
-- [Monorepo管理](./doc/monorepo-pnpm.md)
+- [Monorepo管理](./doc/monorepo - pnpm.md)
 
 ## 贡献方式
 
