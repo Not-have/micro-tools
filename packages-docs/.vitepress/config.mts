@@ -1,9 +1,15 @@
 import {
+  withPwa
+} from "@vite-pwa/vitepress";
+import {
   defineConfig,
   UserConfig,
   DefaultTheme
 } from "vitepress";
 
+import {
+  pwa
+} from "./_plugins";
 import {
   menuDev,
   menuUtils,
@@ -57,6 +63,7 @@ const config = async (): Promise<UserConfig<DefaultTheme.Config>> => {
   }
 
   return defineConfig({
+    pwa: pwa(),
     outDir: "./dist",
     base: "/micro-tools/",
     title: "micro tools",
@@ -118,4 +125,4 @@ const config = async (): Promise<UserConfig<DefaultTheme.Config>> => {
   });
 };
 
-export default config;
+export default withPwa(config);
