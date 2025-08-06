@@ -8,7 +8,9 @@ export default {
     {
 
       // 匹配所有 `.json5` 扩展名的文件
-      files: ["*.json5"],
+      files: [
+        "*.json5"
+      ],
 
       // 为 `.json5` 文件配置的格式化选项
       options: {
