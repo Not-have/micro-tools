@@ -1,5 +1,11 @@
 # @mt-kit/prettier-config
 
+## 1.2.1
+
+### Patch Changes
+
+- 更新配置的 TypeScript 类型声明
+
 ## 1.2.0
 
 ### Minor Changes
