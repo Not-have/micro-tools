@@ -4,6 +4,9 @@
     "dbaeumer.vscode-eslint",
     "stylelint.vscode-stylelint",
     "maggie.eslint-rules-zh-plugin",
-    "streetsidesoftware.code-spell-checker-cspell-bundled-dictionaries"
+    "streetsidesoftware.code-spell-checker-cspell-bundled-dictionaries",
+    "EditorConfig.EditorConfig",
+    "Vue.volar",
+    "dsznajder.es7-react-js-snippets"
   ]
 }
