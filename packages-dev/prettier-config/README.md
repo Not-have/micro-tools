@@ -5,7 +5,7 @@
 ## 安装
 
 ```bash
-npm i prettier @mt-kit/prettier-config -D
+npm install prettier @mt-kit/prettier-config -D
 ```
 
 ## 使用
