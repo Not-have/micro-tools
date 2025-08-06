@@ -18,12 +18,15 @@
   },
   "files": [
     "README.md",
+    "index.d.ts",
     "index.mjs"
   ],
   "main": "./index.mjs",
   "module": "./index.mjs",
+  "types": "./index.d.ts",
   "exports": {
     ".": {
+      "types": "./index.d.ts",
       "import": "./index.mjs",
       "default": "./index.mjs"
     }

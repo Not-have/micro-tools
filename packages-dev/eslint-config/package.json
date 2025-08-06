@@ -20,12 +20,15 @@
   },
   "files": [
     "README.md",
+    "index.d.ts",
     "src"
   ],
   "main": "./src/index.js",
   "module": "./src/index.js",
+  "types": "./index.d.ts",
   "exports": {
     ".": {
+      "types": "./index.d.ts",
       "import": "./src/index.js",
       "default": "./src/index.js"
     }
