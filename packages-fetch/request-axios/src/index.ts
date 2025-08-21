@@ -1,4 +1,5 @@
 export { default as axios } from "axios";
+export * from "./enum";
 export * from "./types";
 
 export {

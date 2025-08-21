@@ -107,7 +107,7 @@ interface IDefaultResponseInterceptorOptions {
   code?: ((code: number | string) => boolean) | number | string;
 }
 
-export interface IErrorMessageResponseInterceptorOptions extends Omit<IDefaultResponseInterceptorOptions, "dataField" | "code"> {
+export interface IErrorMessageResponseInterceptorOptions extends Omit<IDefaultResponseInterceptorOptions, "dataField" | "code" | "codeField"> {
   message?: {
 
     /** 网络异常时的提示信息（错误信息包含 'Network Error' 时触发） */

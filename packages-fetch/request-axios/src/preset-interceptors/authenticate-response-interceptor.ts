@@ -60,8 +60,7 @@ const authenticateResponseInterceptor = ({
   rejected: async (error): Promise<void> => {
     const {
       config,
-      data: responseData,
-      status: _status
+      data: responseData
     } = error;
 
     const {
@@ -69,7 +68,7 @@ const authenticateResponseInterceptor = ({
       code = Status.StatusUnauthorized
     } = options || {};
 
-    const status = codeField ? responseData[codeField] : _status;
+    const status = responseData[codeField];
 
     // 如果不是 401 错误，直接抛出异常
     if (status !== code) {

@@ -269,7 +269,7 @@ export default {
       }
     ], // 要求构造函数名以大写字母开头
     "new-parens": "error", // 要求调用无参构造函数时有圆括号
-    "newline-per-chained-call": "error", // 要求方法链中每个调用都有一个换行符
+    "newline-per-chained-call": "off", // 要求方法链中每个调用都有一个换行符
     "no-alert": "error", // 禁用 alert、confirm 和 prompt
     "no-array-constructor": "error",
     "no-async-promise-executor": "error",
