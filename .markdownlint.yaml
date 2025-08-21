@@ -7,7 +7,7 @@
 MD025: false
 # 控制无序列表（unordered list）的样式
 MD004:
-  style: "dash"
+  style: "sublist"
 
 # 控制行的长度限制
 MD013:

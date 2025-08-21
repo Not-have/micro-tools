@@ -5,7 +5,7 @@
 ## 下载
 
 ```bash
-npm i @mt-kit/request-axios -D
+npm i @mt-kit/request-axios
 ```
 
 ## API
@@ -99,10 +99,7 @@ function createRequestClient(baseUrl: string, options?: RequestClientOptions): R
     doReAuthenticate,
     doRefreshToken,
     enableRefreshToken: true,
-    formatToken,
-    options: {
-      codeField: "code",
-    }
+    formatToken
   }));
 
   // 通用的错误处理,如果没有进入上面的错误处理逻辑，就会进入这里
@@ -110,8 +107,6 @@ function createRequestClient(baseUrl: string, options?: RequestClientOptions): R
     // 可以根据自己的业务逻辑进行调整
     console.error(msg, error);
 
-  }, {
-    codeField: "code"
   }));
 
   return client;
