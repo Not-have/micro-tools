@@ -1,5 +1,11 @@
 # @mt-kit/eslint-config
 
+## 2.3.0
+
+### Minor Changes
+
+- 链式调用修改
+
 ## 2.2.1
 
 ### Patch Changes

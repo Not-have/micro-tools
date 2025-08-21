@@ -1,5 +1,11 @@
 # @mt-kit/request-axios
 
+## 1.3.0
+
+### Minor Changes
+
+- 修改请求默认值错误
+
 ## 1.2.0
 
 ### Minor Changes
