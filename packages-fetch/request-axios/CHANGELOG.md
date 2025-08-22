@@ -1,5 +1,11 @@
 # @mt-kit/request-axios
 
+## 1.4.0
+
+### Minor Changes
+
+- 处理响应数据为🈳的情况
+
 ## 1.3.1
 
 ### Patch Changes
