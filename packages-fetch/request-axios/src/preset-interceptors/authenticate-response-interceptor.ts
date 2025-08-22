@@ -68,7 +68,7 @@ const authenticateResponseInterceptor = ({
       code = Status.StatusUnauthorized
     } = options || {};
 
-    const status = responseData[codeField];
+    const status = responseData ? responseData?.[codeField] : error?.status;
 
     // 如果不是 401 错误，直接抛出异常
     if (status !== code) {

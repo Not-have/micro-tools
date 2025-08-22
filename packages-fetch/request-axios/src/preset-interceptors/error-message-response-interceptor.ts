@@ -1,6 +1,9 @@
 import axios from "axios";
 
 import {
+  Field
+} from "../enum";
+import {
   RequestClient
 } from "../request-client";
 import {
@@ -55,7 +58,7 @@ const errorMessageResponseInterceptor = ({
 
     let errorMessage = "";
 
-    const status = error?.status;
+    const status = error?.[Field.DATA]?.[Field.CODE] ?? error?.status;
 
     switch (status) {
       case 400: {
