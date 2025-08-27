@@ -22,6 +22,29 @@ import EsLint from "@mt-kit/eslint-config";
 export default EsLint;
 ```
 
+`ts`
+
+```js
+import EsLint, {
+  typescript
+} from "@mt-kit/eslint-config";
+
+export default [
+  ...EsLint,
+  typescript,
+  {
+    ignores: [
+      ".vite",
+      "node_modules",
+      "dist",
+      "build",
+      "public",
+      "forge.env.d.ts"
+    ]
+  }
+];
+```
+
 `vue`
 
 ```js
@@ -75,6 +98,8 @@ export default [
   }
 }
 ```
+
+`"type": "module",` 可以不设置，eslint 具有高的兼容性。
 
 注：`Visual Studio Code` 保存时，自动修复代码
 
