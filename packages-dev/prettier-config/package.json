@@ -18,17 +18,18 @@
   },
   "files": [
     "README.md",
-    "index.d.ts",
     "index.mjs"
   ],
   "main": "./index.mjs",
   "module": "./index.mjs",
-  "types": "./index.d.ts",
   "exports": {
     ".": {
-      "types": "./index.d.ts",
       "import": "./index.mjs",
       "default": "./index.mjs"
+    },
+    "./default": {
+      "import": "./default.mjs",
+      "default": "./default.mjs"
     }
   },
   "publishConfig": {
@@ -39,6 +40,7 @@
     "prettier": ">=3.5.0"
   },
   "dependencies": {
-    "prettier": "catalog:"
+    "prettier": "catalog:",
+    "prettier-plugin-tailwindcss": "^0.6.14"
   }
 }
