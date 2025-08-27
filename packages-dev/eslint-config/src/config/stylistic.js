@@ -152,7 +152,7 @@ export default {
     // 数组括号间距
     "@stylistic/array-bracket-spacing": [
       "error",
-      "never"
+      "always"
     ]
   }
 };
