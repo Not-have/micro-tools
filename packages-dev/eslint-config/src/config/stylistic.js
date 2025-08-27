@@ -62,6 +62,54 @@ export default {
     ],
     "@stylistic/js/object-property-newline": "error",
 
+    // 缩进配置 - 数组换行需要配合缩进规则
+    /*
+    "@stylistic/indent": [
+      "error",
+      2,
+      {
+        SwitchCase: 1,
+        VariableDeclarator: 1,
+        outerIIFEBody: 1,
+        MemberExpression: 1,
+        FunctionDeclaration: {
+          parameters: 1,
+          body: 1
+        },
+        FunctionExpression: {
+          parameters: 1,
+          body: 1
+        },
+        CallExpression: {
+          arguments: 1
+        },
+        ArrayExpression: 1,
+        ObjectExpression: 1,
+        ImportDeclaration: 1,
+        flatTernaryExpressions: false,
+        ignoreComments: false,
+        ignoredNodes: [
+          "JSXElement",
+          "JSXElement > *",
+          "JSXAttribute",
+          "JSXIdentifier",
+          "JSXNamespacedName",
+          "JSXMemberExpression",
+          "JSXSpreadAttribute",
+          "JSXExpressionContainer",
+          "JSXOpeningElement",
+          "JSXClosingElement",
+          "JSXFragment",
+          "JSXOpeningFragment",
+          "JSXClosingFragment",
+          "JSXText",
+          "JSXEmptyExpression",
+          "JSXSpreadChild"
+        ]
+      }
+    ],
+    */
+
     // TODO 与 indent 冲突
     "@stylistic/indent": "off",
     "@stylistic/ts/member-delimiter-style": [
@@ -78,6 +126,8 @@ export default {
         multilineDetection: "brackets"
       }
     ],
+
+    // 数组换行配置
     "@stylistic/array-bracket-newline": [
       "error",
       {
@@ -88,6 +138,21 @@ export default {
     "@stylistic/ts/semi": [
       "error",
       "always"
-    ] // 强制所有语句以分号结束
+    ], // 强制所有语句以分号结束
+
+    // 从 javascript 中提取过来的
+    "@stylistic/array-element-newline": [
+      "error",
+      {
+        ArrayExpression: "consistent",
+        ArrayPattern: "consistent"
+      }
+    ],
+
+    // 数组括号间距
+    "@stylistic/array-bracket-spacing": [
+      "error",
+      "never"
+    ]
   }
 };

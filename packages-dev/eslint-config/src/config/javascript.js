@@ -75,18 +75,18 @@ export default {
     /**
      * 数组
      */
-    "array-bracket-newline": "off", // 在数组括号内强制换行
+    // "array-bracket-newline": "off", // 在数组括号内强制换行
     "array-bracket-spacing": "error", // 强制数组方括号中使用一致的空格
     "array-callback-return": "error", // 强制数组方法的回调函数中有 return 语句
-    "array-element-newline": [
-      "error",
-      {
-        "ArrayExpression": "consistent",
-        "ArrayPattern": {
-          "minItems": 2
-        }
-      }
-    ], // 在数组元素的周围强制换行
+    // "array-element-newline": [
+    //   "error",
+    //   {
+    //     "ArrayExpression": "consistent",
+    //     "ArrayPattern": {
+    //       "minItems": 2
+    //     }
+    //   }
+    // ], // 在数组元素的周围强制换行
     /**
      * 箭头函数
      */
