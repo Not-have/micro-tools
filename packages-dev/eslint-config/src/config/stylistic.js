@@ -145,7 +145,9 @@ export default {
       "error",
       {
         ArrayExpression: "consistent",
-        ArrayPattern: "consistent"
+        ArrayPattern: {
+          minItems: 1
+        }
       }
     ],
 
