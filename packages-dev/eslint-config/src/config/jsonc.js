@@ -10,7 +10,10 @@ import parserJsonc from "jsonc-eslint-parser";
 export default [
   {
     files: [
-      "**/*.json", "**/*.json5", "**/*.jsonc", "*.code-workspace"
+      "**/*.json",
+      "**/*.json5",
+      "**/*.jsonc",
+      "*.code-workspace"
     ],
     languageOptions: {
       parser: parserJsonc
@@ -135,14 +138,21 @@ export default [
   },
   {
     files: [
-      "**/tsconfig.json", "**/tsconfig.*.json", "internal/tsconfig/*.json"
+      "**/tsconfig.json",
+      "**/tsconfig.*.json",
+      "internal/tsconfig/*.json"
     ],
     rules: {
       "jsonc/sort-keys": [
         "error",
         {
           order: [
-            "extends", "compilerOptions", "references", "files", "include", "exclude"
+            "extends",
+            "compilerOptions",
+            "references",
+            "files",
+            "include",
+            "exclude"
           ],
           pathPattern: "^$"
         },
