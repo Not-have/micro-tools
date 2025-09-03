@@ -34,9 +34,7 @@
     "noErrorTruncation": true,
     "preserveConstEnums": true,
     "stripInternal": true,
-    "skipDefaultLibCheck": true,
-    "typeRoots": ["./node_modules/@types"],
-    "types": ["node"]
+    "skipDefaultLibCheck": true
   },
   "files": [
     "package.json"
