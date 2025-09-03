@@ -94,10 +94,10 @@ npx tsc --init
 
 ```json
 {
-  "extends":"@mt-kit/ts-config/app.json",
-  "include": [
-    "src"
-  ]
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "@mt-kit/ts-config/app.json",
+  "include": ["src"],
+  "exclude": ["node_modules"]
 }
 ```
 

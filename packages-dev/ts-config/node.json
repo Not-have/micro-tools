@@ -3,6 +3,7 @@
   "extends": "./base.json",
   "compilerOptions": {
     "lib": ["ESNext"],
-    "noEmit": true
+    "noEmit": true,
+    "types": ["node"]
   }
 }

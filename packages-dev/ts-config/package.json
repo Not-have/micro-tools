@@ -1,6 +1,6 @@
 {
   "name": "@mt-kit/ts-config",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "MT Kit 的 TypeScript 配置集合，包含基础、React、Vue、Node 等环境的配置",
   "keywords": [
     "tsconfig",
@@ -23,14 +23,6 @@
     "*.json",
     "README.md"
   ],
-  "main": "base.json",
-  "exports": {
-    ".": "./base.json",
-    "./app": "./app.json",
-    "./react": "./react.json",
-    "./vue": "./vue.json",
-    "./node": "./node.json"
-  },
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
@@ -38,7 +30,7 @@
   "peerDependencies": {
     "typescript": ">=5.0.0"
   },
-  "devDependencies": {
+  "dependencies": {
     "@types/node": "catalog:"
   }
 }
