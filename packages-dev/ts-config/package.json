@@ -1,6 +1,6 @@
 {
   "name": "@mt-kit/ts-config",
-  "version": "1.4.0",
+  "version": "1.1.0",
   "description": "MT Kit 的 TypeScript 配置集合，包含基础、React、Vue、Node 等环境的配置",
   "keywords": [
     "tsconfig",
@@ -25,7 +25,7 @@
   ],
   "main": "base.json",
   "exports": {
-    "./base": "./base.json",
+    ".": "./base.json",
     "./app": "./app.json",
     "./react": "./react.json",
     "./vue": "./vue.json",
