@@ -1,0 +1,34 @@
+{
+  "name": "@mt-kit/react-ant-design-extra",
+  "version": "1.0.0",
+  "description": "React Ant Design Extra",
+  "keywords": [
+    "react-ant-design-extra",
+    "ant-design-extra"
+  ],
+  "homepage": "https://github.com/Not-have/micro-tools/tree/main/packages-react/react-ant-design-extra",
+  "bugs": {
+    "url": "https://github.com/Not-have/micro-tools/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Not-have/micro-tools"
+  },
+  "license": "ISC",
+  "author": "Li Yong",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clear": "rm -fr dist && rm -fr lib && rm -fr node_modules"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "antd": "catalog:",
+    "react": "catalog:"
+  },
+  "devDependencies": {
+    "@mt-kit/ts-config": "workspace:^",
+    "@types/node": "catalog:",
+    "typescript": "catalog:"
+  }
+}

@@ -1,6 +1,5 @@
 packages:
   - packages*/**
-  # - '!packages-fetch/mock'
 catalog:
   "@changesets/cli": ^2.29.5
   "@commitlint/cli": ^19.8.0
@@ -31,6 +30,7 @@ catalog:
   "@vite-pwa/vitepress": ^1.0.0
   "@vitejs/plugin-vue": ^5.2.3
   "@vitejs/plugin-vue-jsx": ^4.1.2
+  antd: ^5.27.3
   axios: ^1.9.0
   axios-mock-adapter: ^2.1.0
   browserslist: ^4.24.4
@@ -73,6 +73,7 @@ catalog:
   only-allow: ^1.2.1
   postcss-html: ^1.8.0
   prettier: ^3.5.3
+  prettier-plugin-tailwindcss: ^0.6.14
   qs: ^6.14.0
   react: ^19.1.0
   react-router-dom: ^7.5.0
