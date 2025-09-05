@@ -66,7 +66,7 @@ const localStorageHelper = {
 
       delete parsedItem.expire;
 
-      return parsedItem;
+      return parsedItem.value;
     }
 
     return null;
