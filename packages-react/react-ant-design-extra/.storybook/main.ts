@@ -1,4 +1,4 @@
-import type {
+import {
   StorybookConfig
 } from "@storybook/react-vite";
 
