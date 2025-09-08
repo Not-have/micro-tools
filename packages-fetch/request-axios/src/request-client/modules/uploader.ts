@@ -40,7 +40,7 @@ class FileUploader {
       }
     };
 
-    return this.client.put(url, data, finalConfig);
+    return this.client.put<T>(url, data, finalConfig);
   }
 
   /**

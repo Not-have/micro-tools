@@ -21,7 +21,6 @@
     "storybook": "storybook dev",
     "build-storybook": "storybook build",
     "clear": "rm -fr node_modules && rm -fr dist",
-    "build": "unbuild",
     "prepublishOnly": "pnpm build"
   },
   "main": "index.js",
