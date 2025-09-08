@@ -117,9 +117,7 @@ describe("requestClient", () => {
         }
       ]));
 
-    const response = await requestClient.upload("/test/upload", {
-      file: fileData
-    });
+    const response = await requestClient.upload("/test/upload", fileData);
 
     expect(response.data).toEqual({
       data: "file uploaded"

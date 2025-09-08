@@ -76,6 +76,7 @@ describe("fileDownloader", () => {
       }
     };
 
+    // @ts-ignore 修正类型不兼容问题
     const result = await fileDownloader.download(url, customConfig);
 
     expect(result).toBeInstanceOf(Blob);
