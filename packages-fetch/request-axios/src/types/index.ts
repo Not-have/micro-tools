@@ -141,6 +141,11 @@ export interface IErrorMessageResponseInterceptorOptions extends Omit<IDefaultRe
 
 export type TAuthenticateResponseInterceptorOptions = Omit<IDefaultResponseInterceptorOptions, "dataField">;
 
+interface IUploadData {
+  file: Blob | File;
+  [key: string]: any;
+}
+
 export type {
   TAuthenticateResponseInterceptorOptions as AuthenticateResponseInterceptorOptions,
   IDefaultResponseInterceptorOptions as DefaultResponseInterceptorOptions,
@@ -152,5 +157,6 @@ export type {
   TRequestContentType as RequestContentType,
   IRequestInterceptorConfig as RequestInterceptorConfig,
   TRequestResponse as RequestResponse,
-  IResponseInterceptorConfig as ResponseInterceptorConfig
+  IResponseInterceptorConfig as ResponseInterceptorConfig,
+  IUploadData as UploadData
 };

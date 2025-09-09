@@ -1,10 +1,10 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
-  RequestClientConfig
+  RequestClientConfig,
+  UploadData
 } from "../../types";
 import RequestClient from "../request-client";
 
-interface IDownloadRequestConfig extends RequestClientConfig {
+interface IUploadRequestConfig extends RequestClientConfig {
 
   /**
    * 上传方法
@@ -19,7 +19,7 @@ interface IDownloadRequestConfig extends RequestClientConfig {
    * 需将文件拆分为多部分并添加边界标识，服务器需解析表单数据，消耗更多CPU和内存
    */
   method?: "put" | "post";
-};
+}
 
 class FileUploader {
   private client: RequestClient;
@@ -32,37 +32,44 @@ class FileUploader {
    * 上传文件
    *
    * @param url 地址
-   * @param data 数据
+   * @param data 数据，必须包含 file 字段
    * @param config 可选配置对象，继承自Axios请求配置
-   *
-   * onUploadProgress 上传进度回调
    *
    * @returns 返回一个Promise，解析值为服务器返回的数据，类型为泛型T
    */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   public async upload<T = any>(
       url: string,
-      data: Record<string, any> & { file: Blob | File },
-      config?: IDownloadRequestConfig
+      data: UploadData,
+      config?: IUploadRequestConfig
   ): Promise<T> {
+
+    // 验证文件是否存在
+    if (!data.file) {
+      throw new Error("File is required for upload");
+    }
 
     const {
       method = "post",
       ...rest
     } = config || {};
 
-    if(method === "put") {
+    if (method === "put") {
+
+      // PUT 方法直接上传文件内容
       const finalConfig: RequestClientConfig = {
         ...rest,
         headers: {
           "x-amz-acl": "public-read", // 设置文件的访问权限为公共读
-          "Content-Type": data.type, // 设置文件的MIME类型
+          "Content-Type": data.file.type || "application/octet-stream", // 设置文件的MIME类型
           ...rest?.headers
         }
       };
 
-      return this.client.put<T>(url, data, finalConfig);
+      return this.client.put<T>(url, data.file, finalConfig);
     }
 
+    // POST 方法使用 FormData
     const formData = new FormData();
 
     Object.entries(data).forEach(([
