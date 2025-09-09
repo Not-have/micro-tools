@@ -21,6 +21,8 @@ export default defineEventHandler(() => `
         <li><a href="/api/obj">/api/obj</a> - 用户信息</li>
         <li><a href="/api/menu">/api/menu</a> - 菜单数据</li>
         <li><a href="/api/upload">/api/upload</a> - 文件上传</li>
+        <li><a href="/api/file-upload">/api/file-upload</a> - 文件上传 (新)</li>
+        <li><a href="/api/file-download">/api/file-download</a> - 文件下载</li>
         <li><a href="/api/list">/api/list</a> - 表格数据</li>
     </ul>
 </body>

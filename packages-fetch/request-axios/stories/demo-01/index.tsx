@@ -26,7 +26,7 @@ const handleObjClick = () => {
   });
 };
 
-export default function Index(): HTMLElement {
+export default function Index(): React.ReactNode {
   return (
     <div>
       <h1>Demo01</h1>
