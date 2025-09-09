@@ -1,5 +1,11 @@
 # @mt-kit/request-axios
 
+## 1.5.0
+
+### Minor Changes
+
+- 修改上传的方法
+
 ## 1.4.0
 
 ### Minor Changes
