@@ -23,7 +23,7 @@ interface IPropsScKeyValueItemV {
 const ScKeyValue = styled.div<IPropsScKeyValue>`
   ${props => (props.horizontal ? css`
     display: flex;
-    align-items: center;
+    overflow: hidden;
   ` : null)};
 `;
 

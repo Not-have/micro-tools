@@ -1,8 +1,16 @@
 import React from "react";
 
+import styled from "styled-components";
+
 import {
   KeyValue
 } from "../../src";
+
+const ScDiv = styled.div`
+  width: 600px;
+  background-color: #f0f0f0;
+`;
+
 const POEM = "古诗一首";
 
 export default function Demo(): React.ReactElement {
@@ -16,13 +24,12 @@ export default function Demo(): React.ReactElement {
     empty4: "undefined"
   };
 
-  return <div>
-    <p>React Ant Design Extra</p>
+  return <ScDiv>
+    <p>React RC</p>
+    <hr />
 
     <KeyValue
-      horizontal
       ignoreEmpty
-      o={o}
-      wrapValue />
-  </div>;
+      o={o}/>
+  </ScDiv>;
 }
