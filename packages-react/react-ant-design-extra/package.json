@@ -24,6 +24,10 @@
     "prepublishOnly": "pnpm build"
   },
   "main": "index.js",
+  "peerDependencies": {
+    "@ant-design/v5-patch-for-react-19": ">=1.0.0",
+    "antd": ">=5.0.0"
+  },
   "dependencies": {
     "@ant-design/v5-patch-for-react-19": "catalog:",
     "lodash-es": "catalog:",
