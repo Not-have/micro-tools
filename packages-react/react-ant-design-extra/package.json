@@ -26,7 +26,6 @@
   "main": "index.js",
   "dependencies": {
     "@ant-design/v5-patch-for-react-19": "catalog:",
-    "antd": "catalog:",
     "lodash-es": "catalog:",
     "styled-components": "catalog:"
   },
@@ -41,6 +40,7 @@
     "@storybook/test": "catalog:",
     "@types/lodash-es": "catalog:",
     "@types/react": "catalog:",
+    "antd": "catalog:",
     "react": "catalog:",
     "react-router-dom": "catalog:",
     "storybook": "catalog:",
