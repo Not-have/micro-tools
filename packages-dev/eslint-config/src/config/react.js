@@ -206,10 +206,10 @@ export default [
       "react/void-dom-elements-no-children": "error",
 
       // 禁止 return 后的括号
-      "no-extra-parens": "error",
+      "no-extra-parens": "off",
 
       // 禁止没有 key
-      "react/jsx-key": "error",
+      "react/jsx-key": "off",
 
       // 缩进
       "react/jsx-indent": [

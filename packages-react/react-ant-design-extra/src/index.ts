@@ -1,3 +1,5 @@
-/* eslint-disable no-console */
+const a = 1;
 
-console.log("react-ant-design-extra");
+export {
+  a
+};

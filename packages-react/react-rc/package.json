@@ -1,12 +1,12 @@
 {
-  "name": "@mt-kit/react-ant-design-extra",
+  "name": "@mt-kit/react-rc",
   "version": "1.0.0",
-  "description": "React Ant Design Extra",
+  "description": "React RC",
   "keywords": [
-    "react-ant-design-extra",
-    "ant-design-extra"
+    "react-rc",
+    "rc"
   ],
-  "homepage": "https://github.com/Not-have/micro-tools/tree/main/packages-react/react-ant-design-extra",
+  "homepage": "https://github.com/Not-have/micro-tools/tree/main/packages-react/react-rc",
   "bugs": {
     "url": "https://github.com/Not-have/micro-tools/issues"
   },
@@ -25,8 +25,6 @@
   },
   "main": "index.js",
   "dependencies": {
-    "@ant-design/v5-patch-for-react-19": "catalog:",
-    "antd": "catalog:",
     "lodash-es": "catalog:",
     "styled-components": "^6.1.19"
   },
