@@ -1,0 +1,43 @@
+{
+  "name": "@mt-kit/global-style",
+  "version": "1.0.0",
+  "description": "Global style",
+  "keywords": [
+    "global-style",
+    "style"
+  ],
+  "homepage": "https://github.com/Not-have/micro-tools/tree/main/packages-theme/global-style",
+  "bugs": {
+    "url": "https://github.com/Not-have/micro-tools/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Not-have/micro-tools"
+  },
+  "license": "ISC",
+  "author": "Li Yong",
+  "type": "module",
+  "scripts": {
+    "storybook": "storybook dev",
+    "build-storybook": "storybook build",
+    "clear": "rm -fr node_modules && rm -fr dist",
+    "prepublishOnly": "pnpm build"
+  },
+  "devDependencies": {
+    "@mt-kit/ts-config": "workspace:^",
+    "@storybook/addon-essentials": "catalog:",
+    "@storybook/addon-interactions": "catalog:",
+    "@storybook/addon-onboarding": "catalog:",
+    "@storybook/blocks": "catalog:",
+    "@storybook/react": "catalog:",
+    "@storybook/react-vite": "catalog:",
+    "@storybook/test": "catalog:",
+    "@types/lodash-es": "catalog:",
+    "@types/react": "catalog:",
+    "react": "catalog:",
+    "react-router-dom": "catalog:",
+    "storybook": "catalog:",
+    "typescript": "catalog:",
+    "unbuild": "catalog:"
+  }
+}
