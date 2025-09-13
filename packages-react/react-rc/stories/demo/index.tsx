@@ -7,8 +7,8 @@ import {
 } from "../../src";
 
 const ScDiv = styled.div`
-  width: 600px;
-  background-color: #f0f0f0;
+  border: 1px solid #000;
+  padding: 10px;
 `;
 
 const POEM = "古诗一首";
@@ -25,9 +25,6 @@ export default function Demo(): React.ReactElement {
   };
 
   return <ScDiv>
-    <p>React RC</p>
-    <hr />
-
     <KeyValue
       ignoreEmpty
       o={o}/>
