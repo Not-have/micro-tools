@@ -28,7 +28,7 @@
     "@ant-design/v5-patch-for-react-19": "catalog:",
     "antd": "catalog:",
     "lodash-es": "catalog:",
-    "styled-components": "^6.1.19"
+    "styled-components": "catalog:"
   },
   "devDependencies": {
     "@mt-kit/ts-config": "workspace:^",

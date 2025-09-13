@@ -82,6 +82,7 @@ catalog:
   resize-observer-polyfill: ^1.5.1
   rollup-plugin-postcss: ^4.0.2
   storybook: ^8.6.12
+  styled-components: ^6.1.19
   stylelint: ^16.17.0
   stylelint-config-recess-order: ^6.0.0
   stylelint-config-recommended: ^16.0.0
