@@ -1,7 +1,7 @@
 /**
  * 创建全局样式的通用工具函数
  * 支持服务端渲染，不需要唯一类名
- * @param style CSS 字符串
+ * @param style CSS 字符串或 CSS 文件内容
  * @param options 配置选项
  * @param options.id 样式标识符，用于避免重复注入，默认为 'global-style'
  * @param options.forceUpdate 是否强制更新已存在的样式，默认为 true

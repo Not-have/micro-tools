@@ -21,7 +21,16 @@
     "storybook": "storybook dev",
     "build-storybook": "storybook build",
     "clear": "rm -fr node_modules && rm -fr dist",
+    "build": "unbuild",
     "prepublishOnly": "pnpm build"
+  },
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs"
+    }
   },
   "devDependencies": {
     "@mt-kit/ts-config": "workspace:^",
