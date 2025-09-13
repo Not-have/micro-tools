@@ -25,7 +25,7 @@
   },
   "main": "index.js",
   "dependencies": {
-    "@ant-design/v5-patch-for-react-19": "^1.0.3",
+    "@ant-design/v5-patch-for-react-19": "catalog:",
     "antd": "catalog:"
   },
   "devDependencies": {

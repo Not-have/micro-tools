@@ -1,8 +1,8 @@
 packages:
   - packages*/**
   - "!packages-react/react-ant-design-extra"
-
 catalog:
+  "@ant-design/v5-patch-for-react-19": ^1.0.3
   "@changesets/cli": ^2.29.5
   "@commitlint/cli": ^19.8.0
   "@commitlint/config-conventional": ^19.8.0
