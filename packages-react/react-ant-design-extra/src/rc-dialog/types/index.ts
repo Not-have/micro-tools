@@ -1,4 +1,3 @@
 export type {
-  IDialogIndirectPromise,
-  IDialogProps
+  IDialogIndirectPromise
 } from "./props";

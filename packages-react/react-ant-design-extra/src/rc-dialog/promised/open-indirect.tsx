@@ -8,6 +8,9 @@ import {
 } from "react-dom/client";
 
 import {
+  ModelProps
+} from "../model";
+import {
   IDialogIndirectPromise
 } from "../types";
 import {
@@ -25,7 +28,7 @@ import {
  * 你必须在 promise 的 `then` 里关注 Dialog 是否被关闭。
  * 这种情况下，这个 `promise` 一般不会被直接返回使用，而是作为一系列 Promise 对象的触发器。
  */
-export default function openIndirect<T>(): IDialogIndirectPromise<T> {
+export default function openIndirect<T>(props: ModelProps): IDialogIndirectPromise<T> {
 
   let close: ((result?: T, rejected?: boolean) => void) | null = _noop;
 
@@ -33,8 +36,11 @@ export default function openIndirect<T>(): IDialogIndirectPromise<T> {
 
   let root: ReturnType<typeof createRoot> | null = createRoot(container);
 
+  // eslint-disable-next-line no-console
+  console.log(props, "openIndirect -> props");
+
   function renderDialog(): void {
-    root?.render(<Drawer open />);
+    root?.render(<Drawer />);
   }
 
   const promise = new Promise<T>((resolve, reject) => {

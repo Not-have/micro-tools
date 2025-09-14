@@ -1,0 +1,59 @@
+export enum EAction {
+  LOCK,
+  UNLOCK,
+  SIZE
+}
+
+export enum ELockState {
+  NO,
+  YES,
+  LOADING
+}
+
+export enum ESize {
+
+  /**
+   * 小 200px
+   */
+  XS = "xs",
+
+  /**
+   * 中 300px
+   */
+  S = "s",
+
+  /**
+   * 中 400px
+   */
+  M = "m",
+
+  /**
+   * 大 500px
+   */
+  L = "l",
+
+  /**
+   * 超大 600px
+   */
+  XL = "xl",
+
+  /**
+   * 超大 700px
+   */
+  XXL = "xxl",
+
+  /**
+   * 自动 100%
+   */
+  AUTO = "auto",
+
+  /**
+   * 几乎全屏 90%
+   */
+  ALMOST_FULL = "almost-full",
+
+  /**
+   * 全屏
+   */
+  FULL = "full"
+}
