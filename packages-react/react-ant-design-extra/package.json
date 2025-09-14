@@ -31,6 +31,7 @@
   "dependencies": {
     "@ant-design/v5-patch-for-react-19": "catalog:",
     "lodash-es": "catalog:",
+    "react-dom": "^19.1.1",
     "styled-components": "catalog:"
   },
   "devDependencies": {
@@ -44,6 +45,7 @@
     "@storybook/test": "catalog:",
     "@types/lodash-es": "catalog:",
     "@types/react": "catalog:",
+    "@types/react-dom": "^19.1.9",
     "antd": "catalog:",
     "react": "catalog:",
     "react-router-dom": "catalog:",

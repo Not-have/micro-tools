@@ -1,5 +1,4 @@
-const a = 1;
-
 export {
-  a
-};
+  open,
+  openDialog
+} from "./rc-dialog";
