@@ -12,7 +12,8 @@ import {
   ModelLockState,
   useStateLocked,
   usePropsContent,
-  useHandleUnlock
+  useHandleUnlock,
+  useOnAfterOpenChange
 } from "../../../model";
 import Footer from "../footer";
 import Header from "../header";
@@ -31,7 +32,10 @@ export default function Drawer(): React.ReactElement {
 
   const handleUnlock = useHandleUnlock();
 
+  const onAfterOpenChange = useOnAfterOpenChange();
+
   return <AntDrawer
+    afterOpenChange={onAfterOpenChange}
     footer={<Footer />}
     onClose={handleUnlock}
     open={locked === ModelLockState.YES}
