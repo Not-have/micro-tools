@@ -1,6 +1,8 @@
 export { default as useEffects } from "./use-effects";
 
 export { default as usePropsMode } from "./use-props-mode";
+export { default as usePropsContent } from "./use-props-content";
+export { default as usePropsTitle } from "./use-props-title";
 
 export { default as useStateSize } from "./use-state-size";
 export { default as useStateLocked } from "./use-state-locked";
