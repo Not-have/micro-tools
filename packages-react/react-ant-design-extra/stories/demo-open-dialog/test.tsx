@@ -6,7 +6,8 @@ import {
 } from "react-dom/client";
 
 import {
-  Drawer, DrawerProps
+  Drawer,
+  DrawerProps
 } from "antd";
 
 export interface IOpenDialogOptions extends Omit<DrawerProps, "open" | "onClose"> {

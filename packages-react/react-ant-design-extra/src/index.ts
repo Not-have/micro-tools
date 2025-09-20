@@ -1,4 +1,5 @@
 export {
   open,
-  openDialog
+  openDialog,
+  default as WithModel
 } from "./rc-dialog";

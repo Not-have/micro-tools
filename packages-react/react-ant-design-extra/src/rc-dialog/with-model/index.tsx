@@ -8,6 +8,7 @@ import {
 import Model, {
   ModelProps
 } from "../model";
+import Ui from "../ui";
 
 /**
  * 带 context 的 dialog
@@ -16,6 +17,6 @@ export default function WithProvider(props: ModelProps<void, Record<string, unkn
 
   // https://zh-hans.react.dev/reference/react-dom/createPortal
   return createPortal(<Model props={props}>
-    <p>123</p>
+    <Ui />
   </Model>, document.body);
 }

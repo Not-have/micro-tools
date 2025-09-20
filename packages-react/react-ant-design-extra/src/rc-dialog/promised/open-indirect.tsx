@@ -14,11 +14,12 @@ import {
   IDialogIndirectPromise
 } from "../types";
 import {
-  Drawer
-} from "../ui";
-import {
   createDialogContainer
 } from "../util";
+
+// import {
+//   Drawer
+// } from "../ui";
 
 /**
  * 所有 Promise 化的 dialog 的基础。
@@ -40,7 +41,7 @@ export default function openIndirect<T>(props: ModelProps): IDialogIndirectPromi
   console.log(props, "openIndirect -> props");
 
   function renderDialog(): void {
-    root?.render(<Drawer />);
+    root?.render(<>111</>);
   }
 
   const promise = new Promise<T>((resolve, reject) => {
