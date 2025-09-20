@@ -8,6 +8,7 @@ import {
 } from "react-dom/client";
 
 import {
+  DialogProps,
   ModelProps
 } from "../model";
 import {
@@ -26,9 +27,9 @@ import WithProvider from "../with-model";
  * 你必须在 promise 的 `then` 里关注 Dialog 是否被关闭。
  * 这种情况下，这个 `promise` 一般不会被直接返回使用，而是作为一系列 Promise 对象的触发器。
  */
-export default function openIndirect<T>(props: ModelProps): IDialogIndirectPromise<T> {
+export default function openIndirect<T>(props: DialogProps): IDialogIndirectPromise<T> {
 
-  let close: ((result?: T, rejected?: boolean) => void) | null = _noop;
+  let close: ((result?: T | Error, rejected?: boolean) => void) | null = _noop;
 
   let container: HTMLDivElement | null = createDialogContainer();
 
@@ -42,7 +43,12 @@ export default function openIndirect<T>(props: ModelProps): IDialogIndirectPromi
   console.groupEnd();
 
   function renderDialog(): void {
-    root?.render(<WithProvider {...props} />);
+    const modelProps = {
+      ...props,
+      close
+    } as ModelProps<void, Record<string, unknown>>;
+
+    root?.render(<WithProvider {...modelProps} />);
   }
 
   const promise = new Promise<T>((resolve, reject) => {

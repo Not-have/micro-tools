@@ -55,3 +55,7 @@ export interface IDialogProps<T = void, D extends object = Record<string, unknow
    */
   onSubmit?(result?: T | Error): Promise<Record<string, unknown> | undefined>;
 }
+
+export interface IProps<T = void, D extends object = Record<string, unknown>> extends IDialogProps<T, D> {
+  close: ((result?: T, rejected?: boolean) => void) | null;
+}
