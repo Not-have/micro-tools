@@ -2,11 +2,8 @@ import React from "react";
 
 import {
   ModelMode,
-  ModelLockState,
   useStateLocked,
-  usePropsMode,
-  usePropsContent,
-  usePropsTitle
+  usePropsMode
 } from "../model";
 import {
   Drawer
@@ -17,15 +14,8 @@ export default function Ui(): React.ReactElement {
 
   const mode = usePropsMode();
 
-  const content = usePropsContent();
-
-  const title = usePropsTitle();
-
   if (mode === ModelMode.DRAWER) {
-    return <Drawer open={locked === ModelLockState.YES}
-      title={title}>
-      {content}
-    </Drawer>;
+    return <Drawer />;
   }
 
   return <div>

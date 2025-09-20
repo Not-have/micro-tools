@@ -15,7 +15,7 @@ export default function Demo(): React.ReactElement {
   const handleClick = useCallback(() => {
 
     open({
-      title: "React Ant Design Extra Dialog",
+      title: "我是标题",
       content: "React Ant Design Extra Dialog"
     }).then(result => {
       // eslint-disable-next-line no-console

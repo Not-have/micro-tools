@@ -1,19 +1,42 @@
 import React from "react";
 
 import {
-  Drawer as AntDrawer,
-  DrawerProps as AntDrawerProps
+  Drawer as AntDrawer
+
 } from "antd";
+import {
+  DrawerStyles
+} from "antd/es/drawer/DrawerPanel";
 
-interface IProps extends AntDrawerProps {
-  children?: React.ReactNode | string;
-}
+import {
+  ModelLockState,
+  useStateLocked,
+  usePropsContent,
+  useHandleUnlock
+} from "../../../model";
+import Footer from "../footer";
+import Header from "../header";
 
-export default function Drawer({
-  children,
-  ...rest
-}: IProps): React.ReactElement {
-  return <AntDrawer {...rest}>
-    {children}
+const drawerStyles: DrawerStyles = {
+  footer: {
+    padding: "16px 24px"
+  }
+};
+
+export default function Drawer(): React.ReactElement {
+
+  const locked = useStateLocked();
+
+  const content = usePropsContent();
+
+  const handleUnlock = useHandleUnlock();
+
+  return <AntDrawer
+    footer={<Footer />}
+    onClose={handleUnlock}
+    open={locked === ModelLockState.YES}
+    styles={drawerStyles}
+    title={<Header />}>
+    {content}
   </AntDrawer>;
 }
