@@ -16,10 +16,7 @@ import {
 import {
   createDialogContainer
 } from "../util";
-
-// import {
-//   Drawer
-// } from "../ui";
+import WithProvider from "../with-model";
 
 /**
  * 所有 Promise 化的 dialog 的基础。
@@ -38,10 +35,14 @@ export default function openIndirect<T>(props: ModelProps): IDialogIndirectPromi
   let root: ReturnType<typeof createRoot> | null = createRoot(container);
 
   // eslint-disable-next-line no-console
-  console.log(props, "openIndirect -> props");
+  console.group("弹窗的参数");
+  // eslint-disable-next-line no-console
+  console.table(props);
+  // eslint-disable-next-line no-console
+  console.groupEnd();
 
   function renderDialog(): void {
-    root?.render(<>111</>);
+    root?.render(<WithProvider {...props} />);
   }
 
   const promise = new Promise<T>((resolve, reject) => {

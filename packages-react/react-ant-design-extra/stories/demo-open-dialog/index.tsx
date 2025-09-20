@@ -7,7 +7,6 @@ import {
 } from "antd";
 
 import {
-  WithModel,
   open
 } from "../../src";
 
@@ -26,6 +25,5 @@ export default function Demo(): React.ReactElement {
   return <div>
     <p>React Ant Design Extra Dialog</p>
     <Button onClick={handleClick}>Click me</Button>
-    <WithModel />
   </div>;
 }

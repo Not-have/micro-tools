@@ -1,5 +1,13 @@
 import React from "react";
 
+import {
+  useStateLocked
+} from "../model";
+
 export default function Ui(): React.ReactElement {
-  return <>111</>;
+  const locked = useStateLocked();
+
+  return <div>
+    {locked}
+  </div>;
 }

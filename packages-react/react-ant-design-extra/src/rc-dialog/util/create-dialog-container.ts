@@ -8,7 +8,8 @@ export default function createDialogContainer({
   width,
   height,
   pointerEvents,
-  zIndex
+  zIndex,
+  append
 }: {
   position?: "fixed" | "absolute" | "relative" | "sticky" | "static" | "initial" | "inherit";
   top?: string;
@@ -17,6 +18,7 @@ export default function createDialogContainer({
   height?: string;
   pointerEvents?: string;
   zIndex?: string;
+  append?: boolean;
 } = {}): HTMLDivElement {
   let dialogContainer: HTMLDivElement | null = null;
 
@@ -36,7 +38,9 @@ export default function createDialogContainer({
     dialogContainer.style.zIndex = zIndex || "1000";
   }
 
-  document.body.append(dialogContainer);
+  if (append) {
+    document.body.append(dialogContainer);
+  }
 
   return dialogContainer;
 }

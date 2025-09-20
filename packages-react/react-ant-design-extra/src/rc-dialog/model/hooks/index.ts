@@ -1,3 +1,5 @@
+export { default as useEffects } from "./use-effects";
+
 export { default as useStateSize } from "./use-state-size";
 export { default as useStateLocked } from "./use-state-locked";
 

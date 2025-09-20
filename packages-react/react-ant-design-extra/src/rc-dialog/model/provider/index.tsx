@@ -3,6 +3,7 @@ import React, {
 } from "react";
 
 import Context from "../context";
+import Lifecycle from "../lifecycle";
 import reducer from "../reducer";
 import {
   IModelProviderProps
@@ -26,5 +27,6 @@ export default function Provider({
     props
   }}>
     {children}
+    <Lifecycle />
   </Context.Provider>;
 }
