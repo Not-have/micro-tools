@@ -3,6 +3,8 @@
  */
 
 export {
+  ELockState as ModelLockState,
+  EMode as ModelMode,
   ESize as ModelSize
 } from "./enum";
 export type {

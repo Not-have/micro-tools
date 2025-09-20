@@ -3,6 +3,7 @@ import type {
 } from "react";
 
 import {
+  EMode,
   ESize
 } from "../enum";
 
@@ -17,12 +18,7 @@ export interface IDialogProps<T = void, D extends object = Record<string, unknow
   buttons?: React.ReactElement[];
   content?: string | React.ReactElement;
 
-  /**
-   * 展示模式
-   * @default "modal" 模态对话框
-   * @default "drawer" 抽屉对话框
-   */
-  mode?: "modal" | "drawer";
+  mode?: EMode;
 
   /**
    * 尺寸

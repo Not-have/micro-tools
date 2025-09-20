@@ -10,6 +10,19 @@ export enum ELockState {
   LOADING
 }
 
+export enum EMode {
+
+  /**
+   * 模态对话框
+   */
+  MODAL = "modal",
+
+  /**
+   * 抽屉对话框
+   */
+  DRAWER = "drawer"
+}
+
 export enum ESize {
 
   /**
