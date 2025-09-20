@@ -10,8 +10,13 @@ export default function useOnAfterOpenChange(): (open: boolean) => void {
   return useCallback((open: boolean) => {
     if (!open) {
 
-      // 使用 queueMicrotask 将 close 调用推迟到微任务队列
-      // 这样可以避免在 React 渲染过程中同步调用
+      /**
+       * 使用 queueMicrotask 将 close 调用推迟到微任务队列
+       *
+       * https://developer.mozilla.org/zh-CN/docs/Web/API/Window/queueMicrotask
+       *
+       * 这样可以避免在 React 渲染过程中同步调用
+       */
       queueMicrotask(() => {
         close?.(open);
       });
