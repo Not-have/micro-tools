@@ -20,6 +20,8 @@ export default function Demo(): React.ReactElement {
     }).then(result => {
       // eslint-disable-next-line no-console
       console.log(result);
+    }).catch(error => {
+      console.error(error, "error");
     });
   }, []);
 

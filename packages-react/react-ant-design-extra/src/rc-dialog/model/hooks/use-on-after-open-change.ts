@@ -18,7 +18,7 @@ export default function useOnAfterOpenChange(): (open: boolean) => void {
        * 这样可以避免在 React 渲染过程中同步调用
        */
       queueMicrotask(() => {
-        close?.(open);
+        close?.(open, true);
       });
     }
   }, [

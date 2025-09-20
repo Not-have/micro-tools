@@ -15,6 +15,10 @@ export interface IDialogProps<T = void, D extends object = Record<string, unknow
   /* --- 内容 --- */
   title?: string | React.ReactElement;
   titleExtra?: string | React.ReactElement;
+
+  /**
+   * 底部操作按钮
+   */
   buttons?: React.ReactElement[];
   content?: string | React.ReactElement;
 
@@ -33,7 +37,7 @@ export interface IDialogProps<T = void, D extends object = Record<string, unknow
   /* --- 行为 --- */
   backdrop?: boolean; // 是否需要背投
   closable?: boolean; // 显示关闭按钮
-  esc?: boolean | number; // 键盘的 ESC，当 closable = false 时，若要启用此功能，则必须为 -1
+  esc?: boolean; // 键盘的 ESC
   externalClose?: boolean | number; // 外部点击是否关闭当前 dialog，当 closable: false 时，若要启用此功能，则必须为 -1
   zIndex?: number; // Dialog 本体的 zIndex
   zIndexBackdrop?: number; // 背投的 zIndex，必须比 zIndex 小

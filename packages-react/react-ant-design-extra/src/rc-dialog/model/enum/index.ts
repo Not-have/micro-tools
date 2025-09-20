@@ -37,6 +37,8 @@ export enum ESize {
 
   /**
    * 中 400px
+   *
+   * 默认值
    */
   M = "m",
 
