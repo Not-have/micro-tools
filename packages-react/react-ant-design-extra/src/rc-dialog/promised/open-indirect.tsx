@@ -76,18 +76,22 @@ export default function openIndirect<T>(props: DialogProps): IDialogIndirectProm
      * isDestroy，用作内部消费，是否立即销毁元素
      */
     close = (result?: T | Error, rejected?: boolean, _isDestroy: boolean = true) => {
-      if (!container) {
-        return;
-      }
+      try {
+        if (!container) {
+          return;
+        }
 
-      if (rejected) {
-        reject(result);
-      } else {
-        resolve(result as T);
-      }
+        if (rejected) {
+          reject?.(result);
+        } else {
+          resolve(result as T);
+        }
 
-      if (_isDestroy) {
-        destroy();
+        if (_isDestroy) {
+          destroy();
+        }
+      } catch (error) {
+        reject(error);
       }
     };
 
