@@ -41,18 +41,15 @@ export default function openIndirect<T>(props: DialogProps): IDialogIndirectProm
   // eslint-disable-next-line no-console
   console.groupEnd();
 
-  const onClose = (result?: T | Error, rejected?: boolean | undefined): void => {
-    close?.(result, rejected);
+  const onClose = (result?: undefined | Error, rejected?: boolean | undefined): void => {
+    close?.(result as T | Error, rejected);
 
-    props.onClose?.(result as undefined | Error, rejected);
+    props?.onClose?.(result, rejected);
   };
 
   function renderDialog(): void {
     const modelProps: DialogProps = {
       ...props,
-
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
       onClose
     };
 
