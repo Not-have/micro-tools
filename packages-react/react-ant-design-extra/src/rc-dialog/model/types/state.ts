@@ -3,7 +3,6 @@ import {
 } from "antd";
 
 import {
-  ESize,
   ELockState
 } from "../enum";
 
@@ -41,11 +40,6 @@ export interface IModelState<D extends object = Record<string, unknown>> {
    * 需要根据当前窗口的高度对 Dialog 内容区域的最大高度进行调整
    */
   windowHeight: number;
-
-  /**
-   * 尺寸
-   */
-  size: number | ESize;
 
   /**
    * 表单

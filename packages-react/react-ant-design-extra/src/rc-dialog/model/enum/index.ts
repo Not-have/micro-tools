@@ -1,7 +1,6 @@
 export enum EAction {
   LOCK,
   UNLOCK,
-  SIZE,
   FORM,
   DATA
 }

@@ -1,6 +1,5 @@
 import {
-  ELockState,
-  ESize
+  ELockState
 } from "../enum";
 import {
   IModelState
@@ -20,7 +19,6 @@ export default function getDefaultContextState(): IModelState {
     active: false,
     locked: ELockState.NO,
     zIndex: -1,
-    size: ESize.M,
     data: null,
     windowHeight: window.innerHeight,
     form: null

@@ -15,7 +15,8 @@ import {
   ModelLockState,
   usePropsButtonsExtra,
   usePropsOk,
-  usePropsCancel
+  usePropsCancel,
+  usePropsIsSubmit
 } from "../../../model";
 
 export default function Footer(): React.ReactElement {
@@ -28,6 +29,8 @@ export default function Footer(): React.ReactElement {
   const buttonsExtra = usePropsButtonsExtra();
 
   const ok = usePropsOk();
+
+  const isSubmit = usePropsIsSubmit();
 
   const okButtonProps = useMemo(() => (typeof ok === "object" ? {
     ...ok,
@@ -69,12 +72,12 @@ export default function Footer(): React.ReactElement {
       {typeof cancel === "string" ? cancel : cancel?.label || "关闭"}
     </Button>
 
-    <Button
+    {isSubmit && <Button
       {...cancelButtonProps}
       loading={locked === ModelLockState.LOADING}
       onClick={handleOnSubmit}
       type="primary">
       {typeof ok === "string" ? ok : ok?.label || "提交"}
-    </Button>
+    </Button>}
   </Space>;
 }

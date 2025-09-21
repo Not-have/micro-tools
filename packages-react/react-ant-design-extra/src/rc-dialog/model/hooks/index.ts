@@ -11,9 +11,11 @@ export { default as usePropsBackdrop } from "./use-props-backdrop";
 export { default as usePropsClosable } from "./use-props-closable";
 export { default as usePropsEsc } from "./use-props-esc";
 export { default as usePropsZIndex } from "./use-props-zIndex";
+export { default as usePropsIsSubmit } from "./use-props-is-submit";
+export { default as usePropsSize } from "./use-props-size";
 
-export { default as useStateSize } from "./use-state-size";
 export { default as useStateLocked } from "./use-state-locked";
+export { default as useStateOpen } from "./use-state-open";
 export { default as useStateForm } from "./use-state-form";
 export { default as useStateData } from "./use-state-data";
 

@@ -1,6 +1,4 @@
-import React, {
-  useMemo
-} from "react";
+import React from "react";
 
 import {
   Drawer as AntDrawer
@@ -8,45 +6,28 @@ import {
 } from "antd";
 
 import {
-  ModelLockState,
-  useStateLocked,
   usePropsContent,
-  useStateSize,
+  usePropsSize,
   useHandleOnClose,
   usePropsClassNameOnBody,
   usePropsBackdrop,
   usePropsClosable,
   usePropsEsc,
-  usePropsZIndex
-} from "../../../model";
-import {
+  usePropsZIndex,
+  useStateOpen,
   transformWidthSize
-} from "../../../model/util";
+} from "../../../model";
 import Footer from "../footer";
 import Header from "../header";
 
 export default function Drawer(): React.ReactElement {
-  const locked = useStateLocked();
-
   const content = usePropsContent();
 
   const handleOnClose = useHandleOnClose();
 
-  const size = useStateSize();
+  const size = usePropsSize();
 
-  const open = useMemo(() => {
-    if (locked === ModelLockState.YES) {
-      return true;
-    }
-
-    if (locked === ModelLockState.NO) {
-      return false;
-    }
-
-    return true;
-  }, [
-    locked
-  ]);
+  const open = useStateOpen();
 
   const classNameOnBody = usePropsClassNameOnBody();
 

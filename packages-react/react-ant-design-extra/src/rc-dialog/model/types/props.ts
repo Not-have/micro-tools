@@ -75,6 +75,13 @@ export interface IDialogProps<T = void, D extends object = Record<string, unknow
   onSubmit?(result?: D): Promise<Record<string, unknown> | undefined | T>;
 
   /**
+   * @deprecated 是否进行提交操作，默认 true
+   *
+   * 传入 false 时只显示关闭 - 查看/详情
+   */
+  isSubmit?: boolean;
+
+  /**
    * 确认按钮
    */
   ok?: IButtonProps | string;
