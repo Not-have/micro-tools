@@ -1,6 +1,6 @@
 export {
+  DialogMode,
   type DialogProps,
-  ModelMode,
   open,
   openIndirect,
   useForm,

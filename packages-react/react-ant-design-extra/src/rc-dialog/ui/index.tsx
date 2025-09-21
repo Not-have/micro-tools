@@ -13,9 +13,9 @@ export default function Ui(): React.ReactElement {
 
   const mode = usePropsMode();
 
-  if (mode === ModelMode.DRAWER) {
-    return <Drawer />;
+  if (mode === ModelMode.MODAL) {
+    return <Modal />;
   }
 
-  return <Modal />;
+  return <Drawer />;
 }
