@@ -24,6 +24,7 @@ export default function getDefaultContextState<D extends object = Record<string,
     data: {
       ...data
     },
-    windowHeight: window.innerHeight
+    windowHeight: window.innerHeight,
+    form: null
   };
 }

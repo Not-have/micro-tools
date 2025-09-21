@@ -66,11 +66,11 @@ export default function openIndirect<T>(props: DialogProps): IDialogIndirectProm
         return;
       }
 
-      if(!props.onClose) {
-        reject(result);
+      // if(!props.onClose) {
+      //   reject(result);
 
-        return;
-      }
+      //   return;
+      // }
 
       root?.unmount();
       container.remove();

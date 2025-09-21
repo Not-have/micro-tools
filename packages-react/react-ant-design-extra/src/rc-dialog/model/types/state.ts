@@ -1,4 +1,8 @@
 import {
+  FormInstance
+} from "antd";
+
+import {
   ESize,
   ELockState
 } from "../enum";
@@ -42,4 +46,9 @@ export interface IModelState<D extends object = Record<string, unknown>> {
    * 尺寸
    */
   size: number | ESize;
+
+  /**
+   * 表单
+   */
+  form: FormInstance | null;
 }

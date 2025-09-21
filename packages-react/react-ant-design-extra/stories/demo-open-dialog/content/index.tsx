@@ -53,18 +53,5 @@ export default function Content(): React.ReactElement {
       ]}>
       <Input.Password />
     </Form.Item>
-
-    {/* <Form.Item<FieldType> label={null}
-      name="remember"
-      valuePropName="checked">
-      <Checkbox>Remember me</Checkbox>
-    </Form.Item>
-
-    <Form.Item label={null}>
-      <Button htmlType="submit"
-        type="primary">
-        Submit
-      </Button>
-    </Form.Item> */}
   </Form>;
 }

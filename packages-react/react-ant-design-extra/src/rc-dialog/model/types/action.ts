@@ -3,6 +3,10 @@ import {
 } from "react";
 
 import {
+  FormInstance
+} from "antd";
+
+import {
   EAction,
   ESize,
   ELockState
@@ -14,6 +18,9 @@ export type TModelAction = {
 } | {
   type: EAction.SIZE;
   payload?: number | ESize;
+} | {
+  type: EAction.FORM;
+  payload?: FormInstance | null;
 };
 
 export type TModelDispatch = Dispatch<TModelAction>;

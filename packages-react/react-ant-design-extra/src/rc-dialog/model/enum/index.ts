@@ -1,7 +1,8 @@
 export enum EAction {
   LOCK,
   UNLOCK,
-  SIZE
+  SIZE,
+  FORM
 }
 
 export enum ELockState {

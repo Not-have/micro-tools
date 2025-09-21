@@ -5,6 +5,7 @@ import {
   IModelState,
   TModelAction
 } from "../types";
+import reduceForm from "./reduce-form";
 import reduceLock from "./reduce-lock";
 import reduceSize from "./reduce-size";
 import reduceUnlock from "./reduce-unlock";
@@ -19,6 +20,9 @@ export default function reducer(state: IModelState, action: TModelAction): IMode
     }
     case EAction.SIZE: {
       return reduceSize(state, action.payload);
+    }
+    case EAction.FORM: {
+      return reduceForm(state, action.payload);
     }
     default: {
       return state;
