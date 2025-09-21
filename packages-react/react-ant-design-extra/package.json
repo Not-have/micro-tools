@@ -24,6 +24,14 @@
     "build": "unbuild",
     "prepublishOnly": "pnpm build"
   },
+  "files": [
+    ".storybook",
+    "README.md",
+    "dist",
+    "stories",
+    "tsconfig.json"
+  ],
+  "main": "dist/index.mjs",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "exports": {
