@@ -21,20 +21,30 @@
     "storybook": "storybook dev",
     "build-storybook": "storybook build",
     "clear": "rm -fr node_modules && rm -fr dist",
+    "build": "unbuild",
     "prepublishOnly": "pnpm build"
   },
-  "main": "index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs"
+    }
+  },
   "peerDependencies": {
     "@ant-design/v5-patch-for-react-19": ">=1.0.0",
-    "antd": ">=5.0.0"
+    "antd": ">=5.0.0",
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0",
+    "react-router-dom": ">=7.0.0"
   },
   "dependencies": {
-    "@ant-design/v5-patch-for-react-19": "catalog:",
     "lodash-es": "catalog:",
-    "react-dom": "catalog:",
     "styled-components": "catalog:"
   },
   "devDependencies": {
+    "@ant-design/v5-patch-for-react-19": "catalog:",
     "@mt-kit/ts-config": "workspace:^",
     "@storybook/addon-essentials": "catalog:",
     "@storybook/addon-interactions": "catalog:",
@@ -48,6 +58,7 @@
     "@types/react-dom": "catalog:",
     "antd": "catalog:",
     "react": "catalog:",
+    "react-dom": "catalog:",
     "react-router-dom": "catalog:",
     "storybook": "catalog:",
     "typescript": "catalog:",
