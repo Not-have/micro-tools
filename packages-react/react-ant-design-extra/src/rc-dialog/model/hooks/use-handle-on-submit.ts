@@ -24,11 +24,11 @@ export default function useHandleOnSubmit(): () => void {
     onSubmit?.().then(res => {
       dispatchUnlock();
       onClose?.(res as undefined | Error, false);
-    }).catch(() => {
+    }).catch(error => {
       dispatchLock();
 
       // 错误时，是否关闭弹窗？
-      // onClose?.(undefined, true);
+      onClose?.(error);
     });
   }, [
     onSubmit,

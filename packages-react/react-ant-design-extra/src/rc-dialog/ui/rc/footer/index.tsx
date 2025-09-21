@@ -20,13 +20,13 @@ export default function Footer(): React.ReactElement {
   const locked = useStateLocked();
 
   return <Space>
-    <Button onClick={handleUnlock}>Cancel</Button>
-    {locked}
+    <Button onClick={handleUnlock}>关闭</Button>
 
-    <Button loading={locked === ModelLockState.LOADING}
+    <Button
+      loading={locked === ModelLockState.LOADING}
       onClick={handleOnSubmit}
       type="primary">
-      Submit
+      提交
     </Button>
   </Space>;
 }

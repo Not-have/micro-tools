@@ -44,7 +44,7 @@ export default function openIndirect<T>(props: DialogProps): IDialogIndirectProm
   const onClose = (result?: undefined | Error, rejected?: boolean | undefined): void => {
     close?.(result as T | Error, rejected);
 
-    props?.onClose?.(result, rejected);
+    props?.onClose?.(result);
   };
 
   function renderDialog(): void {
@@ -63,6 +63,12 @@ export default function openIndirect<T>(props: DialogProps): IDialogIndirectProm
      */
     close = (result?: T | Error, rejected?: boolean) => {
       if (!container) {
+        return;
+      }
+
+      if(!props.onClose) {
+        reject(result);
+
         return;
       }
 

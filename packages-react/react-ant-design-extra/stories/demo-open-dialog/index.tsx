@@ -19,7 +19,7 @@ const mockApiRequest = (): Promise<Record<string, unknown>> => new Promise((reso
   setTimeout(() => {
 
     // 模拟 90% 成功，10% 失败
-    if (Math.random() > 0.3) {
+    if (Math.random() > 0.4) {
       resolve({
         id: Date.now(),
         name: "张三",
