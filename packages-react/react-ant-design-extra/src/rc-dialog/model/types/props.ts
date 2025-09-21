@@ -38,7 +38,7 @@ export interface IDialogProps<T = void, D extends object = Record<string, unknow
   /**
    * 底部操作按钮
    */
-  buttons?: React.ReactElement[];
+  buttonsExtra?: React.ReactElement[];
   content?: string | React.ReactElement;
 
   mode?: EMode;

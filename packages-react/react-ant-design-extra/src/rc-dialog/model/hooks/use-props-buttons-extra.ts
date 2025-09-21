@@ -4,10 +4,10 @@ import {
 
 import useModelProps from "./_use-model-props";
 
-export default function usePropsButtons(): React.ReactElement[] | undefined {
+export default function usePropsButtonsExtra(): React.ReactElement[] {
   const props = useModelProps();
 
-  return useMemo(() => props.buttons || [], [
+  return useMemo(() => props.buttonsExtra || [], [
     props
   ]);
 }

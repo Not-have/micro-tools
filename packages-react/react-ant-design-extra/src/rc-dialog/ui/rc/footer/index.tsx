@@ -10,7 +10,7 @@ import {
   useHandleOnSubmit,
   useStateLocked,
   ModelLockState,
-  usePropsButtons
+  usePropsButtonsExtra
 } from "../../../model";
 
 export default function Footer(): React.ReactElement {
@@ -20,19 +20,15 @@ export default function Footer(): React.ReactElement {
 
   const locked = useStateLocked();
 
-  const buttons = usePropsButtons();
-
-  if (buttons && buttons.length > 0) {
-    return <Space>
-      {buttons.map(button => (
-        <div key={button.key || Math.random()}>
-          {button}
-        </div>
-      ))}
-    </Space>;
-  }
+  const buttonsExtra = usePropsButtonsExtra();
 
   return <Space>
+    {buttonsExtra.map(button => (
+      <React.Fragment key={button.key || Math.random()}>
+        {button}
+      </React.Fragment>
+    ))}
+
     <Button onClick={handleOnClose}>关闭</Button>
 
     <Button
