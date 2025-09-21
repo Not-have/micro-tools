@@ -1,4 +1,7 @@
-import React from "react";
+import React, {
+  useMemo,
+  MouseEvent
+} from "react";
 
 import {
   Button,
@@ -10,7 +13,9 @@ import {
   useHandleOnSubmit,
   useStateLocked,
   ModelLockState,
-  usePropsButtonsExtra
+  usePropsButtonsExtra,
+  usePropsOk,
+  usePropsCancel
 } from "../../../model";
 
 export default function Footer(): React.ReactElement {
@@ -22,6 +27,36 @@ export default function Footer(): React.ReactElement {
 
   const buttonsExtra = usePropsButtonsExtra();
 
+  const ok = usePropsOk();
+
+  const okButtonProps = useMemo(() => (typeof ok === "object" ? {
+    ...ok,
+    onClick: (event: MouseEvent<HTMLElement>) => {
+      ok?.onClick?.(event);
+      handleOnSubmit();
+    }
+  } : {
+    label: ok
+  }), [
+    ok,
+    handleOnSubmit
+  ]);
+
+  const cancel = usePropsCancel();
+
+  const cancelButtonProps = useMemo(() => (typeof cancel === "object" ? {
+    ...cancel,
+    onClick: (event: MouseEvent<HTMLElement>) => {
+      cancel?.onClick?.(event);
+      handleOnClose();
+    }
+  } : {
+    label: cancel
+  }), [
+    cancel,
+    handleOnClose
+  ]);
+
   return <Space>
     {buttonsExtra.map(button => (
       <React.Fragment key={button.key || Math.random()}>
@@ -29,13 +64,17 @@ export default function Footer(): React.ReactElement {
       </React.Fragment>
     ))}
 
-    <Button onClick={handleOnClose}>关闭</Button>
+    <Button onClick={handleOnClose}
+      {...okButtonProps}>
+      {typeof cancel === "string" ? cancel : cancel?.label || "关闭"}
+    </Button>
 
     <Button
+      {...cancelButtonProps}
       loading={locked === ModelLockState.LOADING}
       onClick={handleOnSubmit}
       type="primary">
-      提交
+      {typeof ok === "string" ? ok : ok?.label || "提交"}
     </Button>
   </Space>;
 }

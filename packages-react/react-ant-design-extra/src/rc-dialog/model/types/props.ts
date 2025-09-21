@@ -13,7 +13,6 @@ import {
 
 export interface IButtonProps extends Partial<ButtonProps> {
   label?: string;
-  click?: Function;
 }
 
 /**
@@ -29,7 +28,7 @@ export interface IDialogProps<T = void, D extends object = Record<string, unknow
    *
    * 埋点的时候，也许需要
    */
-    op?: string;
+  op?: string;
 
   /* --- 内容 --- */
   title?: string | React.ReactElement;

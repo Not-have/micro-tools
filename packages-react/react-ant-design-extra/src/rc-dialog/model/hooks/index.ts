@@ -4,6 +4,8 @@ export { default as usePropsMode } from "./use-props-mode";
 export { default as usePropsContent } from "./use-props-content";
 export { default as usePropsTitle } from "./use-props-title";
 export { default as usePropsButtonsExtra } from "./use-props-buttons-extra";
+export { default as usePropsOk } from "./use-props-ok";
+export { default as usePropsCancel } from "./use-props-cancel";
 
 export { default as useStateSize } from "./use-state-size";
 export { default as useStateLocked } from "./use-state-locked";
