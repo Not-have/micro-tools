@@ -13,7 +13,10 @@ import {
 import Content from "./content";
 
 // 模拟真实的 API 请求
-const mockApiRequest = (): Promise<Record<string, unknown>> => new Promise((resolve, reject) => {
+const mockApiRequest = (val: Record<string, unknown>): Promise<Record<string, unknown>> => new Promise((resolve, reject) => {
+
+  // eslint-disable-next-line no-console
+  console.log(val, "val");
 
   // 模拟网络延迟
   const delay = Math.random() * 2000 + 1000; // 1-3秒随机延迟
@@ -40,7 +43,7 @@ export default function Demo(): React.ReactElement {
     open({
       title: "我是标题",
       content: <Content />,
-      onSubmit: () => mockApiRequest(),
+      onSubmit: data => mockApiRequest(data as Record<string, unknown>),
       ok: "提交1",
       cancel: "取消",
       mode: ModelMode.DRAWER

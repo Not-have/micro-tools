@@ -35,7 +35,7 @@ export interface IModelState<D extends object = Record<string, unknown>> {
   /**
    * 维系 Dialog 本体和内容组件之间的纽带
    */
-  data: D;
+  data?: D | null;
 
   /**
    * 需要根据当前窗口的高度对 Dialog 内容区域的最大高度进行调整

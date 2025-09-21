@@ -2,7 +2,8 @@ export enum EAction {
   LOCK,
   UNLOCK,
   SIZE,
-  FORM
+  FORM,
+  DATA
 }
 
 export enum ELockState {

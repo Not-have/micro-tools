@@ -1,0 +1,13 @@
+import {
+  useMemo
+} from "react";
+
+import useModelState from "./_use-model-state";
+
+export default function useStateData<D extends object = Record<string, unknown>>(): D | null {
+  const state = useModelState();
+
+  return useMemo(() => state.data as D, [
+    state
+  ]);
+}
