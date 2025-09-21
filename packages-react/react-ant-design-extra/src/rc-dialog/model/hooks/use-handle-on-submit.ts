@@ -46,7 +46,6 @@ export default function useHandleOnSubmit(): () => void {
       dispatchUnlock();
       onClose?.(result as undefined | Error, false);
     } catch (error) {
-      console.error(error, "error 失败");
 
       // 表单验证失败或提交失败
       dispatchLock();
