@@ -60,5 +60,5 @@ export interface IDialogProps<T = void, D extends object = Record<string, unknow
    * Dialog props.onSubmit 方法定义，value 的类型为 Promise resolve 的类型，
    * 执行提交后发生
    */
-  onSubmit?(result?: T | Error): Promise<Record<string, unknown> | undefined | T>;
+  onSubmit?(result?: D): Promise<Record<string, unknown> | undefined | T>;
 }

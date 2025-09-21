@@ -2,10 +2,10 @@ import {
   useCallback
 } from "react";
 
-import usePropsClose from "./use-props-on-close";
+import usePropsOnClose from "./use-props-on-close";
 
 export default function useOnAfterOpenChange(): (open: boolean) => void {
-  const close = usePropsClose();
+  const close = usePropsOnClose();
 
   return useCallback((open: boolean) => {
     if (!open) {
@@ -18,7 +18,7 @@ export default function useOnAfterOpenChange(): (open: boolean) => void {
        * 这样可以避免在 React 渲染过程中同步调用
        */
       queueMicrotask(() => {
-        close?.(open, true);
+        close?.(undefined, true);
       });
     }
   }, [
