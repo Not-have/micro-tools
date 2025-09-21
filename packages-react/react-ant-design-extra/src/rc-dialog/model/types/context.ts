@@ -5,7 +5,7 @@ import {
   TModelDispatch
 } from "./action";
 import {
-  IProps
+  IDialogProps
 } from "./props";
 import {
   IModelState
@@ -19,12 +19,12 @@ export interface IModelReducer {
 }
 
 export interface IModelContext<R = void, D extends object = Record<string, unknown>> {
-  props: IProps<R, D>;
+  props: IDialogProps<R, D>;
   state: IModelState<D>;
   dispatch: TModelDispatch;
 }
 
 export interface IModelProviderProps<R = void, D extends object = Record<string, unknown>> {
-  props: IProps<R, D>;
+  props: IDialogProps<R, D>;
   children: React.ReactNode;
 }

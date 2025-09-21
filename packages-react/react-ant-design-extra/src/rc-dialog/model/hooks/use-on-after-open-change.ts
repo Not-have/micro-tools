@@ -2,7 +2,7 @@ import {
   useCallback
 } from "react";
 
-import usePropsClose from "./use-props-close";
+import usePropsClose from "./use-props-on-close";
 
 export default function useOnAfterOpenChange(): (open: boolean) => void {
   const close = usePropsClose();
