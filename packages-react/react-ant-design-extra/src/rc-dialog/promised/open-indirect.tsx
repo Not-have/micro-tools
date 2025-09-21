@@ -34,12 +34,12 @@ export default function openIndirect<T>(props: DialogProps): IDialogIndirectProm
 
   let root: ReturnType<typeof createRoot> | null = createRoot(container);
 
-  // eslint-disable-next-line no-console
-  console.group("弹窗的参数");
-  // eslint-disable-next-line no-console
-  console.table(props);
-  // eslint-disable-next-line no-console
-  console.groupEnd();
+  // // eslint-disable-next-line no-console
+  // console.group("弹窗的参数");
+  // // eslint-disable-next-line no-console
+  // console.table(props);
+  // // eslint-disable-next-line no-console
+  // console.groupEnd();
 
   const onClose = (result?: undefined | Error, rejected?: boolean | undefined, isDestroy?: boolean): void => {
     close?.(result as T | Error, rejected, isDestroy);

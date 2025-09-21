@@ -44,14 +44,10 @@ export default function Demo(): React.ReactElement {
       title: "我是标题",
       content: <Content />,
       onSubmit: data => mockApiRequest(data as Record<string, unknown>),
-      ok: "提交1",
-      cancel: "取消",
       mode: ModelMode.DRAWER
     }).then(result => {
       // eslint-disable-next-line no-console
-      console.log(result);
-    }).catch(error => {
-      console.error(error, "error");
+      console.log("提交成功:", result);
     });
   }, []);
 
