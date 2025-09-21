@@ -9,6 +9,9 @@ import {
 
 /**
  * Dialog props 定义
+ *
+ * T: 返回值类型
+ * D: 数据类型
  */
 export interface IDialogProps<T = void, D extends object = Record<string, unknown>> extends Omit<HTMLAttributes<HTMLDivElement>, "title" | "content" | "onSubmit"> {
 
@@ -57,7 +60,7 @@ export interface IDialogProps<T = void, D extends object = Record<string, unknow
    * Dialog props.onSubmit 方法定义，value 的类型为 Promise resolve 的类型，
    * 执行提交后发生
    */
-  onSubmit?(result?: T | Error): Promise<Record<string, unknown> | undefined>;
+  onSubmit?(result?: T | Error): Promise<Record<string, unknown> | undefined | T>;
 }
 
 export interface IProps<T = void, D extends object = Record<string, unknown>> extends IDialogProps<T, D> {

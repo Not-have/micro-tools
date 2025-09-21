@@ -1,4 +1,6 @@
-import React from "react";
+import React, {
+  useMemo
+} from "react";
 
 import {
   Drawer as AntDrawer
@@ -30,12 +32,26 @@ export default function Drawer(): React.ReactElement {
 
   const size = useStateSize();
 
+  const open = useMemo(() => {
+    if (locked === ModelLockState.YES) {
+      return true;
+    }
+
+    if (locked === ModelLockState.NO) {
+      return false;
+    }
+
+    return true;
+  }, [
+    locked
+  ]);
+
   return <AntDrawer
     afterOpenChange={onAfterOpenChange}
     destroyOnHidden
     footer={<Footer />}
     onClose={handleUnlock}
-    open={locked === ModelLockState.YES}
+    open={open}
     title={<Header />}
     width={transformWidthSize(size)}>
     {content}

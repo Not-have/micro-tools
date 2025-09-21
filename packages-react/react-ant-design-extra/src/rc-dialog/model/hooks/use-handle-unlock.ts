@@ -4,12 +4,14 @@ import {
 
 import useDispatchUnlock from "./use-dispatch-unlock";
 
+/**
+ * 关闭弹出
+ */
 export default function useHandleUnlock(): () => void {
   const dispatchUnlock = useDispatchUnlock();
 
   return useCallback(() => {
 
-    // 先触发解锁状态，开始关闭动画
     dispatchUnlock();
 
   }, [
