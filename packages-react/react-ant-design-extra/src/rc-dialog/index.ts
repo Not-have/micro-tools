@@ -1,7 +1,8 @@
 export { default } from "./with-model";
 
 export {
-  type DialogProps
+  type DialogProps,
+  ModelMode
 } from "./model";
 
 export {

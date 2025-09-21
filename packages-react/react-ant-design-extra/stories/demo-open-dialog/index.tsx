@@ -7,7 +7,8 @@ import {
 } from "antd";
 
 import {
-  open
+  open,
+  ModelMode
 } from "../../src";
 
 // 模拟真实的 API 请求
@@ -42,7 +43,8 @@ export default function Demo(): React.ReactElement {
       content: "React Ant Design Extra Dialog",
       onSubmit: () => mockApiRequest(),
       ok: "提交1",
-      cancel: "取消"
+      cancel: "取消",
+      mode: ModelMode.MODAL
     }).then(result => {
       // eslint-disable-next-line no-console
       console.log(result);

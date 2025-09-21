@@ -2,15 +2,14 @@ import React from "react";
 
 import {
   ModelMode,
-  useStateLocked,
   usePropsMode
 } from "../model";
 import {
-  Drawer
+  Drawer,
+  Modal
 } from "./rc";
 
 export default function Ui(): React.ReactElement {
-  const locked = useStateLocked();
 
   const mode = usePropsMode();
 
@@ -18,8 +17,5 @@ export default function Ui(): React.ReactElement {
     return <Drawer />;
   }
 
-  return <div>
-    {locked}
-    {mode}
-  </div>;
+  return <Modal />;
 }
