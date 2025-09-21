@@ -23,54 +23,36 @@ export default function useHandleOnSubmit(): () => void {
   const form = useStateForm();
 
   return useCallback(async () => {
-    if (!form) {
-      dispatchLoading();
-      await onSubmit?.().then(async res => {
-        dispatchUnlock();
-        onClose?.(res as undefined | Error, false);
-      }).catch(error => {
-        dispatchLock();
-
-        // 错误时，是否关闭弹窗？
-        onClose?.(error);
-      });
-
-      return;
-    }
-
     try {
-      const values = await form?.validateFields();
 
+      // 如果有表单，先进行验证
+      let formData: Record<string, unknown> | undefined;
+
+      if (form) {
+        formData = await form.validateFields();
+      }
+
+      // 开始加载状态
       dispatchLoading();
-      await onSubmit?.(values).then(res => {
-        dispatchUnlock();
-        onClose?.(res as undefined | Error, false);
-      }).catch(error => {
-        dispatchLock();
 
-        // 错误时，是否关闭弹窗？
-        onClose?.(error);
-      });
+      // 执行提交逻辑
+      const result = await onSubmit?.(formData);
+
+      // 提交成功，解锁并关闭弹窗
+      dispatchUnlock();
+      onClose?.(result as undefined | Error, false);
     } catch (error) {
-      onClose?.(error);
+
+      // 表单验证失败或提交失败
+      dispatchLock();
+      onClose?.(error as Error, true);
     }
-
-    // dispatchLoading();
-    // onSubmit?.().then(res => {
-    //   dispatchUnlock();
-    //   onClose?.(res as undefined | Error, false);
-    // }).catch(error => {
-    //   dispatchLock();
-
-    //   // 错误时，是否关闭弹窗？
-    //   onClose?.(error);
-    // });
   }, [
+    form,
     onSubmit,
     dispatchLoading,
     dispatchUnlock,
     dispatchLock,
-    onClose,
-    form
+    onClose
   ]);
 }
