@@ -28,7 +28,7 @@ import WithProvider from "../with-model";
  */
 export default function openIndirect<T>(props: DialogProps): IDialogIndirectPromise<T> {
 
-  let close: ((result?: T | Error, rejected?: boolean) => void) | null = _noop;
+  let close: ((result?: T | Error, rejected?: boolean, isDestroy?: boolean) => void) | null = _noop;
 
   let container: HTMLDivElement | null = createDialogContainer();
 
@@ -41,8 +41,8 @@ export default function openIndirect<T>(props: DialogProps): IDialogIndirectProm
   // eslint-disable-next-line no-console
   console.groupEnd();
 
-  const onClose = (result?: undefined | Error, rejected?: boolean | undefined): void => {
-    close?.(result as T | Error, rejected);
+  const onClose = (result?: undefined | Error, rejected?: boolean | undefined, isDestroy?: boolean): void => {
+    close?.(result as T | Error, rejected, isDestroy);
 
     props?.onClose?.(result);
   };
@@ -56,12 +56,26 @@ export default function openIndirect<T>(props: DialogProps): IDialogIndirectProm
     root?.render(<WithProvider {...modelProps} />);
   }
 
+  function destroy(): void {
+    setTimeout(() => {
+      root?.unmount();
+      container?.remove();
+
+      // 防止内存泄漏
+      container = null;
+      root = null;
+      close = null;
+    }, 500);
+  }
+
   const promise = new Promise<T>((resolve, reject) => {
 
     /**
      * Dialog 被关闭是会执行到此回调，这里会将 Promise 进行 resolve 或 reject，同时做一系列的清理动作
+     *
+     * isDestroy，用作内部消费，是否立即销毁元素
      */
-    close = (result?: T | Error, rejected?: boolean) => {
+    close = (result?: T | Error, rejected?: boolean, _isDestroy: boolean = true) => {
       if (!container) {
         return;
       }
@@ -72,15 +86,9 @@ export default function openIndirect<T>(props: DialogProps): IDialogIndirectProm
         resolve(result as T);
       }
 
-      setTimeout(() => {
-        root?.unmount();
-        container?.remove();
-
-        // 防止内存泄漏
-        container = null;
-        root = null;
-        close = null;
-      }, 500);
+      if (_isDestroy) {
+        destroy();
+      }
     };
 
     renderDialog();
