@@ -10,6 +10,7 @@ import {
   open,
   ModelMode
 } from "../../src";
+import Content from "./content";
 
 // 模拟真实的 API 请求
 const mockApiRequest = (): Promise<Record<string, unknown>> => new Promise((resolve, reject) => {
@@ -35,16 +36,14 @@ const mockApiRequest = (): Promise<Record<string, unknown>> => new Promise((reso
 });
 
 export default function Demo(): React.ReactElement {
-
   const handleClick = useCallback(() => {
-
     open({
       title: "我是标题",
-      content: "React Ant Design Extra Dialog",
+      content: <Content />,
       onSubmit: () => mockApiRequest(),
       ok: "提交1",
       cancel: "取消",
-      mode: ModelMode.MODAL
+      mode: ModelMode.DRAWER
     }).then(result => {
       // eslint-disable-next-line no-console
       console.log(result);
