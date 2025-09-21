@@ -6,6 +6,11 @@ export { default as usePropsTitle } from "./use-props-title";
 export { default as usePropsButtonsExtra } from "./use-props-buttons-extra";
 export { default as usePropsOk } from "./use-props-ok";
 export { default as usePropsCancel } from "./use-props-cancel";
+export { default as usePropsClassNameOnBody } from "./use-class-name-on-body";
+export { default as usePropsBackdrop } from "./use-props-backdrop";
+export { default as usePropsClosable } from "./use-props-closable";
+export { default as usePropsEsc } from "./use-props-esc";
+export { default as usePropsZIndex } from "./use-props-zIndex";
 
 export { default as useStateSize } from "./use-state-size";
 export { default as useStateLocked } from "./use-state-locked";
