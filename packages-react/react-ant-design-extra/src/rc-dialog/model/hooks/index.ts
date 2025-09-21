@@ -12,6 +12,5 @@ export { default as useDispatchLock } from "./use-dispatch-lock";
 export { default as useDispatchUnlock } from "./use-dispatch-unlock";
 export { default as useDispatchLoading } from "./use-dispatch-loading";
 
-export { default as useHandleUnlock } from "./use-handle-unlock";
-export { default as useOnAfterOpenChange } from "./use-on-after-open-change";
+export { default as useHandleOnClose } from "./use-handle-on-close";
 export { default as useHandleOnSubmit } from "./use-handle-on-submit";

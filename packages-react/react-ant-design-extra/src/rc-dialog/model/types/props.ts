@@ -1,4 +1,8 @@
 import type {
+  ButtonProps
+} from "antd";
+
+import type {
   HTMLAttributes
 } from "react";
 
@@ -7,6 +11,11 @@ import {
   ESize
 } from "../enum";
 
+export interface IButtonProps extends Partial<ButtonProps> {
+  label?: string;
+  click?: Function;
+}
+
 /**
  * Dialog props 定义
  *
@@ -14,6 +23,13 @@ import {
  * D: 数据类型
  */
 export interface IDialogProps<T = void, D extends object = Record<string, unknown>> extends Omit<HTMLAttributes<HTMLDivElement>, "title" | "content" | "onSubmit"> {
+
+  /**
+   * @todo 记录当前的操作类型
+   *
+   * 埋点的时候，也许需要
+   */
+    op?: string;
 
   /* --- 内容 --- */
   title?: string | React.ReactElement;
@@ -61,4 +77,14 @@ export interface IDialogProps<T = void, D extends object = Record<string, unknow
    * 执行提交后发生
    */
   onSubmit?(result?: D): Promise<Record<string, unknown> | undefined | T>;
+
+  /**
+   * 确认按钮
+   */
+  ok?: IButtonProps | string;
+
+    /**
+     * 取消按钮
+     */
+  cancel?: IButtonProps | string;
 }

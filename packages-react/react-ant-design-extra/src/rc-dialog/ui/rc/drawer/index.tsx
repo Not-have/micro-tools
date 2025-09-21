@@ -12,8 +12,7 @@ import {
   useStateLocked,
   usePropsContent,
   useStateSize,
-  useHandleUnlock,
-  useOnAfterOpenChange
+  useHandleOnClose
 } from "../../../model";
 import {
   transformWidthSize
@@ -26,9 +25,7 @@ export default function Drawer(): React.ReactElement {
 
   const content = usePropsContent();
 
-  const handleUnlock = useHandleUnlock();
-
-  const onAfterOpenChange = useOnAfterOpenChange();
+  const handleOnClose = useHandleOnClose();
 
   const size = useStateSize();
 
@@ -47,10 +44,9 @@ export default function Drawer(): React.ReactElement {
   ]);
 
   return <AntDrawer
-    afterOpenChange={onAfterOpenChange}
     destroyOnHidden
     footer={<Footer />}
-    onClose={handleUnlock}
+    onClose={handleOnClose}
     open={open}
     title={<Header />}
     width={transformWidthSize(size)}>

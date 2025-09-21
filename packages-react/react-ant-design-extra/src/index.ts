@@ -1,5 +1,6 @@
 export {
+  type DialogProps,
   open,
-  openDialog,
+  openIndirect,
   default as WithModel
 } from "./rc-dialog";

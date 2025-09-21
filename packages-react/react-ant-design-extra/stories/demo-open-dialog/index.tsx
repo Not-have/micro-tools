@@ -40,7 +40,12 @@ export default function Demo(): React.ReactElement {
     open({
       title: "我是标题",
       content: "React Ant Design Extra Dialog",
-      onSubmit: () => mockApiRequest()
+      onSubmit: () => mockApiRequest(),
+      buttons: [
+        <Button key="1">
+          1
+        </Button>
+      ]
     }).then(result => {
       // eslint-disable-next-line no-console
       console.log(result);
