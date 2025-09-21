@@ -53,10 +53,35 @@ export interface IDialogProps<T = void, D extends object = Record<string, unknow
   classNameOnBody?: string;
 
   /* --- 行为 --- */
+  /**
+   * 是否需要背投
+   *
+   * @default true
+   */
   backdrop?: boolean; // 是否需要背投
-  closable?: boolean; // 显示关闭按钮
-  esc?: boolean; // 键盘的 ESC
-  zIndex?: number; // Dialog 本体的 zIndex
+  /**
+   * 点击蒙层是否允许关闭
+   *
+   * @default true
+   */
+  backdropClosable?: boolean;
+
+  /**
+   * 显示关闭按钮
+   *
+   * @default true
+   */
+  closable?: boolean;
+
+  /**
+   * 键盘的 ESC
+   */
+  esc?: boolean;
+
+  /**
+   * Dialog 本体的 zIndex
+   */
+  zIndex?: number;
 
   /* --- 数据 --- */
   data?: D;

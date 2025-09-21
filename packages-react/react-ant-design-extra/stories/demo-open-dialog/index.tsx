@@ -44,7 +44,8 @@ export default function Demo(): React.ReactElement {
       title: "我是标题",
       content: <Content />,
       onSubmit: data => mockApiRequest(data as Record<string, unknown>),
-      mode: DialogMode.MODAL
+      mode: DialogMode.MODAL,
+      backdropClosable: false
     }).then(result => {
       // eslint-disable-next-line no-console
       console.log("提交成功:", result);

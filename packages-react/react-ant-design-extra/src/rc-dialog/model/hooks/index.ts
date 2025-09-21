@@ -13,6 +13,7 @@ export { default as usePropsEsc } from "./use-props-esc";
 export { default as usePropsZIndex } from "./use-props-zIndex";
 export { default as usePropsIsSubmit } from "./use-props-is-submit";
 export { default as usePropsSize } from "./use-props-size";
+export { default as usePropsBackdropClosable } from "./use-props-backdrop-closable";
 
 export { default as useStateLocked } from "./use-state-locked";
 export { default as useStateOpen } from "./use-state-open";

@@ -15,6 +15,7 @@ import {
   usePropsEsc,
   usePropsZIndex,
   useStateOpen,
+  usePropsBackdropClosable,
   transformWidthSize
 } from "../../../model";
 import Footer from "../footer";
@@ -39,12 +40,15 @@ export default function Drawer(): React.ReactElement {
 
   const zIndex = usePropsZIndex();
 
+  const backdropClosable = usePropsBackdropClosable();
+
   return <AntDrawer
     closable={closable}
     destroyOnHidden
     footer={<Footer />}
     keyboard={esc}
     mask={backdrop}
+    maskClosable={backdropClosable}
     onClose={handleOnClose}
     open={open}
     rootClassName={classNameOnBody}
