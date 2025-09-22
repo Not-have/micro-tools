@@ -24,7 +24,18 @@
     "build": " rm -fr dist && unbuild",
     "prepublishOnly": "pnpm build"
   },
-  "main": "index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "dependencies": {
     "lodash-es": "catalog:",
     "styled-components": "catalog:"
