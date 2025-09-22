@@ -1,0 +1,37 @@
+{
+  "name": "@mt-kit/envs",
+  "version": "1.0.0",
+  "description": "Environments package.",
+  "keywords": [
+    "envs",
+    "micro-envs"
+  ],
+  "bugs": {
+    "url": "https://github.com/Not-have/micro-tools/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Not-have/micro-tools/tree/main/envs"
+  },
+  "license": "ISC",
+  "author": "Li Yong",
+  "type": "module",
+  "scripts": {
+    "build": "rm -fr dist && tsc",
+    "start": "tsc --watch",
+    "clear": "rm -fr node_modules && rm -fr dist",
+    "prepublishOnly": "npm run build"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "devDependencies": {
+    "@mt-kit/ts-config": "workspace:^",
+    "typescript": "catalog:"
+  }
+}
