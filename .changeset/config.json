@@ -13,7 +13,6 @@
   "updateInternalDependencies": "patch",
   "ignore": [
     "packages-docs",
-    "mock",
-    "@mt-kit/react-rc"
+    "mock"
   ]
 }
