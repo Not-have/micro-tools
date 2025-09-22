@@ -1,5 +1,6 @@
 packages:
   - packages*/**
+  - envs
 catalog:
   "@ant-design/v5-patch-for-react-19": ^1.0.3
   "@changesets/cli": ^2.29.5

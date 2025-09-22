@@ -1,11 +1,12 @@
 import React from "react";
 
 import {
-  Drawer as AntDrawer
-
+  Drawer as AntDrawer,
+  DrawerProps
 } from "antd";
 
 import {
+  transformWidthSize,
   usePropsContent,
   usePropsSize,
   useHandleOnClose,
@@ -16,7 +17,7 @@ import {
   usePropsZIndex,
   useStateOpen,
   usePropsBackdropClosable,
-  transformWidthSize
+  usePropsOptions
 } from "../../../model";
 import Footer from "../footer";
 import Header from "../header";
@@ -42,7 +43,10 @@ export default function Drawer(): React.ReactElement {
 
   const backdropClosable = usePropsBackdropClosable();
 
+  const options = usePropsOptions();
+
   return <AntDrawer
+    {...options as DrawerProps}
     closable={closable}
     destroyOnHidden
     footer={<Footer />}

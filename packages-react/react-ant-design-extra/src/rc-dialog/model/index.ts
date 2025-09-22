@@ -8,7 +8,8 @@ export {
   ESize as ModelSize
 } from "./enum";
 export type {
-  IDialogProps as DialogProps
+  IDialogProps as DialogProps,
+  TDialogPropsOptions as DialogPropsOptions
 } from "./types";
 
 export { default } from "./provider";

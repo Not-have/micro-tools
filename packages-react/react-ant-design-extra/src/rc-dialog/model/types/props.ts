@@ -1,5 +1,7 @@
 import type {
-  ButtonProps
+  ButtonProps,
+  DrawerProps,
+  ModalProps
 } from "antd";
 
 import type {
@@ -14,6 +16,11 @@ import {
 export interface IButtonProps extends Partial<ButtonProps> {
   label?: string;
 }
+
+// 抽离出公共的排除属性
+type TExcludedProps = "open" | "onClose" | "footer" | "header" | "children" | "onCancel" | "maskClosable" | "mask" | "zIndex" | "keyboard" | "title" | "className" | "closable" | "rootClassName";
+
+export type TDialogPropsOptions = Partial<Omit<DrawerProps, TExcludedProps>> | Partial<Omit<ModalProps, TExcludedProps>>;
 
 /**
  * Dialog props 定义
@@ -115,4 +122,13 @@ export interface IDialogProps<T = void, D extends object = Record<string, unknow
    * 取消按钮
    */
   cancel?: IButtonProps | string;
+
+  /**
+   * 选项
+   *
+   * 传入抽屉和模态框的各个自带 api
+   *
+   * 但是要注意，已有属性的值会覆盖传入的值
+   */
+  options?: TDialogPropsOptions;
 }

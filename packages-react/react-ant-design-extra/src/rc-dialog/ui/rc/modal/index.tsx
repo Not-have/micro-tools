@@ -1,10 +1,12 @@
 import React from "react";
 
 import {
+  ModalProps,
   Modal as AntdModal
 } from "antd";
 
 import {
+  transformWidthSize,
   useStateOpen,
   usePropsContent,
   usePropsSize,
@@ -15,7 +17,7 @@ import {
   usePropsZIndex,
   useHandleOnClose,
   usePropsBackdropClosable,
-  transformWidthSize
+  usePropsOptions
 } from "../../../model";
 import Footer from "../footer";
 import Header from "../header";
@@ -41,7 +43,10 @@ export default function Modal(): React.ReactElement {
 
   const backdropClosable = usePropsBackdropClosable();
 
+  const options = usePropsOptions();
+
   return <AntdModal
+    {...options as ModalProps}
     className={classNameOnBody}
     closable={closable}
     footer={<Footer />}

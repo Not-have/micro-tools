@@ -33,7 +33,7 @@
     "clear": "pnpm --filter \"./packages-**\" clear && pnpm --filter \"./packages-**/**\" clear && rm -fr node_modules && pnpm run clear:store && pnpm run clear:lock",
     "clear:lock": "rm -fr pnpm-lock.yaml && rm -fr package-lock.json && rm -fr lerna-debug.log",
     "clear:store": "rm -fr .pnpm-store",
-    "build": "pnpm --filter \"./packages-**\" build && pnpm --filter \"./packages-**/**\" build",
+    "build": "pnpm --filter \"./packages-**\" build && pnpm --filter \"./packages-**/**\" build && pnpm --filter \"./envs\" build",
     "lint:md": "markdownlint-cli2 ./packages-**/**/*.md",
     "lint:cspell": "cspell lint **/*.ts **/README.md **/*.tsx **/*.vue --no-progress",
     "lint:PkgJson": "npmPkgJsonLint \"./packages-**/**/package.json\"",
