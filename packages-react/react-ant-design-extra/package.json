@@ -22,7 +22,7 @@
     "build-storybook": "storybook build",
     "clear": "rm -fr node_modules && rm -fr dist",
     "build": "unbuild",
-    "prepublishOnly": "pnpm build"
+    "prepublishOnly": "pnpm run build"
   },
   "files": [
     ".storybook",
@@ -39,6 +39,10 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs"
     }
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "peerDependencies": {
     "@ant-design/v5-patch-for-react-19": ">=1.0.0",
