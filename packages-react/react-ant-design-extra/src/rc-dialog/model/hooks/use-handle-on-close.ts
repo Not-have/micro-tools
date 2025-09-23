@@ -3,7 +3,7 @@ import {
 } from "react";
 
 import useDispatchUnlock from "./use-dispatch-unlock";
-import useOnAfterOpenChange from "./use-on-after-open-change";
+import usePropsOnClose from "./use-props-on-close";
 
 /**
  * 关闭弹出
@@ -11,14 +11,23 @@ import useOnAfterOpenChange from "./use-on-after-open-change";
 export default function useHandleOnClose(): () => void {
   const dispatchUnlock = useDispatchUnlock();
 
-  const onAfterOpenChange = useOnAfterOpenChange();
+  const close = usePropsOnClose();
 
   return useCallback(() => {
-    onAfterOpenChange(false);
     dispatchUnlock();
 
+    /**
+     * 使用 queueMicrotask 将 close 调用推迟到微任务队列
+     *
+     * https://developer.mozilla.org/zh-CN/docs/Web/API/Window/queueMicrotask
+     *
+     * 这样可以避免在 React 渲染过程中同步调用
+     */
+    queueMicrotask(() => {
+      close?.();
+    });
   }, [
     dispatchUnlock,
-    onAfterOpenChange
+    close
   ]);
 }

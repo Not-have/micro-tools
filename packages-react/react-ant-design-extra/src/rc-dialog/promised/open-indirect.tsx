@@ -77,26 +77,36 @@ export default function openIndirect<T>(props: DialogProps): IDialogIndirectProm
      */
     close = (result?: T | Error, rejected?: boolean, _isDestroy: boolean = true) => {
       try {
+
+        // 如果容器已经被销毁，直接返回
         if (!container) {
           return;
         }
 
+        // 如果 result 为 undefined，直接销毁元素并返回
+        if(!result) {
+          destroy();
+
+          return;
+        }
+
+        // 处理 Promise 的 resolve/reject
         if (rejected) {
           reject?.(result);
         } else {
           resolve(result as T);
         }
 
+        // 统一处理销毁逻辑
         if (_isDestroy) {
           destroy();
         }
       } catch (error) {
-        reject(error);
+        reject?.(error);
       }
     };
 
     renderDialog();
-
   });
 
   return {

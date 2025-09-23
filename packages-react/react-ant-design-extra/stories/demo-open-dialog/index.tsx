@@ -49,6 +49,9 @@ export default function Demo(): React.ReactElement {
     }).then(result => {
       // eslint-disable-next-line no-console
       console.log("提交成功:", result);
+    }).catch(error => {
+      // eslint-disable-next-line no-console
+      console.log("提交失败:", error);
     });
   }, []);
 

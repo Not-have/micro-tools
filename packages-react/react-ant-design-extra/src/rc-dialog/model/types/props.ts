@@ -95,8 +95,12 @@ export interface IDialogProps<T = void, D extends object = Record<string, unknow
 
   /* --- 事件 --- */
   /**
-   * Dialog props.onClose 方法定义，value 的类型为 Promise resolve 的类型，
+   * Dialog props.onClose 方法定义，value 的类型为 Promise resolve 的类型
+   *
    * 执行关闭后发生（然而，真正的从 DOM 上移除还是必须要使用者自行处理）
+   * @param result 结果
+   * @param rejected 是否拒绝
+   * @param isDestroy 是否销毁
    */
   onClose?(result?: T | Error, rejected?: boolean, isDestroy?: boolean): void;
 
