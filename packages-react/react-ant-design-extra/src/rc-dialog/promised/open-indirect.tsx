@@ -34,6 +34,10 @@ export default function openIndirect<T>(props: DialogProps): IDialogIndirectProm
 
   let root: ReturnType<typeof createRoot> | null = createRoot(container);
 
+  let isDestroyed = false;
+
+  let resolvePromise: ((value: T | PromiseLike<T>) => void) | null = null;
+
   // // eslint-disable-next-line no-console
   // console.group("弹窗的参数");
   // // eslint-disable-next-line no-console
@@ -57,6 +61,19 @@ export default function openIndirect<T>(props: DialogProps): IDialogIndirectProm
   }
 
   function destroy(): void {
+    if (isDestroyed) {
+      return;
+    }
+
+    isDestroyed = true;
+
+    // 立即销毁 Promise
+    if (resolvePromise) {
+      resolvePromise(undefined as T);
+      resolvePromise = null;
+    }
+
+    // 清理 DOM 和引用
     setTimeout(() => {
       root?.unmount();
       container?.remove();
@@ -70,21 +87,32 @@ export default function openIndirect<T>(props: DialogProps): IDialogIndirectProm
 
   const promise = new Promise<T>((resolve, reject) => {
 
+    // 保存 resolve 和 reject 引用
+    resolvePromise = resolve;
+
     /**
-     * Dialog 被关闭是会执行到此回调，这里会将 Promise 进行 resolve 或 reject，同时做一系列的清理动作
+     * Dialog 被关闭时会执行到此回调，这里会将 Promise 进行 resolve 或 reject，同时做一系列的清理动作
      *
      * isDestroy，用作内部消费，是否立即销毁元素
      */
     close = (result?: T | Error, rejected?: boolean, _isDestroy: boolean = true) => {
       try {
 
-        // 如果容器已经被销毁，直接返回
-        if (!container) {
+        // 如果已经销毁，直接返回
+        if (isDestroyed) {
           return;
         }
 
-        // 如果 result 为 undefined，直接销毁元素并返回
-        if(!result) {
+        // 如果容器已经被销毁，resolve 为 undefined 并返回
+        if (!container) {
+          resolve(undefined as T);
+
+          return;
+        }
+
+        // 如果 result 为 undefined，resolve 为 undefined 并销毁元素
+        if (!result) {
+          resolve(undefined as T);
           destroy();
 
           return;
@@ -92,7 +120,7 @@ export default function openIndirect<T>(props: DialogProps): IDialogIndirectProm
 
         // 处理 Promise 的 resolve/reject
         if (rejected) {
-          reject?.(result);
+          reject(result);
         } else {
           resolve(result as T);
         }
@@ -102,15 +130,27 @@ export default function openIndirect<T>(props: DialogProps): IDialogIndirectProm
           destroy();
         }
       } catch (error) {
-        reject?.(error);
+        reject(error);
       }
     };
 
     renderDialog();
   });
 
+  // 销毁 Promise 的方法
+  const destroyPromise = (): void => {
+    try {
+
+      // 直接调用 destroy 方法，立即销毁 Promise
+      destroy();
+    } catch (error) {
+      console.error("[DialogIndirect] 销毁 Promise 时出错:", error);
+    }
+  };
+
   return {
     promise,
-    close
+    close,
+    destroy: destroyPromise
   };
 }
