@@ -8,6 +8,7 @@ import useDispatchLock from "./use-dispatch-lock";
 import useDispatchUnlock from "./use-dispatch-unlock";
 import usePropsOnClose from "./use-props-on-close";
 import usePropsOnSubmit from "./use-props-on-submit";
+import useStateData from "./use-state-data";
 import useStateForm from "./use-state-form";
 
 export default function useHandleOnSubmit(): () => void {
@@ -22,6 +23,8 @@ export default function useHandleOnSubmit(): () => void {
   const onClose = usePropsOnClose();
 
   const form = useStateForm();
+
+  const data = useStateData();
 
   const dispatchFormData = useDispatchFormData();
 
@@ -40,16 +43,20 @@ export default function useHandleOnSubmit(): () => void {
       dispatchLoading();
 
       // 执行提交逻辑
-      const result = await onSubmit?.(formData);
+      const result = await onSubmit?.(formData, data);
 
       // 提交成功，解锁并关闭弹窗
-      dispatchUnlock();
-      onClose?.(result as undefined | Error, false);
+      await dispatchUnlock();
+      await onClose?.(result, data);
     } catch (error) {
 
       // 表单验证失败或提交失败
       dispatchLock();
-      onClose?.(error as Error, true, false);
+
+      // 确保 error 是 Error 对象
+      const errorObj = error instanceof Error ? error : new Error(JSON.stringify(error));
+
+      onClose?.(errorObj, data);
     }
   }, [
     form,
@@ -58,6 +65,7 @@ export default function useHandleOnSubmit(): () => void {
     dispatchUnlock,
     dispatchLock,
     onClose,
-    dispatchFormData
+    dispatchFormData,
+    data
   ]);
 }

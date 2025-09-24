@@ -37,16 +37,32 @@ export interface IDialogProps<T = void, D extends object = Record<string, unknow
    */
   op?: string;
 
-  /* --- 内容 --- */
+  /**
+   * 标题
+   */
   title?: string | React.ReactElement;
+
+  /**
+   * 标题额外内容
+   */
   titleExtra?: string | React.ReactElement;
 
   /**
    * 底部操作按钮
    */
   buttonsExtra?: React.ReactElement[];
+
+  /**
+   * 内容
+   */
   content?: string | React.ReactElement;
 
+  /**
+   * 模式
+   *
+   * @default EMode.MODAL 模态框
+   * @default EMode.DRAWER 抽屉
+   */
   mode?: EMode;
 
   /**
@@ -59,7 +75,6 @@ export interface IDialogProps<T = void, D extends object = Record<string, unknow
    */
   classNameOnBody?: string;
 
-  /* --- 行为 --- */
   /**
    * 是否需要背投
    *
@@ -90,19 +105,20 @@ export interface IDialogProps<T = void, D extends object = Record<string, unknow
    */
   zIndex?: number;
 
-  /* --- 数据 --- */
+  /**
+   * 数据
+   */
   data?: D | (() => Promise<D | unknown | string | undefined | number | Record<string, unknown>>);
 
-  /* --- 事件 --- */
   /**
    * Dialog props.onClose 方法定义，value 的类型为 Promise resolve 的类型
    *
    * 执行关闭后发生（然而，真正的从 DOM 上移除还是必须要使用者自行处理）
-   * @param result 结果
-   * @param rejected 是否拒绝
-   * @param isDestroy 是否销毁
+   *
+   * @param result 结果（也就是当前的弹出框状态值）
+   * @param defaultResult 默认结果（销毁时）
    */
-  onClose?(result?: T | Error, rejected?: boolean, isDestroy?: boolean): void;
+  onClose?(result?: T | Error, defaultResult?: D): void;
 
   /**
    * Dialog props.onSubmit 方法定义，value 的类型为 Promise resolve 的类型，

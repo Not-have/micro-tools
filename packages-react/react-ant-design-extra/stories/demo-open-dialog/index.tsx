@@ -26,7 +26,7 @@ data(1).then(res => {
 console.log(isFunction(data), "isFunction(data)");
 
 // 模拟真实的 API 请求
-const mockApiRequest = (val: Record<string, unknown>): Promise<Record<string, unknown>> => new Promise((resolve, reject) => {
+const mockApiRequest = (val: unknown): Promise<Record<string, unknown>> => new Promise((resolve, reject) => {
 
   console.log(val, "val");
 
@@ -55,16 +55,13 @@ export default function Demo(): React.ReactElement {
     open({
       title: "我是标题",
       content: <Content />,
-      onSubmit: data => mockApiRequest(data as Record<string, unknown>),
+      onSubmit: data => mockApiRequest(data),
       mode: DialogMode.MODAL,
       data: () => data(1),
       backdropClosable: false
     }).then(result => {
 
       console.log("提交成功:", result);
-    }).catch(error => {
-
-      console.log("提交失败:", error);
     });
   }, []);
 

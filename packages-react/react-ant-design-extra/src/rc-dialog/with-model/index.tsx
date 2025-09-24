@@ -14,7 +14,7 @@ import Ui from "../ui";
 /**
  * 带 context 的 dialog
  */
-export default function WithProvider(props: DialogProps<void, Record<string, unknown>>): ReactPortal {
+export default function WithProvider(props: DialogProps): ReactPortal {
 
   // https://zh-hans.react.dev/reference/react-dom/createPortal
   return createPortal(<Model props={props}>

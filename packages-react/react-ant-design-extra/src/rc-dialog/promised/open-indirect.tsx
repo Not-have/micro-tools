@@ -27,7 +27,7 @@ import WithProvider from "../with-model";
  * 你必须在 promise 的 `then` 里关注 Dialog 是否被关闭。
  * 这种情况下，这个 `promise` 一般不会被直接返回使用，而是作为一系列 Promise 对象的触发器。
  */
-export default function openIndirect<T>(props: DialogProps): IDialogIndirectPromise<T> {
+export default function openIndirect<T = void, D extends object = Record<string, unknown>>(props: DialogProps<T, D>): IDialogIndirectPromise<T> {
 
   let close: ((result?: T | Error, rejected?: boolean, isDestroy?: boolean) => void) | null = _noop;
 
@@ -39,26 +39,30 @@ export default function openIndirect<T>(props: DialogProps): IDialogIndirectProm
 
   let resolvePromise: ((value: T | PromiseLike<T>) => void) | null = null;
 
-  // // eslint-disable-next-line no-console
-  // console.group("弹窗的参数");
-  // // eslint-disable-next-line no-console
-  // console.table(props);
-  // // eslint-disable-next-line no-console
-  // console.groupEnd();
+  const onClose: DialogProps<T, D>["onClose"] = (result, defaultResult) => {
 
-  const onClose = (result?: undefined | Error, rejected?: boolean | undefined, isDestroy?: boolean): void => {
-    close?.(result as T | Error, rejected, isDestroy);
+    if (result instanceof Error) {
 
-    props?.onClose?.(result);
+      // eslint-disable-next-line no-console
+      console.log("onClose with error:", JSON.parse(result.message as string));
+
+      close?.(JSON.parse(result.message as string), true, false);
+
+      return;
+    }
+
+    close?.(result, false);
+
+    props?.onClose?.(result, defaultResult);
   };
 
   function renderDialog(): void {
-    const modelProps: DialogProps = {
+    const modelProps: DialogProps<T, D> = {
       ...props,
       onClose
     };
 
-    root?.render(<WithProvider {...modelProps} />);
+    root?.render(<WithProvider {...modelProps as DialogProps} />);
   }
 
   function destroy(): void {

@@ -4,6 +4,7 @@ import {
 
 import useDispatchUnlock from "./use-dispatch-unlock";
 import usePropsOnClose from "./use-props-on-close";
+import useStateData from "./use-state-data";
 
 /**
  * 关闭弹出
@@ -12,6 +13,8 @@ export default function useHandleOnClose(): () => void {
   const dispatchUnlock = useDispatchUnlock();
 
   const close = usePropsOnClose();
+
+  const data = useStateData();
 
   return useCallback(() => {
     dispatchUnlock();
@@ -24,10 +27,11 @@ export default function useHandleOnClose(): () => void {
      * 这样可以避免在 React 渲染过程中同步调用
      */
     queueMicrotask(() => {
-      close?.();
+      close?.(false, data);
     });
   }, [
     dispatchUnlock,
-    close
+    close,
+    data
   ]);
 }

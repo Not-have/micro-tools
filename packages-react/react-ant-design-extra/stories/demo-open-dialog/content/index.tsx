@@ -51,7 +51,7 @@ export default function Content(): React.ReactElement {
           message: "Please input your password!"
         }
       ]}>
-      <Input.Password />
+      <Input />
     </Form.Item>
   </Form>;
 }
