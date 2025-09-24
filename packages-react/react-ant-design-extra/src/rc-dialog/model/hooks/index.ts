@@ -20,6 +20,7 @@ export { default as useStateLocked } from "./use-state-locked";
 export { default as useStateOpen } from "./use-state-open";
 export { default as useStateForm } from "./use-state-form";
 export { default as useStateData } from "./use-state-data";
+export { default as useStateFormData } from "./use-state-form-data";
 
 export { default as useDispatchLock } from "./use-dispatch-lock";
 export { default as useDispatchUnlock } from "./use-dispatch-unlock";
