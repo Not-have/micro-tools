@@ -5,6 +5,7 @@ import {
   IModelState,
   IDialogProps
 } from "../types";
+import isPromise from "./is-promise";
 
 let idIncrementer = 0;
 
@@ -20,9 +21,9 @@ export default function getDefaultContextState(props: IDialogProps): IModelState
     active: false,
     locked: ELockState.NO,
     zIndex: -1,
-    data: props.data ?? null,
+    data: isPromise(props.data) ? null : props.data as Record<string, unknown> | null,
     windowHeight: window.innerHeight,
     form: null,
-    formData: props.data ?? null
+    formData: isPromise(props.data) ? null : props.data as Record<string, unknown> | null
   };
 }
