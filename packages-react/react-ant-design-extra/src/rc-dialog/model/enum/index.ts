@@ -2,6 +2,7 @@ export enum EAction {
   LOCK,
   UNLOCK,
   FORM,
+  FORM_DATA,
   DATA
 }
 

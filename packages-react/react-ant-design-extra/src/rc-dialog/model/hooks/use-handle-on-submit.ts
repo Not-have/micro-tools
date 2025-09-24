@@ -2,7 +2,7 @@ import {
   useCallback
 } from "react";
 
-import useDispatchData from "./use-dispatch-data";
+import useDispatchFormData from "./use-dispatch-form-data";
 import useDispatchLoading from "./use-dispatch-loading";
 import useDispatchLock from "./use-dispatch-lock";
 import useDispatchUnlock from "./use-dispatch-unlock";
@@ -23,7 +23,7 @@ export default function useHandleOnSubmit(): () => void {
 
   const form = useStateForm();
 
-  const dispatchData = useDispatchData();
+  const dispatchFormData = useDispatchFormData();
 
   return useCallback(async () => {
     try {
@@ -33,7 +33,7 @@ export default function useHandleOnSubmit(): () => void {
 
       if (form) {
         formData = await form.validateFields();
-        dispatchData(formData);
+        dispatchFormData(formData);
       }
 
       // 开始加载状态
@@ -58,6 +58,6 @@ export default function useHandleOnSubmit(): () => void {
     dispatchUnlock,
     dispatchLock,
     onClose,
-    dispatchData
+    dispatchFormData
   ]);
 }
