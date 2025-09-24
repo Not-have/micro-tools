@@ -62,6 +62,8 @@ export default function Demo(): React.ReactElement {
     }).then(result => {
 
       console.log("提交成功:", result);
+    }).catch(error => {
+      console.log("提交失败:", error);
     });
   }, []);
 

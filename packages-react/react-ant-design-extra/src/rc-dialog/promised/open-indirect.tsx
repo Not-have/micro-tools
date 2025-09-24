@@ -19,6 +19,28 @@ import {
 } from "../util";
 import WithProvider from "../with-model";
 
+// 全局错误处理函数
+let unhandledRejectionHandler: ((event: PromiseRejectionEvent) => void) | null = null;
+
+// 添加全局错误处理
+const addGlobalErrorHandler = (): void => {
+  if (!unhandledRejectionHandler) {
+    unhandledRejectionHandler = event => {
+      event.preventDefault();
+    };
+
+    window.addEventListener("unhandledrejection", unhandledRejectionHandler);
+  }
+};
+
+// 移除全局错误处理
+const removeGlobalErrorHandler = (): void => {
+  if (unhandledRejectionHandler) {
+    window.removeEventListener("unhandledrejection", unhandledRejectionHandler);
+    unhandledRejectionHandler = null;
+  }
+};
+
 /**
  * 所有 Promise 化的 dialog 的基础。
  *
@@ -34,10 +56,6 @@ export default function openIndirect<T = void, D extends object = Record<string,
   let container: HTMLDivElement | null = createDialogContainer();
 
   let root: ReturnType<typeof createRoot> | null = createRoot(container);
-
-  let isDestroyed = false;
-
-  let resolvePromise: ((value: T | PromiseLike<T>) => void) | null = null;
 
   const onClose: DialogProps<T, D>["onClose"] = (result, defaultResult) => {
 
@@ -62,17 +80,9 @@ export default function openIndirect<T = void, D extends object = Record<string,
   }
 
   function destroy(): void {
-    if (isDestroyed) {
-      return;
-    }
 
-    isDestroyed = true;
-
-    // 立即销毁 Promise
-    if (resolvePromise) {
-      resolvePromise(undefined as T);
-      resolvePromise = null;
-    }
+    // 移除全局错误处理
+    removeGlobalErrorHandler();
 
     // 清理 DOM 和引用
     setTimeout(() => {
@@ -88,8 +98,8 @@ export default function openIndirect<T = void, D extends object = Record<string,
 
   const promise = new Promise<T>((resolve, reject) => {
 
-    // 保存 resolve 和 reject 引用
-    resolvePromise = resolve;
+    // 添加全局错误处理
+    addGlobalErrorHandler();
 
     /**
      * Dialog 被关闭时会执行到此回调，这里会将 Promise 进行 resolve 或 reject，同时做一系列的清理动作
@@ -98,11 +108,6 @@ export default function openIndirect<T = void, D extends object = Record<string,
      */
     close = (result?: T | Error, rejected?: boolean, _isDestroy: boolean = true) => {
       try {
-
-        // 如果已经销毁，直接返回
-        if (isDestroyed) {
-          return;
-        }
 
         // 如果容器已经被销毁，resolve 为 undefined 并返回
         if (!container) {
@@ -132,6 +137,7 @@ export default function openIndirect<T = void, D extends object = Record<string,
         }
       } catch (error) {
         reject(error);
+        removeGlobalErrorHandler();
       }
     };
 
