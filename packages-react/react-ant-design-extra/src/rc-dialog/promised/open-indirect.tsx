@@ -1,5 +1,6 @@
 import {
-  noop as _noop
+  noop as _noop,
+  isUndefined
 } from "lodash-es";
 
 import React from "react";
@@ -110,8 +111,8 @@ export default function openIndirect<T>(props: DialogProps): IDialogIndirectProm
           return;
         }
 
-        // 如果 result 为 undefined，resolve 为 undefined 并销毁元素
-        if (!result) {
+        // 只有在关闭的时候才会为 undefined，其他情况为 Error
+        if (isUndefined(result)) {
           resolve(undefined as T);
           destroy();
 

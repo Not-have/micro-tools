@@ -1,3 +1,8 @@
+/* eslint-disable no-console */
+import {
+  isFunction
+} from "lodash-es";
+
 import React, {
   useCallback
 } from "react";
@@ -12,10 +17,17 @@ import {
 } from "../../src";
 import Content from "./content";
 
+const data = (val: number) => fetch(`https://mock.mengxuegu.com/mock/61922927f126df7bfd5b79ef/promise/promise${val}#!method=get`).then(req => req.json());
+
+data(1).then(res => {
+  console.log(res);
+});
+
+console.log(isFunction(data), "isFunction(data)");
+
 // 模拟真实的 API 请求
 const mockApiRequest = (val: Record<string, unknown>): Promise<Record<string, unknown>> => new Promise((resolve, reject) => {
 
-  // eslint-disable-next-line no-console
   console.log(val, "val");
 
   // 模拟网络延迟
@@ -45,12 +57,13 @@ export default function Demo(): React.ReactElement {
       content: <Content />,
       onSubmit: data => mockApiRequest(data as Record<string, unknown>),
       mode: DialogMode.MODAL,
+      data: () => data(1),
       backdropClosable: false
     }).then(result => {
-      // eslint-disable-next-line no-console
+
       console.log("提交成功:", result);
     }).catch(error => {
-      // eslint-disable-next-line no-console
+
       console.log("提交失败:", error);
     });
   }, []);

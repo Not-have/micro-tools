@@ -34,7 +34,7 @@ export interface IModelState<D extends object = Record<string, unknown>> {
   /**
    * 维系 Dialog 本体和内容组件之间的纽带
    */
-  data?: D | null;
+  data?: D | unknown;
 
   /**
    * 需要根据当前窗口的高度对 Dialog 内容区域的最大高度进行调整
@@ -51,5 +51,5 @@ export interface IModelState<D extends object = Record<string, unknown>> {
    *
    * 防止当 data 为 Promise 时，赋值完数据，无法获取初始值的问题
    */
-  formData: D | null;
+  formData: D | unknown;
 }

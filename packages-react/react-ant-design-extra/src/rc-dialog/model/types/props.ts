@@ -91,7 +91,7 @@ export interface IDialogProps<T = void, D extends object = Record<string, unknow
   zIndex?: number;
 
   /* --- 数据 --- */
-  data?: D | Promise<D>;
+  data?: D | (() => Promise<D | unknown | string | undefined | number | Record<string, unknown>>);
 
   /* --- 事件 --- */
   /**
