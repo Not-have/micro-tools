@@ -42,10 +42,6 @@ export default function openIndirect<T = void, D extends object = Record<string,
   const onClose: DialogProps<T, D>["onClose"] = (result, defaultResult) => {
 
     if (result instanceof Error) {
-
-      // eslint-disable-next-line no-console
-      console.log("onClose with error:", JSON.parse(result.message as string));
-
       close?.(JSON.parse(result.message as string), true, false);
 
       return;
