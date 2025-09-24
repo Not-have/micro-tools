@@ -6,7 +6,7 @@ export { default as usePropsTitle } from "./use-props-title";
 export { default as usePropsButtonsExtra } from "./use-props-buttons-extra";
 export { default as usePropsOk } from "./use-props-ok";
 export { default as usePropsCancel } from "./use-props-cancel";
-export { default as usePropsClassNameOnBody } from "./use-class-name-on-body";
+export { default as usePropsClassNameOnBody } from "./use-props-class-name-on-body";
 export { default as usePropsBackdrop } from "./use-props-backdrop";
 export { default as usePropsClosable } from "./use-props-closable";
 export { default as usePropsEsc } from "./use-props-esc";

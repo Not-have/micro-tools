@@ -7,12 +7,12 @@ import {
 } from "../enum";
 import useModelDispatch from "./_use-model-dispatch";
 
-export default function useDispatchData(): (payload?: Record<string, unknown> | null | unknown) => void {
+export default function useDispatchData(): (payload?: Record<string, unknown> | unknown) => void {
   const dispatch = useModelDispatch();
 
-  return useCallback((payload?: Record<string, unknown> | null | unknown) => dispatch({
+  return useCallback((payload?: Record<string, unknown> | unknown) => dispatch({
     type: EAction.DATA,
-    payload: payload ?? null
+    payload: payload ?? undefined
   }), [
     dispatch
   ]);

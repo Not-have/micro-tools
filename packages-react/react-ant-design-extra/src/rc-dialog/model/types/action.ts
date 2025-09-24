@@ -19,7 +19,7 @@ export type TModelAction = {
   payload?: FormInstance | null;
 } | {
   type: EAction.DATA;
-  payload?: Record<string, unknown> | null | unknown;
+  payload?: Record<string, unknown> | unknown;
 };
 
 export type TModelDispatch = Dispatch<TModelAction>;

@@ -2,9 +2,9 @@ import {
   IModelState
 } from "../types";
 
-export default function reduceData(state: IModelState, payload?: Record<string, unknown> | null | unknown): IModelState {
+export default function reduceData(state: IModelState, payload?: Record<string, unknown> | unknown): IModelState {
   return {
     ...state,
-    data: payload ?? null
+    data: payload ?? undefined
   };
 }

@@ -14,7 +14,7 @@ import useStateData from "./use-state-data";
 /**
  * 创建一个 hook，这个 hook 返回一个 form 的捆绑方式，及 props.data
  */
-export default function useForm(): [FormInstance, Record<string, unknown>, Record<string, unknown> | null] {
+export default function useForm(): [FormInstance, Record<string, unknown> | undefined | unknown, Record<string, unknown> | unknown | undefined] {
 
   const data = usePropsData();
 
