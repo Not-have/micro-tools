@@ -19,7 +19,7 @@ export default function Provider({
   const [
     state,
     dispatch
-  ] = useReducer(reducer, getDefaultContextState());
+  ] = useReducer(reducer, getDefaultContextState(props));
 
   return <Context.Provider value={{
     state,

@@ -45,4 +45,11 @@ export interface IModelState<D extends object = Record<string, unknown>> {
    * 表单
    */
   form: FormInstance | null;
+
+  /**
+   * 表单数据
+   *
+   * 防止当 data 为 Promise 时，赋值完数据，无法获取初始值的问题
+   */
+  formData: D | null;
 }
