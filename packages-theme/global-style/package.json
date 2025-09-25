@@ -32,6 +32,10 @@
       "import": "./dist/index.mjs"
     }
   },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "devDependencies": {
     "@mt-kit/ts-config": "workspace:^",
     "@storybook/addon-essentials": "catalog:",
