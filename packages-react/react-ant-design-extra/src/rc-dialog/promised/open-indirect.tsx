@@ -109,6 +109,7 @@ export default function openIndirect<T = void, D extends object = Record<string,
       container = null;
       root = null;
       close = null;
+      unhandledRejectionHandler = null;
     }, 500);
   }
 

@@ -1,5 +1,11 @@
 # @mt-kit/react-ant-design-extra
 
+## 1.1.0
+
+### Minor Changes
+
+- 优化弹出框，确保不会内存溢出
+
 ## 1.0.1
 
 ### Patch Changes

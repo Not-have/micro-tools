@@ -30,6 +30,10 @@
       "import": "./dist/index.js"
     }
   },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "devDependencies": {
     "@mt-kit/ts-config": "workspace:^",
     "typescript": "catalog:"
