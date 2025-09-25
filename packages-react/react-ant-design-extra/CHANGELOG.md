@@ -1,5 +1,11 @@
 # @mt-kit/react-ant-design-extra
 
+## 1.1.2
+
+### Patch Changes
+
+- 更新文档
+
 ## 1.1.1
 
 ### Patch Changes
