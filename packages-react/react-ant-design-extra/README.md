@@ -112,12 +112,11 @@ import { Form, Input, Button } from 'antd';
 import { open, DialogMode, useForm } from '@mt-kit/react-ant-design-extra';
 
 const FormContent = () => {
-  const [form, initData, currentData, handleValuesChange] = useForm();
+  const [form, initData, currentData ] = useForm();
 
   return (
     <Form
       form={form}
-      onValuesChange={handleValuesChange}
       initialValues={initData}
     >
       <Form.Item
