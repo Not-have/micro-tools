@@ -35,7 +35,8 @@ const addGlobalErrorHandler = (dialogId: string): void => {
 
       // 只处理活跃 Dialog 的错误
       if (activeDialogs.size > 0) {
-        console.error("Dialog Promise 错误:", event.reason);
+
+        // console.error("Dialog Promise 错误:", event.reason);
         event.preventDefault();
       }
     };
