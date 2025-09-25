@@ -56,15 +56,26 @@ const App = () => {
 
 | 参数 | 类型 | 默认值 | 说明 |
 |------|------|--------|------|
-| title | `string` | - | 弹窗标题 |
-| content | `ReactNode` | - | 弹窗内容 |
-| mode | `DialogMode` | `DialogMode.MODAL` | 弹窗模式 |
-| size | `number \| ESize` | - | 弹窗尺寸 |
-| onSubmit | `(data?: Record<string, unknown>) => Promise<any>` | - | 提交回调 |
-| onClose | `(result?: any, rejected?: boolean) => void` | - | 关闭回调 |
-| buttonsExtra | `ReactElement[]` | - | 额外按钮 |
-| ok | `IButtonProps \| string` | - | 确定按钮配置 |
-| cancel | `IButtonProps \| string` | - | 取消按钮配置 |
+| op | `string` | - | 记录当前操作类型（便于埋点等） |
+| title | `string \| ReactElement` | - | 弹窗标题 |
+| titleExtra | `string \| ReactElement` | - | 标题右侧额外内容 |
+| buttonsExtra | `ReactElement[]` | - | 底部额外按钮区域 |
+| content | `string \| ReactElement` | - | 弹窗内容 |
+| mode | `DialogMode` | `DialogMode.MODAL` | 展示模式：模态框或抽屉 |
+| size | `number \| ESize` | - | 尺寸，支持枚举 `ESize` 或自定义像素值 |
+| classNameOnBody | `string` | - | 容器（Body）附加类名 |
+| backdrop | `boolean` | `true` | 是否显示背投（遮罩） |
+| backdropClosable | `boolean` | `true` | 点击遮罩是否允许关闭 |
+| closable | `boolean` | `true` | 是否显示右上角关闭按钮 |
+| esc | `boolean` | - | 是否允许 ESC 关闭 |
+| zIndex | `number` | - | 弹窗的 zIndex |
+| data | `D \| () => Promise<D \| unknown \| string \| undefined \| number \| Record<string, unknown>>` | - | 初始数据或异步拉取函数 |
+| onClose | `(result?: T \| Error, defaultResult?: D) => void` | - | 关闭回调（`defaultResult` 为销毁时默认值） |
+| onSubmit | `(result?: D, defaultResult?: D) => Promise<Record<string, unknown> \| undefined \| T>` | - | 提交回调，返回 `T` 或对象 |
+| isSubmit | `boolean` | `true` | 已废弃：为 `false` 时仅展示关闭（查看/详情） |
+| ok | `IButtonProps \| string` | - | 确认按钮配置或文案 |
+| cancel | `IButtonProps \| string` | - | 取消按钮配置或文案 |
+| options | `Partial<Omit<DrawerProps, TExcludedProps>> \| Partial<Omit<ModalProps, TExcludedProps>>` | - | 透传 antd 抽屉/模态框属性（与已存在同名属性冲突时以上述 props 为准） |
 
 #### DialogMode
 
