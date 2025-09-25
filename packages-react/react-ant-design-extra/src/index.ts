@@ -1,6 +1,7 @@
 export {
   DialogMode,
   type DialogProps,
+  DialogSize,
   open,
   openIndirect,
   useForm,

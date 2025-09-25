@@ -31,14 +31,15 @@ pnpm add @mt-kit/react-ant-design-extra
 ```tsx
 import React from 'react';
 import { Button } from 'antd';
-import { open, DialogMode } from '@mt-kit/react-ant-design-extra';
+import { open, EMode, ESize } from '@mt-kit/react-ant-design-extra';
 
 const App = () => {
   const handleClick = () => {
     open({
       title: '基础弹窗',
       content: <div>这是弹窗内容</div>,
-      mode: DialogMode.MODAL
+      mode: EMode.MODAL,
+      size: ESize.M
     });
   };
 
@@ -62,7 +63,7 @@ const App = () => {
 | buttonsExtra | `ReactElement[]` | - | 底部额外按钮区域 |
 | content | `string \| ReactElement` | - | 弹窗内容 |
 | mode | `DialogMode` | `DialogMode.MODAL` | 展示模式：模态框或抽屉 |
-| size | `number \| ESize` | - | 尺寸，支持枚举 `ESize` 或自定义像素值 |
+| size | `number \| DialogSize` | - | 尺寸，支持枚举 `DialogSize` 或自定义像素值 |
 | classNameOnBody | `string` | - | 容器（Body）附加类名 |
 | backdrop | `boolean` | `true` | 是否显示背投（遮罩） |
 | backdropClosable | `boolean` | `true` | 点击遮罩是否允许关闭 |
@@ -88,7 +89,7 @@ enum DialogMode {
 }
 ```
 
-#### ESize
+#### DialogSize
 
 尺寸枚举：
 
@@ -155,7 +156,6 @@ const App = () => {
       title: '用户信息',
       content: <FormContent />,
       mode: DialogMode.DRAWER,
-      size: ESize.M,
       onSubmit: handleSubmit
     }).then(result => {
       console.log('提交成功:', result);
@@ -173,14 +173,13 @@ const App = () => {
 ```tsx
 import React from 'react';
 import { Button, Space } from 'antd';
-import { open, DialogMode } from '@mt-kit/react-ant-design-extra';
+import { open } from '@mt-kit/react-ant-design-extra';
 
 const App = () => {
   const handleClick = () => {
     open({
       title: '自定义按钮弹窗',
       content: <div>弹窗内容</div>,
-      mode: DialogMode.MODAL,
       buttonsExtra: [
         <Button key="save" type="primary">保存草稿</Button>,
         <Button key="preview">预览</Button>
@@ -203,15 +202,13 @@ const App = () => {
 ```tsx
 import React from 'react';
 import { Button, Space } from 'antd';
-import { open, DialogMode, ESize } from '@mt-kit/react-ant-design-extra';
+import { open } from '@mt-kit/react-ant-design-extra';
 
 const App = () => {
   const openModal = () => {
     open({
       title: '模态框',
-      content: <div>这是模态框内容</div>,
-      mode: DialogMode.MODAL,
-      size: ESize.L
+      content: <div>这是模态框内容</div>
     });
   };
 
@@ -219,8 +216,6 @@ const App = () => {
     open({
       title: '抽屉',
       content: <div>这是抽屉内容</div>,
-      mode: DialogMode.DRAWER,
-      size: ESize.M
     });
   };
 
@@ -233,26 +228,59 @@ const App = () => {
 };
 ```
 
-### 类型定义
+#### 异步数据与键盘/遮罩行为
 
 ```tsx
-interface DialogProps<T = void, D extends object = Record<string, unknown>> {
-  title?: string;
-  content?: ReactNode;
-  mode?: DialogMode;
-  size?: number | ESize;
-  data?: D;
-  onSubmit?: (data?: Record<string, unknown>) => Promise<T>;
-  onClose?: (result?: T | Error, rejected?: boolean) => void;
-  buttonsExtra?: ReactElement[];
-  ok?: IButtonProps | string;
-  cancel?: IButtonProps | string;
-  // ... 其他 Ant Design 组件属性
-}
+import React from 'react';
+import { Button } from 'antd';
+import { open, EMode, ESize } from '@mt-kit/react-ant-design-extra';
 
-interface IButtonProps extends Partial<ButtonProps> {
-  label?: string;
-}
+const App = () => {
+  const handleClick = () => {
+    open({
+      title: '异步数据示例',
+      mode: EMode.MODAL,
+      size: ESize.S,
+      // 异步拉取数据
+      data: async () => {
+        const res = await fetch('/api/detail');
+        return res.json();
+      },
+      // 键盘与遮罩行为
+      esc: true,
+      backdrop: true,
+      backdropClosable: false,
+      content: <div>内容会基于 data 渲染</div>
+    });
+  };
+
+  return <Button onClick={handleClick}>打开异步数据弹窗</Button>;
+};
+```
+
+#### 透传 antd 选项（options）
+
+```tsx
+import React from 'react';
+import { Button } from 'antd';
+import { open, EMode, ESize } from '@mt-kit/react-ant-design-extra';
+
+const App = () => {
+  const openDrawer = () => {
+    open({
+      title: '自定义抽屉',
+      mode: EMode.DRAWER,
+      size: ESize.L,
+      options: {
+        placement: 'right',
+        width: 520,
+        destroyOnClose: true
+      }
+    });
+  };
+
+  return <Button onClick={openDrawer}>打开右侧抽屉</Button>;
+};
 ```
 
 ### 注意事项
