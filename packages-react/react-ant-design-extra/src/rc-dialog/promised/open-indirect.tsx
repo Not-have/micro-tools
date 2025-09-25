@@ -15,18 +15,29 @@ import {
   IDialogIndirectPromise
 } from "../types";
 import {
-  createDialogContainer
+  createDialogContainer,
+  uuid
 } from "../util";
 import WithProvider from "../with-model";
+
+// 全局错误处理器管理
+const activeDialogs = new Set<string>();
 
 // 全局错误处理函数
 let unhandledRejectionHandler: ((event: PromiseRejectionEvent) => void) | null = null;
 
 // 添加全局错误处理
-const addGlobalErrorHandler = (): void => {
+const addGlobalErrorHandler = (dialogId: string): void => {
+  activeDialogs.add(dialogId);
+
   if (!unhandledRejectionHandler) {
     unhandledRejectionHandler = event => {
-      event.preventDefault();
+
+      // 只处理活跃 Dialog 的错误
+      if (activeDialogs.size > 0) {
+        console.error("Dialog Promise 错误:", event.reason);
+        event.preventDefault();
+      }
     };
 
     window.addEventListener("unhandledrejection", unhandledRejectionHandler);
@@ -34,8 +45,10 @@ const addGlobalErrorHandler = (): void => {
 };
 
 // 移除全局错误处理
-const removeGlobalErrorHandler = (): void => {
-  if (unhandledRejectionHandler) {
+const removeGlobalErrorHandler = (dialogId: string): void => {
+  activeDialogs.delete(dialogId);
+
+  if (activeDialogs.size === 0 && unhandledRejectionHandler) {
     window.removeEventListener("unhandledrejection", unhandledRejectionHandler);
     unhandledRejectionHandler = null;
   }
@@ -56,6 +69,8 @@ export default function openIndirect<T = void, D extends object = Record<string,
   let container: HTMLDivElement | null = createDialogContainer();
 
   let root: ReturnType<typeof createRoot> | null = createRoot(container);
+
+  const dialogId = uuid();
 
   const onClose: DialogProps<T, D>["onClose"] = (result, defaultResult) => {
 
@@ -82,7 +97,7 @@ export default function openIndirect<T = void, D extends object = Record<string,
   function destroy(): void {
 
     // 移除全局错误处理
-    removeGlobalErrorHandler();
+    removeGlobalErrorHandler(dialogId);
 
     // 清理 DOM 和引用
     setTimeout(() => {
@@ -99,7 +114,7 @@ export default function openIndirect<T = void, D extends object = Record<string,
   const promise = new Promise<T>((resolve, reject) => {
 
     // 添加全局错误处理
-    addGlobalErrorHandler();
+    addGlobalErrorHandler(dialogId);
 
     /**
      * Dialog 被关闭时会执行到此回调，这里会将 Promise 进行 resolve 或 reject，同时做一系列的清理动作
@@ -137,7 +152,7 @@ export default function openIndirect<T = void, D extends object = Record<string,
         }
       } catch (error) {
         reject(error);
-        removeGlobalErrorHandler();
+        removeGlobalErrorHandler(dialogId);
       }
     };
 
