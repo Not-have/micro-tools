@@ -103,8 +103,8 @@ export default async function deviceAll(): Promise<IDeviceAll> {
 
     // 异步信息（处理可能的错误）
     location: location.status === "fulfilled" ? location.value : {
-      latitude: 0,
-      longitude: 0
+      latitude: -1,
+      longitude: -1
     },
     publicIp: publicIp.status === "fulfilled" ? publicIp.value : "127.0.0.1"
   };
