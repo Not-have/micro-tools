@@ -7,3 +7,7 @@ export { default as deviceLocation } from "./location";
 export { default as devicePublicIp } from "./public-ip";
 export { default as deviceCpuCores } from "./cpu-cores";
 export { default as deviceMemory } from "./memory";
+export { default as deviceHardwareConcurrency } from "./hardware-concurrency";
+export { default as deviceFeatures } from "./features";
+export { default as deviceSensor } from "./sensor";
+export { default as deviceI18n } from "./i18n";

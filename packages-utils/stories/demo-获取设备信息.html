@@ -17,6 +17,10 @@
     <p>公网IP: <span id="publicIp"></span></p>
     <p>CPU核心数: <span id="cpuCores"></span></p>
     <p>内存信息: <pre id="memory"></pre></p>
+    <p>硬件并发数: <span id="hardwareConcurrency"></span></p>
+    <p>设备特性: <pre id="features"></pre></p>
+    <p>传感器: <pre id="sensor"></pre></p>
+    <p>国际化: <pre id="i18n"></pre></p>
   </div>
 </body>
 </html>
@@ -42,4 +46,12 @@
   document.getElementById('cpuCores').innerText = microUtil.deviceCpuCores();
 
   document.getElementById('memory').innerText = JSON.stringify(microUtil.deviceMemory(), null, 2);
+
+  document.getElementById('hardwareConcurrency').innerText = microUtil.deviceHardwareConcurrency();
+
+  document.getElementById('features').innerText = JSON.stringify(microUtil.deviceFeatures(), null, 2);
+
+  document.getElementById('sensor').innerText = JSON.stringify(microUtil.deviceSensor(), null, 2);
+
+  document.getElementById('i18n').innerText = JSON.stringify(microUtil.deviceI18n(), null, 2);
 </script>

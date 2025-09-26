@@ -216,6 +216,27 @@ export default {
           body: 1,
           parameters: 2
         }
+
+        // 允许某些情况不缩进
+        // ignoredNodes: [
+        //   "TemplateLiteral *",        // 模板字符串
+        //   "JSXElement",              // JSX 元素
+        //   "JSXElement > *",          // JSX 子元素
+        //   "JSXAttribute",            // JSX 属性
+        //   "JSXIdentifier",           // JSX 标识符
+        //   "JSXNamespacedName",       // JSX 命名空间
+        //   "JSXMemberExpression",     // JSX 成员表达式
+        //   "JSXSpreadAttribute",      // JSX 展开属性
+        //   "JSXExpressionContainer",  // JSX 表达式容器
+        //   "JSXOpeningElement",       // JSX 开始元素
+        //   "JSXClosingElement",       // JSX 结束元素
+        //   "JSXFragment",             // JSX 片段
+        //   "JSXOpeningFragment",      // JSX 开始片段
+        //   "JSXClosingFragment",      // JSX 结束片段
+        //   "JSXText",                 // JSX 文本
+        //   "JSXEmptyExpression",      // JSX 空表达式
+        //   "JSXSpreadChild"           // JSX 展开子元素
+        // ]
       }
     ], // 设置缩进为两个空格
     "@typescript-eslint/explicit-function-return-type": [
