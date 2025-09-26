@@ -523,17 +523,58 @@ onUnmounted(() => {
 
 - 获取所有设备信息（包括同步和异步信息）
 
-| 参数名 | 说明 | 是否必传 |
-|--------|------|----------|
-| 无 | 无参数 | - |
+| 参数名 | 说明 | 是否必传 | 默认值 |
+|--------|------|----------|--------|
+| options | 配置选项，可禁用某些功能 | 否 | 所有功能启用 |
 
 返回类型：`Promise<IDeviceAll>`
 
+**Options 配置项：**
+
+- `operatingSystem`: 是否获取操作系统信息
+- `browser`: 是否获取浏览器信息
+- `language`: 是否获取语言信息
+- `onLine`: 是否获取在线状态
+- `screen`: 是否获取屏幕信息
+- `cpuCores`: 是否获取CPU核心数
+- `hardwareConcurrency`: 是否获取硬件并发数
+- `memory`: 是否获取内存信息
+- `features`: 是否获取设备特性
+- `sensor`: 是否获取传感器信息
+- `i18n`: 是否获取国际化信息
+- `location`: 是否获取地理位置（异步）
+- `publicIp`: 是否获取公网IP（异步）
+
 ```ts
-import { deviceAll } from "@mt-kit/utils"
+import { deviceAll } from "@mt-kit/utils";
+
 // 获取完整设备信息
 const allDeviceInfo = await deviceAll();
 console.log(allDeviceInfo);
+
+// 禁用某些功能
+const basicInfo = await deviceAll({
+  location: false,    // 不获取地理位置
+  publicIp: false,   // 不获取公网IP
+  memory: false      // 不获取内存信息
+});
+
+// 只获取基础信息
+const minimalInfo = await deviceAll({
+  operatingSystem: true,
+  browser: true,
+  language: true,
+  onLine: true,
+  screen: false,
+  cpuCores: false,
+  hardwareConcurrency: false,
+  memory: false,
+  features: false,
+  sensor: false,
+  i18n: false,
+  location: false,
+  publicIp: false
+});
 ```
 
 #### deviceOperatingSystem
