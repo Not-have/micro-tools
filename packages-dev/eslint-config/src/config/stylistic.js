@@ -1,6 +1,6 @@
 import stylistic from "@stylistic/eslint-plugin";
-import stylisticJs from "@stylistic/eslint-plugin-js";
-import stylisticTs from "@stylistic/eslint-plugin-ts";
+import stylisticJs from "@stylistic/eslint-plugin-js"; // TODO 弃用
+import stylisticTs from "@stylistic/eslint-plugin-ts"; // TODO 弃用
 
 /**
  * ESLint Stylistic
@@ -155,6 +155,33 @@ export default {
     "@stylistic/array-bracket-spacing": [
       "error",
       "always"
+    ],
+
+    // 花括号换行规则 https://eslint.style/rules/brace-style#brace-style
+    "@stylistic/brace-style": [
+      "error",
+      "1tbs",
+      {
+        "allowSingleLine": false
+      }
+    ],
+
+    // 强制花括号换行
+    "@stylistic/js/brace-style": [
+      "error",
+      "1tbs",
+      {
+        "allowSingleLine": false
+      }
+    ],
+
+    // TypeScript 花括号换行
+    "@stylistic/ts/brace-style": [
+      "error",
+      "1tbs",
+      {
+        "allowSingleLine": false
+      }
     ]
   }
 };

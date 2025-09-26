@@ -35,3 +35,5 @@ export {
   default as IframeMessage,
   type IMessage as Message
 } from "./iframe-message";
+
+export * from "./device";
