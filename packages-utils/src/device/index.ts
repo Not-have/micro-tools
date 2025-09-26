@@ -1,3 +1,7 @@
+/**
+ * 只要修改了 device 文件夹下的文件，都需要在这里导出，然后如果改变了结构等，需要发布一个新 Y 版本
+ */
+
 export { default as deviceOperatingSystem } from "./operating-system";
 export { default as deviceBrowser } from "./browser";
 export { default as deviceLanguage } from "./language";
