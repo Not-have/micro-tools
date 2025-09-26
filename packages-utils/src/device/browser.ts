@@ -7,7 +7,7 @@ interface IBrowser {
   version: string | EUnknown;
 }
 
-export default function browser(): IBrowser {
+export default function deviceBrowser(): IBrowser {
 
   const {
     userAgent

@@ -12,7 +12,7 @@ interface IIpServiceResponse {
 /**
  * 📡 网络信息
  */
-export default async function publicIp(): Promise<string> {
+export default async function devicePublicIp(): Promise<string> {
 
   // 使用多个IP查询服务，提高成功率
   // 优先使用官方和稳定的服务

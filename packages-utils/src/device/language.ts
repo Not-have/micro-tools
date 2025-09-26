@@ -1,3 +1,3 @@
-export default function language(): string {
+export default function deviceLanguage(): string {
   return navigator.language;
 }

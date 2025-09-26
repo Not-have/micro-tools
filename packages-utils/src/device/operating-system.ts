@@ -2,7 +2,7 @@ import {
   EUnknown
 } from "./enum";
 
-export default function operatingSystem(): string {
+export default function deviceOperatingSystem(): string {
   const {
     userAgent
   } = navigator;

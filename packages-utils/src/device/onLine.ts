@@ -1,3 +1,3 @@
-export default function onLine(): boolean {
+export default function deviceOnLine(): boolean {
   return navigator.onLine;
 }

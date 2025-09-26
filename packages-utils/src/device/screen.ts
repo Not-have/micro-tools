@@ -40,7 +40,7 @@ interface IScreen {
   devicePixelRatio: number;
 }
 
-export default function screen(): IScreen {
+export default function deviceScreen(): IScreen {
   return {
     width: window.screen.width,
     height: window.screen.height,

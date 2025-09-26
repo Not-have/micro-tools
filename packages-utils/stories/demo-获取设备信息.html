@@ -15,25 +15,31 @@
     <p>屏幕: <pre id="screen"></pre></p>
     <p>位置: <pre id="location"></pre></p>
     <p>公网IP: <span id="publicIp"></span></p>
+    <p>CPU核心数: <span id="cpuCores"></span></p>
+    <p>内存信息: <pre id="memory"></pre></p>
   </div>
 </body>
 </html>
 <script>
-  document.getElementById('browser').innerText = JSON.stringify(microUtil.browser(), null, 2);
+  document.getElementById('browser').innerText = JSON.stringify(microUtil.deviceBrowser(), null, 2);
 
-  document.getElementById('operatingSystem').innerText = microUtil.operatingSystem();
+  document.getElementById('operatingSystem').innerText = microUtil.deviceOperatingSystem();
 
-  document.getElementById('language').innerText = microUtil.language();
+  document.getElementById('language').innerText = microUtil.deviceLanguage();
 
-  document.getElementById('onLine').innerText = microUtil.onLine() ? "在线" : "离线";
+  document.getElementById('onLine').innerText = microUtil.deviceOnLine() ? "在线" : "离线";
 
-  document.getElementById('screen').innerText = JSON.stringify(microUtil.screen(), null, 2);
+  document.getElementById('screen').innerText = JSON.stringify(microUtil.deviceScreen(), null, 2);
 
-  microUtil.location().then(res => {
+  microUtil.deviceLocation().then(res => {
     document.getElementById('location').innerText = JSON.stringify(res, null, 2);
   })
 
-  microUtil.publicIp().then(res => {
+  microUtil.devicePublicIp().then(res => {
     document.getElementById('publicIp').innerText = res;
   })
+
+  document.getElementById('cpuCores').innerText = microUtil.deviceCpuCores();
+
+  document.getElementById('memory').innerText = JSON.stringify(microUtil.deviceMemory(), null, 2);
 </script>
