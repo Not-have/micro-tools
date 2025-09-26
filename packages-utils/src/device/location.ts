@@ -17,6 +17,8 @@ interface ILocation {
  * @returns 返回一个 Promise 对象，resolve 后的值是 ILocation
  *
  * 如果浏览器不支持 geolocation，则返回 { latitude: 0, longitude: 0 }
+ *
+ * 如果获取失败，则返回 { latitude: -1, longitude: -1 }
  */
 export default function deviceLocation(): Promise<ILocation> {
   const isSupport = "geolocation" in navigator;
@@ -42,8 +44,8 @@ export default function deviceLocation(): Promise<ILocation> {
         },
         () => {
           resolve({
-            latitude: 0,
-            longitude: 0
+            latitude: -1,
+            longitude: -1
           });
         }
     );
