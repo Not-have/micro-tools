@@ -14,6 +14,7 @@
     <p>在线状态: <span id="onLine"></span></p>
     <p>屏幕: <pre id="screen"></pre></p>
     <p>位置: <pre id="location"></pre></p>
+    <p>公网IP: <span id="publicIp"></span></p>
   </div>
 </body>
 </html>
@@ -32,4 +33,7 @@
     document.getElementById('location').innerText = JSON.stringify(res, null, 2);
   })
 
+  microUtil.publicIp().then(res => {
+    document.getElementById('publicIp').innerText = res;
+  })
 </script>
