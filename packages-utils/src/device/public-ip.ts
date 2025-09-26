@@ -24,6 +24,11 @@ export default async function publicIp(): Promise<string> {
     "https://httpbin.org/ip"                      // 官方测试服务
   ];
 
+  // 总超时时间：15秒（3个服务 × 5秒）
+  const totalTimeout = 15_000;
+
+  const startTime = Date.now();
+
   let ipData = null;
 
   let lastError = null;
@@ -58,6 +63,14 @@ export default async function publicIp(): Promise<string> {
 
   // 按顺序尝试每个服务，成功即停止
   for (const service of ipServices) {
+
+    // 检查总超时时间
+    if (Date.now() - startTime > totalTimeout) {
+      lastError = new Error("总超时时间已到");
+
+      break;
+    }
+
     try {
       // eslint-disable-next-line no-await-in-loop
       ipData = await fetchService(service);
@@ -65,6 +78,8 @@ export default async function publicIp(): Promise<string> {
       break;
     } catch (error) {
       lastError = error;
+
+      console.warn(`❌ IP查询失败: ${service}`, error);
 
       continue;
     }
