@@ -13,6 +13,7 @@
     <p>操作系统: <span id="operatingSystem"></span></p>
     <p>在线状态: <span id="onLine"></span></p>
     <p>屏幕: <pre id="screen"></pre></p>
+    <p>位置: <pre id="location"></pre></p>
   </div>
 </body>
 </html>
@@ -26,4 +27,9 @@
   document.getElementById('onLine').innerText = microUtil.onLine() ? "在线" : "离线";
 
   document.getElementById('screen').innerText = JSON.stringify(microUtil.screen(), null, 2);
+
+  microUtil.location().then(res => {
+    document.getElementById('location').innerText = JSON.stringify(res, null, 2);
+  })
+
 </script>
