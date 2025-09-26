@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>获取设备信息</title>
+  <script src="../lib/index.js"></script>
+</head>
+<body>
+  <div>
+    <p>语言: <span id="language"></span></p>
+    <p>浏览器: <pre id="browser"></pre></p>
+    <p>操作系统: <span id="operatingSystem"></span></p>
+    <p>在线状态: <span id="onLine"></span></p>
+    <p>屏幕: <pre id="screen"></pre></p>
+  </div>
+</body>
+</html>
+<script>
+  document.getElementById('browser').innerText = JSON.stringify(microUtil.browser(), null, 2);
+
+  document.getElementById('operatingSystem').innerText = microUtil.operatingSystem();
+
+  document.getElementById('language').innerText = microUtil.language();
+
+  document.getElementById('onLine').innerText = microUtil.onLine() ? "在线" : "离线";
+
+  document.getElementById('screen').innerText = JSON.stringify(microUtil.screen(), null, 2);
+</script>
