@@ -21,6 +21,7 @@
     <p>设备特性: <pre id="features"></pre></p>
     <p>传感器: <pre id="sensor"></pre></p>
     <p>国际化: <pre id="i18n"></pre></p>
+    <p>所有信息: <pre id="all"></pre></p>
   </div>
 </body>
 </html>
@@ -54,4 +55,11 @@
   document.getElementById('sensor').innerText = JSON.stringify(microUtil.deviceSensor(), null, 2);
 
   document.getElementById('i18n').innerText = JSON.stringify(microUtil.deviceI18n(), null, 2);
+
+  // 获取所有设备信息（异步）
+  microUtil.deviceAll().then(allInfo => {
+    document.getElementById('all').innerText = JSON.stringify(allInfo, null, 2);
+  }).catch(error => {
+    document.getElementById('all').innerText = `获取失败: ${error.message}`;
+  });
 </script>
