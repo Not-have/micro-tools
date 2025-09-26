@@ -1,11 +1,9 @@
 import {
   EUnknown
 } from "./enum";
-
-interface IBrowser {
-  name: string;
-  version: string | EUnknown;
-}
+import {
+  IBrowser
+} from "./types";
 
 export default function deviceBrowser(): IBrowser {
 

@@ -1,40 +1,11 @@
-interface IDeviceI18n {
-
-  /**
-   * 时区
-   */
-  timeZone: string;
-
-  /**
-   * 夏令时
-   */
-  daylightSaving: boolean;
-
-  /**
-   * 数字格式
-   */
-  numberFormat: string;
-
-  /**
-   * 货币格式
-   */
-  currencyFormat: string;
-
-  /**
-   * 日期格式
-   */
-  dateFormat: string;
-
-  /**
-   * 时间格式
-   */
-  timeFormat: string;
-}
+import {
+  II18n
+} from "./types";
 
 /**
  * 🌐 国际化信息
  */
-export default function deviceI18n(): IDeviceI18n {
+export default function deviceI18n(): II18n {
   return {
     timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
     daylightSaving: new Date().getTimezoneOffset() < new Date(2024, 6, 1).getTimezoneOffset(),

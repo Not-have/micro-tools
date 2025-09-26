@@ -1,30 +1,6 @@
-interface ISensor {
-
-  /**
-   * 传感器支持
-   */
-  accelerometer: boolean;
-
-  /**
-   * 加速度计支持
-   */
-  gyroscope: boolean;
-
-  /**
-   * 磁力计支持
-   */
-  magnetometer: boolean;
-
-  /**
-   * 环境光传感器
-   */
-  ambientLight: boolean;
-
-  /**
-   * 气压计支持
-   */
-  barometer: boolean;
-}
+import {
+  ISensor
+} from "./types";
 
 /**
  * 🎯 传感器信息 (Sensor APIs)

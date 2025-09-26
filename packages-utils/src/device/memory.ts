@@ -1,30 +1,6 @@
-interface IMemory {
-
-  /**
-   * 已使用堆内存
-   * 单位：MB
-   */
-  usedJSHeapSize: number;
-
-  /**
-   * 总堆内存
-   * 单位：MB
-   */
-  totalJSHeapSize: number;
-
-  /**
-   * 堆内存限制
-   * 单位：MB
-   */
-  jsHeapSizeLimit: number;
-
-  /**
-   * 设备物理内存
-   * 单位：GB
-   * 注意：只有部分浏览器支持
-   */
-  deviceMemory?: number;
-}
+import {
+  IMemory
+} from "./types";
 
 /**
  * 💾 内存信息

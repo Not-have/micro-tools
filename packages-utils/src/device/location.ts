@@ -1,15 +1,6 @@
-interface ILocation {
-
-  /**
-   * 纬度
-   */
-  latitude: number;
-
-  /**
-   * 经度
-   */
-  longitude: number;
-}
+import {
+  ILocation
+} from "./types";
 
 /**
  * 📍 位置信息 (Geolocation)
