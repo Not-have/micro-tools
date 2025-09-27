@@ -38,3 +38,4 @@ export {
 
 export * from "./device";
 export * from "./detect-font";
+export * from "./fingerprint";

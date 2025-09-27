@@ -1,6 +1,6 @@
 export const FONT_CONFIG = {
-  testText: "mmmmmmmmmm", // 测试文本 - 使用 m 字符，宽度差异明显
-  testSize: "16px",       // 测试字体大小 - 标准大小
+  text: "mmmmmmmmmm", // 测试文本 - 使用 m 字符，宽度差异明显
+  size: "16px",       // 测试字体大小 - 标准大小
   fallbackFont: "monospace" // 回退字体 - 等宽字体，宽度稳定
 };
 

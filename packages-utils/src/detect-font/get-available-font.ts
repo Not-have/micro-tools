@@ -32,12 +32,12 @@ function detectFontsCanvas(fontList: string[]): Record<string, boolean> {
 function detectSingleFontCanvas(fontName: string): boolean {
   try {
     const {
-      testText,
+      text,
       fallbackFont
     } = FONT_CONFIG;
 
     // 验证输入参数
-    if (!fontName || !testText || !fallbackFont) {
+    if (!fontName || !text || !fallbackFont) {
       console.warn("Invalid font detection parameters");
 
       return false;
@@ -46,7 +46,7 @@ function detectSingleFontCanvas(fontName: string): boolean {
     const testFont = `${fontName}, ${fallbackFont}`;
 
     // 测量回退字体宽度
-    const baseWidth = measureTextWidthCanvas(testText, fallbackFont);
+    const baseWidth = measureTextWidthCanvas(text, fallbackFont);
 
     if (baseWidth === -1) {
       console.warn("Failed to measure fallback font width");
@@ -55,7 +55,7 @@ function detectSingleFontCanvas(fontName: string): boolean {
     }
 
     // 测量目标字体宽度
-    const fontWidth = measureTextWidthCanvas(testText, testFont);
+    const fontWidth = measureTextWidthCanvas(text, testFont);
 
     if (fontWidth === -1) {
       console.warn(`Failed to measure font width for "${fontName}"`);

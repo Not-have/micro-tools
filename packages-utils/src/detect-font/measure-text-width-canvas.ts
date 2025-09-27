@@ -9,7 +9,7 @@ import {
  * @param {string} size - 字体大小
  * @returns {number} 文本宽度，测量失败返回 -1
  */
-export default function measureTextWidthCanvas(text: string, font: string, size: string = FONT_CONFIG.testSize): number {
+export default function measureTextWidthCanvas(text: string, font: string, size: string = FONT_CONFIG.size): number {
   try {
     const canvas = document.createElement("canvas");
 
