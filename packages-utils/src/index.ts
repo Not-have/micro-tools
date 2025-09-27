@@ -37,6 +37,8 @@ export {
 } from "./iframe-message";
 
 export { default as flattenAndSort } from "./flatten-and-sort";
+export { default as sha256Base64 } from "./sha256-base64";
+export { default as arrayBufferToBase64 } from "./array-buffer-to-base64";
 
 export * from "./device";
 export * from "./detect-font";
