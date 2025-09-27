@@ -1370,7 +1370,7 @@ iframe.onMessage((message) => {
 **使用示例：**
 
 ```typescript
-import flattenAndSort from '@mt-kit/utils/flatten-and-sort';
+import { flattenAndSort } from '@mt-kit/utils';
 
 // 基础用法
 const obj = {
@@ -1435,7 +1435,7 @@ const resultWithPrefix = flattenAndSort(obj, 'user');
 **使用示例：**
 
 ```typescript
-import arrayBufferToBase64 from '@mt-kit/utils/array-buffer-to-base64';
+import { arrayBufferToBase64 } from '@mt-kit/utils';
 
 // 基础用法
 const buffer = new ArrayBuffer(8);
@@ -1498,7 +1498,7 @@ reader.readAsArrayBuffer(file);
 **使用示例：**
 
 ```typescript
-import sha256Base64 from '@mt-kit/utils/sha256-base64';
+import { sha256Base64 } from '@mt-kit/utils';
 
 // 基础用法
 const hash = await sha256Base64('Hello World');
@@ -1559,7 +1559,7 @@ try {
 **使用示例：**
 
 ```typescript
-import { getAvailableFonts } from '@mt-kit/utils/detect-font';
+import { getAvailableFonts } from '@mt-kit/utils';
 
 // 检测常用字体
 const availableFonts = getAvailableFonts();
@@ -1620,7 +1620,7 @@ console.log(empty); // []
 **使用示例：**
 
 ```typescript
-import { measureTextWidthDom } from '@mt-kit/utils/detect-font';
+import { measureTextWidthDom } from '@mt-kit/utils';
 
 // 基础用法
 const width = measureTextWidthDom('Hello World', 'Arial');
@@ -1673,7 +1673,7 @@ console.log(invalid); // -1
 **使用示例：**
 
 ```typescript
-import { measureTextWidthCanvas } from '@mt-kit/utils/detect-font';
+import { measureTextWidthCanvas } from '@mt-kit/utils';
 
 // 基础用法
 const width = measureTextWidthCanvas('Hello World', 'Arial');
@@ -2079,7 +2079,7 @@ console.log(i18n);
 **使用示例：**
 
 ```typescript
-import { fingerprintFonts } from '@mt-kit/utils/fingerprint';
+import { fingerprintFonts } from '@mt-kit/utils';
 
 // 检测默认字体列表
 const fontFingerprint = fingerprintFonts();
@@ -2130,7 +2130,7 @@ console.log(customFingerprint); // "Arial" (假设其他字体不可用)
 **使用示例：**
 
 ```typescript
-import { fingerprintCanvas } from '@mt-kit/utils/fingerprint';
+import { fingerprintCanvas } from '@mt-kit/utils';
 
 // 生成 Canvas 指纹
 const canvasFingerprint = fingerprintCanvas();
@@ -2188,7 +2188,7 @@ if (!canvasFingerprint) {
 **使用示例：**
 
 ```typescript
-import { fingerprintWebgl } from '@mt-kit/utils/fingerprint';
+import { fingerprintWebgl } from '@mt-kit/utils';
 
 // 生成 WebGL 指纹
 const webglFingerprint = fingerprintWebgl();
@@ -2246,7 +2246,7 @@ if (!webglFingerprint) {
 **使用示例：**
 
 ```typescript
-import { fingerprintAudio } from '@mt-kit/utils/fingerprint';
+import { fingerprintAudio } from '@mt-kit/utils';
 
 // 生成音频指纹
 const audioFingerprint = await fingerprintAudio();
@@ -2315,7 +2315,7 @@ try {
 **使用示例：**
 
 ```typescript
-import fingerprint from '@mt-kit/utils/fingerprint';
+import { fingerprint } from '@mt-kit/utils';
 
 // 生成强指纹（包含屏幕信息）
 const strongFingerprint = await fingerprint(true);
