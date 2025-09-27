@@ -19,7 +19,6 @@ export default async function fingerprint(): Promise<string> {
   const device = await deviceAll({
     location: false,
     publicIp: false,
-    i18n: false,
     memory: false
   });
 
@@ -31,12 +30,21 @@ export default async function fingerprint(): Promise<string> {
 
   const fonts = fingerprintFonts();
 
+  const {
+    i18n,
+    ...deviceWithoutI18n
+  } = device;
+
   const fp = {
     canvas,
     audio,
     webgl,
     fonts,
-    ...device
+    ...deviceWithoutI18n,
+    timeZone: i18n?.timeZone,
+    daylightSaving: i18n?.daylightSaving,
+    numberFormat: i18n?.numberFormat,
+    currencyFormat: i18n?.currencyFormat
   };
 
   const flat = flattenAndSort(fp);
