@@ -1,5 +1,11 @@
 # @mt-kit/eslint-config
 
+## 2.4.1
+
+### Patch Changes
+
+- 更新 README.md 文档
+
 ## 2.4.0
 
 ### Minor Changes

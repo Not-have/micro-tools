@@ -1,5 +1,11 @@
 # @mt-kit/ts-config
 
+## 1.2.2
+
+### Patch Changes
+
+- 更新 README.md 文档
+
 ## 1.2.1
 
 ### Patch Changes

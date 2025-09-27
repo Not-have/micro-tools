@@ -1,5 +1,11 @@
 # @mt-kit/stylelint-config
 
+## 2.1.1
+
+### Patch Changes
+
+- 更新 README.md 文档
+
 ## 2.1.0
 
 ### Major Changes
