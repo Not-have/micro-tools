@@ -70,7 +70,7 @@ const App = () => {
 | closable | `boolean` | `true` | 是否显示右上角关闭按钮 |
 | esc | `boolean` | - | 是否允许 ESC 关闭 |
 | zIndex | `number` | - | 弹窗的 zIndex |
-| data | `D \| () => Promise<D \| unknown \| string \| undefined \| number \| Record<string, unknown>>` | - | 初始数据或异步拉取函数 |
+| data | `D \| () => Promise<D \| unknown \| string \| undefined \| number \| Record<string, unknown>>` | - | 初始数据或异步拉取函数（当为 Promise 时，会自动显示加载状态） |
 | onClose | `(result?: T \| Error, defaultResult?: D) => void` | - | 关闭回调（`defaultResult` 为销毁时默认值） |
 | onSubmit | `(result?: D, defaultResult?: D) => Promise<Record<string, unknown> \| undefined \| T>` | - | 提交回调，返回 `T` 或对象 |
 | isSubmit | `boolean` | `true` | 已废弃：为 `false` 时仅展示关闭（查看/详情） |
