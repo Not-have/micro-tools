@@ -36,6 +36,8 @@ export {
   type IMessage as Message
 } from "./iframe-message";
 
+export { default as flattenAndSort } from "./flatten-and-sort";
+
 export * from "./device";
 export * from "./detect-font";
 export * from "./fingerprint";

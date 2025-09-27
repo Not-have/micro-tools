@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>demo-对象扁平化为键值对并按键排序</title>
+</head>
+<body>
+
+</body>
+</html>
+<script src="../lib/index.js"></script>
+<script>
+  const obj = {
+    c: 3,
+    a: 1,
+    b: 2,
+    d: {
+      e: 4,
+      f: 5
+    }
+  };
+  console.log(microUtil.flattenAndSort(obj));
+</script>
