@@ -37,3 +37,4 @@ export {
 } from "./iframe-message";
 
 export * from "./device";
+export * from "./detect-font";
