@@ -12,4 +12,8 @@
 <script src="../lib/index.js"></script>
 <script>
   console.log(microUtil.fingerprintFonts());
+
+  microUtil.fingerprint().then(res => {
+    console.log(res);
+  });
 </script>
