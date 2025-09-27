@@ -11,15 +11,28 @@ import fingerprintWebgl from "./fingerprint-webgl";
 /**
  * 🫆
  *
+ * @param strength 是否强指纹，默认强指纹
+ *
  * 指纹是根据浏览器环境生成的唯一标识符，用于识别浏览器环境
  *
- * @returns string 指纹
+ * 一下可能产生不同指纹的情况：
+ *
+ * 不同的屏幕（屏幕尺寸、屏幕密度，推荐一直放在主屏幕上使用）
+ *
+ * 不同的设备
+ *
+ * 不同的浏览器
+ *
+ * 不同的操作系统
+ *
+ * 不同的语言
  */
-export default async function fingerprint(): Promise<string> {
+export default async function fingerprint(strength: boolean = true): Promise<string> {
   const device = await deviceAll({
     location: false,
     publicIp: false,
-    memory: false
+    memory: false,
+    screen: strength
   });
 
   const canvas = fingerprintCanvas();
