@@ -21,6 +21,7 @@ export default function getDefaultContextState(props: IDialogProps): IModelState
     locked: ELockState.NO,
     zIndex: -1,
     data: props.data,
+    dataLoading: false,
     windowHeight: window.innerHeight,
     form: null,
     formData: props.data

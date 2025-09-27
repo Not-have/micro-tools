@@ -37,6 +37,15 @@ export interface IModelState<D extends object = Record<string, unknown>> {
   data?: D | unknown;
 
   /**
+   * 数据是否正在加载
+   *
+   * 防止当 data 为 Promise 时，才会有这个属性
+   *
+   * @default false
+   */
+  dataLoading: boolean;
+
+  /**
    * 需要根据当前窗口的高度对 Dialog 内容区域的最大高度进行调整
    */
   windowHeight: number;

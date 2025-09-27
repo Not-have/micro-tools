@@ -20,12 +20,14 @@ export { default as useStateLocked } from "./use-state-locked";
 export { default as useStateOpen } from "./use-state-open";
 export { default as useStateForm } from "./use-state-form";
 export { default as useStateData } from "./use-state-data";
+export { default as useStateDataLoading } from "./use-state-data-loading";
 export { default as useStateFormData } from "./use-state-form-data";
 
 export { default as useDispatchLock } from "./use-dispatch-lock";
 export { default as useDispatchUnlock } from "./use-dispatch-unlock";
 export { default as useDispatchLoading } from "./use-dispatch-loading";
 export { default as useDispatchData } from "./use-dispatch-data";
+export { default as useDispatchDataLoading } from "./use-dispatch-data-loading";
 export { default as useDispatchFormData } from "./use-dispatch-form-data";
 
 export { default as useHandleOnClose } from "./use-handle-on-close";

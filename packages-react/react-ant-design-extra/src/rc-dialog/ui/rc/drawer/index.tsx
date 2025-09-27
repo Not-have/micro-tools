@@ -17,7 +17,8 @@ import {
   usePropsZIndex,
   useStateOpen,
   usePropsBackdropClosable,
-  usePropsOptions
+  usePropsOptions,
+  useStateDataLoading
 } from "../../../model";
 import Footer from "../footer";
 import Header from "../header";
@@ -45,12 +46,15 @@ export default function Drawer(): React.ReactElement {
 
   const options = usePropsOptions();
 
+  const dataLoading = useStateDataLoading();
+
   return <AntDrawer
     {...options as DrawerProps}
     closable={closable}
     destroyOnHidden
     footer={<Footer />}
     keyboard={esc}
+    loading={dataLoading}
     mask={backdrop}
     maskClosable={backdropClosable}
     onClose={handleOnClose}

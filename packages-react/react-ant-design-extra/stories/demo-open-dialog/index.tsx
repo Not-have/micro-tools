@@ -56,6 +56,7 @@ export default function Demo(): React.ReactElement {
       title: "我是标题",
       content: <Content />,
       onSubmit: data => mockApiRequest(data),
+
       mode: DialogMode.MODAL,
       data: () => data(1),
       backdropClosable: false

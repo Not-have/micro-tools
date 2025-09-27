@@ -3,7 +3,8 @@ export enum EAction {
   UNLOCK,
   FORM,
   FORM_DATA,
-  DATA
+  DATA,
+  DATA_LOADING
 }
 
 export enum ELockState {

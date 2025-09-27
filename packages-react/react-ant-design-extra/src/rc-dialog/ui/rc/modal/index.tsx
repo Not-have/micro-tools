@@ -17,7 +17,8 @@ import {
   usePropsZIndex,
   useHandleOnClose,
   usePropsBackdropClosable,
-  usePropsOptions
+  usePropsOptions,
+  useStateDataLoading
 } from "../../../model";
 import Footer from "../footer";
 import Header from "../header";
@@ -45,12 +46,15 @@ export default function Modal(): React.ReactElement {
 
   const options = usePropsOptions();
 
+  const dataLoading = useStateDataLoading();
+
   return <AntdModal
     {...options as ModalProps}
     className={classNameOnBody}
     closable={closable}
     footer={<Footer />}
     keyboard={esc}
+    loading={dataLoading}
     mask={backdrop}
     maskClosable={backdropClosable}
     onCancel={handleOnClose}

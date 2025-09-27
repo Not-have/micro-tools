@@ -6,6 +6,7 @@ import {
   TModelAction
 } from "../types";
 import reduceData from "./reduce-data";
+import reduceDataLoading from "./reduce-data-loading";
 import reduceForm from "./reduce-form";
 import reduceFormData from "./reduce-form-data";
 import reduceLock from "./reduce-lock";
@@ -27,6 +28,9 @@ export default function reducer(state: IModelState, action: TModelAction): IMode
     }
     case EAction.DATA: {
       return reduceData(state, action.payload);
+    }
+    case EAction.DATA_LOADING: {
+      return reduceDataLoading(state, action.payload);
     }
     default: {
       return state;
