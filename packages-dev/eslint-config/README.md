@@ -495,23 +495,7 @@ node --max-old-space-size=4096 ./node_modules/.bin/eslint .
 
 ### 规则冲突
 
-#### 1. Prettier 冲突
-
-**问题**: ESLint 和 Prettier 格式化规则冲突
-
-**解决方案**:
-
-```js
-import EsLint from "@mt-kit/eslint-config";
-import { prettier } from "@mt-kit/prettier-config";
-
-export default [
-  ...EsLint,
-  prettier
-];
-```
-
-#### 2. TypeScript 规则冲突
+#### 1. TypeScript 规则冲突
 
 **问题**: TypeScript 规则与项目配置冲突
 
@@ -559,7 +543,6 @@ npx eslint --cache-location .eslintcache --cache src/
 ## 📞 支持
 
 - **问题反馈**: [GitHub Issues](https://github.com/Not-have/micro-tools/issues)
-- **功能请求**: [GitHub Discussions](https://github.com/Not-have/micro-tools/discussions)
 - **文档更新**: [GitHub Pull Requests](https://github.com/Not-have/micro-tools/pulls)
 
 ## 📄 许可证
