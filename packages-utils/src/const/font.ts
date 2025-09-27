@@ -39,3 +39,5 @@ export const COMMON_FONTS = [
   "PT Sans",
   "Ubuntu"
 ];
+
+export const FONT_CONFIG_FIXED = "14px Arial, sans-serif";
