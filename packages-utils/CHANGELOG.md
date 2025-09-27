@@ -1,5 +1,11 @@
 # @mt-kit/utils
 
+## 1.2.0
+
+### Minor Changes
+
+- 更新 api，新增获取设备信息
+
 ## 1.1.0
 
 ### Minor Changes
