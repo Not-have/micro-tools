@@ -1,5 +1,11 @@
 # @mt-kit/react-ant-design-extra
 
+## 1.2.0
+
+### Minor Changes
+
+- 当 data 为 Promise 时，会自动显示加载状态
+
 ## 1.1.2
 
 ### Patch Changes
