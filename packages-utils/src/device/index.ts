@@ -15,5 +15,6 @@ export { default as deviceHardwareConcurrency } from "./hardware-concurrency";
 export { default as deviceFeatures } from "./features";
 export { default as deviceSensor } from "./sensor";
 export { default as deviceI18n } from "./i18n";
+export { default as deviceUa } from "./ua";
 
 export { default as deviceAll } from "./all";

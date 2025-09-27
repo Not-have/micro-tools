@@ -21,6 +21,7 @@ import deviceOperatingSystem from "./operating-system";
 import devicePublicIp from "./public-ip";
 import deviceScreen from "./screen";
 import deviceSensor from "./sensor";
+import deviceUa from "./ua";
 
 /**
  * 设备信息汇总接口
@@ -39,6 +40,7 @@ export interface IDeviceAll {
   features: IFeatures;
   sensor: ISensor;
   i18n: II18n;
+  ua: string;
 
   // 异步信息
   location: ILocation;
@@ -114,6 +116,11 @@ export interface IDeviceAllOptions {
    * 公网IP
    */
   publicIp?: boolean;
+
+  /**
+   * UA
+   */
+  ua?: boolean;
 }
 
 /**
@@ -139,6 +146,7 @@ export default async function deviceAll(options: IDeviceAllOptions = {}): Promis
     features: true,
     sensor: true,
     i18n: true,
+    ua: true,
     location: true,
     publicIp: true
   };
@@ -171,6 +179,8 @@ export default async function deviceAll(options: IDeviceAllOptions = {}): Promis
   const sensor = deviceSensor();
 
   const i18n = deviceI18n();
+
+  const ua = deviceUa();
 
   // 异步获取网络相关信息
   const asyncPromises: Promise<ILocation | string>[] = [];
@@ -226,6 +236,7 @@ export default async function deviceAll(options: IDeviceAllOptions = {}): Promis
     features,
     sensor,
     i18n,
+    ua,
 
     // 异步信息
     location,
