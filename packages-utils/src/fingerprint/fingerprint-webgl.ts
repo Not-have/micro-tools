@@ -1,5 +1,5 @@
 /**
- * 获取WebGL指纹
+ * 🫆 获取WebGL指纹
  * @returns string WebGL指纹数据
  */
 export default function fingerprintWebgl(): string {
