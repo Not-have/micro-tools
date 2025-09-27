@@ -1,20 +1,33 @@
 # @mt-kit/eslint-config
 
-[docs](https://eslint.nodejs.cn/)
+> 基于 ESLint 9.x 的现代化代码规范配置，支持 TypeScript、Vue、React 等多种技术栈
 
-[ESLint Stylistic](https://eslint.style/)
+[![npm version](https://img.shields.io/npm/v/@mt-kit/eslint-config.svg)](https://www.npmjs.com/package/@mt-kit/eslint-config)
+[![License](https://img.shields.io/npm/l/@mt-kit/eslint-config.svg)](https://github.com/Not-have/micro-tools/blob/main/LICENSE)
 
-## 安装
+## 📚 相关文档
+
+- [ESLint 官方文档](https://eslint.nodejs.cn/)
+- [ESLint Stylistic](https://eslint.style/)
+
+## 🚀 快速开始
+
+### 安装
 
 ```bash
+# 使用 npm
 npm install -D eslint @mt-kit/eslint-config
+
+# 使用 pnpm
+pnpm add -D eslint @mt-kit/eslint-config
+
+# 使用 yarn
+yarn add -D eslint @mt-kit/eslint-config
 ```
 
-## 使用
+### 基础配置
 
-新建 `eslint.config.js`
-
-`基础`
+创建 `eslint.config.js` 文件：
 
 ```js
 import EsLint from "@mt-kit/eslint-config";
@@ -22,12 +35,10 @@ import EsLint from "@mt-kit/eslint-config";
 export default EsLint;
 ```
 
-`ts`
+### TypeScript 项目
 
 ```js
-import EsLint, {
-  typescript
-} from "@mt-kit/eslint-config";
+import EsLint, { typescript } from "@mt-kit/eslint-config";
 
 export default [
   ...EsLint,
@@ -45,12 +56,10 @@ export default [
 ];
 ```
 
-`vue`
+### Vue 项目
 
 ```js
-import EsLint, {
-  vue
-} from "@mt-kit/eslint-config";
+import EsLint, { vue } from "@mt-kit/eslint-config";
 
 export default [
   ...EsLint,
@@ -58,24 +67,45 @@ export default [
 ];
 ```
 
-`react`
+### React 项目 + TypeScript
 
 ```js
-import EsLint, {
-  react
-} from "@mt-kit/eslint-config";
+import EsLint, { react, typescript } from "@mt-kit/eslint-config";
 
 export default [
   ...EsLint,
+  typescript,
   ...react
 ];
 ```
 
-注：推荐配合 [@mt-kit/prettier-config](https://www.npmjs.com/package/@mt-kit/prettier-config) 一块使用。
+### 混合项目（Vue + TypeScript）
 
-## 修复指令
+```js
+import EsLint, { typescript, vue } from "@mt-kit/eslint-config";
 
-`package.json`
+export default [
+  ...EsLint,
+  typescript,
+  ...vue,
+  {
+    ignores: [
+      "node_modules",
+      "dist",
+      "build",
+      "public"
+    ]
+  }
+];
+```
+
+## 💡 推荐配置
+
+> 建议配合 [@mt-kit/prettier-config](https://www.npmjs.com/package/@mt-kit/prettier-config) 一起使用，确保代码风格的一致性。
+
+## 🛠️ 脚本配置
+
+### package.json 配置
 
 ```json
 {
@@ -90,113 +120,448 @@ export default [
     "fix": "eslint \"./**/*.{css,tsx,vue,ts,js,html}\" --fix"
   },
   "peerDependencies": {
-    "eslint": ">9.0.0"
+    "eslint": ">=9.0.0"
   },
   "devDependencies": {
     "@mt-kit/eslint-config": "^X.Y.Z",
-    "eslint": "^9.24.0",
+    "eslint": "^9.24.0"
   }
 }
 ```
 
-`"type": "module",` 可以不设置，eslint 具有高的兼容性。
+### VS Code 配置
 
-注：`Visual Studio Code` 保存时，自动修复代码
-
-`.vscode/settings.json`
+创建 `.vscode/settings.json` 文件：
 
 ```json
 {
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit"
+    "source.fixAll.eslint": "explicit",
+    "source.formatDocument": "explicit"
   },
-  "editor.tabSize": 2
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false
 }
 ```
 
-## 插件
+### 支持的扩展
 
-| 插件名 | 作用 |
-| :--- | :--- |
-| eslint | ESLint 的核心包，用于运行代码分析和检查 |
-| @eslint/js | 为 JavaScript 项目提供基本的 ESLint 配置和规则 |
-| eslint-plugin-unicorn | 是一个增强 ESLint 功能的插件，旨在通过一系列自定义规则优化代码质量、提升开发规范，并支持现代 JavaScript/TypeScript 的最佳实践 |
-| @typescript-eslint/eslint-plugin | 为 TypeScript 项目提供特定的 ESLint 插件，包含 TypeScript 特有的规则 |
-| @typescript-eslint/parser | 为 TypeScript 项目提供 ESLint 解析器，确保 ESLint 能够理解和解析 TypeScript 代码 |
-| @types/eslint | 为 TypeScript 提供 ESLint 的类型定义，确保 TypeScript 项目能够正确使用 ESLint |
-| eslint-plugin-command | 用于处理项目命令规则（如脚本命名或命令约束）|
-| eslint-plugin-eslint-comments | 检测和优化代码中的 ESLint 注释使用情况 |
-| eslint-plugin-import | 管理模块导入顺序、未使用的导入及模块解析 |
-| eslint-plugin-jsdoc | 用于检查 JSDoc 注释的一致性和正确性 |
-| eslint-plugin-jsonc | 专门用于 JSON 和 JSONC（带注释 JSON）的代码分析和格式校验 |
-| eslint-plugin-perfectionist | 提供了一些高级的代码质量检查规则 |
-| eslint-plugin-prettier | 结合 Prettier 代码格式化工具，确保代码风格的一致性 |
-| eslint-plugin-regexp | 针对正则表达式的优化和错误检测 |
-| eslint-plugin-unused-imports | 用于检测未使用的导入语句 |
-| @stylistic/eslint-plugin | 主要用于配置 JavaScript 代码风格 |
-| @stylistic/eslint-plugin-ts | 针对 TypeScript 项目，提供更精细的风格规则，用于控制 TypeScript 特有的语法 |
-|  |  |
-| eslint-plugin-vue | 专为 Vue.js 提供的 ESLint 插件，支持模板和脚本的规则分析 |
-| @vue/eslint-config-typescript | Vue 官方的 TypeScript 配置，为 TypeScript 项目和 Vue 代码提供支持 |
-| <del> @vue/eslint-config-prettier/skip-formatting</del> | 禁用 ESLint 和 Prettier 冲突的格式化规则 |
-| eslint-plugin-oxlint | Oxlint 提供的一组代码风格和质量保证的规则 |
-|  |  |
-| eslint-plugin-jsx-a11y | 该插件主要用于检查 JSX 代码中的可访问性 |
-| eslint-plugin-react-hooks | 用于确保 React Hooks 的正确使用 |
-| eslint-plugin-react | 检查 React 代码规范和最佳实践 |
+推荐安装以下 VS Code 扩展：
 
-## TODO List
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 
-### 事件方法名
+## 📋 可用配置
 
-- 当文件中只有一个 `click`、`change` 等事件时，方法名为：`handleClick`、`handleChange`
+| 配置名称 | 描述 | 适用场景 |
+|---------|------|----------|
+| `EsLint` | 基础 JavaScript/TypeScript 配置 | 所有项目 |
+| `typescript` | TypeScript 专用配置 | TypeScript 项目 |
+| `vue` | Vue.js 专用配置 | Vue 项目 |
+| `react` | React 专用配置 | React 项目 |
 
-  格式为：`handle事件名`
+## ⚙️ 高级配置
 
-- 当文件中有多个 `click`、`change` 等事件时，方法名为：`handleXxxClick`、`handleXxxChange`
+### 自定义规则
 
-  格式为：`handle作用事件名`，例如：`handleCreateClick`、`handleEditClick`、`handle DeleteClick`
+```js
+import EsLint, { typescript } from "@mt-kit/eslint-config";
 
-### 变量方法名
+export default [
+  ...EsLint,
+  typescript,
+  {
+    rules: {
+      // 自定义规则
+      "no-console": "warn",
+      "@typescript-eslint/no-unused-vars": "error"
+    }
+  }
+];
+```
 
-- 读取变量，使用 `get` 开头
+### 忽略文件配置
 
-  格式：get变量名
+```js
+import EsLint from "@mt-kit/eslint-config";
 
-  例：getLoading
+export default [
+  ...EsLint,
+  {
+    ignores: [
+      "node_modules/**",
+      "dist/**",
+      "build/**",
+      "public/**",
+      "*.config.js",
+      "*.config.ts"
+    ]
+  }
+];
+```
 
-- 设置变量，使用 `set` 开头
+## 🔌 插件生态
 
-  格式：set变量名
+### 核心插件
 
-  例：setLoading
+| 插件名 | 版本 | 作用 |
+|--------|------|------|
+| `eslint` | ^9.24.0 | ESLint 核心包，提供代码分析和检查功能 |
+| `@eslint/js` | ^9.24.0 | JavaScript 基础配置和规则 |
+| `@stylistic/eslint-plugin` | ^2.0.0 | 统一的代码风格配置插件 |
 
-- 处理变量，使用 `transform` 开头
+### TypeScript 支持
 
-  格式：transform变量名
+| 插件名 | 版本 | 作用 |
+|--------|------|------|
+| `@typescript-eslint/eslint-plugin` | ^8.0.0 | TypeScript 专用规则和检查 |
+| `@typescript-eslint/parser` | ^8.0.0 | TypeScript 代码解析器 |
+| `@types/eslint` | ^8.0.0 | TypeScript 类型定义 |
 
-  例： transformtLoading
+### 代码质量
 
-- <del> 其他使用 `other` 开头 </del>
+| 插件名 | 版本 | 作用 |
+|--------|------|------|
+| `eslint-plugin-unicorn` | ^60.0.0 | 现代 JavaScript/TypeScript 最佳实践 |
+| `eslint-plugin-perfectionist` | ^4.0.0 | 高级代码质量检查规则 |
+| `eslint-plugin-import` | ^2.30.0 | 模块导入管理和解析 |
+| `eslint-plugin-unused-imports` | ^4.1.0 | 检测未使用的导入语句 |
+| `eslint-plugin-jsdoc` | ^48.0.0 | JSDoc 注释一致性检查 |
 
-  格式：other变量名
+### 工具集成
 
-  例：otherLoading
+| 插件名 | 版本 | 作用 |
+|--------|------|------|
+| `eslint-plugin-prettier` | ^5.0.0 | 与 Prettier 集成，确保代码风格一致 |
+| `eslint-plugin-jsonc` | ^2.0.0 | JSON/JSONC 文件格式校验 |
+| `eslint-plugin-regexp` | ^2.0.0 | 正则表达式优化和错误检测 |
+| `eslint-plugin-command` | ^0.2.0 | 项目命令规则检查 |
+| `eslint-plugin-eslint-comments` | ^7.0.0 | ESLint 注释使用优化 |
 
-### 处理接口返回数据
+### Vue.js 支持
 
-- 使用 `fixData` 开头
+| 插件名 | 版本 | 作用 |
+|--------|------|------|
+| `eslint-plugin-vue` | ^9.0.0 | Vue.js 专用规则和模板检查 |
+| `@vue/eslint-config-typescript` | ^14.0.0 | Vue + TypeScript 官方配置 |
 
-  格式：fixData 接口定义的方法名
+### React 支持
 
-  例：fixDataList
+| 插件名 | 版本 | 作用 |
+|--------|------|------|
+| `eslint-plugin-react` | ^7.34.0 | React 代码规范和最佳实践 |
+| `eslint-plugin-react-hooks` | ^5.0.0 | React Hooks 正确使用检查 |
+| `eslint-plugin-jsx-a11y` | ^6.8.0 | JSX 可访问性检查 |
 
-## 🙅 处理
+### 实验性插件
 
-- ![在 `package.json` 中添加 `"type": "module"`](https://not-have.github.io/file/images/20250117.jpeg)
+| 插件名 | 版本 | 作用 |
+|--------|------|------|
+| `eslint-plugin-oxlint` | ^0.1.0 | Oxlint 代码风格和质量规则 |
 
-  在 `package.json` 中添加 `"type": "module"`。
+## 🎯 规则特性
 
-- The language client requires VS Code version ^1.89.0 but received version 1.
+### 代码风格
 
-  ![The language client requires VS Code version ^1.89.0 but received version 1.](https://not-have.github.io/file/images/20250118.jpeg)
+- **缩进**: 2 空格缩进
+- **引号**: 单引号优先
+- **分号**: 自动添加分号
+- **换行**: 自动换行和格式化
+
+### 代码质量
+
+- **未使用变量**: 自动检测和移除
+- **导入顺序**: 自动排序和分组
+- **类型检查**: 严格的 TypeScript 类型检查
+- **命名规范**: 统一的命名约定
+
+### 最佳实践
+
+- **现代语法**: 支持最新的 JavaScript/TypeScript 特性
+- **性能优化**: 避免性能反模式
+- **安全性**: 检测潜在的安全问题
+- **可维护性**: 提高代码可读性和可维护性
+
+## 📝 编码规范
+
+### 事件处理方法命名
+
+#### 单一事件处理
+
+当文件中只有一个事件处理器时：
+
+```typescript
+// ✅ 推荐
+const handleClick = () => { /* ... */ };
+const handleChange = () => { /* ... */ };
+const handleSubmit = () => { /* ... */ };
+
+// ❌ 不推荐
+const onClick = () => { /* ... */ };
+const onChange = () => { /* ... */ };
+```
+
+**命名格式**: `handle + 事件名`
+
+#### 多个事件处理
+
+当文件中有多个同类型事件处理器时：
+
+```typescript
+// ✅ 推荐
+const handleCreateClick = () => { /* ... */ };
+const handleEditClick = () => { /* ... */ };
+const handleDeleteClick = () => { /* ... */ };
+
+const handleNameChange = () => { /* ... */ };
+const handleEmailChange = () => { /* ... */ };
+```
+
+**命名格式**: `handle + 作用 + 事件名`
+
+### 变量处理方法命名
+
+#### 读取操作
+
+```typescript
+// ✅ 推荐
+const getLoading = () => isLoading;
+const getUserInfo = () => userInfo;
+const getCurrentTime = () => new Date();
+
+// ❌ 不推荐
+const loading = () => isLoading;
+const userInfo = () => userInfo;
+```
+
+**命名格式**: `get + 变量名`
+
+#### 设置操作
+
+```typescript
+// ✅ 推荐
+const setLoading = (value: boolean) => { isLoading = value; };
+const setUserInfo = (info: UserInfo) => { userInfo = info; };
+const setCurrentTime = (time: Date) => { currentTime = time; };
+```
+
+**命名格式**: `set + 变量名`
+
+#### 转换操作
+
+```typescript
+// ✅ 推荐
+const transformLoading = (loading: boolean) => loading ? '加载中...' : '完成';
+const transformUserInfo = (info: UserInfo) => ({ ...info, displayName: info.name });
+const transformData = (data: any[]) => data.map(item => ({ ...item, id: item.id.toString() }));
+```
+
+**命名格式**: `transform + 变量名`
+
+### 数据处理方法命名
+
+#### 接口数据处理
+
+```typescript
+// ✅ 推荐
+const fixDataList = (list: ApiResponse[]) => list.map(item => ({ ...item, processed: true }));
+const fixDataUser = (user: ApiUser) => ({ ...user, fullName: `${user.firstName} ${user.lastName}` });
+const fixDataConfig = (config: ApiConfig) => ({ ...config, version: '1.0.0' });
+```
+
+**命名格式**: `fixData + 接口方法名`
+
+### 组件命名规范
+
+#### React 组件
+
+```typescript
+// ✅ 推荐 - PascalCase
+const UserProfile = () => { /* ... */ };
+const ProductCard = () => { /* ... */ };
+const NavigationMenu = () => { /* ... */ };
+
+// ❌ 不推荐
+const userProfile = () => { /* ... */ };
+const product_card = () => { /* ... */ };
+```
+
+#### Vue 组件
+
+```vue
+<!-- ✅ 推荐 - PascalCase -->
+<template>
+  <UserProfile />
+  <ProductCard />
+  <NavigationMenu />
+</template>
+
+<script setup lang="ts">
+// 组件名使用 PascalCase
+defineOptions({
+  name: 'UserProfile'
+});
+</script>
+```
+
+### 文件命名规范
+
+```text
+src/
+├── components/
+│   ├── user-profile.vue
+│   ├── product-card.tsx
+│   └── navigation-menu.tsx
+├── hooks/
+│   ├── use-user-info.ts
+│   └── use-product-list.ts
+├── utils/
+│   ├── format-date.ts
+│   └── validate-email.ts
+└── types/
+    ├── user.ts
+    └── product.ts
+```
+
+**命名规则**:
+
+- 组件文件: `PascalCase`
+- Hook 文件: `camelCase` (以 `use` 开头)
+- 工具文件: `camelCase`
+- 类型文件: `camelCase`
+
+## ❓ 常见问题
+
+### 配置问题
+
+#### 1. 模块类型错误
+
+**问题**: 在 `package.json` 中添加 `"type": "module"`
+
+![模块类型配置](https://not-have.github.io/file/images/20250117.jpeg)
+
+**解决方案**:
+
+```json
+{
+  "type": "module"
+}
+```
+
+#### 2. VS Code 版本兼容性
+
+**问题**: The language client requires VS Code version ^1.89.0 but received version 1.
+
+![VS Code 版本问题](https://not-have.github.io/file/images/20250118.jpeg)
+
+**解决方案**:
+
+- 升级 VS Code 到最新版本
+- 或者降级相关扩展版本
+
+### 性能问题
+
+#### 1. ESLint 运行缓慢
+
+**原因**: 项目文件过多或规则配置复杂
+
+**解决方案**:
+
+```js
+export default [
+  ...EsLint,
+  {
+    ignores: [
+      "node_modules/**",
+      "dist/**",
+      "build/**",
+      "coverage/**",
+      "*.min.js"
+    ]
+  }
+];
+```
+
+#### 2. 内存不足
+
+**原因**: 大型项目或复杂规则导致内存溢出
+
+**解决方案**:
+
+```bash
+# 增加 Node.js 内存限制
+node --max-old-space-size=4096 ./node_modules/.bin/eslint .
+```
+
+### 规则冲突
+
+#### 1. Prettier 冲突
+
+**问题**: ESLint 和 Prettier 格式化规则冲突
+
+**解决方案**:
+
+```js
+import EsLint from "@mt-kit/eslint-config";
+import { prettier } from "@mt-kit/prettier-config";
+
+export default [
+  ...EsLint,
+  prettier
+];
+```
+
+#### 2. TypeScript 规则冲突
+
+**问题**: TypeScript 规则与项目配置冲突
+
+**解决方案**:
+
+```js
+export default [
+  ...EsLint,
+  typescript,
+  {
+    rules: {
+      // 覆盖特定规则
+      "@typescript-eslint/no-explicit-any": "warn"
+    }
+  }
+];
+```
+
+## 🔧 故障排除
+
+### 检查配置
+
+```bash
+# 检查 ESLint 配置
+npx eslint --print-config src/index.js
+
+# 检查特定文件的规则
+npx eslint --print-config src/components/Button.tsx
+```
+
+### 调试模式
+
+```bash
+# 启用调试模式
+DEBUG=eslint:* npx eslint src/
+```
+
+### 清理缓存
+
+```bash
+# 清理 ESLint 缓存
+npx eslint --cache-location .eslintcache --cache src/
+```
+
+## 📞 支持
+
+- **问题反馈**: [GitHub Issues](https://github.com/Not-have/micro-tools/issues)
+- **功能请求**: [GitHub Discussions](https://github.com/Not-have/micro-tools/discussions)
+- **文档更新**: [GitHub Pull Requests](https://github.com/Not-have/micro-tools/pulls)
+
+## 📄 许可证
+
+[MIT License](https://github.com/Not-have/micro-tools/blob/main/LICENSE)
