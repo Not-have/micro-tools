@@ -10,7 +10,13 @@ import {
 export default defineConfig([
   {
     files: [
-      "**/*.?([cm])[t]s?(x)", "**/*.vue", "**/*.json", "**/*.json5", "**/*.jsonc", "**/*.js", "**/*.mjs"
+      "**/*.?([cm])[t]s?(x)",
+      "**/*.vue",
+      "**/*.json",
+      "**/*.json5",
+      "**/*.jsonc",
+      "**/*.js",
+      "**/*.mjs"
     ],
     extends: [
       EsLint,
@@ -27,7 +33,10 @@ export default defineConfig([
   },
   {
     files: [
-      "./packages-react/**/*.tsx", "./packages-react/**/*.ts", "./packages-react/**/*.js", "./packages-react/**/*.jsx"
+      "./packages-react/**/*.tsx",
+      "./packages-react/**/*.ts",
+      "./packages-react/**/*.js",
+      "./packages-react/**/*.jsx"
     ],
     extends: [
       react
