@@ -1,9 +1,6 @@
 import {
   FONT_CONFIG
 } from "../const";
-import {
-  getAvailableFonts
-} from "../detect-font";
 
 /**
  * 🫆 获取Canvas指纹
@@ -22,14 +19,15 @@ export default function fingerprintCanvas(): string {
       return "";
     }
 
-    const availableFonts = getAvailableFonts()[0] || FONT_CONFIG.fallbackFont;
+    // 固定字体，避免字体检测的不稳定性
+    const font = "14px Arial, sans-serif";
 
     // 设置渲染属性
     ctx.textBaseline = "alphabetic";
     ctx.fillStyle = "#f60";
     ctx.fillRect(125, 1, 62, 20);
     ctx.fillStyle = "#069";
-    ctx.font = `${FONT_CONFIG.size} "${availableFonts}"`;
+    ctx.font = `${FONT_CONFIG.size} "${font}"`;
     ctx.fillText(FONT_CONFIG.text, 2, 15);
     ctx.fillStyle = "rgba(102, 204, 0, 0.7)";
     ctx.fillText(FONT_CONFIG.text, 4, 17);
@@ -37,7 +35,19 @@ export default function fingerprintCanvas(): string {
     // 获取图像数据并返回前100个像素值
     const imageData = ctx.getImageData(0, 0, 200, 50);
 
-    return imageData.data.slice(0, 100).join(",");
+    // 使用更稳定的数据提取方式
+    const {
+      data
+    } = imageData;
+
+    const samples = [];
+
+    // 取固定位置的像素值
+    for (let i = 0; i < 100; i += 4) {
+      samples.push(data[i], data[i + 1], data[i + 2]);
+    }
+
+    return samples.join(",");
   } catch (error) {
     console.warn("Canvas 指纹失败:", error);
 

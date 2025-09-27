@@ -18,12 +18,14 @@ import fingerprintWebgl from "./fingerprint-webgl";
 export default async function fingerprint(): Promise<string> {
   const device = await deviceAll({
     location: false,
-    publicIp: false
+    publicIp: false,
+    i18n: false,
+    memory: false
   });
 
   const canvas = fingerprintCanvas();
 
-  const audio = fingerprintAudio();
+  const audio = await fingerprintAudio();
 
   const webgl = fingerprintWebgl();
 
