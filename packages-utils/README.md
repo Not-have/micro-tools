@@ -1343,6 +1343,369 @@ iframe.onMessage((message) => {
 });
 ```
 
+### flattenAndSort
+
+将对象扁平化为键值对并按键排序，确保输出结果的确定性。
+
+**参数：**
+
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| `obj` | `Record<string, unknown>` | ✅ | - | 要扁平化的对象 |
+| `prefix` | `string` | ❌ | `""` | 键前缀，用于嵌套对象的键名 |
+
+**返回值：**
+
+| 类型 | 说明 |
+|------|------|
+| `Record<string, string>` | 扁平化的对象，所有值都转换为字符串 |
+
+**特性：**
+
+- **确定性输出**: 通过按键排序确保相同输入产生相同输出
+- **递归处理**: 自动处理嵌套对象
+- **类型安全**: 所有值统一转换为字符串
+- **空值处理**: `undefined` 和 `null` 转换为空字符串
+
+**使用示例：**
+
+```typescript
+import flattenAndSort from '@mt-kit/utils/flatten-and-sort';
+
+// 基础用法
+const obj = {
+  name: 'John',
+  age: 30,
+  address: {
+    city: 'New York',
+    country: 'USA'
+  }
+};
+
+const result = flattenAndSort(obj);
+// 结果: {
+//   "address.city": "New York",
+//   "address.country": "USA", 
+//   "age": "30",
+//   "name": "John"
+// }
+
+// 带前缀
+const resultWithPrefix = flattenAndSort(obj, 'user');
+// 结果: {
+//   "user.address.city": "New York",
+//   "user.address.country": "USA",
+//   "user.age": "30", 
+//   "user.name": "John"
+// }
+```
+
+**应用场景：**
+
+- 对象序列化前的预处理
+- 生成确定性哈希值
+- 对象比较和去重
+- 配置文件的扁平化处理
+
+---
+
+### arrayBufferToBase64
+
+将 ArrayBuffer 转换为 Base64 字符串，提供安全高效的转换。
+
+**参数：**
+
+| 参数 | 类型 | 必填 | 说明 |
+|------|------|------|------|
+| `buffer` | `ArrayBuffer` | ✅ | 要转换的 ArrayBuffer |
+
+**返回值：**
+
+| 类型 | 说明 |
+|------|------|
+| `string` | Base64 编码的字符串，失败时返回空字符串 |
+
+**特性：**
+
+- **容错处理**: 输入无效时返回空字符串，不抛出异常
+- **高效转换**: 使用 `String.fromCharCode` 进行安全转换
+- **类型验证**: 自动验证输入是否为有效的 ArrayBuffer
+- **错误日志**: 失败时输出警告信息便于调试
+
+**使用示例：**
+
+```typescript
+import arrayBufferToBase64 from '@mt-kit/utils/array-buffer-to-base64';
+
+// 基础用法
+const buffer = new ArrayBuffer(8);
+const view = new Uint8Array(buffer);
+view[0] = 72; // 'H'
+view[1] = 101; // 'e'
+view[2] = 108; // 'l'
+view[3] = 108; // 'l'
+view[4] = 111; // 'o'
+
+const base64 = arrayBufferToBase64(buffer);
+console.log(base64); // "SGVsbG8="
+
+// 错误处理
+const invalid = arrayBufferToBase64(null as any);
+console.log(invalid); // ""
+
+// 从文件读取
+const file = new File(['Hello'], 'test.txt');
+const reader = new FileReader();
+reader.onload = (e) => {
+  const base64 = arrayBufferToBase64(e.target?.result as ArrayBuffer);
+  console.log(base64);
+};
+reader.readAsArrayBuffer(file);
+```
+
+**应用场景：**
+
+- 文件上传前的编码
+- 图片数据处理
+- 二进制数据传输
+- 加密数据存储
+
+---
+
+### sha256Base64
+
+将字符串转换为 SHA-256 哈希的 Base64 编码，提供安全的哈希功能。
+
+**参数：**
+
+| 参数 | 类型 | 必填 | 说明 |
+|------|------|------|------|
+| `str` | `string` | ✅ | 要哈希的字符串 |
+
+**返回值：**
+
+| 类型 | 说明 |
+|------|------|
+| `Promise<string>` | Base64 编码的 SHA-256 哈希值 |
+
+**特性：**
+
+- **异步处理**: 使用 Web Crypto API 进行异步哈希计算
+- **安全算法**: 使用 SHA-256 算法确保安全性
+- **Base64 输出**: 直接输出 Base64 编码，便于存储和传输
+- **错误处理**: 哈希失败时抛出错误，便于上层处理
+
+**使用示例：**
+
+```typescript
+import sha256Base64 from '@mt-kit/utils/sha256-base64';
+
+// 基础用法
+const hash = await sha256Base64('Hello World');
+console.log(hash); // "pZGm1Av0IEBKARCz7JZcLAuUx7QgTz+ekpJZeBc7uT0="
+
+// 密码哈希
+const password = 'myPassword123';
+const passwordHash = await sha256Base64(password);
+console.log(passwordHash);
+
+// 文件内容哈希
+const fileContent = 'file content here';
+const fileHash = await sha256Base64(fileContent);
+console.log(fileHash);
+
+// 错误处理
+try {
+  const hash = await sha256Base64('test');
+  console.log(hash);
+} catch (error) {
+  console.error('哈希生成失败:', error);
+}
+```
+
+**应用场景：**
+
+- 密码存储和验证
+- 数据完整性校验
+- 唯一标识符生成
+- 缓存键生成
+
+---
+
+### getAvailableFonts
+
+检测系统中可用的字体列表，支持批量检测和容错处理。
+
+**参数：**
+
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| `fontList` | `string[]` | ❌ | `COMMON_FONTS` | 要检测的字体列表 |
+
+**返回值：**
+
+| 类型 | 说明 |
+|------|------|
+| `string[]` | 可用的字体列表 |
+
+**特性：**
+
+- **Canvas 检测**: 使用 Canvas 2D 上下文进行字体检测
+- **批量处理**: 支持同时检测多个字体
+- **容错机制**: 单个字体检测失败不影响其他字体
+- **精度控制**: 使用宽度差异阈值避免浮点数精度问题
+- **详细日志**: 提供检测过程和结果的详细日志
+
+**使用示例：**
+
+```typescript
+import { getAvailableFonts } from '@mt-kit/utils/detect-font';
+
+// 检测常用字体
+const availableFonts = getAvailableFonts();
+console.log(availableFonts); // ['Arial', 'Helvetica', 'Times New Roman', ...]
+
+// 检测自定义字体列表
+const customFonts = ['CustomFont', 'AnotherFont', 'Arial'];
+const available = getAvailableFonts(customFonts);
+console.log(available); // ['Arial'] (假设其他字体不可用)
+
+// 空列表处理
+const empty = getAvailableFonts([]);
+console.log(empty); // []
+```
+
+**检测原理：**
+
+1. 使用回退字体测量基准宽度
+2. 使用目标字体测量文本宽度
+3. 比较宽度差异，超过阈值则认为字体可用
+4. 阈值设置为 0.1px，避免浮点数精度问题
+
+**应用场景：**
+
+- 字体回退策略
+- 设备指纹生成
+- 字体兼容性检测
+- 动态字体加载
+
+---
+
+### measureTextWidthDom
+
+使用 DOM 元素测量文本宽度，提供精确的文本尺寸测量。
+
+**参数：**
+
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| `text` | `string` | ✅ | - | 要测量的文本 |
+| `font` | `string` | ✅ | - | 字体样式 |
+| `size` | `string` | ❌ | `FONT_CONFIG.size` | 字体大小 |
+
+**返回值：**
+
+| 类型 | 说明 |
+|------|------|
+| `number` | 文本宽度（像素），测量失败返回 -1 |
+
+**特性：**
+
+- **DOM 测量**: 使用真实的 DOM 元素进行测量
+- **样式隔离**: 创建隐藏元素避免影响页面布局
+- **强制重排**: 确保样式生效后再测量
+- **自动清理**: 测量完成后自动移除临时元素
+- **错误处理**: 测量失败时返回 -1
+
+**使用示例：**
+
+```typescript
+import { measureTextWidthDom } from '@mt-kit/utils/detect-font';
+
+// 基础用法
+const width = measureTextWidthDom('Hello World', 'Arial');
+console.log(width); // 82.5
+
+// 自定义字体大小
+const width2 = measureTextWidthDom('Test', 'Times New Roman', '16px');
+console.log(width2); // 24.8
+
+// 错误处理
+const invalid = measureTextWidthDom('', 'InvalidFont');
+console.log(invalid); // -1
+```
+
+**应用场景：**
+
+- 文本布局计算
+- 字体检测
+- 动态宽度调整
+- 文本溢出处理
+
+---
+
+### measureTextWidthCanvas
+
+使用 Canvas 2D 上下文测量文本宽度，提供高性能的文本尺寸测量。
+
+**参数：**
+
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| `text` | `string` | ✅ | - | 要测量的文本 |
+| `font` | `string` | ✅ | - | 字体样式 |
+| `size` | `string` | ❌ | `FONT_CONFIG.size` | 字体大小 |
+
+**返回值：**
+
+| 类型 | 说明 |
+|------|------|
+| `number` | 文本宽度（像素），测量失败返回 -1 |
+
+**特性：**
+
+- **Canvas 测量**: 使用 Canvas 2D 上下文进行测量
+- **高性能**: 不操作 DOM，性能优于 DOM 方法
+- **高精度**: 设置固定 Canvas 尺寸确保测量精度
+- **错误处理**: 测量失败时返回 -1
+- **类型安全**: 验证测量结果的数值有效性
+
+**使用示例：**
+
+```typescript
+import { measureTextWidthCanvas } from '@mt-kit/utils/detect-font';
+
+// 基础用法
+const width = measureTextWidthCanvas('Hello World', 'Arial');
+console.log(width); // 82.5
+
+// 自定义字体大小
+const width2 = measureTextWidthCanvas('Test', 'Times New Roman', '16px');
+console.log(width2); // 24.8
+
+// 批量测量
+const texts = ['Short', 'Medium Length Text', 'Very Long Text Here'];
+const widths = texts.map(text => measureTextWidthCanvas(text, 'Arial'));
+console.log(widths); // [32.5, 95.2, 158.7]
+```
+
+**Canvas vs DOM 对比：**
+
+| 特性 | Canvas | DOM |
+|------|--------|-----|
+| 性能 | ✅ 高 | ❌ 低 |
+| 精度 | ✅ 高 | ✅ 高 |
+| 兼容性 | ✅ 好 | ✅ 好 |
+| 内存使用 | ✅ 低 | ❌ 高 |
+| 布局影响 | ✅ 无 | ❌ 有 |
+
+**应用场景：**
+
+- 字体检测（推荐）
+- 批量文本测量
+- 性能敏感场景
+- 字体指纹生成
+
 ## 设备信息
 
 ### deviceAll
@@ -1687,3 +2050,307 @@ console.log(i18n);
 //   timeFormat: "14:30:00"
 // }
 ```
+
+## 获取设备指纹
+
+### fingerprintFonts
+
+生成字体指纹，通过检测可用字体列表创建设备指纹。
+
+**参数：**
+
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| `fonts` | `string[]` | ❌ | `COMMON_FONTS` | 要检测的字体列表 |
+
+**返回值：**
+
+| 类型 | 说明 |
+|------|------|
+| `string` | 可用字体列表的逗号分隔字符串 |
+
+**特性：**
+
+- **字体检测**: 基于 Canvas 2D 上下文检测字体可用性
+- **批量处理**: 支持检测多个字体
+- **容错机制**: 单个字体检测失败不影响整体结果
+- **确定性输出**: 相同字体列表产生相同结果
+
+**使用示例：**
+
+```typescript
+import { fingerprintFonts } from '@mt-kit/utils/fingerprint';
+
+// 检测默认字体列表
+const fontFingerprint = fingerprintFonts();
+console.log(fontFingerprint); // "Arial,Helvetica,Times New Roman,Georgia"
+
+// 检测自定义字体列表
+const customFonts = ['CustomFont', 'AnotherFont', 'Arial'];
+const customFingerprint = fingerprintFonts(customFonts);
+console.log(customFingerprint); // "Arial" (假设其他字体不可用)
+```
+
+**应用场景：**
+
+- 设备指纹生成
+- 字体兼容性检测
+- 浏览器环境识别
+- 反爬虫检测
+
+---
+
+### fingerprintCanvas
+
+生成 Canvas 指纹，通过渲染特定内容获取设备特定的渲染特征。
+
+**参数：**
+
+无参数
+
+**返回值：**
+
+| 类型 | 说明 |
+|------|------|
+| `string` | Canvas 渲染数据的像素值字符串，失败时返回空字符串 |
+
+**特性：**
+
+- **渲染指纹**: 基于 Canvas 2D 渲染结果生成指纹
+- **固定内容**: 使用固定的文本和样式确保一致性
+- **像素采样**: 提取特定位置的像素值作为指纹
+- **容错处理**: 渲染失败时返回空字符串
+
+**渲染内容：**
+
+- 文本: 使用固定字体渲染特定文本
+- 图形: 绘制矩形和半透明文本
+- 采样: 提取前 100 个像素的 RGB 值
+
+**使用示例：**
+
+```typescript
+import { fingerprintCanvas } from '@mt-kit/utils/fingerprint';
+
+// 生成 Canvas 指纹
+const canvasFingerprint = fingerprintCanvas();
+console.log(canvasFingerprint); // "255,0,0,0,0,255,102,204,0,..."
+
+// 错误处理
+if (!canvasFingerprint) {
+  console.warn('Canvas 指纹生成失败');
+}
+```
+
+**技术原理：**
+
+1. 创建 200x50 像素的 Canvas
+2. 设置固定的字体和样式
+3. 渲染文本和图形内容
+4. 提取图像数据的 RGB 像素值
+5. 按固定间隔采样并拼接成字符串
+
+**应用场景：**
+
+- 设备指纹生成
+- 浏览器环境识别
+- 反爬虫检测
+- 用户行为分析
+
+---
+
+### fingerprintWebgl
+
+生成 WebGL 指纹，通过获取显卡信息创建硬件指纹。
+
+**参数：**
+
+无参数
+
+**返回值：**
+
+| 类型 | 说明 |
+|------|------|
+| `string` | WebGL 厂商和渲染器信息，失败时返回空字符串 |
+
+**特性：**
+
+- **硬件指纹**: 基于显卡硬件信息生成指纹
+- **调试扩展**: 使用 `WEBGL_debug_renderer_info` 扩展获取详细信息
+- **厂商信息**: 包含显卡厂商和渲染器型号
+- **容错处理**: 不支持时返回空字符串
+
+**获取信息：**
+
+- **厂商**: 显卡厂商名称（如 NVIDIA、AMD、Intel）
+- **渲染器**: 显卡型号和驱动信息
+
+**使用示例：**
+
+```typescript
+import { fingerprintWebgl } from '@mt-kit/utils/fingerprint';
+
+// 生成 WebGL 指纹
+const webglFingerprint = fingerprintWebgl();
+console.log(webglFingerprint); // "NVIDIA Corporation~NVIDIA GeForce RTX 3080/PCIe/SSE2"
+
+// 检查支持情况
+if (!webglFingerprint) {
+  console.warn('WebGL 调试扩展不支持');
+}
+```
+
+**兼容性：**
+
+- **桌面浏览器**: Chrome、Firefox、Safari 支持较好
+- **移动浏览器**: 支持有限，很多移动浏览器禁用此扩展
+- **隐私模式**: 可能被禁用或返回受限信息
+
+**应用场景：**
+
+- 设备指纹生成
+- 硬件环境识别
+- 反爬虫检测
+- 用户设备分析
+
+---
+
+### fingerprintAudio
+
+生成音频指纹，通过音频处理获取设备特定的音频特征。
+
+**参数：**
+
+无参数
+
+**返回值：**
+
+| 类型 | 说明 |
+|------|------|
+| `Promise<string>` | 音频处理数据的样本值字符串，失败时返回空字符串 |
+
+**特性：**
+
+- **音频处理**: 基于 Web Audio API 生成音频指纹
+- **离线渲染**: 使用 OfflineAudioContext 避免播放音频
+- **固定参数**: 使用固定的音频参数确保一致性
+- **样本采样**: 提取特定位置的音频样本值
+
+**音频配置：**
+
+- **采样率**: 44.1kHz
+- **声道数**: 单声道
+- **振荡器**: 三角波，1000Hz
+- **压缩器**: 固定参数配置
+
+**使用示例：**
+
+```typescript
+import { fingerprintAudio } from '@mt-kit/utils/fingerprint';
+
+// 生成音频指纹
+const audioFingerprint = await fingerprintAudio();
+console.log(audioFingerprint); // "0.1,0.2,0.3,0.4,0.5,..."
+
+// 错误处理
+try {
+  const fingerprint = await fingerprintAudio();
+  if (!fingerprint) {
+    console.warn('音频指纹生成失败');
+  }
+} catch (error) {
+  console.error('音频处理错误:', error);
+}
+```
+
+**技术原理：**
+
+1. 创建 OfflineAudioContext
+2. 生成三角波振荡器
+3. 通过动态压缩器处理音频
+4. 离线渲染音频数据
+5. 提取特定间隔的样本值
+
+**应用场景：**
+
+- 设备指纹生成
+- 音频环境识别
+- 反爬虫检测
+- 用户设备分析
+
+---
+
+### fingerprint
+
+生成综合设备指纹，整合多种指纹信息创建唯一标识符。
+
+**参数：**
+
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| `strength` | `boolean` | ❌ | `true` | 是否生成强指纹（包含屏幕信息） |
+
+**返回值：**
+
+| 类型 | 说明 |
+|------|------|
+| `Promise<string>` | SHA-256 哈希的 Base64 编码指纹字符串 |
+
+**指纹组成：**
+
+- **设备信息**: 操作系统、浏览器、屏幕等基础信息
+- **Canvas 指纹**: 基于 Canvas 渲染的像素数据
+- **WebGL 指纹**: 显卡硬件信息
+- **音频指纹**: 音频处理特征
+- **字体指纹**: 可用字体列表
+- **国际化信息**: 时区、语言、数字格式等
+
+**特性：**
+
+- **综合指纹**: 整合多种指纹信息提高唯一性
+- **确定性**: 相同环境产生相同指纹
+- **容错处理**: 单个指纹失败不影响整体结果
+- **强度控制**: 可选择是否包含屏幕信息
+
+**使用示例：**
+
+```typescript
+import fingerprint from '@mt-kit/utils/fingerprint';
+
+// 生成强指纹（包含屏幕信息）
+const strongFingerprint = await fingerprint(true);
+console.log(strongFingerprint); // "a1b2c3d4e5f6..."
+
+// 生成弱指纹（不包含屏幕信息）
+const weakFingerprint = await fingerprint(false);
+console.log(weakFingerprint); // "x1y2z3a4b5c6..."
+
+// 默认强指纹
+const defaultFingerprint = await fingerprint();
+console.log(defaultFingerprint); // "m1n2o3p4q5r6..."
+```
+
+**指纹稳定性：**
+
+| 因素 | 影响程度 | 说明 |
+|------|----------|------|
+| 屏幕分辨率 | 🔴 高 | 改变分辨率会改变指纹 |
+| 浏览器版本 | 🟡 中 | 更新可能影响指纹 |
+| 操作系统 | 🔴 高 | 不同系统指纹不同 |
+| 硬件配置 | 🔴 高 | 显卡、音频设备影响指纹 |
+| 字体安装 | 🟡 中 | 字体变化影响指纹 |
+
+**应用场景：**
+
+- 用户身份识别
+- 设备唯一标识
+- 反爬虫检测
+- 用户行为分析
+- 安全验证
+
+**注意事项：**
+
+- 指纹可能因环境变化而改变
+- 建议结合其他身份验证方式
+- 遵守隐私法规，明确告知用户
+- 定期更新指纹算法以提高安全性
