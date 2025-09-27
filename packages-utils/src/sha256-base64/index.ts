@@ -13,8 +13,8 @@ export default async function sha256Base64(str: string): Promise<string> {
 
     return arrayBufferToBase64(digest);
   } catch (error) {
-    console.error("SHA-256 hashing failed:", error);
+    console.error("SHA-256 哈希失败:", error);
 
-    throw new Error("Hash generation failed");
+    throw new Error("哈希生成失败");
   }
 }

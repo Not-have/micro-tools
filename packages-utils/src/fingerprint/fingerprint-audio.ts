@@ -33,7 +33,7 @@ export default async function fingerprintAudio(): Promise<string> {
 
     return channelData.join(",");
   } catch (error) {
-    console.warn("Audio fingerprint failed:", error);
+    console.warn("Audio 指纹失败:", error);
 
     return "";
   }

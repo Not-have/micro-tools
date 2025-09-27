@@ -24,7 +24,7 @@ export default function fingerprintWebgl(): string {
 
     return `${vendor}~${renderer}`;
   } catch (error) {
-    console.warn("WebGL fingerprint failed:", error);
+    console.warn("WebGL 指纹失败:", error);
 
     return "";
   }

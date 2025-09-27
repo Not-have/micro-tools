@@ -6,7 +6,7 @@
 export default function arrayBufferToBase64(buffer: ArrayBuffer): string {
   try {
     if (!buffer || !(buffer instanceof ArrayBuffer)) {
-      console.warn("Invalid ArrayBuffer provided");
+      console.warn("提供的 ArrayBuffer 无效");
 
       return "";
     }
@@ -23,7 +23,7 @@ export default function arrayBufferToBase64(buffer: ArrayBuffer): string {
 
     return btoa(binary);
   } catch (error) {
-    console.warn("Base64 encoding failed:", error);
+    console.warn("Base64 编码失败:", error);
 
     return "";
   }

@@ -39,7 +39,7 @@ export default function fingerprintCanvas(): string {
 
     return imageData.data.slice(0, 100).join(",");
   } catch (error) {
-    console.warn("Canvas fingerprint failed:", error);
+    console.warn("Canvas 指纹失败:", error);
 
     return "";
   }
