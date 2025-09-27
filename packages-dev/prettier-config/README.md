@@ -1,52 +1,122 @@
 # @mt-kit/prettier-config
 
-[docs](https://prettier.nodejs.cn/)
+> 基于 Prettier 3.x 的现代化代码格式化配置，支持多种文件类型和框架
 
-## 安装
+[![npm version](https://img.shields.io/npm/v/@mt-kit/prettier-config.svg)](https://www.npmjs.com/package/@mt-kit/prettier-config)
+[![License](https://img.shields.io/npm/l/@mt-kit/prettier-config.svg)](https://github.com/Not-have/micro-tools/blob/main/LICENSE)
+
+## 📚 相关文档
+
+- [Prettier 官方文档](https://prettier.nodejs.cn/)
+- [ESLint 配置](https://www.npmjs.com/package/@mt-kit/eslint-config)
+
+## 🚀 快速开始
+
+### 安装
 
 ```bash
-npm install prettier @mt-kit/prettier-config -D
+# 使用 npm
+npm install -D prettier @mt-kit/prettier-config
+
+# 使用 pnpm
+pnpm add -D prettier @mt-kit/prettier-config
+
+# 使用 yarn
+yarn add -D prettier @mt-kit/prettier-config
 ```
 
-## 使用
+### 基础配置
 
-新建 `.prettier.mjs` 文件
+创建 `.prettier.mjs` 文件：
 
 ```js
 export { default } from "@mt-kit/prettier-config";
 ```
 
-注：推荐配合 [@mt-kit/eslint-config](https://www.npmjs.com/package/@mt-kit/eslint-config) 一块使用。
+### 其他配置方式
 
-## 忽略文件
+#### 使用 .prettierrc.mjs
 
-新建 `.prettierignore` 文件
-
-```.prettierignore
-dist
-*-dist
-.local
-.output.js
-node_modules
-.nvmrc
-coverage
-CODEOWNERS
-.nitro
-.output
-
-
-**/*.svg
-**/*.sh
-
-public
-.npmrc
-**/*-lock.yaml
-**/*-lock.json
+```js
+export { default } from "@mt-kit/prettier-config";
 ```
 
-## 修复指令
+#### 使用 package.json
 
-`package.json`
+```json
+{
+  "prettier": "@mt-kit/prettier-config"
+}
+```
+
+#### 使用 .prettierrc.json
+
+```json
+"@mt-kit/prettier-config"
+```
+
+## 💡 推荐配置
+
+> 建议配合 [@mt-kit/eslint-config](https://www.npmjs.com/package/@mt-kit/eslint-config) 一起使用，确保代码风格的一致性。
+
+## 📁 忽略文件配置
+
+### 创建 .prettierignore 文件
+
+```.prettierignore
+# 构建输出目录
+dist
+*-dist
+.output
+.nitro
+
+# 依赖目录
+node_modules
+
+# 环境配置
+.local
+.nvmrc
+.npmrc
+
+# 测试覆盖率
+coverage
+
+# 锁文件
+**/*-lock.yaml
+**/*-lock.json
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# 静态资源
+public
+**/*.svg
+**/*.sh
+**/*.png
+**/*.jpg
+**/*.jpeg
+**/*.gif
+**/*.ico
+
+# 文档
+CODEOWNERS
+CHANGELOG.md
+README.md
+
+# IDE 配置
+.vscode
+.idea
+
+# 临时文件
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
+```
+
+## 🛠️ 脚本配置
+
+### package.json 配置
 
 ```json
 {
@@ -56,15 +126,246 @@ public
   "keywords": [],
   "type": "module",
   "scripts": {
-    "clear": "rm -fr node_modules",
-    "lint": "prettier --write"
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "format:staged": "prettier --write --ignore-unknown",
+    "clear": "rm -fr node_modules"
   },
   "peerDependencies": {
     "prettier": ">=3.5.3"
   },
   "devDependencies": {
     "@mt-kit/prettier-config": "^X.Y.Z",
-    "prettier": "^3.5.3",
+    "prettier": "^3.5.3"
   }
 }
 ```
+
+### VS Code 配置
+
+创建 `.vscode/settings.json` 文件：
+
+```json
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnType": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.formatDocument": "explicit"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}
+```
+
+### 支持的扩展
+
+推荐安装以下 VS Code 扩展：
+
+- [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+
+## ⚙️ 配置选项
+
+### 默认配置
+
+| 选项 | 值 | 说明 |
+|------|-----|------|
+| `semi` | `true` | 在语句末尾添加分号 |
+| `singleQuote` | `true` | 使用单引号而不是双引号 |
+| `tabWidth` | `2` | 缩进空格数 |
+| `useTabs` | `false` | 使用空格而不是制表符 |
+| `trailingComma` | `"es5"` | 在 ES5 中有效的尾随逗号 |
+| `printWidth` | `80` | 换行长度 |
+| `bracketSpacing` | `true` | 在对象字面量的大括号之间打印空格 |
+| `arrowParens` | `"avoid"` | 箭头函数参数周围避免括号 |
+| `endOfLine` | `"lf"` | 使用 LF 作为换行符 |
+
+### 支持的文件类型
+
+- **JavaScript**: `.js`, `.jsx`, `.mjs`, `.cjs`
+- **TypeScript**: `.ts`, `.tsx`, `.mts`, `.cts`
+- **Vue**: `.vue`
+- **JSON**: `.json`, `.jsonc`
+- **CSS**: `.css`, `.scss`, `.sass`, `.less`
+- **HTML**: `.html`, `.htm`
+- **Markdown**: `.md`, `.mdx`
+- **YAML**: `.yml`, `.yaml`
+- **其他**: `.graphql`, `.gql`
+
+## 🔧 高级配置
+
+### 自定义配置
+
+如果需要覆盖默认配置，可以创建自定义配置：
+
+```js
+// .prettier.mjs
+import baseConfig from "@mt-kit/prettier-config";
+
+export default {
+  ...baseConfig,
+  // 覆盖特定选项
+  printWidth: 100,
+  tabWidth: 4,
+  semi: false
+};
+```
+
+### 项目特定配置
+
+为特定文件类型设置不同的配置：
+
+```js
+// .prettier.mjs
+export default {
+  // 基础配置
+  ...require("@mt-kit/prettier-config"),
+  
+  // 覆盖特定文件类型
+  overrides: [
+    {
+      files: "*.md",
+      options: {
+        printWidth: 120,
+        proseWrap: "always"
+      }
+    },
+    {
+      files: "*.json",
+      options: {
+        printWidth: 200
+      }
+    }
+  ]
+};
+```
+
+## 📋 常用命令
+
+### 格式化命令
+
+```bash
+# 格式化所有文件
+npx prettier --write .
+
+# 检查格式化状态
+npx prettier --check .
+
+# 格式化特定文件
+npx prettier --write src/**/*.{js,ts,vue}
+
+# 格式化并显示差异
+npx prettier --write --list-different .
+
+# 格式化忽略的文件
+npx prettier --write --ignore-unknown .
+```
+
+### 配置检查
+
+```bash
+# 检查当前配置
+npx prettier --find-config-path .
+
+# 显示配置信息
+npx prettier --get-file-info src/index.js
+
+# 验证配置文件
+npx prettier --check-config .
+```
+
+## ❓ 常见问题
+
+### 配置问题
+
+**问题**: Prettier 配置没有生效
+
+**解决方案**:
+
+- 确保配置文件名称正确（`.prettier.mjs`, `.prettierrc.mjs`, `prettier.config.mjs`）
+- 检查文件路径是否正确
+- 重启 VS Code 或编辑器
+
+### 性能问题
+
+#### 1. 格式化速度慢
+
+**原因**: 文件过多或配置复杂
+
+**解决方案**:
+
+```bash
+# 使用缓存
+npx prettier --write --cache .
+
+# 并行处理
+npx prettier --write --parallel .
+```
+
+#### 2. 内存不足
+
+**原因**: 大型项目导致内存溢出
+
+**解决方案**:
+
+```bash
+# 增加 Node.js 内存限制
+node --max-old-space-size=4096 ./node_modules/.bin/prettier --write .
+```
+
+## 🔧 故障排除
+
+### 调试配置
+
+```bash
+# 显示配置信息
+npx prettier --find-config-path src/index.js
+
+# 显示解析的文件信息
+npx prettier --get-file-info src/index.js
+
+# 显示配置详情
+npx prettier --print-config src/index.js
+```
+
+### 清理缓存
+
+```bash
+# 清理 Prettier 缓存
+rm -rf node_modules/.cache/prettier
+
+# 重新格式化
+npx prettier --write --cache .
+```
+
+## 📞 支持
+
+- **问题反馈**: [GitHub Issues](https://github.com/Not-have/micro-tools/issues)
+
+## 📄 许可证
+
+[MIT License](https://github.com/Not-have/micro-tools/blob/main/LICENSE)
