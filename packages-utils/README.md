@@ -2053,233 +2053,6 @@ console.log(i18n);
 
 ## 获取设备指纹
 
-### fingerprintFonts
-
-生成字体指纹，通过检测可用字体列表创建设备指纹。
-
-**参数：**
-
-| 参数 | 类型 | 必填 | 默认值 | 说明 |
-|------|------|------|--------|------|
-| `fonts` | `string[]` | ❌ | `COMMON_FONTS` | 要检测的字体列表 |
-
-**返回值：**
-
-| 类型 | 说明 |
-|------|------|
-| `string` | 可用字体列表的逗号分隔字符串 |
-
-**特性：**
-
-- **字体检测**: 基于 Canvas 2D 上下文检测字体可用性
-- **批量处理**: 支持检测多个字体
-- **容错机制**: 单个字体检测失败不影响整体结果
-- **确定性输出**: 相同字体列表产生相同结果
-
-**使用示例：**
-
-```typescript
-import { fingerprintFonts } from '@mt-kit/utils';
-
-// 检测默认字体列表
-const fontFingerprint = fingerprintFonts();
-console.log(fontFingerprint); // "Arial,Helvetica,Times New Roman,Georgia"
-
-// 检测自定义字体列表
-const customFonts = ['CustomFont', 'AnotherFont', 'Arial'];
-const customFingerprint = fingerprintFonts(customFonts);
-console.log(customFingerprint); // "Arial" (假设其他字体不可用)
-```
-
-**应用场景：**
-
-- 设备指纹生成
-- 字体兼容性检测
-- 浏览器环境识别
-- 反爬虫检测
-
----
-
-### fingerprintCanvas
-
-生成 Canvas 指纹，通过渲染特定内容获取设备特定的渲染特征。
-
-**参数：**
-
-无参数
-
-**返回值：**
-
-| 类型 | 说明 |
-|------|------|
-| `string` | Canvas 渲染数据的像素值字符串，失败时返回空字符串 |
-
-**特性：**
-
-- **渲染指纹**: 基于 Canvas 2D 渲染结果生成指纹
-- **固定内容**: 使用固定的文本和样式确保一致性
-- **像素采样**: 提取特定位置的像素值作为指纹
-- **容错处理**: 渲染失败时返回空字符串
-
-**渲染内容：**
-
-- 文本: 使用固定字体渲染特定文本
-- 图形: 绘制矩形和半透明文本
-- 采样: 提取前 100 个像素的 RGB 值
-
-**使用示例：**
-
-```typescript
-import { fingerprintCanvas } from '@mt-kit/utils';
-
-// 生成 Canvas 指纹
-const canvasFingerprint = fingerprintCanvas();
-console.log(canvasFingerprint); // "255,0,0,0,0,255,102,204,0,..."
-
-// 错误处理
-if (!canvasFingerprint) {
-  console.warn('Canvas 指纹生成失败');
-}
-```
-
-**技术原理：**
-
-1. 创建 200x50 像素的 Canvas
-2. 设置固定的字体和样式
-3. 渲染文本和图形内容
-4. 提取图像数据的 RGB 像素值
-5. 按固定间隔采样并拼接成字符串
-
-**应用场景：**
-
-- 设备指纹生成
-- 浏览器环境识别
-- 反爬虫检测
-- 用户行为分析
-
----
-
-### fingerprintWebgl
-
-生成 WebGL 指纹，通过获取显卡信息创建硬件指纹。
-
-**参数：**
-
-无参数
-
-**返回值：**
-
-| 类型 | 说明 |
-|------|------|
-| `string` | WebGL 厂商和渲染器信息，失败时返回空字符串 |
-
-**特性：**
-
-- **硬件指纹**: 基于显卡硬件信息生成指纹
-- **调试扩展**: 使用 `WEBGL_debug_renderer_info` 扩展获取详细信息
-- **厂商信息**: 包含显卡厂商和渲染器型号
-- **容错处理**: 不支持时返回空字符串
-
-**获取信息：**
-
-- **厂商**: 显卡厂商名称（如 NVIDIA、AMD、Intel）
-- **渲染器**: 显卡型号和驱动信息
-
-**使用示例：**
-
-```typescript
-import { fingerprintWebgl } from '@mt-kit/utils';
-
-// 生成 WebGL 指纹
-const webglFingerprint = fingerprintWebgl();
-console.log(webglFingerprint); // "NVIDIA Corporation~NVIDIA GeForce RTX 3080/PCIe/SSE2"
-
-// 检查支持情况
-if (!webglFingerprint) {
-  console.warn('WebGL 调试扩展不支持');
-}
-```
-
-**兼容性：**
-
-- **桌面浏览器**: Chrome、Firefox、Safari 支持较好
-- **移动浏览器**: 支持有限，很多移动浏览器禁用此扩展
-- **隐私模式**: 可能被禁用或返回受限信息
-
-**应用场景：**
-
-- 设备指纹生成
-- 硬件环境识别
-- 反爬虫检测
-- 用户设备分析
-
----
-
-### fingerprintAudio
-
-生成音频指纹，通过音频处理获取设备特定的音频特征。
-
-**参数：**
-
-无参数
-
-**返回值：**
-
-| 类型 | 说明 |
-|------|------|
-| `Promise<string>` | 音频处理数据的样本值字符串，失败时返回空字符串 |
-
-**特性：**
-
-- **音频处理**: 基于 Web Audio API 生成音频指纹
-- **离线渲染**: 使用 OfflineAudioContext 避免播放音频
-- **固定参数**: 使用固定的音频参数确保一致性
-- **样本采样**: 提取特定位置的音频样本值
-
-**音频配置：**
-
-- **采样率**: 44.1kHz
-- **声道数**: 单声道
-- **振荡器**: 三角波，1000Hz
-- **压缩器**: 固定参数配置
-
-**使用示例：**
-
-```typescript
-import { fingerprintAudio } from '@mt-kit/utils';
-
-// 生成音频指纹
-const audioFingerprint = await fingerprintAudio();
-console.log(audioFingerprint); // "0.1,0.2,0.3,0.4,0.5,..."
-
-// 错误处理
-try {
-  const fingerprint = await fingerprintAudio();
-  if (!fingerprint) {
-    console.warn('音频指纹生成失败');
-  }
-} catch (error) {
-  console.error('音频处理错误:', error);
-}
-```
-
-**技术原理：**
-
-1. 创建 OfflineAudioContext
-2. 生成三角波振荡器
-3. 通过动态压缩器处理音频
-4. 离线渲染音频数据
-5. 提取特定间隔的样本值
-
-**应用场景：**
-
-- 设备指纹生成
-- 音频环境识别
-- 反爬虫检测
-- 用户设备分析
-
----
-
 ### fingerprint
 
 生成综合设备指纹，整合多种指纹信息创建唯一标识符。
@@ -2354,3 +2127,236 @@ console.log(defaultFingerprint); // "m1n2o3p4q5r6..."
 - 建议结合其他身份验证方式
 - 遵守隐私法规，明确告知用户
 - 定期更新指纹算法以提高安全性
+
+<details>
+
+<summary>生成指纹的原理 API 列表</summary>
+
+#### fingerprintFonts
+
+生成字体指纹，通过检测可用字体列表创建设备指纹。
+
+**参数：**
+
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| `fonts` | `string[]` | ❌ | `COMMON_FONTS` | 要检测的字体列表 |
+
+**返回值：**
+
+| 类型 | 说明 |
+|------|------|
+| `string` | 可用字体列表的逗号分隔字符串 |
+
+**特性：**
+
+- **字体检测**: 基于 Canvas 2D 上下文检测字体可用性
+- **批量处理**: 支持检测多个字体
+- **容错机制**: 单个字体检测失败不影响整体结果
+- **确定性输出**: 相同字体列表产生相同结果
+
+**使用示例：**
+
+```typescript
+import { fingerprintFonts } from '@mt-kit/utils';
+
+// 检测默认字体列表
+const fontFingerprint = fingerprintFonts();
+console.log(fontFingerprint); // "Arial,Helvetica,Times New Roman,Georgia"
+
+// 检测自定义字体列表
+const customFonts = ['CustomFont', 'AnotherFont', 'Arial'];
+const customFingerprint = fingerprintFonts(customFonts);
+console.log(customFingerprint); // "Arial" (假设其他字体不可用)
+```
+
+**应用场景：**
+
+- 设备指纹生成
+- 字体兼容性检测
+- 浏览器环境识别
+- 反爬虫检测
+
+---
+
+#### fingerprintCanvas
+
+生成 Canvas 指纹，通过渲染特定内容获取设备特定的渲染特征。
+
+**参数：**
+
+无参数
+
+**返回值：**
+
+| 类型 | 说明 |
+|------|------|
+| `string` | Canvas 渲染数据的像素值字符串，失败时返回空字符串 |
+
+**特性：**
+
+- **渲染指纹**: 基于 Canvas 2D 渲染结果生成指纹
+- **固定内容**: 使用固定的文本和样式确保一致性
+- **像素采样**: 提取特定位置的像素值作为指纹
+- **容错处理**: 渲染失败时返回空字符串
+
+**渲染内容：**
+
+- 文本: 使用固定字体渲染特定文本
+- 图形: 绘制矩形和半透明文本
+- 采样: 提取前 100 个像素的 RGB 值
+
+**使用示例：**
+
+```typescript
+import { fingerprintCanvas } from '@mt-kit/utils';
+
+// 生成 Canvas 指纹
+const canvasFingerprint = fingerprintCanvas();
+console.log(canvasFingerprint); // "255,0,0,0,0,255,102,204,0,..."
+
+// 错误处理
+if (!canvasFingerprint) {
+  console.warn('Canvas 指纹生成失败');
+}
+```
+
+**技术原理：**
+
+1. 创建 200x50 像素的 Canvas
+2. 设置固定的字体和样式
+3. 渲染文本和图形内容
+4. 提取图像数据的 RGB 像素值
+5. 按固定间隔采样并拼接成字符串
+
+**应用场景：**
+
+- 设备指纹生成
+- 浏览器环境识别
+- 反爬虫检测
+- 用户行为分析
+
+---
+
+#### fingerprintWebgl
+
+生成 WebGL 指纹，通过获取显卡信息创建硬件指纹。
+
+**参数：**
+
+无参数
+
+**返回值：**
+
+| 类型 | 说明 |
+|------|------|
+| `string` | WebGL 厂商和渲染器信息，失败时返回空字符串 |
+
+**特性：**
+
+- **硬件指纹**: 基于显卡硬件信息生成指纹
+- **调试扩展**: 使用 `WEBGL_debug_renderer_info` 扩展获取详细信息
+- **厂商信息**: 包含显卡厂商和渲染器型号
+- **容错处理**: 不支持时返回空字符串
+
+**获取信息：**
+
+- **厂商**: 显卡厂商名称（如 NVIDIA、AMD、Intel）
+- **渲染器**: 显卡型号和驱动信息
+
+**使用示例：**
+
+```typescript
+import { fingerprintWebgl } from '@mt-kit/utils';
+
+// 生成 WebGL 指纹
+const webglFingerprint = fingerprintWebgl();
+console.log(webglFingerprint); // "NVIDIA Corporation~NVIDIA GeForce RTX 3080/PCIe/SSE2"
+
+// 检查支持情况
+if (!webglFingerprint) {
+  console.warn('WebGL 调试扩展不支持');
+}
+```
+
+**兼容性：**
+
+- **桌面浏览器**: Chrome、Firefox、Safari 支持较好
+- **移动浏览器**: 支持有限，很多移动浏览器禁用此扩展
+- **隐私模式**: 可能被禁用或返回受限信息
+
+**应用场景：**
+
+- 设备指纹生成
+- 硬件环境识别
+- 反爬虫检测
+- 用户设备分析
+
+---
+
+#### fingerprintAudio
+
+生成音频指纹，通过音频处理获取设备特定的音频特征。
+
+**参数：**
+
+无参数
+
+**返回值：**
+
+| 类型 | 说明 |
+|------|------|
+| `Promise<string>` | 音频处理数据的样本值字符串，失败时返回空字符串 |
+
+**特性：**
+
+- **音频处理**: 基于 Web Audio API 生成音频指纹
+- **离线渲染**: 使用 OfflineAudioContext 避免播放音频
+- **固定参数**: 使用固定的音频参数确保一致性
+- **样本采样**: 提取特定位置的音频样本值
+
+**音频配置：**
+
+- **采样率**: 44.1kHz
+- **声道数**: 单声道
+- **振荡器**: 三角波，1000Hz
+- **压缩器**: 固定参数配置
+
+**使用示例：**
+
+```typescript
+import { fingerprintAudio } from '@mt-kit/utils';
+
+// 生成音频指纹
+const audioFingerprint = await fingerprintAudio();
+console.log(audioFingerprint); // "0.1,0.2,0.3,0.4,0.5,..."
+
+// 错误处理
+try {
+  const fingerprint = await fingerprintAudio();
+  if (!fingerprint) {
+    console.warn('音频指纹生成失败');
+  }
+} catch (error) {
+  console.error('音频处理错误:', error);
+}
+```
+
+**技术原理：**
+
+1. 创建 OfflineAudioContext
+2. 生成三角波振荡器
+3. 通过动态压缩器处理音频
+4. 离线渲染音频数据
+5. 提取特定间隔的样本值
+
+**应用场景：**
+
+- 设备指纹生成
+- 音频环境识别
+- 反爬虫检测
+- 用户设备分析
+
+---
+
+</details>
