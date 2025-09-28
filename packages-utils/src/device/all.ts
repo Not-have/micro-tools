@@ -1,11 +1,7 @@
 import type {
-  IBrowser,
-  IFeatures,
-  II18n,
   ILocation,
-  IMemory,
-  IScreen,
-  ISensor
+  IDeviceAll,
+  IDeviceAllOptions
 } from "./types";
 
 import deviceBrowser from "./browser";
@@ -22,106 +18,6 @@ import devicePublicIp from "./public-ip";
 import deviceScreen from "./screen";
 import deviceSensor from "./sensor";
 import deviceUa from "./ua";
-
-/**
- * 设备信息汇总接口
- */
-export interface IDeviceAll {
-
-  // 基础信息
-  operatingSystem: string;
-  browser: IBrowser;
-  language: string;
-  onLine: boolean;
-  screen: IScreen;
-  cpuCores: number;
-  hardwareConcurrency: number;
-  memory: IMemory;
-  features: IFeatures;
-  sensor: ISensor;
-  i18n: II18n;
-  ua: string;
-
-  // 异步信息
-  location: ILocation;
-  publicIp: string;
-}
-
-/**
- * 设备信息获取选项
- */
-export interface IDeviceAllOptions {
-
-  /**
-   * 操作系统
-   */
-  operatingSystem?: boolean;
-
-  /**
-   * 浏览器
-   */
-  browser?: boolean;
-
-  /**
-   * 语言
-   */
-  language?: boolean;
-
-  /**
-   * 在线状态
-   */
-  onLine?: boolean;
-
-  /**
-   * 屏幕
-   */
-  screen?: boolean;
-
-  /**
-   * CPU核心数
-   */
-  cpuCores?: boolean;
-
-  /**
-   * 硬件并发数
-   */
-  hardwareConcurrency?: boolean;
-
-  /**
-   * 内存
-   */
-  memory?: boolean;
-
-  /**
-   * 设备特性
-   */
-  features?: boolean;
-
-  /**
-   * 传感器
-   */
-  sensor?: boolean;
-
-  /**
-   * 国际化
-   */
-  i18n?: boolean;
-
-  /**
-   * 位置
-   */
-  location?: boolean;
-
-  /**
-   * 公网IP
-   */
-  publicIp?: boolean;
-
-  /**
-   * UA
-   */
-  ua?: boolean;
-}
 
 /**
  * 🖥️ 获取所有设备信息

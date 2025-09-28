@@ -1,5 +1,6 @@
 import {
-  deviceAll
+  deviceAll,
+  DeviceAllOptions
 } from "../device";
 import flattenAndSort from "../flatten-and-sort";
 import sha256Base64 from "../sha256-base64";
@@ -7,6 +8,23 @@ import fingerprintAudio from "./fingerprint-audio";
 import fingerprintCanvas from "./fingerprint-canvas";
 import fingerprintFonts from "./fingerprint-fonts";
 import fingerprintWebgl from "./fingerprint-webgl";
+
+type TFingerprintOptions = Omit<DeviceAllOptions, "location" | "memory">;
+
+const defaultOptions: TFingerprintOptions = {
+  operatingSystem: true,
+  browser: true,
+  language: true,
+  onLine: true,
+  screen: false,
+  cpuCores: true,
+  hardwareConcurrency: true,
+  features: true,
+  sensor: true,
+  i18n: true,
+  ua: true,
+  publicIp: false
+};
 
 /**
  * 🫆
@@ -27,12 +45,11 @@ import fingerprintWebgl from "./fingerprint-webgl";
  *
  * 不同的语言
  */
-export default async function fingerprint(strength: boolean = true): Promise<string> {
+export default async function fingerprint(options: TFingerprintOptions = defaultOptions): Promise<string> {
   const device = await deviceAll({
     location: false,
-    publicIp: false,
     memory: false,
-    screen: strength
+    ...options
   });
 
   const canvas = fingerprintCanvas();
