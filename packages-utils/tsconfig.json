@@ -2,11 +2,15 @@
   "compilerOptions": {
     "target": "es2019",               // 输出 ES6 模块
     "lib": ["es2021", "dom"],
+    "baseUrl": "./",
     "rootDir": "./src",            // TypeScript 源代码目录
 
     "module": "ES6",               // ES6 ECMAScript 模块 / CommonJS CommonJS 模块
     // 解决 TS2792: Cannot find module 'undici-types'. Did you mean to set the 'moduleResolution' option to 'nodenext', or to add aliases to the 'paths' option? 这个报错
     "moduleResolution": "node",
+    "paths": {
+      "#/*": ["./src/*"]
+    },
     "strict": true,                // 启用所有严格类型检查选项
     "noImplicitThis": false,       // 取消 TypeScript 中 this 的隐式 any 类型报错
     "noUnusedLocals": true,
