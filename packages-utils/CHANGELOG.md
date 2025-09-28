@@ -1,5 +1,11 @@
 # @mt-kit/utils
 
+## 1.2.2
+
+### Patch Changes
+
+- 新增类型导出，及 fingerprint 参数传入
+
 ## 1.2.1
 
 ### Patch Changes
