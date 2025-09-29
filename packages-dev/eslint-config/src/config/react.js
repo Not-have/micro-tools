@@ -212,9 +212,9 @@ export default [
       "react/jsx-key": "off",
 
       // 缩进
-      "react/jsx-indent": [
-        "error", 2
-      ],
+      // "react/jsx-indent": [
+      //   "error", 2
+      // ],
 
       // "react/jsx-indent-props": ["error", 8],
       // "react/jsx-max-props-per-line": ["error", { "maximum": 3 }],
