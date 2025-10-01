@@ -23,7 +23,8 @@
     "clear": "rm -fr node_modules && rm -fr dist",
     "build": "rm -fr dist && unbuild",
     "stub": "rm -fr dist && unbuild --stub",
-    "prepublishOnly": "pnpm run build"
+    "prepublishOnly": "pnpm run build",
+    "test": "echo \"Error: no test aaaaaaa\""
   },
   "files": [],
   "bin": {
@@ -55,6 +56,7 @@
     "@storybook/test": "catalog:",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
+    "execa": "catalog:",
     "find-up": "catalog:",
     "glob": "catalog:",
     "react": "catalog:",
