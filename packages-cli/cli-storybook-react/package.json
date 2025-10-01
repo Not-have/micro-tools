@@ -55,6 +55,8 @@
     "@storybook/test": "catalog:",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
+    "find-up": "catalog:",
+    "glob": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
     "react-router-dom": "catalog:",
