@@ -28,6 +28,7 @@ export default async function run(options: ICommand): Promise<void> {
   const {
     command = [
       "start",
+      "dev",
       "storybook"
     ]
   } = options;
