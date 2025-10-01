@@ -16,13 +16,13 @@
   "author": "Li Yong",
   "scripts": {
     "clear": "rm -fr node_modules && rm -fr dist",
-    "start": "mt-storybook-react"
+    "start": "mt-cli-storybook-react"
   },
   "dependencies": {
     "react-dom": "catalog:"
   },
   "devDependencies": {
-    "@mt-kit/storybook-react": "workspace:^",
+    "@mt-kit/cli-storybook-react": "workspace:^",
     "@mt-kit/ts-config": "workspace:^",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
