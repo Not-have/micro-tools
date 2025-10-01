@@ -1,0 +1,5 @@
+{
+  "extends": "@mt-kit/ts-config/node.json",
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
+}

@@ -1,0 +1,36 @@
+{
+  "name": "@mt-kit/run",
+  "version": "1.0.0",
+  "description": "Run command",
+  "keywords": [],
+  "homepage": "https://not-have.github.io/micro-tools/",
+  "bugs": {
+    "url": "https://github.com/Not-have/micro-tools/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Not-have/micro-tools.git"
+  },
+  "license": "MIT",
+  "author": "Li Yong",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rm -rf dist",
+    "build": "pnpm clean && unbuild",
+    "stub": "pnpm clean && unbuild --stub"
+  },
+  "bin": {
+    "run": "bin/index.mjs"
+  },
+  "dependencies": {
+    "cac": "^6.7.14",
+    "find-up": "^8.0.0",
+    "glob": "^11.0.3",
+    "typescript": "catalog:"
+  },
+  "devDependencies": {
+    "@mt-kit/ts-config": "workspace:^",
+    "@types/node": "catalog:",
+    "unbuild": "catalog:"
+  }
+}
