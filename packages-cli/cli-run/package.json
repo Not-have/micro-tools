@@ -1,7 +1,7 @@
 {
   "name": "@mt-kit/run",
-  "version": "1.0.0",
-  "description": "Run command",
+  "version": "1.0.1",
+  "description": "一个用于在 monorepo 中智能运行脚本的 CLI 工具",
   "keywords": [
     "run",
     "mt-run"
