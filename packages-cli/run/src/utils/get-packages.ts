@@ -1,7 +1,4 @@
 import {
-  findUpSync
-} from "find-up";
-import {
   readFileSync,
   statSync
 } from "fs";
@@ -9,22 +6,10 @@ import {
   glob
 } from "glob";
 import {
-  dirname,
   join
 } from "path";
 
-/**
- * 查找大仓的根目录
- * @param cwd
- */
-export function findMonorepoRoot(cwd: string = process.cwd()): string {
-  const lockFile = findUpSync("package.json", {
-    cwd,
-    type: "file"
-  });
-
-  return dirname(lockFile || "");
-}
+import _root from "./root";
 
 /**
  * 解析 pnpm-workspace.yaml 文件
@@ -119,10 +104,10 @@ async function getPackagesByPattern(root: string, pattern: string): Promise<stri
 }
 
 /**
- * 获取大仓的所有包
+ * @deprecated 获取大仓的所有包
  */
-export async function getPackages(): Promise<string[]> {
-  const root = findMonorepoRoot();
+export default async function getPackages(): Promise<string[]> {
+  const root = _root();
 
   if (!root) {
     return [];
