@@ -1,0 +1,61 @@
+{
+  "name": "@mt-kit/storybook-react",
+  "version": "1.0.0",
+  "description": "一个用于创建 React Storybook 项目的脚手架",
+  "keywords": [
+    "react-storybook",
+    "storybook"
+  ],
+  "homepage": "https://not-have.github.io/micro-tools/",
+  "bugs": {
+    "url": "https://github.com/Not-have/micro-tools/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Not-have/micro-tools"
+  },
+  "license": "ISC",
+  "author": "Li Yong",
+  "type": "module",
+  "scripts": {
+    "storybook": "storybook dev",
+    "build-storybook": "storybook build",
+    "clear": "rm -fr node_modules && rm -fr dist",
+    "build": "rm -fr dist && unbuild",
+    "prepublishOnly": "pnpm run build"
+  },
+  "files": [],
+  "bin": {
+    "mt-storybook-react": "./dist/index.mjs"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "peerDependencies": {
+    "react": ">=19.0.0",
+    "react-dom": ">=19.0.0",
+    "react-router-dom": ">=7.0.0"
+  },
+  "dependencies": {
+    "@storybook/addon-essentials": "catalog:",
+    "@storybook/addon-interactions": "catalog:",
+    "@storybook/addon-onboarding": "catalog:",
+    "@storybook/blocks": "catalog:",
+    "@storybook/react": "catalog:",
+    "@storybook/react-vite": "catalog:",
+    "@storybook/test": "catalog:",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "react-router-dom": "catalog:",
+    "storybook": "catalog:"
+  },
+  "devDependencies": {
+    "@mt-kit/ts-config": "workspace:^",
+    "@types/node": "catalog:",
+    "typescript": "catalog:",
+    "unbuild": "catalog:"
+  }
+}

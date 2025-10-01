@@ -1,0 +1,12 @@
+{
+  "extends": [
+    "@mt-kit/ts-config/node.json",
+    "@mt-kit/ts-config/react.json"
+  ],
+  "include": [
+    "src",
+    "src/**/*.ts",
+    "stories/**/*.ts",
+    "stories/**/*.tsx"
+  ]
+}
