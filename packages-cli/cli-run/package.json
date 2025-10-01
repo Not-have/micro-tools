@@ -19,7 +19,7 @@
     "stub": "pnpm clean && unbuild --stub"
   },
   "bin": {
-    "run": "bin/index.mjs"
+    "mt-run": "bin/index.mjs"
   },
   "dependencies": {
     "@clack/prompts": "catalog:",

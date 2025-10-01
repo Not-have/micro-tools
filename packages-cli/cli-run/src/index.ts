@@ -8,7 +8,7 @@ import {
 import run from "./run";
 
 try {
-  const cli = cac("run");
+  const cli = cac("mt-run");
 
   cli.command("[script]").
       usage("Run script.").
@@ -21,12 +21,12 @@ try {
       });
 
   cli.on("command:*", () => {
-    console.error("Invalid command!");
+    console.error("无效的命令!");
 
     exit(1);
   });
 
-  cli.usage("run");
+  cli.usage("mt-run");
   cli.help();
   cli.parse();
 } catch (error) {

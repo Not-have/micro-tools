@@ -72,7 +72,7 @@ export default async function run(options: ICommand): Promise<void> {
   }
 
   if (!selectPkg) {
-    console.error("No app found");
+    console.error("未找到需要执行的包");
     exit(1);
   }
 
