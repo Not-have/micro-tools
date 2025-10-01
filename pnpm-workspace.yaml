@@ -4,11 +4,13 @@ packages:
 catalog:
   "@ant-design/v5-patch-for-react-19": ^1.0.3
   "@changesets/cli": ^2.29.5
+  "@clack/prompts": ^0.11.0
   "@commitlint/cli": ^19.8.0
   "@commitlint/config-conventional": ^19.8.0
   "@emotion/css": ^11.13.5
   "@eslint/js": ^9.24.0
   "@faker-js/faker": ^9.7.0
+  "@manypkg/get-packages": ^3.1.0
   "@storybook/addon-essentials": ^8.6.12
   "@storybook/addon-interactions": ^8.6.12
   "@storybook/addon-onboarding": ^8.6.12
@@ -37,6 +39,7 @@ catalog:
   axios: ^1.9.0
   axios-mock-adapter: ^2.1.0
   browserslist: ^4.24.4
+  cac: ^6.7.14
   commitizen: ^4.3.1
   commitlint: ^19.8.0
   cspell: ^8.18.1
@@ -61,7 +64,10 @@ catalog:
   eslint-plugin-unicorn: ^58.0.0
   eslint-plugin-unused-imports: ^4.1.4
   eslint-plugin-vue: ^10.0.0
+  execa: ^9.6.0
+  find-up: ^8.0.0
   fork-ts-checker-webpack-plugin: ^9.0.3
+  glob: ^11.0.3
   globals: ^16.0.0
   h3: ^1.15.3
   husky: ^9.1.7

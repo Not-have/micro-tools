@@ -23,12 +23,12 @@
     "run": "bin/index.mjs"
   },
   "dependencies": {
-    "@clack/prompts": "^0.11.0",
-    "@manypkg/get-packages": "^3.1.0",
-    "cac": "^6.7.14",
-    "execa": "^9.6.0",
-    "find-up": "^8.0.0",
-    "glob": "^11.0.3",
+    "@clack/prompts": "catalog:",
+    "@manypkg/get-packages": "catalog:",
+    "cac": "catalog:",
+    "execa": "catalog:",
+    "find-up": "catalog:",
+    "glob": "catalog:",
     "typescript": "catalog:"
   },
   "devDependencies": {
