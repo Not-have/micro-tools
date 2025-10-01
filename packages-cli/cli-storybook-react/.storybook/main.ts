@@ -4,8 +4,8 @@ import {
 
 const config: StorybookConfig = {
   "stories": [
-    "/Users/liyong/Desktop/code/micro-tools/packages-demo/demo-storybook-react/stories/**/*.mdx",
-    "/Users/liyong/Desktop/code/micro-tools/packages-demo/demo-storybook-react/stories/**/*.stories.@(js|jsx|mjs|ts|tsx)"
+    process.env.STORYBOOK_STORIES_MDX_PATH || "../stories/**/*.mdx",
+    process.env.STORYBOOK_STORIES_PATH || "../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)"
   ],
   "addons": [
     {
