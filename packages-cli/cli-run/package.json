@@ -2,7 +2,10 @@
   "name": "@mt-kit/run",
   "version": "1.0.0",
   "description": "Run command",
-  "keywords": [],
+  "keywords": [
+    "run",
+    "mt-run"
+  ],
   "homepage": "https://not-have.github.io/micro-tools/",
   "bugs": {
     "url": "https://github.com/Not-have/micro-tools/issues"
@@ -16,7 +19,8 @@
   "scripts": {
     "clean": "rm -rf dist",
     "build": "pnpm clean && unbuild",
-    "stub": "pnpm clean && unbuild --stub"
+    "stub": "pnpm clean && unbuild --stub",
+    "prepublishOnly": "pnpm build"
   },
   "files": [
     "README.md",
@@ -33,6 +37,10 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs"
     }
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   },
   "dependencies": {
     "@clack/prompts": "catalog:",

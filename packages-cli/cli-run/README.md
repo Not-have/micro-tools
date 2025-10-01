@@ -13,13 +13,13 @@
 ## 安装
 
 ```bash
-# 全局安装
-npm install -g @mt-kit/run
+# 使用 npm
+npm install -D @mt-kit/run
 
-# 或使用 pnpm
-pnpm add -g @mt-kit/run
+# 使用 yarn
+yarn add -D @mt-kit/run
 
-# 或在项目中安装
+# 使用 pnpm
 pnpm add -D @mt-kit/run
 ```
 
