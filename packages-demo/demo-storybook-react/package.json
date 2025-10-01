@@ -1,0 +1,22 @@
+{
+  "name": "demo-storybook-react",
+  "preview": true,
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "homepage": "https://not-have.github.io/micro-tools/",
+  "bugs": {
+    "url": "https://github.com/Not-have/micro-tools/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-demo/demo-storybook-react"
+  },
+  "license": "ISC",
+  "author": "Li Yong",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "main": "index.js",
+  "packageManager": "pnpm@10.10.0"
+}

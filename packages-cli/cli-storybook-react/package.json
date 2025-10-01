@@ -26,7 +26,7 @@
   },
   "files": [],
   "bin": {
-    "mt-storybook-react": "./dist/index.mjs"
+    "mt-storybook-react": "./bin/index.mjs"
   },
   "publishConfig": {
     "access": "public",
