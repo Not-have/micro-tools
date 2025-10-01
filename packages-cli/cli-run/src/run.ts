@@ -56,7 +56,7 @@ export default async function run(options: ICommand): Promise<void> {
 
   if (selectPkgs.length > 1) {
     selectPkg = await select<string>({
-      message: `请选择需要执行的包 ${commands.join(", ")}:`,
+      message: "请选择需要执行的包:",
       options: selectPkgs.map(item => ({
         label: `${item?.packageJson.name} (${(item?.packageJson as unknown as Record<string, never>)?.description ?? ""}) [${item.type}]`,
         value: item?.packageJson.name

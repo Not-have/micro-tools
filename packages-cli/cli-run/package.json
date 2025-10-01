@@ -18,8 +18,21 @@
     "build": "pnpm clean && unbuild",
     "stub": "pnpm clean && unbuild --stub"
   },
+  "files": [
+    "README.md",
+    "bin",
+    "dist"
+  ],
   "bin": {
     "mt-run": "bin/index.mjs"
+  },
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs"
+    }
   },
   "dependencies": {
     "@clack/prompts": "catalog:",
