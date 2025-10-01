@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Demo(): React.ReactElement {
+export default function Index(): React.ReactElement {
   return (
     <div style={{
       padding: "20px",

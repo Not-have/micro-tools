@@ -23,10 +23,8 @@
     "clear": "rm -fr node_modules && rm -fr dist",
     "build": "rm -fr dist && unbuild",
     "stub": "rm -fr dist && unbuild --stub",
-    "prepublishOnly": "pnpm run build",
-    "test": "echo \"Error: no test aaaaaaa\""
+    "prepublishOnly": "pnpm run build"
   },
-  "files": [],
   "bin": {
     "mt-storybook-react": "./bin/index.mjs"
   },
