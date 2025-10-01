@@ -11,7 +11,7 @@ interface ICommand {
   command: string;
 }
 
-export default async function run(options: ICommand) {
+export default async function run(options: ICommand): Promise<void> {
   const {
     command = "start"
   } = options;
