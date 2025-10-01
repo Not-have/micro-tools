@@ -1,4 +1,10 @@
-# @mt-kit/run
+# @mt-kit/cli-run
+
+## 1.2.0
+
+### Major Changes
+
+- 修改命名
 
 ## 1.1.1
 

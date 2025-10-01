@@ -1,10 +1,10 @@
 {
-  "name": "@mt-kit/run",
-  "version": "1.1.2",
+  "name": "@mt-kit/cli-run",
+  "version": "1.2.0",
   "description": "一个用于在 monorepo 中智能运行脚本的 CLI 工具",
   "keywords": [
     "run",
-    "mt-run"
+    "mt-cli-run"
   ],
   "homepage": "https://not-have.github.io/micro-tools/",
   "bugs": {
@@ -28,7 +28,7 @@
     "dist"
   ],
   "bin": {
-    "mt-run": "bin/index.mjs"
+    "mt-cli-run": "bin/index.mjs"
   },
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",

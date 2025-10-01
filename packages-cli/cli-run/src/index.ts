@@ -8,7 +8,7 @@ import {
 import run from "./run";
 
 try {
-  const cli = cac("mt-run");
+  const cli = cac("mt-cli-run");
 
   cli.command("[script]").
       usage("Run script.").
@@ -26,7 +26,7 @@ try {
     exit(1);
   });
 
-  cli.usage("mt-run");
+  cli.usage("mt-cli-run");
   cli.help();
   cli.parse();
 } catch (error) {
