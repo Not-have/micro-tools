@@ -49,7 +49,6 @@
     "start": "mt-run"
   },
   "devDependencies": {
-    "@changesets/changelog-git": "^0.2.1",
     "@changesets/cli": "catalog:",
     "@commitlint/cli": "catalog:",
     "@commitlint/config-conventional": "catalog:",
