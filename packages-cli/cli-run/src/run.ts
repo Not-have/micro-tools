@@ -26,14 +26,10 @@ interface ICommand {
 
 export default async function run(options: ICommand): Promise<void> {
   const {
-    command = [
-      "start",
-      "dev",
-      "storybook"
-    ]
+    command = "start,dev,storybook"
   } = options;
 
-  if(!command || (Array.isArray(command) && command.length === 0)) {
+  if(!command) {
     exit(1);
   }
 
@@ -57,7 +53,7 @@ export default async function run(options: ICommand): Promise<void> {
 
   if (selectPkgs.length > 1) {
     selectPkg = await select<string>({
-      message: "请选择需要执行的包:",
+      message: "请选择需要执行的包:（⬇️ 向下选择，⬆️ 向上选择，⏎ 确认）",
       options: selectPkgs.map(item => ({
         label: `${item?.packageJson.name} (${(item?.packageJson as unknown as Record<string, never>)?.description ?? ""}) [${item?.packageJson?.version}]`,
         value: item?.packageJson.name
