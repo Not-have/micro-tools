@@ -26,7 +26,7 @@ async function main(): Promise<void> {
     const cliDir = dirname(fileURLToPath(import.meta.url));
 
     // 运行 CLI 工具自己的 storybook 脚本，并传递环境变量
-    await execa("pnpm", [
+    const childProcess = execa("pnpm", [
       "run",
       "storybook"
     ], {
@@ -38,6 +38,17 @@ async function main(): Promise<void> {
         STORYBOOK_STORIES_MDX_PATH: `${rootDir}/stories/**/*.mdx`
       }
     });
+
+    // 处理进程退出信号
+    const cleanup = () => {
+      console.log("\n🛑 正在停止 Storybook...");
+      childProcess.kill("SIGINT");
+    };
+
+    process.on("SIGINT", cleanup);
+    process.on("SIGTERM", cleanup);
+
+    await childProcess;
 
   } catch (error) {
     console.error("❌ 运行失败:", error);
