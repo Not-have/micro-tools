@@ -31,11 +31,14 @@ pnpm add -D @mt-kit/run
 # 运行单个命令
 mt-run start
 
-# 运行多个命令（逗号分隔）
+# 运行多个命令（逗号分隔）（推荐）
 mt-run start,storybook
 
 # 运行多个命令（JSON 数组格式）
 mt-run '["start", "storybook"]'
+
+# 打包
+mt-run build
 ```
 
 ### 指定目录范围
