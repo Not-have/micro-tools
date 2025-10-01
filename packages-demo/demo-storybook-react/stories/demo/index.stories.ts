@@ -1,7 +1,7 @@
 import type {
   Meta,
   StoryObj
-} from "@mt-kit/storybook-react";
+} from "@mt-kit/cli-storybook-react";
 
 import Index from "./index";
 
