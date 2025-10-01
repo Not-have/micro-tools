@@ -20,7 +20,8 @@ import {
   menuConf,
   menuReact,
   menuVue,
-  menuFetch
+  menuFetch,
+  menuCli
 } from "./menu";
 
 // https://vitepress.dev/reference/site-config
@@ -50,15 +51,18 @@ const config = async (): Promise<UserConfig<DefaultTheme.Config>> => {
 
   const fetch = await menuFetch();
 
-  if(dev && utils && css && components && ts && vite && conf && react && vue && fetch) {
-    nav.unshift(dev?.nav);
-    nav.push(utils?.nav, css?.nav, components?.nav, ts?.nav, vite?.nav, conf?.nav, react?.nav, vue?.nav, fetch?.nav);
+  const cli = await menuCli();
 
-    if (dev.nav.activeMatch && ts.nav.activeMatch && react.nav.activeMatch && vue.nav.activeMatch) {
+  if(dev && utils && css && components && ts && vite && conf && react && vue && fetch && cli) {
+    nav.unshift(dev?.nav);
+    nav.push(utils?.nav, css?.nav, components?.nav, ts?.nav, vite?.nav, conf?.nav, react?.nav, vue?.nav, fetch?.nav, cli?.nav);
+
+    if (dev.nav.activeMatch && ts.nav.activeMatch && react.nav.activeMatch && vue.nav.activeMatch && cli.nav.activeMatch) {
       sidebar[dev.nav.activeMatch] = dev?.menu as DefaultTheme.SidebarItem[];
       sidebar[ts.nav.activeMatch] = ts?.menu as DefaultTheme.SidebarItem[];
       sidebar[react.nav.activeMatch] = react?.menu as DefaultTheme.SidebarItem[];
       sidebar[vue.nav.activeMatch] = vue?.menu as DefaultTheme.SidebarItem[];
+      sidebar[cli.nav.activeMatch] = cli?.menu as DefaultTheme.SidebarItem[];
     }
   }
 

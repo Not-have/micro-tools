@@ -8,7 +8,8 @@ const EOutDir = {
   CONF: "_conf-md",
   REACT: "_react-md",
   VUE: "_vue-md",
-  FETCH: "_fetch-md"
+  FETCH: "_fetch-md",
+  CLI: "_cli-md"
 };
 
 const EEntry = {
@@ -22,7 +23,8 @@ const EEntry = {
   CONF: "packages-conf",
   REACT: "packages-react",
   VUE: "packages-vue",
-  FETCH: "packages-fetch"
+  FETCH: "packages-fetch",
+  CLI: "packages-cli"
 };
 
 export{
