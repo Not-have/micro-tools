@@ -6,7 +6,7 @@ import {
 } from "@storybook/react-vite";
 
 interface IConfig {
-  config: StorybookConfig;
+  config: Partial<StorybookConfig>;
   preview: Preview;
 }
 
