@@ -15,8 +15,17 @@
   "license": "ISC",
   "author": "Li Yong",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clear": "rm -fr node_modules && rm -fr dist",
+    "start": "mt-storybook-react"
   },
-  "main": "index.js",
-  "packageManager": "pnpm@10.10.0"
+  "dependencies": {
+    "react-dom": "catalog:"
+  },
+  "devDependencies": {
+    "@mt-kit/storybook-react": "workspace:^",
+    "@mt-kit/ts-config": "workspace:^",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "react": "catalog:"
+  }
 }
