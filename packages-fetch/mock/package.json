@@ -1,11 +1,12 @@
 {
   "name": "mock",
   "version": "1.0.0",
-  "description": "",
+  "description": "Mock 数据服务",
   "private": true,
   "keywords": [
     "mock"
   ],
+  "homepage": "https://not-have.github.io/micro-tools/",
   "bugs": {
     "url": "https://github.com/Not-have/micro-tools/issues"
   },

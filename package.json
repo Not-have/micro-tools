@@ -46,7 +46,7 @@
     "prepare": "husky",
     "commit": "cz",
     "ci:publish": "pnpm publish -r",
-    "start": "mt-run start,storybook --root ./packages-react"
+    "start": "mt-run"
   },
   "devDependencies": {
     "@changesets/cli": "catalog:",
