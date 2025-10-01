@@ -46,15 +46,15 @@
     "prepare": "husky",
     "commit": "cz",
     "publish:ci": "npx changeset publish && git add . && git commit -m 'chore: publish packages [skip ci]' && git push",
-    "start": "mt-run"
+    "start": "mt-cli-run"
   },
   "devDependencies": {
     "@changesets/cli": "catalog:",
     "@commitlint/cli": "catalog:",
     "@commitlint/config-conventional": "catalog:",
+    "@mt-kit/cli-run": "workspace:^",
     "@mt-kit/eslint-config": "workspace:^",
     "@mt-kit/prettier-config": "workspace:^",
-    "@mt-kit/run": "workspace:^",
     "@mt-kit/stylelint-config": "workspace:^",
     "browserslist": "catalog:",
     "commitizen": "catalog:",

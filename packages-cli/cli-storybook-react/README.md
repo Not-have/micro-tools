@@ -1,4 +1,4 @@
-# @mt-kit/storybook-react
+# @mt-kit/cli-storybook-react
 
 🚀 一个用于快速启动 React Storybook 项目的 CLI 工具，支持多项目同时运行，零配置开箱即用。
 
@@ -13,13 +13,13 @@
 
 ```bash
 # 在项目根目录安装
-pnpm add @mt-kit/storybook-react
+pnpm add @mt-kit/cli-storybook-react
 
 # 或使用 npm
-npm install @mt-kit/storybook-react
+npm install @mt-kit/cli-storybook-react
 
 # 或使用 yarn
-yarn add @mt-kit/storybook-react
+yarn add @mt-kit/cli-storybook-react
 ```
 
 ## 🚀 快速开始
@@ -28,7 +28,7 @@ yarn add @mt-kit/storybook-react
 
 ```bash
 # 安装依赖
-pnpm add @mt-kit/storybook-react
+pnpm add @mt-kit/cli-storybook-react
 
 # 在 package.json 中添加脚本
 ```
@@ -60,7 +60,7 @@ index.stories.tsx
 import type {
   Meta,
   StoryObj
-} from "@mt-kit/storybook-react";
+} from "@mt-kit/cli-storybook-react";
 
 import Index from "./index";
 

@@ -1,4 +1,4 @@
-# @mt-kit/run
+# @mt-kit/cli-run
 
 一个用于在 monorepo 中智能运行脚本的 CLI 工具。
 
@@ -14,13 +14,13 @@
 
 ```bash
 # 使用 npm
-npm install -D @mt-kit/run
+npm install -D @mt-kit/cli-run
 
 # 使用 yarn
-yarn add -D @mt-kit/run
+yarn add -D @mt-kit/cli-run
 
 # 使用 pnpm
-pnpm add -D @mt-kit/run
+pnpm add -D @mt-kit/cli-run
 ```
 
 ## 使用方法
