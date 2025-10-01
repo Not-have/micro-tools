@@ -10,11 +10,15 @@ import run from "./run";
 try {
   const cli = cac("run");
 
-  cli.command("[script]").usage("Run script.").action(async (command: string) => {
-    await run({
-      command
-    });
-  });
+  cli.command("[script]").
+      usage("Run script.").
+      option("--root <path>", "指定 monorepo 根目录").
+      action(async (command: string, options: { root?: string }) => {
+        await run({
+          command,
+          root: options.root
+        });
+      });
 
   cli.on("command:*", () => {
     console.error("Invalid command!");

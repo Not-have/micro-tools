@@ -46,7 +46,7 @@
     "prepare": "husky",
     "commit": "cz",
     "ci:publish": "pnpm publish -r",
-    "start": "run start,storybook"
+    "start": "run start,storybook --root ./packages-vue"
   },
   "devDependencies": {
     "@changesets/cli": "catalog:",

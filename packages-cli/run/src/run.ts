@@ -11,13 +11,17 @@ import {
 } from "process";
 
 import {
-  root,
   getPackagesSync,
   parseCommands
 } from "./utils";
 
 interface ICommand {
   command: string;
+
+  /**
+   * 根目录
+   */
+  root?: string;
 }
 
 export default async function run(options: ICommand): Promise<void> {
@@ -32,25 +36,29 @@ export default async function run(options: ICommand): Promise<void> {
     exit(1);
   }
 
-  const lockFile = root();
-
-  const packages = await getPackagesSync();
+  const packages = await getPackagesSync(options.root);
 
   // 解析命令参数
   const commands = parseCommands(command);
 
-  const selectPkgs = packages.filter(pkg => commands.some((cmd => (pkg?.packageJson as unknown as Record<string, never>)?.scripts?.[cmd])));
+  const selectPkgs = packages.
+      filter(pkg => commands.some((cmd => (pkg?.packageJson as unknown as Record<string, never>)?.scripts?.[cmd]))).
+      map(pkg => {
+        const matchedCommand = commands.find(cmd => (pkg?.packageJson as unknown as Record<string, never>)?.scripts?.[cmd]);
 
-  // eslint-disable-next-line no-console
-  console.log(lockFile || "", selectPkgs);
+        return {
+          ...pkg,
+          type: matchedCommand // 使用第一个匹配的命令作为类型
+        };
+      });
 
   let selectPkg: string | symbol;
 
   if (selectPkgs.length > 1) {
     selectPkg = await select<string>({
-      message: `请选择需要执行的包 ${command}:`,
+      message: `请选择需要执行的包 ${commands.join(", ")}:`,
       options: selectPkgs.map(item => ({
-        label: `${item?.packageJson.name} (${(item?.packageJson as unknown as Record<string, never>)?.description ?? ""})`,
+        label: `${item?.packageJson.name} (${(item?.packageJson as unknown as Record<string, never>)?.description ?? ""}) [${item.type}]`,
         value: item?.packageJson.name
       }))
     });
@@ -68,7 +76,12 @@ export default async function run(options: ICommand): Promise<void> {
     exit(1);
   }
 
-  execaCommand(`pnpm --filter=${selectPkg} run ${command}`, {
+  // 找到选中的包并获取其类型
+  const selectedPkg = selectPkgs.find(pkg => pkg?.packageJson?.name === selectPkg);
+
+  const scriptType = selectedPkg?.type || commands[0];
+
+  execaCommand(`pnpm --filter=${selectPkg} run ${scriptType}`, {
     stdio: "inherit"
   });
 }
