@@ -30,11 +30,11 @@
   "bin": {
     "mt-storybook-react": "./bin/index.mjs"
   },
-  "types": "dist/types/index.d.ts",
+  "types": "dist/conf/index.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/types/index.d.ts",
-      "import": "./dist/types/index.mjs"
+      "types": "./dist/conf/index.d.ts",
+      "import": "./dist/conf/index.mjs"
     }
   },
   "publishConfig": {
