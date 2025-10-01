@@ -46,7 +46,7 @@
     "prepare": "husky",
     "commit": "cz",
     "ci:publish": "pnpm publish -r",
-    "start": "run"
+    "start": "run start,storybook"
   },
   "devDependencies": {
     "@changesets/cli": "catalog:",
