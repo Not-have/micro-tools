@@ -48,9 +48,44 @@ pnpm add @mt-kit/storybook-react
 ```text
 your-project/
 ├── stories/
-│   ├── Button.stories.tsx
-│   └── Header.stories.tsx
+│   ├── demo/
+│   │   └── index.stories.tsx
+│       └── index.tsx
 └── package.json
+```
+
+index.stories.tsx
+
+```tsx
+import type {
+  Meta,
+  StoryObj
+} from "@mt-kit/storybook-react";
+
+import Index from "./index";
+
+const meta = {
+  title: "Demo",
+  component: Index
+} satisfies Meta<typeof Index>;
+
+export default meta;
+
+type TStory = StoryObj<typeof meta>;
+
+export const Demo: TStory = {};
+```
+
+index.tsx
+
+```tsx
+import React from "react";
+
+export default function Demo(): React.ReactElement {
+  return <div>
+    <p>Demo</p>
+  </div>;
+}
 ```
 
 ### 3. 启动 Storybook
