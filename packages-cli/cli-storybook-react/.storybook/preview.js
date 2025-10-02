@@ -2,6 +2,23 @@
 //   Preview
 // } from "@storybook/react";
 
+const kindleViewports = {
+  kindleFireHD01: {
+    name: "Desktop 1200x1080",
+    styles: {
+      width: "1200px",
+      height: "1080px"
+    }
+  },
+  kindleFireHD02: {
+    name: "Desktop 1920x1080",
+    styles: {
+      width: "1920px",
+      height: "1080px"
+    }
+  }
+};
+
 // const preview: Preview = {
 const preview = {
   parameters: {
@@ -18,6 +35,12 @@ const preview = {
     // viewport: {
     //   defaultViewport: "responsive"
     // },
+    viewport: {
+      defaultViewport: "kindleFireHD01",
+      viewports: {
+        ...kindleViewports
+      }
+    },
 
     // https://storybook.org.cn/docs/configure/story-layout
     layout: "padded",
