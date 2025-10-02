@@ -1,5 +1,11 @@
 # @mt-kit/cli-storybook-react
 
+## 1.3.0
+
+### Minor Changes
+
+- 修改文件导出
+
 ## 1.2.1
 
 ### Patch Changes
