@@ -1,5 +1,11 @@
 # @mt-kit/cli-storybook-react
 
+## 1.8.2
+
+### Patch Changes
+
+- 只传必须文件
+
 ## 1.8.1
 
 ### Patch Changes

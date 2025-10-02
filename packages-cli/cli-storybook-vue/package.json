@@ -1,6 +1,6 @@
 {
   "name": "@mt-kit/cli-storybook-vue",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "一个用于创建 Vue Storybook 项目的脚手架",
   "deprecated": "此包已废弃，待优化后重新发布，期待未来 2.0 版本",
   "keywords": [
@@ -27,6 +27,12 @@
     "stub": "pnpm run clear:build && unbuild --stub",
     "prepublishOnly": "pnpm build"
   },
+  "files": [
+    ".storybook",
+    "README.md",
+    "bin",
+    "dist"
+  ],
   "bin": {
     "mt-cli-storybook-vue": "./bin/index.mjs"
   },

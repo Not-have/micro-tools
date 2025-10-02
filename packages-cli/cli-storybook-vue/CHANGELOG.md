@@ -1,5 +1,11 @@
 # @mt-kit/cli-storybook-vue
 
+## 1.4.2
+
+### Patch Changes
+
+- 只传必须文件
+
 ## 1.4.1
 
 ### Patch Changes

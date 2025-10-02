@@ -1,6 +1,6 @@
 {
   "name": "@mt-kit/cli-storybook-react",
-  "version": "1.8.1",
+  "version": "1.8.2",
   "description": "一个用于创建 React Storybook 项目的脚手架",
   "deprecated": "此包已废弃，待优化后重新发布，期待未来 2.0 版本",
   "keywords": [
@@ -26,6 +26,12 @@
     "stub": "rm -fr dist && unbuild --stub",
     "prepublishOnly": "pnpm run build"
   },
+  "files": [
+    ".storybook",
+    "README.md",
+    "bin",
+    "dist"
+  ],
   "bin": {
     "mt-cli-storybook-react": "./bin/index.mjs"
   },
