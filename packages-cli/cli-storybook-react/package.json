@@ -1,6 +1,6 @@
 {
   "name": "@mt-kit/cli-storybook-react",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "description": "一个用于创建 React Storybook 项目的脚手架",
   "keywords": [
     "react-storybook",
@@ -30,6 +30,9 @@
   },
   "types": "dist/types/index.d.ts",
   "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts"
+    },
     "./.storybook/main.js": "./.storybook/main.js",
     "./.storybook/preview.js": "./.storybook/preview.js"
   },

@@ -1,5 +1,11 @@
 # @mt-kit/cli-storybook-react
 
+## 1.8.0
+
+### Minor Changes
+
+- 修复类型导出
+
 ## 1.4.0
 
 ### Minor Changes
