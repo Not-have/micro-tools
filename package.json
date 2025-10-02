@@ -45,7 +45,7 @@
     "postinstall": "pnpm run clear:lock",
     "prepare": "husky",
     "commit": "cz",
-    "publish:ci": "npx changeset publish && git add . && git commit -m 'chore: publish packages [skip ci]' && git push",
+    "publish:ci": "npx changeset publish && git add . && git commit -m 'chore: publish packages version' && git push",
     "start": "mt-cli-run"
   },
   "devDependencies": {
