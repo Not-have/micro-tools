@@ -41,7 +41,8 @@ async function main(): Promise<void> {
       STORYBOOK_STORIES_PATH = `${rootDir}/stories/**/*.stories.@(js|jsx|mjs|ts|tsx|vue)`;
       STORYBOOK_STORIES_MDX_PATH = `${rootDir}/stories/**/*.mdx`;
     } else {
-      console.log("❌ stories 目录不存在");
+      console.error("❌ stories 目录不存在，请创建 stories 目录");
+      exit(1);
     }
 
     // 运行 CLI 工具自己的 storybook 脚本，并传递环境变量

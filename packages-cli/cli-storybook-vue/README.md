@@ -50,7 +50,7 @@ your-project/
 ├── stories/
 │   ├── demo/
 │   │   └── index.stories.ts
-│       └── index.tsx
+│       └── index.vue
 ```
 
 index.stories.ts
@@ -60,7 +60,7 @@ import Index from "./index.vue";
 import type {
   Meta,
   StoryObj
-} from "@storybook/vue3";
+} from "@mt-kit/cli-storybook-vue";
 
 const meta = {
   component: Index,
