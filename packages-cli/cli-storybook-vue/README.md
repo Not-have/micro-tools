@@ -49,11 +49,11 @@ pnpm add @mt-kit/cli-storybook-vue
 your-project/
 ├── stories/
 │   ├── demo/
-│   │   └── index.stories.tsx
+│   │   └── index.stories.ts
 │       └── index.tsx
 ```
 
-index.stories.tsx
+index.stories.ts
 
 ```ts
 import Index from "./index.vue";
