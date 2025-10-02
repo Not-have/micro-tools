@@ -1,0 +1,26 @@
+{
+  "name": "demo-storybook-vue",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "homepage": "https://not-have.github.io/micro-tools/",
+  "bugs": {
+    "url": "https://github.com/Not-have/micro-tools/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-demo/demo-storybook-vue"
+  },
+  "license": "ISC",
+  "author": "Li Yong",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "mt-cli-storybook-vue"
+  },
+  "dependencies": {
+    "vue": "catalog:"
+  },
+  "devDependencies": {
+    "@mt-kit/cli-storybook-vue": "workspace:^"
+  }
+}

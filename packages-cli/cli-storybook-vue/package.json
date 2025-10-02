@@ -22,7 +22,12 @@
     "build-storybook": "storybook build",
     "clear:build": "rm -fr dist",
     "clear": "rm -fr node_modules && pnpm run clear:build",
+    "build": "pnpm run clear:build && unbuild",
+    "stub": "pnpm run clear:build && unbuild --stub",
     "prepublishOnly": "pnpm build"
+  },
+  "bin": {
+    "mt-cli-storybook-vue": "./bin/index.mjs"
   },
   "dependencies": {
     "@storybook/addon-essentials": "catalog:",
@@ -34,6 +39,9 @@
     "@storybook/vue3-vite": "catalog:",
     "@vitejs/plugin-vue": "catalog:",
     "@vitejs/plugin-vue-jsx": "catalog:",
+    "execa": "catalog:",
+    "find-up": "catalog:",
+    "glob": "catalog:",
     "storybook": "catalog:",
     "vite": "catalog:"
   },
@@ -41,6 +49,7 @@
     "@mt-kit/ts-config": "workspace:^",
     "@types/node": "catalog:",
     "typescript": "catalog:",
+    "unbuild": "catalog:",
     "vue": "catalog:",
     "vue-router": "catalog:",
     "vue-tsc": "catalog:"
