@@ -58,7 +58,8 @@
     "react": "catalog:",
     "react-dom": "catalog:",
     "react-router-dom": "catalog:",
-    "storybook": "catalog:"
+    "storybook": "catalog:",
+    "unfetch": "catalog:"
   },
   "devDependencies": {
     "@mt-kit/ts-config": "workspace:^",

@@ -21,6 +21,27 @@ const config = {
   "framework": {
     "name": "@storybook/react-vite",
     "options": {}
+  },
+  viteFinal: async config => {
+
+    // 解决 unfetch 包的问题
+    config.optimizeDeps = {
+      ...config.optimizeDeps,
+      include: [
+        "unfetch"
+      ]
+    };
+
+    // 添加 resolve 配置
+    config.resolve = {
+      ...config.resolve,
+      alias: {
+        ...config.resolve?.alias,
+        "unfetch": "unfetch/polyfill/index.js"
+      }
+    };
+
+    return config;
   }
 };
 
