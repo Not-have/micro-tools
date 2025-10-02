@@ -49,14 +49,14 @@ pnpm add @mt-kit/cli-storybook-react
 your-project/
 ├── stories/
 │   ├── demo/
-│   │   └── index.stories.tsx
+│   │   └── index.stories.ts
 │       └── index.tsx
 └── package.json
 ```
 
 index.stories.ts
 
-```tsx
+```ts
 import type {
   Meta,
   StoryObj
