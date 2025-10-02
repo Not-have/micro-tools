@@ -1,8 +1,8 @@
-import type {
-  Preview
-} from "@storybook/vue3";
+// import type {
+//   Preview
+// } from "@storybook/vue3";
 
-const preview: Preview = {
+const preview = {
   parameters: {
     controls: {
       matchers: {

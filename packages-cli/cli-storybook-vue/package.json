@@ -30,6 +30,10 @@
     "mt-cli-storybook-vue": "./bin/index.mjs"
   },
   "types": "dist/types/index.d.ts",
+  "exports": {
+    "./.storybook/main.js": "./.storybook/main.js",
+    "./.storybook/preview.js": "./.storybook/preview.js"
+  },
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
