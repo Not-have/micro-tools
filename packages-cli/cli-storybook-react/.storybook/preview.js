@@ -1,8 +1,9 @@
-import type {
-  Preview
-} from "@storybook/react";
+// import type {
+//   Preview
+// } from "@storybook/react";
 
-const preview: Preview = {
+// const preview: Preview = {
+const preview = {
   parameters: {
 
     // https://storybook.org.cn/docs/essentials/controls

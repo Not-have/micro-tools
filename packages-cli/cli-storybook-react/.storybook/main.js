@@ -1,8 +1,9 @@
-import {
-  StorybookConfig
-} from "@storybook/react-vite";
+// import {
+//   StorybookConfig
+// } from "@storybook/react-vite";
 
-const config: StorybookConfig = {
+// const config: StorybookConfig = {
+const config = {
   "stories": [
     process.env.STORYBOOK_STORIES_MDX_PATH || "../stories/**/*.mdx",
     process.env.STORYBOOK_STORIES_PATH || "../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)"
