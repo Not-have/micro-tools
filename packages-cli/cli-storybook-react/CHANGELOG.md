@@ -1,5 +1,11 @@
 # @mt-kit/cli-storybook-react
 
+## 1.2.1
+
+### Patch Changes
+
+- 放弃 .storybook/ 中的 ts
+
 ## 1.2.0
 
 ### Minor Changes
