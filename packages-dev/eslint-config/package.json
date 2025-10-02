@@ -7,7 +7,7 @@
     "eslint-config",
     "mt-eslint-config"
   ],
-  "homepage": "https://github.com/Not-have/micro-tools/packages-dev/eslint-config",
+  "homepage": "https://not-have.github.io/micro-tools/",
   "bugs": "https://github.com/Not-have/micro-tools/issues",
   "repository": "git@github.com:Not-have/micro-tools.git",
   "license": "ISC",
