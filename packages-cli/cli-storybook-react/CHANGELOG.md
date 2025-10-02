@@ -1,5 +1,11 @@
 # @mt-kit/cli-storybook-react
 
+## 1.4.0
+
+### Minor Changes
+
+- fix: 处理 unfetch 包版本过高问题
+
 ## 1.3.0
 
 ### Minor Changes

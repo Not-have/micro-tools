@@ -3,7 +3,11 @@ import {
   execa
 } from "execa";
 import {
-  dirname
+  existsSync
+} from "fs";
+import {
+  dirname,
+  join
 } from "path";
 import {
   exit
@@ -27,6 +31,22 @@ async function main(): Promise<void> {
 
     console.log(`CLI 工具目录: ${cliDir}`);
 
+    // 判断是否存在 .storybook 目录
+    const storybookDir = join(rootDir, "stories");
+
+    let STORYBOOK_STORIES_PATH = "";
+
+    let STORYBOOK_STORIES_MDX_PATH = "";
+
+    if (existsSync(storybookDir)) {
+      console.log("✅ stories 目录存在");
+      STORYBOOK_STORIES_PATH = `${rootDir}/stories/**/*.stories.@(js|jsx|mjs|ts|tsx)`;
+      STORYBOOK_STORIES_MDX_PATH = `${rootDir}/stories/**/*.mdx`;
+
+    } else {
+      console.log("❌ stories 目录不存在");
+    }
+
     // 运行 CLI 工具自己的 storybook 脚本，并传递环境变量
     const childProcess = execa("pnpm", [
       "run",
@@ -36,8 +56,8 @@ async function main(): Promise<void> {
       stdio: "inherit",
       env: {
         ...process.env,
-        STORYBOOK_STORIES_PATH: `${rootDir}/stories/**/*.stories.@(js|jsx|mjs|ts|tsx)`,
-        STORYBOOK_STORIES_MDX_PATH: `${rootDir}/stories/**/*.mdx`
+        STORYBOOK_STORIES_PATH,
+        STORYBOOK_STORIES_MDX_PATH
       }
     });
 

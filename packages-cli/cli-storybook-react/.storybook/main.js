@@ -3,10 +3,11 @@
 // } from "@storybook/react-vite";
 
 // const config: StorybookConfig = {
+
 const config = {
   "stories": [
-    process.env.STORYBOOK_STORIES_MDX_PATH || "../stories/**/*.mdx",
-    process.env.STORYBOOK_STORIES_PATH || "../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)"
+    process.env.STORYBOOK_STORIES_MDX_PATH,
+    process.env.STORYBOOK_STORIES_PATH
   ],
   "addons": [
     {
