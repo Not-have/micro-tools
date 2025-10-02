@@ -4,7 +4,8 @@ import {
 
 export default defineBuildConfig({
   entries: [
-    "src/index.ts"
+    "src/index.ts",
+    "types/index.ts"
   ],
   clean: true,
   declaration: true,  // 需保持为 true 才能生成声明文件

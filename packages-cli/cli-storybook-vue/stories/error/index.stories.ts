@@ -6,10 +6,11 @@ import type {
 
 const meta = {
   component: Index,
-  title: "Demo"
+  title: "Error"
 } satisfies Meta<typeof Index>;
 
 export default meta;
+
 type TStory = StoryObj<typeof meta>;
 
-export const Demo: TStory = {};
+export const Error: TStory = {};

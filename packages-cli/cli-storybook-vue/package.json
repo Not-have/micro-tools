@@ -29,6 +29,7 @@
   "bin": {
     "mt-cli-storybook-vue": "./bin/index.mjs"
   },
+  "types": "dist/types/index.d.ts",
   "dependencies": {
     "@storybook/addon-essentials": "catalog:",
     "@storybook/addon-interactions": "catalog:",

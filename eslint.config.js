@@ -26,7 +26,8 @@ export default defineConfig([
   {
     files: [
       "./packages-vue/**/*.vue",
-      "./packages-cli/cli-storybook-vue/**/*.vue"
+      "./packages-cli/cli-storybook-vue/**/*.vue",
+      "./packages-demo/demo-storybook-vue/**/*.vue"
     ],
     extends: [
       vue
