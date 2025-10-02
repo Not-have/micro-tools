@@ -1,5 +1,11 @@
 # @mt-kit/cli-storybook-vue
 
+## 1.4.0
+
+### Minor Changes
+
+- 重置面板
+
 ## 1.3.0
 
 ### Minor Changes
