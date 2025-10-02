@@ -5,7 +5,8 @@ export default {
   overrides: [
     {
       files: [
-        "./packages-vue/**/*.vue"
+        "./packages-vue/**/*.vue",
+        "./packages-cli/cli-storybook-vue/**/*.vue"
       ],
       extends: [
         "@mt-kit/stylelint-config/vue"

@@ -1,0 +1,48 @@
+{
+  "name": "@mt-kit/cli-storybook-vue",
+  "version": "1.0.0",
+  "description": "一个用于创建 Vue Storybook 项目的脚手架",
+  "keywords": [
+    "vue-storybook",
+    "storybook"
+  ],
+  "homepage": "https://not-have.github.io/micro-tools/",
+  "bugs": {
+    "url": "https://github.com/Not-have/micro-tools/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Not-have/micro-tools"
+  },
+  "license": "ISC",
+  "author": "Li Yong",
+  "type": "module",
+  "scripts": {
+    "storybook": "storybook dev",
+    "build-storybook": "storybook build",
+    "clear:build": "rm -fr dist",
+    "clear": "rm -fr node_modules && pnpm run clear:build",
+    "prepublishOnly": "pnpm build"
+  },
+  "dependencies": {
+    "@storybook/addon-essentials": "catalog:",
+    "@storybook/addon-interactions": "catalog:",
+    "@storybook/addon-onboarding": "catalog:",
+    "@storybook/blocks": "catalog:",
+    "@storybook/test": "catalog:",
+    "@storybook/vue3": "catalog:",
+    "@storybook/vue3-vite": "catalog:",
+    "@vitejs/plugin-vue": "catalog:",
+    "@vitejs/plugin-vue-jsx": "catalog:",
+    "storybook": "catalog:",
+    "vite": "catalog:"
+  },
+  "devDependencies": {
+    "@mt-kit/ts-config": "workspace:^",
+    "@types/node": "catalog:",
+    "typescript": "catalog:",
+    "vue": "catalog:",
+    "vue-router": "catalog:",
+    "vue-tsc": "catalog:"
+  }
+}
