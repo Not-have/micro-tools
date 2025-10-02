@@ -1,6 +1,6 @@
 {
   "name": "@mt-kit/cli-storybook-vue",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "一个用于创建 Vue Storybook 项目的脚手架",
   "keywords": [
     "vue-storybook",

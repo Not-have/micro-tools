@@ -1,8 +1,8 @@
 {
   "name": "demo-storybook-react",
-  "preview": true,
   "version": "1.0.0",
   "description": "",
+  "private": true,
   "keywords": [],
   "homepage": "https://not-have.github.io/micro-tools/",
   "bugs": {

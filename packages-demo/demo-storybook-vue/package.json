@@ -2,8 +2,8 @@
   "name": "demo-storybook-vue",
   "version": "1.0.0",
   "description": "",
+  "private": true,
   "keywords": [],
-  "preview": true,
   "homepage": "https://not-have.github.io/micro-tools/",
   "bugs": {
     "url": "https://github.com/Not-have/micro-tools/issues"
