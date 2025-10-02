@@ -1,5 +1,11 @@
 # @mt-kit/cli-storybook-react
 
+## 1.8.1
+
+### Patch Changes
+
+- 增加尺寸选项
+
 ## 1.8.0
 
 ### Minor Changes
