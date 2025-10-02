@@ -54,7 +54,7 @@ your-project/
 └── package.json
 ```
 
-index.stories.tsx
+index.stories.ts
 
 ```tsx
 import type {

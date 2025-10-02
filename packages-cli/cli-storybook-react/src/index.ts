@@ -23,7 +23,9 @@ async function main(): Promise<void> {
     console.log(`🚀 启动 Storybook for: ${rootDir}`);
 
     // 获取 CLI 工具目录
-    const cliDir = dirname(fileURLToPath(import.meta.url));
+    const cliDir = dirname(dirname(fileURLToPath(import.meta.url)));
+
+    console.log(`获取 CLI 工具目录: ${cliDir}`);
 
     // 运行 CLI 工具自己的 storybook 脚本，并传递环境变量
     const childProcess = execa("pnpm", [
