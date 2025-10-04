@@ -16,12 +16,12 @@ import {
 const handleClick = (): void => {
   open({
     title: "Title",
-    titleExtra: <Content />,
-    content: " <Content />",
+    titleExtra: "<Content />",
+    content: <Content />,
     ok: "✅",
     cancel: "❌",
     isSubmit: true,
-    footerExtra: <Content />,
+    footerExtra: " <Content />",
     size: 600,
     data: apiTest01
   });

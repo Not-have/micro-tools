@@ -6,6 +6,7 @@ import usePropsOnClose from "./use-props-on-close";
 import usePropsOnSubmit from "./use-props-on-submit";
 import useStateData from "./use-state-data";
 import useStateForm from "./use-state-form";
+import useStateFormData from "./use-state-form-data";
 
 export default function useHandleOnSubmit(): () => void {
   const onSubmit = usePropsOnSubmit();
@@ -24,6 +25,8 @@ export default function useHandleOnSubmit(): () => void {
 
   const dispatchFormData = useDispatchFormData();
 
+  const formDataValue = useStateFormData();
+
   return async () => {
     try {
 
@@ -31,6 +34,15 @@ export default function useHandleOnSubmit(): () => void {
 
       if (form.value) {
         formData = await form.value.validate();
+
+        if (!formData) {
+          throw new Error(JSON.stringify({
+            message: "校验失败",
+            validate: formData,
+            value: formDataValue.value,
+            form: form.value
+          }));
+        }
 
         dispatchFormData(formData as Record<string, unknown>);
 
@@ -44,7 +56,6 @@ export default function useHandleOnSubmit(): () => void {
 
       await onClose.value?.(result, data.value);
     } catch (error) {
-      console.error(error);
 
       // 表单验证失败或提交失败
       dispatchLock();

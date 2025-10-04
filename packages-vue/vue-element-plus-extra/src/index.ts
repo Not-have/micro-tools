@@ -1,4 +1,5 @@
 export {
   open,
-  openIndirect
-} from "./rc-dialog/promised";
+  openIndirect,
+  useForm
+} from "./rc-dialog";

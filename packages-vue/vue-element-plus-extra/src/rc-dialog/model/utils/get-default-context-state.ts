@@ -23,6 +23,7 @@ export default function getDefaultContextState(props: IDialogProps): IModelState
     data: props.data,
     dataLoading: false,
     windowHeight: window.innerHeight,
-    formData: props.data
+    form: null,
+    formData: null
   };
 }
