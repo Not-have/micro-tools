@@ -1,13 +1,12 @@
 <script lang="ts" setup>
-import {
-  usePropsContent
-} from "../model";
 
-const content = usePropsContent();
+import {
+  Drawer
+} from "./rc";
+
 </script>
 <template>
   <div>
-    UI
-    {{ content }}
+    <Drawer />
   </div>
 </template>

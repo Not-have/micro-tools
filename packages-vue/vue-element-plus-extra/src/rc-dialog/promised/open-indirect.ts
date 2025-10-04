@@ -11,7 +11,8 @@ import {
 } from "vue";
 
 import {
-  createContainer
+  createContainer,
+  uuid
 } from "@mt-kit/utils";
 
 import {
@@ -31,13 +32,33 @@ export default function openIndirect<T = void, D extends object = Record<string,
 
   let root: ComponentPublicInstance | null | App<Element> = null;
 
-  // const dialogId = uuid();
+  const dialogId = uuid();
+
+  const onClose: DialogProps<T, D>["onClose"] = (result, defaultResult) => {
+
+    if (result instanceof Error) {
+      close?.(JSON.parse(result.message as string), true, false);
+
+      return;
+    }
+
+    destroy();
+
+    close?.(result, false);
+
+    props?.onClose?.(result, defaultResult);
+  };
 
   function renderDialog(): void {
+    container?.setAttribute("class", dialogId);
+
     root = createApp({
       render() {
         return h(WithModel, {
-          props: props as DialogProps
+          props: {
+            ...props,
+            onClose
+          } as DialogProps
         });
       }
     }).mount(container as HTMLElement);
@@ -55,9 +76,10 @@ export default function openIndirect<T = void, D extends object = Record<string,
 
       container?.remove();
 
-      // 防止内存泄漏
-      container = null;
       root = null;
+
+      container = null;
+
       close = null;
     }, 500);
   }
