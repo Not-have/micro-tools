@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import WithModel from "./with-model/index.vue";
 import {
   createApp,
   h,
@@ -18,7 +17,7 @@ const handleClick = (): void => {
   document.body.append(div);
   app.value = createApp({
     render() {
-      return h(WithModel);
+      return h("a");
     }
   });
   app.value.mount(div);
