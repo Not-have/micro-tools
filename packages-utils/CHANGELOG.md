@@ -1,5 +1,11 @@
 # @mt-kit/utils
 
+## 1.3.0
+
+### Minor Changes
+
+- 新增 createContainer
+
 ## 1.2.2
 
 ### Patch Changes
