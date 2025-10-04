@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script lang="tsx" setup>
 
 import {
   ElButton
@@ -10,7 +10,7 @@ import {
 
 const handleClick = (): void => {
   open({
-    content: "123"
+    content: " <Content />"
   });
 };
 

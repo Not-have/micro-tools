@@ -1,4 +1,9 @@
 <script lang="ts" setup>
+
+import {
+  isVNode
+} from "vue";
+
 import {
   ElDrawer
 } from "element-plus";
@@ -21,6 +26,12 @@ const content = usePropsContent();
     v-model="open"
     @close="handleClose"
   >
-    {{ content }}
+    <component
+      :is="content"
+      v-if="isVNode(content)"
+    />
+    <template v-else>
+      {{ content }}
+    </template>
   </ElDrawer>
 </template>
