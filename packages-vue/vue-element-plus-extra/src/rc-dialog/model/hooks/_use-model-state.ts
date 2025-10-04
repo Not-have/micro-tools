@@ -11,5 +11,5 @@ import useModelContext from "./_use-model-context";
 export default function useModelState(): ComputedRef<IModelState> {
   const context = useModelContext();
 
-  return computed(() => context.state);
+  return computed(() => context.value.state);
 }

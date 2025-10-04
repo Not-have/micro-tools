@@ -1,5 +1,6 @@
 import {
-  EAction
+  EAction,
+  ELockState
 } from "../enum";
 import useModelDispatch from "./_use-model-dispatch";
 
@@ -8,7 +9,8 @@ export default function useDispatchUnlock(): () => void {
 
   return () => {
     dispatch({
-      type: EAction.UNLOCK
+      type: EAction.UNLOCK,
+      payload: ELockState.NO
     });
   };
 }

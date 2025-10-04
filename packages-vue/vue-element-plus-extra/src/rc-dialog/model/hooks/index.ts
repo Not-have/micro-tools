@@ -11,3 +11,5 @@ export { default as useStateOpen } from "./use-state-open";
 export { default as useHandleClose } from "./use-handle-close";
 
 export { default as useEffects } from "./use-effects";
+
+export { default as useStateLocked } from "./use-state-locked";

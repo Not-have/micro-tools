@@ -6,10 +6,10 @@ import {
 import {
   IDialogProps
 } from "../types";
-import useModelContext from "./_use-model-context";
+import useModelProps from "./_use-model-props";
 
 export default function usePropsOnClose(): ComputedRef<IDialogProps["onClose"]> {
-  const context = useModelContext();
+  const props = useModelProps();
 
-  return computed(() => context?.props.onClose);
+  return computed(() => props.value.onClose);
 }
