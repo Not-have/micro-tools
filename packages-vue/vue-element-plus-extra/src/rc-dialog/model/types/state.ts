@@ -53,7 +53,7 @@ export interface IModelState<D extends object = Record<string, unknown>> {
   windowHeight: number;
 
   /**
-   * 表单
+   * @description 表单实例
    */
   form: TFormInstance;
 

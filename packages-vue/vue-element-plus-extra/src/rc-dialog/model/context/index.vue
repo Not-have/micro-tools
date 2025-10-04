@@ -15,16 +15,14 @@ import {
 const {
   props,
   state,
-  dispatch,
-  form
+  dispatch
 } = defineProps<IModelContext>();
 
 // 使用 computed 确保 context 对象是响应式的
 const contextValue = computed(() => ({
   props,
   state,
-  dispatch,
-  form
+  dispatch
 }));
 
 provide(MODEL_CONTEXT_KEY, contextValue);
