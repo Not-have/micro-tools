@@ -4,7 +4,6 @@ import {
 
 import WithModel from "../with-model/index.vue";
 import {
-  ComponentPublicInstance,
   createApp,
   App,
   h
@@ -30,7 +29,7 @@ export default function openIndirect<T = void, D extends object = Record<string,
     append: true
   }).element;
 
-  let root: ComponentPublicInstance | null | App<Element> = null;
+  let root: null | App<Element> = null;
 
   const dialogId = uuid();
 
@@ -61,27 +60,22 @@ export default function openIndirect<T = void, D extends object = Record<string,
           } as DialogProps
         });
       }
-    }).mount(container as HTMLElement);
+    });
+
+    root.mount(container as HTMLElement);
   }
 
   function destroy(): void {
 
     // 清理 DOM 和引用
     setTimeout(() => {
-
-      // 只有 root 是 App 实例时才调用 unmount
-      if (root) {
-        (root as App<Element>).unmount();
-      }
-
+      root?.unmount();
       container?.remove();
 
       root = null;
-
       container = null;
-
       close = null;
-    }, 500);
+    }, 800);
   }
 
   const promise = new Promise<T>(() => {
