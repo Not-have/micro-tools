@@ -1,1 +1,1 @@
-export const MODEL_CONTEXT_KEY = Symbol("model");
+export const MODEL_CONTEXT_KEY = "model-dialog";

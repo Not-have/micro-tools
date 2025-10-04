@@ -2,6 +2,7 @@ import {
   noop as _noop
 } from "lodash-es";
 
+import WithModel from "../with-model/index.vue";
 import {
   ComponentPublicInstance,
   createApp,
@@ -10,8 +11,7 @@ import {
 } from "vue";
 
 import {
-  createContainer,
-  uuid
+  createContainer
 } from "@mt-kit/utils";
 
 import {
@@ -31,14 +31,14 @@ export default function openIndirect<T = void, D extends object = Record<string,
 
   let root: ComponentPublicInstance | null | App<Element> = null;
 
-  const dialogId = uuid();
+  // const dialogId = uuid();
 
   function renderDialog(): void {
     root = createApp({
       render() {
-        return h("div", {
-          id: dialogId
-        }, props.content);
+        return h(WithModel, {
+          props: props as DialogProps
+        });
       }
     }).mount(container as HTMLElement);
   }
