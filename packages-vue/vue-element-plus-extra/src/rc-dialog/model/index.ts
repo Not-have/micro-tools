@@ -5,3 +5,7 @@ export type {
 export { default } from "./provider/index.vue";
 
 export * from "./hooks";
+
+export {
+  transformWidthSize
+} from "./utils";

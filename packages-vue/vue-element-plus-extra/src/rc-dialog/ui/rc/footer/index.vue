@@ -18,8 +18,7 @@ import {
   usePropsCancel,
   usePropsIsSubmit,
   usePropsFooterExtra,
-  useHandleClose,
-  useStateLocked
+  useHandleClose
 } from "../../../model";
 
 const ok = usePropsOk();
@@ -44,7 +43,6 @@ const footerExtra = usePropsFooterExtra();
 
 const handleClose = useHandleClose();
 
-const locked = useStateLocked();
 </script>
 <template>
   <ElSpace>
@@ -55,8 +53,6 @@ const locked = useStateLocked();
     <template v-else>
       {{ footerExtra }}
     </template>
-
-    {{ locked }}
 
     <ElButton
       v-bind="cancelButtonProps"

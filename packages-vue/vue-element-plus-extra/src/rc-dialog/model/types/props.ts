@@ -6,6 +6,10 @@ import {
   ButtonProps
 } from "element-plus";
 
+import {
+  ESize
+} from "../enum";
+
 export interface IButtonProps extends Partial<ButtonProps> {
   label?: string;
 }
@@ -38,6 +42,11 @@ export interface IDialogProps<T = void, D extends object = Record<string, unknow
    * 内容
    */
   content?: string | VNode;
+
+  /**
+   * 尺寸
+   */
+  size?: number | ESize;
 
   /**
    * Dialog props.onClose 方法定义，value 的类型为 Promise resolve 的类型

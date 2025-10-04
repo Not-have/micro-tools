@@ -11,14 +11,18 @@ import {
 } from "element-plus";
 
 import {
+  transformWidthSize,
   usePropsContent,
   useStateOpen,
-  useHandleClose
+  useHandleClose,
+  usePropsSize
 } from "../../../model";
 
 const open = useStateOpen();
 
 const handleClose = useHandleClose();
+
+const size = usePropsSize();
 
 const content = usePropsContent();
 
@@ -26,6 +30,7 @@ const content = usePropsContent();
 <template>
   <ElDrawer
     v-model="open"
+    :size="transformWidthSize(size)"
     @close="handleClose"
   >
     <template #header>
