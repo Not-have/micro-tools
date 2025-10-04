@@ -1,0 +1,66 @@
+{
+  "name": "@mt-kit/vue-element-plus-extra",
+  "version": "1.0.0",
+  "description": "Element Plus Extra",
+  "keywords": [
+    "vue-element-plus-extra",
+    "element-plus-extra",
+    "element-plus"
+  ],
+  "homepage": "https://not-have.github.io/micro-tools/",
+  "bugs": {
+    "url": "https://github.com/Not-have/micro-tools/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Not-have/micro-tools/tree/main/packages-vue/vue-element-plus-extra"
+  },
+  "license": "ISC",
+  "author": "LiYong",
+  "scripts": {
+    "storybook": "storybook dev",
+    "build-storybook": "storybook build",
+    "clear:build": "rm -fr dist",
+    "clear": "rm -fr node_modules && pnpm run clear:build",
+    "build": "pnpm run clear:build && vite build",
+    "dev": "vite build --watch",
+    "prepublishOnly": "pnpm build"
+  },
+  "main": "dist/index.umd.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.umd.js"
+    }
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "peerDependencies": {
+    "element-plus": ">=2.11.4"
+  },
+  "devDependencies": {
+    "@mt-kit/ts-config": "workspace:^",
+    "@mt-kit/vite-plugins": "workspace:^",
+    "@storybook/addon-essentials": "catalog:",
+    "@storybook/addon-interactions": "catalog:",
+    "@storybook/addon-onboarding": "catalog:",
+    "@storybook/blocks": "catalog:",
+    "@storybook/test": "catalog:",
+    "@storybook/vue3": "catalog:",
+    "@storybook/vue3-vite": "catalog:",
+    "@vitejs/plugin-vue": "catalog:",
+    "@vitejs/plugin-vue-jsx": "catalog:",
+    "storybook": "catalog:",
+    "typescript": "catalog:",
+    "vite": "catalog:",
+    "vite-plugin-dts": "catalog:",
+    "vue": "catalog:",
+    "vue-router": "catalog:",
+    "vue-tsc": "catalog:"
+  }
+}
