@@ -18,7 +18,8 @@ const handleClick = (): void => {
     ok: "✅",
     cancel: "❌",
     isSubmit: true,
-    footerExtra: <Content />
+    footerExtra: <Content />,
+    size: 600
   });
 };
 
@@ -29,6 +30,4 @@ const handleClick = (): void => {
   <ElButton @click="handleClick">
     Click me
   </ElButton>
-
-  <hr />
 </template>

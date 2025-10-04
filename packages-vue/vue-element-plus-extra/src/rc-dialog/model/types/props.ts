@@ -49,6 +49,11 @@ export interface IDialogProps<T = void, D extends object = Record<string, unknow
   size?: number | ESize;
 
   /**
+   * 数据
+   */
+  data?: D | (() => Promise<D | unknown | string | undefined | number | Record<string, unknown>>);
+
+  /**
    * Dialog props.onClose 方法定义，value 的类型为 Promise resolve 的类型
    *
    * 执行关闭后发生（然而，真正的从 DOM 上移除还是必须要使用者自行处理）

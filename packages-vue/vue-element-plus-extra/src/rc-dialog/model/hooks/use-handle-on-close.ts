@@ -1,7 +1,7 @@
 import useDispatchUnlock from "./use-dispatch-unlock";
 import usePropsOnClose from "./use-props-on-close";
 
-export default function useHandleClose(): () => void {
+export default function useHandleOnClose(): () => void {
 
   const onClose = usePropsOnClose();
 

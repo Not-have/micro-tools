@@ -14,13 +14,13 @@ import {
   transformWidthSize,
   usePropsContent,
   useStateOpen,
-  useHandleClose,
+  useHandleOnClose,
   usePropsSize
 } from "../../../model";
 
 const open = useStateOpen();
 
-const handleClose = useHandleClose();
+const handleClose = useHandleOnClose();
 
 const size = usePropsSize();
 

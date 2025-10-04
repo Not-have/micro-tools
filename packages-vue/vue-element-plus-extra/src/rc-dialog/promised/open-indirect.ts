@@ -11,7 +11,8 @@ import {
 
 import {
   createContainer,
-  uuid
+  uuid,
+  isUndefined
 } from "@mt-kit/utils";
 
 import {
@@ -78,7 +79,47 @@ export default function openIndirect<T = void, D extends object = Record<string,
     }, 800);
   }
 
-  const promise = new Promise<T>(() => {
+  const promise = new Promise<T>((resolve, reject) => {
+
+    /**
+     * Dialog 被关闭时会执行到此回调，这里会将 Promise 进行 resolve 或 reject，同时做一系列的清理动作
+     *
+     * isDestroy，用作内部消费，是否立即销毁元素
+     */
+    close = (result?: T | Error, rejected?: boolean, _isDestroy: boolean = true) => {
+      try {
+
+        // 如果容器已经被销毁，resolve 为 undefined 并返回
+        if (!container) {
+          resolve(undefined as T);
+
+          return;
+        }
+
+        // 只有在关闭的时候才会为 undefined，其他情况为 Error
+        if (isUndefined(result)) {
+          resolve(undefined as T);
+          destroy();
+
+          return;
+        }
+
+        // 处理 Promise 的 resolve/reject
+        if (rejected) {
+          reject(result);
+        } else {
+          resolve(result as T);
+        }
+
+        // 统一处理销毁逻辑
+        if (_isDestroy) {
+          destroy();
+        }
+      } catch (error) {
+        reject(error);
+      }
+    };
+
     renderDialog();
   });
 

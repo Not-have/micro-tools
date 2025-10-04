@@ -7,15 +7,15 @@ import {
   unref
 } from "vue";
 
-import {
-  ELockState
-} from "../enum";
 import reducer from "../reducer";
 import {
   IDialogProps,
   IModelState,
   TModelAction
 } from "../types";
+import {
+  getDefaultContextState
+} from "../utils";
 
 const {
   props
@@ -23,9 +23,7 @@ const {
   props: IDialogProps;
 }>();
 
-const state = ref<IModelState>({
-  locked: ELockState.NO
-} as IModelState);
+const state = ref<IModelState>(getDefaultContextState(props));
 
 const dispatch = (action: TModelAction): void => {
   state.value = reducer(unref(state), action);
