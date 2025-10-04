@@ -20,11 +20,16 @@ export function apiTest02(): Promise<{
 }> {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      reject(new Error("error"));
-      resolve({
-        code: 200,
-        message: "success"
+      // eslint-disable-next-line prefer-promise-reject-errors
+      reject({
+        code: 500,
+        message: "error"
       });
+
+      // resolve({
+      //   code: 200,
+      //   message: "success"
+      // });
     }, 5000);
   });
 }

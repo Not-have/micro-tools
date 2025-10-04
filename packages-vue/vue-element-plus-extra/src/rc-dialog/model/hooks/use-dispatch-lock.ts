@@ -4,7 +4,7 @@ import {
 } from "../enum";
 import useModelDispatch from "./_use-model-dispatch";
 
-export default function useDispatchlock(): () => void {
+export default function useDispatchLock(): () => void {
   const dispatch = useModelDispatch();
 
   return () => {

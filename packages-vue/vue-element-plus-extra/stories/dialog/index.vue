@@ -28,6 +28,10 @@ const handleClick = (): void => {
     size: 600,
     data: apiTest01,
     onSubmit: submit
+  }).catch(error => {
+
+    // eslint-disable-next-line no-console
+    console.log("error", error);
   });
 };
 
