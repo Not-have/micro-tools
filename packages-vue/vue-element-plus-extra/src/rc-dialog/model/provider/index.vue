@@ -7,11 +7,15 @@ import {
   unref
 } from "vue";
 
+import {
+  EAction
+} from "../enum";
 import reducer from "../reducer";
 import {
   IDialogProps,
   IModelState,
-  TModelAction
+  TModelAction,
+  TFormInstance
 } from "../types";
 import {
   getDefaultContextState
@@ -25,7 +29,16 @@ const {
 
 const state = ref<IModelState>(getDefaultContextState(props));
 
+/**
+ * 表单实例
+ */
+const form = ref<TFormInstance>(null);
+
 const dispatch = (action: TModelAction): void => {
+  if (action.type === EAction.FORM) {
+    form.value = action.payload ? (action.payload as TFormInstance) : null;
+  }
+
   state.value = reducer(unref(state), action);
 };
 </script>
@@ -35,6 +48,7 @@ const dispatch = (action: TModelAction): void => {
     :props="props"
     :dispatch="dispatch"
     :state="state"
+    :form="form"
   >
     <slot></slot>
     <Lifecycle />
