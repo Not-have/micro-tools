@@ -1,8 +1,4 @@
 <script lang="ts" setup>
-import {
-  ref,
-  watch
-} from "vue";
 
 import {
   ElForm,
@@ -21,24 +17,6 @@ const [
   name: string;
   password: string;
 }>();
-
-// 初始化表单数据
-const localFormData = ref({
-  name: "",
-  password: ""
-});
-
-// 监听 formData 变化，确保数据同步
-watch(formData, newData => {
-  if (newData && typeof newData === "object") {
-    localFormData.value = {
-      ...localFormData.value,
-      ...newData
-    };
-  }
-}, {
-  immediate: true
-});
 
 // 表单验证规则
 const rules = {
@@ -68,7 +46,7 @@ const rules = {
 <template>
   <ElForm
     ref="form"
-    :model="localFormData"
+    :model="formData"
     :rules="rules"
   >
     <ElFormItem
@@ -76,7 +54,7 @@ const rules = {
       prop="name"
       required
     >
-      <ElInput v-model="localFormData.name" />
+      <ElInput v-model="formData.name" />
     </ElFormItem>
     <ElFormItem
       label="Password"
@@ -84,7 +62,7 @@ const rules = {
       required
     >
       <ElInput
-        v-model="localFormData.password"
+        v-model="formData.password"
         type="password"
       />
     </ElFormItem>

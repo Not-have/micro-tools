@@ -1,24 +1,27 @@
 import {
   ref,
   Ref,
-  onMounted
+  onMounted,
+  watchEffect
 } from "vue";
 
 import {
   TFormInstance
 } from "../types";
 import useDispatchForm from "./use-dispatch-form";
+import useDispatchFormData from "./use-dispatch-form-data";
 import useStateData from "./use-state-data";
-import useStateFormData from "./use-state-form-data";
 
 export default function useForm<D extends Record<string, unknown> | unknown = Record<string, unknown>>(): [Ref<TFormInstance>, Ref<D>, Ref<D>] {
   const dispatchForm = useDispatchForm();
 
-  const formData = useStateFormData();
+  const dispatchFormData = useDispatchFormData();
 
   const data = useStateData();
 
   const form = ref<TFormInstance>(null);
+
+  const _formData = ref<D>({} as D);
 
   onMounted(() => {
     if (!form.value) {
@@ -28,9 +31,13 @@ export default function useForm<D extends Record<string, unknown> | unknown = Re
     dispatchForm(form.value);
   });
 
+  watchEffect(() => {
+    dispatchFormData(_formData.value);
+  });
+
   return [
     form,
-    formData as Ref<D>,
+    _formData as Ref<D>,
     data as Ref<D>
   ];
 }
