@@ -32,7 +32,7 @@ export interface IDialogProps<T = void, D extends object = Record<string, unknow
   /**
    * 底部操作按钮
    */
-  buttonsExtra?: VNode[];
+  footerExtra?: VNode | string;
 
   /**
    * 内容

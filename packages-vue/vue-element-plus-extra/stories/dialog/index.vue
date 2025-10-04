@@ -17,7 +17,8 @@ const handleClick = (): void => {
     content: " <Content />",
     ok: "✅",
     cancel: "❌",
-    isSubmit: true
+    isSubmit: true,
+    footerExtra: <Content />
   });
 };
 

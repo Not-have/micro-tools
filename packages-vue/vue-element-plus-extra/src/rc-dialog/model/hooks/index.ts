@@ -4,6 +4,7 @@ export { default as usePropsTitleExtra } from "./use-props-title-extra";
 export { default as usePropsOk } from "./use-props-ok";
 export { default as usePropsCancel } from "./use-props-cancel";
 export { default as usePropsIsSubmit } from "./use-props-is-submit";
+export { default as usePropsFooterExtra } from "./use-props-footer-extra";
 
 export { default as useStateOpen } from "./use-state-open";
 

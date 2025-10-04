@@ -1,7 +1,8 @@
 <script lang="ts" setup>
 
 import {
-  computed
+  computed,
+  isVNode
 } from "vue";
 
 import {
@@ -15,7 +16,8 @@ import{
 import {
   usePropsOk,
   usePropsCancel,
-  usePropsIsSubmit
+  usePropsIsSubmit,
+  usePropsFooterExtra
 } from "../../../model";
 
 const ok = usePropsOk();
@@ -35,9 +37,19 @@ const cancelButtonProps = computed(() => (isObject(cancel.value) ? {
 }));
 
 const isSubmit = usePropsIsSubmit();
+
+const footerExtra = usePropsFooterExtra();
 </script>
 <template>
   <ElSpace>
+    <component
+      :is="footerExtra"
+      v-if="isVNode(footerExtra)"
+    />
+    <template v-else>
+      {{ footerExtra }}
+    </template>
+
     <ElButton
       v-if="isSubmit"
       type="primary"
