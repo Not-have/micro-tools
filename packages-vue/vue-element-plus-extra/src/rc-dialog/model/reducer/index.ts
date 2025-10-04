@@ -1,11 +1,23 @@
 import {
+  EAction
+} from "../enum";
+import {
   IModelState,
   TModelAction
 } from "../types";
+import reduceLock from "./reduce-lock";
+import reduceUnlock from "./reduce-unlock";
 
 export default function reducer(state: IModelState, action: TModelAction): IModelState {
-  // eslint-disable-next-line no-console
-  console.log(state, action);
-
-  return state;
+  switch (action.type) {
+    case EAction.LOCK: {
+      return reduceLock(state, action.payload);
+    }
+    case EAction.UNLOCK: {
+      return reduceUnlock(state, action.payload);
+    }
+    default: {
+      return state;
+    }
+  }
 }

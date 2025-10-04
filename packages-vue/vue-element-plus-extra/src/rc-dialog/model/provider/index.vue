@@ -1,11 +1,15 @@
 <script lang="ts" setup>
 import Context from "../context/index.vue";
+import Lifecycle from "../lifecycle/index.vue";
 import {
   defineProps,
   ref,
   unref
 } from "vue";
 
+import {
+  ELockState
+} from "../enum";
 import reducer from "../reducer";
 import {
   IDialogProps,
@@ -19,7 +23,9 @@ const {
   props: IDialogProps;
 }>();
 
-const state = ref<IModelState>({} as IModelState);
+const state = ref<IModelState>({
+  locked: ELockState.YES
+} as IModelState);
 
 const dispatch = (action: TModelAction): void => {
   state.value = reducer(unref(state), action);
@@ -33,5 +39,6 @@ const dispatch = (action: TModelAction): void => {
     :state="state"
   >
     <slot></slot>
+    <Lifecycle />
   </Context>
 </template>

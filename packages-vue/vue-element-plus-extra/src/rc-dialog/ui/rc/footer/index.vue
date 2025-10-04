@@ -17,7 +17,8 @@ import {
   usePropsOk,
   usePropsCancel,
   usePropsIsSubmit,
-  usePropsFooterExtra
+  usePropsFooterExtra,
+  useHandleClose
 } from "../../../model";
 
 const ok = usePropsOk();
@@ -39,6 +40,8 @@ const cancelButtonProps = computed(() => (isObject(cancel.value) ? {
 const isSubmit = usePropsIsSubmit();
 
 const footerExtra = usePropsFooterExtra();
+
+const handleClose = useHandleClose();
 </script>
 <template>
   <ElSpace>
@@ -51,17 +54,18 @@ const footerExtra = usePropsFooterExtra();
     </template>
 
     <ElButton
+      v-bind="cancelButtonProps"
+      @click="() => handleClose?.()"
+    >
+      {{ cancelButtonProps?.label || "关闭" }}
+    </ElButton>
+
+    <ElButton
       v-if="isSubmit"
       type="primary"
       v-bind="okButtonProps"
     >
       {{ okButtonProps?.label || "提交" }}
-    </ElButton>
-
-    <ElButton
-      v-bind="cancelButtonProps"
-    >
-      {{ cancelButtonProps?.label || "关闭" }}
     </ElButton>
   </ElSpace>
 </template>

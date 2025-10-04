@@ -9,3 +9,5 @@ export { default as usePropsFooterExtra } from "./use-props-footer-extra";
 export { default as useStateOpen } from "./use-state-open";
 
 export { default as useHandleClose } from "./use-handle-close";
+
+export { default as useEffects } from "./use-effects";

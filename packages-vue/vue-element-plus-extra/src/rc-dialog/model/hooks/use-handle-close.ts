@@ -1,15 +1,15 @@
-import {
-  ComputedRef
-} from "vue";
-
-import {
-  IDialogProps
-} from "../types";
+import useDispatchUnlock from "./use-dispatch-unlock";
 import usePropsOnClose from "./use-props-on-close";
 
-export default function useHandleClose(): ComputedRef<IDialogProps["onClose"]> {
+export default function useHandleClose(): () => void {
 
   const onClose = usePropsOnClose();
 
-  return onClose;
+  const dispatchUnlock = useDispatchUnlock();
+
+  return () => {
+    dispatchUnlock();
+
+    onClose.value?.();
+  };
 }
