@@ -21,7 +21,9 @@ export default function useForm<D extends Record<string, unknown> | unknown = Re
 
   const form = ref<TFormInstance>(null);
 
-  const _formData = ref<D>({} as D);
+  const _formData = ref<D>({
+    ...data.value
+  } as D);
 
   onMounted(() => {
     if (!form.value) {

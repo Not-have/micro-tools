@@ -12,10 +12,11 @@ import {
 
 const [
   form,
-  formData
+  formData,
+  data
 ] = useForm<{
   name: string;
-  test: string;
+  age: string;
 }>();
 
 // 表单验证规则
@@ -27,7 +28,7 @@ const rules = {
       trigger: "blur"
     }
   ],
-  test: [
+  age: [
     {
       required: true,
       message: "请输入密码",
@@ -39,6 +40,7 @@ const rules = {
 </script>
 
 <template>
+  {{ data }}
   <ElForm
     ref="form"
     :model="formData"
@@ -53,11 +55,11 @@ const rules = {
     </ElFormItem>
     <ElFormItem
       label="Password"
-      prop="test"
+      prop="age"
       required
     >
       <ElInput
-        v-model="formData.test"
+        v-model="formData.age"
       />
     </ElFormItem>
   </ElForm>
