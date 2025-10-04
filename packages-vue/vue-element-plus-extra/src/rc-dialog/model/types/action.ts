@@ -2,6 +2,9 @@ import {
   EAction,
   ELockState
 } from "../enum";
+import {
+  TFormInstance
+} from "./state";
 
 export type TModelAction = {
   type: EAction.LOCK | EAction.UNLOCK;
@@ -9,6 +12,9 @@ export type TModelAction = {
 } | {
   type: EAction.DATA;
   payload?: Record<string, unknown> | unknown;
+} | {
+  type: EAction.FORM;
+  payload?: TFormInstance;
 } | {
   type: EAction.FORM_DATA;
   payload?: Record<string, unknown> | unknown;

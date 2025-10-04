@@ -61,7 +61,7 @@ export interface IDialogProps<T = void, D extends object = Record<string, unknow
    * @param result 结果（也就是当前的弹出框状态值）
    * @param defaultResult 默认结果（销毁时）
    */
-  onClose?(result?: T | Error, defaultResult?: D): void;
+  onClose?(result?: T | Error | unknown, defaultResult?: D): void;
 
   /**
    * Dialog props.onSubmit 方法定义，value 的类型为 Promise resolve 的类型，

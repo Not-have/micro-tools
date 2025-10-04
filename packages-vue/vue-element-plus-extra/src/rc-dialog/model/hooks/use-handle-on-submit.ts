@@ -1,6 +1,11 @@
+import useDispatchFormData from "./use-dispatch-form-data";
+import useDispatchLoading from "./use-dispatch-loading";
+import useDispatchLock from "./use-dispatch-lock";
 import useDispatchUnlock from "./use-dispatch-unlock";
 import usePropsOnClose from "./use-props-on-close";
 import usePropsOnSubmit from "./use-props-on-submit";
+import useStateData from "./use-state-data";
+import useStateForm from "./use-state-form";
 
 export default function useHandleOnSubmit(): () => void {
   const onSubmit = usePropsOnSubmit();
@@ -9,15 +14,44 @@ export default function useHandleOnSubmit(): () => void {
 
   const dispatchUnlock = useDispatchUnlock();
 
+  const dispatchLock = useDispatchLock();
+
+  const data = useStateData();
+
+  const form = useStateForm();
+
+  const dispatchLoading = useDispatchLoading();
+
+  const dispatchFormData = useDispatchFormData();
+
   return async () => {
     try {
-      await onSubmit.value?.();
+
+      let formData: Record<string, unknown> | undefined | unknown;
+
+      if (form.value) {
+        formData = await form.value.validate();
+
+        dispatchFormData(formData as Record<string, unknown>);
+
+        dispatchLoading();
+
+      }
+
+      const result = await onSubmit.value?.(formData as Record<string, unknown>, data.value);
 
       await dispatchUnlock();
 
-      await onClose.value?.();
+      await onClose.value?.(result, data.value);
     } catch (error) {
       console.error(error);
+
+      // 表单验证失败或提交失败
+      dispatchLock();
+
+      const errorObj = error instanceof Error ? error : new Error(JSON.stringify(error));
+
+      onClose.value?.(errorObj, data.value);
     }
   };
 }

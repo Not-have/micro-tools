@@ -27,9 +27,6 @@ const state = ref<IModelState>(getDefaultContextState(props));
 
 const dispatch = (action: TModelAction): void => {
   state.value = reducer(unref(state), action);
-
-  // eslint-disable-next-line no-console
-  console.log("Provider state", state.value);
 };
 </script>
 

@@ -2,6 +2,7 @@
 
 import Footer from "../footer/index.vue";
 import Header from "../header/index.vue";
+import Skeleton from "../skeleton/index.vue";
 import {
   isVNode
 } from "vue";
@@ -15,7 +16,8 @@ import {
   usePropsContent,
   useStateOpen,
   useHandleOnClose,
-  usePropsSize
+  usePropsSize,
+  useStateDataLoading
 } from "../../../model";
 
 const open = useStateOpen();
@@ -25,6 +27,8 @@ const handleClose = useHandleOnClose();
 const size = usePropsSize();
 
 const content = usePropsContent();
+
+const dataLoading = useStateDataLoading();
 
 </script>
 <template>
@@ -36,12 +40,15 @@ const content = usePropsContent();
     <template #header>
       <Header />
     </template>
-    <component
-      :is="content"
-      v-if="isVNode(content)"
-    />
+    <Skeleton v-if="dataLoading" />
     <template v-else>
-      {{ content }}
+      <component
+        :is="content"
+        v-if="isVNode(content)"
+      />
+      <template v-else>
+        {{ content }}
+      </template>
     </template>
     <template #footer>
       <Footer />

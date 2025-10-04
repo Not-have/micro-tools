@@ -24,7 +24,7 @@ import {
 
 export default function openIndirect<T = void, D extends object = Record<string, unknown>>(props: DialogProps<T, D>): IDialogIndirectPromise<T> {
 
-  let close: ((result?: T | Error, rejected?: boolean, isDestroy?: boolean) => void) | null = _noop;
+  let close: ((result?: T | Error | unknown, rejected?: boolean, isDestroy?: boolean) => void) | null = _noop;
 
   let container: HTMLDivElement | null = createContainer({
     append: true
@@ -86,7 +86,7 @@ export default function openIndirect<T = void, D extends object = Record<string,
      *
      * isDestroy，用作内部消费，是否立即销毁元素
      */
-    close = (result?: T | Error, rejected?: boolean, _isDestroy: boolean = true) => {
+    close = (result?: T | Error | unknown, rejected?: boolean, _isDestroy: boolean = true) => {
       try {
 
         // 如果容器已经被销毁，resolve 为 undefined 并返回

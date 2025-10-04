@@ -1,6 +1,12 @@
+import type {
+  FormInstance
+} from "element-plus";
+
 import {
   ELockState
 } from "../enum";
+
+export type TFormInstance = FormInstance | null;
 
 /**
  * Dialog 的
@@ -30,7 +36,7 @@ export interface IModelState<D extends object = Record<string, unknown>> {
   /**
    * 维系 Dialog 本体和内容组件之间的纽带
    */
-  data?: D | unknown;
+  data: D | unknown;
 
   /**
    * 数据是否正在加载
@@ -49,6 +55,7 @@ export interface IModelState<D extends object = Record<string, unknown>> {
   /**
    * 表单
    */
+  form: TFormInstance;
 
   /**
    * 表单数据

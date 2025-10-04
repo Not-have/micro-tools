@@ -9,6 +9,9 @@ import {
 import {
   open
 } from "../../src";
+import {
+  apiTest01
+} from "./api";
 
 const handleClick = (): void => {
   open({
@@ -19,7 +22,8 @@ const handleClick = (): void => {
     cancel: "❌",
     isSubmit: true,
     footerExtra: <Content />,
-    size: 600
+    size: 600,
+    data: apiTest01
   });
 };
 
