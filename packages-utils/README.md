@@ -1706,6 +1706,55 @@ console.log(widths); // [32.5, 95.2, 158.7]
 - 性能敏感场景
 - 字体指纹生成
 
+### createContainer
+
+- 创建容器
+- 支持自定义元素插入到容器中
+- 支持追加到容器中
+- 支持追加到 body
+- 支持追加到指定元素
+
+**参数：**
+
+| 参数 | 说明 | 是否必传 | 默认值 |
+|--------|------|----------|--------|
+| positionOptions | 位置选项 | 否 | 所有功能启用 |
+| append | 是否追加到容器中 | 否 | false |
+| customElement | 自定义元素 | 否 | 无 |
+
+**返回值：**
+
+| 类型 | 说明 |
+|--------|------|
+| `{ remove: () => void; element: HTMLDivElement; }` | 容器 |
+
+**positionOptions 参数：**
+
+| 参数 | 说明 | 是否必传 | 默认值 |
+|--------|------|----------|--------|
+| position | 位置 | 否 | 无 |
+
+**append 参数：**
+
+| 参数 | 说明 | 是否必传 | 默认值 |
+|--------|------|----------|--------|
+| append | 是否追加到容器中 | 否 | false |
+
+**customElement 参数：**
+
+| 参数 | 说明 | 是否必传 | 默认值 |
+|--------|------|----------|--------|
+| customElement | 自定义元素 | 否 | 无 |
+
+**使用示例：**
+
+```ts
+import { createContainer } from "@mt-kit/utils";
+
+const container = createContainer();
+console.log(container);
+```
+
 ## 设备信息
 
 ### deviceAll

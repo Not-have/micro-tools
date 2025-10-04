@@ -43,3 +43,5 @@ export { default as arrayBufferToBase64 } from "./array-buffer-to-base64";
 export * from "./device";
 export * from "./detect-font";
 export * from "./fingerprint";
+
+export { default as createContainer } from "./create-container";
