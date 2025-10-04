@@ -6,7 +6,7 @@ import {
 
 <template>
   <ElSkeleton
-    :rows="10"
+    :rows="2"
     animated
   />
 </template>

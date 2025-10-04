@@ -3,12 +3,20 @@ import {
 } from "vue";
 
 import {
-  ButtonProps
+  ButtonProps,
+  DrawerProps,
+  DialogProps
 } from "element-plus";
 
 import {
-  ESize
+  ESize,
+  EMode
 } from "../enum";
+
+// 抽离出公共的排除属性
+type TExcludedProps = "open" | "onClose" | "footer" | "header" | "children" | "onCancel" | "maskClosable" | "mask" | "zIndex" | "keyboard" | "title" | "className" | "closable" | "rootClassName";
+
+export type TDialogPropsOptions = Partial<Omit<DrawerProps, TExcludedProps>> | Partial<Omit<DialogProps, TExcludedProps>>;
 
 export interface IButtonProps extends Partial<ButtonProps> {
   label?: string;
@@ -22,6 +30,14 @@ export interface IDialogProps<T = void, D extends object = Record<string, unknow
    * 埋点的时候，也许需要
    */
   op?: string;
+
+  /**
+   * 模式
+   *
+   * @default EMode.MODAL 模态框
+   * @default EMode.DRAWER 抽屉
+   */
+  mode?: EMode;
 
   /**
    * 标题
@@ -93,5 +109,5 @@ export interface IDialogProps<T = void, D extends object = Record<string, unknow
    *
    * 但是要注意，已有属性的值会覆盖传入的值
    */
-  // options?: TDialogPropsOptions;
+  options?: TDialogPropsOptions;
 }

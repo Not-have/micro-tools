@@ -7,6 +7,8 @@ export { default as usePropsIsSubmit } from "./use-props-is-submit";
 export { default as usePropsFooterExtra } from "./use-props-footer-extra";
 export { default as usePropsSize } from "./use-props-size";
 export { default as usePropsData } from "./use-props-data";
+export { default as usePropsMode } from "./use-props-mode";
+export { default as usePropsOptions } from "./use-props-options";
 
 export { default as useHandleOnClose } from "./use-handle-on-close";
 export { default as useHandleOnSubmit } from "./use-handle-on-submit";

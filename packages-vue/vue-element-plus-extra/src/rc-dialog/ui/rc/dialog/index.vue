@@ -1,5 +1,4 @@
-<script lang="ts" setup>
-
+<script setup lang="ts">
 import Footer from "../footer/index.vue";
 import Header from "../header/index.vue";
 import Skeleton from "../skeleton/index.vue";
@@ -8,7 +7,7 @@ import {
 } from "vue";
 
 import {
-  ElDrawer
+  ElDialog
 } from "element-plus";
 
 import {
@@ -34,11 +33,12 @@ const dataLoading = useStateDataLoading();
 const options = usePropsOptions();
 
 </script>
+
 <template>
-  <ElDrawer
+  <ElDialog
     v-bind="options"
     v-model="open"
-    :size="transformWidthSize(size)"
+    :width="transformWidthSize(size)"
     @close="handleClose"
   >
     <template #header>
@@ -54,8 +54,9 @@ const options = usePropsOptions();
         {{ content }}
       </template>
     </template>
+    <slot></slot>
     <template #footer>
       <Footer />
     </template>
-  </ElDrawer>
+  </ElDialog>
 </template>

@@ -7,7 +7,8 @@ import {
 } from "element-plus";
 
 import {
-  open
+  open,
+  DialogMode
 } from "../../src";
 import {
   apiTest01
@@ -27,7 +28,8 @@ const handleClick = (): void => {
     footerExtra: " <Content />",
     size: 600,
     data: apiTest01,
-    onSubmit: submit
+    onSubmit: submit,
+    mode: DialogMode.MODAL
   }).catch(error => {
 
     // eslint-disable-next-line no-console

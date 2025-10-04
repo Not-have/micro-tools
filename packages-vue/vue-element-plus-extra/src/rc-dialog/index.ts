@@ -4,5 +4,6 @@ export {
 } from "./promised";
 
 export {
+  ModelMode as DialogMode,
   useForm
 } from "./model";
