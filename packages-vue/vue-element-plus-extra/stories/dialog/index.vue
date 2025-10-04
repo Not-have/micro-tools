@@ -12,6 +12,9 @@ import {
 import {
   apiTest01
 } from "./api";
+import {
+  submit
+} from "./utils";
 
 const handleClick = (): void => {
   open({
@@ -23,7 +26,8 @@ const handleClick = (): void => {
     isSubmit: true,
     footerExtra: " <Content />",
     size: 600,
-    data: apiTest01
+    data: apiTest01,
+    onSubmit: submit
   });
 };
 

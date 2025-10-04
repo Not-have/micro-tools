@@ -10,6 +10,21 @@ export function apiTest01(): Promise<{
         age: 20,
         email: "john.doe@example.com"
       });
-    }, 1000);
+    }, 500);
+  });
+}
+
+export function apiTest02(): Promise<{
+  code: number;
+  message: string;
+}> {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      reject(new Error("error"));
+      resolve({
+        code: 200,
+        message: "success"
+      });
+    }, 5000);
   });
 }

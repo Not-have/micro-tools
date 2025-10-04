@@ -8,6 +8,7 @@ import {
 import reduceData from "./reduce-data";
 import reduceDataLoading from "./reduce-data-loading";
 import reduceForm from "./reduce-form";
+import reduceFormData from "./reduce-form-data";
 import reduceLock from "./reduce-lock";
 import reduceUnlock from "./reduce-unlock";
 
@@ -27,6 +28,9 @@ export default function reducer(state: IModelState, action: TModelAction): IMode
     }
     case EAction.FORM: {
       return reduceForm(state, action.payload);
+    }
+    case EAction.FORM_DATA: {
+      return reduceFormData(state, action.payload);
     }
     default: {
       return state;

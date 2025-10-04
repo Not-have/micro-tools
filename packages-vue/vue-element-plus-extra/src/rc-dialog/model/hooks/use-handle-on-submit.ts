@@ -1,4 +1,3 @@
-import useDispatchFormData from "./use-dispatch-form-data";
 import useDispatchLoading from "./use-dispatch-loading";
 import useDispatchLock from "./use-dispatch-lock";
 import useDispatchUnlock from "./use-dispatch-unlock";
@@ -6,6 +5,7 @@ import usePropsOnClose from "./use-props-on-close";
 import usePropsOnSubmit from "./use-props-on-submit";
 import useStateData from "./use-state-data";
 import useStateForm from "./use-state-form";
+import useStateFormData from "./use-state-form-data";
 
 export default function useHandleOnSubmit(): () => void {
   const onSubmit = usePropsOnSubmit();
@@ -22,23 +22,19 @@ export default function useHandleOnSubmit(): () => void {
 
   const dispatchLoading = useDispatchLoading();
 
-  const dispatchFormData = useDispatchFormData();
+  const formData = useStateFormData();
 
   return async () => {
     try {
 
-      let formData: Record<string, unknown> | undefined | unknown;
-
       if (form.value) {
-        formData = await form.value.validate();
+        await form.value.validate();
 
-        dispatchFormData(formData as Record<string, unknown>);
-
-        dispatchLoading();
+        await dispatchLoading();
 
       }
 
-      const result = await onSubmit.value?.(formData as Record<string, unknown>, data.value);
+      const result = await onSubmit.value?.(formData.value as Record<string, unknown>, data.value);
 
       await dispatchUnlock();
 

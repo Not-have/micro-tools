@@ -1,3 +1,6 @@
+export {
+  ELockState as ModelLockState
+} from "./enum";
 export type {
   IDialogProps as DialogProps
 } from "./types";

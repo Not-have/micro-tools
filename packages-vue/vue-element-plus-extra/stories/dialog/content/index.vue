@@ -15,7 +15,7 @@ const [
   formData
 ] = useForm<{
   name: string;
-  password: string;
+  test: string;
 }>();
 
 // 表单验证规则
@@ -27,15 +27,10 @@ const rules = {
       trigger: "blur"
     }
   ],
-  password: [
+  test: [
     {
       required: true,
       message: "请输入密码",
-      trigger: "blur"
-    },
-    {
-      min: 6,
-      message: "密码长度不能少于6位",
       trigger: "blur"
     }
   ]
@@ -58,12 +53,11 @@ const rules = {
     </ElFormItem>
     <ElFormItem
       label="Password"
-      prop="password"
+      prop="test"
       required
     >
       <ElInput
-        v-model="formData.password"
-        type="password"
+        v-model="formData.test"
       />
     </ElFormItem>
   </ElForm>

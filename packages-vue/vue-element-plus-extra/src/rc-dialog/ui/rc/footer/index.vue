@@ -19,7 +19,9 @@ import {
   usePropsIsSubmit,
   usePropsFooterExtra,
   useHandleOnClose,
-  useHandleOnSubmit
+  useHandleOnSubmit,
+  useStateLocked,
+  ModelLockState
 } from "../../../model";
 
 const ok = usePropsOk();
@@ -46,6 +48,8 @@ const handleClose = useHandleOnClose();
 
 const handleOnSubmit = useHandleOnSubmit();
 
+const locked = useStateLocked();
+
 </script>
 <template>
   <ElSpace>
@@ -67,6 +71,7 @@ const handleOnSubmit = useHandleOnSubmit();
     <ElButton
       v-if="isSubmit"
       type="primary"
+      :loading="locked === ModelLockState.LOADING"
       v-bind="okButtonProps"
       @click="handleOnSubmit"
     >
