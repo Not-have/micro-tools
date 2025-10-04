@@ -68,6 +68,9 @@ const locked = useStateLocked();
       {{ cancelButtonProps?.label || "关闭" }}
     </ElButton>
 
+    <!--
+ 是否进行提交操作, false 时只显示关闭 - 查看/详情
+-->
     <ElButton
       v-if="isSubmit"
       type="primary"

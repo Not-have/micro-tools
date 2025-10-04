@@ -1,13 +1,16 @@
 <script lang="ts" setup>
 
 import {
+  ElButton,
   ElForm,
   ElFormItem,
   ElInput
 } from "element-plus";
 
 import {
-  useForm
+  useForm,
+  open,
+  DialogMode
 } from "../../../src";
 
 const [
@@ -37,6 +40,13 @@ const rules = {
   ]
 };
 
+const handleClick = () => {
+  open({
+    title: "Title",
+    content: "Content",
+    mode: DialogMode.MODAL
+  });
+};
 </script>
 
 <template>
@@ -62,6 +72,9 @@ const rules = {
         v-model="formData.age"
       />
     </ElFormItem>
+    <ElButton @click="handleClick">
+      Click me
+    </ElButton>
   </ElForm>
 </template>
 <style scoped>
