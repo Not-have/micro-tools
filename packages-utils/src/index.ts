@@ -45,3 +45,4 @@ export * from "./detect-font";
 export * from "./fingerprint";
 
 export { default as createContainer } from "./create-container";
+export { default as uuid } from "./uuid";

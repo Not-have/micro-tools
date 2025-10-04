@@ -43,6 +43,10 @@
   "peerDependencies": {
     "element-plus": ">=2.11.4"
   },
+  "dependencies": {
+    "@mt-kit/utils": "workspace:^",
+    "lodash-es": "catalog:"
+  },
   "devDependencies": {
     "@mt-kit/ts-config": "workspace:^",
     "@mt-kit/vite-plugins": "workspace:^",
@@ -53,6 +57,7 @@
     "@storybook/test": "catalog:",
     "@storybook/vue3": "catalog:",
     "@storybook/vue3-vite": "catalog:",
+    "@types/lodash-es": "catalog:",
     "@vitejs/plugin-vue": "catalog:",
     "@vitejs/plugin-vue-jsx": "catalog:",
     "storybook": "catalog:",

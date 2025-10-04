@@ -1,4 +1,4 @@
 export {
   open,
   openIndirect
-} from "./rc-dialog/promised";
+} from "./promised";

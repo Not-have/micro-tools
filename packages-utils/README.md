@@ -1755,6 +1755,21 @@ const container = createContainer();
 console.log(container);
 ```
 
+### uuid
+
+- 生成唯一的 ID
+- 使用 Date.now() 和 Math.random() 生成唯一的 ID
+- 使用 slice(2, 15) 生成唯一的 ID
+- 使用 _ 连接
+- 使用 toString(36) 生成唯一的 ID
+
+```ts
+import { uuid } from "@mt-kit/utils";
+
+const id = uuid();
+console.log(id);
+```
+
 ## 设备信息
 
 ### deviceAll
