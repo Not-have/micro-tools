@@ -1,5 +1,7 @@
 <script lang="tsx" setup>
 
+import Content from "./content/index.vue";
+
 import {
   ElButton
 } from "element-plus";
@@ -10,6 +12,8 @@ import {
 
 const handleClick = (): void => {
   open({
+    title: "Title",
+    titleExtra: <Content />,
     content: " <Content />"
   });
 };

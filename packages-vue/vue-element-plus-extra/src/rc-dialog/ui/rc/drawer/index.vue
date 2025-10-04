@@ -1,5 +1,7 @@
 <script lang="ts" setup>
 
+import Footer from "../footer/index.vue";
+import Header from "../header/index.vue";
 import {
   isVNode
 } from "vue";
@@ -26,12 +28,18 @@ const content = usePropsContent();
     v-model="open"
     @close="handleClose"
   >
+    <template #header>
+      <Header />
+    </template>
     <component
       :is="content"
       v-if="isVNode(content)"
     />
     <template v-else>
       {{ content }}
+    </template>
+    <template #footer>
+      <Footer />
     </template>
   </ElDrawer>
 </template>
