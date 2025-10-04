@@ -24,7 +24,7 @@ const {
 }>();
 
 const state = ref<IModelState>({
-  locked: ELockState.YES
+  locked: ELockState.NO
 } as IModelState);
 
 const dispatch = (action: TModelAction): void => {

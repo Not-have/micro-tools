@@ -1,7 +1,8 @@
 <script lang="ts" setup>
 import {
   provide,
-  defineProps
+  defineProps,
+  computed
 } from "vue";
 
 import {
@@ -17,11 +18,14 @@ const {
   dispatch
 } = defineProps<IModelContext>();
 
-provide(MODEL_CONTEXT_KEY, {
+// 使用 computed 确保 context 对象是响应式的
+const contextValue = computed(() => ({
   props,
   state,
   dispatch
-});
+}));
+
+provide(MODEL_CONTEXT_KEY, contextValue);
 </script>
 <template>
   <slot></slot>

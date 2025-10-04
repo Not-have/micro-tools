@@ -1,7 +1,6 @@
 import {
   inject,
-  ComputedRef,
-  computed
+  ComputedRef
 } from "vue";
 
 import {
@@ -12,5 +11,5 @@ import {
 } from "../types";
 
 export default function useModelContext(): ComputedRef<IModelContext> {
-  return computed(() => inject(MODEL_CONTEXT_KEY) as IModelContext);
+  return inject(MODEL_CONTEXT_KEY) as ComputedRef<IModelContext>;
 }
