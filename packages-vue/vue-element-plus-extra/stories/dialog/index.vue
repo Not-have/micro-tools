@@ -14,7 +14,10 @@ const handleClick = (): void => {
   open({
     title: "Title",
     titleExtra: <Content />,
-    content: " <Content />"
+    content: " <Content />",
+    ok: "✅",
+    cancel: "❌",
+    isSubmit: true
   });
 };
 

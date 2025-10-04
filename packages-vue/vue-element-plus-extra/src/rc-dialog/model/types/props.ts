@@ -1,6 +1,14 @@
-import type {
+import {
   VNode
 } from "vue";
+
+import {
+  ButtonProps
+} from "element-plus";
+
+export interface IButtonProps extends Partial<ButtonProps> {
+  label?: string;
+}
 
 export interface IDialogProps<T = void, D extends object = Record<string, unknown>> {
 
@@ -46,4 +54,30 @@ export interface IDialogProps<T = void, D extends object = Record<string, unknow
    * 执行提交后发生
    */
   onSubmit?(result?: D, defaultResult?: D): Promise<Record<string, unknown> | undefined | T | boolean>;
+
+  /**
+   * @deprecated 是否进行提交操作，默认 true
+   *
+   * 传入 false 时只显示关闭 - 查看/详情
+   */
+  isSubmit?: boolean;
+
+  /**
+   * 确认按钮
+   */
+  ok?: IButtonProps | string;
+
+  /**
+   * 取消按钮
+   */
+  cancel?: IButtonProps | string;
+
+  /**
+   * 选项
+   *
+   * 传入抽屉和模态框的各个自带 api
+   *
+   * 但是要注意，已有属性的值会覆盖传入的值
+   */
+  // options?: TDialogPropsOptions;
 }
