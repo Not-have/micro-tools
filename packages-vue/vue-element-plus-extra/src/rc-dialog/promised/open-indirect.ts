@@ -34,7 +34,7 @@ export default function openIndirect<T = void, D extends object = Record<string,
 
   const dialogId = uuid();
 
-  const onClose: DialogProps<T, D>["onClose"] = (result, defaultResult) => {
+  const onClose: DialogProps<T, D>["onClose"] = (result, defaultData) => {
 
     if (result instanceof Error) {
       close?.(JSON.parse(result.message as string), true, false);
@@ -46,7 +46,7 @@ export default function openIndirect<T = void, D extends object = Record<string,
 
     close?.(result, false);
 
-    props?.onClose?.(result, defaultResult);
+    props?.onClose?.(result, defaultData);
   };
 
   function renderDialog(): void {
@@ -79,6 +79,12 @@ export default function openIndirect<T = void, D extends object = Record<string,
     }, 800);
   }
 
+  /**
+   * 创建 Promise
+   *
+   * @param resolve 成功回调
+   * @param reject 失败回调
+   */
   const promise = new Promise<T>((resolve, reject) => {
 
     /**

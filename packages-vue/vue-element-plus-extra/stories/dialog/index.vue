@@ -11,9 +11,6 @@ import {
   DialogSize
 } from "../../src";
 import {
-  apiTest01
-} from "./api";
-import {
   submit
 } from "./utils";
 
@@ -27,7 +24,10 @@ const handleClick = (): void => {
     isSubmit: true,
     footerExtra: " <Content />",
     size: DialogSize.ALMOST_FULL,
-    data: apiTest01,
+    data: {
+      name: "John Doe",
+      age: 20
+    },
     onSubmit: submit,
     closable: false,
     backdrop: false,

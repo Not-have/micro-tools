@@ -38,7 +38,7 @@ export default function useHandleOnSubmit(): () => void {
 
       await dispatchUnlock();
 
-      await onClose.value?.(result, data.value);
+      await onClose.value?.(result, formData.value);
     } catch (error) {
 
       // 表单验证失败或提交失败

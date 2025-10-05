@@ -109,16 +109,22 @@ export interface IDialogProps<T = void, D extends object = Record<string, unknow
    *
    * 执行关闭后发生（然而，真正的从 DOM 上移除还是必须要使用者自行处理）
    *
-   * @param result 结果（也就是当前的弹出框状态值）
-   * @param defaultResult 默认结果（销毁时）
+   * @param result 提交等接口的返回值
+   * @param data 默认数据(props.data 的初始值) / 为表单数据
    */
-  onClose?(result?: T | Error | unknown, defaultResult?: D): void;
+  onClose?(result?: T | Error | unknown, data?: D | unknown): void;
 
   /**
    * Dialog props.onSubmit 方法定义，value 的类型为 Promise resolve 的类型，
+   *
    * 执行提交后发生
+   *
+   * @param data 数据 (表单数据)
+   * @param defaultData 默认数据 (props.data 的初始值)
+   *
+   * @returns 返回值
    */
-  onSubmit?(result?: D, defaultResult?: D): Promise<Record<string, unknown> | undefined | T | boolean>;
+  onSubmit?(data?: D, defaultData?: D): Promise<Record<string, unknown> | undefined | T | boolean>;
 
   /**
    * @deprecated 是否进行提交操作，默认 true
