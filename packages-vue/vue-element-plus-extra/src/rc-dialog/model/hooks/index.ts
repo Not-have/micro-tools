@@ -9,6 +9,12 @@ export { default as usePropsSize } from "./use-props-size";
 export { default as usePropsData } from "./use-props-data";
 export { default as usePropsMode } from "./use-props-mode";
 export { default as usePropsOptions } from "./use-props-options";
+export { default as usePropsClassNameOnBody } from "./use-props-class-name-on-body";
+export { default as usePropsBackdrop } from "./use-props-backdrop";
+export { default as usePropsBackdropClosable } from "./use-props-backdrop-closable";
+export { default as usePropsClosable } from "./use-props-closable";
+export { default as usePropsEsc } from "./use-props-esc";
+export { default as usePropsZIndex } from "./use-props-zIndex";
 
 export { default as useHandleOnClose } from "./use-handle-on-close";
 export { default as useHandleOnSubmit } from "./use-handle-on-submit";

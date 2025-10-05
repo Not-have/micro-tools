@@ -18,7 +18,13 @@ import {
   useHandleOnClose,
   usePropsSize,
   useStateDataLoading,
-  usePropsOptions
+  usePropsOptions,
+  usePropsClassNameOnBody,
+  usePropsBackdrop,
+  usePropsBackdropClosable,
+  usePropsClosable,
+  usePropsEsc,
+  usePropsZIndex
 } from "../../../model";
 
 const open = useStateOpen();
@@ -33,12 +39,30 @@ const dataLoading = useStateDataLoading();
 
 const options = usePropsOptions();
 
+const classNameOnBody = usePropsClassNameOnBody();
+
+const backdrop = usePropsBackdrop();
+
+const backdropClosable = usePropsBackdropClosable();
+
+const closable = usePropsClosable();
+
+const esc = usePropsEsc();
+
+const zIndex = usePropsZIndex();
 </script>
 <template>
   <ElDrawer
     v-bind="options"
     v-model="open"
+    destroy-on-close
     :size="transformWidthSize(size)"
+    :body-class="classNameOnBody"
+    :z-index="zIndex"
+    :close-on-press-escape="esc"
+    :show-close="closable"
+    :modal="backdrop"
+    :close-on-click-modal="backdropClosable"
     @close="handleClose"
   >
     <template #header>

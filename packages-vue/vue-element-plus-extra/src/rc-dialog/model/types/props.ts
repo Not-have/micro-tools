@@ -65,6 +65,41 @@ export interface IDialogProps<T = void, D extends object = Record<string, unknow
   size?: number | ESize;
 
   /**
+   * 容器类名
+   */
+  classNameOnBody?: string;
+
+  /**
+   * 是否需要背投
+   *
+   * @default true
+   */
+  backdrop?: boolean; // 是否需要背投
+  /**
+   * 点击蒙层是否允许关闭
+   *
+   * @default true
+   */
+  backdropClosable?: boolean;
+
+  /**
+   * 显示关闭按钮
+   *
+   * @default true
+   */
+  closable?: boolean;
+
+  /**
+   * 键盘的 ESC
+   */
+  esc?: boolean;
+
+  /**
+   * Dialog 本体的 zIndex
+   */
+  zIndex?: number;
+
+  /**
    * 数据
    */
   data?: D | (() => Promise<D | unknown | string | undefined | number | Record<string, unknown>>);

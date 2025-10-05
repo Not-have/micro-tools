@@ -17,7 +17,13 @@ import {
   useHandleOnClose,
   usePropsSize,
   useStateDataLoading,
-  usePropsOptions
+  usePropsOptions,
+  usePropsBackdrop,
+  usePropsBackdropClosable,
+  usePropsClosable,
+  usePropsEsc,
+  usePropsZIndex,
+  usePropsClassNameOnBody
 } from "../../../model";
 
 const open = useStateOpen();
@@ -30,6 +36,18 @@ const content = usePropsContent();
 
 const dataLoading = useStateDataLoading();
 
+const backdrop = usePropsBackdrop();
+
+const backdropClosable = usePropsBackdropClosable();
+
+const closable = usePropsClosable();
+
+const esc = usePropsEsc();
+
+const zIndex = usePropsZIndex();
+
+const classNameOnBody = usePropsClassNameOnBody();
+
 const options = usePropsOptions();
 
 </script>
@@ -39,6 +57,13 @@ const options = usePropsOptions();
     v-bind="options"
     v-model="open"
     :width="transformWidthSize(size)"
+    :z-index="zIndex"
+    :body-class="classNameOnBody"
+    :close-on-press-escape="esc"
+    :show-close="closable"
+    :modal="backdrop"
+    :close-on-click-modal="backdropClosable"
+    destroy-on-close
     @close="handleClose"
   >
     <template #header>
