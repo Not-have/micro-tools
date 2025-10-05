@@ -7,7 +7,8 @@ import {
 } from "element-plus";
 
 import {
-  open
+  open,
+  DialogSize
 } from "../../src";
 import {
   apiTest01
@@ -25,9 +26,13 @@ const handleClick = (): void => {
     cancel: "❌",
     isSubmit: true,
     footerExtra: " <Content />",
-    size: 600,
+    size: DialogSize.ALMOST_FULL,
     data: apiTest01,
-    onSubmit: submit
+    onSubmit: submit,
+    closable: false,
+    backdrop: false,
+    esc: false,
+    backdropClosable: false
   }).catch(error => {
 
     // eslint-disable-next-line no-console

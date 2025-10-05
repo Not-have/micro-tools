@@ -1,6 +1,7 @@
 export {
   ELockState as ModelLockState,
-  EMode as ModelMode
+  EMode as ModelMode,
+  ESize as ModelSize
 } from "./enum";
 export type {
   IDialogProps as DialogProps

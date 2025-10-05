@@ -5,6 +5,7 @@ export {
 
 export {
   ModelMode as DialogMode,
+  ModelSize as DialogSize,
   useForm
 } from "./model";
 
