@@ -1,5 +1,11 @@
 # @mt-kit/utils
 
+## 1.4.0
+
+### Minor Changes
+
+- 迁移方法到 @mt-kit/utils
+
 ## 1.3.0
 
 ### Minor Changes
