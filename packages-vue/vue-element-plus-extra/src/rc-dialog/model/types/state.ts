@@ -24,7 +24,10 @@ export interface IModelState<D extends object = Record<string, unknown>> {
   active: boolean;
 
   /**
-   * 可以通过 lock 和 unlock 两个 API 来调整 Dialog 的状态，使其不会被任何方式关闭
+   * 可以通过 lock 和 unlock 两个 API 来调整 Dialog 的状态，使其不会被任何方式关闭，锁定的状态有：
+   * - YES: 锁定
+   * - NO: 未锁定
+   * - LOADING: 加载中（用于当 data 为 Promise 时，防止 Dialog 被锁定）
    */
   locked: ELockState;
 
