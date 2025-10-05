@@ -1,5 +1,11 @@
 # @mt-kit/vue-element-plus-extra
 
+## 1.2.3
+
+### Patch Changes
+
+- 更新文档格式错误问题
+
 ## 1.2.2
 
 ### Patch Changes
