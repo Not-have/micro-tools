@@ -1,6 +1,6 @@
 # micro-tools (mt)
 
-[![npm version](https://img.shields.io/npm/v/@mt-kit/micro-tools.svg)](https://www.npmjs.com/settings/mt-kit/packages)
+[![npm version](https://img.shields.io/npm/v/@mt-kit/micro-tools.svg)](https://www.npmjs.com/~not-have-warehouse)
 [![Documentation](https://img.shields.io/badge/docs-online-blue)](https://not-have.github.io/micro-tools/)
 
 ## 简介
@@ -81,7 +81,7 @@ pnpm run boot
 - **⭐ Star 支持**: [访问仓库](https://github.com/Not-have/micro-tools) - 给项目一个 Star 表示支持
 - **🔧 贡献代码**: [查看 PR](https://github.com/Not-have/micro-tools/pulls) - 参与项目开发，提交 PR
 - **📝 更新日志**: [查看更新](https://github.com/Not-have/micro-tools/releases) - 查看最新版本更新内容
-- **📦 NPM 包**: [访问 NPM](https://www.npmjs.com/settings/mt-kit/packages) - 在 NPM 上查看和安装包
+- **📦 NPM 包**: [访问 NPM](https://www.npmjs.com/~not-have-warehouse) - 在 NPM 上查看和安装包
 
 ## 贡献方式
 

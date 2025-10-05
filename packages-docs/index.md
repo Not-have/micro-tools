@@ -37,7 +37,7 @@ footer: |
 
 <div style="display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap;">
 
-[![npm version](https://img.shields.io/npm/v/@mt-kit/utils.svg?style=for-the-badge&labelColor=2c3e50&color=3498db&logo=npm&logoColor=white)](https://www.npmjs.com/settings/mt-kit/packages)
+[![npm version](https://img.shields.io/npm/v/@mt-kit/utils.svg?style=for-the-badge&labelColor=2c3e50&color=3498db&logo=npm&logoColor=white)](https://www.npmjs.com/~not-have-warehouse)
 
 [![GitHub stars](https://img.shields.io/github/stars/Not-have/micro-tools?style=for-the-badge&labelColor=2c3e50&color=e74c3c&logo=github&logoColor=white)](https://github.com/Not-have/micro-tools)
 
@@ -158,7 +158,7 @@ footer: |
   <div style="font-size: 2em; margin-bottom: 10px;">📦</div>
   <div style="font-weight: bold; margin-bottom: 8px;">NPM 包</div>
   <div style="color: #6c757d; font-size: 0.9em;">在 NPM 上查看和安装包</div>
-  <a href="https://www.npmjs.com/settings/mt-kit/packages" target="_blank" style="color: #007bff; text-decoration: none; font-weight: 500;">访问 NPM →</a>
+  <a href="https://www.npmjs.com/~not-have-warehouse" target="_blank" style="color: #007bff; text-decoration: none; font-weight: 500;">访问 NPM →</a>
 </div>
 
 </div>
