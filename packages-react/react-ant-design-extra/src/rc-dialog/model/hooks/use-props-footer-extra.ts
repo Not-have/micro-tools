@@ -4,10 +4,10 @@ import {
 
 import useModelProps from "./_use-model-props";
 
-export default function usePropsButtonsExtra(): React.ReactElement[] {
+export default function usePropsFooterExtra(): React.ReactElement[] {
   const props = useModelProps();
 
-  return useMemo(() => props.buttonsExtra || [], [
+  return useMemo(() => props.footerExtra || [], [
     props
   ]);
 }

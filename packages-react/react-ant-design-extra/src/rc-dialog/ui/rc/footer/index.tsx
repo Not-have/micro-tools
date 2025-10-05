@@ -13,7 +13,7 @@ import {
   useHandleOnSubmit,
   useStateLocked,
   ModelLockState,
-  usePropsButtonsExtra,
+  usePropsFooterExtra,
   usePropsOk,
   usePropsCancel,
   usePropsIsSubmit
@@ -26,7 +26,7 @@ export default function Footer(): React.ReactElement {
 
   const locked = useStateLocked();
 
-  const buttonsExtra = usePropsButtonsExtra();
+  const footerExtra = usePropsFooterExtra();
 
   const ok = usePropsOk();
 
@@ -61,7 +61,7 @@ export default function Footer(): React.ReactElement {
   ]);
 
   return <Space>
-    {buttonsExtra.map(button => (
+    {footerExtra.map(button => (
       <React.Fragment key={button.key || Math.random()}>
         {button}
       </React.Fragment>

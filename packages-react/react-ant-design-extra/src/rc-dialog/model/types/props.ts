@@ -50,7 +50,7 @@ export interface IDialogProps<T = void, D extends object = Record<string, unknow
   /**
    * 底部操作按钮
    */
-  buttonsExtra?: React.ReactElement[];
+  footerExtra?: React.ReactElement[];
 
   /**
    * 内容

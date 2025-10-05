@@ -9,15 +9,16 @@ import {
 } from "react-dom/client";
 
 import {
+  createContainer,
+  uuid
+} from "@mt-kit/utils";
+
+import {
   DialogProps
 } from "../model";
 import {
   IDialogIndirectPromise
 } from "../types";
-import {
-  createDialogContainer,
-  uuid
-} from "../util";
 import WithProvider from "../with-model";
 
 // 全局错误处理器管理
@@ -67,7 +68,7 @@ export default function openIndirect<T = void, D extends object = Record<string,
 
   let close: ((result?: T | Error, rejected?: boolean, isDestroy?: boolean) => void) | null = _noop;
 
-  let container: HTMLDivElement | null = createDialogContainer();
+  let container: HTMLDivElement | null = createContainer().element;
 
   let root: ReturnType<typeof createRoot> | null = createRoot(container);
 

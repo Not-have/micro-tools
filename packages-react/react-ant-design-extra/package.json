@@ -51,6 +51,7 @@
     "react-router-dom": ">=7.0.0"
   },
   "dependencies": {
+    "@mt-kit/utils": "workspace:^",
     "lodash-es": "catalog:",
     "styled-components": "catalog:"
   },
