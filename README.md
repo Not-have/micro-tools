@@ -1,172 +1,87 @@
 # micro-tools (mt)
 
+[![npm version](https://img.shields.io/npm/v/@mt-kit/micro-tools.svg)](https://www.npmjs.com/settings/mt-kit/packages)
+[![Documentation](https://img.shields.io/badge/docs-online-blue)](https://not-have.github.io/micro-tools/)
+
 ## 简介
 
-micro-tools（简称 `mt`）是一个模块化的前端工具集合，采用 monorepo 架构管理，包含多种开发中常用的工具方法、组件库、样式方案等。项目通过 pnpm workspace 实现多包管理，各子包独立维护且依赖最小化。
+**micro-tools（简称 mt）** 是一个现代化的模块化前端工具集合，采用 monorepo 架构，基于 pnpm workspace 管理。项目涵盖 61+ 工具函数、UI 组件库、网络请求库、工程配置等，助力高效开发。每个子包独立维护，支持按需引入，提供完整的 TypeScript 类型支持。
 
-## 功能特性
+## 核心特性
 
-### 🏗 核心架构
+- **🏗 现代化架构**：基于 pnpm workspace 的 monorepo 管理，模块独立、依赖最小化
+- **📦 丰富生态**：61+ 工具函数、UI 组件、网络请求、工程配置等完整解决方案
+- **🎯 类型安全**：完整的 TypeScript 支持，提供类型定义和智能提示
+- **⚡ 高性能**：支持按需引入，减少包体积，提升加载性能
+- **🛠 开发友好**：提供 CLI 工具、Storybook 文档、完整的开发工具链
 
-- **Monorepo 管理**: 基于 pnpm workspace 的多包管理架构
-- **模块化设计**: 每个功能模块独立维护，支持按需引入
-- **TypeScript 支持**: 完整的类型定义和类型安全
+## 技术栈
 
-### 🎨 UI 组件库 (@mt/components)
+- **构建工具**：Vite、Webpack、TypeScript
+- **包管理**：pnpm workspace
+- **代码质量**：ESLint、Prettier、Stylelint、Commitlint
+- **文档系统**：VitePress、Storybook
+- **前端框架**：Vue 3、React 18、Element Plus
+- **开发工具**：Husky、lint-staged、Changesets
 
-- **拖拽组件** (`draggable`): 可拖拽的 DOM 元素组件
-- **CSS 三角形生成器** (`css-generate-triangle`): 动态生成 CSS 三角形
-- **Iconfont 注入器** (`inject-iconfont`): 在线图标字体注入工具
-- **数字动画组件** (`count-to`): 数字滚动动画效果
-- **Vite 错误模拟器** (`imitation-vite-error`): 开发环境错误模拟
+## 📊 项目统计
 
-### 🛠 工具函数库 (@mt/utils)
+- **15+** 核心包
+- **61+** 工具函数
+- **100%** TypeScript
+- **MIT** 开源协议
 
-**类型检查工具**:
-
-- `isElement`, `isFunction`, `isObject`, `isNull`, `isUndefined`, `isEqual`
-
-**数据处理工具**:
-
-- `clone`, `cloneDeep` - 对象深拷贝
-- `omitBy`, `objectValueToString` - 对象处理
-- `queryStringToObject` - URL 参数解析
-
-**性能优化工具**:
-
-- `debounce`, `throttle`, `animationFrameThrottle` - 防抖节流
-
-**浏览器 API 封装**:
-
-- `copyText` - 剪贴板操作
-- `openWindow` - 窗口操作
-- `cookieHelper`, `localStorageHelper` - 存储操作
-
-**文件处理工具**:
-
-- `downloadByUrl`, `downloadDataFile`, `downloadBase64File`, `downloadUrlFile` - 文件下载
-- `imageBase64ToBlob`, `imageUrlToBase64` - 图片处理
-
-**通信工具**:
-
-- `IframeMessage` - iframe 消息通信
-
-### 🎨 样式方案 (@mt/style)
-
-- **CSS 文本省略** (`css-ellipsis`): 多行文本省略处理
-- **样式重置**: 现代化 CSS 重置方案
-- **原子化 CSS**: 工具类样式系统
-
-### 🌐 网络请求 (@mt/fetch)
-
-**Axios 增强封装** (`@mt/fetch/request-axios`):
-
-- 预设拦截器 (认证、错误处理、消息提示)
-- 请求客户端封装
-- Token 格式化工具
-
-**Mock 数据服务** (`@mt/fetch/mock`):
-
-- Nitro 服务端 Mock
-- 中间件支持
-- 路由配置
-
-### ⚛️ React 生态 (@mt/react)
-
-**React Hooks** (`@mt/react/react-hooks`):
-
-- `useAsync` - 异步状态管理
-- `useHistory` - 历史记录管理
-- `useIsUnmounted` - 组件卸载检测
-- `useLocationQuery` - URL 查询参数
-- `useRequest` - 请求状态管理
-
-### 🖖 Vue 生态 (@mt/vue)
-
-**Vue Hooks** (`@mt/vue/vue-hooks`):
-
-- `useService` - 服务调用管理
-- `useScript` - 脚本加载
-- `useLocationQuery` - 路由查询参数
-- `useWatermark` - 水印功能
-- `useState` - 状态管理
-- `useMount` - 挂载生命周期
-- `useContextMenu` - 右键菜单
-- `useEventListener` - 事件监听
-
-**Vue 组件** (`@mt/vue/vue-components`):
-
-- `CountTo` - 数字动画组件
-
-**Vue 指令** (`@mt/vue/vue-directives`):
-
-- `v-draggable` - 拖拽指令
-- `v-conversion-time` - 时间转换指令
-
-**Vue 配置** (`@mt/vue/vue-config`):
-
-- 错误处理器
-
-**Vue ECharts** (`@mt/vue/vue-echarts`):
-
-- ECharts 图表组件封装
-
-### ⚙️ 开发工具链 (@mt/dev)
-
-**代码质量工具**:
-
-- `@mt/dev/eslint-config` - ESLint 配置
-- `@mt/dev/prettier-config` - Prettier 配置
-- `@mt/dev/stylelint-config` - Stylelint 配置
-- `@mt/dev/ts-config` - TypeScript 配置
-
-**构建工具**:
-
-- `@mt/vite-plugins` - Vite 插件集合
-
-### 📦 其他模块
-
-- `@mt/enum` - 枚举类型定义
-- `@mt/types` - 通用类型定义
-- `@mt/conf` - 配置文件管理
-- `@mt/docs` - 文档系统
-
-## 安装使用
+## 开发环境
 
 ```bash
 # 全局安装pnpm（如未安装）
 npm install -g pnpm
 
 # 克隆项目
-git clone https://github.com/your-repo/micro-tools.git
+git clone https://github.com/Not-have/micro-tools.git
 
 # 安装依赖
 pnpm run boot
+
+# 进入各个包的目录进行开发
 ```
 
 ## 包结构说明
 
 ```text
-├── packages-components/    # UI 组件库
-├── packages-utils/         # 工具函数集合
-├── packages-style/         # 样式方案
-├── packages-fetch/         # 网络请求库
-├── packages-react/         # React 生态 (Hooks)
-├── packages-vue/           # Vue 生态 (组件、指令、Hooks)
-├── packages-dev/           # 开发工具链配置
-├── packages-enum/          # 枚举类型定义
-├── packages-types/         # 通用类型定义
-├── packages-conf/          # 配置文件管理
-├── packages-docs/          # 文档系统
-└── packages-vite-plugins/  # Vite 插件集合
+├── packages-components/     # 🎨 UI 组件库 (可拖拽、数字动画、CSS 三角形等)
+├── packages-utils/          # 🛠 工具函数集合 (61+ 实用方法)
+├── packages-style/          # 🎨 样式方案 (文本省略、样式重置等)
+├── packages-fetch/          # 🌐 网络请求库 (Axios 增强封装)
+├── packages-react/          # ⚛️ React 生态 (Hooks、组件、配置)
+├── packages-vue/            # 🖖 Vue 生态 (组件、指令、Hooks、配置)
+├── packages-cli/            # 🚀 CLI 工具 (项目启动、Storybook 配置)
+├── packages-dev/            # ⚙️ 开发工具链配置 (ESLint、Prettier、Stylelint)
+├── packages-enum/           # 📋 枚举类型定义
+├── packages-types/          # 🎯 通用类型定义
+├── packages-conf/           # ⚙️ 配置文件管理
+├── packages-docs/           # 📚 文档系统
+├── packages-vite-plugins/   # 🔧 Vite 插件集合
+├── packages-theme/          # 🎨 主题样式
+├── packages-demo/           # 🎮 演示项目
+└── envs/                    # 🌍 环境配置
 ```
 
 ## 文档资源
 
-- [在线文档（推荐）](https://not-have.github.io/micro-tools/)
-- [组件开发指南](./doc/Storybook.md)
-- [代码规范说明](./doc/lint.md)
-- [Monorepo 管理](./doc/monorepo-pnpm.md)
+- [在线文档（推荐）](https://not-have.github.io/micro-tools/) - 完整的使用指南和 API 文档
+- [组件开发指南](./doc/Storybook.md) - Storybook 组件开发指南
+- [代码规范说明](./doc/lint.md) - ESLint、Prettier 等代码规范
+- [Monorepo 管理](./doc/monorepo-pnpm.md) - pnpm workspace 管理说明
+
+## 🤝 社区与支持
+
+- **🐛 问题反馈**: [提交 Issue](https://github.com/Not-have/micro-tools/issues) - 报告 Bug 或提出功能建议
+- **💬 讨论交流**: [参与讨论](https://github.com/Not-have/micro-tools/discussions) - 与其他开发者交流使用经验
+- **⭐ Star 支持**: [访问仓库](https://github.com/Not-have/micro-tools) - 给项目一个 Star 表示支持
+- **🔧 贡献代码**: [查看 PR](https://github.com/Not-have/micro-tools/pulls) - 参与项目开发，提交 PR
+- **📝 更新日志**: [查看更新](https://github.com/Not-have/micro-tools/releases) - 查看最新版本更新内容
+- **📦 NPM 包**: [访问 NPM](https://www.npmjs.com/settings/mt-kit/packages) - 在 NPM 上查看和安装包
 
 ## 贡献方式
 
