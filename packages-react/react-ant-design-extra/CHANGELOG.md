@@ -1,5 +1,11 @@
 # @mt-kit/react-ant-design-extra
 
+## 1.4.1
+
+### Patch Changes
+
+- ⚠️⚠️⚠️ onClose 中第二个参数，后面考虑是否保留❓目前是 deprecated
+
 ## 1.4.0
 
 ### Minor Changes

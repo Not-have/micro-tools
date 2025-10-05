@@ -1,5 +1,11 @@
 # @mt-kit/vue-element-plus-extra
 
+## 1.2.5
+
+### Patch Changes
+
+- ⚠️⚠️⚠️ onClose 中第二个参数，后面考虑是否保留❓目前是 deprecated
+
 ## 1.2.4
 
 ### Patch Changes
