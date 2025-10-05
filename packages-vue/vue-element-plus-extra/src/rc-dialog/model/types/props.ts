@@ -110,7 +110,7 @@ export interface IDialogProps<T = void, D extends object = Record<string, unknow
    * 执行关闭后发生（然而，真正的从 DOM 上移除还是必须要使用者自行处理）
    *
    * @param result 提交等接口的返回值
-   * @param data 默认数据(props.data 的初始值) / 为表单数据
+   * @deprecated data 默认数据(props.data 的初始值) / 为表单数据
    */
   onClose?(result?: T | Error | unknown, data?: D | unknown): void;
 

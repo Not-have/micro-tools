@@ -47,7 +47,7 @@ export default function useHandleOnSubmit(): () => void {
 
       // 提交成功，解锁并关闭弹窗
       await dispatchUnlock();
-      await onClose?.(result, data);
+      await onClose?.(result, formData);
     } catch (error) {
 
       // 表单验证失败或提交失败

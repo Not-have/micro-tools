@@ -116,9 +116,9 @@ export interface IDialogProps<T = void, D extends object = Record<string, unknow
    * 执行关闭后发生（然而，真正的从 DOM 上移除还是必须要使用者自行处理）
    *
    * @param result 结果（也就是当前的弹出框状态值）
-   * @param defaultResult 默认结果（销毁时）
+   * @deprecated defaultResult 默认结果（销毁时）,后面考虑销毁
    */
-  onClose?(result?: T | Error, defaultResult?: D): void;
+  onClose?(result?: T | Error, data?: D): void;
 
   /**
    * Dialog props.onSubmit 方法定义，value 的类型为 Promise resolve 的类型，
