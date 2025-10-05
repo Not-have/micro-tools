@@ -1,5 +1,11 @@
 # @mt-kit/vue-element-plus-extra
 
+## 1.2.1
+
+### Patch Changes
+
+- 更新参数
+
 ## 1.2.0
 
 ### Minor Changes
