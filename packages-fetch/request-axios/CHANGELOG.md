@@ -1,5 +1,11 @@
 # @mt-kit/request-axios
 
+## 1.6.0
+
+### Minor Changes
+
+- 补充文档
+
 ## 1.5.0
 
 ### Minor Changes
