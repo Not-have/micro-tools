@@ -2,5 +2,6 @@ export {
   DialogMode,
   open,
   openIndirect,
-  useForm
+  useForm,
+  WithModel
 } from "./rc-dialog";
