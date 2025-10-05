@@ -1,8 +1,11 @@
 # @mt-kit/vue-element-plus-extra
 
 [![npm version](https://img.shields.io/npm/v/@mt-kit/vue-element-plus-extra.svg)](https://www.npmjs.com/package/@mt-kit/vue-element-plus-extra)
+[![GitHub](https://img.shields.io/github/stars/Not-have/micro-tools)](https://github.com/Not-have/micro-tools)
 [![GitHub issues](https://img.shields.io/github/issues/Not-have/micro-tools)](https://github.com/Not-have/micro-tools/issues)
 [![License](https://img.shields.io/github/license/Not-have/micro-tools)](https://github.com/Not-have/micro-tools/blob/main/LICENSE)
+[![Documentation](https://img.shields.io/badge/docs-online-blue)](https://not-have.github.io/micro-tools/)
+[![Source](https://img.shields.io/badge/source-GitHub-black)](https://github.com/Not-have/micro-tools/tree/main/packages-vue/vue-element-plus-extra)
 
 基于 Element Plus 的 Vue 组件库，提供增强的 UI 组件和工具。
 
