@@ -1,234 +1,474 @@
 # @mt-kit/request-axios
 
-[docs](https://axios-http.com/zh/)
+[![npm version](https://img.shields.io/npm/v/@mt-kit/request-axios.svg)](https://www.npmjs.com/package/@mt-kit/request-axios)
 
-## 下载
+[![License](https://img.shields.io/npm/l/@mt-kit/request-axios.svg)](https://github.com/Not-have/micro-tools/blob/main/LICENSE)
+
+基于 Axios 封装的请求客户端，提供统一的请求拦截、响应处理、错误处理、文件上传下载等功能。
+
+[Axios 官方文档](https://axios-http.com/zh/)
+
+## 安装
 
 ```bash
 npm i @mt-kit/request-axios
 ```
 
-## API
+## 特性
 
-### defaultResponseInterceptor
+- 🚀 基于 Axios，支持所有 Axios 功能
+- 🔧 内置请求/响应拦截器
+- 🔐 自动 Token 刷新机制
+- 📁 文件上传/下载支持
+- 🎯 统一的错误处理
+- 📦 TypeScript 支持
+- 🛠️ 灵活的配置选项
 
-- 作用 ：处理成功的响应，并根据配置返回相应的数据
-- 功能 ：
-  + 如果 responseReturn 配置为 "raw" ，则直接返回原始的响应对象
-  + 如果状态码在 200 到 400 之间，且 responseReturn 配置为 "body" ，则返回响应体
-  + 如果 successCode 匹配，则根据 dataField 配置返回相应的数据
-  + 如果以上条件都不满足，则抛出错误
+## 快速开始
 
-### authenticateResponseInterceptor
-
-- 作用 ：处理 401 未授权错误，并尝试刷新 token
-- 功能 ：
-  + 如果响应状态码为 401，且启用了 refreshToken 功能，则尝试刷新 token
-  + 如果正在刷新 token，则将请求加入队列，等待刷新完成
-  + 如果刷新 token 成功，则重新发送请求；如果失败，则跳转到重新登录
-
-### errorMessageResponseInterceptor
-
-- 作用 ：处理请求错误，并根据错误类型生成相应的错误信息
-- 功能 ：
-  + 如果请求被取消，则直接返回错误
-  + 根据错误类型（如网络错误、超时、服务器错误等）生成相应的错误信息
-  + 调用 makeErrorMessage 函数显示错误信息
-
-## 使用
+### 基础用法
 
 ```ts
-/**
- * 该文件可自行根据业务逻辑进行调整
- */
+import RequestClient from '@mt-kit/request-axios';
 
+// 创建请求客户端
+const client = new RequestClient({
+  baseURL: 'https://api.example.com',
+  timeout: 10000
+});
+
+// 发送请求
+const data = await client.get('/users');
+console.log(data);
+```
+
+### 完整配置示例
+
+```ts
 import RequestClient, {
   RequestClientOptions,
-  authenticateResponseInterceptor,
   defaultResponseInterceptor,
+  authenticateResponseInterceptor,
+  errorMessageResponseInterceptor,
+  formatToken
+} from '@mt-kit/request-axios';
+
+const options: RequestClientOptions = {
+  baseURL: 'https://api.example.com',
+  timeout: 10000,
+  headers: {
+    'Content-Type': 'application/json;charset=utf-8' // 默认 Content-Type
+  },
+  responseReturn: 'data', // 响应数据返回方式，默认为 'data'
+  paramsSerializer: 'brackets' // 参数序列化方式
+};
+
+const client = new RequestClient(options);
+```
+
+## API 参考
+
+### RequestClientOptions
+
+创建请求客户端时的配置选项，继承自 Axios 的 `CreateAxiosDefaults` 并扩展了以下选项：
+
+| 参数 | 类型 | 默认值 | 描述 |
+|------|------|--------|------|
+| `responseReturn` | `'raw' \| 'body' \| 'data'` | `'data'` | 响应数据返回方式 |
+| `paramsSerializer` | `'brackets' \| 'comma' \| 'indices' \| 'repeat' \| function` | - | 参数序列化方式 |
+
+#### responseReturn 选项详解
+
+- **`'raw'`**: 返回完整的 AxiosResponse 对象，包含 headers、status 等
+- **`'body'`**: 返回响应体数据，只检查 HTTP 状态码
+- **`'data'`**: 返回响应体中的 data 字段，会检查业务状态码
+
+#### paramsSerializer 选项详解
+
+- **`'brackets'`**: `ids[]=1&ids[]=2&ids[]=3`
+- **`'comma'`**: `ids=1,2,3`
+- **`'indices'`**: `ids[0]=1&ids[1]=2&ids[2]=3`
+- **`'repeat'`**: `ids=1&ids=2&ids=3`
+
+### 工具函数
+
+#### formatToken
+
+格式化 Token 为标准的 Authorization 头格式。
+
+```ts
+import { formatToken } from '@mt-kit/request-axios';
+
+// 使用示例
+const token = 'your-access-token';
+const authHeader = formatToken(token); // 返回 "Bearer your-access-token"
+
+// 如果 token 为空或 null，返回 null
+const emptyToken = formatToken(null); // 返回 null
+```
+
+### 内置拦截器
+
+#### defaultResponseInterceptor
+
+处理成功响应，根据配置返回相应数据。
+
+**参数：**
+
+```ts
+interface DefaultResponseInterceptorOptions {
+  codeField?: string; // 状态码字段名，默认 'code'
+  dataField?: string | ((response: Record<string, unknown>) => unknown); // 数据字段名或解析函数，默认 'data'
+  code?: number | string | ((code: number | string) => boolean); // 成功状态码，默认 200
+}
+```
+
+**默认值说明：**
+
+- `codeField`: `'code'` - 响应数据中的状态码字段名
+- `dataField`: `'data'` - 响应数据中的数据字段名  
+- `code`: `200` - 表示成功的业务状态码值
+
+**HTTP 状态码处理：**
+
+- 状态码 200-399：被认为是成功的 HTTP 响应
+- 只有在这个范围内的响应才会继续处理业务数据
+- 如果 `responseReturn` 设置为 `'raw'`，则直接返回原始响应对象
+
+**示例：**
+
+```ts
+// 基础用法
+client.addResponseInterceptor(defaultResponseInterceptor());
+
+// 自定义配置
+client.addResponseInterceptor(defaultResponseInterceptor({
+  codeField: 'status', // 使用 status 字段作为状态码
+  dataField: 'result', // 使用 result 字段作为数据
+  code: 0 // 0 表示业务成功（通常业务成功码为 0）
+}));
+```
+
+#### authenticateResponseInterceptor
+
+处理 401 未授权错误，自动刷新 Token。
+
+**Token 刷新机制：**
+
+1. **检测 401 错误**：当响应状态码为 401 时触发
+2. **防重复刷新**：如果正在刷新 Token，将请求加入队列等待
+3. **刷新 Token**：调用 `doRefreshToken` 函数获取新 Token
+4. **重试请求**：使用新 Token 重新发送原始请求
+5. **处理队列**：处理等待队列中的所有请求
+6. **失败处理**：如果刷新失败，调用 `doReAuthenticate` 重新认证
+
+**参数：**
+
+```ts
+interface AuthenticateResponseInterceptorOptions {
+  client: RequestClient; // 请求客户端实例
+  doReAuthenticate?: () => Promise<void>; // 重新认证函数（可选）
+  doRefreshToken: () => Promise<string>; // 刷新 Token 函数
+  enableRefreshToken?: boolean; // 是否启用 Token 刷新（默认关闭）
+  formatToken?: (token: string) => null | string; // Token 格式化函数（可选）
+  options?: AuthenticateResponseInterceptorOptions; // 拦截器选项
+}
+```
+
+**注意：** `options` 参数包含 `codeField` 和 `code` 等配置选项。
+
+**示例：**
+
+```ts
+client.addResponseInterceptor(authenticateResponseInterceptor({
+  client,
+  doReAuthenticate: async () => {
+    // 清除本地存储的 Token
+    localStorage.removeItem('accessToken');
+    localStorage.removeItem('refreshToken');
+    // 跳转到登录页
+    window.location.href = '/login';
+  },
+  doRefreshToken: async () => {
+    // 调用刷新 Token 接口
+    const refreshToken = localStorage.getItem('refreshToken');
+    const response = await fetch('/api/refresh-token', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${refreshToken}`
+      }
+    });
+    const { accessToken } = await response.json();
+    localStorage.setItem('accessToken', accessToken);
+    return accessToken;
+  },
+  enableRefreshToken: true,
+  formatToken: (token) => `Bearer ${token}`,
+  options: {
+    codeField: 'code',
+    code: 401
+  }
+}));
+```
+
+#### errorMessageResponseInterceptor
+
+处理请求错误，生成友好的错误提示。
+
+**参数：**
+
+```ts
+interface ErrorMessageResponseInterceptorOptions {
+  client?: RequestClient; // 请求客户端实例（可选）
+  errorFn: (message: string, error: any) => void; // 错误处理函数
+  options?: ErrorMessageResponseInterceptorOptions; // 错误消息配置选项
+}
+```
+
+**ErrorMessageResponseInterceptorOptions 包含：**
+
+```ts
+interface ErrorMessageResponseInterceptorOptions {
+  message?: {
+    networkErrorMsg?: string; // 网络错误提示
+    timeoutMsg?: string; // 超时提示
+    serverErrorMsg?: string; // 服务器错误提示
+    notFoundMsg?: string; // 404 错误提示
+    badRequestMsg?: string; // 400 错误提示
+    unauthorizedMsg?: string; // 401 错误提示
+    forbiddenMsg?: string; // 403 错误提示
+    requestTimeoutMsg?: string; // 408 错误提示
+    defaultMsg?: string; // 默认错误提示
+  };
+}
+```
+
+**错误处理逻辑：**
+
+1. **请求取消**：如果请求被取消（`axios.isCancel(error)`），直接返回错误
+2. **网络错误**：包含 "Network Error" 的错误信息
+3. **超时错误**：包含 "timeout" 的错误信息  
+4. **HTTP 状态码错误**：根据状态码生成相应提示
+   + 400: 请求错误
+   + 401: 未授权
+   + 403: 禁止访问
+   + 404: 资源不存在
+   + 408: 请求超时
+   + 500: 服务器内部错误
+
+**示例：**
+
+```ts
+client.addResponseInterceptor(errorMessageResponseInterceptor({
+  client,
+  errorFn: (message: string, error: any) => {
+    // 使用 UI 库显示错误提示
+    console.error('请求错误:', message, error);
+    // 可以集成消息提示组件
+    // message.error(message);
+  },
+  options: {
+    message: {
+      networkErrorMsg: '网络异常，请检查您的网络连接后重试。',
+      timeoutMsg: '请求超时，请稍后重试。',
+      serverErrorMsg: '服务器内部错误，请稍后重试。',
+      notFoundMsg: '请求资源不存在，请稍后重试。',
+      badRequestMsg: '请求错误，请检查您的输入并重试。',
+      unauthorizedMsg: '登录认证过期，请重新登录后继续。',
+      forbiddenMsg: '禁止访问，您没有权限访问此资源。',
+      requestTimeoutMsg: '请求超时，请稍后重试。',
+      defaultMsg: '请求失败，请稍后重试'
+    }
+  }
+}));
+```
+
+## 请求方法
+
+### HTTP 方法
+
+RequestClient 支持所有标准的 HTTP 方法：
+
+```ts
+// GET 请求
+client.get<T, Q>(url: string, params?: Q, config?: RequestClientConfig): Promise<T>
+
+// POST 请求  
+client.post<T, Q>(url: string, data?: Q, config?: RequestClientConfig): Promise<T>
+
+// PUT 请求
+client.put<T, Q>(url: string, data?: Q, config?: RequestClientConfig): Promise<T>
+
+// DELETE 请求
+client.delete<T, Q>(url: string, data?: Q, config?: RequestClientConfig): Promise<T>
+
+// 通用请求方法
+client.request<T>(url: string, config: RequestClientConfig): Promise<T>
+```
+
+### 文件操作
+
+```ts
+// 文件上传
+client.upload<T>(url: string, data: UploadData, config?: RequestClientConfig): Promise<T>
+
+// 文件下载
+client.download<T>(url: string, config?: RequestClientConfig): Promise<T>
+```
+
+## 使用示例
+
+### 基础配置
+
+```ts
+import RequestClient, {
+  defaultResponseInterceptor,
+  authenticateResponseInterceptor,
   errorMessageResponseInterceptor,
   formatToken
 } from "@mt-kit/request-axios";
 
-/**
- * 接口地址
- *
- * 需要启动 mock 服务
- */
-const apiURL = "http://localhost:5320/"; // 基础路由
+// 创建请求客户端
+const client = new RequestClient({
+  baseURL: 'https://api.example.com',
+  timeout: 10000,
+  responseReturn: 'data'
+});
 
-function createRequestClient(baseUrl: string, options?: RequestClientOptions): RequestClient {
-  const client = new RequestClient({
-    ...options,
-    baseURL: baseUrl
+// 添加拦截器
+client.addResponseInterceptor(defaultResponseInterceptor());
+client.addResponseInterceptor(authenticateResponseInterceptor({
+  client,
+  doRefreshToken: async () => {
+    // 刷新 Token 逻辑
+    const response = await fetch('/api/refresh-token');
+    const { token } = await response.json();
+    return token;
+  },
+  enableRefreshToken: true
+}));
+client.addResponseInterceptor(errorMessageResponseInterceptor({
+  errorFn: (message, error) => console.error(message, error)
+}));
+```
+
+### 基础请求
+
+```ts
+// GET 请求
+const users = await client.get('/api/users');
+
+// POST 请求
+const newUser = await client.post('/api/users', { name: 'John', email: 'john@example.com' });
+
+// PUT 请求
+const updatedUser = await client.put(`/api/users/${id}`, { name: 'Jane' });
+
+// DELETE 请求
+await client.delete(`/api/users/${id}`);
+
+// 带参数请求
+const result = await client.get('/api/users/search', {
+  params: { page: 1, limit: 10, keyword: 'john' }
+});
+```
+
+### 文件操作
+
+```ts
+// 文件上传
+const result = await client.upload('/api/upload', { file });
+
+// 文件下载 - 获取 Blob
+const blob = await client.download<Blob>('/api/download/file.pdf');
+
+// 文件下载 - 获取完整响应
+const response = await client.download('/api/download/file.pdf', {
+  responseReturn: 'raw'
+});
+
+// 多文件上传
+const files = [file1, file2, file3];
+const results = await Promise.all(
+  files.map(file => client.upload('/api/upload', { file }))
+);
+```
+
+### 文件获取方式
+
+```ts
+// 通过 input 标签获取文件
+const fileInput = document.getElementById('fileInput') as HTMLInputElement;
+const file = fileInput.files[0];
+
+// 通过拖拽获取文件
+const dropZone = document.getElementById('dropZone');
+dropZone.addEventListener('drop', (event) => {
+  const files = event.dataTransfer.files;
+  Array.from(files).forEach(file => {
+    // 处理文件
+    client.upload('/api/upload', { file });
   });
+});
 
-  /**
-   * 重新认证逻辑
-   *
-   * 退出登陆
-   */
-  async function doReAuthenticate(): Promise<void> {
-    console.warn("Access token or refresh token is invalid or expired. ");
+// 文件属性检查
+function validateFile(file: File) {
+  const maxSize = 10 * 1024 * 1024; // 10MB
+  if (file.size > maxSize) {
+    throw new Error('文件过大');
   }
+  return true;
+}
+```
 
-  /**
-   * 刷新token逻辑
-   */
-  async function doRefreshToken(): Promise<string> {
-    console.warn("刷新 token 逻辑");
+## 高级用法
 
-    return "token";
-  }
+### 请求重试
 
-  // 请求头处理
-  client.addRequestInterceptor({
-    fulfilled: async config => {
-      config.headers.Authorization = formatToken();
-
-      return config;
+```ts
+async function requestWithRetry<T>(
+  requestFn: () => Promise<T>,
+  maxRetries: number = 3
+): Promise<T> {
+  for (let i = 0; i <= maxRetries; i++) {
+    try {
+      return await requestFn();
+    } catch (error) {
+      if (i === maxRetries) throw error;
+      await new Promise(resolve => setTimeout(resolve, 1000 * (i + 1)));
     }
-  });
-
-  // 处理返回的响应数据格式
-  client.addResponseInterceptor(defaultResponseInterceptor());
-
-  // token过期的处理
-  client.addResponseInterceptor(authenticateResponseInterceptor({
-    client,
-    doReAuthenticate,
-    doRefreshToken,
-    enableRefreshToken: true,
-    formatToken
-  }));
-
-  // 通用的错误处理,如果没有进入上面的错误处理逻辑，就会进入这里
-  client.addResponseInterceptor(errorMessageResponseInterceptor((msg: string, error) => {
-    // 可以根据自己的业务逻辑进行调整
-    console.error(msg, error);
-
-  }));
-
-  return client;
+  }
 }
 
-const requestClient = createRequestClient(apiURL);
-
-export default requestClient; 
-
-// 基础的请求客户端(一般用不到)
-export const baseRequestClient = new RequestClient({
-  baseURL: apiURL
-});
+// 使用
+const data = await requestWithRetry(() => client.get('/api/data'));
 ```
 
-- 获取信息
+### 请求缓存
 
 ```ts
-requestClient.get("/api/list").then(res => {
-  // eslint-disable-next-line no-console
-  console.log(res);
+const cache = new Map();
+
+async function cachedRequest<T>(url: string, requestFn: () => Promise<T>): Promise<T> {
+  if (cache.has(url)) return cache.get(url);
+  const data = await requestFn();
+  cache.set(url, data);
+  return data;
+}
+```
+
+### 请求取消
+
+```ts
+import { CancelToken } from 'axios';
+
+const cancelTokenSource = CancelToken.source();
+
+// 发起请求
+const response = await client.get('/api/data', {
+  cancelToken: cancelTokenSource.token
 });
 
-requestClient.get("/api/obj").then(res => {
-  // eslint-disable-next-line no-console
-  console.log(res);
-}).
-    catch(error => {
-      // eslint-disable-next-line no-console
-      console.log(error, "error");
-    });
-```
-
-### 下载示例
-
-```ts
-import {
-  RequestResponse
-} from "@mt-kit/request-axios";
-
-/**
- * 下载文件，获取Blob
- * @returns Blob
- */
-async function downloadFile1() {
-  return requestClient.download<Blob>(
-    'https://unpkg.com/@vbenjs/static-source@0.1.7/source/logo-v1.webp',
-  );
-}
-
-/**
- * 下载文件，获取完整的Response
- * @returns RequestResponse<Blob>
- */
-async function downloadFile2() {
-  return requestClient.download<RequestResponse<Blob>>(
-    'https://unpkg.com/@vbenjs/static-source@0.1.7/source/logo-v1.webp',
-    {
-      responseReturn: 'raw',
-    },
-  );
-}
-```
-
-### 上传示例
-
-```ts
-/**
- * file 
- * 获取 file 的方式
- * 1、通过 input 标签获取
-  <input type="file" id="fileInput">
-
-  <script>
-    const fileInput = document.getElementById('fileInput');
-    fileInput.addEventListener('change', (event) => {
-      const file = event.target.files[0]; // 获取第一个文件
-      console.log(file);
-    });
-  </script>
-  2、通过拖拽获取
-  <div id="dropZone" style="width: 200px; height: 200px; border: 1px solid black;">
-    拖拽文件到这里
-  </div>
-  <script>
-    const dropZone = document.getElementById('dropZone');
-    dropZone.addEventListener('dragover', (event) => {
-      event.preventDefault(); // 阻止默认的拖拽行为
-    })
-    dropZone.addEventListener('drop', (event) => {
-      event.preventDefault(); // 阻止默认的拖拽行为
-      const file = event.dataTransfer.files[0]; // 获取第一个文件
-      console.log(file);  // 输出文件信息
-    })
-  </script>
-  3、通过 FileReader 获取
-  <input type="file" id="fileInput">
-  <script>
-    const fileInput = document.getElementById('fileInput');
-    fileInput.addEventListener('change', (event) => {
-      const file = event.target.files[0]; // 获取第一个文件
-      const reader = new FileReader();
-      reader.readAsDataURL(file); // 将文件转换为DataURL
-      reader.onload = () => {
-        console.log(reader.result); // 输出DataURL
-      }
-      // 建议添加错误处理
-      reader.onerror = () => console.error('读取文件出错');
-    })
-  </script>
- * file 的属性
- * name: string;
- * type: string;
- * size: number;
- * lastModified: number;
- * lastModifiedDate: Date;
- * webkitRelativePath: string;
- * slice: (start: number, end: number, contentType: string) => Blob;
- * arrayBuffer: () => Promise<ArrayBuffer>;
- * text: () => Promise<string>;
- * stream: () => ReadableStream<Uint8Array>;
- * formData: () => FormData;
- */
-requestClient.upload('/upload', { file });
+// 取消请求
+cancelTokenSource.cancel('用户取消请求');
 ```
