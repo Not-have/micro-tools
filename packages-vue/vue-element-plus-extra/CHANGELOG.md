@@ -1,5 +1,11 @@
 # @mt-kit/vue-element-plus-extra
 
+## 1.2.4
+
+### Patch Changes
+
+- 增加徽标
+
 ## 1.2.3
 
 ### Patch Changes
