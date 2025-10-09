@@ -1,8 +1,9 @@
 # @mt-kit/request-axios
 
 [![npm version](https://img.shields.io/npm/v/@mt-kit/request-axios.svg)](https://www.npmjs.com/package/@mt-kit/request-axios)
-
 [![License](https://img.shields.io/npm/l/@mt-kit/request-axios.svg)](https://github.com/Not-have/micro-tools/blob/main/LICENSE)
+[![Documentation](https://img.shields.io/badge/docs-online-blue)](https://not-have.github.io/micro-tools/)
+[![Source](https://img.shields.io/badge/source-GitHub-black)](https://github.com/Not-have/micro-tools/tree/main/packages-fetch/request-axios)
 
 基于 Axios 封装的请求客户端，提供统一的请求拦截、响应处理、错误处理、文件上传下载等功能。
 
@@ -309,12 +310,21 @@ client.request<T>(url: string, config: RequestClientConfig): Promise<T>
 ### 文件操作
 
 ```ts
-// 文件上传
+// 文件上传，默认 post 上传
 client.upload<T>(url: string, data: UploadData, config?: RequestClientConfig): Promise<T>
 
-// 文件下载
+// 文件下载，默认 get 下载
 client.download<T>(url: string, config?: RequestClientConfig): Promise<T>
 ```
+
+### RequestClientConfig 详解
+
+| 参数 | 类型 | 默认值 | 描述 |
+|------|------|--------|------|
+| `responseReturn` | `'raw' \| 'body' \| 'data'` | `'data'` | 响应数据返回方式 |
+| `paramsSerializer` | `'brackets' \| 'comma' \| 'indices' \| 'repeat' \| function` | - | 参数序列化方式 |
+
+注意：RequestClientConfig 继承自 [AxiosRequestConfig](https://axios-http.com/zh/docs/req_config)，所以可以传入 AxiosRequestConfig 的所有参数，他会和默认配置合并，优先级比默认配置高。
 
 ## 使用示例
 
