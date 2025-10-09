@@ -324,8 +324,6 @@ client.download<T>(url: string, config?: RequestClientConfig): Promise<T>
 | `responseReturn` | `'raw' \| 'body' \| 'data'` | `'data'` | 响应数据返回方式 |
 | `paramsSerializer` | `'brackets' \| 'comma' \| 'indices' \| 'repeat' \| function` | - | 参数序列化方式 |
 
-注：
-
 - 类型定义参考 [RequestClientOptions](#RequestClientOptions)
 - RequestClientConfig 继承自 [AxiosRequestConfig](https://axios-http.com/zh/docs/req_config)，所以可以传入 AxiosRequestConfig 的所有参数，他会和默认配置合并，优先级比默认配置高
 - 当只传 config 时，data 传 undefined，也就是没有 body 数据

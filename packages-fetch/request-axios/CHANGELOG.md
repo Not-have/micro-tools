@@ -1,5 +1,11 @@
 # @mt-kit/request-axios
 
+## 1.7.1
+
+### Patch Changes
+
+- 重新发布
+
 ## 1.7.0
 
 ### Minor Changes
