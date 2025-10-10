@@ -1,5 +1,11 @@
 # @mt-kit/ts-config
 
+## 1.2.3
+
+### Patch Changes
+
+- 修改 lib 为 2020
+
 ## 1.2.2
 
 ### Patch Changes
