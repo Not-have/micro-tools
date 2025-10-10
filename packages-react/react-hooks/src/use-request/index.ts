@@ -1,5 +1,6 @@
 import {
-  useEffect, useState
+  useEffect,
+  useState
 } from "react";
 
 export default function useRequest<T>(func: () => Promise<T>): [T | null, boolean] {
