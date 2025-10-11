@@ -4,6 +4,8 @@
 
 [![npm version](https://img.shields.io/npm/v/@mt-kit/eslint-config.svg)](https://www.npmjs.com/package/@mt-kit/eslint-config)
 [![License](https://img.shields.io/npm/l/@mt-kit/eslint-config.svg)](https://github.com/Not-have/micro-tools/blob/main/LICENSE)
+[![Documentation](https://img.shields.io/badge/docs-online-blue)](https://not-have.github.io/micro-tools/)
+[![Source](https://img.shields.io/badge/source-GitHub-black)](https://github.com/Not-have/micro-tools/tree/main/packages-dev/eslint-config)
 
 ## 📚 相关文档
 
