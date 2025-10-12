@@ -47,7 +47,7 @@ export default function useService<Q, D>(
 ): IUseServiceReturn<Q, D> {
   const {
     immediate = true,
-    initData = null,
+    initData = {},
     error: errorFn,
     debounce = false
   } = config ?? {};
@@ -55,7 +55,7 @@ export default function useService<Q, D>(
   const [
     data,
     setData
-  ] = useState<D | null>(initData);
+  ] = useState<D | null>(initData as D | null);
 
   const [
     loading,
@@ -72,7 +72,7 @@ export default function useService<Q, D>(
 
       return res;
     } catch (error) {
-      setData(null);
+      setData({} as D);
 
       // 错误处理，如果 errorFn 返回了错误，则使用 errorFn 返回的错误，否则使用原始错误
       if (errorFn) {

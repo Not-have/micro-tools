@@ -34,5 +34,16 @@ export default function Index(): React.ReactElement {
   return <div>
     <p>useService</p>
     <button onClick={handleClick}>Fetch Data</button>
+    <hr />
+    {data?.content}
+    {loading ? "loading" : "not loading"}
+    {data?.title}
+    {data?.author}
+    {data?.url}
+    <hr />
+
+    <code>
+      {JSON.stringify(data, null, 2)}
+    </code>
   </div>;
 }
