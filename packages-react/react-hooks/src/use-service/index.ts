@@ -132,6 +132,7 @@ export default function useService<Q, D>(
 
     run();
 
+  // TODO ♻️ 添加 query 的依赖，会陷入死循环，需要优化
   // eslint-disable-next-line react-compiler/react-compiler
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
