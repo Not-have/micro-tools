@@ -20,13 +20,13 @@ const DEFAULT = [
   comments,
   unicorn,
   javascript,
-  stylistic,
   ...jsonc,
   jsdoc,
   ignores,
   prettier,
   regexp,
-  perfectionist
+  perfectionist,
+  stylistic
 ];
 
 export default DEFAULT;

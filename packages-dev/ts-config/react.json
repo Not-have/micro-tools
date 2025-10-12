@@ -5,6 +5,10 @@
   ],
   "compilerOptions": {
     "target": "es6",
+    "lib": [
+      "dom",
+      "es2020"
+    ],
     "moduleResolution": "node",
     "noEmit": true,
     "esModuleInterop": true,
