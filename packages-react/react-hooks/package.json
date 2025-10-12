@@ -47,6 +47,7 @@
   },
   "dependencies": {
     "@mt-kit/ts-config": "workspace:^",
+    "@mt-kit/utils": "workspace:^",
     "lodash-es": "catalog:",
     "qs": "catalog:"
   },
