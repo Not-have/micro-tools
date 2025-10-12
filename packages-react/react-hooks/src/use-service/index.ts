@@ -12,7 +12,7 @@ import {
 interface IUseServiceReturn<Q, D> {
   data: D | null;
   loading: boolean;
-  run: (query?: Q) => Promise<D | null>;
+  run: Q extends unknown[] ? (...args: Q) => Promise<D | null> : (query?: Q) => Promise<D | null>;
 }
 
 interface IConfig<D> {
@@ -38,7 +38,13 @@ interface IConfig<D> {
   error?: (error: unknown | undefined) => Error | null | undefined;
 }
 
-export default function useService<Q, D>(fetch: (...args: unknown[]) => Promise<D>, query?: Q, config?: IConfig<D>): IUseServiceReturn<Q, D> {
+export default function useService<Q, D>(
+    fetch: Q extends unknown[]
+    ? (...args: Q) => Promise<D | null>
+    : (query: Q) => Promise<D | null>,
+    query?: Q,
+    config?: IConfig<D>
+): IUseServiceReturn<Q, D> {
   const {
     immediate = true,
     initData = null,
@@ -56,32 +62,31 @@ export default function useService<Q, D>(fetch: (...args: unknown[]) => Promise<
     setLoading
   ] = useState(false);
 
-  const run = useCallback((...args: (Q | unknown)[]): Promise<D | null> => {
+  const run = useCallback(async (...args: unknown[]): Promise<D | null> => {
     setLoading(true);
 
-    return new Promise((resolve, reject) => {
-      fetch(...args).then(res => {
-        setData(res as D);
-        resolve(res);
-      }).catch(error => {
-        setData(null);
+    try {
+      const res = await (fetch as (...args: unknown[]) => Promise<D | null>)(...args);
 
-        /**
-         * 错误处理，如果 errorFn 返回了错误，则使用 errorFn 返回的错误，否则使用原始错误
-         */
-        if (errorFn) {
-          const errorResult = errorFn(error);
+      setData(res);
 
-          if (errorResult) {
-            reject(errorResult);
-          } else {
-            reject(error);
-          }
+      return res;
+    } catch (error) {
+      setData(null);
+
+      // 错误处理，如果 errorFn 返回了错误，则使用 errorFn 返回的错误，否则使用原始错误
+      if (errorFn) {
+        const errorResult = errorFn(error);
+
+        if (errorResult) {
+          throw errorResult;
         }
+      }
 
-        reject(error);
-      }).finally(() => setLoading(false));
-    });
+      throw error;
+    } finally {
+      setLoading(false);
+    }
   }, [
     fetch,
     errorFn
@@ -99,7 +104,7 @@ export default function useService<Q, D>(fetch: (...args: unknown[]) => Promise<
     debounce
   ]);
 
-  const debounceFn = useCallback((...args: (Q | unknown)[]): Promise<D | null> => {
+  const debounceFn = useCallback((...args: unknown[]): Promise<D | null> => {
     if (debouncedRun) {
       return debouncedRun(...args) as Promise<D | null>;
     }
@@ -115,16 +120,28 @@ export default function useService<Q, D>(fetch: (...args: unknown[]) => Promise<
       return;
     }
 
-    run(query);
+    if (query !== undefined) {
+      if (Array.isArray(query)) {
+        run(...query);
+      } else {
+        run(query);
+      }
+
+      return;
+    }
+
+    run();
+
+  // eslint-disable-next-line react-compiler/react-compiler
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     run,
-    query,
     immediate
   ]);
 
   return {
     data,
     loading,
-    run: debounceFn
+    run: debounceFn as IUseServiceReturn<Q, D>["run"]
   };
 }

@@ -6,7 +6,8 @@ import {
   useService
 } from "../../src";
 import {
-  testFetch
+  testFetch,
+  IResponse
 } from "../fetch";
 
 export default function Index(): React.ReactElement {
@@ -14,15 +15,18 @@ export default function Index(): React.ReactElement {
     data,
     loading,
     run
-  } = useService(testFetch, undefined, {
-    debounce: 1000
+  } = useService<[string, string], IResponse>(testFetch, [
+    "123",
+    "v1.0"
+  ], {
+    debounce: 2000
   });
 
   // eslint-disable-next-line no-console
   console.log(data, loading);
 
   const handleClick = useCallback(() => {
-    run();
+    run("456", "v2.0");
   }, [
     run
   ]);
