@@ -1,6 +1,6 @@
 {
   "name": "@mt-kit/react-hooks",
-  "version": "1.0.3",
+  "version": "1.1.1",
   "description": "React hooks",
   "keywords": [
     "react-hooks",
@@ -47,6 +47,7 @@
   },
   "dependencies": {
     "@mt-kit/ts-config": "workspace:^",
+    "@mt-kit/utils": "workspace:^",
     "lodash-es": "catalog:",
     "qs": "catalog:"
   },

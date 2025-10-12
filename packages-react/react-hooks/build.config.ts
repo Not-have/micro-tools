@@ -9,7 +9,8 @@ export default defineBuildConfig({
 
   // 排除不需要打包的依赖
   externals: [
-    "react", "react-router-dom"
+    "react",
+    "react-router-dom"
   ],
   clean: true,
   declaration: true,

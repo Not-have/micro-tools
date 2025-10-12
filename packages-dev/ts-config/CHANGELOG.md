@@ -1,5 +1,11 @@
 # @mt-kit/ts-config
 
+## 1.3.0
+
+### Minor Changes
+
+- 删除 react.json 中的无用配置，全面继承 app.json
+
 ## 1.2.3
 
 ### Patch Changes
