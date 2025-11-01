@@ -8,15 +8,19 @@ import openWindow from "../open-window";
  * target 链接的打开方式，默认为 '_blank'
  *
  * fileName 保存的文件名，如果不提供会从 URL 中提取
+ *
+ * isCORS 是否是 CORS 跨域请求，默认为 false
  */
 export default function downloadByUrl({
   url,
   target = "_blank",
-  fileName
+  fileName,
+  isCORS = false
 }: {
   url: string;
   target?: "_self" | "_blank";
   fileName?: string;
+  isCORS?: boolean;
 }): boolean {
   const isChrome = window.navigator.userAgent.toLowerCase().includes("chrome");
 
@@ -31,8 +35,14 @@ export default function downloadByUrl({
   if (isChrome || isSafari) {
     const link = document.createElement("a");
 
-    // 强制添加 response-content-disposition=attachment 参数下载文件
-    link.href = url.includes("?") ? `${url}&response-content-disposition=attachment` : `${url}?response-content-disposition=attachment`;
+    // 处理 CORS 跨域问题
+    if (isCORS) {
+
+      // 强制添加 response-content-disposition=attachment 参数下载文件
+      link.href = url.includes("?") ? `${url}&response-content-disposition=attachment` : `${url}?response-content-disposition=attachment`;
+    } else {
+      link.href = url;
+    }
 
     link.target = target;
 
