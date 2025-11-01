@@ -1,5 +1,11 @@
 # @mt-kit/utils
 
+## 1.5.1
+
+### Patch Changes
+
+- downloadByUrl 增加参数 isCORS，默认 false
+
 ## 1.5.0
 
 ### Minor Changes
