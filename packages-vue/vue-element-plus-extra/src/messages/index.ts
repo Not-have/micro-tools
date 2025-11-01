@@ -128,7 +128,7 @@ class Messages {
    */
   success(
       message: string,
-      options?: Omit<MessageOptions, "message" | "type"> & Pick<IEnhancedMessageOptions, "replace">
+      options?: Omit<MessageOptions, "message" | "type"> & IEnhancedMessageOptions
   ): MessageHandler {
     return this.show({
       message,
@@ -144,7 +144,7 @@ class Messages {
    */
   warning(
       message: string,
-      options?: Omit<MessageOptions, "message" | "type"> & Pick<IEnhancedMessageOptions, "replace">
+      options?: Omit<MessageOptions, "message" | "type"> & IEnhancedMessageOptions
   ): MessageHandler {
     return this.show({
       message,
@@ -160,7 +160,7 @@ class Messages {
    */
   error(
       message: string,
-      options?: Omit<MessageOptions, "message" | "type"> & Pick<IEnhancedMessageOptions, "replace">
+      options?: Omit<MessageOptions, "message" | "type"> & IEnhancedMessageOptions
   ): MessageHandler {
     return this.show({
       message,
@@ -176,7 +176,7 @@ class Messages {
    */
   info(
       message: string,
-      options?: Omit<MessageOptions, "message" | "type"> & Pick<IEnhancedMessageOptions, "replace">
+      options?: Omit<MessageOptions, "message" | "type"> & IEnhancedMessageOptions
   ): MessageHandler {
     return this.show({
       message,
