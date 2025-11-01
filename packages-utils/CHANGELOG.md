@@ -1,5 +1,11 @@
 # @mt-kit/utils
 
+## 1.5.0
+
+### Minor Changes
+
+- 强制添加response-content-disposition参数以确保文件下载
+
 ## 1.4.0
 
 ### Minor Changes
