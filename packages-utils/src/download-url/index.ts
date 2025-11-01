@@ -31,7 +31,9 @@ export default function downloadByUrl({
   if (isChrome || isSafari) {
     const link = document.createElement("a");
 
-    link.href = url;
+    // 强制添加 response-content-disposition=attachment 参数下载文件
+    link.href = url.includes("?") ? `${url}&response-content-disposition=attachment` : `${url}?response-content-disposition=attachment`;
+
     link.target = target;
 
     if (link.download !== undefined) {
