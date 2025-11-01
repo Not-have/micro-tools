@@ -198,6 +198,9 @@ export default {
       }
     ],
 
+    // 禁用unified-signatures规则以避免Vue文件中的错误
+    "@typescript-eslint/unified-signatures": "off",
+
     indent: [
       "error",
       2,

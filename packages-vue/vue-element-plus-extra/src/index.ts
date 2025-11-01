@@ -5,4 +5,4 @@ export {
   openIndirect,
   useForm,
   WithModel
-} from "./rc-dialog";
+} from "./dialog";
