@@ -9,7 +9,7 @@ import {
 } from "element-plus";
 
 import {
-  messageController
+  messages
 } from "../../src";
 
 const handleClick = (): void => {
@@ -20,7 +20,7 @@ const num = ref(0);
 
 const handleReplaceClick = (): void => {
   num.value++;
-  messageController.error(`Success${ num.value}`, {
+  messages.error(`Success${ num.value}`, {
     replace: true
   });
 };
@@ -35,7 +35,7 @@ const handleReplaceClick = (): void => {
   <hr />
 
   <ElButton
-    @click="messageController.error('Success')"
+    @click="messages.error('Success')"
   >
     单例消息
   </ElButton>

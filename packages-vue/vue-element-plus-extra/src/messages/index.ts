@@ -16,7 +16,7 @@ interface IEnhancedMessageOptions extends MessageOptions {
   replace?: boolean;
 }
 
-class MessageController {
+class Messages {
   private currentMessage: MessageHandler | null = null;
 
   private isClosing = false;
@@ -201,12 +201,12 @@ class MessageController {
 }
 
 // 创建单例实例
-const messageController = new MessageController();
+const messages = new Messages();
 
 // 导出单例实例
-export default messageController;
+export default messages;
 
 // 也可以导出类，以便在需要时创建多个实例
 export {
-  MessageController
+  Messages
 };

@@ -8,6 +8,6 @@ export {
 } from "./dialog";
 
 export {
-  default as messageController,
-  MessageController
+  default as messages,
+  Messages
 } from "./messages";
