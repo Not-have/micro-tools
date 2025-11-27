@@ -33,29 +33,25 @@ const scrollbarRef = ref<HTMLDivElement | null>(null);
 .scrollbar {
   width: 100%;
   height: 100%;
-  overflow: auto;
-}
-
-.scrollbar-always {
   overflow: scroll;
 
   /* 用于解决滚动条抖动问题 */
   scrollbar-gutter: stable;
 }
 
-.scrollbar-always::-webkit-scrollbar {
+.scrollbar::-webkit-scrollbar {
   /* 滚动条宽度 */
   width: 7px;
   height: 7px;
 }
 
-.scrollbar-always::-webkit-scrollbar-thumb {
+.scrollbar::-webkit-scrollbar-thumb {
   border-radius: 4px;
   box-shadow: 0 0 1px rgb(255 255 255 / 50%);
   background-color: rgb(0 0 0 / 50%);
 }
 
-.scrollbar-always::-webkit-scrollbar-track {
+.scrollbar::-webkit-scrollbar-track {
   background-color: transparent;
 }
 </style>
