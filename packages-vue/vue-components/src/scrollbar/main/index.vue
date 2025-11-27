@@ -10,7 +10,7 @@ const {
   /**
    * 是否总是显示滚动条
    *
-   * @default false
+   * @default
    */
   always?: boolean;
 }>();
