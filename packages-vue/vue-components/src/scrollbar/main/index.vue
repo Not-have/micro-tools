@@ -4,7 +4,7 @@ import {
 } from "vue";
 
 const {
-  always = false
+  always = true
 } = defineProps<{
 
   /**
@@ -15,7 +15,15 @@ const {
   always?: boolean;
 }>();
 
+const emit = defineEmits<{
+  scroll: [event: Event];
+}>();
+
 const scrollbarRef = ref<HTMLDivElement | null>(null);
+
+const handleScroll = (event: Event): void => {
+  emit("scroll", event);
+};
 
 </script>
 <template>
@@ -25,6 +33,7 @@ const scrollbarRef = ref<HTMLDivElement | null>(null);
     :class="{
       'scrollbar-always': always
     }"
+    @scroll="handleScroll"
   >
     <slot></slot>
   </div>
