@@ -19,6 +19,7 @@
     "start": "mt-cli-storybook-react"
   },
   "dependencies": {
+    "antd": "catalog:",
     "react-dom": "catalog:"
   },
   "devDependencies": {

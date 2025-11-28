@@ -21,6 +21,7 @@
     "vue": "catalog:"
   },
   "devDependencies": {
-    "@mt-kit/cli-storybook-vue": "workspace:^"
+    "@mt-kit/cli-storybook-vue": "workspace:^",
+    "element-plus": "^2.11.9"
   }
 }
