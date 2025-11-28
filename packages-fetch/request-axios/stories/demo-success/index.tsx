@@ -9,30 +9,18 @@ import {
 //   console.log(res);
 // });
 
-const handleListClick = () => {
+const handleListClick = (): void => {
   requestClient.get("/api/list").then(res => {
     // eslint-disable-next-line no-console
     console.log(res);
   });
 };
 
-const handleObjClick = () => {
-  requestClient.get("/api/obj").then(res => {
-    // eslint-disable-next-line no-console
-    console.log(res);
-  }).catch(error => {
-    // eslint-disable-next-line no-console
-    console.log(error, "error");
-  });
-};
-
 export default function Index(): React.ReactNode {
   return (
     <div>
-      <h1>Demo01</h1>
-      <p>这是一个演示页面</p>
+      <h1>成功</h1>
       <button onClick={handleListClick}>列表</button>
-      <button onClick={handleObjClick}>对象</button>
     </div>
   );
 }

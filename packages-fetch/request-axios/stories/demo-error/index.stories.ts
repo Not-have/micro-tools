@@ -6,7 +6,7 @@ import type {
 import Index from "./index";
 
 const meta = {
-  title: "Demo01",
+  title: "失败",
   component: Index
 } satisfies Meta<typeof Index>;
 
@@ -14,4 +14,4 @@ export default meta;
 
 type TStory = StoryObj<typeof meta>;
 
-export const Demo01: TStory = {};
+export const 失败: TStory = {};
