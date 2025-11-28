@@ -1,6 +1,6 @@
 import {
   html,
-  type TemplateResult
+  TemplateResult
 } from "lit";
 import {
   styleMap

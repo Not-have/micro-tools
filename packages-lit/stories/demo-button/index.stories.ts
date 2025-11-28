@@ -9,7 +9,7 @@ import {
 
 import {
   Button,
-  type IButtonProps
+  IButtonProps
 } from "../../src";
 
 const meta = {
