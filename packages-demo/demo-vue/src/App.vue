@@ -1,15 +1,28 @@
+<script setup lang="ts">
+import Layout from "./layout/index.vue";
+
+import {
+  ElConfigProvider
+} from "element-plus";
+import zhCN from "element-plus/es/locale/lang/zh-cn";
+</script>
+
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a
-      href="https://vuejs.org/"
-      target="_blank"
-      rel="noopener"
-    >
-      vuejs.org
-    </a> to read the
-    documentation
-  </p>
+  <ElConfigProvider :locale="zhCN">
+    <Layout />
+  </ElConfigProvider>
 </template>
 
-<style scoped></style>
+<style>
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+}
+</style>

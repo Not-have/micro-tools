@@ -11,6 +11,7 @@
     "type-check": "vue-tsc --build"
   },
   "dependencies": {
+    "element-plus": "^2.11.9",
     "pinia": "catalog:",
     "vue": "catalog:",
     "vue-router": "catalog:"
