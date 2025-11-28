@@ -2,6 +2,8 @@ import type {
   Preview
 } from "@storybook/web-components-vite";
 
+import "./hide.css";
+
 const preview: Preview = {
   parameters: {
     controls: {
