@@ -33,6 +33,7 @@
     "@storybook/web-components-vite": "catalog:",
     "lit": "catalog:",
     "storybook": "catalog:",
-    "typescript": "catalog:"
+    "typescript": "catalog:",
+    "unbuild": "catalog:"
   }
 }
