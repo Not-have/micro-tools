@@ -23,16 +23,16 @@
     "prepublishOnly": "pnpm build"
   },
   "devDependencies": {
-    "@chromatic-com/storybook": "^3.2.7",
-    "@mt-kit/ts-config": "^1.3.0",
-    "@storybook/addon-essentials": "^8.6.14",
-    "@storybook/blocks": "^8.6.14",
-    "@storybook/experimental-addon-test": "^8.6.14",
-    "@storybook/test": "^8.6.14",
-    "@storybook/web-components": "8.6.14",
-    "@storybook/web-components-vite": "8.6.14",
-    "lit": "^3.3.1",
-    "storybook": "8.6.14",
+    "@chromatic-com/storybook": "catalog:",
+    "@mt-kit/ts-config": "workspace:^",
+    "@storybook/addon-essentials": "catalog:",
+    "@storybook/blocks": "catalog:",
+    "@storybook/experimental-addon-test": "catalog:",
+    "@storybook/test": "catalog:",
+    "@storybook/web-components": "catalog:",
+    "@storybook/web-components-vite": "catalog:",
+    "lit": "catalog:",
+    "storybook": "catalog:",
     "typescript": "catalog:"
   }
 }

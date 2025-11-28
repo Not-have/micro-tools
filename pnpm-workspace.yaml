@@ -4,6 +4,7 @@ packages:
 catalog:
   "@ant-design/v5-patch-for-react-19": ^1.0.3
   "@changesets/cli": ^2.29.5
+  "@chromatic-com/storybook": ^3.2.7
   "@clack/prompts": ^0.11.0
   "@commitlint/cli": ^19.8.0
   "@commitlint/config-conventional": ^19.8.0
@@ -11,15 +12,18 @@ catalog:
   "@eslint/js": ^9.24.0
   "@faker-js/faker": ^9.7.0
   "@manypkg/get-packages": ^3.1.0
-  "@storybook/addon-essentials": ^8.6.12
+  "@storybook/addon-essentials": ^8.6.14
   "@storybook/addon-interactions": ^8.6.12
   "@storybook/addon-onboarding": ^8.6.12
-  "@storybook/blocks": ^8.6.12
+  "@storybook/blocks": ^8.6.14
+  "@storybook/experimental-addon-test": ^8.6.14
   "@storybook/react": ^8.6.12
   "@storybook/react-vite": ^8.6.12
-  "@storybook/test": ^8.6.12
+  "@storybook/test": ^8.6.14
   "@storybook/vue3": ^8.6.12
   "@storybook/vue3-vite": ^8.6.12
+  "@storybook/web-components": 8.6.14
+  "@storybook/web-components-vite": 8.6.14
   "@stylistic/eslint-plugin": ^5.4.0
   "@stylistic/eslint-plugin-js": ^4.2.0
   "@stylistic/eslint-plugin-ts": ^4.2.0
@@ -74,6 +78,7 @@ catalog:
   jsonc-eslint-parser: ^2.4.0
   jsonwebtoken: ^9.0.2
   lint-staged: ^15.5.0
+  lit: ^3.3.1
   lodash-es: ^4.17.21
   markdownlint-cli2: ^0.17.2
   nitropack: ^2.11.12
@@ -89,7 +94,7 @@ catalog:
   react-router-dom: ^7.5.0
   resize-observer-polyfill: ^1.5.1
   rollup-plugin-postcss: ^4.0.2
-  storybook: ^8.6.12
+  storybook: 8.6.14
   styled-components: ^6.1.19
   stylelint: ^16.17.0
   stylelint-config-recess-order: ^6.0.0
