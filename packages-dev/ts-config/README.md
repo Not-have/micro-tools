@@ -209,6 +209,12 @@ echo '{"extends": "@mt-kit/ts-config/base.json"}' > tsconfig.json
 ```json
 {
   "extends": "@mt-kit/ts-config/vue.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
   "include": ["src"],
   "exclude": ["node_modules", "dist"]
 }

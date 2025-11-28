@@ -1,5 +1,11 @@
+<script setup lang="ts">
+import {
+  SelectFetch
+} from "@/components";
+</script>
+
 <template>
   <div>
-    demo-fetch
+    <SelectFetch />
   </div>
 </template>

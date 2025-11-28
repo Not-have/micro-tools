@@ -1,11 +1,11 @@
 {
-  "references": [
-    {
-      "path": "./tsconfig.node.json"
-    },
-    {
-      "path": "./tsconfig.app.json"
+  "extends": "@mt-kit/ts-config/vue.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
     }
-  ],
-  "files": []
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
 }
