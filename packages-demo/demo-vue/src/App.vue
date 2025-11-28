@@ -14,13 +14,6 @@ import zhCN from "element-plus/es/locale/lang/zh-cn";
 </template>
 
 <style>
-body, html {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-}
-
 #app {
   width: 100%;
   height: 100%;
