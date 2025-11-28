@@ -15,12 +15,29 @@
   },
   "license": "ISC",
   "author": "Li Yong",
+  "type": "module",
   "scripts": {
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "clear": "rm -fr node_modules && rm -fr dist",
-    "build": "unbuild",
+    "build": "rm -fr dist && unbuild",
     "prepublishOnly": "pnpm build"
+  },
+  "files": [
+    "README.md",
+    "dist"
+  ],
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "catalog:",
