@@ -1,4 +1,4 @@
-const DEFAULT_CACHE_WINDOW = 3000; // 3s 内视为同一批次请求
+const DEFAULT_CACHE_WINDOW = 500; // 500ms 内视为同一批次请求
 
 /**
  * 缓存状态接口
@@ -13,8 +13,10 @@ interface ICacheState<R> {
  * 全局缓存 Map：以函数引用为 key，存储每个函数的缓存状态
  * 这样即使在不同组件中多次调用 createDedupedRequest(dataList)，
  * 只要传入的是同一个函数引用，它们就会共享同一个缓存状态
+ *
+ * 使用 Map 而不是 WeakMap，以便在请求完成后可以手动清除缓存
  */
-const cacheMap = new WeakMap<(...args: unknown[]) => Promise<unknown>, ICacheState<unknown>>();
+const cacheMap = new Map<(...args: unknown[]) => Promise<unknown>, ICacheState<unknown>>();
 
 /**
  * 创建带请求去重功能的函数包装器
@@ -22,7 +24,7 @@ const cacheMap = new WeakMap<(...args: unknown[]) => Promise<unknown>, ICacheSta
  * 在指定时间窗口内，多次调用同一个函数时：
  * - 只有第一次会真正向后端请求
  * - 其它调用会等待第一次请求完成，并拿到相同结果
- * - 如果第一次已经完成且仍在时间窗口内，则直接返回缓存结果（不再打到后端）
+ * - 请求完成后会清除缓存，确保下次调用时重新请求
  *
  * 这里不关心具体请求逻辑，由外部传入真正的请求函数（如 dataList）。
  * 基于函数引用作为 key 进行全局缓存管理，所以可以在组件内部使用。
@@ -52,20 +54,13 @@ export default function createDedupedRequest<T extends unknown[], R>(
       return cacheState.pendingPromise;
     }
 
-    // 仍在时间窗口内，并且已有结果，直接返回缓存结果
-    if (cacheState.lastResult !== undefined && now - cacheState.lastRequestTime <= cacheWindow) {
-      return Promise.resolve(cacheState.lastResult);
-    }
-
     // 发起新请求
     cacheState.lastRequestTime = now;
 
-    cacheState.pendingPromise = fn(...args).then(res => {
-      cacheState.lastResult = res;
+    cacheState.pendingPromise = fn(...args).then(res => res).finally(() => {
 
-      return res;
-    }).finally(() => {
-      cacheState.pendingPromise = null;
+      // 请求完成后从 cacheMap 中清除该函数的缓存状态
+      cacheMap.delete(fn as (...args: unknown[]) => Promise<unknown>);
     });
 
     return cacheState.pendingPromise;
