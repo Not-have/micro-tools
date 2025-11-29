@@ -1,7 +1,5 @@
-import {
-  requestClient
-} from "@/request";
+import fetchClient from "@/request";
 
 export function dataList() {
-  return requestClient.get("/api/list");
+  return fetchClient.get("/api/list");
 }

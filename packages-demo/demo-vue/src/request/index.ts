@@ -36,7 +36,9 @@ function createRequestClient(baseUrl: string, options?: RequestClientOptions): R
   return client;
 }
 
-export const requestClient = createRequestClient(apiURL);
+const requestClient = createRequestClient(apiURL);
+
+export default requestClient;
 
 export const baseRequestClient = new RequestClient({
   baseURL: apiURL
