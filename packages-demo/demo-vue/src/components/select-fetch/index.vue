@@ -4,7 +4,8 @@ import {
 } from "vue";
 
 import {
-  dataList
+  dataList,
+  dataObj
 } from "@/api";
 import {
   createDedupedRequest
@@ -27,6 +28,16 @@ dedupedDataList("123").then(res => {
 }).catch(error => {
   console.error(error, "error");
 });
+
+const dedupedDataObj = createDedupedRequest(dataObj);
+
+dedupedDataObj("123").then(res => {
+  // eslint-disable-next-line no-console
+  console.log(res, "res");
+}).catch(error => {
+  console.error(error, "error");
+});
+
 </script>
 <template>
   <ElSelect v-model="value">
