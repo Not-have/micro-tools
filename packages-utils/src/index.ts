@@ -46,3 +46,5 @@ export * from "./fingerprint";
 
 export { default as createContainer } from "./create-container";
 export { default as uuid } from "./uuid";
+
+export { default as createDedupedRequest } from "./create-deduped-request";

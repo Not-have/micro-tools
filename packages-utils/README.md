@@ -1532,6 +1532,57 @@ try {
 
 ---
 
+### createDedupedRequest
+
+创建一个带请求去重功能的函数包装器，支持在指定时间窗口内多次调用同一个函数时，只有第一次会真正向后端请求，其它调用会等待第一次请求完成，并拿到相同结果。请求完成后会清除缓存，确保下次调用时重新请求。
+
+**参数：**
+
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| `fn` | `(...args: unknown[]) => Promise<unknown>` | ✅ | - | 要包装的函数 |
+| `cacheWindow` | `number` | ❌ | 500 | 时间窗口（毫秒），默认 500ms |
+
+**返回值：**
+
+| 类型 | 说明 |
+|------|------|
+| `(...args: unknown[]) => Promise<unknown>` | 返回一个函数，该函数返回一个 Promise，解析为包装函数的返回值 |
+
+**使用示例：**
+
+```typescript
+import { 
+  createDedupedRequest
+} from '@mt-kit/utils';
+
+const dataList = () => {
+  return fetch("https://api.example.com/data").then(res => res.json());
+};
+
+const dedupedDataList = createDedupedRequest(dataList);
+
+dedupedDataList().then(res => {
+  console.log(res, "res");
+}).catch(error => {
+  console.error(error, "error");
+});
+```
+
+**应用场景：**
+
+- 防止重复请求
+- 提高性能
+- 减少服务器压力
+- 确保数据一致性
+
+**注意事项：**
+
+- 时间窗口不能小于 0 毫秒，默认 500 毫秒
+- 时间窗口不能大于 60000 毫秒，默认 60 秒
+
+---
+
 ### getAvailableFonts
 
 检测系统中可用的字体列表，支持批量检测和容错处理。
