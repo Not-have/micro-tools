@@ -13,6 +13,7 @@
   "updateInternalDependencies": "patch",
   "ignore": [
     "packages-docs",
+    "packages-demo",
     "mock",
     "demo-react",
     "demo-vue"

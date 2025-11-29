@@ -1,5 +1,11 @@
 # @mt-kit/utils
 
+## 1.6.0
+
+### Minor Changes
+
+- 增加 createDedupedRequest
+
 ## 1.5.1
 
 ### Patch Changes
