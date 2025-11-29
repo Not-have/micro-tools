@@ -1,12 +1,27 @@
 <script setup lang="ts">
 
 import {
+  dataList
+} from "@/api";
+import {
   SelectFetch
 } from "@/components";
+import {
+  createDedupedRequest
+} from "@/utils";
 import {
   ElTable,
   ElTableColumn
 } from "element-plus";
+
+const dedupedDataList = createDedupedRequest(dataList);
+
+dedupedDataList("123").then(res => {
+  // eslint-disable-next-line no-console
+  console.log(res, "res");
+}).catch(error => {
+  console.error(error, "error");
+});
 
 const tableData = [
   {
@@ -55,5 +70,7 @@ const tableData = [
         </template>
       </ElTableColumn>
     </ElTable>
+
+    <SelectFetch />
   </div>
 </template>
