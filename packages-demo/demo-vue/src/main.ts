@@ -10,6 +10,7 @@ import {
 import router from "./router";
 
 import "@mt-kit/style/reset";
+import "@mt-kit/style/indivHtml";
 
 import "element-plus/dist/index.css";
 
