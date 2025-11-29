@@ -22,8 +22,10 @@ const list = ref<any[]>([]);
 // 在组件内部使用，基于函数引用自动共享缓存
 const dedupedDataList = createDedupedRequest(dataList);
 
-dedupedDataList().then(res => {
+dedupedDataList("123").then(res => {
   list.value = res.items;
+}).catch(error => {
+  console.error(error, "error");
 });
 </script>
 <template>
