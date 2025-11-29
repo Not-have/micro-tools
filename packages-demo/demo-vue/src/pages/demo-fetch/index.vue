@@ -11,17 +11,20 @@ import {
 } from "@/utils";
 import {
   ElTable,
-  ElTableColumn
+  ElTableColumn,
+  ElButton
 } from "element-plus";
 
 const dedupedDataList = createDedupedRequest(dataList);
 
-dedupedDataList("123").then(res => {
-  // eslint-disable-next-line no-console
-  console.log(res, "res");
-}).catch(error => {
-  console.error(error, "error");
-});
+const handleClick = (): void => {
+  dedupedDataList("123").then(res => {
+    // eslint-disable-next-line no-console
+    console.log(res, "res");
+  }).catch(error => {
+    console.error(error, "error");
+  });
+};
 
 const tableData = [
   {
@@ -72,5 +75,9 @@ const tableData = [
     </ElTable>
 
     <SelectFetch />
+
+    <ElButton @click="handleClick">
+      Click me
+    </ElButton>
   </div>
 </template>
