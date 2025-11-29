@@ -32,18 +32,22 @@ const cacheMap = new Map<(...args: unknown[]) => Promise<unknown>, ICacheState<u
  * 验证并规范化时间窗口参数
  */
 function normalizeCacheWindow(cacheWindow: number): number {
+
+  // 如果时间窗口不是数字，或者是一个 NaN，则使用默认值
   if (typeof cacheWindow !== "number" || Number.isNaN(cacheWindow)) {
     console.warn(`[createDedupedRequest] 无效的时间窗口值: ${cacheWindow}，使用默认值 ${DEFAULT_CACHE_WINDOW}ms`);
 
     return DEFAULT_CACHE_WINDOW;
   }
 
+  // 如果时间窗口小于最小值，则使用最小值
   if (cacheWindow < MIN_CACHE_WINDOW) {
     console.warn(`[createDedupedRequest] 时间窗口 ${cacheWindow}ms 小于最小值 ${MIN_CACHE_WINDOW}ms，使用最小值`);
 
     return MIN_CACHE_WINDOW;
   }
 
+  // 如果时间窗口大于最大值，则使用最大值
   if (cacheWindow > MAX_CACHE_WINDOW) {
     console.warn(`[createDedupedRequest] 时间窗口 ${cacheWindow}ms 大于最大值 ${MAX_CACHE_WINDOW}ms，使用最大值`);
 
