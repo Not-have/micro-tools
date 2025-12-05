@@ -63,7 +63,7 @@ pnpm run boot
 ├── packages-docs/           # 📚 文档系统
 ├── packages-vite-plugins/   # 🔧 Vite 插件集合
 ├── packages-theme/          # 🎨 主题样式
-├── packages-template/       # 🎮 演示项目及模板
+├── packages-demo/           # 🎮 演示项目
 └── envs/                    # 🌍 环境配置
 ```
 

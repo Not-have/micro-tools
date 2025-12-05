@@ -7,7 +7,7 @@ export default {
       files: [
         "./packages-vue/**/*.vue",
         "./packages-cli/cli-storybook-vue/**/*.vue",
-        "./packages-template/**/*.vue"
+        "./packages-demo/demo-vue/**/*.vue"
       ],
       extends: [
         "@mt-kit/stylelint-config/vue"
