@@ -1,5 +1,5 @@
 {
-  "name": "demo-vue",
+  "name": "template-vue-mobile",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -12,7 +12,6 @@
   "dependencies": {
     "@mt-kit/request-axios": "workspace:^",
     "@mt-kit/style": "workspace:^",
-    "element-plus": "catalog:",
     "pinia": "catalog:",
     "vue": "catalog:",
     "vue-router": "catalog:"

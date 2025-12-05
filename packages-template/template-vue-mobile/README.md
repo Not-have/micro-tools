@@ -1,3 +1,3 @@
-# demo-vue
+# template-vue-mobile
 
-This template should help get you started developing with Vue 3 in Vite.
+A template for developing mobile applications with Vue 3 in Vite.
