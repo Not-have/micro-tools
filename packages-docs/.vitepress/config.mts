@@ -119,7 +119,7 @@ const config = async (): Promise<UserConfig<DefaultTheme.Config>> => {
         },
         {
           icon: "csdn",
-          link: "https://blog.csdn.net/qq_45669178"
+          link: "https://blog.csdn.net/qq_45669178?type=blog"
         },
         {
           icon: {
