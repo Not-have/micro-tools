@@ -1821,6 +1821,96 @@ const id = uuid();
 console.log(id);
 ```
 
+### queue
+
+- 消息队列
+- 支持两种模式：
+- 串行模式：按顺序执行，一个完成后再执行下一个
+- 持续防抖模式：一段时间内有新请求就取消前面的，只保留最后一个，且只有在最后一次请求结束后的一段时间内没有新请求，才真正执行
+
+**参数：**
+
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| `fn` | `() => Promise<unknown>` | ✅ | - | 要执行的函数 |
+| `options` | `IQueueOptions` | ❌ | - | 配置选项 |
+
+**返回值：**
+
+| 类型 | 说明 |
+|------|------|
+| `Promise<T>` | 返回一个 Promise，解析为函数的返回值 |
+
+**使用示例：**
+
+- 数据请求
+
+```ts
+const test01Fetch = () => {
+  return fetch("https://api.example.com/data").then(res => res.json());
+};
+
+const test02Fetch = () => {
+  return fetch("https://api.example.com/data").then(res => res.json());
+};
+
+const test03Fetch = () => {
+  return fetch("https://api.example.com/data").then(res => res.json());
+};
+```
+
+- 串行模式：按顺序执行，一个完成后再执行下一个
+
+```ts
+import { 
+  queue 
+} from "@mt-kit/utils";
+
+const result01 = queue(test01Fetch);
+const result02 = queue(test02Fetch);
+const result03 = queue(test03Fetch);
+
+result01.then(res => {
+  console.log(res);
+});
+result02.then(res => {
+  console.log(res);
+});
+result03.then(res => {
+  console.log(res);
+});
+```
+
+- 持续防抖模式：一段时间内有新请求就取消前面的，只保留最后一个，且只有在最后一次请求结束后的一段时间内没有新请求，才真正执行
+
+```ts
+import { 
+  queue 
+} from "@mt-kit/utils";
+
+const result01 = queue(test01Fetch, {
+  duration: 1000
+});
+
+const result02 = queue(test02Fetch, {
+  duration: 1000
+});
+
+const result03 = queue(test03Fetch, {
+  duration: 1000
+});
+
+result01.then(res => {
+  console.log(res);
+});
+result02.then(res => {
+  console.log(res);
+});
+result03.then(res => {
+  console.log(res);
+});
+```
+
 ## 设备信息
 
 ### deviceAll
