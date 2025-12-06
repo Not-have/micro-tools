@@ -8,7 +8,7 @@ import {
 } from "@/components";
 import {
   createDedupedRequest
-} from "@/utils";
+} from "@mt-kit/utils";
 import {
   ElTable,
   ElTableColumn,

@@ -1,1 +1,1 @@
-export { default as createDedupedRequest } from "./create-deduped-request";
+export { default as queue } from "./queue";

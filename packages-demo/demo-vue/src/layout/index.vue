@@ -48,8 +48,9 @@ watch(() => route.path, syncActive, {
           v-for="item in ROUTER"
           :key="item.path"
           :index="item.path"
+          :disabled="item.meta?.disabled"
         >
-          {{ item.name }}
+          {{ item.title }}
         </ElMenuItem>
       </ElMenu>
     </ElHeader>

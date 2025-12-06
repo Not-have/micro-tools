@@ -9,7 +9,7 @@ import {
 } from "@/api";
 import {
   createDedupedRequest
-} from "@/utils";
+} from "@mt-kit/utils";
 import {
   ElSelect,
   ElOption

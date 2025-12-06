@@ -8,9 +8,7 @@ import {
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-    ...ROUTER
-  ]
+  routes: ROUTER
 });
 
 export default router;

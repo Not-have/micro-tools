@@ -12,6 +12,7 @@
   "dependencies": {
     "@mt-kit/request-axios": "workspace:^",
     "@mt-kit/style": "workspace:^",
+    "@mt-kit/utils": "workspace:^",
     "element-plus": "catalog:",
     "pinia": "catalog:",
     "vue": "catalog:",
