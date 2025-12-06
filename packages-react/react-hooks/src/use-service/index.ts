@@ -1,52 +1,148 @@
 import {
   useState,
   useEffect,
-  useCallback
+  useCallback,
+  useMemo
 } from "react";
 
-interface IUseService<Q, D> {
+import {
+  debounce as _debounce
+} from "@mt-kit/utils";
+
+interface IUseServiceReturn<Q, D> {
   data: D | null;
   loading: boolean;
-  run: (query: Q) => Promise<D | null>;
+  run: Q extends unknown[] ? (...args: Q) => Promise<D | null> : (query?: Q) => Promise<D | null>;
 }
 
-export default function useService<Q, D>(fetch: (query?: Q) => Promise<D>, query?: Q, initData?: D): IUseService<Q, D> {
+interface IConfig<D> {
+
+  /**
+   * 是否立即执行
+   */
+  immediate?: boolean;
+
+  /**
+   * 防抖
+   */
+  debounce?: boolean | number;
+
+  /**
+   * 初始数据
+   */
+  initData?: D | null;
+
+  /**
+   * 错误处理
+   */
+  error?: (error: unknown | undefined) => Error | null | undefined;
+}
+
+export default function useService<Q, D>(
+    fetch: Q extends unknown[]
+    ? (...args: Q) => Promise<D | null>
+    : (query: Q) => Promise<D | null>,
+    query?: Q,
+    config?: IConfig<D>
+): IUseServiceReturn<Q, D> {
+  const {
+    immediate = true,
+    initData = {},
+    error: errorFn,
+    debounce = false
+  } = config ?? {};
+
   const [
     data,
     setData
-  ] = useState<D | null>(initData ?? null);
+  ] = useState<D | null>(initData as D | null);
 
   const [
     loading,
     setLoading
   ] = useState(false);
 
-  const run = useCallback((query: Q | undefined): Promise<D | null> => {
+  const run = useCallback(async (...args: unknown[]): Promise<D | null> => {
     setLoading(true);
 
-    return new Promise((resolve, reject) => {
-      fetch(query).then(res => {
-        setData(res as D);
-        resolve(res);
-      }).catch(error => {
-        setData(null);
-        reject(error);
-      }).finally(() => setLoading(false));
-    });
+    try {
+      const res = await (fetch as (...args: unknown[]) => Promise<D | null>)(...args);
+
+      setData(res);
+
+      return res;
+    } catch (error) {
+      setData({} as D);
+
+      // 错误处理，如果 errorFn 返回了错误，则使用 errorFn 返回的错误，否则使用原始错误
+      if (errorFn) {
+        const errorResult = errorFn(error);
+
+        if (errorResult) {
+          throw errorResult;
+        }
+      }
+
+      throw error;
+    } finally {
+      setLoading(false);
+    }
   }, [
-    fetch
+    fetch,
+    errorFn
+  ]);
+
+  // 创建防抖函数实例
+  const debouncedRun = useMemo(() => {
+    if (debounce) {
+      return _debounce(run, typeof debounce === "number" ? debounce : 250, true);
+    }
+
+    return null;
+  }, [
+    run,
+    debounce
+  ]);
+
+  const debounceFn = useCallback((...args: unknown[]): Promise<D | null> => {
+    if (debouncedRun) {
+      return debouncedRun(...args) as Promise<D | null>;
+    }
+
+    return run(...args);
+  }, [
+    run,
+    debouncedRun
   ]);
 
   useEffect(() => {
-    run(query);
+    if (!immediate) {
+      return;
+    }
+
+    if (query !== undefined) {
+      if (Array.isArray(query)) {
+        run(...query);
+      } else {
+        run(query);
+      }
+
+      return;
+    }
+
+    run();
+
+  // TODO ♻️ 添加 query 的依赖，会陷入死循环，需要优化
+  // eslint-disable-next-line react-compiler/react-compiler
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     run,
-    query
+    immediate
   ]);
 
   return {
     data,
     loading,
-    run
+    run: debounceFn as IUseServiceReturn<Q, D>["run"]
   };
 }

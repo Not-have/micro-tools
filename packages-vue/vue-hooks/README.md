@@ -1,7 +1,5 @@
 # @mt-kit/vue-hooks
 
-Vue 3 组合式 API Hooks 集合，提供常用的业务逻辑封装。
-
 ## 下载
 
 ```bash
@@ -12,25 +10,7 @@ npm i @mt-kit/vue-hooks
 
 ### useLocationQuery
 
-修改 URL 查询参数，支持类型安全和默认值。
-
-**使用场景：**
-
-- URL 参数管理
-- 页面状态同步到 URL
-- 路由参数处理
-- 筛选条件持久化
-
-**参数：**
-
-| 参数名 | 说明 | 是否必传 | 类型 | 默认值 |
-|--------|------|----------|------|--------|
-| options | 配置选项 | 是 | `IOptions<T>` | - |
-| options.keys | 需要监听的查询参数键名数组 | 是 | `Array<keyof T>` | - |
-| options.defaults | 参数的默认值 | 否 | `Partial<T>` | `{}` |
-| options.types | 参数类型转换配置 | 否 | `TQueryTypes<T>` | - |
-
-**返回值：** `[Ref<Partial<T>>, (query: Partial<T>) => void]` - 返回查询参数对象和更新函数
+- 修改 url 参数
 
 ```vue
 <script setup lang="ts">
@@ -40,7 +20,6 @@ import {
 import {
   watchEffect
 } from "vue";
-
 const [query, updateQuery] = useLocationQuery({
   keys: ["id", "name"],
   defaults: {
@@ -59,7 +38,6 @@ watchEffect(() => {
   console.log(query.value);
 });
 </script>
-
 <template>
   id <input
     :defaultValue="query.id"
@@ -70,37 +48,7 @@ watchEffect(() => {
 
 ### useService
 
-数据请求 Hook，提供加载状态、错误处理和防抖功能。
-
-**使用场景：**
-
-- API 数据请求
-- 表单提交
-- 列表数据加载
-- 搜索功能
-
-**参数：**
-
-| 参数名 | 说明 | 是否必传 | 类型 | 默认值 |
-|--------|------|----------|------|--------|
-| fetch | 请求函数 | 是 | `ServiceFunction<T, Q>` | - |
-| query | 请求参数 | 否 | `Q` | - |
-| initData | 初始数据 | 否 | `T` | - |
-| config | 配置选项 | 否 | `ServiceConfig` | - |
-| config.immediate | 是否立即执行 | 否 | `boolean` | `false` |
-| config.debounce | 防抖配置（毫秒数或布尔值） | 否 | `boolean \| number` | `false` |
-| config.watchQuery | 是否监听 query 参数变化 | 否 | `boolean` | `false` |
-| config.error | 错误处理函数 | 否 | `Function` | - |
-| config.dedupedRequestCacheWindow | 请求去重时间窗口（毫秒） | 否 | `number \| boolean` | `500` |
-
-**返回值：** `IAsyncResult<T, Q>` - 包含以下属性：
-
-| 属性 | 说明 | 类型 |
-|------|------|------|
-| data | 响应数据 | `Ref<T \| undefined>` |
-| loading | 加载状态 | `Ref<boolean>` |
-| error | 错误信息 | `Ref<string \| undefined>` |
-| run | 执行请求函数 | `(arg?: Q) => Promise<T>` |
+- 数据请求
 
 ```vue
 <script lang='ts' setup>
@@ -112,6 +60,7 @@ import {
 } from "vue";
 
 function fun(params): Promise<object> {
+
   // 构建 URL，将查询参数附加到 URL 上
   const url = new URL("https://mock.mengxuegu.com/mock/61922927f126df7bfd5b79ef/promise/promise3");
 
@@ -147,7 +96,6 @@ function handleEdit(): void {
   });
 }
 </script>
-
 <template>
   <div>数据请求</div>
   <button @click="handleEdit">
@@ -158,9 +106,7 @@ function handleEdit(): void {
 </template>
 ```
 
-**在 uniapp 中使用：**
-
-在 `uniapp` 中使用时，需要给类型一层约束，否则会报奇怪的 TypeScript 错误。
+注：在 `uniapp` 中使用，需要给类型一层约束，负责会报奇怪的 ts 错误。
 
 ```ts
 // use-service.ts
@@ -168,14 +114,12 @@ import type { Ref } from 'vue';
 import { toRef } from 'vue';
 import type { ServiceFunction, ServiceConfig } from '@mt-kit/vue-hooks';
 import { useService as _useService } from '@mt-kit/vue-hooks';
-
 interface IAsyncResult<T, Q> {
   data?: Ref<T | null | undefined>;
   loading: Ref<boolean>;
   error: Ref<string | undefined>;
   run: (arg?: Q) => Promise<T>;
 }
-
 export default function useService<T, Q>(
   fetch: ServiceFunction<T, Q>,
   query?: Q,
@@ -192,62 +136,35 @@ export default function useService<T, Q>(
 }
 ```
 
+注：其余的 hooks 查看 index 中的导出。
+
 ### useWatermark
 
-页面水印功能，支持自定义样式和自动防篡改。
-
-**使用场景：**
-
-- 页面版权保护
-- 数据安全标识
-- 文档水印
-- 截图防护
-
-**参数：**
-
-| 参数名 | 说明 | 是否必传 | 类型 | 默认值 |
-|--------|------|----------|------|--------|
-| target | 目标元素 | 否 | `Ref<HTMLElement \| undefined> \| HTMLElement` | `document.body` |
-| options | 水印配置选项 | 否 | `IWaterMarkOptionsType` | - |
-| options.fontSize | 文字大小 | 否 | `number` | `16` |
-| options.fontColor | 文字颜色 | 否 | `string` | `"rgba(0, 0, 0, 0.15)"` |
-| options.fontFamily | 文字字体 | 否 | `string` | `"Microsoft YaHei"` |
-| options.textAlign | 文字对齐方式 | 否 | `CanvasTextAlign` | `"left"` |
-| options.textBaseline | 文字基线 | 否 | `CanvasTextBaseline` | `"middle"` |
-| options.rotate | 文字倾斜角度 | 否 | `number` | `-22` |
-
-**返回值：** `IUseWatermarkRes` - 包含以下方法：
-
-| 方法 | 说明 | 类型 |
-|------|------|------|
-| setWatermark | 设置水印文字 | `(str: string) => void` |
-| clear | 清除当前水印 | `() => void` |
-| clearAll | 清除所有水印 | `() => void` |
+- 水印
 
 ```vue
 <template>
-  <div>
-    <Button type="primary"
-            label="创建 Watermark1"
-            @click="setWatermark('WaterMark 1')">
-    </Button>
-    <Button type="primary"
-            label="Create custom style Watermark"
-            @click="setWatermark2('创建 样式 WaterMark')">
-    </Button>
+    <div>
+        <Button type="primary"
+                label="创建 Watermark1"
+                @click="setWatermark('WaterMark 1')">
+        </Button>
+        <Button type="primary"
+                label="Create custom style Watermark"
+                @click="setWatermark2('创建 样式 WaterMark')">
+        </Button>
 
-    <Button label="Clear Watermark1"
-            @click="clear"></Button>
-    
-    <Button label="ClearAll"
-            @click="clearAll"></Button>
+        <Button label="Clear Watermark1"
+                @click="clear"></Button>
+        
+        <Button label="ClearAll"
+                @click="clearAll"></Button>
 
-    <Button label="Update Watermark1"
-            @click="setWatermark('WaterMark Info New')">
-    </Button>
-  </div>
+        <Button label="Update Watermark1"
+                @click="setWatermark('WaterMark Info New')">
+        </Button>
+    </div>
 </template>
-
 <script lang="ts" setup>
 import { onUnmounted, ref } from 'vue';
 
@@ -265,6 +182,8 @@ const { setWatermark: setWatermark2 } = useWatermark(app, {
     rotate: 30
 });
 
+// setWatermark3('水印');
+
 onUnmounted(() => {
     clearAll();
 });
@@ -273,22 +192,7 @@ onUnmounted(() => {
 
 ### useState
 
-集合 `ref` 和 `reactive` 的状态管理 Hook，提供类似 React `useState` 的 API。
-
-**使用场景：**
-
-- 组件状态管理
-- 表单数据管理
-- 临时状态存储
-- 替代简单的 `reactive`
-
-**参数：**
-
-| 参数名 | 说明 | 是否必传 | 类型 | 默认值 |
-|--------|------|----------|------|--------|
-| initialState | 初始状态值 | 否 | `T \| (() => T)` | - |
-
-**返回值：** `[Ref<T>, (state?: Partial<T>) => void]` - 返回状态对象和更新函数
+- 集合 ref 和 reactive 的 use
 
 ```vue
 <script lang="ts" setup>
@@ -317,7 +221,6 @@ watch(() => state.age, (newValue, oldValue) => {
   console.log(newValue, oldValue);
 });
 </script>
-
 <template>
   <div>
     {{ state.age }}
@@ -336,18 +239,7 @@ watch(() => state.age, (newValue, oldValue) => {
 
 ### useMount
 
-创建虚拟元素，常用于动态挂载组件或元素。
-
-**使用场景：**
-
-- 动态弹出框
-- 临时组件挂载
-- 工具提示
-- 模态框管理
-
-**参数：** 无
-
-**返回值：** `(component: any, props?: any, slots?: any) => void` - 挂载函数
+- 创建虚拟元素，常用于弹出框
 
 ```vue
 <script lang="tsx" setup>
@@ -399,7 +291,7 @@ const handleElClick = (): void => {
 </template>
 ```
 
-**示例组件 `op/index.vue`：**
+`op/index.vue`
 
 ```vue
 <script setup lang="ts">
@@ -439,10 +331,10 @@ const emits = defineEmits(["click"]);
 
 const handleClick = (): void => {
   emits("click");
+
   dialogVisible.value = false;
 };
 </script>
-
 <template>
   <ElDialog
     v-model="dialogVisible"
@@ -471,35 +363,12 @@ const handleClick = (): void => {
     </template>
   </ElDialog>
 </template>
-
 <style scoped></style>
 ```
 
 ### useEventListener
 
-监听 DOM 元素或 window 的事件，支持防抖和自动清理。
-
-**使用场景：**
-
-- 窗口大小监听
-- 滚动事件处理
-- 键盘事件监听
-- 鼠标事件处理
-
-**参数：**
-
-| 参数名 | 说明 | 是否必传 | 类型 | 默认值 |
-|--------|------|----------|------|--------|
-| options | 事件监听配置 | 是 | `IEventListenerOptions` | - |
-| options.el | DOM 元素或 window | 是 | `HTMLElement \| Window` | - |
-| options.name | 事件名称 | 是 | `string` | - |
-| options.func | 事件处理函数 | 是 | `Function` | - |
-| options.options | 事件监听配置项（如 passive、capture 等） | 否 | `boolean \| AddEventListenerOptions` | `false` |
-| options.autoRemove | 是否自动移除事件监听 | 否 | `boolean` | `true` |
-| options.isDebounce | 是否使用防抖函数 | 否 | `boolean` | `true` |
-| options.wait | 防抖/节流的等待时间（毫秒） | 否 | `number` | `80` |
-
-**返回值：** `{ removeEvent: () => void }` - 包含手动移除事件监听的方法
+- 监听 DOM 元素/window 的大小变化
 
 ```vue
 <!-- eslint-disable no-console -->
@@ -573,32 +442,20 @@ export default defineComponent({
 </template>
 ```
 
+| 属性 | 作用 |
+| --- | --- |
+| el | DOM 元素/window |
+| name | 事件名称 |
+| func | 事件处理函数 |
+| options | 事件监听的配置项，如 passive、capture 等 |
+| autoRemove | 是否自动移除事件监听，默认为 true |
+| isDebounce | 是否使用防抖函数，默认为 true |
+| wait |  防抖/节流的等待时间，默认为 80 毫秒 |
+| removeEvent | 返回 removeEvent 函数，用于外部手动移除事件监听 |
+
 ### useScript
 
-动态加载外部 JavaScript 脚本。
-
-**使用场景：**
-
-- 第三方库动态加载
-- 条件加载脚本
-- 按需加载资源
-- CDN 脚本管理
-
-**参数：**
-
-| 参数名 | 说明 | 是否必传 | 类型 | 默认值 |
-|--------|------|----------|------|--------|
-| options | 脚本配置选项 | 是 | `IUseScriptOptions` | - |
-| options.src | 脚本 URL 地址 | 是 | `string` | - |
-
-**返回值：** `IUseScriptResult` - 包含以下属性：
-
-| 属性 | 说明 | 类型 |
-|------|------|------|
-| isLoading | 是否正在加载 | `Ref<boolean>` |
-| error | 加载错误信息 | `Ref<string \| null>` |
-| success | 是否加载成功 | `Ref<boolean>` |
-| promise | 加载 Promise | `() => Promise<void>` |
+- 加载一个在线的 js
 
 ```vue
 <script lang="ts">
@@ -615,6 +472,7 @@ import {
 export default defineComponent({
   name: "ScriptLoaderExample",
   setup() {
+
     // 初始化 useScript，传入要加载的脚本 URL（或相对路径）
     const {
       isLoading,
@@ -631,6 +489,7 @@ export default defineComponent({
     // 调用 promise 进行加载
     async function loadScript(): Promise<void> {
       try {
+
         // 标记加载开始
         isLoading.value = true;
         await promise();
@@ -678,31 +537,7 @@ export default defineComponent({
 
 ### useContextMenu
 
-用于创建上下文菜单（右键菜单）的 Vue 组合式 API。
-
-**使用场景：**
-
-- 自定义右键菜单
-- 上下文操作菜单
-- 快捷操作面板
-- 文件管理器菜单
-
-**参数：** 无
-
-**返回值：** `[createContextMenu, destroyContextMenu]` - 创建和销毁上下文菜单的函数
-
-| 函数 | 说明 | 类型 |
-|------|------|------|
-| createContextMenu | 创建上下文菜单 | `(options: IContextMenuOptions) => void` |
-| destroyContextMenu | 销毁上下文菜单 | `() => void` |
-
-**createContextMenu 参数：**
-
-| 参数名 | 说明 | 是否必传 | 类型 |
-|--------|------|----------|------|
-| options | 菜单配置选项 | 是 | `IContextMenuOptions` |
-| options.event | 鼠标事件对象 | 是 | `MouseEvent` |
-| options.menu | 菜单组件或 VNode | 是 | `Component \| VNode` |
+- 用于创建上下文菜单（右键菜单）的 Vue 组合式 API
 
 ```vue
 <script lang="tsx" setup>
@@ -729,6 +564,7 @@ const MenuComponent = (): VNode => (
 
 // 处理右键点击事件
 const handleRightClick = (e: MouseEvent): void => {
+
   // 阻止默认的右键菜单
   e.preventDefault();
 
@@ -740,6 +576,7 @@ const handleRightClick = (e: MouseEvent): void => {
 };
 
 onUnmounted(() => {
+
   // 默认是清理的，不需要自己在清理了
   destroyContextMenu();
 });

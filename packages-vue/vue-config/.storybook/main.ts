@@ -14,6 +14,7 @@ const config: StorybookConfig = {
         "docs": false
       }
     },
+    "@storybook/addon-onboarding",
     "@storybook/addon-interactions"
   ],
   "framework": {

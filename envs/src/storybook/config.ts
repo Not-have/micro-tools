@@ -12,6 +12,7 @@ const config = {
         "docs": true
       }
     },
+    "@storybook/addon-onboarding",
     "@storybook/addon-interactions"
   ],
   "framework": {

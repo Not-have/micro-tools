@@ -1,8 +1,0 @@
-{
-  "extends": "@mt-kit/ts-config/base.json",
-  "include": [
-    "src",
-    "src/**/*.ts",
-    "stories/**/*.ts",
-  ]
-}

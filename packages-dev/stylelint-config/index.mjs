@@ -32,7 +32,6 @@ export default {
           "for",
           "at-root",
           "tailwind",
-          "theme",
           "apply",
           "variants",
           "responsive",

@@ -72,10 +72,4 @@ export interface IConfig {
    * 也是请求失败时的处理
    */
   error?: Function;
-
-  /**
-   * 请求去重时间窗口，单位：毫秒
-   * 默认：500ms
-   */
-  dedupedRequestCacheWindow?: number | boolean;
 };

@@ -2,10 +2,8 @@
 
 > 基于 Stylelint 16.x 的现代化 CSS 代码规范配置，支持多种框架和预处理器
 
-[![npm version](https://img.shields.io/npm/v/@mt-kit/stylelint-config.svg?style=for-the-badge&labelColor=2c3e50&color=3498db&logo=npm&logoColor=white)](https://www.npmjs.com/package/@mt-kit/stylelint-config)
-[![GitHub stars](https://img.shields.io/github/stars/Not-have/micro-tools?style=for-the-badge&labelColor=2c3e50&color=e74c3c&logo=github&logoColor=white)](https://github.com/Not-have/micro-tools/tree/main/packages-dev/stylelint-config)
-[![GitHub issues](https://img.shields.io/github/issues/Not-have/micro-tools?style=for-the-badge&labelColor=2c3e50&color=27ae60&logo=github&logoColor=white)](https://github.com/Not-have/micro-tools/issues)
-[![License](https://img.shields.io/github/license/Not-have/micro-tools?style=for-the-badge&labelColor=2c3e50&color=9b59b6&logo=opensourceinitiative&logoColor=white)](https://github.com/Not-have/micro-tools/blob/main/LICENSE)
+[![npm version](https://img.shields.io/npm/v/@mt-kit/stylelint-config.svg)](https://www.npmjs.com/package/@mt-kit/stylelint-config)
+[![License](https://img.shields.io/npm/l/@mt-kit/stylelint-config.svg)](https://github.com/Not-have/micro-tools/blob/main/LICENSE)
 
 ## 📚 相关文档
 

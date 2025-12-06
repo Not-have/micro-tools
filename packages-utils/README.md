@@ -1,10 +1,5 @@
 # @mt-kit/utils
 
-[![npm version](https://img.shields.io/npm/v/@mt-kit/utils.svg?style=for-the-badge&labelColor=2c3e50&color=3498db&logo=npm&logoColor=white)](https://www.npmjs.com/~not-have-warehouse)
-[![GitHub stars](https://img.shields.io/github/stars/Not-have/micro-tools?style=for-the-badge&labelColor=2c3e50&color=e74c3c&logo=github&logoColor=white)](https://github.com/Not-have/micro-tools/tree/main/packages-utils)
-[![GitHub issues](https://img.shields.io/github/issues/Not-have/micro-tools?style=for-the-badge&labelColor=2c3e50&color=27ae60&logo=github&logoColor=white)](https://github.com/Not-have/micro-tools/issues)
-[![License](https://img.shields.io/github/license/Not-have/micro-tools?style=for-the-badge&labelColor=2c3e50&color=9b59b6&logo=opensourceinitiative&logoColor=white)](https://github.com/Not-have/micro-tools/blob/main/LICENSE)
-
 ## 下载
 
 ```bash
@@ -1537,57 +1532,6 @@ try {
 
 ---
 
-### createDedupedRequest
-
-创建一个带请求去重功能的函数包装器，支持在指定时间窗口内多次调用同一个函数时，只有第一次会真正向后端请求，其它调用会等待第一次请求完成，并拿到相同结果。请求完成后会清除缓存，确保下次调用时重新请求。
-
-**参数：**
-
-| 参数 | 类型 | 必填 | 默认值 | 说明 |
-|------|------|------|--------|------|
-| `fn` | `(...args: unknown[]) => Promise<unknown>` | ✅ | - | 要包装的函数 |
-| `cacheWindow` | `number` | ❌ | 500 | 时间窗口（毫秒），默认 500ms |
-
-**返回值：**
-
-| 类型 | 说明 |
-|------|------|
-| `(...args: unknown[]) => Promise<unknown>` | 返回一个函数，该函数返回一个 Promise，解析为包装函数的返回值 |
-
-**使用示例：**
-
-```typescript
-import { 
-  createDedupedRequest
-} from '@mt-kit/utils';
-
-const dataList = () => {
-  return fetch("https://api.example.com/data").then(res => res.json());
-};
-
-const dedupedDataList = createDedupedRequest(dataList);
-
-dedupedDataList().then(res => {
-  console.log(res, "res");
-}).catch(error => {
-  console.error(error, "error");
-});
-```
-
-**应用场景：**
-
-- 防止重复请求
-- 提高性能
-- 减少服务器压力
-- 确保数据一致性
-
-**注意事项：**
-
-- 时间窗口不能小于 0 毫秒，默认 500 毫秒
-- 时间窗口不能大于 60000 毫秒，默认 60 秒
-
----
-
 ### getAvailableFonts
 
 检测系统中可用的字体列表，支持批量检测和容错处理。
@@ -1824,96 +1768,6 @@ import { uuid } from "@mt-kit/utils";
 
 const id = uuid();
 console.log(id);
-```
-
-### queue
-
-- 消息队列
-- 支持两种模式：
-- 串行模式：按顺序执行，一个完成后再执行下一个
-- 持续防抖模式：一段时间内有新请求就取消前面的，只保留最后一个，且只有在最后一次请求结束后的一段时间内没有新请求，才真正执行
-
-**参数：**
-
-| 参数 | 类型 | 必填 | 默认值 | 说明 |
-|------|------|------|--------|------|
-| `fn` | `() => Promise<unknown>` | ✅ | - | 要执行的函数 |
-| `options` | `IQueueOptions` | ❌ | - | 配置选项 |
-
-**返回值：**
-
-| 类型 | 说明 |
-|------|------|
-| `Promise<T>` | 返回一个 Promise，解析为函数的返回值 |
-
-**使用示例：**
-
-- 数据请求
-
-```ts
-const test01Fetch = () => {
-  return fetch("https://api.example.com/data").then(res => res.json());
-};
-
-const test02Fetch = () => {
-  return fetch("https://api.example.com/data").then(res => res.json());
-};
-
-const test03Fetch = () => {
-  return fetch("https://api.example.com/data").then(res => res.json());
-};
-```
-
-- 串行模式：按顺序执行，一个完成后再执行下一个
-
-```ts
-import { 
-  queue 
-} from "@mt-kit/utils";
-
-const result01 = queue(test01Fetch);
-const result02 = queue(test02Fetch);
-const result03 = queue(test03Fetch);
-
-result01.then(res => {
-  console.log(res);
-});
-result02.then(res => {
-  console.log(res);
-});
-result03.then(res => {
-  console.log(res);
-});
-```
-
-- 持续防抖模式：一段时间内有新请求就取消前面的，只保留最后一个，且只有在最后一次请求结束后的一段时间内没有新请求，才真正执行
-
-```ts
-import { 
-  queue 
-} from "@mt-kit/utils";
-
-const result01 = queue(test01Fetch, {
-  duration: 1000
-});
-
-const result02 = queue(test02Fetch, {
-  duration: 1000
-});
-
-const result03 = queue(test03Fetch, {
-  duration: 1000
-});
-
-result01.then(res => {
-  console.log(res);
-});
-result02.then(res => {
-  console.log(res);
-});
-result03.then(res => {
-  console.log(res);
-});
 ```
 
 ## 设备信息

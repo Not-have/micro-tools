@@ -132,6 +132,10 @@ pnpm install
 # 构建 CLI 工具
 cd packages-cli/cli-storybook-react
 pnpm build
+
+# 测试
+cd packages-demo/demo-storybook-react
+pnpm start
 ```
 
 ### 构建

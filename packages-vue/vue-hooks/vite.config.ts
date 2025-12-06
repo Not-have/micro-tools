@@ -25,11 +25,7 @@ export default defineConfig({
       entry: "./src/index.ts",
       fileName: "index",
       external: [
-        "vue",
-        "vue-router",
-        "@mt-kit/utils",
-        "lodash-es",
-        "resize-observer-polyfill"
+        "vue", "vue-router"
       ]
     })
   ]

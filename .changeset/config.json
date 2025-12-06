@@ -14,6 +14,7 @@
   "ignore": [
     "packages-docs",
     "mock",
-    "demo-vue"
+    "demo-storybook-react",
+    "demo-storybook-vue"
   ]
 }

@@ -8,8 +8,7 @@ import {
 } from "vue";
 
 import {
-  debounce as _debounce,
-  createDedupedRequest
+  debounce as _debounce
 } from "@mt-kit/utils";
 
 import {
@@ -50,24 +49,14 @@ export default function useService<T, Q = unknown>(fetch: IServiceFunction<T, Q>
     immediate,
     debounce,
     watchQuery,
-    error: errorFn,
-    dedupedRequestCacheWindow
+    error: errorFn
   } = config;
-
-  // 如果配置了请求去重时间窗口，则用 createDedupedRequest 包装 fetch 函数
-  let fetchFunction: IServiceFunction<T, Q> = fetch;
-
-  if (typeof dedupedRequestCacheWindow === "number") {
-    fetchFunction = createDedupedRequest(fetch, dedupedRequestCacheWindow);
-  } else if (dedupedRequestCacheWindow === true) {
-    fetchFunction = createDedupedRequest(fetch);
-  }
 
   const asyncFunction = (arg?: Q): Promise<T> => {
     loading.value = true;
 
     return new Promise((reactive, reject) => {
-      fetchFunction(arg).then((res: T) => {
+      fetch(arg).then((res: T) => {
         loading.value = false;
         data.value = res as UnwrapRef<T>;
         reactive(res);
