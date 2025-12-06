@@ -1,5 +1,11 @@
 # @mt-kit/utils
 
+## 1.7.0
+
+### Minor Changes
+
+- 新增 queue 队列方法
+
 ## 1.6.0
 
 ### Minor Changes

@@ -14,6 +14,6 @@
   "ignore": [
     "packages-docs",
     "mock",
-    "packages-demo"
+    "demo-vue"
   ]
 }
