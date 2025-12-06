@@ -1,0 +1,57 @@
+{
+  "name": "@mt-kit/lit",
+  "version": "1.0.0",
+  "description": "Lit",
+  "keywords": [
+    "lit",
+    "web-components"
+  ],
+  "homepage": "https://not-have.github.io/micro-tools/",
+  "bugs": {
+    "url": "https://github.com/Not-have/micro-tools/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Not-have/micro-tools"
+  },
+  "license": "ISC",
+  "author": "Li Yong",
+  "type": "module",
+  "scripts": {
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "clear": "rm -fr node_modules && rm -fr dist",
+    "build": "rm -fr dist && unbuild",
+    "prepublishOnly": "pnpm build"
+  },
+  "files": [
+    "README.md",
+    "dist"
+  ],
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "devDependencies": {
+    "@chromatic-com/storybook": "catalog:",
+    "@mt-kit/ts-config": "workspace:^",
+    "@storybook/addon-essentials": "catalog:",
+    "@storybook/blocks": "catalog:",
+    "@storybook/experimental-addon-test": "catalog:",
+    "@storybook/test": "catalog:",
+    "@storybook/web-components": "catalog:",
+    "@storybook/web-components-vite": "catalog:",
+    "lit": "catalog:",
+    "storybook": "catalog:",
+    "typescript": "catalog:",
+    "unbuild": "catalog:"
+  }
+}

@@ -9,8 +9,15 @@ import {
 } from "vue";
 
 import {
+  COMPONENT_NAME
+} from "../const";
+import {
   isNumber
 } from "./utils";
+
+defineOptions({
+  name: COMPONENT_NAME.COUNT_TO
+});
 
 const props = defineProps({
 
@@ -179,7 +186,9 @@ const stopCount = computed(() => props.startVal > props.endVal);
 
 // 数字增加的过程函数
 const step = (timestamp: number): void => {
-  if (!state.previousTimestamp) {state.previousTimestamp = timestamp;}
+  if (!state.previousTimestamp) {
+    state.previousTimestamp = timestamp;
+  }
 
   const progress = timestamp - state.previousTimestamp;
 
@@ -202,10 +211,14 @@ const step = (timestamp: number): void => {
 const delayStart = (): void => {
 
   // 如果有,先清除
-  if (state.rAF) {window.cancelAnimationFrame(state.rAF);}
+  if (state.rAF) {
+    window.cancelAnimationFrame(state.rAF);
+  }
 
   // 如果有定时器,先清除
-  if (timer) {clearTimeout(timer);}
+  if (timer) {
+    clearTimeout(timer);
+  }
 
   // 如果没有定时器,生成一个定时器
   timer = setTimeout(() => {

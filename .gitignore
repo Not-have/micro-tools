@@ -50,3 +50,4 @@ pnpm-lock.yaml
 **/packages-docs/src/**/_*
 **/storybook-static
 !_other/**
+**/.next

@@ -2,10 +2,11 @@
 
 > 基于 ESLint 9.x 的现代化代码规范配置，支持 TypeScript、Vue、React 等多种技术栈
 
-[![npm version](https://img.shields.io/npm/v/@mt-kit/eslint-config.svg)](https://www.npmjs.com/package/@mt-kit/eslint-config)
-[![License](https://img.shields.io/npm/l/@mt-kit/eslint-config.svg)](https://github.com/Not-have/micro-tools/blob/main/LICENSE)
-[![Documentation](https://img.shields.io/badge/docs-online-blue)](https://not-have.github.io/micro-tools/)
-[![Source](https://img.shields.io/badge/source-GitHub-black)](https://github.com/Not-have/micro-tools/tree/main/packages-dev/eslint-config)
+[![npm version](https://img.shields.io/npm/v/@mt-kit/eslint-config.svg?style=for-the-badge&labelColor=2c3e50&color=3498db&logo=npm&logoColor=white)](https://www.npmjs.com/package/@mt-kit/eslint-config)
+[![GitHub stars](https://img.shields.io/github/stars/Not-have/micro-tools?style=for-the-badge&labelColor=2c3e50&color=e74c3c&logo=github&logoColor=white)](https://github.com/Not-have/micro-tools/tree/main/packages-dev/eslint-config)
+[![GitHub issues](https://img.shields.io/github/issues/Not-have/micro-tools?style=for-the-badge&labelColor=2c3e50&color=27ae60&logo=github&logoColor=white)](https://github.com/Not-have/micro-tools/issues)
+[![License](https://img.shields.io/github/license/Not-have/micro-tools?style=for-the-badge&labelColor=2c3e50&color=9b59b6&logo=opensourceinitiative&logoColor=white)](https://github.com/Not-have/micro-tools/blob/main/LICENSE)
+[![Documentation](https://img.shields.io/badge/docs-online-blue?style=for-the-badge&labelColor=2c3e50&color=3498db&logoColor=white)](https://not-have.github.io/micro-tools/)
 
 ## 📚 相关文档
 
@@ -95,7 +96,8 @@ export default [
       "node_modules",
       "dist",
       "build",
-      "public"
+      "public",
+      "env.d.ts"
     ]
   }
 ];

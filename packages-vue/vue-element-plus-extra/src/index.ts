@@ -5,4 +5,9 @@ export {
   openIndirect,
   useForm,
   WithModel
-} from "./rc-dialog";
+} from "./dialog";
+
+export {
+  default as messages,
+  Messages
+} from "./messages";

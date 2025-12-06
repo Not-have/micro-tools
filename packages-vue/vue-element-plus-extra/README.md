@@ -1,11 +1,10 @@
 # @mt-kit/vue-element-plus-extra
 
-[![npm version](https://img.shields.io/npm/v/@mt-kit/vue-element-plus-extra.svg)](https://www.npmjs.com/package/@mt-kit/vue-element-plus-extra)
-[![GitHub](https://img.shields.io/github/stars/Not-have/micro-tools)](https://github.com/Not-have/micro-tools)
-[![GitHub issues](https://img.shields.io/github/issues/Not-have/micro-tools)](https://github.com/Not-have/micro-tools/issues)
-[![License](https://img.shields.io/github/license/Not-have/micro-tools)](https://github.com/Not-have/micro-tools/blob/main/LICENSE)
-[![Documentation](https://img.shields.io/badge/docs-online-blue)](https://not-have.github.io/micro-tools/)
-[![Source](https://img.shields.io/badge/source-GitHub-black)](https://github.com/Not-have/micro-tools/tree/main/packages-vue/vue-element-plus-extra)
+[![npm version](https://img.shields.io/npm/v/@mt-kit/vue-element-plus-extra.svg?style=for-the-badge&labelColor=2c3e50&color=3498db&logo=npm&logoColor=white)](https://www.npmjs.com/package/@mt-kit/vue-element-plus-extra)
+[![GitHub stars](https://img.shields.io/github/stars/Not-have/micro-tools?style=for-the-badge&labelColor=2c3e50&color=e74c3c&logo=github&logoColor=white)](https://github.com/Not-have/micro-tools/tree/main/packages-vue/vue-element-plus-extra)
+[![GitHub issues](https://img.shields.io/github/issues/Not-have/micro-tools?style=for-the-badge&labelColor=2c3e50&color=27ae60&logo=github&logoColor=white)](https://github.com/Not-have/micro-tools/issues)
+[![License](https://img.shields.io/github/license/Not-have/micro-tools?style=for-the-badge&labelColor=2c3e50&color=9b59b6&logo=opensourceinitiative&logoColor=white)](https://github.com/Not-have/micro-tools/blob/main/LICENSE)
+[![Documentation](https://img.shields.io/badge/docs-online-blue?style=for-the-badge&labelColor=2c3e50&color=3498db&logoColor=white)](https://not-have.github.io/micro-tools/)
 
 基于 Element Plus 的 Vue 组件库，提供增强的 UI 组件和工具。
 
@@ -110,3 +109,49 @@ enum DialogSize {
   FULL = 'full' // 全屏
 }
 ```
+
+## 🔔 消息提示
+
+基于 Element Plus `ElMessage` 的单例消息控制器，保证同一时刻仅显示一条消息，并提供“替换”语义以在单例下刷新最新消息。
+
+### 快速使用
+
+```vue
+<script lang="ts" setup>
+import { ElButton } from "element-plus";
+import { messages } from "@mt-kit/vue-element-plus-extra";
+
+const handleSingleton = () => {
+  // 单例：已有消息则复用，不会新建
+  messages.error("单例消息");
+};
+
+const handleReplace = () => {
+  // 替换：关闭当前并在关闭后展示最新消息
+  messages.error("新的消息", { replace: true });
+};
+</script>
+
+<template>
+  <ElButton @click="handleSingleton">单例消息</ElButton>
+  <ElButton @click="handleReplace">单例消息（替换）</ElButton>
+</template>
+```
+
+### API
+
+- `messages.show(options: string | IEnhancedMessageOptions): MessageHandler`
+- `messages.success(message: string, options?: IEnhancedMessageOptions): MessageHandler`
+- `messages.warning(message: string, options?: IEnhancedMessageOptions): MessageHandler`
+- `messages.error(message: string, options?: IEnhancedMessageOptions): MessageHandler`
+- `messages.info(message: string, options?: IEnhancedMessageOptions): MessageHandler`
+- `messages.close(): void` 手动关闭当前消息
+- `messages.isShowing(): boolean` 是否正在显示消息
+
+#### IEnhancedMessageOptions
+
+在 `ElMessage` 的 `MessageOptions` 基础上，新增：
+
+- `replace?: boolean` 是否用新消息替换当前正在显示的消息，默认 `false`
+
+> 设计说明：当当前有消息且 `replace=true` 时，控制器会先关闭当前消息，等待关闭结束后再展示最新待替换的消息，以确保同屏不出现多条消息同时又能“刷新”展示。

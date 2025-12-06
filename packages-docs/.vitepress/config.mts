@@ -108,6 +108,38 @@ const config = async (): Promise<UserConfig<DefaultTheme.Config>> => {
         {
           icon: "github",
           link: "https://github.com/Not-have/micro-tools"
+        },
+        {
+          icon: "juejin",
+          link: "https://juejin.im/user/3465273327490062/posts"
+        },
+        {
+          icon: "npm",
+          link: "https://www.npmjs.com/~not-have-warehouse"
+        },
+        {
+          icon: "csdn",
+          link: "https://blog.csdn.net/qq_45669178"
+        },
+        {
+          icon: {
+            svg: "<svg role=\"img\" viewBox=\"0 0 24 24\"><path d=\"M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.636H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z\"/></svg>"
+          },
+          link: "mailto:2233792530@qq.com"
+        },
+        {
+          icon: {
+            svg: "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polyline points=\"16 18 22 12 16 6\"/><polyline points=\"8 6 2 12 8 18\"/></svg>"
+          },
+          link: "https://github.com/Not-have/practise",
+          ariaLabel: "学习 Demo"
+        },
+        {
+          icon: {
+            svg: "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"/><polyline points=\"14 2 14 8 20 8\"/><line x1=\"16\" y1=\"13\" x2=\"8\" y2=\"13\"/><line x1=\"16\" y1=\"17\" x2=\"8\" y2=\"17\"/><polyline points=\"10 9 9 9 8 9\"/></svg>"
+          },
+          link: "https://github.com/Not-have/file",
+          ariaLabel: "学习记录"
         }
       ],
       footer: {

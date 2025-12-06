@@ -2,6 +2,7 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit",
     "source.fixAll.stylelint": "explicit",
+    "source.fixAll.prettier": "explicit",
     "source.organizeImports": "never"
   },
   "editor.tabSize": 2,

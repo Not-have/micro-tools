@@ -1,5 +1,29 @@
 # @mt-kit/utils
 
+## 1.7.0
+
+### Minor Changes
+
+- 新增 queue 队列方法
+
+## 1.6.0
+
+### Minor Changes
+
+- 增加 createDedupedRequest
+
+## 1.5.1
+
+### Patch Changes
+
+- downloadByUrl 增加参数 isCORS，默认 false
+
+## 1.5.0
+
+### Minor Changes
+
+- 强制添加response-content-disposition参数以确保文件下载
+
 ## 1.4.0
 
 ### Minor Changes
