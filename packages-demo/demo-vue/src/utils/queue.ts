@@ -256,7 +256,7 @@ const executeTask = async <T>(
 };
 
 interface IQueueOptions {
-  key: string;
+  key?: string;
 
   /**
    * 防抖时间 (毫秒)
@@ -274,12 +274,12 @@ interface IQueueOptions {
  */
 export default function queue<T = unknown>(
     fn: () => Promise<T>,
-    options: IQueueOptions
+    options?: IQueueOptions
 ): Promise<T> {
   const {
     key = "default-queue",
-    duration = false
-  } = options;
+    duration
+  } = options ?? {};
 
   // 参数验证
   if (!key || typeof key !== "string") {
