@@ -342,7 +342,12 @@ const queue = <T = unknown>(
       }, debounceTime);
 
       // 3. 存入 pending
-      pendingDebounceItem.set(key, item as IQueueItem<unknown>);
+      // 类型兼容修正: 使 resolve 和 reject 适配 unknown
+      pendingDebounceItem.set(key, {
+        ...item,
+        resolve: (value: unknown) => resolve(value as T),
+        reject
+      });
     } else {
 
       // 普通串行模式
@@ -354,10 +359,12 @@ const queue = <T = unknown>(
 
       queueList.push({
         id,
-        task: fn as () => Promise<unknown>,
-        resolve: resolve as (value: unknown) => void,
+        task: fn,
+
+        // 类型兼容修正: 使 resolve 和 reject 适配 unknown
+        resolve: (value: unknown) => resolve(value as T),
         reject
-      } as IQueueItem<unknown>);
+      });
 
       processQueue(key);
     }
