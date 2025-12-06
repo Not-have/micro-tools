@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {
   queue
-} from "@/utils";
+} from "@mt-kit/utils";
 import {
   ElButton
 } from "element-plus";
