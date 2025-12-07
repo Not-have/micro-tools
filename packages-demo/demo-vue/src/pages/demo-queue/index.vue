@@ -6,9 +6,9 @@ import {
   ElButton
 } from "element-plus";
 
-const test01Fetch = (): Promise<string> => new Promise(resolve => {
+const test01Fetch = (param?: string): Promise<string> => new Promise(resolve => {
   setTimeout(() => {
-    const result = "test01Fetch - 1s";
+    const result = `test01Fetch - 1s${param ? ` - ${param}` : ""}`;
 
     // eslint-disable-next-line no-console
     console.log(result, "test01Fetch");
@@ -46,7 +46,9 @@ const handleSerialTest = (): void => {
 };
 
 const handleDurationTest = (): void => {
-  queue(test01Fetch, {
+
+  // 如果 test01Fetch 需要参数，使用箭头函数包装
+  queue(() => test01Fetch("参数值"), {
     duration: 1000
   }).catch(error => {
 
