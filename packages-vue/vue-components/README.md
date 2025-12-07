@@ -1,8 +1,14 @@
 # @mt-kit/vue-components
 
-注：自定义 Vue 组件。
+[![npm version](https://img.shields.io/npm/v/@mt-kit/vue-components.svg?style=for-the-badge&labelColor=2c3e50&color=3498db&logo=npm&logoColor=white)](https://www.npmjs.com/package/@mt-kit/vue-components)
+[![GitHub stars](https://img.shields.io/github/stars/Not-have/micro-tools?style=for-the-badge&labelColor=2c3e50&color=e74c3c&logo=github&logoColor=white)](https://github.com/Not-have/micro-tools/tree/main/packages-vue/vue-components)
+[![GitHub issues](https://img.shields.io/github/issues/Not-have/micro-tools?style=for-the-badge&labelColor=2c3e50&color=27ae60&logo=github&logoColor=white)](https://github.com/Not-have/micro-tools/issues)
+[![License](https://img.shields.io/github/license/Not-have/micro-tools?style=for-the-badge&labelColor=2c3e50&color=9b59b6&logo=opensourceinitiative&logoColor=white)](https://github.com/Not-have/micro-tools/blob/main/LICENSE)
+[![Documentation](https://img.shields.io/badge/docs-online-blue?style=for-the-badge&labelColor=2c3e50&color=3498db&logoColor=white)](https://not-have.github.io/micro-tools/)
 
-## 下载
+自定义 Vue 组件库，提供数字滚动动画等常用组件。
+
+## 安装
 
 ```bash
 npm i @mt-kit/vue-components
@@ -12,37 +18,36 @@ npm i @mt-kit/vue-components
 
 ### CountTo
 
+数字滚动动画组件，支持从起始值到结束值的平滑滚动效果。
+
+**Props：**
+
+| 属性名 | 说明 | 类型 | 是否必传 | 默认值 |
+|--------|------|------|----------|--------|
+| autoplay | 是否自动播放动画 | `boolean` | 否 | `true` |
+| decimal | 小数点符号 | `string` | 否 | `.` |
+| decimals | 小数位数 | `number` | 否 | `0` |
+| delay | 延迟执行动画开始的时间（毫秒） | `number` | 否 | `0` |
+| duration | 数字滚动动画时长（毫秒） | `number` | 否 | `1000` |
+| endVal | 结束数字 | `number` | 否 | `100` |
+| startVal | 开始数字 | `number` | 否 | `0` |
+| prefix | 前缀文本 | `string` | 否 | - |
+| separator | 千位分隔符 | `string` | 否 | `,` |
+| style | 滚动数字的样式对象 | `object` | 否 | - |
+| suffix | 后缀文本 | `string` | 否 | - |
+
+**使用示例：**
+
 ```vue
 <script lang="ts" setup>
-import {
-  CountTo
-} from "@mt-kit/vue-components";
+import { CountTo } from "@mt-kit/vue-components";
 </script>
-<template>
-  demo
-  <hr />
 
+<template>
   <CountTo
     :start-val="1"
     :end-val="10"
     :decimals="3"
   />
 </template>
-
 ```
-
-#### Attributes
-
-| 属性 | 作用 | 默认值 |
-| ---- | ---- | ---- |
-| autoplay | 是否自动播放 | true |
-| decimal | 根据小数位置来决定的 | . |
-| decimals | 多少位小数 | 0 |
-| delay | 延迟执行动画开始的时间 | 0 |
-| duration | 数字滚动时间 | 1000 |
-| endVal | 结束数字 | 100 |
-| startVal | 开始数字 | 0 |
-| prefix | 前缀 | - |
-| separator | 分隔符 | , |
-| style | 滚动数字的样式 | - |
-| suffix | 后缀 | - |

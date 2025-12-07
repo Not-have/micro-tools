@@ -1,6 +1,14 @@
 # @mt-kit/conf
 
-## 下载
+[![npm version](https://img.shields.io/npm/v/@mt-kit/conf.svg?style=for-the-badge&labelColor=2c3e50&color=3498db&logo=npm&logoColor=white)](https://www.npmjs.com/package/@mt-kit/conf)
+[![GitHub stars](https://img.shields.io/github/stars/Not-have/micro-tools?style=for-the-badge&labelColor=2c3e50&color=e74c3c&logo=github&logoColor=white)](https://github.com/Not-have/micro-tools/tree/main/packages-conf)
+[![GitHub issues](https://img.shields.io/github/issues/Not-have/micro-tools?style=for-the-badge&labelColor=2c3e50&color=27ae60&logo=github&logoColor=white)](https://github.com/Not-have/micro-tools/issues)
+[![License](https://img.shields.io/github/license/Not-have/micro-tools?style=for-the-badge&labelColor=2c3e50&color=9b59b6&logo=opensourceinitiative&logoColor=white)](https://github.com/Not-have/micro-tools/blob/main/LICENSE)
+[![Documentation](https://img.shields.io/badge/docs-online-blue?style=for-the-badge&labelColor=2c3e50&color=3498db&logoColor=white)](https://not-have.github.io/micro-tools/)
+
+配置文件集合，提供常用的配置常量和枚举值。
+
+## 安装
 
 ```bash
 npm i @mt-kit/conf -D
@@ -8,12 +16,26 @@ npm i @mt-kit/conf -D
 
 ## API
 
-### 阿里矢量图
+### 阿里矢量图标库
 
 #### ICONFONT_URL
 
-- ICON 在线地址
+阿里矢量图标库（iconfont）的在线地址常量。
+
+```ts
+import { ICONFONT_URL } from '@mt-kit/conf';
+
+// 在 HTML 中使用
+<link rel="stylesheet" href={ICONFONT_URL} />
+```
 
 #### IconType
 
-- ICON 图标枚举
+图标类型枚举，用于类型安全的图标使用。
+
+```ts
+import { IconType } from '@mt-kit/conf';
+
+// 使用示例
+const icon: IconType = IconType.SUCCESS;
+```
