@@ -130,7 +130,7 @@ footer: |
   <div style="font-size: 2em; margin-bottom: 10px;">💬</div>
   <div style="font-weight: bold; margin-bottom: 8px;">讨论交流</div>
   <div style="color: #6c757d; font-size: 0.9em;">与其他开发者交流使用经验</div>
-  <a href="https://github.com/Not-have/micro-tools/discussions" target="_blank" style="color: #007bff; text-decoration: none; font-weight: 500;">参与讨论 →</a>
+  <a href="https://github.com/Not-have/micro-tools/issues" target="_blank" style="color: #007bff; text-decoration: none; font-weight: 500;">参与讨论 →</a>
 </div>
 
 <div style="background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 12px; padding: 20px; text-align: center; transition: transform 0.2s;">
