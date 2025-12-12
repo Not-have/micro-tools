@@ -35,29 +35,29 @@ pnpm add -D @mt-kit/cli-run
 
 ```bash
 # 运行单个命令
-mt-run start
+mt-cli-run start
 
 # 运行多个命令（逗号分隔）（推荐）
-mt-run start,storybook
+mt-cli-run start,storybook
 
 # 运行多个命令（JSON 数组格式）
-mt-run '["start", "storybook"]'
+mt-cli-run '["start", "storybook"]'
 
 # 打包
-mt-run build
+mt-cli-run build
 ```
 
 ### 指定目录范围
 
 ```bash
 # 只在 packages-vue 目录下查找包
-mt-run start --root ./packages-vue
+mt-cli-run start --root ./packages-vue
 
 # 只在 packages-react 目录下查找包
-mt-run storybook --root ./packages-react
+mt-cli-run storybook --root ./packages-react
 
 # 使用绝对路径
-mt-run start --root /path/to/your/monorepo/packages-vue
+mt-cli-run start --root /path/to/your/monorepo/packages-vue
 ```
 
 ### 在 package.json 中使用
@@ -65,11 +65,11 @@ mt-run start --root /path/to/your/monorepo/packages-vue
 ```json
 {
   "scripts": {
-    "start": "mt-run start",
-    "start:vue": "mt-run start --root ./packages-vue",
-    "start:react": "mt-run start --root ./packages-react",
-    "dev": "mt-run start,storybook",
-    "dev:vue": "mt-run start,storybook --root ./packages-vue"
+    "start": "mt-cli-run start",
+    "start:vue": "mt-cli-run start --root ./packages-vue",
+    "start:react": "mt-cli-run start --root ./packages-react",
+    "dev": "mt-cli-run start,storybook",
+    "dev:vue": "mt-cli-run start,storybook --root ./packages-vue"
   }
 }
 ```
