@@ -80,7 +80,7 @@ pnpm run boot
 ## 🤝 社区与支持
 
 - **🐛 问题反馈**: [提交 Issue](https://github.com/Not-have/micro-tools/issues) - 报告 Bug 或提出功能建议
-- **💬 讨论交流**: [参与讨论](https://github.com/Not-have/micro-tools/discussions) - 与其他开发者交流使用经验
+- **💬 讨论交流**: [提交 Issue](https://github.com/Not-have/micro-tools/issues) - 与其他开发者交流使用经验（Discussions 功能需在仓库设置中启用）
 - **⭐ Star 支持**: [访问仓库](https://github.com/Not-have/micro-tools) - 给项目一个 Star 表示支持
 - **🔧 贡献代码**: [查看 PR](https://github.com/Not-have/micro-tools/pulls) - 参与项目开发，提交 PR
 - **📝 更新日志**: [查看更新](https://github.com/Not-have/micro-tools/releases) - 查看最新版本更新内容

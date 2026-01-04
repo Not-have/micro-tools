@@ -1,26 +1,33 @@
 # @mt-kit/vite-plugins
 
-## 下载
+[![npm version](https://img.shields.io/npm/v/@mt-kit/vite-plugins.svg?style=for-the-badge&labelColor=2c3e50&color=3498db&logo=npm&logoColor=white)](https://www.npmjs.com/package/@mt-kit/vite-plugins)
+[![GitHub stars](https://img.shields.io/github/stars/Not-have/micro-tools?style=for-the-badge&labelColor=2c3e50&color=e74c3c&logo=github&logoColor=white)](https://github.com/Not-have/micro-tools/tree/main/packages-vite-plugins)
+[![GitHub issues](https://img.shields.io/github/issues/Not-have/micro-tools?style=for-the-badge&labelColor=2c3e50&color=27ae60&logo=github&logoColor=white)](https://github.com/Not-have/micro-tools/issues)
+[![License](https://img.shields.io/github/license/Not-have/micro-tools?style=for-the-badge&labelColor=2c3e50&color=9b59b6&logo=opensourceinitiative&logoColor=white)](https://github.com/Not-have/micro-tools/blob/main/LICENSE)
+[![Documentation](https://img.shields.io/badge/docs-online-blue?style=for-the-badge&labelColor=2c3e50&color=3498db&logoColor=white)](https://not-have.github.io/micro-tools/)
+
+Vite 插件集合，提供库构建、TypeScript 类型生成等常用插件。
+
+## 安装
 
 ```bash
 npm install @mt-kit/vite-plugins -D
 ```
 
-## 打包 ts
+## TypeScript 类型生成
 
-注：直接内嵌到插件，无法使用，待修复。
+> **注意**：直接内嵌到插件，无法使用，待修复。请使用 `vite-plugin-dts`。
+
+**安装：**
 
 ```bash
 npm i vite-plugin-dts -D
 ```
 
-[docs](https://github.com/qmhc/vite-plugin-dts)
+**配置：**
 
 ```ts
-import {
-  defineConfig
-} from "vite";
-
+import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
 
 export default defineConfig(() => ({
@@ -34,28 +41,35 @@ export default defineConfig(() => ({
     })
   ]
 }));
-
 ```
+
+**相关文档：** [vite-plugin-dts](https://github.com/qmhc/vite-plugin-dts)
 
 ## API
 
 ### libPlugin
 
-| 属性名 | 作用 | 默认值 |
-| --- | --- | --- |
-| name | 输出 CommonJS 的文件名称 | lib-plugin |
-| fileName | 打包的文件名 | index |
-| entry | 入口文件 | src/index.ts |
-| external | 外部依赖 | ["path"] |
+Vite 库构建插件，用于构建可发布的库文件。
 
-`package.json`
+**参数：**
 
-| 字段 | 作用域 | 对应文件 |
-| --- | --- | --- |
-| main | CommonJS 规范 也能在浏览器使用全局变量引用 | dist/index.umd.js |
-| module | ES 模块规范 | dist/index.es.js |
-| types | 类型声明文件 | dist/index.d.ts |
+| 属性名 | 说明 | 类型 | 是否必传 | 默认值 |
+|--------|------|------|----------|--------|
+| name | 输出 CommonJS 的文件名称 | `string` | 否 | `lib-plugin` |
+| fileName | 打包的文件名 | `string` | 否 | `index` |
+| entry | 入口文件路径 | `string` | 否 | `src/index.ts` |
+| external | 外部依赖列表 | `string[]` | 否 | `["path"]` |
+
+**package.json 配置：**
+
+| 字段 | 说明 | 对应文件 |
+|------|------|----------|
+| main | CommonJS 规范，也可在浏览器使用全局变量引用 | `dist/index.umd.js` |
+| module | ES 模块规范 | `dist/index.es.js` |
+| types | 类型声明文件 | `dist/index.d.ts` |
 | exports | 多入口条件导出 | 按模块类型映射路径 |
+
+**package.json 示例：**
 
 ```json
 {
@@ -82,20 +96,15 @@ export default defineConfig(() => ({
 }
 ```
 
-`vite.config.ts`
+**vite.config.ts 示例：**
 
 ```ts
-import {
-  defineConfig
-} from "vite";
-
-import {
-  libPlugin
-} from '@mt-kit/vite-plugins';
+import { defineConfig } from "vite";
+import { libPlugin } from '@mt-kit/vite-plugins';
 
 export default defineConfig({
   plugins: [
     libPlugin()
   ]
-})
+});
 ```
