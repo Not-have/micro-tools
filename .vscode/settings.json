@@ -5,6 +5,8 @@
     "source.fixAll.prettier": "explicit",
     "source.organizeImports": "never"
   },
+  "workbench.sideBar.location": "left",
+  "workbench.activityBar.orientation": "vertical",
   "editor.tabSize": 2,
   "editor.renderWhitespace": "all",
   "explorer.fileNesting.enabled": true,
