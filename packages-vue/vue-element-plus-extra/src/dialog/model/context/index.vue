@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import {
   provide,
-  defineProps,
   computed
 } from "vue";
 
