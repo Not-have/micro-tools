@@ -114,7 +114,15 @@ export default [
       ],
 
       // 禁止 bind
-      "react/jsx-no-bind": "error",
+      "react/jsx-no-bind": [
+        "error", {
+          ignoreDOMComponents: false,
+          ignoreRefs: true,
+          allowArrowFunctions: true,
+          allowFunctions: false,
+          allowBind: false
+        }
+      ],
 
       // 拒绝重复属性
       "react/jsx-no-duplicate-props": "error",
