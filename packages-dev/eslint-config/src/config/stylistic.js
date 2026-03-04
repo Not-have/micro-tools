@@ -36,7 +36,9 @@ export default {
       "error",
       {
         ExportDeclaration: {
-          minProperties: 1
+          minProperties: 1,
+          multiline: true,
+          consistent: true
         },
         ImportDeclaration: {
           minProperties: 1,

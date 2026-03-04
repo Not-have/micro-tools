@@ -16,6 +16,9 @@ export {
 export {
   default as jsonc
 } from "./jsonc.js";
+export {
+  default as mtExport
+} from "./mt-export.js";
 
 // export { default as importX } from "./import-x.js";
 export {

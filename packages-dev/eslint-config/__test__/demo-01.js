@@ -19,5 +19,8 @@ const arr = [
 export default test;
 
 export {
-  a, arr, b, obj
+  a,
+  arr,
+  b,
+  obj
 };
