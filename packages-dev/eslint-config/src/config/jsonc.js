@@ -129,7 +129,10 @@ export default [
         },
         {
           order: [
-            "types", "import", "require", "default"
+            "types",
+            "import",
+            "require",
+            "default"
           ],
           pathPattern: "^exports.*$"
         }

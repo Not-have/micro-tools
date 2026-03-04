@@ -25,7 +25,8 @@ export default [
     },
     rules: {
       "import/consistent-type-specifier-style": [
-        "error", "prefer-top-level"
+        "error",
+        "prefer-top-level"
       ],
       "import/first": "error",
       "import/newline-after-import": "error",
