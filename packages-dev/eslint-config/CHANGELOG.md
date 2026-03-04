@@ -1,5 +1,11 @@
 # @mt-kit/eslint-config
 
+## 2.5.0
+
+### Minor Changes
+
+- 调整 react/jsx-no-bind 规则配置，允许在 JSX 中使用箭头函数，同时禁止使用 bind 方法和普通函数。这提高了代码的可读性和一致性，并避免不必要的重新渲染
+
 ## 2.4.2
 
 ### Patch Changes
