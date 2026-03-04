@@ -43,7 +43,7 @@ export default {
       {
         ExportDeclaration: {
 
-          // minProperties: 1,
+          minProperties: 1,
           consistent: true
         },
         ImportDeclaration: {
@@ -144,10 +144,7 @@ export default {
     "@stylistic/array-element-newline": [
       "error",
       {
-        ArrayExpression: "consistent",
-        ArrayPattern: {
-          minItems: 1
-        }
+        "minItems": 1
       }
     ],
 

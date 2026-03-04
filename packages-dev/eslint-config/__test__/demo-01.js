@@ -11,10 +11,20 @@ const obj = {
   b
 };
 
+const arr = [
+  1,
+  2
+];
+
+const arr1 = [
+  1
+];
+
 export default test;
 
 export {
   a,
+  arr, arr1,
   b,
   obj
 };
