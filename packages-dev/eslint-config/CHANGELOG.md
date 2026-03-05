@@ -1,5 +1,11 @@
 # @mt-kit/eslint-config
 
+## 2.6.0
+
+### Minor Changes
+
+- 统一多行导出语句的格式
+
 ## 2.5.0
 
 ### Minor Changes
