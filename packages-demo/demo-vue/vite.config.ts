@@ -3,7 +3,8 @@ import vueJsx from "@vitejs/plugin-vue-jsx";
 import vueDevTools from "vite-plugin-vue-devtools";
 
 import {
-  fileURLToPath, URL
+  fileURLToPath,
+  URL
 } from "node:url";
 import {
   defineConfig

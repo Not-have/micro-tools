@@ -11,7 +11,9 @@ export {
   default as useHistory
 } from "./use-history";
 export {
-  type QueryHookResult, type QueryTypes, default as useLocationQuery
+  type QueryHookResult,
+  type QueryTypes,
+  default as useLocationQuery
 } from "./use-location-query";
 export {
   default as useService

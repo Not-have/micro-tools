@@ -1,7 +1,10 @@
 <!-- eslint-disable no-console -->
 <script lang="ts">
 import {
-  defineComponent, ref, onMounted, onBeforeUnmount
+  defineComponent,
+  ref,
+  onMounted,
+  onBeforeUnmount
 } from "vue";
 
 import {

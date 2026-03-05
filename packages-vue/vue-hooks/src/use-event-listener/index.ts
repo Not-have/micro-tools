@@ -3,11 +3,15 @@ import type {
 } from "@mt-kit/types";
 
 import {
-  Ref, ref, watch, unref
+  Ref,
+  ref,
+  watch,
+  unref
 } from "vue";
 
 import {
-  throttle, debounce
+  throttle,
+  debounce
 } from "@mt-kit/utils";
 
 interface IUseEventParams {

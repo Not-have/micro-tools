@@ -2,7 +2,9 @@
 <!-- eslint-disable @typescript-eslint/no-explicit-any -->
 <script lang="ts">
 import {
-  defineComponent, nextTick, ref
+  defineComponent,
+  nextTick,
+  ref
 } from "vue";
 
 import {
