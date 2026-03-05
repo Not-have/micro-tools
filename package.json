@@ -41,7 +41,7 @@
     "lint:depcheck": "depcheck",
     "lint:css": "stylelint \"./packages-**/**/*.{tsx,css,vue,jsx}\" --fix",
     "lint:eslint": "eslint \"./packages-**/**/*.{js,ts,vue,tsx,jsx}\" --fix",
-    "lint:prettier": "prettier \"./packages-**/**/*.{js,ts,vue,tsx,jsx}\" --write",
+    "lint:prettier": "prettier \"./packages-**/**/*.json5\" --write || true",
     "preinstall": "npx only-allow pnpm",
     "postinstall": "pnpm run clear:lock",
     "prepare": "husky",

@@ -1,8 +1,15 @@
 /**
- * https://prettier.nodejs.cn/docs/en/configuration.html
+ * Prettier 配置 - 已关闭格式化
+ *
+ * 本配置不启用任何 Prettier 格式化规则，仅保留针对特定文件类型（如 .json5）的 overrides。
+ * 代码格式化由 ESLint @stylistic 负责，请在编辑器中关闭「保存时运行 Prettier」或设置 "prettier.enable": false。
+ *
+ * @see https://prettier.nodejs.cn/docs/en/configuration.html
  */
 
 export default {
+
+  // 以下规则均已关闭，避免与 ESLint @stylistic 冲突
 
   // 设置代码的最大行宽度
 

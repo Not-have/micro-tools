@@ -1,4 +1,6 @@
-export { default as axios } from "axios";
+export {
+  default as axios
+} from "axios";
 export * from "./enum";
 export * from "./types";
 
@@ -12,4 +14,6 @@ export {
   errorMessageResponseInterceptor
 } from "./preset-interceptors";
 
-export { RequestClient as default } from "./request-client";
+export {
+  RequestClient as default
+} from "./request-client";
