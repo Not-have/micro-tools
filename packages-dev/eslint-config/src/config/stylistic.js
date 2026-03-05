@@ -37,8 +37,9 @@ export default {
       {
         ExportDeclaration: {
           minProperties: 1,
-          multiline: true,
-          consistent: true
+          multiline: true
+
+          // consistent: true
         },
         ImportDeclaration: {
           minProperties: 1,
@@ -138,7 +139,7 @@ export default {
     "@stylistic/array-element-newline": [
       "error",
       {
-        "minItems": 1
+        minItems: 1
       }
     ],
 
@@ -153,7 +154,7 @@ export default {
       "error",
       "1tbs",
       {
-        "allowSingleLine": false
+        allowSingleLine: false
       }
     ]
   }

@@ -1,10 +1,19 @@
-import mtExport from "../plugins/export-specifier-newline.js";
+import {
+  exportSpecifierNewline,
+  importSpecifierNewline
+} from "../plugins/index.js";
 
 export default {
   plugins: {
-    mt: mtExport
+    mt: {
+      rules: {
+        ...exportSpecifierNewline.rules,
+        ...importSpecifierNewline.rules
+      }
+    }
   },
   rules: {
-    "mt/export-specifier-newline": "error"
+    "mt/export-specifier-newline": "error",
+    "mt/import-specifier-newline": "error"
   }
 };

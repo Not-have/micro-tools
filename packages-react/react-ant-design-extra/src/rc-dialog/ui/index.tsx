@@ -10,7 +10,6 @@ import {
 } from "./rc";
 
 export default function Ui(): React.ReactElement {
-
   const mode = usePropsMode();
 
   if (mode === ModelMode.MODAL) {

@@ -4,7 +4,6 @@ import {
   javascript,
   stylistic,
   jsonc,
-  mtExport,
   jsdoc,
   ignores,
   prettier,
@@ -12,6 +11,7 @@ import {
   perfectionist,
   unicorn,
   typescript,
+  mtExport,
   react,
   vue
 } from "./config/index.js";
@@ -22,11 +22,11 @@ const DEFAULT = [
   unicorn,
   javascript,
   ...jsonc,
-  mtExport,
   jsdoc,
   ignores,
   prettier,
   regexp,
+  mtExport,
   perfectionist,
   stylistic
 ];
