@@ -63,7 +63,8 @@ export default function isEqual(
     }
 
     for (const [
-      i, element
+      i,
+      element
     ] of obj1.entries()) {
       if (!isEqual(element, obj2[i], visited)) {
         return false;

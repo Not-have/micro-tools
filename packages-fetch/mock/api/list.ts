@@ -15,7 +15,9 @@ function generateMockDataList(count: number) {
       imageUrl2: faker.image.avatar(),
       open: faker.datatype.boolean(),
       status: faker.helpers.arrayElement([
-        "success", "error", "warning"
+        "success",
+        "error",
+        "warning"
       ]),
       productName: faker.commerce.productName(),
       price: faker.commerce.price(),

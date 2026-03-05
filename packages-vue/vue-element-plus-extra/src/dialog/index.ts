@@ -9,4 +9,6 @@ export {
   useForm
 } from "./model";
 
-export { default as WithModel } from "./with-model/index.vue";
+export {
+  default as WithModel
+} from "./with-model/index.vue";

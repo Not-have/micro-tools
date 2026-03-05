@@ -37,7 +37,8 @@ export default function libPlugin(options: ILibPluginOptions): Plugin {
     entry = "./src/index.ts",
     fileName = "index",
     external = [
-      "path", "vite"
+      "path",
+      "vite"
     ]
   } = options;
 
@@ -62,7 +63,8 @@ export default function libPlugin(options: ILibPluginOptions): Plugin {
             name,
             fileName: format => `${fileName}.${format}.js`,
             formats: [
-              "es", "umd"
+              "es",
+              "umd"
             ]
           },
           rollupOptions: {

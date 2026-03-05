@@ -108,11 +108,14 @@ export default function useLocationQuery<T>({
   } = useHistory();
 
   const getQuery = useCallback<(search: string) => Partial<T>>(search => searchToQuery<T>(search, keys, defaults, types), [
-    keys, defaults, types
+    keys,
+    defaults,
+    types
   ]);
 
   const query = useMemo<Partial<T>>(() => getQuery(hookSearch), [
-    hookSearch, getQuery
+    hookSearch,
+    getQuery
   ]);
 
   const updateQuery = useCallback((queryUpdate: Partial<T>, replaceMode2?: boolean): void => {
@@ -132,11 +135,17 @@ export default function useLocationQuery<T>({
       hash
     });
   }, [
-    getQuery, defaults, replaceMode, replace, push, hash
+    getQuery,
+    defaults,
+    replaceMode,
+    replace,
+    push,
+    hash
   ]);
 
   return [
-    query, updateQuery
+    query,
+    updateQuery
   ];
 }
 

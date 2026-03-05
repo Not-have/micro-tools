@@ -7,7 +7,9 @@ import type {
 } from "./types";
 
 const rgbToHex = (r: number, g: number, b: number): string => `#${[
-  r, g, b
+  r,
+  g,
+  b
 ].map(channel => channel.toString(16).padStart(2, "0")).join("")}`;
 
 const rgbToHsb = (r: number, g: number, b: number) => {

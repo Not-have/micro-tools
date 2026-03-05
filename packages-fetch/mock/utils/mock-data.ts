@@ -222,7 +222,8 @@ export const MOCK_MENU_LIST = [
   }
 ];
 
-export function getMenuIds(menus: { id: number; children?: { id: number }[] }[]) {
+export function getMenuIds(menus: { id: number;
+children?: { id: number }[]; }[]) {
   const ids: number[] = [];
 
   menus.forEach(item => {

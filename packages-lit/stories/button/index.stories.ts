@@ -27,7 +27,9 @@ const meta: Meta<ButtonProps> = {
         type: "select"
       },
       options: [
-        "small", "medium", "large"
+        "small",
+        "medium",
+        "large"
       ]
     }
   },

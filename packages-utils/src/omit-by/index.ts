@@ -15,15 +15,12 @@ type TOmitByFunction<T> = (value: T, key: string) => boolean;
 export default function omitBy<T>(obj: IDictionary<T> | null | undefined, condition: TOmitByFunction<T>): IDictionary<T> {
   const result: IDictionary<T> = {};
 
-  if (!isObject(obj))
-  {
+  if (!isObject(obj)) {
     return result;
   }
 
-  for (const key in obj)
-  {
-    if (Object.prototype.hasOwnProperty.call(obj, key))
-    {
+  for (const key in obj) {
+    if (Object.prototype.hasOwnProperty.call(obj, key)) {
       const value = obj[key];
 
       if (!condition(value, key)) {

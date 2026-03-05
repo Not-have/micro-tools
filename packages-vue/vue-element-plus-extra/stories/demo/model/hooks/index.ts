@@ -1,1 +1,3 @@
-export { default as useModelStateA } from "./use-model-state-a";
+export {
+  default as useModelStateA
+} from "./use-model-state-a";

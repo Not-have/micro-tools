@@ -1,1 +1,3 @@
-export { default as ContextMenuVue } from "./context-menu.vue";
+export {
+  default as ContextMenuVue
+} from "./context-menu.vue";

@@ -29,7 +29,9 @@ const Button = ({
     <button
       type="button"
       class=${[
-    "storybook-button", `storybook-button--${size || "medium"}`, mode
+    "storybook-button",
+    `storybook-button--${size || "medium"}`,
+    mode
   ].join(" ")}
       style=${styleMap({
     backgroundColor

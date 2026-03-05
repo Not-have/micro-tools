@@ -34,7 +34,8 @@ async function copyMarkdownFiles() {
     {
       outDir: EOutDir.TS,
       entry: [
-        EEntry.TYPES, EEntry.ENUM
+        EEntry.TYPES,
+        EEntry.ENUM
       ]
     },
     {
