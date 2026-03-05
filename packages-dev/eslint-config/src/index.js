@@ -10,6 +10,7 @@ import {
   regexp,
   perfectionist,
   unicorn,
+  mtExport,
   typescript,
   react,
   vue
@@ -20,6 +21,7 @@ const DEFAULT = [
   comments,
   unicorn,
   javascript,
+  mtExport,
   ...jsonc,
   jsdoc,
   ignores,

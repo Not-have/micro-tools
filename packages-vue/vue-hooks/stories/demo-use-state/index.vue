@@ -8,7 +8,8 @@ import {
 } from "../../src";
 
 const [
-  state, setState
+  state,
+  setState
 ] = useState({
   age: 1
 });
@@ -30,7 +31,8 @@ watch(() => state.age, (newValue, oldValue) => {
 });
 
 const [
-  stateNum, setStateNum
+  stateNum,
+  setStateNum
 ] = useState(1);
 
 const handleAddNumClick = (): void => {

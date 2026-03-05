@@ -1,3 +1,7 @@
-export type { EChartsOption } from "echarts";
+export type {
+  EChartsOption
+} from "echarts";
 
-export { default as useECharts } from "./rc";
+export {
+  default as useECharts
+} from "./rc";

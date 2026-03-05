@@ -1,5 +1,6 @@
 import {
-  forbiddenResponse, sleep
+  forbiddenResponse,
+  sleep
 } from "~/utils/response";
 
 export default defineEventHandler(async event => {
@@ -17,7 +18,10 @@ export default defineEventHandler(async event => {
 
   if (
     [
-      "DELETE", "PATCH", "POST", "PUT"
+      "DELETE",
+      "PATCH",
+      "POST",
+      "PUT"
     ].includes(event.method) &&
     event.path.startsWith("/api/system/")
   ) {

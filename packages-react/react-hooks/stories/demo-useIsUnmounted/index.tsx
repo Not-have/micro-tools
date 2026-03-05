@@ -13,7 +13,8 @@ import {
 
 export default function DemoUseIsUnmounted(): React.ReactElement {
   const [
-    data, setData
+    data,
+    setData
   ] = useState<IResponse | null>(null);
 
   const isUnmounted = useIsUnmounted();

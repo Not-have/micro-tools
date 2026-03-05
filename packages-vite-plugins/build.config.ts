@@ -7,7 +7,8 @@ export default defineBuildConfig({
     "src/index"
   ],
   externals: [
-    "vite", "typescript"
+    "vite",
+    "typescript"
   ],
   clean: true,
   declaration: true,

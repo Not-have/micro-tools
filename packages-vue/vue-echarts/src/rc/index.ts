@@ -131,7 +131,9 @@ export default function useEcharts(
           if (!chartInstance) {
             initCharts(getDarkMode.value as "default");
 
-            if (!chartInstance) {return;}
+            if (!chartInstance) {
+              return;
+            }
           }
 
           clear && chartInstance?.clear();
@@ -157,7 +159,9 @@ export default function useEcharts(
   );
 
   onUnmounted(() => {
-    if (!chartInstance) {return;}
+    if (!chartInstance) {
+      return;
+    }
 
     removeResizeFn();
     chartInstance.dispose();

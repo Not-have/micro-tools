@@ -1,5 +1,6 @@
 import type {
-  Meta, StoryObj
+  Meta,
+  StoryObj
 } from "@storybook/react";
 
 import FileUploadDemo from "./index";

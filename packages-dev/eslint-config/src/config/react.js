@@ -82,7 +82,8 @@ export default [
       ],
 
       "react/jsx-indent-props": [
-        "error", 2
+        "error",
+        2
       ],
 
       // 事件处理名称
@@ -114,7 +115,16 @@ export default [
       ],
 
       // 禁止 bind
-      "react/jsx-no-bind": "error",
+      "react/jsx-no-bind": [
+        "error",
+        {
+          ignoreDOMComponents: false,
+          ignoreRefs: true,
+          allowArrowFunctions: true,
+          allowFunctions: false,
+          allowBind: false
+        }
+      ],
 
       // 拒绝重复属性
       "react/jsx-no-duplicate-props": "error",
@@ -221,7 +231,8 @@ export default [
 
       // 在JSX中强制右括号位置
       "react/jsx-closing-bracket-location": [
-        "error", "after-props"
+        "error",
+        "after-props"
       ],
 
       // 在JSX属性和表达式中强制使用或禁止使用花括号内的空格

@@ -1,9 +1,11 @@
 import {
-  onUnmounted, getCurrentInstance
+  onUnmounted,
+  getCurrentInstance
 } from "vue";
 
 import {
-  createContextMenu, destroyContextMenu
+  createContextMenu,
+  destroyContextMenu
 } from "./rc-container";
 import {
   ICreateContextOptions
@@ -20,6 +22,7 @@ export default function useContextMenu(authRemove = true): [
   }
 
   return [
-    createContextMenu, destroyContextMenu
+    createContextMenu,
+    destroyContextMenu
   ];
 }

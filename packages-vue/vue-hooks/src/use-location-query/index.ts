@@ -76,7 +76,8 @@ function queryToSearch<T>(
     defaults: Partial<T>
 ): LocationQuery {
   const filteredObj = Object.fromEntries(Object.entries(query).filter(([
-    key, value
+    key,
+    value
   ]) => {
     const stringValue = String(value);
 
@@ -145,6 +146,7 @@ export default function useLocationQuery<T>({
   };
 
   return [
-query as Ref<UnwrapRef<Partial<T>>>, updateQuery
+query as Ref<UnwrapRef<Partial<T>>>,
+updateQuery
   ];
 }

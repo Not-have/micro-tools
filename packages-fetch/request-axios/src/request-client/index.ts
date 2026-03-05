@@ -1,1 +1,3 @@
-export { default as RequestClient } from "./request-client";
+export {
+  default as RequestClient
+} from "./request-client";

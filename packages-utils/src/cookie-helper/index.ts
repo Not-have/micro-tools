@@ -90,7 +90,8 @@ const cookieHelper = {
 
     for (const cookie of cookies) {
       const [
-        cookieName, cookieValue
+        cookieName,
+        cookieValue
       ] = cookie.split("=");
 
       if (decodeURIComponent(cookieName) === name) {

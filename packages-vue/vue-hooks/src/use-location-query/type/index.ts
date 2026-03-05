@@ -1,5 +1,6 @@
 import type {
-  Ref, UnwrapRef
+  Ref,
+  UnwrapRef
 } from "vue";
 
 export type TQueryTypes<T> = Partial<Record<keyof T, "number" | "boolean">>;

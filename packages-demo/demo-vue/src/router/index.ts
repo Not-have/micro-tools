@@ -1,5 +1,6 @@
 import {
-  createRouter, createWebHistory
+  createRouter,
+  createWebHistory
 } from "vue-router";
 
 import {

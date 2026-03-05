@@ -12,7 +12,8 @@ import {
 } from "@mt-kit/utils";
 
 import {
-  domAddResizeListener, domRemoveResizeListener
+  domAddResizeListener,
+  domRemoveResizeListener
 } from "./utils";
 
 const watermarkSymbol = "watermark-dom";

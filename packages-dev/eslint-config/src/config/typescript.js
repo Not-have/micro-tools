@@ -8,7 +8,8 @@ export default {
 
   // "**/*.vue" 验证 vue 文件中的 ts
   files: [
-    "**/*.?([cm])[t]s?(x)", "**/*.vue"
+    "**/*.?([cm])[t]s?(x)",
+    "**/*.vue"
   ],
   languageOptions: {
     parser: parserTs,
@@ -44,13 +45,15 @@ export default {
     "@typescript-eslint/ban-ts-ignore": "off", // 禁止使用 // @ts-ignore 注释
     "@typescript-eslint/ban-types": "off", // 禁止使用特定类型
     "@typescript-eslint/consistent-type-definitions": [
-      "warn", "interface"
+      "warn",
+      "interface"
     ],
     "@typescript-eslint/naming-convention": [
       "error",
       {
         format: [
-          "strictCamelCase", "StrictPascalCase"
+          "strictCamelCase",
+          "StrictPascalCase"
         ],
         leadingUnderscore: "allow",
         selector: "function"
@@ -58,7 +61,9 @@ export default {
       {
         selector: "variable",
         format: [
-          "strictCamelCase", "StrictPascalCase", "UPPER_CASE"
+          "strictCamelCase",
+          "StrictPascalCase",
+          "UPPER_CASE"
         ],
         filter: {
           regex: "[A-Z\\d]__[A-Z\\d]",
@@ -127,7 +132,8 @@ export default {
           regex: "[A-Z\\d]__[A-Z\\d]"
         },
         format: [
-          "StrictPascalCase", "UPPER_CASE"
+          "StrictPascalCase",
+          "UPPER_CASE"
         ],
         leadingUnderscore: "allow",
         selector: "enumMember"
@@ -140,7 +146,8 @@ export default {
           "destructured"
         ],
         selector: [
-          "variable", "parameter"
+          "variable",
+          "parameter"
         ]
       }
     ],
@@ -150,7 +157,9 @@ export default {
       "error",
       {
         allow: [
-          "arrowFunctions", "functions", "methods"
+          "arrowFunctions",
+          "functions",
+          "methods"
         ]
       }
     ],

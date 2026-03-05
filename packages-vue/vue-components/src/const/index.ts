@@ -1,1 +1,3 @@
-export { default as COMPONENT_NAME } from "./name";
+export {
+  default as COMPONENT_NAME
+} from "./name";

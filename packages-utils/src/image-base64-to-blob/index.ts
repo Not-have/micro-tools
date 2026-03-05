@@ -13,7 +13,8 @@ export default function imageBase64ToBlob(base64Buf: string): Blob {
   const [
     , mime
   ] = typeItem.match(/:(.*?);/) || [
-    "", ""
+    "",
+    ""
   ];
 
   const bstr = window.atob(arr[1]);

@@ -14,7 +14,8 @@ export default function downloadDataFile(
   const blobData = bom === undefined ? [
     data
   ] : [
-    bom, data
+    bom,
+    data
   ];
 
   const blob = new Blob(blobData, {

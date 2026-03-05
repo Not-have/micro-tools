@@ -98,7 +98,9 @@ export default {
 
         // 内部模块路径匹配模式（适用于 monorepo）
         internalPattern: [
-          "~*", "~/**", "@mt-kit/**"
+          "~*",
+          "~/**",
+          "@mt-kit/**"
         ], // 匹配 Vite 别名路径（如 #components/*）
         newlinesBetween: "always", // 分组间插入空行提升可读性
         order: "asc", // 组内按字母升序

@@ -1,1 +1,5 @@
-export { COMMON_FONTS, FONT_CONFIG, FONT_CONFIG_FIXED } from "./font";
+export {
+  COMMON_FONTS,
+  FONT_CONFIG,
+  FONT_CONFIG_FIXED
+} from "./font";

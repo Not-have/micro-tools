@@ -1,1 +1,3 @@
-export { default as cssEllipsis } from "./css-ellipsis";
+export {
+  default as cssEllipsis
+} from "./css-ellipsis";

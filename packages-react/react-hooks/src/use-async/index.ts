@@ -113,7 +113,8 @@ export default function useAsync<Args extends unknown[], R>(
 
     return undefined;
   }, [
-    run, config.debounce
+    run,
+    config.debounce
   ]);
 
   return {

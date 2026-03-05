@@ -1,6 +1,4 @@
 import stylistic from "@stylistic/eslint-plugin";
-import stylisticJs from "@stylistic/eslint-plugin-js"; // TODO 弃用
-import stylisticTs from "@stylistic/eslint-plugin-ts"; // TODO 弃用
 
 /**
  * ESLint Stylistic
@@ -9,9 +7,7 @@ import stylisticTs from "@stylistic/eslint-plugin-ts"; // TODO 弃用
  */
 export default {
   plugins: {
-    "@stylistic": stylistic,
-    "@stylistic/js": stylisticJs,
-    "@stylistic/ts": stylisticTs
+    "@stylistic": stylistic
   },
   rules: {
     "@stylistic/space-infix-ops": [
@@ -33,18 +29,17 @@ export default {
         afterColon: true
       }
     ],
-    "@stylistic/js/space-before-blocks": "error",
+    "@stylistic/space-before-blocks": "error",
 
     // https://eslint.style/rules/js/object-curly-newline
-    "@stylistic/js/object-curly-newline": [
+    "@stylistic/object-curly-newline": [
       "error",
-
-      // TODO ExportDeclaration、ImportDeclaration 没生效
       {
         ExportDeclaration: {
+          minProperties: 1,
+          multiline: true
 
-          // minProperties: 1,
-          consistent: true
+          // consistent: true
         },
         ImportDeclaration: {
           minProperties: 1,
@@ -60,7 +55,7 @@ export default {
         }
       }
     ],
-    "@stylistic/js/object-property-newline": "error",
+    "@stylistic/object-property-newline": "error",
 
     // 缩进配置 - 数组换行需要配合缩进规则
     /*
@@ -112,7 +107,7 @@ export default {
 
     // TODO 与 indent 冲突
     "@stylistic/indent": "off",
-    "@stylistic/ts/member-delimiter-style": [
+    "@stylistic/member-delimiter-style": [
       "error",
       {
         multiline: {
@@ -135,7 +130,7 @@ export default {
         minItems: 1
       }
     ],
-    "@stylistic/ts/semi": [
+    "@stylistic/semi": [
       "error",
       "always"
     ], // 强制所有语句以分号结束
@@ -144,10 +139,7 @@ export default {
     "@stylistic/array-element-newline": [
       "error",
       {
-        ArrayExpression: "consistent",
-        ArrayPattern: {
-          minItems: 1
-        }
+        minItems: 1
       }
     ],
 
@@ -162,25 +154,7 @@ export default {
       "error",
       "1tbs",
       {
-        "allowSingleLine": false
-      }
-    ],
-
-    // 强制花括号换行
-    "@stylistic/js/brace-style": [
-      "error",
-      "1tbs",
-      {
-        "allowSingleLine": false
-      }
-    ],
-
-    // TypeScript 花括号换行
-    "@stylistic/ts/brace-style": [
-      "error",
-      "1tbs",
-      {
-        "allowSingleLine": false
+        allowSingleLine: false
       }
     ]
   }
