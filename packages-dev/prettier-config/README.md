@@ -66,54 +66,8 @@ export { default } from "@mt-kit/prettier-config";
 ### 创建 .prettierignore 文件
 
 ```.prettierignore
-# 构建输出目录
-dist
-*-dist
-.output
-.nitro
-
-# 依赖目录
-node_modules
-
-# 环境配置
-.local
-.nvmrc
-.npmrc
-
-# 测试覆盖率
-coverage
-
-# 锁文件
-**/*-lock.yaml
-**/*-lock.json
-package-lock.json
-yarn.lock
-pnpm-lock.yaml
-
-# 静态资源
-public
-**/*.svg
-**/*.sh
-**/*.png
-**/*.jpg
-**/*.jpeg
-**/*.gif
-**/*.ico
-
-# 文档
-CODEOWNERS
-CHANGELOG.md
-README.md
-
-# IDE 配置
-.vscode
-.idea
-
-# 临时文件
-*.tmp
-*.temp
-.DS_Store
-Thumbs.db
+**/*
+!**/*.json5
 ```
 
 ## 🛠️ 脚本配置
